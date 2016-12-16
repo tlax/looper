@@ -18,7 +18,6 @@
 		DA96FEE61E03672F00FD5265 /* ExtensionUICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEA11E03672F00FD5265 /* ExtensionUICollectionReusableView.swift */; };
 		DA96FEE71E03672F00FD5265 /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEA21E03672F00FD5265 /* ExtensionUIColor.swift */; };
 		DA96FEE81E03672F00FD5265 /* ExtensionUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEA31E03672F00FD5265 /* ExtensionUIFont.swift */; };
-		DA96FEE91E03672F00FD5265 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA96FEA41E03672F00FD5265 /* Info.plist */; };
 		DA96FEEA1E03672F00FD5265 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA96FEA61E03672F00FD5265 /* Localizable.strings */; };
 		DA96FF031E03672F00FD5265 /* VAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FECE1E03672F00FD5265 /* VAlert.swift */; };
 		DA96FF041E03672F00FD5265 /* VParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FECF1E03672F00FD5265 /* VParent.swift */; };
@@ -214,7 +213,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 				es,
 			);
 			mainGroup = DA96FE761E03653100FD5265;
@@ -232,7 +230,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA96FEE91E03672F00FD5265 /* Info.plist in Resources */,
 				DA96FEEA1E03672F00FD5265 /* Localizable.strings in Resources */,
 				DA96FEDE1E03672F00FD5265 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -317,7 +314,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -361,7 +358,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -373,26 +370,26 @@
 		DA96FE921E03653100FD5265 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = looper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.looper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		DA96FE931E03653100FD5265 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = looper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.looper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
