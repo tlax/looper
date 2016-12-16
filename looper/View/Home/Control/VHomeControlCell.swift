@@ -13,4 +13,10 @@ class VHomeControlCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MHomeControlItem, controller:CHome)
+    {
+    }
 }
