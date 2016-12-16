@@ -4,7 +4,7 @@ class VHomeControlCell:UICollectionViewCell
 {
     private weak var label:UILabel!
     private let kLabelHeight:CGFloat = 15
-    private let kLabelBottom:CGFloat = 10
+    private let kLabelBottom:CGFloat = -10
     
     override init(frame:CGRect)
     {
@@ -17,7 +17,7 @@ class VHomeControlCell:UICollectionViewCell
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.regular(size:11)
+        label.font = UIFont.regular(size:14)
         label.textColor = UIColor.white
         self.label = label
         
@@ -33,11 +33,11 @@ class VHomeControlCell:UICollectionViewCell
         let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:label,
             toView:self,
-            constant:kLabelBottom)
+            constant:0)
         let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:label,
             toView:self,
-            constant:kLabelBottom)
+            constant:0)
         
         addConstraints([
             layoutLabelHeight,

@@ -6,7 +6,10 @@ class MHomeControl
     
     init()
     {
+        let itemCamera:MHomeControlItemCamera = MHomeControlItemCamera()
+        
         items = [
+            itemCamera
         ]
     }
 }

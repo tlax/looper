@@ -4,7 +4,8 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
 {
     private weak var controller:CHome!
     private weak var collectionView:UICollectionView!
-    let model:MHomeControl
+    private let model:MHomeControl
+    private let kDeselectTime:TimeInterval = 0.5
     
     init(controller:CHome)
     {
@@ -118,5 +119,20 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             controller:controller)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MHomeControlItem = modelAtIndex(index:indexPath)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }
