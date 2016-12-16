@@ -20,45 +20,11 @@
 		DA96FEE81E03672F00FD5265 /* ExtensionUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEA31E03672F00FD5265 /* ExtensionUIFont.swift */; };
 		DA96FEE91E03672F00FD5265 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA96FEA41E03672F00FD5265 /* Info.plist */; };
 		DA96FEEA1E03672F00FD5265 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA96FEA61E03672F00FD5265 /* Localizable.strings */; };
-		DA96FEEB1E03672F00FD5265 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEAC1E03672F00FD5265 /* VHome.swift */; };
-		DA96FEEC1E03672F00FD5265 /* VHomeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEAE1E03672F00FD5265 /* VHomeHelper.swift */; };
-		DA96FEED1E03672F00FD5265 /* VHomeHelperCancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEAF1E03672F00FD5265 /* VHomeHelperCancel.swift */; };
-		DA96FEEE1E03672F00FD5265 /* VHomeHelperClear.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEB01E03672F00FD5265 /* VHomeHelperClear.swift */; };
-		DA96FEEF1E03672F00FD5265 /* VHomeHelperFlux.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEB11E03672F00FD5265 /* VHomeHelperFlux.swift */; };
-		DA96FEF01E03672F00FD5265 /* VHomeHelperSend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEB21E03672F00FD5265 /* VHomeHelperSend.swift */; };
-		DA96FEF11E03672F00FD5265 /* VHomeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEB41E03672F00FD5265 /* VHomeInput.swift */; };
-		DA96FEF21E03672F00FD5265 /* VHomeInputPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEB51E03672F00FD5265 /* VHomeInputPlaceholder.swift */; };
-		DA96FEF31E03672F00FD5265 /* VHomeInputText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEB61E03672F00FD5265 /* VHomeInputText.swift */; };
-		DA96FEF41E03672F00FD5265 /* VHomeSuggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEB81E03672F00FD5265 /* VHomeSuggestions.swift */; };
-		DA96FEF51E03672F00FD5265 /* VHomeSuggestionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEB91E03672F00FD5265 /* VHomeSuggestionsCell.swift */; };
-		DA96FEF61E03672F00FD5265 /* VHomeWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEBC1E03672F00FD5265 /* VHomeWords.swift */; };
-		DA96FEF71E03672F00FD5265 /* VHomeWordsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEBD1E03672F00FD5265 /* VHomeWordsCell.swift */; };
-		DA96FEF81E03672F00FD5265 /* VHomeWordsFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEBE1E03672F00FD5265 /* VHomeWordsFooter.swift */; };
-		DA96FEF91E03672F00FD5265 /* VHomeWordsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEBF1E03672F00FD5265 /* VHomeWordsHeader.swift */; };
-		DA96FEFA1E03672F00FD5265 /* VHomeWordsShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEC01E03672F00FD5265 /* VHomeWordsShare.swift */; };
-		DA96FEFB1E03672F00FD5265 /* VHomeWordsCellEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEC21E03672F00FD5265 /* VHomeWordsCellEntry.swift */; };
-		DA96FEFC1E03672F00FD5265 /* VHomeWordsCellOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEC31E03672F00FD5265 /* VHomeWordsCellOrigin.swift */; };
-		DA96FEFD1E03672F00FD5265 /* VHomeFroob.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEC51E03672F00FD5265 /* VHomeFroob.swift */; };
-		DA96FEFE1E03672F00FD5265 /* VHomeFroobButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEC61E03672F00FD5265 /* VHomeFroobButtons.swift */; };
-		DA96FEFF1E03672F00FD5265 /* VHomeFroobClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEC71E03672F00FD5265 /* VHomeFroobClock.swift */; };
-		DA96FF001E03672F00FD5265 /* VHomeLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEC91E03672F00FD5265 /* VHomeLanguage.swift */; };
-		DA96FF011E03672F00FD5265 /* VHomeLanguageOrb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FECA1E03672F00FD5265 /* VHomeLanguageOrb.swift */; };
-		DA96FF021E03672F00FD5265 /* VLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FECC1E03672F00FD5265 /* VLoading.swift */; };
 		DA96FF031E03672F00FD5265 /* VAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FECE1E03672F00FD5265 /* VAlert.swift */; };
 		DA96FF041E03672F00FD5265 /* VParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FECF1E03672F00FD5265 /* VParent.swift */; };
 		DA96FF051E03672F00FD5265 /* VParentBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED01E03672F00FD5265 /* VParentBar.swift */; };
 		DA96FF061E03672F00FD5265 /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED11E03672F00FD5265 /* VSpinner.swift */; };
 		DA96FF071E03672F00FD5265 /* VView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED21E03672F00FD5265 /* VView.swift */; };
-		DA96FF081E03672F00FD5265 /* VStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED41E03672F00FD5265 /* VStore.swift */; };
-		DA96FF091E03672F00FD5265 /* VStoreBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED51E03672F00FD5265 /* VStoreBar.swift */; };
-		DA96FF0A1E03672F00FD5265 /* VStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED61E03672F00FD5265 /* VStoreCell.swift */; };
-		DA96FF0B1E03672F00FD5265 /* VStoreCellDeferred.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED71E03672F00FD5265 /* VStoreCellDeferred.swift */; };
-		DA96FF0C1E03672F00FD5265 /* VStoreCellNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED81E03672F00FD5265 /* VStoreCellNew.swift */; };
-		DA96FF0D1E03672F00FD5265 /* VStoreCellNotAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED91E03672F00FD5265 /* VStoreCellNotAvailable.swift */; };
-		DA96FF0E1E03672F00FD5265 /* VStoreCellPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEDA1E03672F00FD5265 /* VStoreCellPurchased.swift */; };
-		DA96FF0F1E03672F00FD5265 /* VStoreCellPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEDB1E03672F00FD5265 /* VStoreCellPurchasing.swift */; };
-		DA96FF101E03672F00FD5265 /* VStoreFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEDC1E03672F00FD5265 /* VStoreFooter.swift */; };
-		DA96FF111E03672F00FD5265 /* VStoreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEDD1E03672F00FD5265 /* VStoreHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,45 +43,11 @@
 		DA96FEA41E03672F00FD5265 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA96FEA71E03672F00FD5265 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA96FEA81E03672F00FD5265 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DA96FEAC1E03672F00FD5265 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
-		DA96FEAE1E03672F00FD5265 /* VHomeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeHelper.swift; sourceTree = "<group>"; };
-		DA96FEAF1E03672F00FD5265 /* VHomeHelperCancel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeHelperCancel.swift; sourceTree = "<group>"; };
-		DA96FEB01E03672F00FD5265 /* VHomeHelperClear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeHelperClear.swift; sourceTree = "<group>"; };
-		DA96FEB11E03672F00FD5265 /* VHomeHelperFlux.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeHelperFlux.swift; sourceTree = "<group>"; };
-		DA96FEB21E03672F00FD5265 /* VHomeHelperSend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeHelperSend.swift; sourceTree = "<group>"; };
-		DA96FEB41E03672F00FD5265 /* VHomeInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeInput.swift; sourceTree = "<group>"; };
-		DA96FEB51E03672F00FD5265 /* VHomeInputPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeInputPlaceholder.swift; sourceTree = "<group>"; };
-		DA96FEB61E03672F00FD5265 /* VHomeInputText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeInputText.swift; sourceTree = "<group>"; };
-		DA96FEB81E03672F00FD5265 /* VHomeSuggestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeSuggestions.swift; sourceTree = "<group>"; };
-		DA96FEB91E03672F00FD5265 /* VHomeSuggestionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeSuggestionsCell.swift; sourceTree = "<group>"; };
-		DA96FEBC1E03672F00FD5265 /* VHomeWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeWords.swift; sourceTree = "<group>"; };
-		DA96FEBD1E03672F00FD5265 /* VHomeWordsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeWordsCell.swift; sourceTree = "<group>"; };
-		DA96FEBE1E03672F00FD5265 /* VHomeWordsFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeWordsFooter.swift; sourceTree = "<group>"; };
-		DA96FEBF1E03672F00FD5265 /* VHomeWordsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeWordsHeader.swift; sourceTree = "<group>"; };
-		DA96FEC01E03672F00FD5265 /* VHomeWordsShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeWordsShare.swift; sourceTree = "<group>"; };
-		DA96FEC21E03672F00FD5265 /* VHomeWordsCellEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeWordsCellEntry.swift; sourceTree = "<group>"; };
-		DA96FEC31E03672F00FD5265 /* VHomeWordsCellOrigin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeWordsCellOrigin.swift; sourceTree = "<group>"; };
-		DA96FEC51E03672F00FD5265 /* VHomeFroob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeFroob.swift; sourceTree = "<group>"; };
-		DA96FEC61E03672F00FD5265 /* VHomeFroobButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeFroobButtons.swift; sourceTree = "<group>"; };
-		DA96FEC71E03672F00FD5265 /* VHomeFroobClock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeFroobClock.swift; sourceTree = "<group>"; };
-		DA96FEC91E03672F00FD5265 /* VHomeLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeLanguage.swift; sourceTree = "<group>"; };
-		DA96FECA1E03672F00FD5265 /* VHomeLanguageOrb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeLanguageOrb.swift; sourceTree = "<group>"; };
-		DA96FECC1E03672F00FD5265 /* VLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoading.swift; sourceTree = "<group>"; };
 		DA96FECE1E03672F00FD5265 /* VAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAlert.swift; sourceTree = "<group>"; };
 		DA96FECF1E03672F00FD5265 /* VParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParent.swift; sourceTree = "<group>"; };
 		DA96FED01E03672F00FD5265 /* VParentBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParentBar.swift; sourceTree = "<group>"; };
 		DA96FED11E03672F00FD5265 /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
 		DA96FED21E03672F00FD5265 /* VView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VView.swift; sourceTree = "<group>"; };
-		DA96FED41E03672F00FD5265 /* VStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStore.swift; sourceTree = "<group>"; };
-		DA96FED51E03672F00FD5265 /* VStoreBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreBar.swift; sourceTree = "<group>"; };
-		DA96FED61E03672F00FD5265 /* VStoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCell.swift; sourceTree = "<group>"; };
-		DA96FED71E03672F00FD5265 /* VStoreCellDeferred.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellDeferred.swift; sourceTree = "<group>"; };
-		DA96FED81E03672F00FD5265 /* VStoreCellNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellNew.swift; sourceTree = "<group>"; };
-		DA96FED91E03672F00FD5265 /* VStoreCellNotAvailable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellNotAvailable.swift; sourceTree = "<group>"; };
-		DA96FEDA1E03672F00FD5265 /* VStoreCellPurchased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellPurchased.swift; sourceTree = "<group>"; };
-		DA96FEDB1E03672F00FD5265 /* VStoreCellPurchasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellPurchasing.swift; sourceTree = "<group>"; };
-		DA96FEDC1E03672F00FD5265 /* VStoreFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreFooter.swift; sourceTree = "<group>"; };
-		DA96FEDD1E03672F00FD5265 /* VStoreHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,11 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				DA96FEAA1E03672F00FD5265 /* Home */,
-				DA96FEC41E03672F00FD5265 /* HomeFroob */,
-				DA96FEC81E03672F00FD5265 /* HomeLanguage */,
-				DA96FECB1E03672F00FD5265 /* Loading */,
 				DA96FECD1E03672F00FD5265 /* Main */,
-				DA96FED31E03672F00FD5265 /* Store */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,109 +158,8 @@
 		DA96FEAA1E03672F00FD5265 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				DA96FEAB1E03672F00FD5265 /* Base */,
-				DA96FEAD1E03672F00FD5265 /* Helper */,
-				DA96FEB31E03672F00FD5265 /* Input */,
-				DA96FEB71E03672F00FD5265 /* Suggestions */,
-				DA96FEBA1E03672F00FD5265 /* Words */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		DA96FEAB1E03672F00FD5265 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				DA96FEAC1E03672F00FD5265 /* VHome.swift */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		DA96FEAD1E03672F00FD5265 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				DA96FEAE1E03672F00FD5265 /* VHomeHelper.swift */,
-				DA96FEAF1E03672F00FD5265 /* VHomeHelperCancel.swift */,
-				DA96FEB01E03672F00FD5265 /* VHomeHelperClear.swift */,
-				DA96FEB11E03672F00FD5265 /* VHomeHelperFlux.swift */,
-				DA96FEB21E03672F00FD5265 /* VHomeHelperSend.swift */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
-		DA96FEB31E03672F00FD5265 /* Input */ = {
-			isa = PBXGroup;
-			children = (
-				DA96FEB41E03672F00FD5265 /* VHomeInput.swift */,
-				DA96FEB51E03672F00FD5265 /* VHomeInputPlaceholder.swift */,
-				DA96FEB61E03672F00FD5265 /* VHomeInputText.swift */,
-			);
-			path = Input;
-			sourceTree = "<group>";
-		};
-		DA96FEB71E03672F00FD5265 /* Suggestions */ = {
-			isa = PBXGroup;
-			children = (
-				DA96FEB81E03672F00FD5265 /* VHomeSuggestions.swift */,
-				DA96FEB91E03672F00FD5265 /* VHomeSuggestionsCell.swift */,
-			);
-			path = Suggestions;
-			sourceTree = "<group>";
-		};
-		DA96FEBA1E03672F00FD5265 /* Words */ = {
-			isa = PBXGroup;
-			children = (
-				DA96FEBB1E03672F00FD5265 /* Base */,
-				DA96FEC11E03672F00FD5265 /* Cells */,
-			);
-			path = Words;
-			sourceTree = "<group>";
-		};
-		DA96FEBB1E03672F00FD5265 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				DA96FEBC1E03672F00FD5265 /* VHomeWords.swift */,
-				DA96FEBD1E03672F00FD5265 /* VHomeWordsCell.swift */,
-				DA96FEBE1E03672F00FD5265 /* VHomeWordsFooter.swift */,
-				DA96FEBF1E03672F00FD5265 /* VHomeWordsHeader.swift */,
-				DA96FEC01E03672F00FD5265 /* VHomeWordsShare.swift */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		DA96FEC11E03672F00FD5265 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				DA96FEC21E03672F00FD5265 /* VHomeWordsCellEntry.swift */,
-				DA96FEC31E03672F00FD5265 /* VHomeWordsCellOrigin.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		DA96FEC41E03672F00FD5265 /* HomeFroob */ = {
-			isa = PBXGroup;
-			children = (
-				DA96FEC51E03672F00FD5265 /* VHomeFroob.swift */,
-				DA96FEC61E03672F00FD5265 /* VHomeFroobButtons.swift */,
-				DA96FEC71E03672F00FD5265 /* VHomeFroobClock.swift */,
-			);
-			path = HomeFroob;
-			sourceTree = "<group>";
-		};
-		DA96FEC81E03672F00FD5265 /* HomeLanguage */ = {
-			isa = PBXGroup;
-			children = (
-				DA96FEC91E03672F00FD5265 /* VHomeLanguage.swift */,
-				DA96FECA1E03672F00FD5265 /* VHomeLanguageOrb.swift */,
-			);
-			path = HomeLanguage;
-			sourceTree = "<group>";
-		};
-		DA96FECB1E03672F00FD5265 /* Loading */ = {
-			isa = PBXGroup;
-			children = (
-				DA96FECC1E03672F00FD5265 /* VLoading.swift */,
-			);
-			path = Loading;
 			sourceTree = "<group>";
 		};
 		DA96FECD1E03672F00FD5265 /* Main */ = {
@@ -345,23 +172,6 @@
 				DA96FED21E03672F00FD5265 /* VView.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		DA96FED31E03672F00FD5265 /* Store */ = {
-			isa = PBXGroup;
-			children = (
-				DA96FED41E03672F00FD5265 /* VStore.swift */,
-				DA96FED51E03672F00FD5265 /* VStoreBar.swift */,
-				DA96FED61E03672F00FD5265 /* VStoreCell.swift */,
-				DA96FED71E03672F00FD5265 /* VStoreCellDeferred.swift */,
-				DA96FED81E03672F00FD5265 /* VStoreCellNew.swift */,
-				DA96FED91E03672F00FD5265 /* VStoreCellNotAvailable.swift */,
-				DA96FEDA1E03672F00FD5265 /* VStoreCellPurchased.swift */,
-				DA96FEDB1E03672F00FD5265 /* VStoreCellPurchasing.swift */,
-				DA96FEDC1E03672F00FD5265 /* VStoreFooter.swift */,
-				DA96FEDD1E03672F00FD5265 /* VStoreHeader.swift */,
-			);
-			path = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,52 +251,18 @@
 				DA96FEE31E03672F00FD5265 /* ExtensionFileManager.swift in Sources */,
 				DA96FEE01E03672F00FD5265 /* CAppDelegate.swift in Sources */,
 				DA96FF071E03672F00FD5265 /* VView.swift in Sources */,
-				DA96FEF91E03672F00FD5265 /* VHomeWordsHeader.swift in Sources */,
-				DA96FF0E1E03672F00FD5265 /* VStoreCellPurchased.swift in Sources */,
-				DA96FEFC1E03672F00FD5265 /* VHomeWordsCellOrigin.swift in Sources */,
 				DA96FEE41E03672F00FD5265 /* ExtensionNotification.swift in Sources */,
-				DA96FEF61E03672F00FD5265 /* VHomeWords.swift in Sources */,
 				DA96FF061E03672F00FD5265 /* VSpinner.swift in Sources */,
-				DA96FEED1E03672F00FD5265 /* VHomeHelperCancel.swift in Sources */,
-				DA96FEF21E03672F00FD5265 /* VHomeInputPlaceholder.swift in Sources */,
-				DA96FF111E03672F00FD5265 /* VStoreHeader.swift in Sources */,
-				DA96FF081E03672F00FD5265 /* VStore.swift in Sources */,
-				DA96FEF81E03672F00FD5265 /* VHomeWordsFooter.swift in Sources */,
-				DA96FEF71E03672F00FD5265 /* VHomeWordsCell.swift in Sources */,
 				DA96FEE21E03672F00FD5265 /* CParent.swift in Sources */,
-				DA96FF101E03672F00FD5265 /* VStoreFooter.swift in Sources */,
 				DA96FEE71E03672F00FD5265 /* ExtensionUIColor.swift in Sources */,
-				DA96FEF41E03672F00FD5265 /* VHomeSuggestions.swift in Sources */,
-				DA96FEFF1E03672F00FD5265 /* VHomeFroobClock.swift in Sources */,
-				DA96FEF11E03672F00FD5265 /* VHomeInput.swift in Sources */,
-				DA96FEFB1E03672F00FD5265 /* VHomeWordsCellEntry.swift in Sources */,
 				DA96FEE51E03672F00FD5265 /* ExtensionNSManagedObject.swift in Sources */,
-				DA96FF001E03672F00FD5265 /* VHomeLanguage.swift in Sources */,
-				DA96FF0F1E03672F00FD5265 /* VStoreCellPurchasing.swift in Sources */,
-				DA96FEFE1E03672F00FD5265 /* VHomeFroobButtons.swift in Sources */,
-				DA96FF021E03672F00FD5265 /* VLoading.swift in Sources */,
-				DA96FF0C1E03672F00FD5265 /* VStoreCellNew.swift in Sources */,
-				DA96FEF31E03672F00FD5265 /* VHomeInputText.swift in Sources */,
 				DA96FF031E03672F00FD5265 /* VAlert.swift in Sources */,
 				DA96FEE81E03672F00FD5265 /* ExtensionUIFont.swift in Sources */,
-				DA96FEEC1E03672F00FD5265 /* VHomeHelper.swift in Sources */,
 				DA96FF041E03672F00FD5265 /* VParent.swift in Sources */,
-				DA96FEFD1E03672F00FD5265 /* VHomeFroob.swift in Sources */,
-				DA96FF0B1E03672F00FD5265 /* VStoreCellDeferred.swift in Sources */,
-				DA96FEF01E03672F00FD5265 /* VHomeHelperSend.swift in Sources */,
-				DA96FF0A1E03672F00FD5265 /* VStoreCell.swift in Sources */,
 				DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */,
 				DA96FEE11E03672F00FD5265 /* CController.swift in Sources */,
-				DA96FEEB1E03672F00FD5265 /* VHome.swift in Sources */,
-				DA96FEFA1E03672F00FD5265 /* VHomeWordsShare.swift in Sources */,
-				DA96FF0D1E03672F00FD5265 /* VStoreCellNotAvailable.swift in Sources */,
-				DA96FEF51E03672F00FD5265 /* VHomeSuggestionsCell.swift in Sources */,
-				DA96FEEF1E03672F00FD5265 /* VHomeHelperFlux.swift in Sources */,
-				DA96FF091E03672F00FD5265 /* VStoreBar.swift in Sources */,
 				DA96FF051E03672F00FD5265 /* VParentBar.swift in Sources */,
 				DA96FEE61E03672F00FD5265 /* ExtensionUICollectionReusableView.swift in Sources */,
-				DA96FEEE1E03672F00FD5265 /* VHomeHelperClear.swift in Sources */,
-				DA96FF011E03672F00FD5265 /* VHomeLanguageOrb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
