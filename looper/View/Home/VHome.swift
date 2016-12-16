@@ -7,6 +7,7 @@ class VHome:VView
     weak var viewDisplay:VHomeDisplay!
     private weak var controller:CHome!
     private weak var layoutControlHeight:NSLayoutConstraint!
+    private weak var layoutDisplayHeight:NSLayoutConstraint!
     private let kControlMinHeight:CGFloat = 64
     private let kTimelineHeight:CGFloat = 80
     
@@ -44,11 +45,51 @@ class VHome:VView
             toView:self,
             constant:0)
         
+        let layoutTimelineTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:viewTimeline,
+            toView:viewControl,
+            constant:0)
+        let layoutTimelineHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:viewTimeline,
+            constant:kControlMinHeight)
+        let layoutTimelineLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewTimeline,
+            toView:self,
+            constant:0)
+        let layoutTimelineRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewTimeline,
+            toView:self,
+            constant:0)
+        
+        let layoutDisplayTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:viewDisplay,
+            toView:viewTimeline,
+            constant:0)
+        layoutDisplayHeight = NSLayoutConstraint.height(
+            view:viewControl,
+            constant:0)
+        let layoutDisplayLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewDisplay,
+            toView:self,
+            constant:0)
+        let layoutDisplayRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewDisplay,
+            toView:self,
+            constant:0)
+        
         addConstraints([
             layoutControlTop,
             layoutControlHeight,
             layoutControlLeft,
-            layoutControlRight])
+            layoutControlRight,
+            layoutTimelineTop,
+            layoutTimelineHeight,
+            layoutTimelineLeft,
+            layoutTimelineRight,
+            layoutDisplayTop,
+            layoutDisplayHeight,
+            layoutDisplayLeft,
+            layoutDisplayRight])
     }
     
     required init?(coder:NSCoder)
