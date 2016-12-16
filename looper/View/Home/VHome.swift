@@ -27,6 +27,28 @@ class VHome:VView
         addSubview(viewDisplay)
         addSubview(viewTimeline)
         addSubview(viewControl)
+        
+        let layoutControlTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewControl,
+            toView:self,
+            constant:0)
+        layoutControlHeight = NSLayoutConstraint.height(
+            view:viewControl,
+            constant:kControlMinHeight)
+        let layoutControlLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewControl,
+            toView:self,
+            constant:0)
+        let layoutControlRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewControl,
+            toView:self,
+            constant:0)
+        
+        addConstraints([
+            layoutControlTop,
+            layoutControlHeight,
+            layoutControlLeft,
+            layoutControlRight])
     }
     
     required init?(coder:NSCoder)
