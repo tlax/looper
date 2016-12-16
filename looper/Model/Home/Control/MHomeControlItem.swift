@@ -8,4 +8,9 @@ class MHomeControlItem
     {
         self.name = name
     }
+    
+    init()
+    {
+        fatalError()
+    }
 }
