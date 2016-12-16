@@ -99,10 +99,15 @@ class VHome:VView
         layoutControlBottom.constant = viewControl.kCollectionHeight
         
         UIView.animate(
-            withDuration:kAnimationDurationCamera)
+            withDuration:kAnimationDurationCamera,
+            animations:
         { [weak self] in
             
             self?.layoutIfNeeded()
+        })
+        { [weak self] (done:Bool) in
+            
+            self?.controller.parentController.changeBar(barHidden:true)
         }
     }
     
@@ -121,6 +126,7 @@ class VHome:VView
         { [weak self] (done:Bool) in
             
             self?.viewControl.hideCamera()
+            self?.controller.parentController.changeBar(barHidden:false)
         }
     }
 }

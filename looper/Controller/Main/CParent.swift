@@ -45,6 +45,12 @@ class CParent:UIViewController
     
     //MARK: public
     
+    func changeBar(barHidden:Bool)
+    {
+        self.barHidden = barHidden
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
     func mainController(controller:CController)
     {
         addChildViewController(controller)

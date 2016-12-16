@@ -30,6 +30,11 @@ class VHomeControlCameraMenu:UIView
         buttonBack.imageView!.contentMode = UIViewContentMode.center
         buttonBack.imageView!.clipsToBounds = true
         buttonBack.imageView!.tintColor = UIColor(white:1, alpha:0.1)
+        buttonBack.imageEdgeInsets = UIEdgeInsets(
+            top:5,
+            left:0,
+            bottom:0,
+            right:10)
         buttonBack.addTarget(
             self,
             action:#selector(self.actionBack(sender:)),
