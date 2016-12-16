@@ -32,12 +32,10 @@ class VHomeControlCell:UICollectionViewCell
             constant:kLabelBottom)
         let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:label,
-            toView:self,
-            constant:0)
+            toView:self)
         let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:label,
-            toView:self,
-            constant:0)
+            toView:self)
         
         addConstraints([
             layoutLabelHeight,

@@ -34,52 +34,42 @@ class VHome:VView
         
         let layoutControlTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:viewControl,
-            toView:self,
-            constant:0)
+            toView:self)
         layoutControlBottom = NSLayoutConstraint.bottomToBottom(
             view:viewControl,
             toView:self,
             constant:controlBottom)
         let layoutControlLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewControl,
-            toView:self,
-            constant:0)
+            toView:self)
         let layoutControlRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:viewControl,
-            toView:self,
-            constant:0)
+            toView:self)
         
         let layoutTimelineTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:viewTimeline,
-            toView:viewControl,
-            constant:0)
+            toView:viewControl)
         let layoutTimelineHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:viewTimeline,
             constant:kTimelineHeight)
         let layoutTimelineLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewTimeline,
-            toView:self,
-            constant:0)
+            toView:self)
         let layoutTimelineRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:viewTimeline,
-            toView:self,
-            constant:0)
+            toView:self)
         
         let layoutDisplayTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:viewDisplay,
-            toView:viewTimeline,
-            constant:0)
+            toView:viewTimeline)
         layoutDisplayHeight = NSLayoutConstraint.height(
-            view:viewDisplay,
-            constant:0)
+            view:viewDisplay)
         let layoutDisplayLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewDisplay,
-            toView:self,
-            constant:0)
+            toView:self)
         let layoutDisplayRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:viewDisplay,
-            toView:self,
-            constant:0)
+            toView:self)
         
         addConstraints([
             layoutControlTop,

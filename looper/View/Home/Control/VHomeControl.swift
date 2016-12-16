@@ -52,16 +52,13 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             constant:kCollectionHeight)
         let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:collectionView,
-            toView:self,
-            constant:0)
+            toView:self)
         let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:collectionView,
-            toView:self,
-            constant:0)
+            toView:self)
         let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:collectionView,
-            toView:self,
-            constant:0)
+            toView:self)
         
         addConstraints([
             layoutCollectionHeight,
@@ -96,20 +93,16 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         
         let layoutCameraTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:viewCamera,
-            toView:self,
-            constant:0)
+            toView:self)
         let layoutCameraBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
             view:viewCamera,
-            toView:collectionView,
-            constant:0)
+            toView:collectionView)
         let layoutCameraLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewCamera,
-            toView:self,
-            constant:0)
+            toView:self)
         let layoutCameraRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:viewCamera,
-            toView:self,
-            constant:0)
+            toView:self)
         
         addConstraints([
             layoutCameraTop,

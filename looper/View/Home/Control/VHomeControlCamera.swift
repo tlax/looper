@@ -40,32 +40,26 @@ class VHomeControlCamera:UIView
             view:viewPreview)
         let layoutPreviewBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
             view:viewPreview,
-            toView:viewMenu,
-            constant:0)
+            toView:viewMenu)
         let layoutPreviewLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewPreview,
-            toView:self,
-            constant:0)
+            toView:self)
         let layoutPreviewRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:viewPreview,
-            toView:self,
-            constant:0)
+            toView:self)
         
         let layoutMenuHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:viewMenu,
             constant:kMenuHeight)
         let layoutMenuBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:viewMenu,
-            toView:self,
-            constant:0)
+            toView:self)
         let layoutMenuLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewMenu,
-            toView:self,
-            constant:0)
+            toView:self)
         let layoutMenuRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:viewMenu,
-            toView:self,
-            constant:0)
+            toView:self)
         
         addConstraints([
             layoutPreviewHeight,
