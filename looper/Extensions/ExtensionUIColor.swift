@@ -2,14 +2,14 @@ import UIKit
 
 extension UIColor
 {
-    open class var genericBorder:UIColor
+    open class var genericDark:UIColor
     {
         get
         {
             return UIColor(
-                red:0.91,
-                green:0.92,
-                blue:0.93,
+                red:0.15,
+                green:0.2,
+                blue:0.25,
                 alpha:1)
         }
     }
