@@ -22,7 +22,6 @@
 		DA96FEEA1E03672F00FD5265 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA96FEA61E03672F00FD5265 /* Localizable.strings */; };
 		DA96FF031E03672F00FD5265 /* VAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FECE1E03672F00FD5265 /* VAlert.swift */; };
 		DA96FF041E03672F00FD5265 /* VParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FECF1E03672F00FD5265 /* VParent.swift */; };
-		DA96FF051E03672F00FD5265 /* VParentBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED01E03672F00FD5265 /* VParentBar.swift */; };
 		DA96FF061E03672F00FD5265 /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED11E03672F00FD5265 /* VSpinner.swift */; };
 		DA96FF071E03672F00FD5265 /* VView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED21E03672F00FD5265 /* VView.swift */; };
 /* End PBXBuildFile section */
@@ -45,7 +44,6 @@
 		DA96FEA81E03672F00FD5265 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA96FECE1E03672F00FD5265 /* VAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAlert.swift; sourceTree = "<group>"; };
 		DA96FECF1E03672F00FD5265 /* VParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParent.swift; sourceTree = "<group>"; };
-		DA96FED01E03672F00FD5265 /* VParentBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParentBar.swift; sourceTree = "<group>"; };
 		DA96FED11E03672F00FD5265 /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
 		DA96FED21E03672F00FD5265 /* VView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,7 +165,6 @@
 			children = (
 				DA96FECE1E03672F00FD5265 /* VAlert.swift */,
 				DA96FECF1E03672F00FD5265 /* VParent.swift */,
-				DA96FED01E03672F00FD5265 /* VParentBar.swift */,
 				DA96FED11E03672F00FD5265 /* VSpinner.swift */,
 				DA96FED21E03672F00FD5265 /* VView.swift */,
 			);
@@ -261,7 +258,6 @@
 				DA96FF041E03672F00FD5265 /* VParent.swift in Sources */,
 				DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */,
 				DA96FEE11E03672F00FD5265 /* CController.swift in Sources */,
-				DA96FF051E03672F00FD5265 /* VParentBar.swift in Sources */,
 				DA96FEE61E03672F00FD5265 /* ExtensionUICollectionReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

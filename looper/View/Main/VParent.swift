@@ -2,11 +2,7 @@ import UIKit
 
 class VParent:UIView
 {
-    static let kBarHeight:CGFloat = 64
-    
     private weak var controller:CParent!
-    private weak var viewBar:VParentBar?
-    private weak var layoutBarTop:NSLayoutConstraint?
     private let kAnimationDuration:TimeInterval = 0.3
     
     convenience init(controller:CParent)
@@ -15,87 +11,13 @@ class VParent:UIView
         clipsToBounds = true
         backgroundColor = UIColor.white
         self.controller = controller
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector:#selector(self.notifiedSessionLoaded(sender:)),
-            name:Notification.sessionLoaded,
-            object:nil)
-    }
-    
-    //MARK: notifications
-    
-    func notifiedSessionLoaded(sender notification:Notification)
-    {
-        NotificationCenter.default.removeObserver(self)
-        
-        DispatchQueue.main.async
-        {
-            self.loadBar()
-        }
-    }
-    
-    //MARK: private
-    
-    private func loadBar()
-    {
-        let viewBar:VParentBar = VParentBar(
-            controller:controller)
-        self.viewBar = viewBar
-        addSubview(viewBar)
-        
-        layoutBarTop = NSLayoutConstraint(
-            item:viewBar,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
-            constant:0)
-        let layoutBarHeight:NSLayoutConstraint = NSLayoutConstraint(
-            item:viewBar,
-            attribute:NSLayoutAttribute.height,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
-            constant:VParent.kBarHeight)
-        let layoutBarLeft:NSLayoutConstraint = NSLayoutConstraint(
-            item:viewBar,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        let layoutBarRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:viewBar,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
-        
-        addConstraints([
-            layoutBarTop!,
-            layoutBarHeight,
-            layoutBarLeft,
-            layoutBarRight])
     }
     
     //MARK: public
     
     func mainView(view:VView)
     {
-        if let viewBar:VParentBar = self.viewBar
-        {
-            insertSubview(view, belowSubview:viewBar)
-        }
-        else
-        {
-            addSubview(view)
-        }
+        addSubview(view)
         
         view.constraints(
             initialLeft:0,
@@ -107,7 +29,9 @@ class VParent:UIView
     func animateOver(view:VView, completion:@escaping(() -> ()))
     {
         view.alpha = 0
+        
         addSubview(view)
+        
         view.constraints(
             initialLeft:0,
             initialRight:0,
@@ -192,28 +116,6 @@ class VParent:UIView
             
             currentView?.removeFromSuperview()
             completion()
-        }
-    }
-    
-    func scrollDidScroll(offsetY:CGFloat)
-    {
-        if offsetY > 0
-        {
-            layoutBarTop?.constant = 0
-        }
-        else
-        {
-            layoutBarTop?.constant = offsetY
-        }
-    }
-    
-    func restartScroll()
-    {
-        layoutBarTop?.constant = 0
-        
-        UIView.animate(withDuration:kAnimationDuration)
-        {
-            self.layoutIfNeeded()
         }
     }
 }
