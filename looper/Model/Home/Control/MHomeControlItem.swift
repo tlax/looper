@@ -13,4 +13,10 @@ class MHomeControlItem
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func selected(controller:CHome)
+    {
+    }
 }
