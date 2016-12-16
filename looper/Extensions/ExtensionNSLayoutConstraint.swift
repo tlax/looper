@@ -127,4 +127,18 @@ extension NSLayoutConstraint
         
         return constraint
     }
+    
+    class func height(view:UIView, constant:CGFloat) -> NSLayoutConstraint
+    {
+        let constraint:NSLayoutConstraint = NSLayoutConstraint(
+            item:view,
+            attribute:NSLayoutAttribute.height,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.notAnAttribute,
+            multiplier:1,
+            constant:constant)
+        
+        return constraint
+    }
 }
