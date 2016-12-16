@@ -8,7 +8,7 @@ class CParent:UIViewController
     
     init()
     {
-        statusBarStyle = UIStatusBarStyle.default
+        statusBarStyle = UIStatusBarStyle.lightContent
         barHidden = false
         super.init(nibName:nil, bundle:nil)
     }

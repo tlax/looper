@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="1ob-tD-Aev" secondAttribute="trailing" id="esa-wy-g5k"/>
                             <constraint firstItem="1ob-tD-Aev" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="jzx-wK-iEU"/>

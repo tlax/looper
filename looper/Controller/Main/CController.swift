@@ -31,7 +31,7 @@ class CController:UIViewController
     
     override var preferredStatusBarStyle:UIStatusBarStyle
     {
-        return UIStatusBarStyle.default
+        return UIStatusBarStyle.lightContent
     }
     
     override var prefersStatusBarHidden:Bool
