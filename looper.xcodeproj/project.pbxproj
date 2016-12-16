@@ -13,6 +13,7 @@
 		DA20F0C41E0446C300F8BAD4 /* VHomeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0BE1E0446C300F8BAD4 /* VHomeControl.swift */; };
 		DA20F0C51E0446C300F8BAD4 /* VHomeDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0C01E0446C300F8BAD4 /* VHomeDisplay.swift */; };
 		DA20F0C61E0446C300F8BAD4 /* VHomeTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0C21E0446C300F8BAD4 /* VHomeTimeline.swift */; };
+		DA20F0C81E0446E200F8BAD4 /* VHomeControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0C71E0446E200F8BAD4 /* VHomeControlCell.swift */; };
 		DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */; };
 		DA96FEDE1E03672F00FD5265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */; };
 		DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FE981E03672F00FD5265 /* CHome.swift */; };
@@ -39,6 +40,7 @@
 		DA20F0BE1E0446C300F8BAD4 /* VHomeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControl.swift; sourceTree = "<group>"; };
 		DA20F0C01E0446C300F8BAD4 /* VHomeDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeDisplay.swift; sourceTree = "<group>"; };
 		DA20F0C21E0446C300F8BAD4 /* VHomeTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeTimeline.swift; sourceTree = "<group>"; };
+		DA20F0C71E0446E200F8BAD4 /* VHomeControlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlCell.swift; sourceTree = "<group>"; };
 		DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				DA20F0BE1E0446C300F8BAD4 /* VHomeControl.swift */,
+				DA20F0C71E0446E200F8BAD4 /* VHomeControlCell.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA96FEE31E03672F00FD5265 /* ExtensionFileManager.swift in Sources */,
+				DA20F0C81E0446E200F8BAD4 /* VHomeControlCell.swift in Sources */,
 				DA96FEE01E03672F00FD5265 /* CAppDelegate.swift in Sources */,
 				DA96FF071E03672F00FD5265 /* VView.swift in Sources */,
 				DA96FEE41E03672F00FD5265 /* ExtensionNotification.swift in Sources */,
