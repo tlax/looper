@@ -66,7 +66,7 @@ class VHome:VView
             toView:viewTimeline,
             constant:0)
         layoutDisplayHeight = NSLayoutConstraint.height(
-            view:viewControl,
+            view:viewDisplay,
             constant:0)
         let layoutDisplayLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewDisplay,
