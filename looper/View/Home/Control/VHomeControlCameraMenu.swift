@@ -4,6 +4,7 @@ class VHomeControlCameraMenu:UIView
 {
     private weak var controller:CHome!
     private let kBackgroundHeight:CGFloat = 50
+    private let kButtonBackWidth:CGFloat = 60
     
     convenience init(controller:CHome)
     {
@@ -29,6 +30,10 @@ class VHomeControlCameraMenu:UIView
         buttonBack.imageView!.contentMode = UIViewContentMode.center
         buttonBack.imageView!.clipsToBounds = true
         buttonBack.imageView!.tintColor = UIColor(white:1, alpha:0.2)
+        buttonBack.addTarget(
+            self,
+            action:#selector(self.actionBack(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         background.addSubview(buttonBack)
         addSubview(background)
@@ -48,16 +53,16 @@ class VHomeControlCameraMenu:UIView
         
         let layoutButtonBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:buttonBack,
-            toView:self)
+            toView:background)
         let layoutButtonBackBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:buttonBack,
-            toView:self)
+            toView:background)
         let layoutButtonBackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:buttonBack,
-            toView:self)
-        let layoutButtonBackRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            toView:background)
+        let layoutButtonBackWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:buttonBack,
-            toView:self)
+            constant:kButtonBackWidth)
         
         addConstraints([
             layoutBackgroundHeight,
@@ -67,6 +72,13 @@ class VHomeControlCameraMenu:UIView
             layoutButtonBackTop,
             layoutButtonBackBottom,
             layoutButtonBackLeft,
-            layoutButtonBackRight])
+            layoutButtonBackWidth])
+    }
+    
+    //MARK: actions
+    
+    func actionBack(sender button:UIButton)
+    {
+        
     }
 }
