@@ -113,4 +113,18 @@ extension NSLayoutConstraint
         
         return constraint
     }
+    
+    class func width(view:UIView, constant:CGFloat) -> NSLayoutConstraint
+    {
+        let constraint:NSLayoutConstraint = NSLayoutConstraint(
+            item:view,
+            attribute:NSLayoutAttribute.width,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.notAnAttribute,
+            multiplier:1,
+            constant:constant)
+        
+        return constraint
+    }
 }
