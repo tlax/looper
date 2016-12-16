@@ -15,7 +15,7 @@
 		DA20F0C61E0446C300F8BAD4 /* VHomeTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0C21E0446C300F8BAD4 /* VHomeTimeline.swift */; };
 		DA20F0C81E0446E200F8BAD4 /* VHomeControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0C71E0446E200F8BAD4 /* VHomeControlCell.swift */; };
 		DA20F0CA1E0452CA00F8BAD4 /* MHomeControlItemCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0C91E0452CA00F8BAD4 /* MHomeControlItemCamera.swift */; };
-		DA20F0CD1E045AB700F8BAD4 /* VHomeCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0CC1E045AB700F8BAD4 /* VHomeCamera.swift */; };
+		DA20F0CF1E0463FC00F8BAD4 /* VHomeControlCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0CE1E0463FC00F8BAD4 /* VHomeControlCamera.swift */; };
 		DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */; };
 		DA96FEDE1E03672F00FD5265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */; };
 		DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FE981E03672F00FD5265 /* CHome.swift */; };
@@ -44,7 +44,7 @@
 		DA20F0C21E0446C300F8BAD4 /* VHomeTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeTimeline.swift; sourceTree = "<group>"; };
 		DA20F0C71E0446E200F8BAD4 /* VHomeControlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlCell.swift; sourceTree = "<group>"; };
 		DA20F0C91E0452CA00F8BAD4 /* MHomeControlItemCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeControlItemCamera.swift; sourceTree = "<group>"; };
-		DA20F0CC1E045AB700F8BAD4 /* VHomeCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCamera.swift; sourceTree = "<group>"; };
+		DA20F0CE1E0463FC00F8BAD4 /* VHomeControlCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlCamera.swift; sourceTree = "<group>"; };
 		DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -115,6 +115,7 @@
 		DA20F0BD1E0446C300F8BAD4 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				DA20F0CE1E0463FC00F8BAD4 /* VHomeControlCamera.swift */,
 				DA20F0BE1E0446C300F8BAD4 /* VHomeControl.swift */,
 				DA20F0C71E0446E200F8BAD4 /* VHomeControlCell.swift */,
 			);
@@ -135,14 +136,6 @@
 				DA20F0C21E0446C300F8BAD4 /* VHomeTimeline.swift */,
 			);
 			path = Timeline;
-			sourceTree = "<group>";
-		};
-		DA20F0CB1E04563500F8BAD4 /* Camera */ = {
-			isa = PBXGroup;
-			children = (
-				DA20F0CC1E045AB700F8BAD4 /* VHomeCamera.swift */,
-			);
-			path = Camera;
 			sourceTree = "<group>";
 		};
 		DA96FE761E03653100FD5265 = {
@@ -244,7 +237,6 @@
 		DA96FEAA1E03672F00FD5265 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				DA20F0CB1E04563500F8BAD4 /* Camera */,
 				DA20F0BB1E0446C300F8BAD4 /* Base */,
 				DA20F0BD1E0446C300F8BAD4 /* Control */,
 				DA20F0BF1E0446C300F8BAD4 /* Display */,
@@ -340,7 +332,6 @@
 				DA20F0C81E0446E200F8BAD4 /* VHomeControlCell.swift in Sources */,
 				DA96FEE01E03672F00FD5265 /* CAppDelegate.swift in Sources */,
 				DA96FF071E03672F00FD5265 /* VView.swift in Sources */,
-				DA20F0CD1E045AB700F8BAD4 /* VHomeCamera.swift in Sources */,
 				DA96FEE41E03672F00FD5265 /* ExtensionNotification.swift in Sources */,
 				DA96FF061E03672F00FD5265 /* VSpinner.swift in Sources */,
 				DA96FEE21E03672F00FD5265 /* CParent.swift in Sources */,
@@ -357,6 +348,7 @@
 				DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */,
 				DA20F0C31E0446C300F8BAD4 /* VHome.swift in Sources */,
 				DA20F0C61E0446C300F8BAD4 /* VHomeTimeline.swift in Sources */,
+				DA20F0CF1E0463FC00F8BAD4 /* VHomeControlCamera.swift in Sources */,
 				DA96FEE11E03672F00FD5265 /* CController.swift in Sources */,
 				DA20F0C41E0446C300F8BAD4 /* VHomeControl.swift in Sources */,
 				DA96FEE61E03672F00FD5265 /* ExtensionUICollectionReusableView.swift in Sources */,

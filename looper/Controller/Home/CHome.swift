@@ -2,7 +2,7 @@ import UIKit
 
 class CHome:CController
 {
-    private weak var viewHome:VHome!
+    weak var viewHome:VHome!
     
     override func loadView()
     {

@@ -15,4 +15,9 @@ class MHomeControlItemCamera:MHomeControlItem
     {
         fatalError()
     }
+    
+    override func selected(controller:CHome)
+    {
+        controller.viewHome.showCamera()
+    }
 }
