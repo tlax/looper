@@ -111,11 +111,13 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             toView:self,
             constant:0)
         
-        addConstraint([
+        addConstraints([
             layoutCameraTop,
             layoutCameraBottom,
             layoutCameraLeft,
             layoutCameraRight])
+        
+        layoutIfNeeded()
     }
     
     //MARK: collectionView delegate

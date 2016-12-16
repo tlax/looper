@@ -29,7 +29,7 @@ class VHome:VView
         addSubview(viewTimeline)
         addSubview(viewControl)
         
-        let totalHeight:CGFloat = bounds.maxY
+        let totalHeight:CGFloat = UIScreen.main.bounds.maxY
         let controlBottom:CGFloat = viewControl.kCollectionHeight - totalHeight
         
         let layoutControlTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
