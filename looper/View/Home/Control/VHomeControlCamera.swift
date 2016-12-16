@@ -4,6 +4,7 @@ import AVFoundation
 class VHomeControlCamera:UIView
 {
     private weak var controller:CHome!
+    private weak var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     private let queue:DispatchQueue
     private let kQueueLabel:String = "cameraQueue"
     private let kAskAuthAfter:TimeInterval = 0.5
@@ -37,7 +38,7 @@ class VHomeControlCamera:UIView
     }
     
     //MARK: private
-    
+
     private func askAuthorization()
     {
         AVCaptureDevice.requestAccess(forMediaType:AVMediaTypeVideo)
@@ -60,6 +61,54 @@ class VHomeControlCamera:UIView
     
     private func startSession()
     {
+        let captureSession:AVCaptureSession = AVCaptureSession()
+        captureSession.sessionPreset = AVCaptureSessionPreset352x288
         
+        let videoPreviewLayer:AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(
+            session:captureSession)
+        videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect
+        self.videoPreviewLayer = videoPreviewLayer
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.layer.addSublayer(videoPreviewLayer)
+        }
+        
+        let captureDevice:AVCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType:AVMediaTypeVideo)
+        let tryCaptureDeviceInput:AVCaptureDeviceInput?
+        let errorString:String?
+        
+        do
+        {
+            try tryCaptureDeviceInput = AVCaptureDeviceInput.init(device:captureDevice)
+            errorString = nil
+        }
+        catch let error
+        {
+            tryCaptureDeviceInput = nil
+            errorString = error.localizedDescription
+        }
+        
+        guard
+            
+            let captureDeviceInput:AVCaptureDeviceInput = tryCaptureDeviceInput
+            
+        else
+        {
+            if let error:String = errorString
+            {
+                VAlert.message(message:error)
+            }
+            
+            return
+        }
+        
+        captureSession.addInput(captureDeviceInput)
+        
+        let captureOutput:AVCaptureMovieFileOutput = AVCaptureMovieFileOutput()
+        captureOutput.setOutputSettings(<#T##outputSettings: [AnyHashable : Any]!##[AnyHashable : Any]!#>, for: <#T##AVCaptureConnection!#>)
+        captureSession.addOutput(captureOutput)
+        captureSession.startRunning()
     }
 }
