@@ -4,6 +4,7 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
 {
     private weak var controller:CHome!
     private weak var collectionView:UICollectionView!
+    private weak var viewCamera:VHomeControlCamera?
     private let model:MHomeControl
     private let kDeselectTime:TimeInterval = 0.5
     

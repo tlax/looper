@@ -6,7 +6,7 @@ class VHome:VView
     weak var viewTimeline:VHomeTimeline!
     weak var viewDisplay:VHomeDisplay!
     private weak var controller:CHome!
-    private weak var layoutControlHeight:NSLayoutConstraint!
+    private weak var layoutControlBottom:NSLayoutConstraint!
     private weak var layoutDisplayHeight:NSLayoutConstraint!
     private let kControlMinHeight:CGFloat = 64
     private let kTimelineHeight:CGFloat = 80
@@ -30,13 +30,17 @@ class VHome:VView
         addSubview(viewTimeline)
         addSubview(viewControl)
         
+        let totalHeight:CGFloat = bounds.maxY
+        let controlBottom:CGFloat = kControlMinHeight - totalHeight
+        
         let layoutControlTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:viewControl,
             toView:self,
             constant:0)
-        layoutControlHeight = NSLayoutConstraint.height(
+        layoutControlBottom = NSLayoutConstraint.bottomToBottom(
             view:viewControl,
-            constant:kControlMinHeight)
+            toView:self,
+            constant:controlBottom)
         let layoutControlLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewControl,
             toView:self,
@@ -80,7 +84,7 @@ class VHome:VView
         
         addConstraints([
             layoutControlTop,
-            layoutControlHeight,
+            layoutControlBottom,
             layoutControlLeft,
             layoutControlRight,
             layoutTimelineTop,
@@ -96,5 +100,19 @@ class VHome:VView
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: public
+    
+    func showCamera()
+    {
+        layoutControlBottom.constant = 0
+        
+        UIView.animate(
+            withDuration:kAnimationDurationCamera)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
     }
 }

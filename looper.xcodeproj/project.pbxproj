@@ -115,9 +115,9 @@
 		DA20F0BD1E0446C300F8BAD4 /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				DA20F0CE1E0463FC00F8BAD4 /* VHomeControlCamera.swift */,
 				DA20F0BE1E0446C300F8BAD4 /* VHomeControl.swift */,
 				DA20F0C71E0446E200F8BAD4 /* VHomeControlCell.swift */,
+				DA20F0CE1E0463FC00F8BAD4 /* VHomeControlCamera.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
