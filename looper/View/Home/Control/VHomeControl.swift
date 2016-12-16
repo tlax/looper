@@ -85,8 +85,6 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     
     func showCamera()
     {
-        self.viewCamera?.removeFromSuperview()
-        
         let viewCamera:VHomeControlCamera = VHomeControlCamera(controller:controller)
         self.viewCamera = viewCamera
         addSubview(viewCamera)
@@ -111,6 +109,11 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             layoutCameraRight])
         
         layoutIfNeeded()
+    }
+    
+    func hideCamera()
+    {
+        viewCamera?.removeFromSuperview()
     }
     
     //MARK: collectionView delegate

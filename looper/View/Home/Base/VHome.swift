@@ -9,7 +9,7 @@ class VHome:VView
     private weak var layoutControlBottom:NSLayoutConstraint!
     private weak var layoutDisplayHeight:NSLayoutConstraint!
     private let kTimelineHeight:CGFloat = 80
-    private let kAnimationDurationCamera:TimeInterval = 0.3
+    private let kAnimationDurationCamera:TimeInterval = 0.6
     
     override init(controller:CController)
     {
@@ -91,6 +91,17 @@ class VHome:VView
         fatalError()
     }
     
+    override func layoutSubviews()
+    {
+        if viewControl.viewCamera == nil
+        {
+            let totalHeight:CGFloat = bounds.maxY
+            layoutControlBottom.constant = viewControl.kCollectionHeight - totalHeight
+        }
+        
+        super.layoutSubviews()
+    }
+    
     //MARK: public
     
     func showCamera()
@@ -103,6 +114,24 @@ class VHome:VView
         { [weak self] in
             
             self?.layoutIfNeeded()
+        }
+    }
+    
+    func hideCamera()
+    {
+        let totalHeight:CGFloat = bounds.maxY
+        layoutControlBottom.constant = viewControl.kCollectionHeight - totalHeight
+        
+        UIView.animate(
+            withDuration:kAnimationDurationCamera,
+            animations:
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        })
+        { [weak self] (done:Bool) in
+            
+            self?.viewControl.hideCamera()
         }
     }
 }

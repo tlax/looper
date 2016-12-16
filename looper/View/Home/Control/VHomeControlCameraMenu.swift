@@ -26,10 +26,10 @@ class VHomeControlCameraMenu:UIView
             for:UIControlState.normal)
         buttonBack.setImage(
             #imageLiteral(resourceName: "assetHomeCameraBack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
-            for:UIControlState.normal)
+            for:UIControlState.highlighted)
         buttonBack.imageView!.contentMode = UIViewContentMode.center
         buttonBack.imageView!.clipsToBounds = true
-        buttonBack.imageView!.tintColor = UIColor(white:1, alpha:0.2)
+        buttonBack.imageView!.tintColor = UIColor(white:1, alpha:0.1)
         buttonBack.addTarget(
             self,
             action:#selector(self.actionBack(sender:)),
@@ -79,6 +79,7 @@ class VHomeControlCameraMenu:UIView
     
     func actionBack(sender button:UIButton)
     {
-        
+        button.isUserInteractionEnabled = false
+        controller.viewHome.hideCamera()
     }
 }
