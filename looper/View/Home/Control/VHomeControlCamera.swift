@@ -84,6 +84,19 @@ class VHomeControlCamera:UIView
         fatalError()
     }
     
+    override func layoutSubviews()
+    {
+        let height:CGFloat = bounds.maxY
+        let previewHeight:CGFloat = height - kMenuHeight
+        
+        if previewHeight >= 0
+        {
+            layoutPreviewHeight.constant = previewHeight
+        }
+        
+        super.layoutSubviews()
+    }
+    
     //MARK: private
 
     private func askAuthorization()
@@ -114,12 +127,11 @@ class VHomeControlCamera:UIView
         let videoPreviewLayer:AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(
             session:captureSession)
         videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect
-        viewPreview.addPreviewLayer(previewLayer:videoPreviewLayer)
         
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.layer.addSublayer(videoPreviewLayer)
+            self?.viewPreview.addPreviewLayer(previewLayer:videoPreviewLayer)
         }
         
         let captureDevice:AVCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType:AVMediaTypeVideo)
