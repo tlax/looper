@@ -4,10 +4,12 @@ import AVFoundation
 class VHomeControlCamera:UIView
 {
     private weak var controller:CHome!
-    private weak var videoPreviewLayer:AVCaptureVideoPreviewLayer?
+    private weak var viewPreview:VHomeControlCameraPreview!
+    private weak var viewMenu:VHomeControlCameraMenu!
     private let queue:DispatchQueue
     private let kQueueLabel:String = "cameraQueue"
     private let kAskAuthAfter:TimeInterval = 0.5
+    private let kMenuHeight:CGFloat = 100
     
     init(controller:CHome)
     {
@@ -20,9 +22,61 @@ class VHomeControlCamera:UIView
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.gray
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let viewPreview:VHomeControlCameraPreview = VHomeControlCameraPreview()
+        self.viewPreview = viewPreview
+        
+        let viewMenu:VHomeControlCameraMenu = VHomeControlCameraMenu(controller:controller)
+        self.viewMenu = viewMenu
+        
+        addSubview(viewPreview)
+        addSubview(viewMenu)
+        
+        let layoutPreviewTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewPreview,
+            toView:self,
+            constant:0)
+        let layoutPreviewBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+            view:viewPreview,
+            toView:viewMenu,
+            constant:0)
+        let layoutPreviewLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewPreview,
+            toView:self,
+            constant:0)
+        let layoutPreviewRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewPreview,
+            toView:self,
+            constant:0)
+        
+        let layoutMenuHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:viewMenu,
+            constant:kMenuHeight)
+        let layoutMenuBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+            view:viewMenu,
+            toView:self,
+            constant:0)
+        let layoutMenuLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewMenu,
+            toView:self,
+            constant:0)
+        let layoutMenuRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewMenu,
+            toView:self,
+            constant:0)
+        
+        addConstraints([
+            layoutPreviewTop,
+            layoutPreviewBottom,
+            layoutPreviewLeft,
+            layoutPreviewRight,
+            layoutMenuHeight,
+            layoutMenuBottom,
+            layoutMenuLeft,
+            layoutMenuRight])
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kAskAuthAfter)
@@ -67,7 +121,7 @@ class VHomeControlCamera:UIView
         let videoPreviewLayer:AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(
             session:captureSession)
         videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect
-        self.videoPreviewLayer = videoPreviewLayer
+        viewPreview.addPreviewLayer(previewLayer:videoPreviewLayer)
         
         DispatchQueue.main.async
         { [weak self] in
@@ -107,7 +161,6 @@ class VHomeControlCamera:UIView
         captureSession.addInput(captureDeviceInput)
         
         let captureOutput:AVCaptureMovieFileOutput = AVCaptureMovieFileOutput()
-        captureOutput.setOutputSettings(<#T##outputSettings: [AnyHashable : Any]!##[AnyHashable : Any]!#>, for: <#T##AVCaptureConnection!#>)
         captureSession.addOutput(captureOutput)
         captureSession.startRunning()
     }
