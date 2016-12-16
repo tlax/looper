@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA20F0B81E0444D500F8BAD4 /* MHomeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0B71E0444D500F8BAD4 /* MHomeControl.swift */; };
+		DA20F0BA1E0444E800F8BAD4 /* MHomeControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0B91E0444E800F8BAD4 /* MHomeControlItem.swift */; };
 		DA41E67B1E036B1300B1BE84 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E67A1E036B1300B1BE84 /* VHome.swift */; };
 		DA41E67D1E036FC300B1BE84 /* VHomeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E67C1E036FC300B1BE84 /* VHomeControl.swift */; };
 		DA41E67F1E0370B900B1BE84 /* VHomeTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E67E1E0370B900B1BE84 /* VHomeTimeline.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA20F0B71E0444D500F8BAD4 /* MHomeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeControl.swift; sourceTree = "<group>"; };
+		DA20F0B91E0444E800F8BAD4 /* MHomeControlItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeControlItem.swift; sourceTree = "<group>"; };
 		DA41E67A1E036B1300B1BE84 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DA41E67C1E036FC300B1BE84 /* VHomeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControl.swift; sourceTree = "<group>"; };
 		DA41E67E1E0370B900B1BE84 /* VHomeTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeTimeline.swift; sourceTree = "<group>"; };
@@ -68,6 +72,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA20F0B41E04449C00F8BAD4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA20F0B51E0444C900F8BAD4 /* Home */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA20F0B51E0444C900F8BAD4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DA20F0B61E0444C900F8BAD4 /* Control */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DA20F0B61E0444C900F8BAD4 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				DA20F0B71E0444D500F8BAD4 /* MHomeControl.swift */,
+				DA20F0B91E0444E800F8BAD4 /* MHomeControlItem.swift */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
 		DA96FE761E03653100FD5265 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +116,7 @@
 		DA96FE811E03653100FD5265 /* looper */ = {
 			isa = PBXGroup;
 			children = (
+				DA20F0B41E04449C00F8BAD4 /* Model */,
 				DA96FE941E03672F00FD5265 /* Assets */,
 				DA96FE961E03672F00FD5265 /* Controller */,
 				DA96FE9D1E03672F00FD5265 /* Extensions */,
@@ -266,9 +296,11 @@
 				DA41E67B1E036B1300B1BE84 /* VHome.swift in Sources */,
 				DA96FEE71E03672F00FD5265 /* ExtensionUIColor.swift in Sources */,
 				DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */,
+				DA20F0BA1E0444E800F8BAD4 /* MHomeControlItem.swift in Sources */,
 				DA96FEE51E03672F00FD5265 /* ExtensionNSManagedObject.swift in Sources */,
 				DA96FF031E03672F00FD5265 /* VAlert.swift in Sources */,
 				DA96FEE81E03672F00FD5265 /* ExtensionUIFont.swift in Sources */,
+				DA20F0B81E0444D500F8BAD4 /* MHomeControl.swift in Sources */,
 				DA96FF041E03672F00FD5265 /* VParent.swift in Sources */,
 				DA41E6811E03713F00B1BE84 /* VHomeDisplay.swift in Sources */,
 				DA41E67F1E0370B900B1BE84 /* VHomeTimeline.swift in Sources */,
