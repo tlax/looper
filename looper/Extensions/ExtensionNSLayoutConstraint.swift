@@ -30,6 +30,34 @@ extension NSLayoutConstraint
         return constraint
     }
     
+    class func bottomToBottom(view:UIView, toView:UIView, constant:CGFloat) -> NSLayoutConstraint
+    {
+        let constraint:NSLayoutConstraint = NSLayoutConstraint(
+            item:view,
+            attribute:NSLayoutAttribute.bottom,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:toView,
+            attribute:NSLayoutAttribute.bottom,
+            multiplier:1,
+            constant:constant)
+        
+        return constraint
+    }
+    
+    class func bottomToTop(view:UIView, toView:UIView, constant:CGFloat) -> NSLayoutConstraint
+    {
+        let constraint:NSLayoutConstraint = NSLayoutConstraint(
+            item:view,
+            attribute:NSLayoutAttribute.bottom,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:toView,
+            attribute:NSLayoutAttribute.top,
+            multiplier:1,
+            constant:constant)
+        
+        return constraint
+    }
+    
     class func leftToLeft(view:UIView, toView:UIView, constant:CGFloat) -> NSLayoutConstraint
     {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
