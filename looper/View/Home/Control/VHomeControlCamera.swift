@@ -6,6 +6,7 @@ class VHomeControlCamera:UIView
     private weak var controller:CHome!
     private weak var viewPreview:VHomeControlCameraPreview!
     private weak var viewMenu:VHomeControlCameraMenu!
+    private weak var layoutPreviewHeight:NSLayoutConstraint!
     private let queue:DispatchQueue
     private let kQueueLabel:String = "cameraQueue"
     private let kAskAuthAfter:TimeInterval = 0.5
@@ -35,10 +36,8 @@ class VHomeControlCamera:UIView
         addSubview(viewPreview)
         addSubview(viewMenu)
         
-        let layoutPreviewTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:viewPreview,
-            toView:self,
-            constant:0)
+        layoutPreviewHeight = NSLayoutConstraint.height(
+            view:viewPreview)
         let layoutPreviewBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
             view:viewPreview,
             toView:viewMenu,
@@ -55,7 +54,7 @@ class VHomeControlCamera:UIView
         let layoutMenuHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:viewMenu,
             constant:kMenuHeight)
-        let layoutMenuBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+        let layoutMenuBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:viewMenu,
             toView:self,
             constant:0)
@@ -69,7 +68,7 @@ class VHomeControlCamera:UIView
             constant:0)
         
         addConstraints([
-            layoutPreviewTop,
+            layoutPreviewHeight,
             layoutPreviewBottom,
             layoutPreviewLeft,
             layoutPreviewRight,

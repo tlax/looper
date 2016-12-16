@@ -8,7 +8,7 @@ class VHomeControlCameraMenu:UIView
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor(white:0.95, alpha:1)
+        backgroundColor = UIColor(white:0.05, alpha:1)
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
     }
