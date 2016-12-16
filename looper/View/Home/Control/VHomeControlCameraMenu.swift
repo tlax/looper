@@ -3,8 +3,11 @@ import UIKit
 class VHomeControlCameraMenu:UIView
 {
     private weak var controller:CHome!
+    private weak var buttonTrigger:VHomeControlCameraMenuTrigger!
+    private weak var layoutButtonTriggerLeft:NSLayoutConstraint!
     private let kBackgroundHeight:CGFloat = 50
     private let kButtonBackWidth:CGFloat = 60
+    private let kButtonTriggerSize:CGFloat = 72
     
     convenience init(controller:CHome)
     {
@@ -40,8 +43,12 @@ class VHomeControlCameraMenu:UIView
             action:#selector(self.actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonTrigger:VHomeControlCameraMenuTrigger = VHomeControlCameraMenuTrigger(
+            controller:controller)
+        
         background.addSubview(buttonBack)
         addSubview(background)
+        addSubview(buttonTrigger)
         
         let layoutBackgroundHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:background,
@@ -69,6 +76,19 @@ class VHomeControlCameraMenu:UIView
             view:buttonBack,
             constant:kButtonBackWidth)
         
+        let layoutButtonTriggerTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:buttonTrigger,
+            toView:self)
+        layoutButtonTriggerLeft = NSLayoutConstraint.topToTop(
+            view:buttonTrigger,
+            toView:self)
+        let layoutButtonTriggerWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:buttonTrigger,
+            constant:kButtonTriggerSize)
+        let layoutButtonTriggerHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:buttonTrigger,
+            constant:kButtonTriggerSize)
+        
         addConstraints([
             layoutBackgroundHeight,
             layoutBackgroundBottom,
@@ -77,7 +97,21 @@ class VHomeControlCameraMenu:UIView
             layoutButtonBackTop,
             layoutButtonBackBottom,
             layoutButtonBackLeft,
-            layoutButtonBackWidth])
+            layoutButtonBackWidth,
+            layoutButtonTriggerTop,
+            layoutButtonTriggerLeft,
+            layoutButtonTriggerWidth,
+            layoutButtonTriggerHeight])
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let remainButtonTrigger:CGFloat = width - kButtonTriggerSize
+        let marginLeftButtonTrigger:CGFloat = remainButtonTrigger / 2.0
+        layoutButtonTriggerLeft.constant = marginLeftButtonTrigger
+        
+        super.layoutSubviews()
     }
     
     //MARK: actions
