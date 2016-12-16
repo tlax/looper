@@ -10,6 +10,7 @@
 		DA41E67B1E036B1300B1BE84 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E67A1E036B1300B1BE84 /* VHome.swift */; };
 		DA41E67D1E036FC300B1BE84 /* VHomeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E67C1E036FC300B1BE84 /* VHomeControl.swift */; };
 		DA41E67F1E0370B900B1BE84 /* VHomeTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E67E1E0370B900B1BE84 /* VHomeTimeline.swift */; };
+		DA41E6811E03713F00B1BE84 /* VHomeDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E6801E03713F00B1BE84 /* VHomeDisplay.swift */; };
 		DA96FEDE1E03672F00FD5265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */; };
 		DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FE981E03672F00FD5265 /* CHome.swift */; };
 		DA96FEE01E03672F00FD5265 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FE9A1E03672F00FD5265 /* CAppDelegate.swift */; };
@@ -32,6 +33,7 @@
 		DA41E67A1E036B1300B1BE84 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DA41E67C1E036FC300B1BE84 /* VHomeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControl.swift; sourceTree = "<group>"; };
 		DA41E67E1E0370B900B1BE84 /* VHomeTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeTimeline.swift; sourceTree = "<group>"; };
+		DA41E6801E03713F00B1BE84 /* VHomeDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeDisplay.swift; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA96FE981E03672F00FD5265 /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				DA41E67A1E036B1300B1BE84 /* VHome.swift */,
+				DA41E6801E03713F00B1BE84 /* VHomeDisplay.swift */,
 				DA41E67C1E036FC300B1BE84 /* VHomeControl.swift */,
 				DA41E67E1E0370B900B1BE84 /* VHomeTimeline.swift */,
 			);
@@ -263,6 +266,7 @@
 				DA96FF031E03672F00FD5265 /* VAlert.swift in Sources */,
 				DA96FEE81E03672F00FD5265 /* ExtensionUIFont.swift in Sources */,
 				DA96FF041E03672F00FD5265 /* VParent.swift in Sources */,
+				DA41E6811E03713F00B1BE84 /* VHomeDisplay.swift in Sources */,
 				DA41E67F1E0370B900B1BE84 /* VHomeTimeline.swift in Sources */,
 				DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */,
 				DA41E67D1E036FC300B1BE84 /* VHomeControl.swift in Sources */,
