@@ -5,6 +5,7 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     private weak var controller:CHome!
     private weak var collectionView:UICollectionView!
     private weak var viewCamera:VHomeControlCamera?
+    let kCollectionHeight:CGFloat = 64
     private let model:MHomeControl
     private let kDeselectTime:TimeInterval = 0.5
     
@@ -46,10 +47,9 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         
         addSubview(collectionView)
         
-        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let layoutCollectionHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:collectionView,
-            toView:self,
-            constant:0)
+            constant:kCollectionHeight)
         let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:collectionView,
             toView:self,
@@ -64,7 +64,7 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             constant:0)
         
         addConstraints([
-            layoutCollectionTop,
+            layoutCollectionHeight,
             layoutCollectionBottom,
             layoutCollectionLeft,
             layoutCollectionRight])
@@ -82,6 +82,40 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         let item:MHomeControlItem = model.items[index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func showCamera()
+    {
+        self.viewCamera?.removeFromSuperview()
+        
+        let viewCamera:VHomeControlCamera = VHomeControlCamera(controller:controller)
+        self.viewCamera = viewCamera
+        addSubview(viewCamera)
+        
+        let layoutCameraTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewCamera,
+            toView:self,
+            constant:0)
+        let layoutCameraBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+            view:viewCamera,
+            toView:collectionView,
+            constant:0)
+        let layoutCameraLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewCamera,
+            toView:self,
+            constant:0)
+        let layoutCameraRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewCamera,
+            toView:self,
+            constant:0)
+        
+        addConstraint([
+            layoutCameraTop,
+            layoutCameraBottom,
+            layoutCameraLeft,
+            layoutCameraRight])
     }
     
     //MARK: collectionView delegate

@@ -8,9 +8,8 @@ class VHome:VView
     private weak var controller:CHome!
     private weak var layoutControlBottom:NSLayoutConstraint!
     private weak var layoutDisplayHeight:NSLayoutConstraint!
-    private let kControlMinHeight:CGFloat = 64
     private let kTimelineHeight:CGFloat = 80
-    private let kAnimationDurationCamera:TimeInterval = 0.3
+    private let kAnimationDurationCamera:TimeInterval = 10
     
     override init(controller:CController)
     {
@@ -31,7 +30,7 @@ class VHome:VView
         addSubview(viewControl)
         
         let totalHeight:CGFloat = bounds.maxY
-        let controlBottom:CGFloat = kControlMinHeight - totalHeight
+        let controlBottom:CGFloat = viewControl.kCollectionHeight - totalHeight
         
         let layoutControlTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:viewControl,
@@ -56,7 +55,7 @@ class VHome:VView
             constant:0)
         let layoutTimelineHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:viewTimeline,
-            constant:kControlMinHeight)
+            constant:kTimelineHeight)
         let layoutTimelineLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewTimeline,
             toView:self,
@@ -106,7 +105,8 @@ class VHome:VView
     
     func showCamera()
     {
-        layoutControlBottom.constant = 0
+        viewControl.showCamera()
+        layoutControlBottom.constant = viewControl.kCollectionHeight
         
         UIView.animate(
             withDuration:kAnimationDurationCamera)
