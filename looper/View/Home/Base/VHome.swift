@@ -91,17 +91,6 @@ class VHome:VView
         fatalError()
     }
     
-    override func layoutSubviews()
-    {
-        if viewControl.viewCamera == nil
-        {
-            let totalHeight:CGFloat = bounds.maxY
-            layoutControlBottom.constant = viewControl.kCollectionHeight - totalHeight
-        }
-        
-        super.layoutSubviews()
-    }
-    
     //MARK: public
     
     func showCamera()
