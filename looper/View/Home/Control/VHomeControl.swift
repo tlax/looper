@@ -2,9 +2,9 @@ import UIKit
 
 class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    weak var viewCamera:VHomeControlCamera?
     private weak var controller:CHome!
     private weak var collectionView:UICollectionView!
-    private weak var viewCamera:VHomeControlCamera?
     let kCollectionHeight:CGFloat = 64
     private let model:MHomeControl
     private let kDeselectTime:TimeInterval = 0.5

@@ -42,6 +42,9 @@ class VHomeControlCameraMenuTrigger:UIButton
         {
             stateStandBy()
         }
+        
+        controller.viewHome.viewControl.viewCamera?.actionTrigger(
+            activate:active)
     }
     
     //MARK: private
