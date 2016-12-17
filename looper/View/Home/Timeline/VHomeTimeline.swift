@@ -1,8 +1,9 @@
 import UIKit
 
-class VHomeTimeline:UIView
+class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CHome!
+    private weak var collectionView:UICollectionView!
     
     convenience init(controller:CHome)
     {
@@ -11,5 +12,7 @@ class VHomeTimeline:UIView
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clear
         self.controller = controller
+        
+        let flow:
     }
 }
