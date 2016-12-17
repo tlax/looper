@@ -132,6 +132,8 @@ class VHomeControlCamera:UIView
             {
                 return
             }
+            
+            self?.model?.add(image:image)
         }
     }
     
@@ -221,6 +223,8 @@ class VHomeControlCamera:UIView
         
         if activate
         {
+            model = MHomeImageSequence()
+            
             timer = Timer.scheduledTimer(
                 timeInterval:kTriggerInterval,
                 target:self,
