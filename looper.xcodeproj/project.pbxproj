@@ -39,6 +39,7 @@
 		DA96FF071E03672F00FD5265 /* VView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED21E03672F00FD5265 /* VView.swift */; };
 		DAB333E91E05DBBC003436C0 /* MHomeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB333E81E05DBBC003436C0 /* MHomeImage.swift */; };
 		DAB333ED1E05DBEC003436C0 /* MHomeImageSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB333EC1E05DBEC003436C0 /* MHomeImageSequence.swift */; };
+		DAB333EF1E05DC1A003436C0 /* MHomeImageSequenceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB333EE1E05DC1A003436C0 /* MHomeImageSequenceItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		DA96FED21E03672F00FD5265 /* VView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VView.swift; sourceTree = "<group>"; };
 		DAB333E81E05DBBC003436C0 /* MHomeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImage.swift; sourceTree = "<group>"; };
 		DAB333EC1E05DBEC003436C0 /* MHomeImageSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequence.swift; sourceTree = "<group>"; };
+		DAB333EE1E05DC1A003436C0 /* MHomeImageSequenceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 			children = (
 				DAB333E81E05DBBC003436C0 /* MHomeImage.swift */,
 				DAB333EC1E05DBEC003436C0 /* MHomeImageSequence.swift */,
+				DAB333EE1E05DC1A003436C0 /* MHomeImageSequenceItem.swift */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				DA20F0C61E0446C300F8BAD4 /* VHomeTimeline.swift in Sources */,
 				DA20F0CF1E0463FC00F8BAD4 /* VHomeControlCamera.swift in Sources */,
 				DA913DF71E04AB06000565D6 /* VHomeControlCameraMenuTrigger.swift in Sources */,
+				DAB333EF1E05DC1A003436C0 /* MHomeImageSequenceItem.swift in Sources */,
 				DA96FEE11E03672F00FD5265 /* CController.swift in Sources */,
 				DA20F0C41E0446C300F8BAD4 /* VHomeControl.swift in Sources */,
 				DA96FEE61E03672F00FD5265 /* ExtensionUICollectionReusableView.swift in Sources */,
