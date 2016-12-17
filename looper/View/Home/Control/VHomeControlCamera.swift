@@ -4,12 +4,16 @@ import AVFoundation
 class VHomeControlCamera:UIView
 {
     private weak var controller:CHome!
+    private weak var captureOutput:AVCaptureStillImageOutput?
     private weak var viewPreview:VHomeControlCameraPreview!
     private weak var viewMenu:VHomeControlCameraMenu!
     private weak var layoutPreviewHeight:NSLayoutConstraint!
+    private weak var timer:Timer?
     private let queue:DispatchQueue
+    private let kMediaType:String = AVMediaTypeVideo
     private let kQueueLabel:String = "cameraQueue"
     private let kAskAuthAfter:TimeInterval = 0.5
+    private let kTriggerInterval:TimeInterval = 0.3
     private let kMenuHeight:CGFloat = 100
     
     init(controller:CHome)
@@ -97,11 +101,40 @@ class VHomeControlCamera:UIView
         super.layoutSubviews()
     }
     
+    func asyncActionTrigger()
+    {
+        guard
+            
+            let connection:AVCaptureConnection = captureOutput?.connection(
+                withMediaType:kMediaType)
+            
+        else
+        {
+            return
+        }
+        
+        captureOutput?.captureStillImageAsynchronously(
+            from:connection)
+        { [weak self] (sampleBuffer:CMSampleBuffer?, error:Error?) in
+         
+            guard
+            
+                let buffer:CMSampleBuffer = CMSampleBuffer
+            
+            else
+            {
+                return
+            }
+            
+            
+        }
+    }
+    
     //MARK: private
 
     private func askAuthorization()
     {
-        AVCaptureDevice.requestAccess(forMediaType:AVMediaTypeVideo)
+        AVCaptureDevice.requestAccess(forMediaType:kMediaType)
         { [weak self] (granted:Bool) in
             
             if granted
@@ -134,7 +167,7 @@ class VHomeControlCamera:UIView
             self?.viewPreview.addPreviewLayer(previewLayer:videoPreviewLayer)
         }
         
-        let captureDevice:AVCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType:AVMediaTypeVideo)
+        let captureDevice:AVCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType:kMediaType)
         let tryCaptureDeviceInput:AVCaptureDeviceInput?
         let errorString:String?
         
@@ -165,8 +198,27 @@ class VHomeControlCamera:UIView
         
         captureSession.addInput(captureDeviceInput)
         
-        let captureOutput:AVCaptureMovieFileOutput = AVCaptureMovieFileOutput()
+        let captureOutput:AVCaptureStillImageOutput = AVCaptureStillImageOutput()
+        captureOutput.outputSettings = [AVVideoCodecKey:AVVideoCodecJPEG]
         captureSession.addOutput(captureOutput)
         captureSession.startRunning()
+        self.captureOutput = captureOutput
+    }
+    
+    //MARK: public
+    
+    func actionTrigger(activate:Bool)
+    {
+        timer?.invalidate()
+        
+        if activate
+        {
+            timer = Timer.scheduledTimer(
+                timeInterval:kTriggerInterval,
+                target:self,
+                selector:#selector(self.asyncActionTrigger),
+                userInfo:nil,
+                repeats:true)
+        }
     }
 }
