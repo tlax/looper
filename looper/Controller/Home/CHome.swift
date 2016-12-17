@@ -3,6 +3,19 @@ import UIKit
 class CHome:CController
 {
     weak var viewHome:VHome!
+    let modelImage:MHomeImage
+    
+    override init()
+    {
+        modelImage = MHomeImage()
+        
+        super.init()
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
     
     override func loadView()
     {
