@@ -13,7 +13,7 @@ class VHomeControlCamera:UIView
     private let kMediaType:String = AVMediaTypeVideo
     private let kQueueLabel:String = "cameraQueue"
     private let kAskAuthAfter:TimeInterval = 0.5
-    private let kTriggerInterval:TimeInterval = 0.3
+    private let kTriggerInterval:TimeInterval = 1
     private let kMenuHeight:CGFloat = 100
     
     init(controller:CHome)
@@ -119,14 +119,15 @@ class VHomeControlCamera:UIView
          
             guard
             
-                let buffer:CMSampleBuffer = CMSampleBuffer
+                let buffer:CMSampleBuffer = sampleBuffer,
+                let data:Data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(
+            buffer),
+                let image:UIImage = UIImage(data:data)
             
             else
             {
                 return
             }
-            
-            
         }
     }
     
