@@ -232,5 +232,19 @@ class VHomeControlCamera:UIView
                 userInfo:nil,
                 repeats:true)
         }
+        else
+        {
+            guard
+                
+                let model:MHomeImageSequence = self.model
+            
+            else
+            {
+                return
+            }
+            
+            print(model.items.count)
+            controller.modelImage.add(sequence:model)
+        }
     }
 }
