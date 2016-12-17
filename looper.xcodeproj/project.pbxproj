@@ -37,6 +37,7 @@
 		DA96FF041E03672F00FD5265 /* VParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FECF1E03672F00FD5265 /* VParent.swift */; };
 		DA96FF061E03672F00FD5265 /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED11E03672F00FD5265 /* VSpinner.swift */; };
 		DA96FF071E03672F00FD5265 /* VView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED21E03672F00FD5265 /* VView.swift */; };
+		DAB333E91E05DBBC003436C0 /* MHomeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB333E81E05DBBC003436C0 /* MHomeImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		DA96FECF1E03672F00FD5265 /* VParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParent.swift; sourceTree = "<group>"; };
 		DA96FED11E03672F00FD5265 /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
 		DA96FED21E03672F00FD5265 /* VView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VView.swift; sourceTree = "<group>"; };
+		DAB333E81E05DBBC003436C0 /* MHomeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		DA20F0B51E0444C900F8BAD4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DAB333E71E05DB46003436C0 /* Image */,
 				DA20F0B61E0444C900F8BAD4 /* Control */,
 			);
 			path = Home;
@@ -168,8 +171,8 @@
 		DA96FE811E03653100FD5265 /* looper */ = {
 			isa = PBXGroup;
 			children = (
-				DA20F0B41E04449C00F8BAD4 /* Model */,
 				DA96FE941E03672F00FD5265 /* Assets */,
+				DA20F0B41E04449C00F8BAD4 /* Model */,
 				DA96FE961E03672F00FD5265 /* Controller */,
 				DA96FE9D1E03672F00FD5265 /* Extensions */,
 				DA96FEA41E03672F00FD5265 /* Info.plist */,
@@ -268,6 +271,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		DAB333E71E05DB46003436C0 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				DAB333E81E05DBBC003436C0 /* MHomeImage.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -353,6 +364,7 @@
 				DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DA20F0BA1E0444E800F8BAD4 /* MHomeControlItem.swift in Sources */,
 				DA20F0D11E0485D600F8BAD4 /* VHomeControlCameraPreview.swift in Sources */,
+				DAB333E91E05DBBC003436C0 /* MHomeImage.swift in Sources */,
 				DA96FEE51E03672F00FD5265 /* ExtensionNSManagedObject.swift in Sources */,
 				DA96FF031E03672F00FD5265 /* VAlert.swift in Sources */,
 				DA96FEE81E03672F00FD5265 /* ExtensionUIFont.swift in Sources */,
