@@ -7,7 +7,7 @@ class VHomeControlCameraMenu:UIView
     private weak var layoutButtonTriggerLeft:NSLayoutConstraint!
     private let kBackgroundHeight:CGFloat = 50
     private let kButtonBackWidth:CGFloat = 60
-    private let kButtonTriggerSize:CGFloat = 72
+    private let kButtonTriggerSize:CGFloat = 100
     
     convenience init(controller:CHome)
     {
@@ -79,7 +79,7 @@ class VHomeControlCameraMenu:UIView
         let layoutButtonTriggerTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:buttonTrigger,
             toView:self)
-        layoutButtonTriggerLeft = NSLayoutConstraint.topToTop(
+        layoutButtonTriggerLeft = NSLayoutConstraint.leftToLeft(
             view:buttonTrigger,
             toView:self)
         let layoutButtonTriggerWidth:NSLayoutConstraint = NSLayoutConstraint.width(
