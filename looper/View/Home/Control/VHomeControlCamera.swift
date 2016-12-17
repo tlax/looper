@@ -3,6 +3,7 @@ import AVFoundation
 
 class VHomeControlCamera:UIView
 {
+    private var model:MHomeImageSequence?
     private weak var controller:CHome!
     private weak var captureOutput:AVCaptureStillImageOutput?
     private weak var viewPreview:VHomeControlCameraPreview!
@@ -11,6 +12,9 @@ class VHomeControlCamera:UIView
     private weak var timer:Timer?
     private let queue:DispatchQueue
     private let kMediaType:String = AVMediaTypeVideo
+    private let kSessionPreset:String = AVCaptureSessionPreset352x288
+    private let kVideoGravity:String = AVLayerVideoGravityResizeAspect
+    private let kVideoCodec:String = AVVideoCodecJPEG
     private let kQueueLabel:String = "cameraQueue"
     private let kAskAuthAfter:TimeInterval = 0.5
     private let kTriggerInterval:TimeInterval = 1
@@ -121,7 +125,7 @@ class VHomeControlCamera:UIView
             
                 let buffer:CMSampleBuffer = sampleBuffer,
                 let data:Data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(
-            buffer),
+                    buffer),
                 let image:UIImage = UIImage(data:data)
             
             else
@@ -148,7 +152,8 @@ class VHomeControlCamera:UIView
             }
             else
             {
-                VAlert.message(message:NSLocalizedString("VHomeControlCamera_noAuth", comment:""))
+                VAlert.message(
+                    message:NSLocalizedString("VHomeControlCamera_noAuth", comment:""))
             }
         }
     }
@@ -156,25 +161,27 @@ class VHomeControlCamera:UIView
     private func startSession()
     {
         let captureSession:AVCaptureSession = AVCaptureSession()
-        captureSession.sessionPreset = AVCaptureSessionPreset352x288
+        captureSession.sessionPreset = kSessionPreset
         
         let videoPreviewLayer:AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(
             session:captureSession)
-        videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect
+        videoPreviewLayer.videoGravity = kVideoGravity
         
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.viewPreview.addPreviewLayer(previewLayer:videoPreviewLayer)
+            self?.viewPreview.addPreviewLayer(
+                previewLayer:videoPreviewLayer)
         }
         
-        let captureDevice:AVCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType:kMediaType)
+        let captureDevice:AVCaptureDevice = AVCaptureDevice.defaultDevice(
+            withMediaType:kMediaType)
         let tryCaptureDeviceInput:AVCaptureDeviceInput?
         let errorString:String?
         
         do
         {
-            try tryCaptureDeviceInput = AVCaptureDeviceInput.init(device:captureDevice)
+            try tryCaptureDeviceInput = AVCaptureDeviceInput(device:captureDevice)
             errorString = nil
         }
         catch let error
@@ -200,7 +207,7 @@ class VHomeControlCamera:UIView
         captureSession.addInput(captureDeviceInput)
         
         let captureOutput:AVCaptureStillImageOutput = AVCaptureStillImageOutput()
-        captureOutput.outputSettings = [AVVideoCodecKey:AVVideoCodecJPEG]
+        captureOutput.outputSettings = [AVVideoCodecKey:kVideoCodec]
         captureSession.addOutput(captureOutput)
         captureSession.startRunning()
         self.captureOutput = captureOutput
