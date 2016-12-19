@@ -8,7 +8,7 @@ class VHomeTimelineCell:UICollectionViewCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor(white:1, alpha:0.2)
+        backgroundColor = UIColor.clear
         clipsToBounds =  true
         
         let imageView:UIImageView = UIImageView()
@@ -53,6 +53,7 @@ class VHomeTimelineCell:UICollectionViewCell
     
     func config(model:MHomeImageSequenceItem)
     {
+        print("\(model.image.size.width), \(model.image.size.height)")
         imageView.image = model.image
     }
 }

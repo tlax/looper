@@ -12,7 +12,7 @@ class VHomeControlCamera:UIView
     private weak var timer:Timer?
     private let queue:DispatchQueue
     private let kMediaType:String = AVMediaTypeVideo
-    private let kSessionPreset:String = AVCaptureSessionPreset352x288
+    private let kSessionPreset:String = AVCaptureSessionPreset640x480
     private let kVideoGravity:String = AVLayerVideoGravityResizeAspect
     private let kVideoCodec:String = AVVideoCodecJPEG
     private let kQueueLabel:String = "cameraQueue"

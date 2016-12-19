@@ -6,14 +6,14 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     private weak var collectionView:UICollectionView!
     private weak var model:MHomeImageSequenceGenerated?
     private let kInterline:CGFloat = 1
-    private let kCellSize:CGFloat = 100
+    private let kCellSize:CGFloat = 72
     
     convenience init(controller:CHome)
     {
         self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.genericDark
         self.controller = controller
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
