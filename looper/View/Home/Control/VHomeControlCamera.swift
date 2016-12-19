@@ -3,7 +3,7 @@ import AVFoundation
 
 class VHomeControlCamera:UIView
 {
-    private var model:MHomeImageSequence?
+    private var model:MHomeImageSequenceRaw?
     private weak var controller:CHome!
     private weak var captureOutput:AVCaptureStillImageOutput?
     private weak var viewPreview:VHomeControlCameraPreview!
@@ -223,7 +223,7 @@ class VHomeControlCamera:UIView
         
         if activate
         {
-            model = MHomeImageSequence()
+            model = MHomeImageSequenceRaw()
             
             timer = Timer.scheduledTimer(
                 timeInterval:kTriggerInterval,
@@ -236,7 +236,7 @@ class VHomeControlCamera:UIView
         {
             guard
                 
-                let model:MHomeImageSequence = self.model
+                let model:MHomeImageSequenceRaw = self.model
             
             else
             {

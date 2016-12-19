@@ -2,7 +2,7 @@ import Foundation
 
 class MHomeImage
 {
-    var generatedSequence:MHomeImageSequence?
+    var generatedSequence:MHomeImageSequenceGenerated?
     private(set) var sequences:[MHomeImageSequence]
     
     init()
@@ -21,7 +21,7 @@ class MHomeImage
     
     //MARK: public
     
-    func add(sequence:MHomeImageSequence)
+    func add(sequence:MHomeImageSequenceRaw)
     {
         generatedSequence = nil
         sequences.append(sequence)
@@ -31,11 +31,11 @@ class MHomeImage
             object:nil)
     }
     
-    func generateSequence() -> MHomeImageSequence?
+    func generateSequence() -> MHomeImageSequenceGenerated?
     {
         guard
         
-            let generatedSequence:MHomeImageSequence = self.generatedSequence
+            let generatedSequence:MHomeImageSequenceGenerated = self.generatedSequence
         
         else
         {
