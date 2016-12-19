@@ -8,7 +8,6 @@ class VHomeTimelineCell:UICollectionViewCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor.clear
         clipsToBounds =  true
         
         let imageView:UIImageView = UIImageView()
@@ -49,11 +48,42 @@ class VHomeTimelineCell:UICollectionViewCell
         fatalError()
     }
     
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            backgroundColor = UIColor(white:1, alpha:0.5)
+        }
+        else
+        {
+            backgroundColor = UIColor.clear
+        }
+    }
+    
     //MARK: public
     
     func config(model:MHomeImageSequenceItem)
     {
         print("\(model.image.size.width), \(model.image.size.height)")
         imageView.image = model.image
+        hover()
     }
 }
