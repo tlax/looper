@@ -16,7 +16,7 @@ class VHomeTimelineCell:UICollectionViewCell
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFit
-        imageView.layer.cornerRadius = kBorderWidth
+        imageView.layer.borderWidth = kBorderWidth
         self.imageView = imageView
         
         addSubview(imageView)

@@ -48,14 +48,32 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             VHomeTimelineCell.reusableIdentifier)
         self.collectionView = collectionView
         
+        let borderColor:UIColor = UIColor(
+            white:1,
+            alpha:0.2)
+        
+        let borderTop:UIView = UIView()
+        borderTop.isUserInteractionEnabled = false
+        borderTop.translatesAutoresizingMaskIntoConstraints = false
+        borderTop.backgroundColor = borderColor
+        borderTop.clipsToBounds = true
+        
+        let borderBottom:UIView = UIView()
+        borderBottom.isUserInteractionEnabled = false
+        borderBottom.translatesAutoresizingMaskIntoConstraints = false
+        borderBottom.backgroundColor = borderColor
+        borderBottom.clipsToBounds = true
+        
+        addSubview(borderTop)
+        addSubview(borderBottom)
         addSubview(collectionView)
         
-        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:collectionView,
-            toView:self)
-        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            toView:borderTop)
+        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
             view:collectionView,
-            toView:self)
+            toView:borderBottom)
         let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:collectionView,
             toView:self)
@@ -63,11 +81,45 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             view:collectionView,
             toView:self)
         
+        let layoutBorderTopTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:borderTop,
+            toView:self)
+        let layoutBorderTopHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:borderTop,
+            constant:1)
+        let layoutBorderTopLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:borderTop,
+            toView:self)
+        let layoutBorderTopRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:borderTop,
+            toView:self)
+        
+        let layoutBorderBottomBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:borderBottom,
+            toView:self)
+        let layoutBorderBottomHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:borderBottom,
+            constant:1)
+        let layoutBorderBottomLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:borderBottom,
+            toView:self)
+        let layoutBorderBottomRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:borderBottom,
+            toView:self)
+        
         addConstraints([
             layoutCollectionTop,
             layoutCollectionBottom,
             layoutCollectionLeft,
-            layoutCollectionRight])
+            layoutCollectionRight,
+            layoutBorderTopTop,
+            layoutBorderTopHeight,
+            layoutBorderTopLeft,
+            layoutBorderTopRight,
+            layoutBorderBottomHeight,
+            layoutBorderBottomBottom,
+            layoutBorderBottomLeft,
+            layoutBorderBottomRight])
         
         model = controller.modelImage.generateSequence()
         
