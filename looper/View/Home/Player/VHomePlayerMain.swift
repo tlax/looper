@@ -30,7 +30,6 @@ class VHomePlayerMain:UIButton
                 
                 if controller.modelImage.generatedSequence?.items.first != nil
                 {
-                    controller.animate()
                     buttonStop()
                 }
             
@@ -38,7 +37,6 @@ class VHomePlayerMain:UIButton
             
             case MSession.State.playing:
             
-                controller.stopAnimation()
                 buttonPlay()
                 
                 break;
@@ -52,11 +50,11 @@ class VHomePlayerMain:UIButton
     
     private func buttonStop()
     {
-        
+        controller.animate()
     }
     
     private func buttonPlay()
     {
-        
+        controller.stopAnimation()
     }
 }
