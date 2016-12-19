@@ -13,4 +13,10 @@ class VHomeTimelineCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MHomeImageSequenceItem)
+    {
+    }
 }

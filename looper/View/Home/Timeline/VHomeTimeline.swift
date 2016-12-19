@@ -58,6 +58,15 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             layoutCollectionRight])
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MHomeImageSequenceItem
+    {
+        let item:MHomeImageSequenceItem = controller.modelImage.sequences[index.section].items[index.item]
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
@@ -76,10 +85,12 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MHomeImageSequenceItem = modelAtIndex(index:indexPath)
         let cell:VHomeTimelineCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VHomeTimelineCell.reusableIdentifier,
             for:indexPath) as! VHomeTimelineCell
+        cell.config(model:item)
         
         return cell
     }
