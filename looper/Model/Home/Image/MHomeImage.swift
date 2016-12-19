@@ -3,7 +3,7 @@ import Foundation
 class MHomeImage
 {
     var generatedSequence:MHomeImageSequenceGenerated?
-    private(set) var sequences:[MHomeImageSequence]
+    private(set) var sequences:[MHomeImageSequenceRaw]
     
     init()
     {
@@ -14,6 +14,17 @@ class MHomeImage
     
     private func asyncGenerateSequence()
     {
+        guard
+            
+            let first:MHomeImageSequenceRaw = sequences.first
+        
+        else
+        {
+            return
+        }
+        
+        generatedSequence = MHomeImageSequenceGenerated(sequence:first)
+            
         NotificationCenter.default.post(
             name:Notification.imagesUpdated,
             object:nil)
@@ -25,10 +36,6 @@ class MHomeImage
     {
         generatedSequence = nil
         sequences.append(sequence)
-        
-        NotificationCenter.default.post(
-            name:Notification.imagesUpdated,
-            object:nil)
     }
     
     func generateSequence() -> MHomeImageSequenceGenerated?
@@ -39,6 +46,8 @@ class MHomeImage
         
         else
         {
+            asyncGenerateSequence()
+            
             return nil
         }
         

@@ -71,7 +71,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             self,
             selector:#selector(self.notifiedImagesUpdated(sender:)),
             name:Notification.imagesUpdated,
-            object:self)
+            object:nil)
     }
     
     //MARK: notifications
@@ -83,7 +83,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.collectionView.reloadData()
+            self?.refresh()
         }
     }
     
@@ -94,6 +94,13 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         let item:MHomeImageSequenceItem = model!.items[index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        collectionView.reloadData()
     }
     
     //MARK: collectionView delegate
