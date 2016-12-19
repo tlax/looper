@@ -44,6 +44,7 @@
 		DAFFF3F61E0856AC00E14F12 /* MHomeImageSequenceRaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F51E0856AC00E14F12 /* MHomeImageSequenceRaw.swift */; };
 		DAFFF3F81E0856B700E14F12 /* MHomeImageSequenceGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F71E0856B700E14F12 /* MHomeImageSequenceGenerated.swift */; };
 		DAFFF3FB1E085C4900E14F12 /* VHomePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3FA1E085C4900E14F12 /* VHomePlayer.swift */; };
+		DAFFF3FD1E08A30C00E14F12 /* VHomePlayerMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3FC1E08A30C00E14F12 /* VHomePlayerMain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		DAFFF3F51E0856AC00E14F12 /* MHomeImageSequenceRaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceRaw.swift; sourceTree = "<group>"; };
 		DAFFF3F71E0856B700E14F12 /* MHomeImageSequenceGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceGenerated.swift; sourceTree = "<group>"; };
 		DAFFF3FA1E085C4900E14F12 /* VHomePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomePlayer.swift; sourceTree = "<group>"; };
+		DAFFF3FC1E08A30C00E14F12 /* VHomePlayerMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomePlayerMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				DAFFF3FA1E085C4900E14F12 /* VHomePlayer.swift */,
+				DAFFF3FC1E08A30C00E14F12 /* VHomePlayerMain.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				DA96FF061E03672F00FD5265 /* VSpinner.swift in Sources */,
 				DA96FEE21E03672F00FD5265 /* CParent.swift in Sources */,
 				DA96FEE71E03672F00FD5265 /* ExtensionUIColor.swift in Sources */,
+				DAFFF3FD1E08A30C00E14F12 /* VHomePlayerMain.swift in Sources */,
 				DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DA20F0BA1E0444E800F8BAD4 /* MHomeControlItem.swift in Sources */,
 				DA20F0D11E0485D600F8BAD4 /* VHomeControlCameraPreview.swift in Sources */,
