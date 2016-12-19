@@ -30,9 +30,31 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellWithReuseIdentifier: <#T##String#>)
+        collectionView.register(
+            VHomeTimelineCell.self,
+            forCellWithReuseIdentifier:
+            VHomeTimelineCell.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(collectionView)
+        
+        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:collectionView,
+            toView:self)
+        
+        addConstraints([
+            layoutCollectionTop,
+            layoutCollectionBottom,
+            layoutCollectionLeft,
+            layoutCollectionRight])
     }
 }
