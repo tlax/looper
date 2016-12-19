@@ -57,4 +57,30 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             layoutCollectionLeft,
             layoutCollectionRight])
     }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        let count:Int = controller.modelImage.sequences.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.modelImage.sequences[section].items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let cell:VHomeTimelineCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VHomeTimelineCell.reusableIdentifier,
+            for:indexPath) as! VHomeTimelineCell
+        
+        return cell
+    }
 }
