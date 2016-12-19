@@ -24,7 +24,8 @@ class MHomeImage
         }
         
         generatedSequence = MHomeImageSequenceGenerated(sequence:first)
-            
+        
+        MSession.sharedInstance.state = MSession.State.standBy
         NotificationCenter.default.post(
             name:Notification.imagesUpdated,
             object:nil)
@@ -46,6 +47,7 @@ class MHomeImage
         
         else
         {
+            MSession.sharedInstance.state = MSession.State.rendering
             asyncGenerateSequence()
             
             return nil

@@ -210,6 +210,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        MSession.sharedInstance.state = MSession.State.frame
         let item:MHomeImageSequenceItem = modelAtIndex(index:indexPath)
         controller.viewHome.viewDisplay.displayFrame(image:item.image)
         
