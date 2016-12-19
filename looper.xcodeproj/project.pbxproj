@@ -45,6 +45,7 @@
 		DAFFF3F81E0856B700E14F12 /* MHomeImageSequenceGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F71E0856B700E14F12 /* MHomeImageSequenceGenerated.swift */; };
 		DAFFF3FB1E085C4900E14F12 /* VHomePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3FA1E085C4900E14F12 /* VHomePlayer.swift */; };
 		DAFFF3FD1E08A30C00E14F12 /* VHomePlayerMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3FC1E08A30C00E14F12 /* VHomePlayerMain.swift */; };
+		DAFFF4001E08A78100E14F12 /* MSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3FF1E08A78100E14F12 /* MSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		DAFFF3F71E0856B700E14F12 /* MHomeImageSequenceGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceGenerated.swift; sourceTree = "<group>"; };
 		DAFFF3FA1E085C4900E14F12 /* VHomePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomePlayer.swift; sourceTree = "<group>"; };
 		DAFFF3FC1E08A30C00E14F12 /* VHomePlayerMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomePlayerMain.swift; sourceTree = "<group>"; };
+		DAFFF3FF1E08A78100E14F12 /* MSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		DA20F0B41E04449C00F8BAD4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DAFFF3FE1E08A77400E14F12 /* Session */,
 				DA20F0B51E0444C900F8BAD4 /* Home */,
 			);
 			path = Model;
@@ -308,6 +311,14 @@
 			path = Player;
 			sourceTree = "<group>";
 		};
+		DAFFF3FE1E08A77400E14F12 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				DAFFF3FF1E08A78100E14F12 /* MSession.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -415,6 +426,7 @@
 				DAB333EF1E05DC1A003436C0 /* MHomeImageSequenceItem.swift in Sources */,
 				DA96FEE11E03672F00FD5265 /* CController.swift in Sources */,
 				DA20F0C41E0446C300F8BAD4 /* VHomeControl.swift in Sources */,
+				DAFFF4001E08A78100E14F12 /* MSession.swift in Sources */,
 				DA96FEE61E03672F00FD5265 /* ExtensionUICollectionReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
