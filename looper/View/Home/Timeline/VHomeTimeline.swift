@@ -4,6 +4,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
 {
     private weak var controller:CHome!
     private weak var collectionView:UICollectionView!
+    private weak var model:MHomeImageSequenceGenerated?
     private let kInterline:CGFloat = 1
     private let kCellSize:CGFloat = 100
     
@@ -64,6 +65,8 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             layoutCollectionLeft,
             layoutCollectionRight])
         
+        model = controller.modelImage.generateSequence()
+        
         NotificationCenter.default.addObserver(
             self,
             selector:#selector(self.notifiedImagesUpdated(sender:)),
@@ -75,6 +78,8 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func notifiedImagesUpdated(sender notification:Notification)
     {
+        model = controller.modelImage.generateSequence()
+        
         DispatchQueue.main.async
         { [weak self] in
             
@@ -86,7 +91,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     private func modelAtIndex(index:IndexPath) -> MHomeImageSequenceItem
     {
-        let item:MHomeImageSequenceItem = controller.modelImage.sequences[index.section].items[index.item]
+        let item:MHomeImageSequenceItem = model!.items[index.item]
         
         return item
     }
@@ -105,14 +110,23 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
-        let count:Int = controller.modelImage.sequences.count
+        let count:Int
+        
+        if model == nil
+        {
+            count = 0
+        }
+        else
+        {
+            count = 1
+        }
         
         return count
     }
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = controller.modelImage.sequences[section].items.count
+        let count:Int = model!.items.count
         
         return count
     }
