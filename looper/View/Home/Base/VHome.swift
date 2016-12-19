@@ -5,10 +5,12 @@ class VHome:VView
     weak var viewControl:VHomeControl!
     weak var viewTimeline:VHomeTimeline!
     weak var viewDisplay:VHomeDisplay!
+    weak var viewPlayer:VHomePlayer!
     private weak var controller:CHome!
     private weak var layoutControlBottom:NSLayoutConstraint!
     private weak var layoutDisplayHeight:NSLayoutConstraint!
     private let kTimelineHeight:CGFloat = 97
+    private let kPlayerHeight:CGFloat = 65
     private let kAnimationDurationCamera:TimeInterval = 0.6
     
     override init(controller:CController)
@@ -25,9 +27,13 @@ class VHome:VView
         let viewDisplay:VHomeDisplay = VHomeDisplay(controller:self.controller)
         self.viewDisplay = viewDisplay
         
+        let viewPlayer:VHomePlayer = VHomePlayer(controller:self.controller)
+        self.viewPlayer = viewPlayer
+        
         addSubview(viewDisplay)
         addSubview(viewTimeline)
         addSubview(viewControl)
+        addSubview(viewPlayer)
         
         let totalHeight:CGFloat = UIScreen.main.bounds.maxY
         let controlBottom:CGFloat = viewControl.kCollectionHeight - totalHeight
@@ -71,6 +77,19 @@ class VHome:VView
             view:viewDisplay,
             toView:self)
         
+        let layoutPlayerTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:viewPlayer,
+            toView:viewDisplay)
+        let layoutPlayerHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:viewPlayer,
+            constant:kPlayerHeight)
+        let layoutPlayerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewPlayer,
+            toView:self)
+        let layoutPlayerRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewPlayer,
+            toView:self)
+        
         addConstraints([
             layoutControlTop,
             layoutControlBottom,
@@ -83,7 +102,11 @@ class VHome:VView
             layoutDisplayTop,
             layoutDisplayHeight,
             layoutDisplayLeft,
-            layoutDisplayRight])
+            layoutDisplayRight,
+            layoutPlayerTop,
+            layoutPlayerHeight,
+            layoutPlayerLeft,
+            layoutPlayerRight])
     }
     
     required init?(coder:NSCoder)
