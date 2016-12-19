@@ -2,5 +2,5 @@ import Foundation
 
 extension Notification
 {
-    static let sessionLoaded:Notification.Name = Notification.Name("sessionLoaded")
+    static let imagesUpdated:Notification.Name = Notification.Name("imagesUpdated")
 }
