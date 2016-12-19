@@ -41,6 +41,8 @@
 		DAB333ED1E05DBEC003436C0 /* MHomeImageSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB333EC1E05DBEC003436C0 /* MHomeImageSequence.swift */; };
 		DAB333EF1E05DC1A003436C0 /* MHomeImageSequenceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB333EE1E05DC1A003436C0 /* MHomeImageSequenceItem.swift */; };
 		DAFFF3F41E0847D500E14F12 /* VHomeTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F31E0847D500E14F12 /* VHomeTimelineCell.swift */; };
+		DAFFF3F61E0856AC00E14F12 /* MHomeImageSequenceRaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F51E0856AC00E14F12 /* MHomeImageSequenceRaw.swift */; };
+		DAFFF3F81E0856B700E14F12 /* MHomeImageSequenceGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F71E0856B700E14F12 /* MHomeImageSequenceGenerated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +83,8 @@
 		DAB333EC1E05DBEC003436C0 /* MHomeImageSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequence.swift; sourceTree = "<group>"; };
 		DAB333EE1E05DC1A003436C0 /* MHomeImageSequenceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceItem.swift; sourceTree = "<group>"; };
 		DAFFF3F31E0847D500E14F12 /* VHomeTimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeTimelineCell.swift; sourceTree = "<group>"; };
+		DAFFF3F51E0856AC00E14F12 /* MHomeImageSequenceRaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceRaw.swift; sourceTree = "<group>"; };
+		DAFFF3F71E0856B700E14F12 /* MHomeImageSequenceGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceGenerated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +287,8 @@
 			children = (
 				DAB333E81E05DBBC003436C0 /* MHomeImage.swift */,
 				DAB333EC1E05DBEC003436C0 /* MHomeImageSequence.swift */,
+				DAFFF3F51E0856AC00E14F12 /* MHomeImageSequenceRaw.swift */,
+				DAFFF3F71E0856B700E14F12 /* MHomeImageSequenceGenerated.swift */,
 				DAB333EE1E05DC1A003436C0 /* MHomeImageSequenceItem.swift */,
 			);
 			path = Image;
@@ -362,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA96FEE31E03672F00FD5265 /* ExtensionFileManager.swift in Sources */,
+				DAFFF3F81E0856B700E14F12 /* MHomeImageSequenceGenerated.swift in Sources */,
 				DA20F0C81E0446E200F8BAD4 /* VHomeControlCell.swift in Sources */,
 				DA96FEE01E03672F00FD5265 /* CAppDelegate.swift in Sources */,
 				DA20F0D31E04880800F8BAD4 /* VHomeControlCameraMenu.swift in Sources */,
@@ -379,6 +386,7 @@
 				DA96FF031E03672F00FD5265 /* VAlert.swift in Sources */,
 				DA96FEE81E03672F00FD5265 /* ExtensionUIFont.swift in Sources */,
 				DA20F0B81E0444D500F8BAD4 /* MHomeControl.swift in Sources */,
+				DAFFF3F61E0856AC00E14F12 /* MHomeImageSequenceRaw.swift in Sources */,
 				DA96FF041E03672F00FD5265 /* VParent.swift in Sources */,
 				DA20F0C51E0446C300F8BAD4 /* VHomeDisplay.swift in Sources */,
 				DAB333ED1E05DBEC003436C0 /* MHomeImageSequence.swift in Sources */,
