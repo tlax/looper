@@ -63,6 +63,23 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             layoutCollectionBottom,
             layoutCollectionLeft,
             layoutCollectionRight])
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(self.notifiedImagesUpdated(sender:)),
+            name:Notification.imagesUpdated,
+            object:self)
+    }
+    
+    //MARK: notifications
+    
+    func notifiedImagesUpdated(sender notification:Notification)
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.collectionView.reloadData()
+        }
     }
     
     //MARK: private
