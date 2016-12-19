@@ -36,6 +36,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         collectionView.backgroundColor = UIColor.clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceHorizontal = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(
