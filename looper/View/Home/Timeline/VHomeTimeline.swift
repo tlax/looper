@@ -5,14 +5,12 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     private weak var controller:CHome!
     private weak var collectionView:UICollectionView!
     private weak var model:MHomeImageSequenceGenerated?
-    private let interline2:CGFloat
     private let kInterline:CGFloat = 2
-    private let kCellSize:CGFloat = 52
+    private let kCellSize:CGFloat = 38
+    private let kBorderAlpha:CGFloat = 0.7
     
     init(controller:CHome)
     {
-        interline2 = kInterline + kInterline
-        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
@@ -26,9 +24,9 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         flow.minimumInteritemSpacing = kInterline
         flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         flow.sectionInset = UIEdgeInsets(
-            top:kInterline,
+            top:0,
             left:kInterline,
-            bottom:kInterline,
+            bottom:0,
             right:kInterline)
         
         let collectionView:UICollectionView = UICollectionView(
@@ -50,7 +48,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         
         let borderColor:UIColor = UIColor(
             white:1,
-            alpha:0.2)
+            alpha:kBorderAlpha)
         
         let borderTop:UIView = UIView()
         borderTop.isUserInteractionEnabled = false
@@ -64,16 +62,16 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         borderBottom.backgroundColor = borderColor
         borderBottom.clipsToBounds = true
         
+        addSubview(collectionView)
         addSubview(borderTop)
         addSubview(borderBottom)
-        addSubview(collectionView)
         
-        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:collectionView,
-            toView:borderTop)
-        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+            toView:self)
+        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:collectionView,
-            toView:borderBottom)
+            toView:self)
         let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:collectionView,
             toView:self)
@@ -167,7 +165,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
-        let height:CGFloat = collectionView.bounds.maxY - interline2
+        let height:CGFloat = collectionView.bounds.maxY
         let size:CGSize = CGSize(
             width:kCellSize,
             height:height)

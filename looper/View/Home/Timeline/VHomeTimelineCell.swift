@@ -4,6 +4,8 @@ class VHomeTimelineCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private let kBorderWidth:CGFloat = 2
+    private let kAlphaSelected:CGFloat = 1
+    private let kAlphaNotSelected:CGFloat = 0.4
     
     override init(frame:CGRect)
     {
@@ -69,10 +71,12 @@ class VHomeTimelineCell:UICollectionViewCell
         if isSelected || isHighlighted
         {
             imageView.layer.borderColor = UIColor.white.cgColor
+            imageView.alpha = kAlphaSelected
         }
         else
         {
             imageView.layer.borderColor = UIColor.clear.cgColor
+            imageView.alpha = kAlphaNotSelected
         }
     }
     
