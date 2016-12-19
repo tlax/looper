@@ -78,8 +78,6 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func notifiedImagesUpdated(sender notification:Notification)
     {
-        model = controller.modelImage.generateSequence()
-        
         DispatchQueue.main.async
         { [weak self] in
             
@@ -100,6 +98,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func refresh()
     {
+        model = controller.modelImage.generateSequence()
         collectionView.reloadData()
     }
     

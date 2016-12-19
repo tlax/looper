@@ -125,6 +125,7 @@ class VHome:VView
         })
         { [weak self] (done:Bool) in
             
+            self?.viewTimeline.refresh()
             self?.viewControl.hideCamera()
             self?.controller.parentController.changeBar(barHidden:false)
         }
