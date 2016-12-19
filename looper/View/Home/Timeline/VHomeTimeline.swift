@@ -149,4 +149,15 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         
         return cell
     }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MHomeImageSequenceItem = modelAtIndex(index:indexPath)
+        controller.viewHome.viewDisplay.displayFrame(image:item.image)
+        
+        collectionView.scrollToItem(
+            at:indexPath,
+            at:UICollectionViewScrollPosition.centeredHorizontally,
+            animated:true)
+    }
 }
