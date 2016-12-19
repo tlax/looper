@@ -4,6 +4,8 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
 {
     private weak var controller:CHome!
     private weak var collectionView:UICollectionView!
+    private let kInterline:CGFloat = 1
+    private let kCellSize:CGFloat = 100
     
     convenience init(controller:CHome)
     {
@@ -16,9 +18,14 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero
         flow.footerReferenceSize = CGSize.zero
-        flow.minimumLineSpacing = 0
-        flow.minimumInteritemSpacing = 0
+        flow.minimumLineSpacing = kInterline
+        flow.minimumInteritemSpacing = kInterline
         flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+        flow.sectionInset = UIEdgeInsets(
+            top:0,
+            left:kInterline,
+            bottom:0,
+            right:kInterline)
         
         let collectionView:UICollectionView = UICollectionView(
             frame:CGRect.zero,
@@ -68,6 +75,16 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let height:CGFloat = collectionView.bounds.maxY
+        let size:CGSize = CGSize(
+            width:kCellSize,
+            height:height)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
