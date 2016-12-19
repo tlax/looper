@@ -6,7 +6,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     private weak var collectionView:UICollectionView!
     private weak var model:MHomeImageSequenceGenerated?
     private let kInterline:CGFloat = 1
-    private let kCellSize:CGFloat = 72
+    private let kCellSize:CGFloat = 74
     
     convenience init(controller:CHome)
     {

@@ -3,7 +3,7 @@ import UIKit
 class VHomeTimelineCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
-    private let kImageMargin:CGFloat = 1
+    private let kImageMargin:CGFloat = 2
     
     override init(frame:CGRect)
     {
