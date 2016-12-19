@@ -17,7 +17,7 @@ class VHomeControlCamera:UIView
     private let kVideoCodec:String = AVVideoCodecJPEG
     private let kQueueLabel:String = "cameraQueue"
     private let kAskAuthAfter:TimeInterval = 0.5
-    private let kTriggerInterval:TimeInterval = 1
+    private let kTriggerInterval:TimeInterval = 0.3
     private let kMenuHeight:CGFloat = 100
     
     init(controller:CHome)

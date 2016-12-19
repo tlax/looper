@@ -5,12 +5,15 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     private weak var controller:CHome!
     private weak var collectionView:UICollectionView!
     private weak var model:MHomeImageSequenceGenerated?
-    private let kInterline:CGFloat = 1
-    private let kCellSize:CGFloat = 74
+    private let interline2:CGFloat
+    private let kInterline:CGFloat = 2
+    private let kCellSize:CGFloat = 52
     
-    convenience init(controller:CHome)
+    init(controller:CHome)
     {
-        self.init()
+        interline2 = kInterline + kInterline
+        
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.genericDark
@@ -23,9 +26,9 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         flow.minimumInteritemSpacing = kInterline
         flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         flow.sectionInset = UIEdgeInsets(
-            top:0,
+            top:kInterline,
             left:kInterline,
-            bottom:0,
+            bottom:kInterline,
             right:kInterline)
         
         let collectionView:UICollectionView = UICollectionView(
@@ -75,6 +78,11 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             object:nil)
     }
     
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+    
     //MARK: notifications
     
     func notifiedImagesUpdated(sender notification:Notification)
@@ -107,7 +115,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
-        let height:CGFloat = collectionView.bounds.maxY
+        let height:CGFloat = collectionView.bounds.maxY - interline2
         let size:CGSize = CGSize(
             width:kCellSize,
             height:height)

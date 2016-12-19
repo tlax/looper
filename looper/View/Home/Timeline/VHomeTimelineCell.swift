@@ -3,11 +3,12 @@ import UIKit
 class VHomeTimelineCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
-    private let kImageMargin:CGFloat = 2
+    private let kBorderWidth:CGFloat = 2
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
+        backgroundColor = UIColor.clear
         clipsToBounds =  true
         
         let imageView:UIImageView = UIImageView()
@@ -15,26 +16,23 @@ class VHomeTimelineCell:UICollectionViewCell
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.layer.cornerRadius = kBorderWidth
         self.imageView = imageView
         
         addSubview(imageView)
         
         let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:imageView,
-            toView:self,
-            constant:kImageMargin)
+            toView:self)
         let layoutImageBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:imageView,
-            toView:self,
-            constant:-kImageMargin)
+            toView:self)
         let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:imageView,
-            toView:self,
-            constant:kImageMargin)
+            toView:self)
         let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:imageView,
-            toView:self,
-            constant:-kImageMargin)
+            toView:self)
         
         addConstraints([
             layoutImageTop,
@@ -70,11 +68,11 @@ class VHomeTimelineCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            backgroundColor = UIColor(white:1, alpha:0.5)
+            imageView.layer.borderColor = UIColor.white.cgColor
         }
         else
         {
-            backgroundColor = UIColor.clear
+            imageView.layer.borderColor = UIColor.clear.cgColor
         }
     }
     
