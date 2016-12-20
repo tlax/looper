@@ -9,16 +9,18 @@ class VHomePlayerTimerSlider:UIView
     private weak var layoutTrackWidth:NSLayoutConstraint!
     private weak var layoutThumbLeft:NSLayoutConstraint!
     private weak var layoutInsideTrackWidth:NSLayoutConstraint!
+    private var usableWidth:CGFloat
     private let timeSpan:TimeInterval
     private let thumbWidth_2:CGFloat
     private let kMinTime:TimeInterval = 0.5
     private let kMaxTime:TimeInterval = 10
     private let kStartTime:TimeInterval = 2
     private let kTrackHeight:CGFloat = 4
-    private let kThumbWidth:CGFloat = 30
+    private let kThumbWidth:CGFloat = 40
     
     init(controller:CHome)
     {
+        usableWidth = 0
         currentTime = kStartTime
         timeSpan = kMaxTime - kMinTime
         thumbWidth_2 = kThumbWidth / 2.0
@@ -43,7 +45,7 @@ class VHomePlayerTimerSlider:UIView
         insideTrack.translatesAutoresizingMaskIntoConstraints = false
         
         let viewThumb:UIImageView = UIImageView()
-        viewThumb.isUserInteractionEnabled = false
+        viewThumb.isUserInteractionEnabled = true
         viewThumb.translatesAutoresizingMaskIntoConstraints = false
         viewThumb.clipsToBounds = true
         viewThumb.contentMode = UIViewContentMode.center
@@ -118,16 +120,16 @@ class VHomePlayerTimerSlider:UIView
         let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
         let remainHeight:CGFloat = height - kTrackHeight
-        let remainWidth:CGFloat = width - kThumbWidth
+        usableWidth = width - kThumbWidth
         let marginTop:CGFloat = remainHeight / 2.0
         
         let addedTime:TimeInterval = currentTime - kMinTime
         let percentage:CGFloat = CGFloat(addedTime / timeSpan)
-        var percentageWidth:CGFloat = percentage * remainWidth
+        var percentageWidth:CGFloat = percentage * usableWidth
         
-        if percentageWidth > remainWidth
+        if percentageWidth > usableWidth
         {
-            percentageWidth = remainWidth
+            percentageWidth = usableWidth
         }
         else if percentageWidth < 0
         {
@@ -135,11 +137,51 @@ class VHomePlayerTimerSlider:UIView
         }
         
         layoutTrackTop.constant = marginTop
-        layoutTrackWidth.constant = remainWidth
+        layoutTrackWidth.constant = usableWidth
         layoutThumbLeft.constant = percentageWidth
         layoutInsideTrackWidth.constant = percentageWidth
         
         super.layoutSubviews()
+    }
+    
+    override func touchesBegan(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        thumbSelected()
+        
+        guard
+        
+            let touch:UITouch = touches.first,
+            let view:UIView = touch.view
+        
+        else
+        {
+            return
+        }
+        
+        if view !== viewThumb
+        {
+            let touchLocation:CGPoint = touch.location(in:self)
+            let touchX:CGFloat = touchLocation.x
+        }
+        else
+        {
+            print("shisus")
+        }
+    }
+    
+    override func touchesMoved(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        
+    }
+    
+    override func touchesCancelled(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        thumbNormal()
+    }
+    
+    override func touchesEnded(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        thumbNormal()
     }
     
     //MARK: private
