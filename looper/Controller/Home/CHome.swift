@@ -28,6 +28,19 @@ class CHome:CController
     
     func animate()
     {
+        guard
+            
+            let modelGenerated:MHomeImageSequenceGenerated = modelImage.generateSequence()
+        
+        else
+        {
+            return
+        }
+        
+        var images:[UIImage] = []
+        
+        
+        
         MSession.sharedInstance.state = MSession.State.playing
     }
     
