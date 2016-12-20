@@ -68,9 +68,9 @@ class VHomePlayerTimer:UIView
         let layoutTitleBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
             view:labelTitle,
             toView:self)
-        let layoutTitleLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        let layoutTitleWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:labelTitle,
-            toView:self)
+            constant:kLabelWidth)
         let layoutTitleRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:labelTitle,
             toView:self)
@@ -99,7 +99,7 @@ class VHomePlayerTimer:UIView
             layoutSliderRight,
             layoutTitleHeight,
             layoutTitleBottom,
-            layoutTitleLeft,
+            layoutTitleWidth,
             layoutTitleRight])
     }
     
@@ -122,20 +122,7 @@ class VHomePlayerTimer:UIView
     func print()
     {
         let time:NSNumber = viewSlider.currentTime as NSNumber
-        
-        guard
-        
-            let timeString:String = numberFormatter.string(
-                from:time)
-        
-        else
-        {
-            return
-        }
-        
-        let completeString:String = String(
-            format:NSLocalizedString("VHomePlayerTimer_time", comment:""),
-            timeString)
-        label.text = completeString
+        label.text = numberFormatter.string(
+            from:time)
     }
 }
