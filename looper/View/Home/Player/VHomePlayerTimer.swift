@@ -5,9 +5,10 @@ class VHomePlayerTimer:UIView
     private weak var controller:CHome!
     private weak var label:UILabel!
     private weak var viewSlider:VHomePlayerTimerSlider!
+    private weak var layoutSliderWidth:NSLayoutConstraint!
     private let kLabelWidth:CGFloat = 70
     private let kSliderLeft:CGFloat = 30
-    private let kSliderRight:CGFloat = -15
+    private let kSliderRight:CGFloat = 15
     
     convenience init(controller:CHome)
     {
@@ -51,14 +52,12 @@ class VHomePlayerTimer:UIView
         let layoutSliderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:viewSlider,
             toView:self)
-        let layoutSliderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewSlider,
-            toView:self,
-            constant:kSliderLeft)
+        layoutSliderWidth = NSLayoutConstraint.width(
+            view:viewSlider)
         let layoutSliderRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
             view:viewSlider,
             toView:label,
-            constant:kSliderRight)
+            constant:-kSliderRight)
         
         addConstraints([
             layoutLabelTop,
@@ -67,7 +66,16 @@ class VHomePlayerTimer:UIView
             layoutLabelWidth,
             layoutSliderTop,
             layoutSliderBottom,
-            layoutSliderLeft,
+            layoutSliderWidth,
             layoutSliderRight])
+    }
+    
+    override func layoutSubviews()
+    {
+        let totalWidth:CGFloat = bounds.maxX
+        let remainWidth:CGFloat = totalWidth - (kSliderRight + kSliderLeft + kLabelWidth)
+        layoutSliderWidth.constant = remainWidth
+        
+        super.layoutSubviews()
     }
 }
