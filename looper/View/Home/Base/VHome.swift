@@ -9,8 +9,9 @@ class VHome:VView
     private weak var controller:CHome!
     private weak var layoutControlBottom:NSLayoutConstraint!
     private weak var layoutDisplayHeight:NSLayoutConstraint!
-    private let kTimelineHeight:CGFloat = 45
-    private let kPlayerHeight:CGFloat = 55
+    private weak var layoutPlayerHeight:NSLayoutConstraint!
+    private let kTimelineHeight:CGFloat = 40
+    private let kPlayerMinHeight:CGFloat = 100
     private let kAnimationDurationCamera:TimeInterval = 0.6
     
     override init(controller:CController)
@@ -70,7 +71,7 @@ class VHome:VView
             toView:viewTimeline)
         layoutDisplayHeight = NSLayoutConstraint.height(
             view:viewDisplay,
-            constant:kPlayerHeight)
+            constant:kPlayerMinHeight)
         let layoutDisplayLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewDisplay,
             toView:self)
@@ -81,9 +82,9 @@ class VHome:VView
         let layoutPlayerTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:viewPlayer,
             toView:viewDisplay)
-        let layoutPlayerHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        layoutPlayerHeight = NSLayoutConstraint.height(
             view:viewPlayer,
-            constant:kPlayerHeight)
+            constant:kPlayerMinHeight)
         let layoutPlayerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewPlayer,
             toView:self)
@@ -120,17 +121,21 @@ class VHome:VView
         let totalWidth:CGFloat = bounds.maxX
         let totalHeight:CGFloat = bounds.maxY
         let displayHeight:CGFloat
+        let playerHeight:CGFloat
         
         if totalWidth < totalHeight
         {
             displayHeight = totalWidth
+            playerHeight = totalHeight - (viewControl.kCollectionHeight + kTimelineHeight + totalWidth)
         }
         else
         {
-            displayHeight = totalHeight - (viewControl.kCollectionHeight + kTimelineHeight + kPlayerHeight)
+            playerHeight = kPlayerMinHeight
+            displayHeight = totalHeight - (viewControl.kCollectionHeight + kTimelineHeight + kPlayerMinHeight)
         }
         
         layoutDisplayHeight.constant = displayHeight
+        layoutPlayerHeight.constant = playerHeight
         
         super.layoutSubviews()
     }
