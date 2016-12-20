@@ -67,6 +67,6 @@ class VHomeDisplay:UIView
     {
         imageView.stopAnimating()
         imageView.image = imageView.animationImages?.first
-        imageView.animationImages nil
+        imageView.animationImages = nil
     }
 }
