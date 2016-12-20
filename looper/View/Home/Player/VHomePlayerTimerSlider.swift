@@ -120,8 +120,24 @@ class VHomePlayerTimerSlider:UIView
         let remainHeight:CGFloat = height - kTrackHeight
         let remainWidth:CGFloat = width - kThumbWidth
         let marginTop:CGFloat = remainHeight / 2.0
+        
+        let addedTime:TimeInterval = currentTime - kMinTime
+        let percentage:CGFloat = CGFloat(addedTime / timeSpan)
+        var percentageWidth:CGFloat = percentage * remainWidth
+        
+        if percentageWidth > remainWidth
+        {
+            percentageWidth = remainWidth
+        }
+        else if percentageWidth < 0
+        {
+            percentageWidth = 0
+        }
+        
         layoutTrackTop.constant = marginTop
         layoutTrackWidth.constant = remainWidth
+        layoutThumbLeft.constant = percentageWidth
+        layoutInsideTrackWidth.constant = percentageWidth
         
         super.layoutSubviews()
     }
