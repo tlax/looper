@@ -7,10 +7,10 @@ class VHomePlayerTimer:UIView
     private weak var viewSlider:VHomePlayerTimerSlider!
     private weak var layoutSliderWidth:NSLayoutConstraint!
     private let numberFormatter:NumberFormatter
-    private let kLabelWidth:CGFloat = 70
-    private let kLabelTitleHeight:CGFloat = 30
-    private let kSliderLeft:CGFloat = 20
-    private let kSliderRight:CGFloat = 10
+    private let kLabelWidth:CGFloat = 57
+    private let kLabelTitleHeight:CGFloat = 15
+    private let kSliderLeft:CGFloat = 5
+    private let kSliderRight:CGFloat = 1
     private let kMaxFractions:Int = 1
     
     init(controller:CHome)
@@ -18,6 +18,7 @@ class VHomePlayerTimer:UIView
         numberFormatter = NumberFormatter()
         numberFormatter.maximumFractionDigits = kMaxFractions
         numberFormatter.minimumFractionDigits = kMaxFractions
+        numberFormatter.minimumIntegerDigits = kMaxFractions
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -29,7 +30,7 @@ class VHomePlayerTimer:UIView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:16)
+        label.font = UIFont.regular(size:18)
         label.textColor = UIColor.white
         self.label = label
         
@@ -65,7 +66,7 @@ class VHomePlayerTimer:UIView
         let layoutTitleHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:labelTitle,
             constant:kLabelTitleHeight)
-        let layoutTitleBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+        let layoutTitleBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:labelTitle,
             toView:self)
         let layoutTitleWidth:NSLayoutConstraint = NSLayoutConstraint.width(
