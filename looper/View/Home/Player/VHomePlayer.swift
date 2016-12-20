@@ -4,8 +4,9 @@ class VHomePlayer:UIView
 {
     private weak var controller:CHome!
     private weak var viewBoard:VHomePlayerBoard!
-    private let kMainWidth:CGFloat = 70
+    private weak var viewTimer:VHomePlayerTimer!
     private let kBoardHeight:CGFloat = 60
+    private let kTimerHeight:CGFloat = 40
     
     convenience init(controller:CHome)
     {
@@ -19,7 +20,12 @@ class VHomePlayer:UIView
             controller:controller)
         self.viewBoard = viewBoard
         
+        let viewTimer:VHomePlayerTimer = VHomePlayerTimer(
+            controller:controller)
+        self.viewTimer = viewTimer
+        
         addSubview(viewBoard)
+        addSubview(viewTimer)
         
         let layoutBoardHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:viewBoard,
@@ -34,10 +40,27 @@ class VHomePlayer:UIView
             view:viewBoard,
             toView:self)
         
+        let layoutTimerHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:viewTimer,
+            constant:kTimerHeight)
+        let layoutTimerBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+            view:viewTimer,
+            toView:viewBoard)
+        let layoutTimerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewTimer,
+            toView:self)
+        let layouttimerRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewTimer,
+            toView:self)
+        
         addConstraints([
             layoutBoardHeight,
             layoutBoardBottom,
             layoutBoardLeft,
-            layoutBoardRight])
+            layoutBoardRight,
+            layoutTimerHeight,
+            layoutTimerBottom,
+            layoutTimerLeft,
+            layouttimerRight])
     }
 }
