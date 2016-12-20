@@ -6,7 +6,10 @@ class VHomePlayerTimerSlider:UIView
     private weak var controller:CHome!
     private weak var viewThumb:UIImageView!
     private weak var layoutTrackTop:NSLayoutConstraint!
+    private weak var layoutTrackWidth:NSLayoutConstraint!
     private weak var layoutThumbLeft:NSLayoutConstraint!
+    private let timeSpan:TimeInterval
+    private let thumbWidth_2:CGFloat
     private let kMinTime:TimeInterval = 0.5
     private let kMaxTime:TimeInterval = 10
     private let kStartTime:TimeInterval = 2
@@ -16,6 +19,9 @@ class VHomePlayerTimerSlider:UIView
     init(controller:CHome)
     {
         currentTime = kStartTime
+        timeSpan = kMaxTime - kMinTime
+        thumbWidth_2 = kThumbWidth / 2.0
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -47,10 +53,10 @@ class VHomePlayerTimerSlider:UIView
             constant:kTrackHeight)
         let layoutTrackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:track,
-            toView:self)
-        let layoutTrackRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:track,
-            toView:self)
+            toView:self,
+            constant:thumbWidth_2)
+        layoutTrackWidth = NSLayoutConstraint.width(
+            view:track)
         
         let layoutThumbTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:viewThumb,
@@ -69,7 +75,7 @@ class VHomePlayerTimerSlider:UIView
             layoutTrackTop,
             layoutTrackHeight,
             layoutTrackLeft,
-            layoutTrackRight,
+            layoutTrackWidth,
             layoutThumbTop,
             layoutThumbBottom,
             layoutThumbWidth,
@@ -85,10 +91,13 @@ class VHomePlayerTimerSlider:UIView
     
     override func layoutSubviews()
     {
+        let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
-        let remain:CGFloat = height - kTrackHeight
-        let margin:CGFloat = remain / 2.0
-        layoutTrackTop.constant = margin
+        let remainHeight:CGFloat = height - kTrackHeight
+        let remainWidth:CGFloat = width - kThumbWidth
+        let marginTop:CGFloat = remainHeight / 2.0
+        layoutTrackTop.constant = marginTop
+        layoutTrackWidth.constant = remainWidth
         
         super.layoutSubviews()
     }
