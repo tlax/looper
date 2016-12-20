@@ -10,8 +10,8 @@ class VHome:VView
     private weak var layoutControlBottom:NSLayoutConstraint!
     private weak var layoutDisplayHeight:NSLayoutConstraint!
     private weak var layoutPlayerHeight:NSLayoutConstraint!
-    private let kTimelineHeight:CGFloat = 40
-    private let kPlayerMinHeight:CGFloat = 100
+    private let kTimelineHeight:CGFloat = 35
+    private let kPlayerMinHeight:CGFloat = 80
     private let kAnimationDurationCamera:TimeInterval = 0.6
     
     override init(controller:CController)

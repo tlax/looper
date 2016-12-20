@@ -4,7 +4,7 @@ class VHomeDisplay:UIView
 {
     private weak var controller:CHome!
     private weak var imageView:UIImageView!
-    private let kImageMargin:CGFloat = 10
+    private let kImageMargin:CGFloat = 2
     
     convenience init(controller:CHome)
     {
