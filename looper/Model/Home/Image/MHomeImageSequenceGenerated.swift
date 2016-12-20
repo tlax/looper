@@ -2,8 +2,6 @@ import UIKit
 
 class MHomeImageSequenceGenerated:MHomeImageSequence
 {
-    private let kDefaultOrientation:UIImageOrientation = UIImageOrientation.up
-    
     init(sequence:MHomeImageSequenceRaw)
     {
         var items:[MHomeImageSequenceItem] = []
@@ -11,22 +9,28 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
         for sequenceItem:MHomeImageSequenceItem in sequence.items
         {
             let originalImage:UIImage = sequenceItem.image
-            let scale:CGFloat = originalImage.scale
+            let width:CGFloat = originalImage.size.width
+            let height:CGFloat = originalImage.size.height
+            
+            let rect:CGRect = CGRect(
+                x:0,
+                y:0,
+                width:width,
+                height:height)
+            UIGraphicsBeginImageContext(rect.size)
+            originalImage.draw(in:rect)
             
             guard
                 
-                let originalCgImage:CGImage = originalImage.cgImage
+                let normalizedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
             
             else
             {
+                UIGraphicsEndImageContext()
                 continue
             }
             
-            let normalizedImage:UIImage = UIImage(
-                cgImage:originalCgImage,
-                scale:scale,
-                orientation:kDefaultOrientation)
-            
+            UIGraphicsEndImageContext()
             let generatedItem:MHomeImageSequenceItem = MHomeImageSequenceItem(
                 image:normalizedImage)
             items.append(generatedItem)
