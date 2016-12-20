@@ -6,13 +6,19 @@ class VHomePlayerTimer:UIView
     private weak var label:UILabel!
     private weak var viewSlider:VHomePlayerTimerSlider!
     private weak var layoutSliderWidth:NSLayoutConstraint!
+    private let numberFormatter:NumberFormatter
     private let kLabelWidth:CGFloat = 70
     private let kSliderLeft:CGFloat = 20
     private let kSliderRight:CGFloat = 10
+    private let kMaxFractions:Int = 1
     
-    convenience init(controller:CHome)
+    init(controller:CHome)
     {
-        self.init()
+        numberFormatter = NumberFormatter()
+        numberFormatter.maximumFractionDigits = kMaxFractions
+        numberFormatter.minimumFractionDigits = kMaxFractions
+        
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
@@ -70,6 +76,11 @@ class VHomePlayerTimer:UIView
             layoutSliderRight])
     }
     
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+    
     override func layoutSubviews()
     {
         let totalWidth:CGFloat = bounds.maxX
@@ -77,5 +88,27 @@ class VHomePlayerTimer:UIView
         layoutSliderWidth.constant = remainWidth
         
         super.layoutSubviews()
+    }
+    
+    //MARK: public
+    
+    func print()
+    {
+        let time:NSNumber = viewSlider.currentTime as NSNumber
+        
+        guard
+        
+            let timeString:String = numberFormatter.string(
+                from:time)
+        
+        else
+        {
+            return
+        }
+        
+        let completeString:String = String(
+            format:NSLocalizedString("VHomePlayerTimer_time", comment:""),
+            timeString)
+        label.text = completeString
     }
 }

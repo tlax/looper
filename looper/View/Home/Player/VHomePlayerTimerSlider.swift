@@ -49,7 +49,6 @@ class VHomePlayerTimerSlider:UIView
         viewThumb.translatesAutoresizingMaskIntoConstraints = false
         viewThumb.clipsToBounds = true
         viewThumb.contentMode = UIViewContentMode.center
-        viewThumb.alpha = 0.4
         self.viewThumb = viewThumb
         
         track.addSubview(insideTrack)
@@ -141,6 +140,12 @@ class VHomePlayerTimerSlider:UIView
         layoutTrackWidth.constant = usableWidth
         layoutThumbLeft.constant = percentageWidth
         layoutInsideTrackWidth.constant = percentageWidth
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.controller.viewHome.viewPlayer.viewTimer.print()
+        }
         
         super.layoutSubviews()
     }
