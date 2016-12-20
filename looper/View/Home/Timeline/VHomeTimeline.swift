@@ -6,7 +6,6 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     private weak var collectionView:UICollectionView!
     private weak var model:MHomeImageSequenceGenerated?
     private let kInterline:CGFloat = 2
-    private let kCellSize:CGFloat = 38
     private let kBorderAlpha:CGFloat = 0.7
     
     init(controller:CHome)
@@ -167,7 +166,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     {
         let height:CGFloat = collectionView.bounds.maxY
         let size:CGSize = CGSize(
-            width:kCellSize,
+            width:height,
             height:height)
         
         return size
