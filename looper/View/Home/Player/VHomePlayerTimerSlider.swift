@@ -49,6 +49,7 @@ class VHomePlayerTimerSlider:UIView
         viewThumb.translatesAutoresizingMaskIntoConstraints = false
         viewThumb.clipsToBounds = true
         viewThumb.contentMode = UIViewContentMode.center
+        viewThumb.alpha = 0.4
         self.viewThumb = viewThumb
         
         track.addSubview(insideTrack)
@@ -160,18 +161,22 @@ class VHomePlayerTimerSlider:UIView
         
         if view !== viewThumb
         {
-            let touchLocation:CGPoint = touch.location(in:self)
-            let touchX:CGFloat = touchLocation.x
-        }
-        else
-        {
-            print("shisus")
+            updateLocation(touch:touch)
         }
     }
     
     override func touchesMoved(_ touches:Set<UITouch>, with event:UIEvent?)
     {
+        guard
+            
+            let touch:UITouch = touches.first
+            
+        else
+        {
+            return
+        }
         
+        updateLocation(touch:touch)
     }
     
     override func touchesCancelled(_ touches:Set<UITouch>, with event:UIEvent?)
@@ -185,6 +190,26 @@ class VHomePlayerTimerSlider:UIView
     }
     
     //MARK: private
+    
+    private func updateLocation(touch:UITouch)
+    {
+        let touchLocation:CGPoint = touch.location(in:self)
+        let touchX:CGFloat = touchLocation.x
+        let usableX:CGFloat = touchX - thumbWidth_2
+        var xPercent:CGFloat = usableX / usableWidth
+        
+        if xPercent > 1
+        {
+            xPercent = 1
+        }
+        else if xPercent < 0
+        {
+            xPercent = 0
+        }
+        
+        currentTime = (TimeInterval(xPercent) * timeSpan) + kMinTime
+        setNeedsLayout()
+    }
     
     private func thumbSelected()
     {
