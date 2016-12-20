@@ -66,6 +66,7 @@ class CHome:CController
     
     func stopAnimation()
     {
+        viewHome.viewDisplay.stopAnimation()
         MSession.sharedInstance.state = MSession.State.standBy
     }
 }
