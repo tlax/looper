@@ -66,5 +66,7 @@ class VHomeDisplay:UIView
     func stopAnimation()
     {
         imageView.stopAnimating()
+        imageView.image = imageView.animationImages?.first
+        imageView.animationImages nil
     }
 }
