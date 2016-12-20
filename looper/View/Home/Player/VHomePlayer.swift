@@ -3,10 +3,9 @@ import UIKit
 class VHomePlayer:UIView
 {
     private weak var controller:CHome!
-    private weak var buttonMain:VHomePlayerMain!
-    private weak var layoutMainLeft:NSLayoutConstraint!
+    private weak var viewBoard:VHomePlayerBoard!
     private let kMainWidth:CGFloat = 70
-    private let kButtonsHeight:CGFloat = 60
+    private let kBoardHeight:CGFloat = 60
     
     convenience init(controller:CHome)
     {
@@ -16,38 +15,29 @@ class VHomePlayer:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let buttonMain:VHomePlayerMain = VHomePlayerMain(controller:controller)
-        self.buttonMain = buttonMain
+        let viewBoard:VHomePlayerBoard = VHomePlayerBoard(
+            controller:controller)
+        self.viewBoard = viewBoard
         
-        addSubview(buttonMain)
+        addSubview(viewBoard)
         
-        let layoutMainHeight:NSLayoutConstraint = NSLayoutConstraint.height(
-            view:buttonMain,
-            constant:kButtonsHeight)
-        let layoutMainBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:buttonMain,
+        let layoutBoardHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:viewBoard,
+            constant:kBoardHeight)
+        let layoutBoardBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:viewBoard,
             toView:self)
-        layoutMainLeft = NSLayoutConstraint.leftToLeft(
-            view:buttonMain,
+        let layoutBoardLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewBoard,
             toView:self)
-        let layoutMainWidth:NSLayoutConstraint = NSLayoutConstraint.width(
-            view:buttonMain,
-            constant:kMainWidth)
+        let layoutBoardRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewBoard,
+            toView:self)
         
         addConstraints([
-            layoutMainHeight,
-            layoutMainBottom,
-            layoutMainLeft,
-            layoutMainWidth])
-    }
-    
-    override func layoutSubviews()
-    {
-        let totalWidth:CGFloat = bounds.maxX
-        let mainRemain:CGFloat = totalWidth - kMainWidth
-        let mainMargin:CGFloat = mainRemain / 2.0
-        layoutMainLeft.constant = mainMargin
-        
-        super.layoutSubviews()
+            layoutBoardHeight,
+            layoutBoardBottom,
+            layoutBoardLeft,
+            layoutBoardRight])
     }
 }
