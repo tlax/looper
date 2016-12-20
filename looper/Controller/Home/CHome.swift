@@ -24,14 +24,14 @@ class CHome:CController
         view = viewHome
     }
     
-    //MARK: public
+    //MARK: private
     
-    func animate()
+    private func asyncAnimate()
     {
         guard
             
             let modelGenerated:MHomeImageSequenceGenerated = modelImage.generateSequence()
-        
+            
         else
         {
             return
@@ -39,9 +39,29 @@ class CHome:CController
         
         var images:[UIImage] = []
         
+        for itemGenerated:MHomeImageSequenceItem in modelGenerated.items
+        {
+            let image:UIImage = itemGenerated.image
+            images.append(image)
+        }
         
-        
-        MSession.sharedInstance.state = MSession.State.playing
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewHome.viewDisplay.animateImages(images:images)
+            MSession.sharedInstance.state = MSession.State.playing
+        }
+    }
+    
+    //MARK: public
+    
+    func animate()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncAnimate()
+        }
     }
     
     func stopAnimation()

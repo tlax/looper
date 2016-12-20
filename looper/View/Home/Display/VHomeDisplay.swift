@@ -51,7 +51,15 @@ class VHomeDisplay:UIView
     
     func displayFrame(image:UIImage)
     {
+        imageView.animationImages = nil
         imageView.stopAnimating()
         imageView.image = image
+    }
+    
+    func animateImages(images:[UIImage])
+    {
+        imageView.image = nil
+        imageView.animationImages = images
+        imageView.startAnimating()
     }
 }
