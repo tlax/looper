@@ -8,6 +8,7 @@ class VHomePlayerTimer:UIView
     private weak var layoutSliderWidth:NSLayoutConstraint!
     private let numberFormatter:NumberFormatter
     private let kLabelWidth:CGFloat = 70
+    private let kLabelTitleHeight:CGFloat = 30
     private let kSliderLeft:CGFloat = 20
     private let kSliderRight:CGFloat = 10
     private let kMaxFractions:Int = 1
@@ -28,15 +29,24 @@ class VHomePlayerTimer:UIView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:14)
+        label.font = UIFont.regular(size:16)
         label.textColor = UIColor.white
         self.label = label
+        
+        let labelTitle:UILabel = UILabel()
+        labelTitle.isUserInteractionEnabled = false
+        labelTitle.translatesAutoresizingMaskIntoConstraints = false
+        labelTitle.backgroundColor = UIColor.clear
+        labelTitle.font = UIFont.regular(size:12)
+        labelTitle.textColor = UIColor.white
+        labelTitle.text = NSLocalizedString("VHomePlayerTimer_time", comment:"")
         
         let viewSlider:VHomePlayerTimerSlider = VHomePlayerTimerSlider(
             controller:controller)
         self.viewSlider = viewSlider
         
         addSubview(label)
+        addSubview(labelTitle)
         addSubview(viewSlider)
         
         let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
@@ -51,6 +61,19 @@ class VHomePlayerTimer:UIView
         let layoutLabelWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:label,
             constant:kLabelWidth)
+        
+        let layoutTitleHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:labelTitle,
+            constant:kLabelTitleHeight)
+        let layoutTitleBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+            view:labelTitle,
+            toView:self)
+        let layoutTitleLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:labelTitle,
+            toView:self)
+        let layoutTitleRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:labelTitle,
+            toView:self)
         
         let layoutSliderTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:viewSlider,
@@ -73,7 +96,11 @@ class VHomePlayerTimer:UIView
             layoutSliderTop,
             layoutSliderBottom,
             layoutSliderWidth,
-            layoutSliderRight])
+            layoutSliderRight,
+            layoutTitleHeight,
+            layoutTitleBottom,
+            layoutTitleLeft,
+            layoutTitleRight])
     }
     
     required init?(coder:NSCoder)
