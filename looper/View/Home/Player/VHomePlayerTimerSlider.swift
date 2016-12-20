@@ -4,11 +4,14 @@ class VHomePlayerTimerSlider:UIView
 {
     var currentTime:TimeInterval
     private weak var controller:CHome!
+    private weak var viewThumb:UIImageView!
     private weak var layoutTrackTop:NSLayoutConstraint!
+    private weak var layoutThumbLeft:NSLayoutConstraint!
     private let kMinTime:TimeInterval = 0.5
     private let kMaxTime:TimeInterval = 10
     private let kStartTime:TimeInterval = 2
     private let kTrackHeight:CGFloat = 4
+    private let kThumbWidth:CGFloat = 30
     
     init(controller:CHome)
     {
@@ -26,7 +29,15 @@ class VHomePlayerTimerSlider:UIView
         track.backgroundColor = UIColor.black
         track.layer.cornerRadius = kTrackHeight / 2.0
         
+        let viewThumb:UIImageView = UIImageView()
+        viewThumb.isUserInteractionEnabled = false
+        viewThumb.translatesAutoresizingMaskIntoConstraints = false
+        viewThumb.clipsToBounds = true
+        viewThumb.contentMode = UIViewContentMode.center
+        self.viewThumb = viewThumb
+        
         addSubview(track)
+        addSubview(viewThumb)
         
         layoutTrackTop = NSLayoutConstraint.topToTop(
             view:track,
@@ -41,11 +52,30 @@ class VHomePlayerTimerSlider:UIView
             view:track,
             toView:self)
         
+        let layoutThumbTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewThumb,
+            toView:self)
+        let layoutThumbBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:viewThumb,
+            toView:self)
+        let layoutThumbWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:viewThumb,
+            constant:kThumbWidth)
+        layoutThumbLeft = NSLayoutConstraint.leftToLeft(
+            view:viewThumb,
+            toView:self)
+        
         addConstraints([
             layoutTrackTop,
             layoutTrackHeight,
             layoutTrackLeft,
-            layoutTrackRight])
+            layoutTrackRight,
+            layoutThumbTop,
+            layoutThumbBottom,
+            layoutThumbWidth,
+            layoutThumbLeft])
+        
+        thumbNormal()
     }
     
     required init?(coder:NSCoder)
@@ -61,5 +91,17 @@ class VHomePlayerTimerSlider:UIView
         layoutTrackTop.constant = margin
         
         super.layoutSubviews()
+    }
+    
+    //MARK: private
+    
+    private func thumbSelected()
+    {
+        viewThumb.image = #imageLiteral(resourceName: "assetHomePlayerSliderSelected")
+    }
+    
+    private func thumbNormal()
+    {
+        viewThumb.image = #imageLiteral(resourceName: "assetHomePlayerSlider")
     }
 }
