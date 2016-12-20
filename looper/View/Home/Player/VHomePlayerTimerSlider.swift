@@ -12,6 +12,9 @@ class VHomePlayerTimerSlider:UIView
     {
         currentTime = kStartTime
         super.init(frame:CGRect.zero)
+        clipsToBounds = true
+        backgroundColor = UIColor.clear
+        translatesAutoresizingMaskIntoConstraints = false
         
         self.controller = controller
     }

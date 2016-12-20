@@ -7,8 +7,8 @@ class VHomePlayerTimer:UIView
     private weak var viewSlider:VHomePlayerTimerSlider!
     private weak var layoutSliderWidth:NSLayoutConstraint!
     private let kLabelWidth:CGFloat = 70
-    private let kSliderLeft:CGFloat = 30
-    private let kSliderRight:CGFloat = 15
+    private let kSliderLeft:CGFloat = 20
+    private let kSliderRight:CGFloat = 10
     
     convenience init(controller:CHome)
     {
