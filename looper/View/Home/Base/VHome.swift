@@ -117,9 +117,20 @@ class VHome:VView
     
     override func layoutSubviews()
     {
+        let totalWidth:CGFloat = bounds.maxX
         let totalHeight:CGFloat = bounds.maxY
-        let remainHeight:CGFloat = totalHeight - (viewControl.kCollectionHeight + kTimelineHeight + kPlayerHeight)
-        layoutDisplayHeight.constant = remainHeight
+        let displayHeight:CGFloat
+        
+        if totalWidth < totalHeight
+        {
+            displayHeight = totalWidth
+        }
+        else
+        {
+            displayHeight = totalHeight - (viewControl.kCollectionHeight + kTimelineHeight + kPlayerHeight)
+        }
+        
+        layoutDisplayHeight.constant = displayHeight
         
         super.layoutSubviews()
     }
