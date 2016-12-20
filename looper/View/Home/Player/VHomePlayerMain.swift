@@ -12,6 +12,12 @@ class VHomePlayerMain:UIButton
         translatesAutoresizingMaskIntoConstraints = false
         imageView!.contentMode = UIViewContentMode.center
         imageView!.clipsToBounds = true
+        setImage(
+            #imageLiteral(resourceName: "assetHomePlayerPlay"),
+            for:UIControlState.normal)
+        setImage(
+            #imageLiteral(resourceName: "assetHomePlayerPlaySelected"),
+            for:UIControlState.highlighted)
         addTarget(
             self,
             action:#selector(self.actionMain(sender:)),
@@ -51,10 +57,24 @@ class VHomePlayerMain:UIButton
     private func buttonStop()
     {
         controller.animate()
+        
+        setImage(
+            #imageLiteral(resourceName: "assetHomePlayerPlay"),
+            for:UIControlState.normal)
+        setImage(
+            #imageLiteral(resourceName: "assetHomePlayerPlaySelected"),
+            for:UIControlState.highlighted)
     }
     
     private func buttonPlay()
     {
         controller.stopAnimation()
+        
+        setImage(
+            #imageLiteral(resourceName: "assetHomePlayerPlay"),
+            for:UIControlState.normal)
+        setImage(
+            #imageLiteral(resourceName: "assetHomePlayerPlaySelected"),
+            for:UIControlState.highlighted)
     }
 }
