@@ -46,9 +46,9 @@ class VHomeControlCamera:UIView
         
         layoutPreviewHeight = NSLayoutConstraint.height(
             view:viewPreview)
-        let layoutPreviewBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+        let layoutPreviewBottom:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:viewPreview,
-            toView:viewMenu)
+            toView:self)
         let layoutPreviewLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewPreview,
             toView:self)
@@ -94,8 +94,18 @@ class VHomeControlCamera:UIView
     
     override func layoutSubviews()
     {
+        let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
-        let previewHeight:CGFloat = height - kMenuHeight
+        let previewHeight:CGFloat
+        
+        if width < height
+        {
+            previewHeight = width
+        }
+        else
+        {
+            previewHeight = height - kMenuHeight
+        }
         
         if previewHeight >= 0
         {

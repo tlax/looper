@@ -3,6 +3,7 @@ import UIKit
 class VHomeControlCameraPreview:UIView
 {
     private weak var previewLayer:CALayer?
+    private let kDeltaHeight:CGFloat = 0.75
     
     init()
     {
@@ -10,6 +11,7 @@ class VHomeControlCameraPreview:UIView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+        contentMode = UIViewContentMode.scaleAspectFill
     }
     
     required init?(coder:NSCoder)
@@ -19,8 +21,16 @@ class VHomeControlCameraPreview:UIView
     
     override func layoutSubviews()
     {
-        let frame:CGRect = layer.frame
-        previewLayer?.frame = frame
+        let width:CGFloat = bounds.maxY
+        let expectedHeight:CGFloat = width * kDeltaHeight
+        let overflowHeight:CGFloat = expectedHeight - width
+        let marginTop:CGFloat = overflowHeight / -2.0
+        let previewFrame:CGRect = CGRect(
+            x:0,
+            y:marginTop,
+            width:width,
+            height:expectedHeight)
+        previewLayer?.frame = previewFrame
         
         super.layoutSubviews()
     }
