@@ -4,19 +4,14 @@ class VHomePlayerTimer:UIView
 {
     private weak var controller:CHome!
     private weak var label:UILabel!
-    private var currentTime:TimeInterval
+    private weak var viewSlider:VHomePlayerTimerSlider!
     private let kLabelWidth:CGFloat = 70
-    private let kSliderMarginLeft:CGFloat = 30
-    private let kSliderMarginRight:CGFloat = 15
-    private let kMinTime:TimeInterval = 0.5
-    private let kMaxTime:TimeInterval = 10
-    private let kStartTime:TimeInterval = 2
+    private let kSliderLeft:CGFloat = 30
+    private let kSliderRight:CGFloat = -15
     
-    init(controller:CHome)
+    convenience init(controller:CHome)
     {
-        currentTime = kStartTime
-        
-        super.init(frame:CGRect.zero)
+        self.init()
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
@@ -30,7 +25,12 @@ class VHomePlayerTimer:UIView
         label.textColor = UIColor.white
         self.label = label
         
+        let viewSlider:VHomePlayerTimerSlider = VHomePlayerTimerSlider(
+            controller:controller)
+        self.viewSlider = viewSlider
+        
         addSubview(label)
+        addSubview(viewSlider)
         
         let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:label,
@@ -45,15 +45,29 @@ class VHomePlayerTimer:UIView
             view:label,
             constant:kLabelWidth)
         
+        let layoutSliderTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewSlider,
+            toView:self)
+        let layoutSliderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:viewSlider,
+            toView:self)
+        let layoutSliderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewSlider,
+            toView:self,
+            constant:kSliderLeft)
+        let layoutSliderRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+            view:viewSlider,
+            toView:label,
+            constant:kSliderRight)
+        
         addConstraints([
             layoutLabelTop,
             layoutLabelBottom,
             layoutLabelRight,
-            layoutLabelWidth])
-    }
-    
-    required init?(coder:NSCoder)
-    {
-        fatalError()
+            layoutLabelWidth,
+            layoutSliderTop,
+            layoutSliderBottom,
+            layoutSliderLeft,
+            layoutSliderRight])
     }
 }
