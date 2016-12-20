@@ -59,10 +59,10 @@ class VHomePlayerMain:UIButton
         controller.animate()
         
         setImage(
-            #imageLiteral(resourceName: "assetHomePlayerPlay"),
+            #imageLiteral(resourceName: "assetHomePlayerPause"),
             for:UIControlState.normal)
         setImage(
-            #imageLiteral(resourceName: "assetHomePlayerPlaySelected"),
+            #imageLiteral(resourceName: "assetHomePlayerPauseSelected"),
             for:UIControlState.highlighted)
     }
     
