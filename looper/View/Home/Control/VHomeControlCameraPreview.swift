@@ -22,7 +22,7 @@ class VHomeControlCameraPreview:UIView
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.maxY
-        let expectedHeight:CGFloat = width * kDeltaHeight
+        let expectedHeight:CGFloat = width / kDeltaHeight
         let overflowHeight:CGFloat = expectedHeight - width
         let marginTop:CGFloat = overflowHeight / -2.0
         let previewFrame:CGRect = CGRect(

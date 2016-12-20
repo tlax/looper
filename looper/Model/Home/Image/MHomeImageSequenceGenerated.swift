@@ -11,12 +11,17 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
             let originalImage:UIImage = sequenceItem.image
             let width:CGFloat = originalImage.size.width
             let height:CGFloat = originalImage.size.height
+            let minSize:CGFloat = min(width, height)
+            let remainLeft:CGFloat = width - minSize
+            let remainTop:CGFloat = height - minSize
+            let marginLeft:CGFloat = remainLeft / -2.0
+            let marginTop:CGFloat = remainTop / -2.0
             
             let rect:CGRect = CGRect(
-                x:0,
-                y:0,
-                width:width,
-                height:height)
+                x:marginLeft,
+                y:marginTop,
+                width:minSize,
+                height:minSize)
             UIGraphicsBeginImageContext(rect.size)
             originalImage.draw(in:rect)
             
