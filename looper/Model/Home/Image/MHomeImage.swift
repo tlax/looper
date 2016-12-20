@@ -2,7 +2,7 @@ import Foundation
 
 class MHomeImage
 {
-    var generatedSequence:MHomeImageSequenceGenerated?
+    private var generatedSequence:MHomeImageSequenceGenerated?
     private(set) var sequences:[MHomeImageSequenceRaw]
     
     init()

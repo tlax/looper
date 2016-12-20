@@ -34,7 +34,7 @@ class VHomePlayerMain:UIButton
             case MSession.State.standBy,
                  MSession.State.frame:
                 
-                if controller.modelImage.generatedSequence?.items.first != nil
+                if controller.modelImage.generateSequence()?.items.first != nil
                 {
                     buttonStop()
                 }
