@@ -7,6 +7,7 @@ class VHomePlayer:UIView
     private weak var viewTimer:VHomePlayerTimer!
     private let kBoardHeight:CGFloat = 60
     private let kTimerHeight:CGFloat = 40
+    private let kTimerBottom:CGFloat = -20
     
     convenience init(controller:CHome)
     {
@@ -45,7 +46,8 @@ class VHomePlayer:UIView
             constant:kTimerHeight)
         let layoutTimerBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
             view:viewTimer,
-            toView:viewBoard)
+            toView:viewBoard,
+            constant:kTimerBottom)
         let layoutTimerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewTimer,
             toView:self)
