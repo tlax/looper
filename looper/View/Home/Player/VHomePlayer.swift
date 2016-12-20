@@ -6,6 +6,7 @@ class VHomePlayer:UIView
     private weak var buttonMain:VHomePlayerMain!
     private weak var layoutMainLeft:NSLayoutConstraint!
     private let kMainWidth:CGFloat = 70
+    private let kButtonsHeight:CGFloat = 60
     
     convenience init(controller:CHome)
     {
@@ -20,9 +21,9 @@ class VHomePlayer:UIView
         
         addSubview(buttonMain)
         
-        let layoutMainTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let layoutMainHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:buttonMain,
-            toView:self)
+            constant:kButtonsHeight)
         let layoutMainBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:buttonMain,
             toView:self)
@@ -34,7 +35,7 @@ class VHomePlayer:UIView
             constant:kMainWidth)
         
         addConstraints([
-            layoutMainTop,
+            layoutMainHeight,
             layoutMainBottom,
             layoutMainLeft,
             layoutMainWidth])
