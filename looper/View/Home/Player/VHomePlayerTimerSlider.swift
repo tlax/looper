@@ -8,6 +8,7 @@ class VHomePlayerTimerSlider:UIView
     private weak var layoutTrackTop:NSLayoutConstraint!
     private weak var layoutTrackWidth:NSLayoutConstraint!
     private weak var layoutThumbLeft:NSLayoutConstraint!
+    private weak var layoutInsideTrackWidth:NSLayoutConstraint!
     private let timeSpan:TimeInterval
     private let thumbWidth_2:CGFloat
     private let kMinTime:TimeInterval = 0.5
@@ -35,6 +36,12 @@ class VHomePlayerTimerSlider:UIView
         track.backgroundColor = UIColor.black
         track.layer.cornerRadius = kTrackHeight / 2.0
         
+        let insideTrack:UIView = UIView()
+        insideTrack.isUserInteractionEnabled = false
+        insideTrack.clipsToBounds = true
+        insideTrack.backgroundColor = UIColor.genericLight
+        insideTrack.translatesAutoresizingMaskIntoConstraints = false
+        
         let viewThumb:UIImageView = UIImageView()
         viewThumb.isUserInteractionEnabled = false
         viewThumb.translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +49,7 @@ class VHomePlayerTimerSlider:UIView
         viewThumb.contentMode = UIViewContentMode.center
         self.viewThumb = viewThumb
         
+        track.addSubview(insideTrack)
         addSubview(track)
         addSubview(viewThumb)
         
@@ -71,6 +79,18 @@ class VHomePlayerTimerSlider:UIView
             view:viewThumb,
             toView:self)
         
+        let layoutInsideTrackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:insideTrack,
+            toView:track)
+        let layoutInsideTrackBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:insideTrack,
+            toView:track)
+        let layoutInsideTrackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:insideTrack,
+            toView:track)
+        layoutInsideTrackWidth = NSLayoutConstraint.width(
+            view:insideTrack)
+        
         addConstraints([
             layoutTrackTop,
             layoutTrackHeight,
@@ -79,7 +99,11 @@ class VHomePlayerTimerSlider:UIView
             layoutThumbTop,
             layoutThumbBottom,
             layoutThumbWidth,
-            layoutThumbLeft])
+            layoutThumbLeft,
+            layoutInsideTrackTop,
+            layoutInsideTrackBottom,
+            layoutInsideTrackLeft,
+            layoutInsideTrackWidth])
         
         thumbNormal()
     }
