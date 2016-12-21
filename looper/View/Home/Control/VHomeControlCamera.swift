@@ -4,8 +4,8 @@ import AVFoundation
 class VHomeControlCamera:UIView
 {
     private weak var controller:CHome!
-    private weak var captureOutput:AVCaptureStillImageOutput?
     private weak var captureSession:AVCaptureSession?
+    private weak var captureOutput:AVCaptureStillImageOutput?
     private weak var captureDeviceInput:AVCaptureDeviceInput?
     private weak var viewPreview:VHomeControlCameraPreview!
     private weak var viewMenu:VHomeControlCameraMenu!

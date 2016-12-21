@@ -49,6 +49,10 @@ class VHomeControlCameraMenu:UIView
         buttonReverse.imageView!.contentMode = UIViewContentMode.center
         buttonReverse.imageView!.clipsToBounds = true
         buttonReverse.imageView!.tintColor = UIColor(white:1, alpha:0.1)
+        buttonReverse.addTarget(
+            self,
+            action:#selector(self.actionReverse(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let buttonTrigger:VHomeControlCameraMenuTrigger = VHomeControlCameraMenuTrigger(
             controller:controller)
@@ -127,5 +131,10 @@ class VHomeControlCameraMenu:UIView
     {
         button.isUserInteractionEnabled = false
         controller.viewHome.hideCamera()
+    }
+    
+    func actionReverse(sender button:UIButton)
+    {
+        controller.viewHome.viewControl.viewCamera?.reverseCamera()
     }
 }

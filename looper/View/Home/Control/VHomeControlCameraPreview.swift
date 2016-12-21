@@ -16,7 +16,6 @@ class VHomeControlCameraPreview:UIView
     
     deinit
     {
-        print("die layer")
         previewLayer?.removeFromSuperlayer()
     }
     
