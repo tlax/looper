@@ -10,9 +10,12 @@ class VHomeControlCameraTickerFrames:UIView
     private weak var buttonRest:UIButton!
     private weak var label:UILabel!
     private weak var layoutAddTop:NSLayoutConstraint!
-    private let kButtonsHeight:CGFloat = 35
-    private let kButtonsWidth:CGFloat = 50
-    private let kLabelWidth:CGFloat = 70
+    private let kButtonsHeight:CGFloat = 45
+    private let kButtonsWidth:CGFloat = 55
+    private let kButtonsMargin:CGFloat = 18
+    private let kLabelWidth:CGFloat = 100
+    private let kLabelRight:CGFloat = 12
+    private let kTitlesHeight:CGFloat = 25
     private let kAlphaActive:CGFloat = 1
     private let kAlphaNotActive:CGFloat = 0.2
     
@@ -40,10 +43,15 @@ class VHomeControlCameraTickerFrames:UIView
         buttonAdd.imageView!.contentMode = UIViewContentMode.center
         buttonAdd.imageView!.clipsToBounds = true
         buttonAdd.imageView!.tintColor = UIColor(white:1, alpha:0.2)
+        buttonAdd.imageEdgeInsets = UIEdgeInsets(
+            top:kButtonsMargin,
+            left:0,
+            bottom:0,
+            right:0)
         buttonAdd.addTarget(
             self,
             action:#selector(self.actionAdd(sender:)),
-            for:UIControlEvents.touchUpInside)
+            for:UIControlEvents.touchDown)
         self.buttonAdd = buttonAdd
         
         let buttonRest:UIButton = UIButton()
@@ -59,24 +67,51 @@ class VHomeControlCameraTickerFrames:UIView
         buttonRest.imageView!.contentMode = UIViewContentMode.center
         buttonRest.imageView!.clipsToBounds = true
         buttonRest.imageView!.tintColor = UIColor(white:1, alpha:0.2)
+        buttonRest.imageEdgeInsets = UIEdgeInsets(
+            top:0,
+            left:0,
+            bottom:kButtonsMargin,
+            right:0)
         buttonRest.addTarget(
             self,
             action:#selector(self.actionRest(sender:)),
-            for:UIControlEvents.touchUpInside)
+            for:UIControlEvents.touchDown)
         self.buttonRest = buttonRest
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.medium(size:30)
+        label.font = UIFont.medium(size:22)
         label.textAlignment = NSTextAlignment.right
         label.textColor = UIColor.white
         self.label = label
         
+        let titleTop:UILabel = UILabel()
+        titleTop.isUserInteractionEnabled = false
+        titleTop.backgroundColor = UIColor.clear
+        titleTop.translatesAutoresizingMaskIntoConstraints = false
+        titleTop.font = UIFont.regular(size:15)
+        titleTop.textColor = UIColor(white:1, alpha:0.5)
+        titleTop.textAlignment = NSTextAlignment.right
+        titleTop.text = NSLocalizedString(
+            "VHomeControlCameraTickerFrames_titleTop", comment:"")
+        
+        let titleBottom:UILabel = UILabel()
+        titleBottom.isUserInteractionEnabled = false
+        titleBottom.backgroundColor = UIColor.clear
+        titleBottom.translatesAutoresizingMaskIntoConstraints = false
+        titleBottom.font = UIFont.regular(size:15)
+        titleBottom.textColor = UIColor(white:1, alpha:0.5)
+        titleBottom.textAlignment = NSTextAlignment.right
+        titleBottom.text = NSLocalizedString(
+            "VHomeControlCameraTickerFrames_titleBottom", comment:"")
+        
+        addSubview(label)
+        addSubview(titleTop)
+        addSubview(titleBottom)
         addSubview(buttonAdd)
         addSubview(buttonRest)
-        addSubview(label)
         
         layoutAddTop = NSLayoutConstraint.topToTop(
             view:buttonAdd,
@@ -112,9 +147,38 @@ class VHomeControlCameraTickerFrames:UIView
             toView:self)
         let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
             view:label,
-            toView:buttonAdd)
+            toView:buttonAdd,
+            constant:kLabelRight)
         let layoutLabelWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:label,
+            constant:kLabelWidth)
+        
+        let layoutTitleTopBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:titleTop,
+            toView:buttonAdd)
+        let layoutTitleTopHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:titleTop,
+            constant:kTitlesHeight)
+        let layoutTitleTopRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+            view:titleTop,
+            toView:buttonAdd,
+            constant:kLabelRight)
+        let layoutTitleTopWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:titleTop,
+            constant:kLabelWidth)
+        
+        let layoutTitleBottomTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:titleBottom,
+            toView:buttonRest)
+        let layoutTitleBottomHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:titleBottom,
+            constant:kTitlesHeight)
+        let layoutTitleBottomRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+            view:titleBottom,
+            toView:buttonAdd,
+            constant:kLabelRight)
+        let layoutTitleBottomWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:titleBottom,
             constant:kLabelWidth)
         
         addConstraints([
@@ -129,7 +193,15 @@ class VHomeControlCameraTickerFrames:UIView
             layoutLabelTop,
             layoutLabelBottom,
             layoutLabelRight,
-            layoutLabelWidth])
+            layoutLabelWidth,
+            layoutTitleTopBottom,
+            layoutTitleTopHeight,
+            layoutTitleTopRight,
+            layoutTitleTopWidth,
+            layoutTitleBottomTop,
+            layoutTitleBottomHeight,
+            layoutTitleBottomRight,
+            layoutTitleBottomWidth])
         
         print()
     }
@@ -157,6 +229,7 @@ class VHomeControlCameraTickerFrames:UIView
         
         if currentIndex <= 0
         {
+            currentIndex = 0
             deActivateAdd()
         }
         else
@@ -170,9 +243,11 @@ class VHomeControlCameraTickerFrames:UIView
     func actionRest(sender button:UIButton)
     {
         currentIndex += 1
+        let maxIndex:Int = model.items.count - 1
         
-        if currentIndex >= model.items.count - 1
+        if currentIndex >= maxIndex
         {
+            currentIndex = maxIndex
             deActivateRest()
         }
         else
