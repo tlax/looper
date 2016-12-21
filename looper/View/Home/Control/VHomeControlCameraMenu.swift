@@ -4,10 +4,14 @@ class VHomeControlCameraMenu:UIView
 {
     private weak var controller:CHome!
     private weak var buttonTrigger:VHomeControlCameraMenuTrigger!
+    private weak var buttonBack:UIButton!
+    private weak var buttonReverse:UIButton!
     private weak var layoutButtonTriggerLeft:NSLayoutConstraint!
     private let kButtonsWidth:CGFloat = 60
     private let kButtonsHeight:CGFloat = 50
     private let kButtonTriggerSize:CGFloat = 100
+    private let kButtonsAlphaBlocked:CGFloat = 0.3
+    private let kButtonsAlpha:CGFloat = 1
     
     convenience init(controller:CHome)
     {
@@ -37,6 +41,7 @@ class VHomeControlCameraMenu:UIView
             self,
             action:#selector(self.actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.buttonBack = buttonBack
         
         let buttonReverse:UIButton = UIButton()
         buttonReverse.translatesAutoresizingMaskIntoConstraints = false
@@ -53,6 +58,7 @@ class VHomeControlCameraMenu:UIView
             self,
             action:#selector(self.actionReverse(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.buttonReverse = buttonReverse
         
         let buttonTrigger:VHomeControlCameraMenuTrigger = VHomeControlCameraMenuTrigger(
             controller:controller)
@@ -144,5 +150,23 @@ class VHomeControlCameraMenu:UIView
     func actionReverse(sender button:UIButton)
     {
         controller.viewHome.viewControl.viewCamera?.reverseCamera()
+    }
+    
+    //MARK: public
+    
+    func blockButtons()
+    {
+        buttonReverse.isUserInteractionEnabled = false
+        buttonBack.isUserInteractionEnabled = false
+        buttonReverse.alpha = kButtonsAlphaBlocked
+        buttonBack.alpha = kButtonsAlphaBlocked
+    }
+    
+    func releaseButtons()
+    {
+        buttonReverse.isUserInteractionEnabled = true
+        buttonBack.isUserInteractionEnabled = true
+        buttonReverse.alpha = kButtonsAlpha
+        buttonBack.alpha = kButtonsAlpha
     }
 }

@@ -99,7 +99,6 @@ class VHomeControlCamera:UIView
     
     deinit
     {
-        print("clean")
         cleanSession()
     }
     
