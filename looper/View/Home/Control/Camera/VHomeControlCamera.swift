@@ -11,6 +11,7 @@ class VHomeControlCamera:UIView
     private weak var captureDeviceInput:AVCaptureDeviceInput?
     private weak var viewPreview:VHomeControlCameraPreview!
     private weak var layoutPreviewHeight:NSLayoutConstraint!
+    private weak var layoutTickerHeight:NSLayoutConstraint!
     private weak var timer:Timer?
     private var model:MHomeImageSequenceRaw?
     private var devicePosition:AVCaptureDevicePosition
@@ -22,7 +23,7 @@ class VHomeControlCamera:UIView
     private let kQueueLabel:String = "cameraQueue"
     private let kAskAuthAfter:TimeInterval = 0.5
     private let kTriggerInterval:TimeInterval = 0.2
-    private let kMenuHeight:CGFloat = 100
+    private let kMenuHeight:CGFloat = 90
     
     init(controller:CHome)
     {
@@ -58,7 +59,7 @@ class VHomeControlCamera:UIView
         
         layoutPreviewHeight = NSLayoutConstraint.height(
             view:viewPreview)
-        let layoutPreviewBottom:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let layoutPreviewTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:viewPreview,
             toView:self)
         let layoutPreviewLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
@@ -84,9 +85,8 @@ class VHomeControlCamera:UIView
         let layoutTickerTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:viewTicker,
             toView:viewPreview)
-        let layoutTickerBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
-            view:viewTicker,
-            toView:viewMenu)
+        layoutTickerHeight = NSLayoutConstraint.height(
+            view:viewTicker)
         let layoutTickerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewTicker,
             toView:self)
@@ -96,7 +96,7 @@ class VHomeControlCamera:UIView
         
         addConstraints([
             layoutPreviewHeight,
-            layoutPreviewBottom,
+            layoutPreviewTop,
             layoutPreviewLeft,
             layoutPreviewRight,
             layoutMenuHeight,
@@ -104,7 +104,7 @@ class VHomeControlCamera:UIView
             layoutMenuLeft,
             layoutMenuRight,
             layoutTickerTop,
-            layoutTickerBottom,
+            layoutTickerHeight,
             layoutTickerLeft,
             layoutTickerRight])
         
@@ -131,19 +131,27 @@ class VHomeControlCamera:UIView
         let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
         let previewHeight:CGFloat
+        let tickerHeight:CGFloat
         
         if width < height
         {
             previewHeight = width
+            tickerHeight = height - (previewHeight + kMenuHeight)
         }
         else
         {
             previewHeight = height - kMenuHeight
+            tickerHeight = 0
         }
         
         if previewHeight >= 0
         {
             layoutPreviewHeight.constant = previewHeight
+        }
+        
+        if tickerHeight >= 0
+        {
+            layoutTickerHeight.constant = tickerHeight
         }
         
         super.layoutSubviews()

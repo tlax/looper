@@ -9,7 +9,7 @@ class VHomeControlCameraMenu:UIView
     private weak var layoutButtonTriggerLeft:NSLayoutConstraint!
     private let kButtonsWidth:CGFloat = 60
     private let kButtonsHeight:CGFloat = 50
-    private let kButtonTriggerSize:CGFloat = 100
+    private let kButtonTriggerSize:CGFloat = 90
     private let kButtonsAlphaBlocked:CGFloat = 0.2
     private let kButtonsAlpha:CGFloat = 1
     
