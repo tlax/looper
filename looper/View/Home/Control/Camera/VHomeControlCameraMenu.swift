@@ -2,8 +2,8 @@ import UIKit
 
 class VHomeControlCameraMenu:UIView
 {
+    weak var buttonTrigger:VHomeControlCameraMenuTrigger!
     private weak var controller:CHome!
-    private weak var buttonTrigger:VHomeControlCameraMenuTrigger!
     private weak var buttonBack:UIButton!
     private weak var buttonReverse:UIButton!
     private weak var layoutButtonTriggerLeft:NSLayoutConstraint!

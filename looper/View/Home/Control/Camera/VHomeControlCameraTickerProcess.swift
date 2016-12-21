@@ -93,6 +93,8 @@ class VHomeControlCameraTickerProcess:UIView
         
         if countPics >= kMaxPictures
         {
+            controller.viewHome.viewControl.viewCamera?.viewMenu.buttonTrigger.stop()
+            
             strokeColor = UIColor.genericDark
             endAngle = kEndAngle
             timer.invalidate()

@@ -70,4 +70,14 @@ class VHomeControlCameraMenuTrigger:UIButton
             #imageLiteral(resourceName: "assetHomeCameraTriggerStopHighlighted"),
             for:UIControlState.highlighted)
     }
+    
+    //MARK: public
+    
+    func stop()
+    {
+        if active
+        {
+            actionTrigger(sender:self)
+        }
+    }
 }
