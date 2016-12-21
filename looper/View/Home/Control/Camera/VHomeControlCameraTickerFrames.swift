@@ -1,9 +1,14 @@
-//
-//  VHomeControlCameraTickerFrames.swift
-//  looper
-//
-//  Created by zero on 12/21/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VHomeControlCameraTickerFrames:UIView
+{
+    private weak var controller:CHome!
+    
+    convenience init(controller:CHome)
+    {
+        self.init()
+        clipsToBounds = true
+        backgroundColor = UIColor.clear
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+}
