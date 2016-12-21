@@ -4,6 +4,7 @@ import AVFoundation
 class VHomeControlCamera:UIView
 {
     weak var viewMenu:VHomeControlCameraMenu!
+    weak var viewTicker:VHomeControlCameraTicker!
     private weak var controller:CHome!
     private weak var captureSession:AVCaptureSession?
     private weak var captureOutput:AVCaptureStillImageOutput?
@@ -43,11 +44,17 @@ class VHomeControlCamera:UIView
         let viewPreview:VHomeControlCameraPreview = VHomeControlCameraPreview()
         self.viewPreview = viewPreview
         
-        let viewMenu:VHomeControlCameraMenu = VHomeControlCameraMenu(controller:controller)
+        let viewMenu:VHomeControlCameraMenu = VHomeControlCameraMenu(
+            controller:controller)
         self.viewMenu = viewMenu
+        
+        let viewTicker:VHomeControlCameraTicker = VHomeControlCameraTicker(
+            controller:controller)
+        self.viewTicker = viewTicker
         
         addSubview(viewPreview)
         addSubview(viewMenu)
+        addSubview(viewTicker)
         
         layoutPreviewHeight = NSLayoutConstraint.height(
             view:viewPreview)
@@ -74,6 +81,19 @@ class VHomeControlCamera:UIView
             view:viewMenu,
             toView:self)
         
+        let layoutTickerTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:viewTicker,
+            toView:viewPreview)
+        let layoutTickerBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+            view:viewTicker,
+            toView:viewMenu)
+        let layoutTickerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewTicker,
+            toView:self)
+        let layoutTickerRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewTicker,
+            toView:self)
+        
         addConstraints([
             layoutPreviewHeight,
             layoutPreviewBottom,
@@ -82,7 +102,11 @@ class VHomeControlCamera:UIView
             layoutMenuHeight,
             layoutMenuBottom,
             layoutMenuLeft,
-            layoutMenuRight])
+            layoutMenuRight,
+            layoutTickerTop,
+            layoutTickerBottom,
+            layoutTickerLeft,
+            layoutTickerRight])
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kAskAuthAfter)
