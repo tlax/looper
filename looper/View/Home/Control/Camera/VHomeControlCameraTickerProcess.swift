@@ -6,18 +6,19 @@ class VHomeControlCameraTickerProcess:UIView
     private weak var timer:Timer?
     private var endAngle:CGFloat
     private let fillColor:UIColor
-    private let strokeColor:UIColor
+    private var strokeColor:UIColor
     private let kRadius:CGFloat = 24
     private let kStartAngle:CGFloat = 0.0001
     private let kEndAngle:CGFloat = 6.28319
+    private let kBorderWidth:CGFloat = 16
     private let kLineWidth:CGFloat = 12
-    private let kTimerInterval:TimeInterval = 0.3
+    private let kTimerInterval:TimeInterval = 0.1
     private let kMaxPictures:Int = 100
     
     init(controller:CHome)
     {
         fillColor = UIColor.black
-        strokeColor = UIColor.genericLight
+        strokeColor = UIColor.genericDark
         endAngle = kEndAngle
         
         super.init(frame:CGRect.zero)
@@ -57,7 +58,7 @@ class VHomeControlCameraTickerProcess:UIView
             y:height_2)
         
         context.setLineCap(CGLineCap.round)
-        context.setLineWidth(kLineWidth)
+        context.setLineWidth(kBorderWidth)
         context.setStrokeColor(fillColor.cgColor)
         context.addArc(
             center:center,
@@ -67,6 +68,7 @@ class VHomeControlCameraTickerProcess:UIView
             clockwise:false)
         context.drawPath(using:CGPathDrawingMode.stroke)
         context.setStrokeColor(strokeColor.cgColor)
+        context.setLineWidth(kLineWidth)
         context.addArc(
             center:center,
             radius:kRadius,
@@ -91,11 +93,13 @@ class VHomeControlCameraTickerProcess:UIView
         
         if countPics >= kMaxPictures
         {
+            strokeColor = UIColor.genericDark
             endAngle = kEndAngle
             timer.invalidate()
         }
         else
         {
+            strokeColor = UIColor.genericLight
             let percent:CGFloat = CGFloat(countPics) / CGFloat(kMaxPictures)
             endAngle = percent * kEndAngle
         }
@@ -108,7 +112,7 @@ class VHomeControlCameraTickerProcess:UIView
     func start()
     {
         timer?.invalidate()
-        
+
         timer = Timer.scheduledTimer(
             timeInterval:kTimerInterval,
             target:self,
@@ -119,6 +123,7 @@ class VHomeControlCameraTickerProcess:UIView
     
     func clean()
     {
+        strokeColor = UIColor.genericDark
         timer?.invalidate()
     }
 }
