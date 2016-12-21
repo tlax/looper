@@ -3,6 +3,7 @@ import UIKit
 class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var viewCamera:VHomeControlCamera?
+    weak var viewBlender:VHomeControlBlender?
     private weak var controller:CHome!
     private weak var collectionView:UICollectionView!
     let kCollectionHeight:CGFloat = 70
@@ -138,7 +139,30 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     
     func showBlender()
     {
+        let viewBlender:VHomeControlBlender = VHomeControlBlender(controller:controller)
+        self.viewBlender = viewBlender
+        addSubview(viewBlender)
         
+        let layoutBlenderTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewBlender,
+            toView:self)
+        let layoutBlenderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+            view:viewBlender,
+            toView:collectionView)
+        let layoutBlenderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewBlender,
+            toView:self)
+        let layoutBlenderRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewBlender,
+            toView:self)
+        
+        addConstraints([
+            layoutBlenderTop,
+            layoutBlenderBottom,
+            layoutBlenderLeft,
+            layoutBlenderRight])
+        
+        layoutIfNeeded()
     }
     
     func hideCamera()
