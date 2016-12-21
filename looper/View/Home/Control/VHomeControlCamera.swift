@@ -99,6 +99,7 @@ class VHomeControlCamera:UIView
     
     deinit
     {
+        print("clean")
         cleanSession()
     }
     
@@ -347,7 +348,6 @@ class VHomeControlCamera:UIView
                 return
             }
             
-            print(model.items.count)
             controller.modelImage.add(sequence:model)
         }
     }

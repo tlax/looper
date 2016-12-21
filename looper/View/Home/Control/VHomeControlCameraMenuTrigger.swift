@@ -3,7 +3,7 @@ import UIKit
 class VHomeControlCameraMenuTrigger:UIButton
 {
     private weak var controller:CHome!
-    private var active:Bool
+    private(set) var active:Bool
     
     init(controller:CHome)
     {

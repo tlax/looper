@@ -56,6 +56,7 @@ class VHomeControlCameraMenu:UIView
         
         let buttonTrigger:VHomeControlCameraMenuTrigger = VHomeControlCameraMenuTrigger(
             controller:controller)
+        self.buttonTrigger = buttonTrigger
 
         addSubview(buttonBack)
         addSubview(buttonReverse)
@@ -130,6 +131,13 @@ class VHomeControlCameraMenu:UIView
     func actionBack(sender button:UIButton)
     {
         button.isUserInteractionEnabled = false
+        
+        if buttonTrigger.active
+        {
+            controller.viewHome.viewControl.viewCamera?.actionTrigger(
+                activate:false)
+        }
+        
         controller.viewHome.hideCamera()
     }
     
