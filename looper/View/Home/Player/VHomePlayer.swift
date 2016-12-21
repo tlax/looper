@@ -7,7 +7,7 @@ class VHomePlayer:UIView
     private weak var viewBoard:VHomePlayerBoard!
     private let kBoardHeight:CGFloat = 60
     private let kTimerHeight:CGFloat = 40
-    private let kTimerBottom:CGFloat = -20
+    private let kTimerBottom:CGFloat = -5
     
     convenience init(controller:CHome)
     {

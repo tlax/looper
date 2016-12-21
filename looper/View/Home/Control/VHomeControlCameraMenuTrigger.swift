@@ -36,10 +36,12 @@ class VHomeControlCameraMenuTrigger:UIButton
         
         if active
         {
+            controller.viewHome.viewControl.viewCamera?.viewMenu.blockButtons()
             stateRecording()
         }
         else
         {
+            controller.viewHome.viewControl.viewCamera?.viewMenu.releaseButtons()
             stateStandBy()
         }
         

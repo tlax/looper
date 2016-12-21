@@ -3,12 +3,12 @@ import AVFoundation
 
 class VHomeControlCamera:UIView
 {
+    weak var viewMenu:VHomeControlCameraMenu!
     private weak var controller:CHome!
     private weak var captureSession:AVCaptureSession?
     private weak var captureOutput:AVCaptureStillImageOutput?
     private weak var captureDeviceInput:AVCaptureDeviceInput?
     private weak var viewPreview:VHomeControlCameraPreview!
-    private weak var viewMenu:VHomeControlCameraMenu!
     private weak var layoutPreviewHeight:NSLayoutConstraint!
     private weak var timer:Timer?
     private var model:MHomeImageSequenceRaw?
