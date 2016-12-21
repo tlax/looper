@@ -1,4 +1,5 @@
 "MHomeControlItemCamera_name"="Shoot";
+"MHomeControlItemBlender_name"="Blender";
 
 "VHomeControlCamera_noAuth"="looper has no access to your camera";
 "VHomePlayerTimer_time"="Seconds";

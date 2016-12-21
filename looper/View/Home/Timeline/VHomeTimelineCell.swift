@@ -84,7 +84,6 @@ class VHomeTimelineCell:UICollectionViewCell
     
     func config(model:MHomeImageSequenceItem)
     {
-        print("\(model.image.size.width), \(model.image.size.height)")
         imageView.image = model.image
         hover()
     }
