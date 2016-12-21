@@ -5,8 +5,8 @@ class VHomeControlCameraMenu:UIView
     private weak var controller:CHome!
     private weak var buttonTrigger:VHomeControlCameraMenuTrigger!
     private weak var layoutButtonTriggerLeft:NSLayoutConstraint!
-    private let kBackgroundHeight:CGFloat = 50
-    private let kButtonBackWidth:CGFloat = 60
+    private let kButtonsWidth:CGFloat = 60
+    private let kButtonsHeight:CGFloat = 50
     private let kButtonTriggerSize:CGFloat = 100
     
     convenience init(controller:CHome)
@@ -16,11 +16,6 @@ class VHomeControlCameraMenu:UIView
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
-        
-        let background:UIView = UIView()
-        background.translatesAutoresizingMaskIntoConstraints = false
-        background.clipsToBounds = true
-        background.backgroundColor = UIColor.genericDark
         
         let buttonBack:UIButton = UIButton()
         buttonBack.translatesAutoresizingMaskIntoConstraints = false
@@ -43,38 +38,50 @@ class VHomeControlCameraMenu:UIView
             action:#selector(self.actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonReverse:UIButton = UIButton()
+        buttonReverse.translatesAutoresizingMaskIntoConstraints = false
+        buttonReverse.setImage(
+            #imageLiteral(resourceName: "assetHomeCameraReverse").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonReverse.setImage(
+            #imageLiteral(resourceName: "assetHomeCameraReverse").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonReverse.imageView!.contentMode = UIViewContentMode.center
+        buttonReverse.imageView!.clipsToBounds = true
+        buttonReverse.imageView!.tintColor = UIColor(white:1, alpha:0.1)
+        
         let buttonTrigger:VHomeControlCameraMenuTrigger = VHomeControlCameraMenuTrigger(
             controller:controller)
-        
-        background.addSubview(buttonBack)
-        addSubview(background)
+
+        addSubview(buttonBack)
+        addSubview(buttonReverse)
         addSubview(buttonTrigger)
         
-        let layoutBackgroundHeight:NSLayoutConstraint = NSLayoutConstraint.height(
-            view:background,
-            constant:kBackgroundHeight)
-        let layoutBackgroundBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:background,
-            toView:self)
-        let layoutBackgroundLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:background,
-            toView:self)
-        let layoutBackgroundRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:background,
-            toView:self)
-        
-        let layoutButtonBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let layoutButtonBackHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:buttonBack,
-            toView:background)
+            constant:kButtonsHeight)
         let layoutButtonBackBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:buttonBack,
-            toView:background)
+            toView:self)
         let layoutButtonBackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:buttonBack,
-            toView:background)
+            toView:self)
         let layoutButtonBackWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:buttonBack,
-            constant:kButtonBackWidth)
+            constant:kButtonsWidth)
+        
+        let layoutButtonReverseHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:buttonReverse,
+            constant:kButtonsHeight)
+        let layoutButtonReverseBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:buttonReverse,
+            toView:self)
+        let layoutButtonReverseRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:buttonReverse,
+            toView:self)
+        let layoutButtonReverseWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:buttonReverse,
+            constant:kButtonsWidth)
         
         let layoutButtonTriggerTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:buttonTrigger,
@@ -90,14 +97,14 @@ class VHomeControlCameraMenu:UIView
             constant:kButtonTriggerSize)
         
         addConstraints([
-            layoutBackgroundHeight,
-            layoutBackgroundBottom,
-            layoutBackgroundLeft,
-            layoutBackgroundRight,
-            layoutButtonBackTop,
+            layoutButtonBackHeight,
             layoutButtonBackBottom,
             layoutButtonBackLeft,
             layoutButtonBackWidth,
+            layoutButtonReverseHeight,
+            layoutButtonReverseBottom,
+            layoutButtonReverseRight,
+            layoutButtonReverseWidth,
             layoutButtonTriggerTop,
             layoutButtonTriggerLeft,
             layoutButtonTriggerWidth,
