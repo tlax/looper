@@ -7,7 +7,7 @@ class MHomeFramesItem30:MHomeFramesItem
     override init()
     {
         let timeInterval:TimeInterval = 1 / kFramesPerSecond
-        let name:String = "\(timeInterval)"
+        let name:String = "\(Int(kFramesPerSecond))"
         
         super.init(
             timeInterval:timeInterval,

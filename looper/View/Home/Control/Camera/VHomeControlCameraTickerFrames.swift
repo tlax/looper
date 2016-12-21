@@ -10,7 +10,7 @@ class VHomeControlCameraTickerFrames:UIView
     private weak var buttonRest:UIButton!
     private weak var label:UILabel!
     private weak var layoutAddTop:NSLayoutConstraint!
-    private let kButtonsHeight:CGFloat = 40
+    private let kButtonsHeight:CGFloat = 35
     private let kButtonsWidth:CGFloat = 50
     private let kLabelWidth:CGFloat = 70
     private let kAlphaActive:CGFloat = 1
@@ -40,6 +40,11 @@ class VHomeControlCameraTickerFrames:UIView
         buttonAdd.imageView!.contentMode = UIViewContentMode.center
         buttonAdd.imageView!.clipsToBounds = true
         buttonAdd.imageView!.tintColor = UIColor(white:1, alpha:0.2)
+        buttonAdd.addTarget(
+            self,
+            action:#selector(self.actionAdd(sender:)),
+            for:UIControlEvents.touchUpInside)
+        self.buttonAdd = buttonAdd
         
         let buttonRest:UIButton = UIButton()
         buttonRest.translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +59,11 @@ class VHomeControlCameraTickerFrames:UIView
         buttonRest.imageView!.contentMode = UIViewContentMode.center
         buttonRest.imageView!.clipsToBounds = true
         buttonRest.imageView!.tintColor = UIColor(white:1, alpha:0.2)
+        buttonRest.addTarget(
+            self,
+            action:#selector(self.actionRest(sender:)),
+            for:UIControlEvents.touchUpInside)
+        self.buttonRest = buttonRest
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
@@ -100,9 +110,9 @@ class VHomeControlCameraTickerFrames:UIView
         let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:label,
             toView:self)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
             view:label,
-            toView:self)
+            toView:buttonAdd)
         let layoutLabelWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:label,
             constant:kLabelWidth)
