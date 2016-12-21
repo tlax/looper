@@ -3,8 +3,10 @@ import UIKit
 class VHomeControlCell:UICollectionViewCell
 {
     private weak var label:UILabel!
+    private weak var imageView:UIImageView!
     private let kLabelHeight:CGFloat = 15
     private let kLabelBottom:CGFloat = -10
+    private let kImageHeight:CGFloat = 40
     
     override init(frame:CGRect)
     {
@@ -12,15 +14,23 @@ class VHomeControlCell:UICollectionViewCell
         clipsToBounds = true
         backgroundColor = UIColor.clear
         
+        let imageView:UIImageView = UIImageView()
+        imageView.isUserInteractionEnabled = false
+        imageView.contentMode = UIViewContentMode.center
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        self.imageView = imageView
+        
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.regular(size:14)
+        label.font = UIFont.regular(size:11)
         label.textColor = UIColor.white
         self.label = label
         
+        addSubview(imageView)
         addSubview(label)
         
         let layoutLabelHeight:NSLayoutConstraint = NSLayoutConstraint.height(
@@ -37,11 +47,28 @@ class VHomeControlCell:UICollectionViewCell
             view:label,
             toView:self)
         
+        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:imageView,
+            toView:self)
+        let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:imageView,
+            constant:kImageHeight)
+        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:imageView,
+            toView:self)
+        let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:imageView,
+            toView:self)
+        
         addConstraints([
             layoutLabelHeight,
             layoutLabelBottom,
             layoutLabelLeft,
-            layoutLabelRight])
+            layoutLabelRight,
+            layoutImageTop,
+            layoutImageHeight,
+            layoutImageLeft,
+            layoutImageRight])
     }
     
     required init?(coder:NSCoder)
@@ -54,5 +81,6 @@ class VHomeControlCell:UICollectionViewCell
     func config(model:MHomeControlItem, controller:CHome)
     {
         label.text = model.name
+        imageView.image = model.image
     }
 }
