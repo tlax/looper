@@ -377,6 +377,7 @@ class VHomeControlCamera:UIView
                 repeats:true)
             
             viewTicker.viewProcess.start()
+            viewTicker.viewFrames.blockButtons()
         }
         else
         {
@@ -392,6 +393,7 @@ class VHomeControlCamera:UIView
             }
             
             controller.modelImage.add(sequence:model)
+            viewTicker.viewFrames.releaseButtons()
         }
     }
 }
