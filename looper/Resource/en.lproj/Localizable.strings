@@ -2,3 +2,4 @@
 
 "VHomeControlCamera_noAuth"="looper has no access to your camera";
 "VHomePlayerTimer_time"="Seconds";
+"VHomeControlCamera_errorCaptureDevice"="Error connecting to camera";

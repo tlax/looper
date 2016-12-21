@@ -14,6 +14,12 @@ class VHomeControlCameraPreview:UIView
         contentMode = UIViewContentMode.scaleAspectFill
     }
     
+    deinit
+    {
+        print("die layer")
+        previewLayer?.removeFromSuperlayer()
+    }
+    
     required init?(coder:NSCoder)
     {
         fatalError()

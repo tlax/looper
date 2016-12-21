@@ -3,13 +3,15 @@ import AVFoundation
 
 class VHomeControlCamera:UIView
 {
-    private var model:MHomeImageSequenceRaw?
     private weak var controller:CHome!
     private weak var captureOutput:AVCaptureStillImageOutput?
+    private weak var captureSession:AVCaptureSession?
+    private weak var captureDeviceInput:AVCaptureDeviceInput?
     private weak var viewPreview:VHomeControlCameraPreview!
     private weak var viewMenu:VHomeControlCameraMenu!
     private weak var layoutPreviewHeight:NSLayoutConstraint!
     private weak var timer:Timer?
+    private var model:MHomeImageSequenceRaw?
     private var devicePosition:AVCaptureDevicePosition
     private let queue:DispatchQueue
     private let kMediaType:String = AVMediaTypeVideo
@@ -95,6 +97,11 @@ class VHomeControlCamera:UIView
         fatalError()
     }
     
+    deinit
+    {
+        cleanSession()
+    }
+    
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.maxX
@@ -177,6 +184,7 @@ class VHomeControlCamera:UIView
     {
         let captureSession:AVCaptureSession = AVCaptureSession()
         captureSession.sessionPreset = kSessionPreset
+        self.captureSession = captureSession
         
         let videoPreviewLayer:AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(
             session:captureSession)
@@ -192,9 +200,16 @@ class VHomeControlCamera:UIView
         startSession()
     }
     
+    private func cleanSession()
+    {
+        captureSession?.stopRunning()
+        captureSession?.removeInput(captureDeviceInput)
+        captureSession?.removeOutput(captureOutput)
+    }
+    
     private func startSession()
     {
-        let captureDevice:AVCaptureDevice?
+        var captureDevice:AVCaptureDevice?
         
         if #available(iOS 10.0, *)
         {
@@ -205,7 +220,40 @@ class VHomeControlCamera:UIView
         }
         else
         {
+            let devices:[Any] = AVCaptureDevice.devices(
+                withMediaType:kMediaType)
             
+            for device:Any in devices
+            {
+                guard
+                
+                    let capture:AVCaptureDevice = device as? AVCaptureDevice
+                
+                else
+                {
+                    return
+                }
+                
+                if capture.position == devicePosition
+                {
+                    captureDevice = capture
+                    
+                    break
+                }
+            }
+        }
+        
+        guard
+            
+            let foundCaptureDevice:AVCaptureDevice = captureDevice
+        
+        else
+        {
+            let error:String = NSLocalizedString(
+                "VHomeControlCamera_errorCaptureDevice", comment:"")
+            VAlert.message(message:error)
+            
+            return
         }
         
         let tryCaptureDeviceInput:AVCaptureDeviceInput?
@@ -213,7 +261,8 @@ class VHomeControlCamera:UIView
         
         do
         {
-            try tryCaptureDeviceInput = AVCaptureDeviceInput(device:captureDevice)
+            try tryCaptureDeviceInput = AVCaptureDeviceInput(
+                device:foundCaptureDevice)
             errorString = nil
         }
         catch let error
@@ -236,19 +285,23 @@ class VHomeControlCamera:UIView
             return
         }
         
-        captureSession.addInput(captureDeviceInput)
+        self.captureDeviceInput = captureDeviceInput
+        captureSession?.addInput(captureDeviceInput)
         
         let captureOutput:AVCaptureStillImageOutput = AVCaptureStillImageOutput()
         captureOutput.outputSettings = [AVVideoCodecKey:kVideoCodec]
-        captureSession.addOutput(captureOutput)
-        captureSession.startRunning()
         self.captureOutput = captureOutput
+        
+        captureSession?.addOutput(captureOutput)
+        captureSession?.startRunning()
     }
     
     //MARK: public
     
     func reverseCamera()
     {
+        cleanSession()
+        
         switch devicePosition
         {
             case AVCaptureDevicePosition.back,
