@@ -18,6 +18,6 @@ class MHomeControlItemBlender:MHomeControlItem
     
     override func selected(controller:CHome)
     {
-        controller.viewHome.showCamera()
+        controller.viewHome.showBlender()
     }
 }

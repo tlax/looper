@@ -136,9 +136,19 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         layoutIfNeeded()
     }
     
+    func showBlender()
+    {
+        
+    }
+    
     func hideCamera()
     {
         viewCamera?.removeFromSuperview()
+    }
+    
+    func hideBlender()
+    {
+        
     }
     
     //MARK: collectionView delegate

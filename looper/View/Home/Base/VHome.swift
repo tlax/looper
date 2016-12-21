@@ -160,6 +160,11 @@ class VHome:VView
         }
     }
     
+    func showBlender()
+    {
+        
+    }
+    
     func hideCamera()
     {
         let totalHeight:CGFloat = bounds.maxY

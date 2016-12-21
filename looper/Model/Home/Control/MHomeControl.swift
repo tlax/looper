@@ -7,9 +7,11 @@ class MHomeControl
     init()
     {
         let itemCamera:MHomeControlItemCamera = MHomeControlItemCamera()
+        let itemBlender:MHomeControlItemBlender = MHomeControlItemBlender()
         
         items = [
-            itemCamera
+            itemCamera,
+            itemBlender
         ]
     }
 }
