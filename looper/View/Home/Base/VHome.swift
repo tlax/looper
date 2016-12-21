@@ -12,7 +12,7 @@ class VHome:VView
     private weak var layoutPlayerHeight:NSLayoutConstraint!
     private let kTimelineHeight:CGFloat = 35
     private let kPlayerMinHeight:CGFloat = 90
-    private let kAnimationDurationCamera:TimeInterval = 0.45
+    private let kAnimationDuration:TimeInterval = 0.45
     
     override init(controller:CController)
     {
@@ -148,7 +148,7 @@ class VHome:VView
         layoutControlBottom.constant = viewControl.kCollectionHeight
         
         UIView.animate(
-            withDuration:kAnimationDurationCamera,
+            withDuration:kAnimationDuration,
             animations:
         { [weak self] in
             
@@ -162,7 +162,15 @@ class VHome:VView
     
     func showBlender()
     {
+        viewControl.showBlender()
+        layoutControlBottom.constant = viewControl.kCollectionHeight
         
+        UIView.animate(
+            withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
     }
     
     func hideCamera()
@@ -171,7 +179,7 @@ class VHome:VView
         layoutControlBottom.constant = viewControl.kCollectionHeight - totalHeight
         
         UIView.animate(
-            withDuration:kAnimationDurationCamera,
+            withDuration:kAnimationDuration,
             animations:
         { [weak self] in
             
@@ -182,6 +190,25 @@ class VHome:VView
             self?.viewTimeline.refresh()
             self?.viewControl.hideCamera()
             self?.controller.parentController.changeBar(barHidden:false)
+        }
+    }
+    
+    func hideBlender()
+    {
+        let totalHeight:CGFloat = bounds.maxY
+        layoutControlBottom.constant = viewControl.kCollectionHeight - totalHeight
+        
+        UIView.animate(
+            withDuration:kAnimationDuration,
+            animations:
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        })
+        { [weak self] (done:Bool) in
+            
+            self?.viewTimeline.refresh()
+            self?.viewControl.hideBlender()
         }
     }
 }
