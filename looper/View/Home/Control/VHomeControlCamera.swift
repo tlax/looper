@@ -237,6 +237,27 @@ class VHomeControlCamera:UIView
     
     //MARK: public
     
+    func reverseCamera()
+    {
+        switch devicePosition
+        {
+            case AVCaptureDevicePosition.back,
+                 AVCaptureDevicePosition.unspecified:
+            
+                devicePosition = AVCaptureDevicePosition.front
+                
+                break
+            
+            case AVCaptureDevicePosition.front:
+            
+                devicePosition = AVCaptureDevicePosition.back
+                
+                break
+        }
+        
+        startSession()
+    }
+    
     func actionTrigger(activate:Bool)
     {
         timer?.invalidate()
