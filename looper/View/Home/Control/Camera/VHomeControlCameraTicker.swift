@@ -8,7 +8,7 @@ class VHomeControlCameraTicker:UIView
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.gray
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
     }

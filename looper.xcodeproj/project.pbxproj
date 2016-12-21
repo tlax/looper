@@ -40,6 +40,8 @@
 		DA9D2F3C1E0ADF57003E37D5 /* VHomeControlCameraTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9D2F341E0ADF57003E37D5 /* VHomeControlCameraTicker.swift */; };
 		DA9D2F3D1E0ADF57003E37D5 /* VHomeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9D2F361E0ADF57003E37D5 /* VHomeControl.swift */; };
 		DA9D2F3E1E0ADF57003E37D5 /* VHomeControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9D2F371E0ADF57003E37D5 /* VHomeControlCell.swift */; };
+		DA9D2F401E0AE589003E37D5 /* VHomeControlCameraTickerProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9D2F3F1E0AE589003E37D5 /* VHomeControlCameraTickerProcess.swift */; };
+		DA9D2F421E0AE62D003E37D5 /* VHomeControlCameraTickerFrames.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9D2F411E0AE62D003E37D5 /* VHomeControlCameraTickerFrames.swift */; };
 		DAA68D5D1E09C31500A830A2 /* VHomePlayerTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA68D5C1E09C31500A830A2 /* VHomePlayerTimer.swift */; };
 		DAA68D5F1E09C7D200A830A2 /* VHomePlayerTimerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA68D5E1E09C7D200A830A2 /* VHomePlayerTimerSlider.swift */; };
 		DAB333E91E05DBBC003436C0 /* MHomeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB333E81E05DBBC003436C0 /* MHomeImage.swift */; };
@@ -89,6 +91,8 @@
 		DA9D2F341E0ADF57003E37D5 /* VHomeControlCameraTicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlCameraTicker.swift; sourceTree = "<group>"; };
 		DA9D2F361E0ADF57003E37D5 /* VHomeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControl.swift; sourceTree = "<group>"; };
 		DA9D2F371E0ADF57003E37D5 /* VHomeControlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlCell.swift; sourceTree = "<group>"; };
+		DA9D2F3F1E0AE589003E37D5 /* VHomeControlCameraTickerProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlCameraTickerProcess.swift; sourceTree = "<group>"; };
+		DA9D2F411E0AE62D003E37D5 /* VHomeControlCameraTickerFrames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlCameraTickerFrames.swift; sourceTree = "<group>"; };
 		DAA68D5C1E09C31500A830A2 /* VHomePlayerTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomePlayerTimer.swift; sourceTree = "<group>"; };
 		DAA68D5E1E09C7D200A830A2 /* VHomePlayerTimerSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomePlayerTimerSlider.swift; sourceTree = "<group>"; };
 		DAB333E81E05DBBC003436C0 /* MHomeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImage.swift; sourceTree = "<group>"; };
@@ -302,6 +306,8 @@
 				DA9D2F321E0ADF57003E37D5 /* VHomeControlCameraMenuTrigger.swift */,
 				DA9D2F331E0ADF57003E37D5 /* VHomeControlCameraPreview.swift */,
 				DA9D2F341E0ADF57003E37D5 /* VHomeControlCameraTicker.swift */,
+				DA9D2F3F1E0AE589003E37D5 /* VHomeControlCameraTickerProcess.swift */,
+				DA9D2F411E0AE62D003E37D5 /* VHomeControlCameraTickerFrames.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 				DA9D2F3E1E0ADF57003E37D5 /* VHomeControlCell.swift in Sources */,
 				DAA68D5D1E09C31500A830A2 /* VHomePlayerTimer.swift in Sources */,
 				DA96FEE71E03672F00FD5265 /* ExtensionUIColor.swift in Sources */,
+				DA9D2F421E0AE62D003E37D5 /* VHomeControlCameraTickerFrames.swift in Sources */,
 				DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DA9D2F3B1E0ADF57003E37D5 /* VHomeControlCameraPreview.swift in Sources */,
 				DA20F0BA1E0444E800F8BAD4 /* MHomeControlItem.swift in Sources */,
@@ -451,6 +458,7 @@
 				DA20F0CA1E0452CA00F8BAD4 /* MHomeControlItemCamera.swift in Sources */,
 				DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */,
 				DA20F0C31E0446C300F8BAD4 /* VHome.swift in Sources */,
+				DA9D2F401E0AE589003E37D5 /* VHomeControlCameraTickerProcess.swift in Sources */,
 				DAFFF3FB1E085C4900E14F12 /* VHomePlayer.swift in Sources */,
 				DA20F0C61E0446C300F8BAD4 /* VHomeTimeline.swift in Sources */,
 				DAA68D5F1E09C7D200A830A2 /* VHomePlayerTimerSlider.swift in Sources */,
