@@ -188,6 +188,10 @@ class VHomeControlCamera:UIView
         
         let captureDevice:AVCaptureDevice = AVCaptureDevice.defaultDevice(
             withMediaType:kMediaType)
+        AVCaptureDevice.defaultDevice(
+            withDeviceType: <#T##AVCaptureDeviceType!#>,
+            mediaType: <#T##String!#>,
+            position: <#T##AVCaptureDevicePosition#>)
         let tryCaptureDeviceInput:AVCaptureDeviceInput?
         let errorString:String?
         
