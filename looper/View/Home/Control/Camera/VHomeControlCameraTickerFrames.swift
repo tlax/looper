@@ -13,6 +13,7 @@ class VHomeControlCameraTickerFrames:UIView
     private let kButtonsHeight:CGFloat = 45
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsMargin:CGFloat = 18
+    private let kButtonsRight:CGFloat = -40
     private let kLabelWidth:CGFloat = 120
     private let kLabelRight:CGFloat = 12
     private let kTitlesHeight:CGFloat = 38
@@ -110,7 +111,8 @@ class VHomeControlCameraTickerFrames:UIView
             constant:kButtonsHeight)
         let layoutAddRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:buttonAdd,
-            toView:self)
+            toView:self,
+            constant:kButtonsRight)
         let layoutAddWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:buttonAdd,
             constant:kButtonsWidth)
@@ -123,7 +125,8 @@ class VHomeControlCameraTickerFrames:UIView
             constant:kButtonsHeight)
         let layoutRestRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:buttonRest,
-            toView:self)
+            toView:self,
+            constant:kButtonsRight)
         let layoutRestWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:buttonRest,
             constant:kButtonsWidth)

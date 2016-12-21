@@ -4,10 +4,10 @@ class VHomeControlCameraTickerProcess:UIView
 {
     private let fillColor:UIColor
     private let strokeColor:UIColor
-    private let kRadius:CGFloat = 25
+    private let kRadius:CGFloat = 24
     private let kStartAngle:CGFloat = 0.0001
     private let kEndAngle:CGFloat = 0
-    private let kLineWidth:CGFloat = 5
+    private let kLineWidth:CGFloat = 12
     
     init()
     {
@@ -46,15 +46,15 @@ class VHomeControlCameraTickerProcess:UIView
         
         context.setLineCap(CGLineCap.round)
         context.setLineWidth(kLineWidth)
-        context.setFillColor(fillColor.cgColor)
-        context.setStrokeColor(strokeColor.cgColor)
+        context.setStrokeColor(fillColor.cgColor)
         context.addArc(
             center:center,
             radius:kRadius,
             startAngle:kStartAngle,
             endAngle:kEndAngle,
             clockwise:false)
-        context.drawPath(using:CGPathDrawingMode.fill)
+        context.drawPath(using:CGPathDrawingMode.stroke)
+        context.setStrokeColor(strokeColor.cgColor)
         context.addArc(
             center:center,
             radius:kRadius,
