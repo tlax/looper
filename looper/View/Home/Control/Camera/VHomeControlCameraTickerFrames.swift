@@ -2,17 +2,23 @@ import UIKit
 
 class VHomeControlCameraTickerFrames:UIView
 {
+    private let model:MHomeFrames
+    private let buttonsHeight2:CGFloat
+    private var currentIndex:Int
     private weak var controller:CHome!
     private weak var buttonAdd:UIButton!
     private weak var buttonRest:UIButton!
     private weak var label:UILabel!
     private weak var layoutAddTop:NSLayoutConstraint!
-    private let buttonsHeight2:CGFloat
     private let kButtonsHeight:CGFloat = 40
     private let kButtonsWidth:CGFloat = 50
+    private let kAlphaActive:CGFloat = 1
+    private let kAlphaNotActive:CGFloat = 0.2
     
     init(controller:CHome)
     {
+        model = MHomeFrames()
+        currentIndex = model.kInitial
         buttonsHeight2 = kButtonsHeight + kButtonsHeight
         
         super.init(frame:CGRect.zero)
@@ -101,5 +107,59 @@ class VHomeControlCameraTickerFrames:UIView
         layoutAddTop.constant = marginTop
         
         super.layoutSubviews()
+    }
+    
+    //MARK: private
+    
+    private func activateAdd()
+    {
+        buttonAdd.alpha = kAlphaActive
+        buttonAdd.isUserInteractionEnabled = true
+    }
+    
+    private func deActivateAdd()
+    {
+        buttonAdd.alpha = kAlphaNotActive
+        buttonAdd.isUserInteractionEnabled = false
+    }
+    
+    private func activateRest()
+    {
+        buttonRest.alpha = kAlphaActive
+        buttonRest.isUserInteractionEnabled = true
+    }
+    
+    private func deActivateRest()
+    {
+        buttonRest.alpha = kAlphaNotActive
+        buttonRest.isUserInteractionEnabled = false
+    }
+    
+    //MARK: public
+    
+    func blockButtons()
+    {
+        deActivateAdd()
+        deActivateRest()
+    }
+    
+    func releaseButtons()
+    {
+        if currentIndex > 0
+        {
+            activateAdd()
+        }
+        
+        if currentIndex < model.items.count - 1
+        {
+            activateRest()
+        }
+    }
+    
+    func timeInterval() -> TimeInterval
+    {
+        let item:MHomeFramesItem = model.items[currentIndex]
+        
+        return item.timeInterval
     }
 }

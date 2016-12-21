@@ -3,6 +3,7 @@ import Foundation
 class MHomeFrames
 {
     let items:[MHomeFramesItem]
+    let kInitial:Int = 5
     
     init()
     {
