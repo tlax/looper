@@ -100,7 +100,13 @@ class VHomeControlCameraTickerProcess:UIView
         else
         {
             strokeColor = UIColor.genericLight
-            let percent:CGFloat = CGFloat(countPics) / CGFloat(kMaxPictures)
+            var percent:CGFloat = CGFloat(countPics) / CGFloat(kMaxPictures)
+            
+            if percent <= 0
+            {
+                percent = kStartAngle
+            }
+            
             endAngle = percent * kEndAngle
         }
             

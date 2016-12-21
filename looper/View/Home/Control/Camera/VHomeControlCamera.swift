@@ -22,7 +22,6 @@ class VHomeControlCamera:UIView
     private let kVideoCodec:String = AVVideoCodecJPEG
     private let kQueueLabel:String = "cameraQueue"
     private let kAskAuthAfter:TimeInterval = 0.5
-    private let kTriggerInterval:TimeInterval = 0.2
     private let kMenuHeight:CGFloat = 90
     
     init(controller:CHome)
@@ -361,8 +360,17 @@ class VHomeControlCamera:UIView
         {
             model = MHomeImageSequenceRaw()
             
+            guard
+                
+                let triggerInterval:TimeInterval = controller.viewHome.viewControl.viewCamera?.viewTicker.viewFrames.timeInterval()
+            
+            else
+            {
+                return
+            }
+            
             timer = Timer.scheduledTimer(
-                timeInterval:kTriggerInterval,
+                timeInterval:triggerInterval,
                 target:self,
                 selector:#selector(self.asyncActionTrigger),
                 userInfo:nil,
