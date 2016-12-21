@@ -8,10 +8,10 @@ class MHomeControlItemCamera:MHomeControlItem
             "MHomeControlItemCamera_name",
             comment:"")
         
-        super.init(name:name)
+        super.init(name:name, image:#imageLiteral(resourceName: "assetHomeCamera"))
     }
     
-    override init(name:String)
+    override init(name:String, image:UIImage)
     {
         fatalError()
     }
