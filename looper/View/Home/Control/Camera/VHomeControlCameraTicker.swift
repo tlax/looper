@@ -2,9 +2,9 @@ import UIKit
 
 class VHomeControlCameraTicker:UIView
 {
+    weak var viewProcess:VHomeControlCameraTickerProcess!
+    weak var viewFrames:VHomeControlCameraTickerFrames!
     private weak var controller:CHome!
-    private weak var viewProcess:VHomeControlCameraTickerProcess!
-    private weak var viewFrames:VHomeControlCameraTickerFrames!
     private weak var layoutProcessWidth:NSLayoutConstraint!
     private weak var layoutFramesWidth:NSLayoutConstraint!
     
@@ -16,7 +16,8 @@ class VHomeControlCameraTicker:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let viewProcess:VHomeControlCameraTickerProcess = VHomeControlCameraTickerProcess()
+        let viewProcess:VHomeControlCameraTickerProcess = VHomeControlCameraTickerProcess(
+            controller:controller)
         self.viewProcess = viewProcess
         
         let viewFrames:VHomeControlCameraTickerFrames = VHomeControlCameraTickerFrames(

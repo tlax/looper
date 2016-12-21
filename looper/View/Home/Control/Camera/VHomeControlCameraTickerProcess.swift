@@ -2,27 +2,39 @@ import UIKit
 
 class VHomeControlCameraTickerProcess:UIView
 {
+    private weak var controller:CHome!
+    private weak var timer:Timer?
+    private var endAngle:CGFloat
     private let fillColor:UIColor
     private let strokeColor:UIColor
     private let kRadius:CGFloat = 24
     private let kStartAngle:CGFloat = 0.0001
-    private let kEndAngle:CGFloat = 0
+    private let kEndAngle:CGFloat = 6.28319
     private let kLineWidth:CGFloat = 12
+    private let kTimerInterval:TimeInterval = 0.3
+    private let kMaxPictures:Int = 100
     
-    init()
+    init(controller:CHome)
     {
         fillColor = UIColor.black
         strokeColor = UIColor.genericLight
+        endAngle = kEndAngle
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+        self.controller = controller
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    deinit
+    {
+        timer?.invalidate()
     }
     
     override func draw(_ rect:CGRect)
@@ -59,8 +71,54 @@ class VHomeControlCameraTickerProcess:UIView
             center:center,
             radius:kRadius,
             startAngle:kStartAngle,
-            endAngle:3,
+            endAngle:endAngle,
             clockwise:false)
         context.drawPath(using:CGPathDrawingMode.stroke)
+    }
+    
+    func tick(sender timer:Timer)
+    {
+        guard
+            
+            let countPics:Int = controller.viewHome.viewControl.viewCamera?.model?.items.count
+        
+        else
+        {
+            timer.invalidate()
+            
+            return
+        }
+        
+        if countPics >= kMaxPictures
+        {
+            endAngle = kEndAngle
+            timer.invalidate()
+        }
+        else
+        {
+            let percent:CGFloat = CGFloat(countPics) / CGFloat(kMaxPictures)
+            endAngle = percent * kEndAngle
+        }
+            
+        setNeedsDisplay()
+    }
+    
+    //MARK: public
+    
+    func start()
+    {
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(
+            timeInterval:kTimerInterval,
+            target:self,
+            selector:#selector(self.tick(sender:)),
+            userInfo:nil,
+            repeats:true)
+    }
+    
+    func clean()
+    {
+        timer?.invalidate()
     }
 }

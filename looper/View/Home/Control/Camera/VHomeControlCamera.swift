@@ -5,6 +5,7 @@ class VHomeControlCamera:UIView
 {
     weak var viewMenu:VHomeControlCameraMenu!
     weak var viewTicker:VHomeControlCameraTicker!
+    private(set) var model:MHomeImageSequenceRaw?
     private weak var controller:CHome!
     private weak var captureSession:AVCaptureSession?
     private weak var captureOutput:AVCaptureStillImageOutput?
@@ -13,7 +14,6 @@ class VHomeControlCamera:UIView
     private weak var layoutPreviewHeight:NSLayoutConstraint!
     private weak var layoutTickerHeight:NSLayoutConstraint!
     private weak var timer:Timer?
-    private var model:MHomeImageSequenceRaw?
     private var devicePosition:AVCaptureDevicePosition
     private let queue:DispatchQueue
     private let kMediaType:String = AVMediaTypeVideo
@@ -367,9 +367,13 @@ class VHomeControlCamera:UIView
                 selector:#selector(self.asyncActionTrigger),
                 userInfo:nil,
                 repeats:true)
+            
+            viewTicker.viewProcess.start()
         }
         else
         {
+            viewTicker.viewProcess.clean()
+            
             guard
                 
                 let model:MHomeImageSequenceRaw = self.model
