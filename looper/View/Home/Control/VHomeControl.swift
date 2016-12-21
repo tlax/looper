@@ -7,7 +7,7 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     private weak var collectionView:UICollectionView!
     let kCollectionHeight:CGFloat = 64
     private let model:MHomeControl
-    private let kDeselectTime:TimeInterval = 0.5
+    private let kDeselectTime:TimeInterval = 0.4
     
     init(controller:CHome)
     {

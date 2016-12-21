@@ -7,6 +7,8 @@ class VHomeControlCell:UICollectionViewCell
     private let kLabelHeight:CGFloat = 19
     private let kImageHeight:CGFloat = 30
     private let kImageTop:CGFloat = 20
+    private let kAlphaSelected:CGFloat = 0.2
+    private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame:CGRect)
     {
@@ -76,11 +78,43 @@ class VHomeControlCell:UICollectionViewCell
         fatalError()
     }
     
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            alpha = kAlphaSelected
+        }
+        else
+        {
+            alpha = kAlphaNotSelected
+        }
+    }
+    
     //MARK: public
     
     func config(model:MHomeControlItem, controller:CHome)
     {
         label.text = model.name
         imageView.image = model.image
+        
+        hover()
     }
 }
