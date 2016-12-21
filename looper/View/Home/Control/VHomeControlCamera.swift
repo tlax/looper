@@ -10,6 +10,7 @@ class VHomeControlCamera:UIView
     private weak var viewMenu:VHomeControlCameraMenu!
     private weak var layoutPreviewHeight:NSLayoutConstraint!
     private weak var timer:Timer?
+    private var devicePosition:AVCaptureDevicePosition
     private let queue:DispatchQueue
     private let kMediaType:String = AVMediaTypeVideo
     private let kSessionPreset:String = AVCaptureSessionPreset640x480
@@ -22,6 +23,8 @@ class VHomeControlCamera:UIView
     
     init(controller:CHome)
     {
+        devicePosition = AVCaptureDevicePosition.back
+        
         queue = DispatchQueue(
             label:kQueueLabel,
             qos:DispatchQoS.background,
@@ -186,12 +189,15 @@ class VHomeControlCamera:UIView
                 previewLayer:videoPreviewLayer)
         }
         
-        let captureDevice:AVCaptureDevice = AVCaptureDevice.defaultDevice(
-            withMediaType:kMediaType)
-        AVCaptureDevice.defaultDevice(
-            withDeviceType: <#T##AVCaptureDeviceType!#>,
-            mediaType: <#T##String!#>,
-            position: <#T##AVCaptureDevicePosition#>)
+        if #available(iOS 10.0, *) {
+            let captureDevice:AVCaptureDevice = AVCaptureDevice.defaultDevice(
+                withDeviceType:AVCaptureDeviceType.builtInWideAngleCamera,
+                mediaType:kMediaType,
+                position:devicePosition)
+        } else {
+            // Fallback on earlier versions
+        }
+        
         let tryCaptureDeviceInput:AVCaptureDeviceInput?
         let errorString:String?
         
