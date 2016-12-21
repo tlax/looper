@@ -5,7 +5,7 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     weak var viewCamera:VHomeControlCamera?
     private weak var controller:CHome!
     private weak var collectionView:UICollectionView!
-    let kCollectionHeight:CGFloat = 64
+    let kCollectionHeight:CGFloat = 70
     private let model:MHomeControl
     private let kDeselectTime:TimeInterval = 0.4
     
