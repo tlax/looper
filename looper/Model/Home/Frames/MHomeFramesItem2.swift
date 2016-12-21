@@ -1,8 +1,8 @@
 import Foundation
 
-class MHomeFramesItem60:MHomeFramesItem
+class MHomeFramesItem2:MHomeFramesItem
 {
-    private let kFramesPerSecond:TimeInterval = 60
+    private let kFramesPerSecond:TimeInterval = 2
     
     override init()
     {
