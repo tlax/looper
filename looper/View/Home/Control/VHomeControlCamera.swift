@@ -162,7 +162,7 @@ class VHomeControlCamera:UIView
                 self?.queue.async
                 { [weak self] in
                     
-                    self?.startSession()
+                    self?.startPreview()
                 }
             }
             else
@@ -173,7 +173,7 @@ class VHomeControlCamera:UIView
         }
     }
     
-    private func startSession()
+    private func startPreview()
     {
         let captureSession:AVCaptureSession = AVCaptureSession()
         captureSession.sessionPreset = kSessionPreset
@@ -189,13 +189,23 @@ class VHomeControlCamera:UIView
                 previewLayer:videoPreviewLayer)
         }
         
-        if #available(iOS 10.0, *) {
-            let captureDevice:AVCaptureDevice = AVCaptureDevice.defaultDevice(
+        startSession()
+    }
+    
+    private func startSession()
+    {
+        let captureDevice:AVCaptureDevice?
+        
+        if #available(iOS 10.0, *)
+        {
+            captureDevice = AVCaptureDevice.defaultDevice(
                 withDeviceType:AVCaptureDeviceType.builtInWideAngleCamera,
                 mediaType:kMediaType,
                 position:devicePosition)
-        } else {
-            // Fallback on earlier versions
+        }
+        else
+        {
+            
         }
         
         let tryCaptureDeviceInput:AVCaptureDeviceInput?
