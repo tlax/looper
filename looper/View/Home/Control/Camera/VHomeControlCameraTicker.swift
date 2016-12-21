@@ -32,7 +32,7 @@ class VHomeControlCameraTicker:UIView
         let layoutProcessBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:viewProcess,
             toView:self)
-        let layoutProcessLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        let layoutProcessLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
             view:viewProcess,
             toView:viewFrames)
         layoutProcessWidth = NSLayoutConstraint.width(
