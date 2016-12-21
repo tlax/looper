@@ -60,6 +60,7 @@ class VHomeDisplay:UIView
     {
         imageView.image = nil
         imageView.animationImages = images
+        imageView.animationDuration = controller.viewHome.viewPlayer.viewTimer.viewSlider.currentTime
         imageView.startAnimating()
     }
     
