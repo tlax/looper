@@ -7,7 +7,6 @@ class VHomeControlCameraTickerFrames:UIView
     private weak var buttonRest:UIButton!
     private weak var label:UILabel!
     private weak var layoutAddTop:NSLayoutConstraint!
-    private weak var layoutRestBottom:NSLayoutConstraint!
     private let kButtonsHeight:CGFloat = 50
     private let kButtonsWidth:CGFloat = 60
     
@@ -62,10 +61,27 @@ class VHomeControlCameraTickerFrames:UIView
             view:buttonAdd,
             constant:kButtonsWidth)
         
+        let layoutRestTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:buttonRest,
+            toView:buttonAdd)
+        let layoutRestHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:buttonRest,
+            constant:kButtonsHeight)
+        let layoutRestRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:buttonRest,
+            toView:self)
+        let layoutRestWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:buttonRest,
+            constant:kButtonsWidth)
+        
         addConstraints([
             layoutAddTop,
             layoutAddHeight,
             layoutAddRight,
-            layoutAddWidth])
+            layoutAddWidth,
+            layoutRestTop,
+            layoutRestHeight,
+            layoutRestRight,
+            layoutRestWidth])
     }
 }
