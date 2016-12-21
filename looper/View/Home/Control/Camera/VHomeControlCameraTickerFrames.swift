@@ -13,9 +13,9 @@ class VHomeControlCameraTickerFrames:UIView
     private let kButtonsHeight:CGFloat = 45
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsMargin:CGFloat = 18
-    private let kLabelWidth:CGFloat = 100
+    private let kLabelWidth:CGFloat = 120
     private let kLabelRight:CGFloat = 12
-    private let kTitlesHeight:CGFloat = 25
+    private let kTitlesHeight:CGFloat = 38
     private let kAlphaActive:CGFloat = 1
     private let kAlphaNotActive:CGFloat = 0.2
     
@@ -87,28 +87,17 @@ class VHomeControlCameraTickerFrames:UIView
         label.textColor = UIColor.white
         self.label = label
         
-        let titleTop:UILabel = UILabel()
-        titleTop.isUserInteractionEnabled = false
-        titleTop.backgroundColor = UIColor.clear
-        titleTop.translatesAutoresizingMaskIntoConstraints = false
-        titleTop.font = UIFont.regular(size:15)
-        titleTop.textColor = UIColor(white:1, alpha:0.5)
-        titleTop.textAlignment = NSTextAlignment.right
-        titleTop.text = NSLocalizedString(
-            "VHomeControlCameraTickerFrames_titleTop", comment:"")
-        
         let titleBottom:UILabel = UILabel()
         titleBottom.isUserInteractionEnabled = false
         titleBottom.backgroundColor = UIColor.clear
         titleBottom.translatesAutoresizingMaskIntoConstraints = false
-        titleBottom.font = UIFont.regular(size:15)
-        titleBottom.textColor = UIColor(white:1, alpha:0.5)
+        titleBottom.font = UIFont.regular(size:13)
+        titleBottom.textColor = UIColor(white:1, alpha:0.65)
         titleBottom.textAlignment = NSTextAlignment.right
         titleBottom.text = NSLocalizedString(
             "VHomeControlCameraTickerFrames_titleBottom", comment:"")
         
         addSubview(label)
-        addSubview(titleTop)
         addSubview(titleBottom)
         addSubview(buttonAdd)
         addSubview(buttonRest)
@@ -153,20 +142,6 @@ class VHomeControlCameraTickerFrames:UIView
             view:label,
             constant:kLabelWidth)
         
-        let layoutTitleTopBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:titleTop,
-            toView:buttonAdd)
-        let layoutTitleTopHeight:NSLayoutConstraint = NSLayoutConstraint.height(
-            view:titleTop,
-            constant:kTitlesHeight)
-        let layoutTitleTopRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
-            view:titleTop,
-            toView:buttonAdd,
-            constant:kLabelRight)
-        let layoutTitleTopWidth:NSLayoutConstraint = NSLayoutConstraint.width(
-            view:titleTop,
-            constant:kLabelWidth)
-        
         let layoutTitleBottomTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:titleBottom,
             toView:buttonRest)
@@ -194,10 +169,6 @@ class VHomeControlCameraTickerFrames:UIView
             layoutLabelBottom,
             layoutLabelRight,
             layoutLabelWidth,
-            layoutTitleTopBottom,
-            layoutTitleTopHeight,
-            layoutTitleTopRight,
-            layoutTitleTopWidth,
             layoutTitleBottomTop,
             layoutTitleBottomHeight,
             layoutTitleBottomRight,
