@@ -7,12 +7,15 @@ class VHomeControlCameraTickerFrames:UIView
     private weak var buttonRest:UIButton!
     private weak var label:UILabel!
     private weak var layoutAddTop:NSLayoutConstraint!
-    private let kButtonsHeight:CGFloat = 50
-    private let kButtonsWidth:CGFloat = 60
+    private let buttonsHeight2:CGFloat
+    private let kButtonsHeight:CGFloat = 40
+    private let kButtonsWidth:CGFloat = 50
     
-    convenience init(controller:CHome)
+    init(controller:CHome)
     {
-        self.init()
+        buttonsHeight2 = kButtonsHeight + kButtonsHeight
+        
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
@@ -83,5 +86,20 @@ class VHomeControlCameraTickerFrames:UIView
             layoutRestHeight,
             layoutRestRight,
             layoutRestWidth])
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let height:CGFloat = bounds.height
+        let remainHeight:CGFloat = height - buttonsHeight2
+        let marginTop:CGFloat = remainHeight / 2.0
+        layoutAddTop.constant = marginTop
+        
+        super.layoutSubviews()
     }
 }
