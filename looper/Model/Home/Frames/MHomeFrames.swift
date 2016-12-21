@@ -7,5 +7,8 @@ class MHomeFrames
     init()
     {
         
+        
+        items = [
+        ]
     }
 }
