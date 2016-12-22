@@ -63,6 +63,7 @@ class VHomeControlBlenderMenu:UIView
     {
         button.isUserInteractionEnabled = false
         
+        controller.viewHome.viewControl.viewBlender?.save()
         controller.viewHome.hideBlender()
     }
 }

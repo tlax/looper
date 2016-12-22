@@ -154,4 +154,9 @@ class VHomeControlBlenderPieces:UIView
         
         return selectedItem
     }
+    
+    func save()
+    {
+        
+    }
 }
