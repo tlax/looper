@@ -17,14 +17,14 @@ class MHomeImage
     {
         guard
             
-            let first:MHomeImageSequenceRaw = sequences.first
+            let main:MHomeImageSequenceRaw = mainSequence
         
         else
         {
             return
         }
         
-        generatedSequence = MHomeImageSequenceGenerated(sequence:first)
+        generatedSequence = MHomeImageSequenceGenerated(sequence:main)
         
         MSession.sharedInstance.state = MSession.State.standBy
         NotificationCenter.default.post(
@@ -34,9 +34,13 @@ class MHomeImage
     
     //MARK: public
     
-    func add(sequence:MHomeImageSequenceRaw)
+    func clear()
     {
         generatedSequence = nil
+    }
+    
+    func add(sequence:MHomeImageSequenceRaw)
+    {
         sequences.append(sequence)
     }
     
