@@ -111,7 +111,8 @@ class VHomeControlBlenderPieces:UIView
     func pieceAt(location:CGPoint) -> VHomeControlBlenderPiecesItem?
     {
         var selectedItem:VHomeControlBlenderPiecesItem?
-        var currentMinDelta:CGFloat = 0
+        var currentMinDeltaX:CGFloat = 0
+        var currentMinDeltaY:CGFloat = 0
         let maxX:CGFloat = location.x
         let maxY:CGFloat = location.y
         let minX:CGFloat = maxX - kItemSize
@@ -130,7 +131,29 @@ class VHomeControlBlenderPieces:UIView
                     {
                         if itemY < maxY
                         {
+                            let deltaMinX:CGFloat = itemX - minX
+                            let deltaMinY:CGFloat = itemY - minY
+                            let deltaMaxX:CGFloat = maxX - itemX
+                            let deltaMaxY:CGFloat = maxY - itemY
+                            let minDeltaX:CGFloat = min(deltaMinX, deltaMaxX)
+                            let minDeltaY:CGFloat = min(deltaMinY, deltaMaxY)
                             
+                            if selectedItem == nil
+                            {
+                                selectedItem = item
+                                currentMinDeltaX = minDeltaX
+                                currentMinDeltaY = minDeltaY
+                            }
+                            else
+                            {
+                                if minDeltaX <= currentMinDeltaX
+                                {
+                                    if minDeltaY <= currentMinDeltaY
+                                    {
+                                        selectedItem = item
+                                    }
+                                }
+                            }
                         }
                     }
                 }

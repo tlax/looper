@@ -3,19 +3,19 @@ import UIKit
 class VHomeControlBlenderGesturer:UIView
 {
     private weak var controller:CHome!
-    private weak var pieces:VHomeControlBlenderPieces!
+    private weak var viewPieces:VHomeControlBlenderPieces!
     private weak var gesturingItem:VHomeControlBlenderPiecesItem?
     
     convenience init(
         controller:CHome,
-        pieces:VHomeControlBlenderPieces)
+        viewPieces:VHomeControlBlenderPieces)
     {
         self.init()
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
-        self.pieces = pieces
+        self.viewPieces = viewPieces
     }
     
     override func touchesBegan(_ touches:Set<UITouch>, with event:UIEvent?)
@@ -31,7 +31,16 @@ class VHomeControlBlenderGesturer:UIView
         
         let location:CGPoint = touch.location(in:self)
         
+        guard
         
+            let piece:VHomeControlBlenderPiecesItem = viewPieces.pieceAt(location:location)
+        
+        else
+        {
+            return
+        }
+        
+        piece.selected()
     }
     
     override func touchesMoved(_ touches:Set<UITouch>, with event:UIEvent?)

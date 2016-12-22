@@ -33,7 +33,7 @@ class VHomeControlBlender:UIView
         
         let viewGesturer:VHomeControlBlenderGesturer = VHomeControlBlenderGesturer(
             controller:controller,
-            pieces:viewPieces)
+            viewPieces:viewPieces)
         self.viewGesturer = viewGesturer
         
         addSubview(viewBoard)
