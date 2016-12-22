@@ -7,7 +7,7 @@ class VHomeControlBlenderBoardMain:UIView
     weak var layoutWidth:NSLayoutConstraint!
     weak var layoutHeight:NSLayoutConstraint!
     private let kBorderWidth:CGFloat = 2
-    private let kCornerRadius:CGFloat = 10
+    private let kCornerRadius:CGFloat = 8
     
     init()
     {
@@ -16,7 +16,8 @@ class VHomeControlBlenderBoardMain:UIView
         backgroundColor = UIColor(white:1, alpha:0.1)
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
-        layer.borderColor = UIColor.white.cgColor
+        layer.borderColor = UIColor(white:1, alpha:0.3).cgColor
+        layer.borderWidth = kBorderWidth
         layer.cornerRadius = kCornerRadius
     }
     
