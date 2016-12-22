@@ -83,6 +83,8 @@ class VHomeControlBlenderPieces:UIView
                 item.layoutLeft,
                 layoutItemWidth,
                 layoutItemHeight])
+            
+            item.rounded()
         }
         
         addConstraints(constraints)

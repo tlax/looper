@@ -21,7 +21,6 @@ class VHomeControlBlenderPiecesItem:UIView
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
-        layer.cornerRadius = kCornerRadius
         self.model = model
         
         let imageView:UIImageView = UIImageView()
@@ -30,7 +29,6 @@ class VHomeControlBlenderPiecesItem:UIView
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.image = model.image
-        imageView.layer.cornerRadius = kCornerRadius
         self.imageView = imageView
         
         addSubview(imageView)
@@ -79,8 +77,17 @@ class VHomeControlBlenderPiecesItem:UIView
         backgroundColor = UIColor.genericLight
     }
     
+    func rounded()
+    {
+        layer.cornerRadius = bounds.midX
+        imageView.layer.cornerRadius = imageView.bounds.midX
+    }
+    
     func placed()
     {
+        layer.cornerRadius = kCornerRadius
+        imageView.layer.cornerRadius = kCornerRadius
+        
         backgroundColor = UIColor.black
     }
     

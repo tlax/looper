@@ -69,11 +69,12 @@ class VHomeControlBlenderBoardOver:UIView
             let posX:CGFloat = frame.minX
             let posY:CGFloat = frame.minY
             let size:CGFloat = bounds.maxX
-            let pieceX:CGFloat = pieceRect.minX
-            let pieceY:CGFloat = pieceRect.minY
-            let pieceSize:CGFloat = pieceRect.size.width
-            let pieceSize_2:CGFloat = pieceSize / 2.0
-            let centerX:CGFloat = piece
+            let pieceX:CGFloat = pieceRect.midX
+            let pieceY:CGFloat = pieceRect.midY
+            let centerX:CGFloat = pieceX - posX
+            let centerY:CGFloat = pieceY - posY
+            
+            print("\(centerX):\(centerY)")
             
             piece.placed()
         }
