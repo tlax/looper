@@ -15,7 +15,7 @@ class VHomeControlBlenderBoardOver:UIView
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor(white:1, alpha:0.1)
+        backgroundColor = UIColor(white:1, alpha:0.15)
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
         layer.borderColor = UIColor(white:1, alpha:0.3).cgColor
@@ -73,6 +73,8 @@ class VHomeControlBlenderBoardOver:UIView
             let pieceY:CGFloat = pieceRect.midY
             let centerX:CGFloat = pieceX - posX
             let centerY:CGFloat = pieceY - posY
+            let percentX:CGFloat = centerX / size
+            let percentY:CGFloat = centerY / size
             
             print("\(centerX):\(centerY)")
             

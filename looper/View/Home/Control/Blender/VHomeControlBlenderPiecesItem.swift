@@ -12,7 +12,11 @@ class VHomeControlBlenderPiecesItem:UIView
     private let kImageMargin:CGFloat = 3
     private let kAnimationDuration:TimeInterval = 0.3
     
-    init(model:MHomeImageSequenceItem, originalX:CGFloat, originalY:CGFloat)
+    init(
+        model:MHomeImageSequenceItem,
+        originalX:CGFloat,
+        originalY:CGFloat,
+        size_2:CGFloat)
     {
         self.originalX = originalX
         self.originalY = originalY
@@ -21,6 +25,7 @@ class VHomeControlBlenderPiecesItem:UIView
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
+        layer.cornerRadius = size_2
         self.model = model
         
         let imageView:UIImageView = UIImageView()
@@ -29,6 +34,7 @@ class VHomeControlBlenderPiecesItem:UIView
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.image = model.image
+        imageView.layer.cornerRadius = size_2 - kImageMargin
         self.imageView = imageView
         
         addSubview(imageView)
@@ -68,6 +74,9 @@ class VHomeControlBlenderPiecesItem:UIView
     
     func selected()
     {
+        layer.cornerRadius = bounds.midX
+        imageView.layer.cornerRadius = imageView.bounds.midX
+        
         backgroundColor = UIColor.white
         superview?.bringSubview(toFront:self)
     }
@@ -75,12 +84,6 @@ class VHomeControlBlenderPiecesItem:UIView
     func notSelected()
     {
         backgroundColor = UIColor.genericLight
-    }
-    
-    func rounded()
-    {
-        layer.cornerRadius = bounds.midX
-        imageView.layer.cornerRadius = imageView.bounds.midX
     }
     
     func placed()

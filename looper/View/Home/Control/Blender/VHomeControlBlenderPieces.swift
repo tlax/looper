@@ -11,6 +11,8 @@ class VHomeControlBlenderPieces:UIView
     
     init(controller:CHome)
     {
+        let itemSize_2:CGFloat = kItemSize / 2.0
+        
         let useY:CGFloat = kItemsTop
         var currentX:CGFloat = kItemMargin
         var items:[VHomeControlBlenderPiecesItem] = []
@@ -29,7 +31,8 @@ class VHomeControlBlenderPieces:UIView
             let item:VHomeControlBlenderPiecesItem = VHomeControlBlenderPiecesItem(
                 model:firstSequenceItem,
                 originalX:currentX,
-                originalY:useY)
+                originalY:useY,
+                size_2:itemSize_2)
             items.append(item)
             
             currentX += kItemSize + kItemMargin
@@ -83,8 +86,6 @@ class VHomeControlBlenderPieces:UIView
                 item.layoutLeft,
                 layoutItemWidth,
                 layoutItemHeight])
-            
-            item.rounded()
         }
         
         addConstraints(constraints)

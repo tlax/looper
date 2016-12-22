@@ -15,7 +15,7 @@ class VHomeControlBlenderBoardMain:UIView
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor(white:1, alpha:0.1)
+        backgroundColor = UIColor(white:1, alpha:0.15)
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
         layer.borderColor = UIColor(white:1, alpha:0.3).cgColor
@@ -48,9 +48,9 @@ class VHomeControlBlenderBoardMain:UIView
             
             UIView.animate(
                 withDuration:kAnimationDuration)
-            { [weak self] in
+            { [weak piece] in
                 
-                self?.layoutIfNeeded()
+                piece?.superview?.layoutIfNeeded()
             }
             
             piece.placed()

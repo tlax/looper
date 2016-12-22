@@ -6,11 +6,11 @@ class VHomeControlBlenderBoard:UIView
     weak var viewOver:VHomeControlBlenderBoardOver!
     private let kMarginTop:CGFloat = 130
     private let kMarginLeft:CGFloat = 10
-    private let kMainSize:CGFloat = 90
+    private let kMainSize:CGFloat = 76
     private let kOverSize:CGFloat = 170
     private let kLabelMainWidth:CGFloat = 150
     private let kLabelBoardHeight:CGFloat = 30
-    private let kLabelBoardTop:CGFloat = 50
+    private let kLabelBoardTop:CGFloat = 70
     
     init()
     {
