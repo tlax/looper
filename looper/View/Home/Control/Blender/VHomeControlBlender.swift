@@ -124,4 +124,12 @@ class VHomeControlBlender:UIView
         
         super.layoutSubviews()
     }
+    
+    //MARK: public
+    
+    func save()
+    {
+        controller.modelImage.mainSequence = viewBoard.viewMain.piece?.model
+        viewPieces.save()
+    }
 }

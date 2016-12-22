@@ -2,6 +2,7 @@ import Foundation
 
 class MHomeImage
 {
+    weak var mainSequence:MHomeImageSequenceRaw?
     private var generatedSequence:MHomeImageSequenceGenerated?
     private(set) var sequences:[MHomeImageSequenceRaw]
     
