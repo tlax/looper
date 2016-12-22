@@ -83,4 +83,14 @@ class VHomeControlBlender:UIView
             layoutPiecesLeft,
             layoutPiecesRight])
     }
+    
+    override func layoutSubviews()
+    {
+        let totalHeight:CGFloat = bounds.maxY
+        let usableHeight:CGFloat = totalHeight - kMenuHeight
+        layoutBoardHeight.constant = usableHeight
+        layoutPiecesHeight.constant = usableHeight
+        
+        super.layoutSubviews()
+    }
 }
