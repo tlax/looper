@@ -21,6 +21,7 @@
 		DA505F4C1E0B4C9F00CE22FE /* VHomeControlBlenderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505F4B1E0B4C9F00CE22FE /* VHomeControlBlenderMenu.swift */; };
 		DA505F4E1E0B4F1100CE22FE /* VHomeControlBlenderBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505F4D1E0B4F1100CE22FE /* VHomeControlBlenderBoard.swift */; };
 		DA505F501E0B51EB00CE22FE /* VHomeControlBlenderPieces.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505F4F1E0B51EB00CE22FE /* VHomeControlBlenderPieces.swift */; };
+		DA505F521E0B535D00CE22FE /* VHomeControlBlenderGesturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505F511E0B535D00CE22FE /* VHomeControlBlenderGesturer.swift */; };
 		DA913DF51E049238000565D6 /* home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA913DF41E049238000565D6 /* home.xcassets */; };
 		DA96FEDE1E03672F00FD5265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */; };
 		DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FE981E03672F00FD5265 /* CHome.swift */; };
@@ -85,6 +86,7 @@
 		DA505F4B1E0B4C9F00CE22FE /* VHomeControlBlenderMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlenderMenu.swift; sourceTree = "<group>"; };
 		DA505F4D1E0B4F1100CE22FE /* VHomeControlBlenderBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlenderBoard.swift; sourceTree = "<group>"; };
 		DA505F4F1E0B51EB00CE22FE /* VHomeControlBlenderPieces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlenderPieces.swift; sourceTree = "<group>"; };
+		DA505F511E0B535D00CE22FE /* VHomeControlBlenderGesturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlenderGesturer.swift; sourceTree = "<group>"; };
 		DA913DF41E049238000565D6 /* home.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = home.xcassets; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				DA505F491E0B473600CE22FE /* VHomeControlBlender.swift */,
+				DA505F511E0B535D00CE22FE /* VHomeControlBlenderGesturer.swift */,
 				DA505F4F1E0B51EB00CE22FE /* VHomeControlBlenderPieces.swift */,
 				DA505F4D1E0B4F1100CE22FE /* VHomeControlBlenderBoard.swift */,
 				DA505F4B1E0B4C9F00CE22FE /* VHomeControlBlenderMenu.swift */,
@@ -546,6 +549,7 @@
 				DA9D2F3A1E0ADF57003E37D5 /* VHomeControlCameraMenuTrigger.swift in Sources */,
 				DA9D2F3C1E0ADF57003E37D5 /* VHomeControlCameraTicker.swift in Sources */,
 				DA96FEE11E03672F00FD5265 /* CController.swift in Sources */,
+				DA505F521E0B535D00CE22FE /* VHomeControlBlenderGesturer.swift in Sources */,
 				DAFFF4001E08A78100E14F12 /* MSession.swift in Sources */,
 				DA96FEE61E03672F00FD5265 /* ExtensionUICollectionReusableView.swift in Sources */,
 			);
