@@ -6,6 +6,7 @@ class VHomeControlBlenderPieces:UIView
     private let items:[VHomeControlBlenderPiecesItem]
     private let kItemSize:CGFloat = 70
     private let itemSize_2:CGFloat
+    private let kAnimationDuration:TimeInterval = 0.4
     
     init(controller:CHome)
     {
@@ -38,10 +39,44 @@ class VHomeControlBlenderPieces:UIView
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
         self.controller = controller
+        
+        layoutItems()
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: private
+    
+    private func layoutItems()
+    {
+        var constraints:[NSLayoutConstraint] = []
+        
+        for item:VHomeControlBlenderPiecesItem in items
+        {
+            item.layoutTop = NSLayoutConstraint.topToTop(
+                view:item,
+                toView:self)
+            item.layoutLeft = NSLayoutConstraint.leftToLeft(
+                view:item,
+                toView:self)
+            
+            constraints.append(item.layoutTop)
+            constraints.append(item.layoutLeft)
+        }
+        
+        addConstraints(constraints)
+    }
+    
+    //MARK: public
+    
+    func restartPieces()
+    {
+        for item:VHomeControlBlenderPiecesItem in items
+        {
+            
+        }
     }
 }
