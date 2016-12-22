@@ -20,6 +20,7 @@
 		DA505F4A1E0B473600CE22FE /* VHomeControlBlender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505F491E0B473600CE22FE /* VHomeControlBlender.swift */; };
 		DA505F4C1E0B4C9F00CE22FE /* VHomeControlBlenderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505F4B1E0B4C9F00CE22FE /* VHomeControlBlenderMenu.swift */; };
 		DA505F4E1E0B4F1100CE22FE /* VHomeControlBlenderBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505F4D1E0B4F1100CE22FE /* VHomeControlBlenderBoard.swift */; };
+		DA505F501E0B51EB00CE22FE /* VHomeControlBlenderPieces.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505F4F1E0B51EB00CE22FE /* VHomeControlBlenderPieces.swift */; };
 		DA913DF51E049238000565D6 /* home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA913DF41E049238000565D6 /* home.xcassets */; };
 		DA96FEDE1E03672F00FD5265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */; };
 		DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FE981E03672F00FD5265 /* CHome.swift */; };
@@ -83,6 +84,7 @@
 		DA505F491E0B473600CE22FE /* VHomeControlBlender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlender.swift; sourceTree = "<group>"; };
 		DA505F4B1E0B4C9F00CE22FE /* VHomeControlBlenderMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlenderMenu.swift; sourceTree = "<group>"; };
 		DA505F4D1E0B4F1100CE22FE /* VHomeControlBlenderBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlenderBoard.swift; sourceTree = "<group>"; };
+		DA505F4F1E0B51EB00CE22FE /* VHomeControlBlenderPieces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlenderPieces.swift; sourceTree = "<group>"; };
 		DA913DF41E049238000565D6 /* home.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = home.xcassets; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				DA505F491E0B473600CE22FE /* VHomeControlBlender.swift */,
+				DA505F4F1E0B51EB00CE22FE /* VHomeControlBlenderPieces.swift */,
 				DA505F4D1E0B4F1100CE22FE /* VHomeControlBlenderBoard.swift */,
 				DA505F4B1E0B4C9F00CE22FE /* VHomeControlBlenderMenu.swift */,
 			);
@@ -524,6 +527,7 @@
 				DA505F4A1E0B473600CE22FE /* VHomeControlBlender.swift in Sources */,
 				DA20F0C51E0446C300F8BAD4 /* VHomeDisplay.swift in Sources */,
 				DA9D2F451E0AFBE1003E37D5 /* MHomeFrames.swift in Sources */,
+				DA505F501E0B51EB00CE22FE /* VHomeControlBlenderPieces.swift in Sources */,
 				DA9D2F491E0AFCDF003E37D5 /* MHomeFramesItem1.swift in Sources */,
 				DA235C771E098D9800277550 /* VHomePlayerBoard.swift in Sources */,
 				DA505F471E0B3CF900CE22FE /* MHomeControlItemBlender.swift in Sources */,

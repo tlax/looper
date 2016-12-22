@@ -1,6 +1,6 @@
 import UIKit
 
-class VHomeControlBlenderBoard:UIView
+class VHomeControlBlenderPieces:UIView
 {
     init()
     {
