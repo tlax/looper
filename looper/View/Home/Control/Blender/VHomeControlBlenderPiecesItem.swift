@@ -79,6 +79,11 @@ class VHomeControlBlenderPiecesItem:UIView
         backgroundColor = UIColor.genericLight
     }
     
+    func placed()
+    {
+        backgroundColor = UIColor.black
+    }
+    
     func restartPlace()
     {
         layoutLeft.constant = originalX

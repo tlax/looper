@@ -10,7 +10,7 @@ class VHomeControlBlenderBoard:UIView
     private let kOverSize:CGFloat = 170
     private let kLabelMainWidth:CGFloat = 150
     private let kLabelBoardHeight:CGFloat = 30
-    private let kLabelBoardTop:CGFloat = 30
+    private let kLabelBoardTop:CGFloat = 50
     
     init()
     {
