@@ -111,9 +111,13 @@ class VHomeControlBlender:UIView
     {
         let totalHeight:CGFloat = bounds.maxY
         let usableHeight:CGFloat = totalHeight - kMenuHeight
-        layoutBoardHeight.constant = usableHeight
-        layoutPiecesHeight.constant = usableHeight
-        layoutGesturerHeight.constant = usableHeight
+        
+        if usableHeight >= 0
+        {
+            layoutBoardHeight.constant = usableHeight
+            layoutPiecesHeight.constant = usableHeight
+            layoutGesturerHeight.constant = usableHeight
+        }
         
         super.layoutSubviews()
     }
