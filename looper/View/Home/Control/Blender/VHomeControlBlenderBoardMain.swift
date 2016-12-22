@@ -30,7 +30,7 @@ class VHomeControlBlenderBoardMain:UIView
     
     //MARK: public
     
-    func dropping(piece:VHomeControlBlenderPiecesItem) -> Bool
+    func dropping(piece:VHomeControlBlenderPiecesItem)
     {
         let pieceRect:CGRect = piece.frame
         let intersects:Bool = frame.intersects(pieceRect)
@@ -53,10 +53,18 @@ class VHomeControlBlenderBoardMain:UIView
                 self?.layoutIfNeeded()
             }
             
-            self.piece?.restartPlace()
-            self.piece = piece
+            if piece !== self.piece
+            {
+                self.piece?.restartPlace()
+                self.piece = piece
+            }
         }
-        
-        return intersects
+        else
+        {
+            if piece === self.piece
+            {
+                self.piece = nil
+            }
+        }
     }
 }

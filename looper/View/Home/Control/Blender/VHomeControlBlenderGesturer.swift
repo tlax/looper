@@ -106,5 +106,6 @@ class VHomeControlBlenderGesturer:UIView
         
         gesturingItem.notSelected()
         viewBoard.viewMain.dropping(piece:gesturingItem)
+        viewBoard.viewOver.imageView.image = viewBoard.viewMain.piece?.model.image
     }
 }

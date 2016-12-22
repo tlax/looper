@@ -142,8 +142,4 @@ class VHomeControlBlenderBoard:UIView
         
         super.layoutSubviews()
     }
-    
-    //MARK: public
-    
-    
 }
