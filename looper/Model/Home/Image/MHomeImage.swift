@@ -15,21 +15,10 @@ class MHomeImage
     
     private func asyncGenerateSequence()
     {
-        guard
-            
-            let main:MHomeImageSequenceRaw = mainSequence
-        
-        else
-        {
-            return
-        }
-        
-        generatedSequence = MHomeImageSequenceGenerated(sequence:main)
-        
-        MSession.sharedInstance.state = MSession.State.standBy
-        NotificationCenter.default.post(
-            name:Notification.imagesUpdated,
-            object:nil)
+        generatedSequence = MHomeImageSequenceGenerated()
+        generatedSequence?.blend(
+            main:mainSequence,
+            items:sequences)
     }
     
     //MARK: public
@@ -59,7 +48,12 @@ class MHomeImage
         else
         {
             MSession.sharedInstance.state = MSession.State.rendering
-            asyncGenerateSequence()
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.asyncGenerateSequence()
+            }
             
             return nil
         }

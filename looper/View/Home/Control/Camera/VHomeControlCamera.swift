@@ -382,18 +382,22 @@ class VHomeControlCamera:UIView
         else
         {
             viewTicker.viewProcess.clean()
-            
-            guard
-                
-                let model:MHomeImageSequenceRaw = self.model
-            
-            else
-            {
-                return
-            }
-            
-            controller.modelImage.add(sequence:model)
             viewTicker.viewFrames.releaseButtons()
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                guard
+                    
+                    let model:MHomeImageSequenceRaw = self?.model
+                    
+                else
+                {
+                    return
+                }
+                
+                self?.controller.modelImage.add(sequence:model)
+            }
         }
     }
 }
