@@ -4,8 +4,9 @@ class VHomeControlBlenderPieces:UIView
 {
     private weak var controller:CHome!
     private let items:[VHomeControlBlenderPiecesItem]
-    private let kItemSize:CGFloat = 70
     private let itemSize_2:CGFloat
+    private let kItemSize:CGFloat = 70
+    private let kItemMargin:CGFloat = 20
     private let kAnimationDuration:TimeInterval = 0.4
     
     init(controller:CHome)
@@ -74,9 +75,16 @@ class VHomeControlBlenderPieces:UIView
     
     func restartPieces()
     {
+        let totalWidth:CGFloat = bounds.maxX
+        let useY:CGFloat = kItemMargin
+        var currentX:CGFloat = kItemMargin
+        
         for item:VHomeControlBlenderPiecesItem in items
         {
+            item.layoutLeft.constant = currentX
+            item.layoutTop.constant = useY
             
+            currentX += kItemSize + kItemMargin
         }
     }
 }
