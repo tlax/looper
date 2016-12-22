@@ -6,3 +6,4 @@
 "VHomeControlCamera_errorCaptureDevice"="Error connecting to camera";
 "VHomeControlCameraTickerFrames_titleBottom"="Pic/sec";
 "VHomeControlBlenderBoard_labelMain"="Main picture";
+"VHomeControlBlenderBoard_labelBoard"="Blend over";

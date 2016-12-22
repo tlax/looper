@@ -7,6 +7,8 @@ class VHomeControlBlenderBoard:UIView
     private let kMarginLeft:CGFloat = 10
     private let kMainSize:CGFloat = 110
     private let kLabelMainWidth:CGFloat = 150
+    private let kLabelBoardHeight:CGFloat = 30
+    private let kLabelBoardTop:CGFloat = 40
     
     init()
     {
@@ -20,17 +22,29 @@ class VHomeControlBlenderBoard:UIView
         self.viewMain = viewMain
         
         let labelsColor:UIColor = UIColor(white:1, alpha:0.5)
+        let labelsFont:UIFont = UIFont.bold(size:17)
         
         let labelMain:UILabel = UILabel()
         labelMain.isUserInteractionEnabled = false
         labelMain.translatesAutoresizingMaskIntoConstraints = false
-        labelMain.font = UIFont.bold(size:17)
+        labelMain.font = labelsFont
         labelMain.textColor = labelsColor
         labelMain.backgroundColor = UIColor.clear
         labelMain.text = NSLocalizedString(
             "VHomeControlBlenderBoard_labelMain", comment:"")
         
+        let labelBoard:UILabel = UILabel()
+        labelBoard.isUserInteractionEnabled = false
+        labelBoard.translatesAutoresizingMaskIntoConstraints = false
+        labelBoard.font = labelsFont
+        labelBoard.textColor = labelsColor
+        labelBoard.backgroundColor = UIColor.clear
+        labelBoard.textAlignment = NSTextAlignment.center
+        labelBoard.text = NSLocalizedString(
+            "VHomeControlBlenderBoard_labelBoard", comment:"")
+        
         addSubview(labelMain)
+        addSubview(labelBoard)
         addSubview(viewMain)
         
         viewMain.layoutTop = NSLayoutConstraint.topToTop(
@@ -48,29 +62,47 @@ class VHomeControlBlenderBoard:UIView
             view:viewMain,
             constant:kMainSize)
         
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let layoutLabelMainTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:labelMain,
             toView:viewMain)
-        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        let layoutLabelMainBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:labelMain,
             toView:viewMain)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
+        let layoutLabelMainLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
             view:labelMain,
             toView:viewMain,
             constant:kMarginLeft)
-        let layoutLabelWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        let layoutLabelMainWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:labelMain,
             constant:kLabelMainWidth)
+        
+        let layoutLabelBoardHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:labelBoard,
+            constant:kLabelBoardHeight)
+        let layoutLabelBoardTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:labelBoard,
+            toView:viewMain,
+            constant:kLabelBoardTop)
+        let layoutLabelBoardLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:labelBoard,
+            toView:self)
+        let layoutLabelBoardRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:labelBoard,
+            toView:self)
         
         addConstraints([
             viewMain.layoutTop,
             viewMain.layoutLeft,
             viewMain.layoutWidth,
             viewMain.layoutHeight,
-            layoutLabelTop,
-            layoutLabelBottom,
-            layoutLabelLeft,
-            layoutLabelWidth])
+            layoutLabelMainTop,
+            layoutLabelMainBottom,
+            layoutLabelMainLeft,
+            layoutLabelMainWidth,
+            layoutLabelBoardTop,
+            layoutLabelBoardHeight,
+            layoutLabelBoardLeft,
+            layoutLabelBoardRight])
     }
     
     required init?(coder:NSCoder)
