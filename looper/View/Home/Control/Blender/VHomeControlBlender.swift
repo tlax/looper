@@ -4,6 +4,9 @@ class VHomeControlBlender:UIView
 {
     private weak var viewMenu:VHomeControlBlenderMenu!
     private weak var viewBoard:VHomeControlBlenderBoard!
+    private weak var viewPieces:VHomeControlBlenderPieces!
+    private weak var layoutBoardHeight:NSLayoutConstraint!
+    private weak var layoutPiecesHeight:NSLayoutConstraint!
     private weak var controller:CHome!
     private let kMenuHeight:CGFloat = 50
     
@@ -22,7 +25,11 @@ class VHomeControlBlender:UIView
         let viewBoard:VHomeControlBlenderBoard = VHomeControlBlenderBoard()
         self.viewBoard = viewBoard
         
+        let viewPieces:VHomeControlBlenderPieces = VHomeControlBlenderPieces()
+        self.viewPieces = viewPieces
+        
         addSubview(viewBoard)
+        addSubview(viewPieces)
         addSubview(viewMenu)
         
         let layoutMenuHeight:NSLayoutConstraint = NSLayoutConstraint.height(
@@ -41,13 +48,25 @@ class VHomeControlBlender:UIView
         let layoutBoardTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:viewBoard,
             toView:self)
-        let layoutBoardHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        layoutBoardHeight = NSLayoutConstraint.height(
             view:viewBoard)
         let layoutBoardLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewBoard,
             toView:self)
         let layoutBoardRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:viewBoard,
+            toView:self)
+        
+        let layoutPiecesTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewPieces,
+            toView:self)
+        layoutPiecesHeight = NSLayoutConstraint.height(
+            view:viewPieces)
+        let layoutPiecesLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewPieces,
+            toView:self)
+        let layoutPiecesRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewPieces,
             toView:self)
         
         addConstraints([
@@ -58,6 +77,10 @@ class VHomeControlBlender:UIView
             layoutBoardTop,
             layoutBoardHeight,
             layoutBoardLeft,
-            layoutBoardRight])
+            layoutBoardRight,
+            layoutPiecesTop,
+            layoutPiecesHeight,
+            layoutPiecesLeft,
+            layoutPiecesRight])
     }
 }
