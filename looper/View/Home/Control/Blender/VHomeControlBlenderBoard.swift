@@ -2,6 +2,8 @@ import UIKit
 
 class VHomeControlBlenderBoard:UIView
 {
+    private let kMarginTop:CGFloat = 100
+    
     init()
     {
         super.init(frame:CGRect.zero)
@@ -15,4 +17,6 @@ class VHomeControlBlenderBoard:UIView
     {
         fatalError()
     }
+    
+    
 }
