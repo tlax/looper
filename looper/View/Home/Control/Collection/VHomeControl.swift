@@ -172,7 +172,7 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     
     func hideBlender()
     {
-        
+        viewBlender?.removeFromSuperview()
     }
     
     //MARK: collectionView delegate
