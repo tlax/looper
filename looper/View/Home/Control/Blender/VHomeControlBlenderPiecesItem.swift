@@ -2,6 +2,8 @@ import UIKit
 
 class VHomeControlBlenderPiecesItem:UIView
 {
+    let originalX:CGFloat
+    let originalY:CGFloat
     weak var layoutTop:NSLayoutConstraint!
     weak var layoutLeft:NSLayoutConstraint!
     private weak var imageView:UIImageView!
@@ -9,8 +11,11 @@ class VHomeControlBlenderPiecesItem:UIView
     private let kCornerRadius:CGFloat = 8
     private let kImageMargin:CGFloat = 3
     
-    init(model:MHomeImageSequenceItem)
+    init(model:MHomeImageSequenceItem, originalX:CGFloat, originalY:CGFloat)
     {
+        self.originalX = originalX
+        self.originalY = originalY
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +41,7 @@ class VHomeControlBlenderPiecesItem:UIView
         let layoutImageBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:imageView,
             toView:self,
-            constant:-kImageMargin)
+            constant:originalX)
         let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:imageView,
             toView:self,
@@ -44,7 +49,7 @@ class VHomeControlBlenderPiecesItem:UIView
         let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:imageView,
             toView:self,
-            constant:-kImageMargin)
+            constant:originalY)
         
         addConstraints([
             layoutImageTop,

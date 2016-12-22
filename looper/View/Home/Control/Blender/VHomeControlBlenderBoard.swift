@@ -4,13 +4,13 @@ class VHomeControlBlenderBoard:UIView
 {
     private weak var viewMain:VHomeControlBlenderBoardMain!
     private weak var viewOver:VHomeControlBlenderBoardOver!
-    private let kMarginTop:CGFloat = 120
+    private let kMarginTop:CGFloat = 130
     private let kMarginLeft:CGFloat = 10
-    private let kMainSize:CGFloat = 110
-    private let kOverSize:CGFloat = 250
+    private let kMainSize:CGFloat = 90
+    private let kOverSize:CGFloat = 170
     private let kLabelMainWidth:CGFloat = 150
     private let kLabelBoardHeight:CGFloat = 30
-    private let kLabelBoardTop:CGFloat = 40
+    private let kLabelBoardTop:CGFloat = 30
     
     init()
     {
@@ -142,4 +142,8 @@ class VHomeControlBlenderBoard:UIView
         
         super.layoutSubviews()
     }
+    
+    //MARK: public
+    
+    func 
 }
