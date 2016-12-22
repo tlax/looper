@@ -6,12 +6,9 @@ class VHomeControlBlenderPiecesItem:UIView
     weak var layoutLeft:NSLayoutConstraint!
     private weak var imageView:UIImageView!
     private weak var model:MHomeImageSequenceItem!
-    private let size:CGFloat
     
-    init(model:MHomeImageSequenceItem, size:CGFloat)
+    init(model:MHomeImageSequenceItem)
     {
-        self.size = size
-        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -52,18 +49,6 @@ class VHomeControlBlenderPiecesItem:UIView
     required init?(coder:NSCoder)
     {
         fatalError()
-    }
-    
-    override var intrinsicContentSize:CGSize
-    {
-        get
-        {
-            let size:CGSize = CGSize(
-                width:self.size,
-                height:self.size)
-            
-            return size
-        }
     }
     
     override func layoutSubviews()

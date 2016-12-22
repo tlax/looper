@@ -57,6 +57,8 @@ class VHomeControlBlenderPieces:UIView
         
         for item:VHomeControlBlenderPiecesItem in items
         {
+            addSubview(item)
+            
             item.layoutTop = NSLayoutConstraint.topToTop(
                 view:item,
                 toView:self)
@@ -64,8 +66,18 @@ class VHomeControlBlenderPieces:UIView
                 view:item,
                 toView:self)
             
-            constraints.append(item.layoutTop)
-            constraints.append(item.layoutLeft)
+            let layoutItemWidth = NSLayoutConstraint.width(
+                view:item,
+                constant:kItemSize)
+            let layoutItemHeight = NSLayoutConstraint.height(
+                view:item,
+                constant:kItemSize)
+            
+            constraints.append(contentsOf:[
+                item.layoutTop,
+                item.layoutLeft,
+                layoutItemWidth,
+                layoutItemHeight])
         }
         
         addConstraints(constraints)
