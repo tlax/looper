@@ -123,11 +123,4 @@ class VHomeControlBlender:UIView
         
         super.layoutSubviews()
     }
-    
-    //MARK: public
-    
-    func viewDidAppear()
-    {
-        viewPieces.restartPieces()
-    }
 }

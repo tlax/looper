@@ -145,5 +145,5 @@ class VHomeControlBlenderBoard:UIView
     
     //MARK: public
     
-    func 
+    
 }

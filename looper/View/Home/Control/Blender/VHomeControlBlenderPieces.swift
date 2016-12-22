@@ -14,6 +14,8 @@ class VHomeControlBlenderPieces:UIView
     {
         itemSize_2 = kItemSize / 2.0
         
+        let useY:CGFloat = kItemsTop
+        var currentX:CGFloat = kItemMargin
         var items:[VHomeControlBlenderPiecesItem] = []
         
         for sequence:MHomeImageSequenceRaw in controller.modelImage.sequences
@@ -28,8 +30,12 @@ class VHomeControlBlenderPieces:UIView
             }
             
             let item:VHomeControlBlenderPiecesItem = VHomeControlBlenderPiecesItem(
-                model:firstSequenceItem)
+                model:firstSequenceItem,
+                originalX:currentX,
+                originalY:useY)
             items.append(item)
+            
+            currentX += kItemSize + kItemMargin
         }
         
         self.items = items
@@ -62,11 +68,11 @@ class VHomeControlBlenderPieces:UIView
             item.layoutTop = NSLayoutConstraint.topToTop(
                 view:item,
                 toView:self,
-                constant:-kItemSize)
+                constant:item.originalY)
             item.layoutLeft = NSLayoutConstraint.leftToLeft(
                 view:item,
                 toView:self,
-                constant:-kItemSize)
+                constant:item.originalX)
             
             let layoutItemWidth = NSLayoutConstraint.width(
                 view:item,
@@ -89,15 +95,10 @@ class VHomeControlBlenderPieces:UIView
     
     func restartPieces()
     {
-        let useY:CGFloat = kItemsTop
-        var currentX:CGFloat = kItemMargin
-        
         for item:VHomeControlBlenderPiecesItem in items
         {
-            item.layoutLeft.constant = currentX
-            item.layoutTop.constant = useY
-            
-            currentX += kItemSize + kItemMargin
+            item.layoutLeft.constant = item.originalX
+            item.layoutTop.constant = item.originalY
         }
         
         UIView.animate(

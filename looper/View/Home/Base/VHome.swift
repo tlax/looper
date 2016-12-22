@@ -166,16 +166,10 @@ class VHome:VView
         layoutControlBottom.constant = viewControl.kCollectionHeight
         
         UIView.animate(
-            withDuration:kAnimationDuration,
-            animations:
+            withDuration:kAnimationDuration)
         { [weak self] in
             
             self?.layoutIfNeeded()
-                
-        })
-        { [weak self] (done:Bool) in
-            
-            self?.viewControl.viewBlender?.viewDidAppear()
         }
     }
     

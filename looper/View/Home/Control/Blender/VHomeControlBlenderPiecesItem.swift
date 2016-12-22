@@ -10,6 +10,7 @@ class VHomeControlBlenderPiecesItem:UIView
     private weak var model:MHomeImageSequenceItem!
     private let kCornerRadius:CGFloat = 8
     private let kImageMargin:CGFloat = 3
+    private let kAnimationDuration:TimeInterval = 0.3
     
     init(model:MHomeImageSequenceItem, originalX:CGFloat, originalY:CGFloat)
     {
@@ -41,7 +42,7 @@ class VHomeControlBlenderPiecesItem:UIView
         let layoutImageBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:imageView,
             toView:self,
-            constant:originalX)
+            constant:-kImageMargin)
         let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:imageView,
             toView:self,
@@ -49,7 +50,7 @@ class VHomeControlBlenderPiecesItem:UIView
         let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:imageView,
             toView:self,
-            constant:originalY)
+            constant:-kImageMargin)
         
         addConstraints([
             layoutImageTop,
@@ -76,5 +77,18 @@ class VHomeControlBlenderPiecesItem:UIView
     func notSelected()
     {
         backgroundColor = UIColor.genericLight
+    }
+    
+    func restartPlace()
+    {
+        layoutLeft.constant = originalX
+        layoutTop.constant = originalY
+        
+        UIView.animate(
+            withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.superview?.layoutIfNeeded()
+        }
     }
 }
