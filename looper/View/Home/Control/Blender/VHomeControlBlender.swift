@@ -27,7 +27,8 @@ class VHomeControlBlender:UIView
         let viewBoard:VHomeControlBlenderBoard = VHomeControlBlenderBoard()
         self.viewBoard = viewBoard
         
-        let viewPieces:VHomeControlBlenderPieces = VHomeControlBlenderPieces()
+        let viewPieces:VHomeControlBlenderPieces = VHomeControlBlenderPieces(
+            controller:controller)
         self.viewPieces = viewPieces
         
         let viewGesturer:VHomeControlBlenderGesturer = VHomeControlBlenderGesturer(

@@ -2,6 +2,8 @@ import UIKit
 
 class VHomeControlBlenderPiecesItem:UIView
 {
+    weak var layoutTop:NSLayoutConstraint!
+    weak var layoutLeft:NSLayoutConstraint!
     private weak var imageView:UIImageView!
     private weak var model:MHomeImageSequenceItem!
     private let size:CGFloat
