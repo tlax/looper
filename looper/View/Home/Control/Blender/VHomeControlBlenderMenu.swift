@@ -62,8 +62,6 @@ class VHomeControlBlenderMenu:UIView
     func actionBack(sender button:UIButton)
     {
         button.isUserInteractionEnabled = false
-        
-        controller.viewHome.viewControl.viewBlender?.save()
         controller.viewHome.hideBlender()
     }
 }

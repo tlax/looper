@@ -4,8 +4,6 @@ class VHomeControlBlenderPiecesItem:UIView
 {
     let originalX:CGFloat
     let originalY:CGFloat
-    var percentX:CGFloat?
-    var percentY:CGFloat?
     weak var layoutTop:NSLayoutConstraint!
     weak var layoutLeft:NSLayoutConstraint!
     weak var model:MHomeImageSequenceRaw!
@@ -76,8 +74,8 @@ class VHomeControlBlenderPiecesItem:UIView
     
     func clear()
     {
-        percentX = nil
-        percentY = nil
+        model.percentX = nil
+        model.percentY = nil
         notSelected()
     }
     

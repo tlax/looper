@@ -4,6 +4,7 @@ class VHomeControlBlenderBoard:UIView
 {
     weak var viewMain:VHomeControlBlenderBoardMain!
     weak var viewOver:VHomeControlBlenderBoardOver!
+    private weak var controller:CHome!
     private let kMarginTop:CGFloat = 130
     private let kMarginLeft:CGFloat = 10
     private let kMainSize:CGFloat = 76
@@ -12,15 +13,17 @@ class VHomeControlBlenderBoard:UIView
     private let kLabelBoardHeight:CGFloat = 30
     private let kLabelBoardTop:CGFloat = 70
     
-    init()
+    init(controller:CHome)
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
+        self.controller = controller
         
-        let viewMain:VHomeControlBlenderBoardMain = VHomeControlBlenderBoardMain()
+        let viewMain:VHomeControlBlenderBoardMain = VHomeControlBlenderBoardMain(
+            controller:controller)
         self.viewMain = viewMain
         
         let viewOver:VHomeControlBlenderBoardOver = VHomeControlBlenderBoardOver()

@@ -7,11 +7,12 @@ class VHomeControlBlenderBoardMain:UIView
     weak var layoutLeft:NSLayoutConstraint!
     weak var layoutWidth:NSLayoutConstraint!
     weak var layoutHeight:NSLayoutConstraint!
+    private weak var controller:CHome!
     private let kBorderWidth:CGFloat = 2
     private let kCornerRadius:CGFloat = 8
     private let kAnimationDuration:TimeInterval = 0.3
     
-    init()
+    init(controller:CHome)
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -21,6 +22,7 @@ class VHomeControlBlenderBoardMain:UIView
         layer.borderColor = UIColor(white:1, alpha:0.3).cgColor
         layer.borderWidth = kBorderWidth
         layer.cornerRadius = kCornerRadius
+        self.controller = controller
     }
     
     required init?(coder:NSCoder)
@@ -59,6 +61,7 @@ class VHomeControlBlenderBoardMain:UIView
             {
                 self.piece?.restartPlace()
                 self.piece = piece
+                controller.modelImage.mainSequence = piece.model
             }
         }
         else
@@ -66,6 +69,7 @@ class VHomeControlBlenderBoardMain:UIView
             if piece === self.piece
             {
                 self.piece = nil
+                controller.modelImage.mainSequence = nil
             }
         }
     }

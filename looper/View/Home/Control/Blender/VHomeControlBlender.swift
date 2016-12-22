@@ -24,7 +24,8 @@ class VHomeControlBlender:UIView
             controller:controller)
         self.viewMenu = viewMenu
         
-        let viewBoard:VHomeControlBlenderBoard = VHomeControlBlenderBoard()
+        let viewBoard:VHomeControlBlenderBoard = VHomeControlBlenderBoard(
+            controller:controller)
         self.viewBoard = viewBoard
         
         let viewPieces:VHomeControlBlenderPieces = VHomeControlBlenderPieces(
@@ -123,13 +124,5 @@ class VHomeControlBlender:UIView
         }
         
         super.layoutSubviews()
-    }
-    
-    //MARK: public
-    
-    func save()
-    {
-        controller.modelImage.mainSequence = viewBoard.viewMain.piece?.model
-        viewPieces.save()
     }
 }

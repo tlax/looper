@@ -75,8 +75,8 @@ class VHomeControlBlenderBoardOver:UIView
             let centerY:CGFloat = pieceY - posY
             let percentX:CGFloat = centerX / size
             let percentY:CGFloat = centerY / size
-            piece.percentX = percentX
-            piece.percentY = percentY
+            piece.model.percentX = percentX
+            piece.model.percentY = percentY
             
             piece.placed()
         }
