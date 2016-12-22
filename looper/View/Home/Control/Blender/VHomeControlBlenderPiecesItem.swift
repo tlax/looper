@@ -7,7 +7,7 @@ class VHomeControlBlenderPiecesItem:UIView
     private weak var imageView:UIImageView!
     private weak var model:MHomeImageSequenceItem!
     private let kCornerRadius:CGFloat = 8
-    private let kImageMargin:CGFloat = 2
+    private let kImageMargin:CGFloat = 3
     
     init(model:MHomeImageSequenceItem)
     {
@@ -65,6 +65,7 @@ class VHomeControlBlenderPiecesItem:UIView
     func selected()
     {
         backgroundColor = UIColor.white
+        superview?.bringSubview(toFront:self)
     }
     
     func notSelected()

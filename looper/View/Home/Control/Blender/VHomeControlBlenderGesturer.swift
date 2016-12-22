@@ -2,6 +2,7 @@ import UIKit
 
 class VHomeControlBlenderGesturer:UIView
 {
+    private var deltaPoint:CGPoint?
     private weak var controller:CHome!
     private weak var viewPieces:VHomeControlBlenderPieces!
     private weak var gesturingItem:VHomeControlBlenderPiecesItem?
@@ -33,14 +34,23 @@ class VHomeControlBlenderGesturer:UIView
         
         guard
         
-            let piece:VHomeControlBlenderPiecesItem = viewPieces.pieceAt(location:location)
+            let gesturingItem:VHomeControlBlenderPiecesItem = viewPieces.pieceAt(location:location)
         
         else
         {
             return
         }
         
-        piece.selected()
+        let locationX:CGFloat = location.x
+        let locationY:CGFloat = location.y
+        let deltaX:CGFloat = locationX - gesturingItem.layoutLeft.constant
+        let deltaY:CGFloat = locationY - gesturingItem.layoutTop.constant
+        deltaPoint = CGPoint(
+            x:deltaX,
+            y:deltaY)
+        
+        gesturingItem.selected()
+        self.gesturingItem = gesturingItem
     }
     
     override func touchesMoved(_ touches:Set<UITouch>, with event:UIEvent?)
@@ -48,6 +58,7 @@ class VHomeControlBlenderGesturer:UIView
         guard
             
             let gesturingItem:VHomeControlBlenderPiecesItem = self.gesturingItem,
+            let deltaPoint:CGPoint = self.deltaPoint,
             let touch:UITouch = touches.first
             
         else
@@ -55,7 +66,14 @@ class VHomeControlBlenderGesturer:UIView
             return
         }
         
+        let location:CGPoint = touch.location(in:self)
+        let locationX:CGFloat = location.x
+        let locationY:CGFloat = location.y
+        let newX:CGFloat = locationX - deltaPoint.x
+        let newY:CGFloat = locationY - deltaPoint.y
         
+        gesturingItem.layoutLeft.constant = newX
+        gesturingItem.layoutTop.constant = newY
     }
     
     override func touchesEnded(_ touches:Set<UITouch>, with event:UIEvent?)
@@ -72,6 +90,8 @@ class VHomeControlBlenderGesturer:UIView
     
     private func gestureEnds()
     {
+        deltaPoint = nil
+        
         guard
             
             let gesturingItem:VHomeControlBlenderPiecesItem = self.gesturingItem
@@ -80,5 +100,7 @@ class VHomeControlBlenderGesturer:UIView
         {
             return
         }
+        
+        gesturingItem.notSelected()
     }
 }
