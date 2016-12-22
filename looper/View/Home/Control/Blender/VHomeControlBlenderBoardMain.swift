@@ -9,6 +9,7 @@ class VHomeControlBlenderBoardMain:UIView
     weak var layoutHeight:NSLayoutConstraint!
     private let kBorderWidth:CGFloat = 2
     private let kCornerRadius:CGFloat = 8
+    private let kAnimationDuration:TimeInterval = 0.3
     
     init()
     {
@@ -29,17 +30,33 @@ class VHomeControlBlenderBoardMain:UIView
     
     //MARK: public
     
-    func dropping(piece:VHomeControlBlenderPiecesItem)
+    func dropping(piece:VHomeControlBlenderPiecesItem) -> Bool
     {
         let pieceRect:CGRect = piece.frame
+        let intersects:Bool = frame.intersects(pieceRect)
         
-        if frame.intersects(pieceRect)
+        if intersects
         {
-            print("yes")
+            let posX:CGFloat = frame.minX
+            let posY:CGFloat = frame.minY
+            let size:CGFloat = bounds.maxX
+            let pieceSize:CGFloat = pieceRect.size.width
+            let deltaSize:CGFloat = size - pieceSize
+            let margin:CGFloat = deltaSize / 2.0
+            piece.layoutLeft.constant = posX + margin
+            piece.layoutTop.constant = posY + margin
+            
+            UIView.animate(
+                withDuration:kAnimationDuration)
+            { [weak self] in
+                
+                self?.layoutIfNeeded()
+            }
+            
+            self.piece?.restartPlace()
+            self.piece = piece
         }
-        else
-        {
-            print("no")
-        }
+        
+        return intersects
     }
 }
