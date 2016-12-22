@@ -107,4 +107,36 @@ class VHomeControlBlenderPieces:UIView
             self?.layoutIfNeeded()
         }
     }
+    
+    func pieceAt(location:CGPoint) -> VHomeControlBlenderPiecesItem?
+    {
+        var selectedItem:VHomeControlBlenderPiecesItem?
+        var currentMinDelta:CGFloat = 0
+        let maxX:CGFloat = location.x
+        let maxY:CGFloat = location.y
+        let minX:CGFloat = maxX - kItemSize
+        let minY:CGFloat = maxY - kItemSize
+        
+        for item:VHomeControlBlenderPiecesItem in items
+        {
+            let itemX:CGFloat = item.layoutLeft.constant
+            let itemY:CGFloat = item.layoutTop.constant
+            
+            if itemX > minX
+            {
+                if itemY > minY
+                {
+                    if itemX < maxX
+                    {
+                        if itemY < maxY
+                        {
+                            
+                        }
+                    }
+                }
+            }
+        }
+        
+        return selectedItem
+    }
 }
