@@ -4,7 +4,6 @@ class VHomeControlBlenderPieces:UIView
 {
     private weak var controller:CHome!
     private let items:[VHomeControlBlenderPiecesItem]
-    private let itemSize_2:CGFloat
     private let kItemSize:CGFloat = 70
     private let kItemMargin:CGFloat = 10
     private let kItemsTop:CGFloat = 30
@@ -12,8 +11,6 @@ class VHomeControlBlenderPieces:UIView
     
     init(controller:CHome)
     {
-        itemSize_2 = kItemSize / 2.0
-        
         let useY:CGFloat = kItemsTop
         var currentX:CGFloat = kItemMargin
         var items:[VHomeControlBlenderPiecesItem] = []

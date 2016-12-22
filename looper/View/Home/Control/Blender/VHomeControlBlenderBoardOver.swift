@@ -56,4 +56,26 @@ class VHomeControlBlenderBoardOver:UIView
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func dropping(piece:VHomeControlBlenderPiecesItem)
+    {
+        let pieceRect:CGRect = piece.frame
+        let intersects:Bool = frame.intersects(pieceRect)
+        
+        if intersects
+        {
+            let posX:CGFloat = frame.minX
+            let posY:CGFloat = frame.minY
+            let size:CGFloat = bounds.maxX
+            let pieceX:CGFloat = pieceRect.minX
+            let pieceY:CGFloat = pieceRect.minY
+            let pieceSize:CGFloat = pieceRect.size.width
+            let pieceSize_2:CGFloat = pieceSize / 2.0
+            let centerX:CGFloat = piece
+            
+            piece.placed()
+        }
+    }
 }

@@ -55,6 +55,7 @@ class VHomeControlBlenderBoardMain:UIView
             
             if piece !== self.piece
             {
+                piece.placed()
                 self.piece?.restartPlace()
                 self.piece = piece
             }
