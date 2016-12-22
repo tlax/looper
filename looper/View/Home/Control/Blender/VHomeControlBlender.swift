@@ -2,11 +2,13 @@ import UIKit
 
 class VHomeControlBlender:UIView
 {
-    private weak var viewMenu:VHomeControlBlenderMenu!
-    private weak var viewBoard:VHomeControlBlenderBoard!
-    private weak var viewPieces:VHomeControlBlenderPieces!
+    weak var viewMenu:VHomeControlBlenderMenu!
+    weak var viewBoard:VHomeControlBlenderBoard!
+    weak var viewPieces:VHomeControlBlenderPieces!
+    weak var viewGesturer:VHomeControlBlenderGesturer!
     private weak var layoutBoardHeight:NSLayoutConstraint!
     private weak var layoutPiecesHeight:NSLayoutConstraint!
+    private weak var layoutGesturerHeight:NSLayoutConstraint!
     private weak var controller:CHome!
     private let kMenuHeight:CGFloat = 50
     
@@ -28,8 +30,13 @@ class VHomeControlBlender:UIView
         let viewPieces:VHomeControlBlenderPieces = VHomeControlBlenderPieces()
         self.viewPieces = viewPieces
         
+        let viewGesturer:VHomeControlBlenderGesturer = VHomeControlBlenderGesturer(
+            controller:controller)
+        self.viewGesturer = viewGesturer
+        
         addSubview(viewBoard)
         addSubview(viewPieces)
+        addSubview(viewGesturer)
         addSubview(viewMenu)
         
         let layoutMenuHeight:NSLayoutConstraint = NSLayoutConstraint.height(
@@ -69,6 +76,18 @@ class VHomeControlBlender:UIView
             view:viewPieces,
             toView:self)
         
+        let layoutGesturerTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewGesturer,
+            toView:self)
+        layoutGesturerHeight = NSLayoutConstraint.height(
+            view:viewGesturer)
+        let layoutGesturerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewGesturer,
+            toView:self)
+        let layoutGesturerRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewGesturer,
+            toView:self)
+        
         addConstraints([
             layoutMenuHeight,
             layoutMenuBottom,
@@ -81,7 +100,11 @@ class VHomeControlBlender:UIView
             layoutPiecesTop,
             layoutPiecesHeight,
             layoutPiecesLeft,
-            layoutPiecesRight])
+            layoutPiecesRight,
+            layoutGesturerTop,
+            layoutGesturerHeight,
+            layoutGesturerLeft,
+            layoutGesturerRight])
     }
     
     override func layoutSubviews()
@@ -90,6 +113,7 @@ class VHomeControlBlender:UIView
         let usableHeight:CGFloat = totalHeight - kMenuHeight
         layoutBoardHeight.constant = usableHeight
         layoutPiecesHeight.constant = usableHeight
+        layoutGesturerHeight.constant = usableHeight
         
         super.layoutSubviews()
     }
