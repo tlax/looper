@@ -27,7 +27,24 @@ class VHomeControlBlenderPiecesItem:UIView
         
         addSubview(imageView)
         
-        let layoutImageTop
+        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:imageView,
+            toView:self)
+        let layoutImageBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:imageView,
+            toView:self)
+        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:imageView,
+            toView:self)
+        let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:imageView,
+            toView:self)
+        
+        addConstraints([
+            layoutImageTop,
+            layoutImageBottom,
+            layoutImageLeft,
+            layoutImageRight])
     }
     
     required init?(coder:NSCoder)
