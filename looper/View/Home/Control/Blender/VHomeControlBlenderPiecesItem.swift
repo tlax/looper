@@ -6,7 +6,7 @@ class VHomeControlBlenderPiecesItem:UIView
     weak var layoutLeft:NSLayoutConstraint!
     private weak var imageView:UIImageView!
     private weak var model:MHomeImageSequenceItem!
-    private let kCornerRadius:CGFloat = 10
+    private let kCornerRadius:CGFloat = 8
     private let kImageMargin:CGFloat = 2
     
     init(model:MHomeImageSequenceItem)
@@ -69,6 +69,6 @@ class VHomeControlBlenderPiecesItem:UIView
     
     func notSelected()
     {
-        backgroundColor = UIColor.genericDark
+        backgroundColor = UIColor.genericLight
     }
 }

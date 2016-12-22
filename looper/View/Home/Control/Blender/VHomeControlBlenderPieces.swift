@@ -6,7 +6,7 @@ class VHomeControlBlenderPieces:UIView
     private let items:[VHomeControlBlenderPiecesItem]
     private let itemSize_2:CGFloat
     private let kItemSize:CGFloat = 70
-    private let kItemMargin:CGFloat = 20
+    private let kItemMargin:CGFloat = 10
     private let kItemsTop:CGFloat = 30
     private let kAnimationDuration:TimeInterval = 0.4
     
@@ -61,10 +61,12 @@ class VHomeControlBlenderPieces:UIView
             
             item.layoutTop = NSLayoutConstraint.topToTop(
                 view:item,
-                toView:self)
+                toView:self,
+                constant:-kItemSize)
             item.layoutLeft = NSLayoutConstraint.leftToLeft(
                 view:item,
-                toView:self)
+                toView:self,
+                constant:-kItemSize)
             
             let layoutItemWidth = NSLayoutConstraint.width(
                 view:item,
@@ -96,6 +98,13 @@ class VHomeControlBlenderPieces:UIView
             item.layoutTop.constant = useY
             
             currentX += kItemSize + kItemMargin
+        }
+        
+        UIView.animate(
+            withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
         }
     }
 }
