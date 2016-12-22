@@ -3,9 +3,11 @@ import UIKit
 class VHomeControlBlenderBoard:UIView
 {
     private weak var viewMain:VHomeControlBlenderBoardMain!
+    private weak var viewOver:VHomeControlBlenderBoardOver!
     private let kMarginTop:CGFloat = 120
     private let kMarginLeft:CGFloat = 10
     private let kMainSize:CGFloat = 110
+    private let kOverSize:CGFloat = 250
     private let kLabelMainWidth:CGFloat = 150
     private let kLabelBoardHeight:CGFloat = 30
     private let kLabelBoardTop:CGFloat = 40
@@ -20,6 +22,9 @@ class VHomeControlBlenderBoard:UIView
         
         let viewMain:VHomeControlBlenderBoardMain = VHomeControlBlenderBoardMain()
         self.viewMain = viewMain
+        
+        let viewOver:VHomeControlBlenderBoardOver = VHomeControlBlenderBoardOver()
+        self.viewOver = viewOver
         
         let labelsColor:UIColor = UIColor(white:1, alpha:0.5)
         let labelsFont:UIFont = UIFont.bold(size:17)
@@ -46,6 +51,7 @@ class VHomeControlBlenderBoard:UIView
         addSubview(labelMain)
         addSubview(labelBoard)
         addSubview(viewMain)
+        addSubview(viewOver)
         
         viewMain.layoutTop = NSLayoutConstraint.topToTop(
             view:viewMain,
@@ -61,6 +67,19 @@ class VHomeControlBlenderBoard:UIView
         viewMain.layoutHeight = NSLayoutConstraint.height(
             view:viewMain,
             constant:kMainSize)
+        
+        viewOver.layoutTop = NSLayoutConstraint.topToBottom(
+            view:viewOver,
+            toView:labelBoard)
+        viewOver.layoutLeft = NSLayoutConstraint.leftToLeft(
+            view:viewOver,
+            toView:self)
+        viewOver.layoutWidth = NSLayoutConstraint.width(
+            view:viewOver,
+            constant:kOverSize)
+        viewOver.layoutHeight = NSLayoutConstraint.height(
+            view:viewOver,
+            constant:kOverSize)
         
         let layoutLabelMainTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:labelMain,
@@ -95,6 +114,10 @@ class VHomeControlBlenderBoard:UIView
             viewMain.layoutLeft,
             viewMain.layoutWidth,
             viewMain.layoutHeight,
+            viewOver.layoutTop,
+            viewOver.layoutLeft,
+            viewOver.layoutWidth,
+            viewOver.layoutHeight,
             layoutLabelMainTop,
             layoutLabelMainBottom,
             layoutLabelMainLeft,
@@ -108,5 +131,15 @@ class VHomeControlBlenderBoard:UIView
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let totalWidth:CGFloat = bounds.maxX
+        let remainWidth:CGFloat = totalWidth - kOverSize
+        let marginLeft:CGFloat = remainWidth / 2.0
+        viewOver.layoutLeft.constant = marginLeft
+        
+        super.layoutSubviews()
     }
 }
