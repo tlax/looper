@@ -7,6 +7,7 @@ class VHomeControlBlenderPieces:UIView
     private let itemSize_2:CGFloat
     private let kItemSize:CGFloat = 70
     private let kItemMargin:CGFloat = 20
+    private let kItemsTop:CGFloat = 30
     private let kAnimationDuration:TimeInterval = 0.4
     
     init(controller:CHome)
@@ -27,8 +28,7 @@ class VHomeControlBlenderPieces:UIView
             }
             
             let item:VHomeControlBlenderPiecesItem = VHomeControlBlenderPiecesItem(
-                model:firstSequenceItem,
-                size:kItemSize)
+                model:firstSequenceItem)
             items.append(item)
         }
         
@@ -87,8 +87,7 @@ class VHomeControlBlenderPieces:UIView
     
     func restartPieces()
     {
-        let totalWidth:CGFloat = bounds.maxX
-        let useY:CGFloat = kItemMargin
+        let useY:CGFloat = kItemsTop
         var currentX:CGFloat = kItemMargin
         
         for item:VHomeControlBlenderPiecesItem in items
