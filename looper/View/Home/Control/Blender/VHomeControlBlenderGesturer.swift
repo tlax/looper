@@ -104,7 +104,7 @@ class VHomeControlBlenderGesturer:UIView
             return
         }
         
-        gesturingItem.notSelected()
+        gesturingItem.clear()
         viewBoard.viewMain.dropping(piece:gesturingItem)
         viewBoard.viewOver.dropping(piece:gesturingItem)
         viewBoard.viewOver.imageView.image = viewBoard.viewMain.piece?.model.image
