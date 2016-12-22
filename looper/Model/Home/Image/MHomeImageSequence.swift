@@ -2,7 +2,7 @@ import UIKit
 
 class MHomeImageSequence
 {
-    private(set) var items:[MHomeImageSequenceItem]
+    var items:[MHomeImageSequenceItem]
     
     init(items:[MHomeImageSequenceItem])
     {

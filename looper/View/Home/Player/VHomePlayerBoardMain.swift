@@ -31,24 +31,24 @@ class VHomePlayerBoardMain:UIButton
     {
         switch MSession.sharedInstance.state
         {
-        case MSession.State.standBy,
-             MSession.State.frame:
-            
-            if controller.modelImage.generateSequence()?.items.first != nil
-            {
-                buttonStop()
-            }
-            
-            break
-            
-        case MSession.State.playing:
-            
-            buttonPlay()
-            
-            break;
-            
-        case MSession.State.rendering:
-            break;
+            case MSession.State.standBy,
+                 MSession.State.frame:
+                
+                if controller.modelImage.generateSequence()?.items.first != nil
+                {
+                    buttonStop()
+                }
+                
+                break
+                
+            case MSession.State.playing:
+                
+                buttonPlay()
+                
+                break;
+                
+            case MSession.State.rendering:
+                break;
         }
     }
     

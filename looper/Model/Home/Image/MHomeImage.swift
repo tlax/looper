@@ -42,10 +42,16 @@ class MHomeImage
     func add(sequence:MHomeImageSequenceRaw)
     {
         sequences.append(sequence)
+        sequence.render()
     }
     
     func generateSequence() -> MHomeImageSequenceGenerated?
     {
+        if MSession.sharedInstance.state == MSession.State.rendering
+        {
+            return nil
+        }
+        
         guard
         
             let generatedSequence:MHomeImageSequenceGenerated = self.generatedSequence
