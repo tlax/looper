@@ -16,6 +16,5 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
     
     func blend(main:MHomeImageSequenceRaw?, items:[MHomeImageSequenceRaw])
     {
-        
     }
 }

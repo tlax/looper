@@ -9,7 +9,6 @@ class MHomeImageSequenceRaw:MHomeImageSequence
     
     func render()
     {
-        print("render start")
         var items:[MHomeImageSequenceItem] = []
         
         for sequenceItem:MHomeImageSequenceItem in self.items
@@ -51,7 +50,5 @@ class MHomeImageSequenceRaw:MHomeImageSequence
         }
         
         self.items = items
-        
-        print("render finish")
     }
 }
