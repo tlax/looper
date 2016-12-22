@@ -2,8 +2,8 @@ import UIKit
 
 class VHomeControlBlenderBoard:UIView
 {
-    private weak var viewMain:VHomeControlBlenderBoardMain!
-    private weak var viewOver:VHomeControlBlenderBoardOver!
+    weak var viewMain:VHomeControlBlenderBoardMain!
+    weak var viewOver:VHomeControlBlenderBoardOver!
     private let kMarginTop:CGFloat = 130
     private let kMarginLeft:CGFloat = 10
     private let kMainSize:CGFloat = 90

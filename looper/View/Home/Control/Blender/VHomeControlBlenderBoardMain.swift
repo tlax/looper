@@ -2,6 +2,7 @@ import UIKit
 
 class VHomeControlBlenderBoardMain:UIView
 {
+    weak var piece:VHomeControlBlenderPiecesItem?
     weak var layoutTop:NSLayoutConstraint!
     weak var layoutLeft:NSLayoutConstraint!
     weak var layoutWidth:NSLayoutConstraint!
@@ -24,5 +25,21 @@ class VHomeControlBlenderBoardMain:UIView
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: public
+    
+    func dropping(piece:VHomeControlBlenderPiecesItem)
+    {
+        let pieceRect:CGRect = piece.frame
+        
+        if frame.intersects(pieceRect)
+        {
+            print("yes")
+        }
+        else
+        {
+            print("no")
+        }
     }
 }

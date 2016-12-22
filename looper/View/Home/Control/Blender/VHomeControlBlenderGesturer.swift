@@ -5,11 +5,13 @@ class VHomeControlBlenderGesturer:UIView
     private var deltaPoint:CGPoint?
     private weak var controller:CHome!
     private weak var viewPieces:VHomeControlBlenderPieces!
+    private weak var viewBoard:VHomeControlBlenderBoard!
     private weak var gesturingItem:VHomeControlBlenderPiecesItem?
     
     convenience init(
         controller:CHome,
-        viewPieces:VHomeControlBlenderPieces)
+        viewPieces:VHomeControlBlenderPieces,
+        viewBoard:VHomeControlBlenderBoard)
     {
         self.init()
         clipsToBounds = true
@@ -17,6 +19,7 @@ class VHomeControlBlenderGesturer:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         self.viewPieces = viewPieces
+        self.viewBoard = viewBoard
     }
     
     override func touchesBegan(_ touches:Set<UITouch>, with event:UIEvent?)
@@ -102,5 +105,6 @@ class VHomeControlBlenderGesturer:UIView
         }
         
         gesturingItem.notSelected()
+        viewBoard.viewMain.dropping(piece:gesturingItem)
     }
 }
