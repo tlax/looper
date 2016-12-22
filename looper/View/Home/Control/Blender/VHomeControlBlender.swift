@@ -18,6 +18,8 @@ class VHomeControlBlender:UIView
             controller:controller)
         self.viewMenu = viewMenu
         
+        addSubview(viewMenu)
+        
         let layoutMenuHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:viewMenu,
             constant:kMenuHeight)
