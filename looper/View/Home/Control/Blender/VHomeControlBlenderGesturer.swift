@@ -107,6 +107,6 @@ class VHomeControlBlenderGesturer:UIView
         gesturingItem.clear()
         viewBoard.viewMain.dropping(piece:gesturingItem)
         viewBoard.viewOver.dropping(piece:gesturingItem)
-        viewBoard.viewOver.imageView.image = viewBoard.viewMain.piece?.model.image
+        viewBoard.viewOver.imageView.image = viewBoard.viewMain.piece?.model.items.first?.image
     }
 }

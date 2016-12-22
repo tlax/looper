@@ -8,14 +8,14 @@ class VHomeControlBlenderPiecesItem:UIView
     var percentY:CGFloat?
     weak var layoutTop:NSLayoutConstraint!
     weak var layoutLeft:NSLayoutConstraint!
-    weak var model:MHomeImageSequenceItem!
+    weak var model:MHomeImageSequence!
     private weak var imageView:UIImageView!
     private let kCornerRadius:CGFloat = 8
     private let kImageMargin:CGFloat = 3
     private let kAnimationDuration:TimeInterval = 0.3
     
     init(
-        model:MHomeImageSequenceItem,
+        model:MHomeImageSequence,
         originalX:CGFloat,
         originalY:CGFloat,
         size_2:CGFloat)
@@ -35,7 +35,7 @@ class VHomeControlBlenderPiecesItem:UIView
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
-        imageView.image = model.image
+        imageView.image = model.items.first?.image
         imageView.layer.cornerRadius = size_2 - kImageMargin
         self.imageView = imageView
         

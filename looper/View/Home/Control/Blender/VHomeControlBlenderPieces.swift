@@ -18,18 +18,9 @@ class VHomeControlBlenderPieces:UIView
         var items:[VHomeControlBlenderPiecesItem] = []
         
         for sequence:MHomeImageSequenceRaw in controller.modelImage.sequences
-        {
-            guard
-            
-                let firstSequenceItem:MHomeImageSequenceItem = sequence.items.first
-            
-            else
-            {
-                continue
-            }
-            
+        {   
             let item:VHomeControlBlenderPiecesItem = VHomeControlBlenderPiecesItem(
-                model:firstSequenceItem,
+                model:sequence,
                 originalX:currentX,
                 originalY:useY,
                 size_2:itemSize_2)
