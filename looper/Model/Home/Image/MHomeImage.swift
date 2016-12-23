@@ -11,16 +11,11 @@ class MHomeImage
     private var textureLoader:MTKTextureLoader?
     private var generatedSequence:MHomeImageSequenceGenerated?
     private(set) var sequences:[MHomeImageSequenceRaw]
-    private let textureOptions:[String:NSObject]
     private let kMetalFunctionName:String = "metalFilter_blender"
     
     init()
     {
         sequences = []
-        textureOptions = [
-            MTKTextureLoaderOptionTextureUsage:MTLTextureUsage.shaderRead.rawValue as NSObject,
-            MTKTextureLoaderOptionSRGB:true as NSObject
-        ]
     }
     
     //MARK: private
@@ -72,7 +67,6 @@ class MHomeImage
             mtlFunction:mtlFunction,
             commandQueue:commandQueue,
             textureLoader:textureLoader,
-            textureOptions:textureOptions,
             main:mainSequence,
             sequences:sequences)
     }

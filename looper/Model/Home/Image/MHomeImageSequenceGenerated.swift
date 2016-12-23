@@ -3,20 +3,11 @@ import MetalKit
 
 class MHomeImageSequenceGenerated:MHomeImageSequence
 {
-    //MARK: private
+    private weak var device:MTLDevice!
+    private weak var textureLoader:MTKTextureLoader!
+    private let kTextureMipMapped:Bool = false
     
-    private func loadSequenceTextures(
-        sequence:MHomeImageSequenceRaw,
-        textureLoader:MTKTextureLoader,
-        textureOptions:[String:NSObject])
-    {
-        for item:MHomeImageSequenceItem in sequence.items
-        {
-            item.createTexture(
-                textureLoader:textureLoader,
-                textureOptions:textureOptions)
-        }
-    }
+    //MARK: private
     
     private func blendFinished()
     {
@@ -26,6 +17,79 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
             object:nil)
     }
     
+    private func newCanvasTexure(
+        pixelFormat:MTLPixelFormat,
+        width:Int,
+        height:Int) -> MTLTexture
+    {
+        let textureDescriptor:MTLTextureDescriptor = MTLTextureDescriptor.texture2DDescriptor(
+            pixelFormat:pixelFormat,
+            width:width,
+            height:height,
+            mipmapped:kTextureMipMapped)
+        
+        let newTexture:MTLTexture = device.makeTexture(
+            descriptor:textureDescriptor)
+        
+        return newTexture
+    }
+    
+    private func blendOverMain(
+        main:MHomeImageSequenceRaw,
+        sequences:[MHomeImageSequenceRaw])
+    {
+        let countMainItems:Int = main.items.count
+        
+        for indexMainItem:Int in 0 ..< countMainItems
+        {
+            let mainItem:MHomeImageSequenceItem = main.items[indexMainItem]
+            mainItem.createTexture(textureLoader:textureLoader)
+            
+            guard
+                
+                let mainItemTexture:MTLTexture = mainItem.texture
+            
+            else
+            {
+                continue
+            }
+            
+            var finalTexture:MTLTexture = mainItemTexture
+            let mainTextureWidth:Int = mainItemTexture.width
+            let mainTextureHeight:Int = mainItemTexture.height
+            let mainTexturePixelFormat:MTLPixelFormat = mainItemTexture.pixelFormat
+            
+            for sequence:MHomeImageSequenceRaw in sequences
+            {
+                let countSequenceItem:Int = sequence.items.count
+                
+                if countSequenceItem > indexMainItem
+                {
+                    let sequenceItem:MHomeImageSequenceItem = sequence.items[indexMainItem]
+                    sequenceItem.createTexture(textureLoader:textureLoader)
+                    
+                    let destinationTexture:MTLTexture = newCanvasTexure(
+                        pixelFormat:mainTexturePixelFormat,
+                        width:mainTextureWidth,
+                        height:mainTextureHeight)
+                }
+            }
+            
+            guard
+                
+                let textureImage:UIImage = finalTexture.exportImage()
+                
+            else
+            {
+                continue
+            }
+            
+            let finalItem:MHomeImageSequenceItem = MHomeImageSequenceItem(
+                image:textureImage)
+            items.append(finalItem)
+        }
+    }
+    
     //MARK: public
     
     func blend(
@@ -33,19 +97,17 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
         mtlFunction:MTLFunction,
         commandQueue:MTLCommandQueue,
         textureLoader:MTKTextureLoader,
-        textureOptions:[String:NSObject],
         main:MHomeImageSequenceRaw?,
         sequences:[MHomeImageSequenceRaw])
     {
-        var items:[MHomeImageSequenceItem] = []
+        self.device = device
+        self.textureLoader = textureLoader
         
         if let main:MHomeImageSequenceRaw = main
         {
-            loadSequenceTextures(
-                sequence:main,
-                textureLoader:textureLoader,
-                textureOptions:textureOptions)
+            blendOverMain(main:main, sequences:sequences)
             
+            /*
             guard
             
                 let firstTexture:MTLTexture =  main.items.first?.texture
@@ -59,8 +121,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
             {
                 loadSequenceTextures(
                     sequence:blendingSequence,
-                    textureLoader:textureLoader,
-                    textureOptions:textureOptions)
+                    textureLoader:textureLoader)
             }
             
             let totalWidth:Int = firstTexture.width
@@ -110,15 +171,15 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 let newItem:MHomeImageSequenceItem = MHomeImageSequenceItem(image:newImage)
                 items.append(newItem)
             }
+            
+            */
         }
         else
         {
             
         }
+        /*
         
-        
-        self.items = items
-        
-        self.blendFinished()
+        self.blendFinished()*/
     }
 }

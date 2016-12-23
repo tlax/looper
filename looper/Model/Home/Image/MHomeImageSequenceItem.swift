@@ -14,8 +14,7 @@ class MHomeImageSequenceItem
     //MARK: public
     
     func createTexture(
-        textureLoader:MTKTextureLoader,
-        textureOptions:[String:NSObject])
+        textureLoader:MTKTextureLoader)
     {
         if texture == nil
         {
@@ -32,7 +31,10 @@ class MHomeImageSequenceItem
             {
                 texture = try textureLoader.newTexture(
                     with:cgImage,
-                    options:textureOptions)
+                    options:[
+                        MTKTextureLoaderOptionTextureUsage:MTLTextureUsage.shaderRead.rawValue as NSObject,
+                        MTKTextureLoaderOptionSRGB:true as NSObject
+                    ])
             }
             catch
             {
