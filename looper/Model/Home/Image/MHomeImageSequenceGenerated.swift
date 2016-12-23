@@ -55,6 +55,14 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 return
             }
             
+            for blendingSequence:MHomeImageSequenceRaw in sequences
+            {
+                loadSequenceTextures(
+                    sequence:blendingSequence,
+                    textureLoader:textureLoader,
+                    textureOptions:textureOptions)
+            }
+            
             let totalWidth:Int = firstTexture.width
             let totalHeight:Int = firstTexture.height
             let pixelFormat:MTLPixelFormat = firstTexture.pixelFormat
@@ -108,13 +116,6 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
             
         }
         
-        for item:MHomeImageSequenceRaw in sequences
-        {
-            loadSequenceTextures(
-                sequence:item,
-                textureLoader:textureLoader,
-                textureOptions:textureOptions)
-        }
         
         self.items = items
         
