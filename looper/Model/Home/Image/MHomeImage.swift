@@ -1,8 +1,12 @@
 import Foundation
+import MetalKit
 
 class MHomeImage
 {
     weak var mainSequence:MHomeImageSequenceRaw?
+    private var device:MTLDevice?
+    private var commandQueue:MTLCommandQueue?
+    private var textureLoader:MTKTextureLoader?
     private var generatedSequence:MHomeImageSequenceGenerated?
     private(set) var sequences:[MHomeImageSequenceRaw]
     
@@ -13,8 +17,42 @@ class MHomeImage
     
     //MARK: private
     
+    private func loadMetal()
+    {
+        self.device = MTLCreateSystemDefaultDevice()
+        
+        guard
+            
+            let device:MTLDevice = self.device,
+            let commandQueue:MTLCommandQueue = device.makeCommandQueue(),
+            let textureLoader:MTKTextureLoader = MTKTextureLoader(device:device)
+        
+        else
+        {
+            return
+        }
+        
+        self.device = device
+        self.commandQueue = commandQueue
+        self.textureLoader = textureLoader
+    }
+    
     private func asyncGenerateSequence()
     {
+        if self.textureLoader == nil
+        {
+            loadMetal()
+        }
+        
+        guard
+            
+            let textureLoaded:MTKTextureLoader = self.textureLoader
+        
+        else
+        {
+            return
+        }
+        
         generatedSequence = MHomeImageSequenceGenerated()
         generatedSequence?.blend(
             main:mainSequence,

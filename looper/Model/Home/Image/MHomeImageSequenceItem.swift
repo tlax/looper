@@ -1,5 +1,5 @@
 import UIKit
-import Metal
+import MetalKit
 
 class MHomeImageSequenceItem
 {
@@ -9,5 +9,27 @@ class MHomeImageSequenceItem
     init(image:UIImage)
     {
         self.image = image
+    }
+    
+    //MARK: public
+    
+    func createTexture()
+    {
+        let texture:MTLTexture?
+        let textureLoader:MTKTextureLoader = MTKTextureLoader(device:device)
+        
+        let options:[String:NSObject] = [
+            MTKTextureLoaderOptionTextureUsage:MTLTextureUsage.shaderRead.rawValue as NSObject,
+            MTKTextureLoaderOptionSRGB:true as NSObject
+        ]
+        
+        do
+        {
+            mtlTexture = try mtkTextureLoader.newTexture(with:cgImage, options:options)
+        }
+        catch
+        {
+            mtlTexture = nil
+        }
     }
 }
