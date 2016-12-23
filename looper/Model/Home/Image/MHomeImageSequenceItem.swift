@@ -13,23 +13,30 @@ class MHomeImageSequenceItem
     
     //MARK: public
     
-    func createTexture()
+    func createTexture(
+        textureLoader:MTKTextureLoader,
+        textureOptions:[String:NSObject])
     {
-        let texture:MTLTexture?
-        let textureLoader:MTKTextureLoader = MTKTextureLoader(device:device)
-        
-        let options:[String:NSObject] = [
-            MTKTextureLoaderOptionTextureUsage:MTLTextureUsage.shaderRead.rawValue as NSObject,
-            MTKTextureLoaderOptionSRGB:true as NSObject
-        ]
-        
-        do
+        if texture == nil
         {
-            mtlTexture = try mtkTextureLoader.newTexture(with:cgImage, options:options)
-        }
-        catch
-        {
-            mtlTexture = nil
+            guard
+            
+                let cgImage:CGImage = image.cgImage
+            
+            else
+            {
+                return
+            }
+            
+            do
+            {
+                texture = try textureLoader.newTexture(
+                    with:cgImage,
+                    options:textureOptions)
+            }
+            catch
+            {
+            }
         }
     }
 }

@@ -9,10 +9,15 @@ class MHomeImage
     private var textureLoader:MTKTextureLoader?
     private var generatedSequence:MHomeImageSequenceGenerated?
     private(set) var sequences:[MHomeImageSequenceRaw]
+    private let textureOptions:[String:NSObject]
     
     init()
     {
         sequences = []
+        textureOptions = [
+            MTKTextureLoaderOptionTextureUsage:MTLTextureUsage.shaderRead.rawValue as NSObject,
+            MTKTextureLoaderOptionSRGB:true as NSObject
+        ]
     }
     
     //MARK: private
@@ -23,9 +28,7 @@ class MHomeImage
         
         guard
             
-            let device:MTLDevice = self.device,
-            let commandQueue:MTLCommandQueue = device.makeCommandQueue(),
-            let textureLoader:MTKTextureLoader = MTKTextureLoader(device:device)
+            let device:MTLDevice = self.device
         
         else
         {
@@ -33,8 +36,8 @@ class MHomeImage
         }
         
         self.device = device
-        self.commandQueue = commandQueue
-        self.textureLoader = textureLoader
+        self.commandQueue = device.makeCommandQueue()
+        self.textureLoader = MTKTextureLoader(device:device)
     }
     
     private func asyncGenerateSequence()
@@ -46,7 +49,7 @@ class MHomeImage
         
         guard
             
-            let textureLoaded:MTKTextureLoader = self.textureLoader
+            let textureLoader:MTKTextureLoader = self.textureLoader
         
         else
         {
@@ -55,6 +58,8 @@ class MHomeImage
         
         generatedSequence = MHomeImageSequenceGenerated()
         generatedSequence?.blend(
+            textureLoader:textureLoader,
+            textureOptions:textureOptions,
             main:mainSequence,
             items:sequences)
     }
