@@ -6,6 +6,7 @@ class MHomeImage
     weak var mainSequence:MHomeImageSequenceRaw?
     private var device:MTLDevice?
     private var commandQueue:MTLCommandQueue?
+    private var commandBuffer:MTLCommandBuffer?
     private var textureLoader:MTKTextureLoader?
     private var generatedSequence:MHomeImageSequenceGenerated?
     private(set) var sequences:[MHomeImageSequenceRaw]
@@ -35,9 +36,10 @@ class MHomeImage
             return
         }
         
+        commandQueue = device.makeCommandQueue()
+        commandBuffer = commandQueue!.makeCommandBuffer()
+        textureLoader = MTKTextureLoader(device:device)
         self.device = device
-        self.commandQueue = device.makeCommandQueue()
-        self.textureLoader = MTKTextureLoader(device:device)
     }
     
     private func asyncGenerateSequence()
@@ -49,6 +51,8 @@ class MHomeImage
         
         guard
             
+            let device:MTLDevice = self.device,
+            let commandBuffer:MTLCommandBuffer = self.commandBuffer,
             let textureLoader:MTKTextureLoader = self.textureLoader
         
         else
@@ -58,10 +62,12 @@ class MHomeImage
         
         generatedSequence = MHomeImageSequenceGenerated()
         generatedSequence?.blend(
+            device:device,
+            commandBuffer:commandBuffer,
             textureLoader:textureLoader,
             textureOptions:textureOptions,
             main:mainSequence,
-            items:sequences)
+            sequences:sequences)
     }
     
     //MARK: public
@@ -79,26 +85,25 @@ class MHomeImage
     
     func generateSequence() -> MHomeImageSequenceGenerated?
     {
-        if MSession.sharedInstance.state == MSession.State.rendering
+        var generatedSequence:MHomeImageSequenceGenerated?
+        
+        if !sequences.isEmpty
         {
-            return nil
-        }
-        
-        guard
-        
-            let generatedSequence:MHomeImageSequenceGenerated = self.generatedSequence
-        
-        else
-        {
-            MSession.sharedInstance.state = MSession.State.rendering
-            
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            { [weak self] in
+            if MSession.sharedInstance.state != MSession.State.rendering
+            {
+                generatedSequence = self.generatedSequence
                 
-                self?.asyncGenerateSequence()
+                if generatedSequence == nil
+                {
+                    MSession.sharedInstance.state = MSession.State.rendering
+                    
+                    DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+                    { [weak self] in
+                        
+                        self?.asyncGenerateSequence()
+                    }
+                }
             }
-            
-            return nil
         }
         
         return generatedSequence
