@@ -10,11 +10,13 @@ class MHomeImage
     private var commandBuffer:MTLCommandBuffer?
     private var textureLoader:MTKTextureLoader?
     private var generatedSequence:MHomeImageSequenceGenerated?
+    private(set) var longestSequence:Int
     private(set) var sequences:[MHomeImageSequenceRaw]
     private let kMetalFunctionName:String = "metalFilter_blender"
     
     init()
     {
+        longestSequence = 0
         sequences = []
     }
     
@@ -80,6 +82,13 @@ class MHomeImage
     
     func add(sequence:MHomeImageSequenceRaw)
     {
+        let sequenceLength:Int = sequence.items.count
+        
+        if sequenceLength > longestSequence
+        {
+            longestSequence = sequenceLength
+        }
+        
         sequences.append(sequence)
         sequence.render()
     }
