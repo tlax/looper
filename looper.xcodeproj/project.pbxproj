@@ -15,6 +15,7 @@
 		DA20F0CA1E0452CA00F8BAD4 /* MHomeControlItemCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0C91E0452CA00F8BAD4 /* MHomeControlItemCamera.swift */; };
 		DA20F3861E0D755500D9EBAC /* MetalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F3851E0D755500D9EBAC /* MetalFilter.swift */; };
 		DA20F3881E0D78B400D9EBAC /* MetalFilterBlender.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA20F3871E0D78B400D9EBAC /* MetalFilterBlender.metal */; };
+		DA20F38A1E0D7A9100D9EBAC /* ExtensionMTLTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F3891E0D7A9100D9EBAC /* ExtensionMTLTexture.swift */; };
 		DA235C771E098D9800277550 /* VHomePlayerBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA235C761E098D9800277550 /* VHomePlayerBoard.swift */; };
 		DA235C791E098DA900277550 /* VHomePlayerBoardMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA235C781E098DA900277550 /* VHomePlayerBoardMain.swift */; };
 		DA35021E1E0C505100CBDF64 /* VHomeControlBlenderBoardMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35021D1E0C505100CBDF64 /* VHomeControlBlenderBoardMain.swift */; };
@@ -85,6 +86,7 @@
 		DA20F0C91E0452CA00F8BAD4 /* MHomeControlItemCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeControlItemCamera.swift; sourceTree = "<group>"; };
 		DA20F3851E0D755500D9EBAC /* MetalFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilter.swift; sourceTree = "<group>"; };
 		DA20F3871E0D78B400D9EBAC /* MetalFilterBlender.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalFilterBlender.metal; sourceTree = "<group>"; };
+		DA20F3891E0D7A9100D9EBAC /* ExtensionMTLTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLTexture.swift; sourceTree = "<group>"; };
 		DA235C761E098D9800277550 /* VHomePlayerBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomePlayerBoard.swift; sourceTree = "<group>"; };
 		DA235C781E098DA900277550 /* VHomePlayerBoardMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomePlayerBoardMain.swift; sourceTree = "<group>"; };
 		DA35021D1E0C505100CBDF64 /* VHomeControlBlenderBoardMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlenderBoardMain.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				DA96FEA21E03672F00FD5265 /* ExtensionUIColor.swift */,
 				DA96FEA31E03672F00FD5265 /* ExtensionUIFont.swift */,
 				DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */,
+				DA20F3891E0D7A9100D9EBAC /* ExtensionMTLTexture.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA96FEE31E03672F00FD5265 /* ExtensionFileManager.swift in Sources */,
+				DA20F38A1E0D7A9100D9EBAC /* ExtensionMTLTexture.swift in Sources */,
 				DAFFF3F81E0856B700E14F12 /* MHomeImageSequenceGenerated.swift in Sources */,
 				DA96FEE01E03672F00FD5265 /* CAppDelegate.swift in Sources */,
 				DA9D2F3D1E0ADF57003E37D5 /* VHomeControl.swift in Sources */,

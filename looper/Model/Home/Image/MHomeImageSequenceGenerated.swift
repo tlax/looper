@@ -59,14 +59,6 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
             let totalHeight:Int = firstTexture.height
             let pixelFormat:MTLPixelFormat = firstTexture.pixelFormat
             
-            for item:MHomeImageSequenceRaw in sequences
-            {
-                loadSequenceTextures(
-                    sequence:item,
-                    textureLoader:textureLoader,
-                    textureOptions:textureOptions)
-            }
-            
             for mainItem:MHomeImageSequenceItem in main.items
             {
                 guard
@@ -88,12 +80,15 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                     descriptor:textureDescriptor)
                 
                 let metalFilter:MetalFilter = MetalFilter(device:device)
-                
+                metalFilter.mtlFunction = mtlFunction
                 
                 metalFilter.encode(
                     commandBuffer:commandBuffer,
                     sourceTexture:sourceTexture,
                     destinationTexture:destinationTexture)
+                
+                
+                let newItem:MHomeImageSequenceItem = MHomeImageSequenceItem(image: <#T##UIImage#>)
             }
         }
         else
