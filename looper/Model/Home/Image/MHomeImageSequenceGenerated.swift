@@ -84,8 +84,8 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 destinationOrigin:textureOrigin)
             blitEncoder.endEncoding()
             
-//            commandBuffer.commit()
-//            commandBuffer.waitUntilCompleted()
+            finalTextureBuffer.commit()
+            finalTextureBuffer.waitUntilCompleted()
             
             for sequence:MHomeImageSequenceRaw in sequences
             {
@@ -116,6 +116,8 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 image:textureImage)
             items.append(finalItem)
         }
+        
+        blendFinished()
     }
     
     //MARK: public
@@ -207,8 +209,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
         {
             
         }
-        /*
         
-        self.blendFinished()*/
+        self.blendFinished()
     }
 }

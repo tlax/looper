@@ -174,6 +174,7 @@ class VHomeControlCamera:UIView
          
             guard
             
+                let devicePosition:AVCaptureDevicePosition = self?.devicePosition,
                 let buffer:CMSampleBuffer = sampleBuffer,
                 let data:Data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(
                     buffer),
@@ -184,7 +185,30 @@ class VHomeControlCamera:UIView
                 return
             }
             
-            self?.model?.add(image:image)
+            let storeImage:UIImage
+            
+            if devicePosition == AVCaptureDevicePosition.front
+            {
+                guard
+                    
+                    let cgImage:CGImage = image.cgImage
+                
+                else
+                {
+                    return
+                }
+                
+                storeImage = UIImage(
+                    cgImage:cgImage,
+                    scale:image.scale,
+                    orientation:UIImageOrientation.leftMirrored)
+            }
+            else
+            {
+                storeImage = image
+            }
+            
+            self?.model?.add(image:storeImage)
         }
     }
     

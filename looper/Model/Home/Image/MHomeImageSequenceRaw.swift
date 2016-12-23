@@ -13,6 +13,7 @@ class MHomeImageSequenceRaw:MHomeImageSequence
         for sequenceItem:MHomeImageSequenceItem in self.items
         {
             let originalImage:UIImage = sequenceItem.image
+            
             let width:CGFloat = originalImage.size.width
             let height:CGFloat = originalImage.size.height
             let minSize:CGFloat = min(width, height)
