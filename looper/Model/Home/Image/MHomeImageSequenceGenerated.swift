@@ -4,8 +4,10 @@ import MetalKit
 class MHomeImageSequenceGenerated:MHomeImageSequence
 {
     private weak var device:MTLDevice!
+    private weak var commandQueue:MTLCommandQueue!
     private weak var textureLoader:MTKTextureLoader!
     private let kTextureMipMapped:Bool = false
+    private let kTextureDepth:Int = 1
     
     //MARK: private
     
@@ -38,6 +40,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
         main:MHomeImageSequenceRaw,
         sequences:[MHomeImageSequenceRaw])
     {
+        let textureOrigin:MTLOrigin = MTLOriginMake(0, 0, 0)
         let countMainItems:Int = main.items.count
         
         for indexMainItem:Int in 0 ..< countMainItems
@@ -54,10 +57,35 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 continue
             }
             
-            var finalTexture:MTLTexture = mainItemTexture
             let mainTextureWidth:Int = mainItemTexture.width
             let mainTextureHeight:Int = mainItemTexture.height
             let mainTexturePixelFormat:MTLPixelFormat = mainItemTexture.pixelFormat
+            var finalTexture:MTLTexture = newCanvasTexure(
+                pixelFormat:mainTexturePixelFormat,
+                width:mainTextureWidth,
+                height:mainTextureHeight)
+            
+            let finalTextureBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
+            let size:MTLSize = MTLSizeMake(
+                mainTextureWidth,
+                mainTextureHeight,
+                kTextureDepth)
+            let blitEncoder:MTLBlitCommandEncoder = finalTextureBuffer.makeBlitCommandEncoder()
+            
+            blitEncoder.copy(
+                from:mainItemTexture,
+                sourceSlice:0,
+                sourceLevel:0,
+                sourceOrigin:textureOrigin,
+                sourceSize:size,
+                to:finalTexture,
+                destinationSlice:0,
+                destinationLevel:0,
+                destinationOrigin:textureOrigin)
+            blitEncoder.endEncoding()
+            
+//            commandBuffer.commit()
+//            commandBuffer.waitUntilCompleted()
             
             for sequence:MHomeImageSequenceRaw in sequences
             {
@@ -101,6 +129,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
         sequences:[MHomeImageSequenceRaw])
     {
         self.device = device
+        self.commandQueue = commandQueue
         self.textureLoader = textureLoader
         
         if let main:MHomeImageSequenceRaw = main
