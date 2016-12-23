@@ -61,7 +61,12 @@ class MetalFilter:MPSUnaryImageKernel
     
     //MARK: public
     
-    func specialConfig(commandEncoder:MTLComputeCommandEncoder)
+    func render(
+        commandBuffer:MTLCommandBuffer,
+        overlayTexture:MTLTexture,
+        baseTexture:MTLTexture,
+        mapTexture:MTLTexture)
     {
+        
     }
 }
