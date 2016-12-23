@@ -4,7 +4,6 @@ import MetalKit
 class MHomeImageSequenceItem
 {
     let image:UIImage
-    var texture:MTLTexture?
     
     init(image:UIImage)
     {
@@ -14,31 +13,35 @@ class MHomeImageSequenceItem
     //MARK: public
     
     func createTexture(
-        textureLoader:MTKTextureLoader)
+        textureLoader:MTKTextureLoader) -> MTLTexture?
     {
-        if texture == nil
+        let texture:MTLTexture?
+        
+        guard
+            
+            let cgImage:CGImage = image.cgImage
+            
+        else
         {
-            guard
+            texture = nil
             
-                let cgImage:CGImage = image.cgImage
-            
-            else
-            {
-                return
-            }
-            
-            do
-            {
-                texture = try textureLoader.newTexture(
-                    with:cgImage,
-                    options:[
-                        MTKTextureLoaderOptionTextureUsage:MTLTextureUsage.shaderRead.rawValue as NSObject,
-                        MTKTextureLoaderOptionSRGB:true as NSObject
-                    ])
-            }
-            catch
-            {
-            }
+            return texture
         }
+        
+        do
+        {
+            texture = try textureLoader.newTexture(
+                with:cgImage,
+                options:[
+                    MTKTextureLoaderOptionTextureUsage:MTLTextureUsage.shaderRead.rawValue as NSObject,
+                    MTKTextureLoaderOptionSRGB:true as NSObject
+                ])
+        }
+        catch
+        {
+            texture = nil
+        }
+        
+        return texture
     }
 }

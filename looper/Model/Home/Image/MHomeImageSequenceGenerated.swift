@@ -160,11 +160,11 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
         for indexMainItem:Int in 0 ..< countMainItems
         {
             let mainItem:MHomeImageSequenceItem = main.items[indexMainItem]
-            mainItem.createTexture(textureLoader:textureLoader)
             
             guard
                 
-                let mainItemTexture:MTLTexture = mainItem.texture
+                let mainItemTexture:MTLTexture = mainItem.createTexture(
+                    textureLoader:textureLoader)
             
             else
             {
@@ -196,11 +196,11 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                     }
                     
                     let sequenceItem:MHomeImageSequenceItem = sequence.items[indexMainItem]
-                    sequenceItem.createTexture(textureLoader:textureLoader)
                     
                     guard
                         
-                        let overTexture:MTLTexture = sequenceItem.texture,
+                        let overTexture:MTLTexture = sequenceItem.createTexture(
+                            textureLoader:textureLoader),
                         let mapTexture:MTLTexture = point.mapTexture
                     
                     else
