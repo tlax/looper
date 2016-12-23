@@ -31,7 +31,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
     func blend(
         device:MTLDevice,
         mtlFunction:MTLFunction,
-        commandBuffer:MTLCommandBuffer,
+        commandQueue:MTLCommandQueue,
         textureLoader:MTKTextureLoader,
         textureOptions:[String:NSObject],
         main:MHomeImageSequenceRaw?,
@@ -82,13 +82,27 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 let metalFilter:MetalFilter = MetalFilter(device:device)
                 metalFilter.mtlFunction = mtlFunction
                 
+                let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
+                
                 metalFilter.encode(
                     commandBuffer:commandBuffer,
                     sourceTexture:sourceTexture,
                     destinationTexture:destinationTexture)
+                commandBuffer.commit()
                 
+                guard
+                    
+                    let newImage:UIImage = destinationTexture.exportImage()
                 
-                let newItem:MHomeImageSequenceItem = MHomeImageSequenceItem(image: <#T##UIImage#>)
+                else
+                {
+                    print("error image")
+                    continue
+                }
+                
+                print("image created")
+                let newItem:MHomeImageSequenceItem = MHomeImageSequenceItem(image:newImage)
+                items.append(newItem)
             }
         }
         else

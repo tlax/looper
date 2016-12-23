@@ -57,7 +57,7 @@ class MHomeImage
         guard
             
             let device:MTLDevice = self.device,
-            let commandBuffer:MTLCommandBuffer = self.commandBuffer,
+            let commandQueue:MTLCommandQueue = self.commandQueue,
             let textureLoader:MTKTextureLoader = self.textureLoader,
             let mtlFunction:MTLFunction = self.mtlFunction
         
@@ -70,7 +70,7 @@ class MHomeImage
         generatedSequence?.blend(
             device:device,
             mtlFunction:mtlFunction,
-            commandBuffer:commandBuffer,
+            commandQueue:commandQueue,
             textureLoader:textureLoader,
             textureOptions:textureOptions,
             main:mainSequence,
