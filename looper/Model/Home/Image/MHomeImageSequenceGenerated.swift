@@ -36,11 +36,42 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
         return newTexture
     }
     
+    private func createBaseTexture(texture:MTLTexture) -> MTLTexture
+    {
+        let baseTexture:MTLTexture = newCanvasTexure(
+            pixelFormat:texture.pixelFormat,
+            width:texture.width,
+            height:texture.height)
+        
+        let textureBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
+        let size:MTLSize = MTLSizeMake(
+            texture.width,
+            texture.height,
+            kTextureDepth)
+        let blitEncoder:MTLBlitCommandEncoder = textureBuffer.makeBlitCommandEncoder()
+        
+        blitEncoder.copy(
+            from:texture,
+            sourceSlice:0,
+            sourceLevel:0,
+            sourceOrigin:MTLOriginMake(0, 0, 0),
+            sourceSize:size,
+            to:baseTexture,
+            destinationSlice:0,
+            destinationLevel:0,
+            destinationOrigin:MTLOriginMake(0, 0, 0))
+        blitEncoder.endEncoding()
+        
+        textureBuffer.commit()
+        textureBuffer.waitUntilCompleted()
+        
+        return baseTexture
+    }
+    
     private func blendOverMain(
         main:MHomeImageSequenceRaw,
         sequences:[MHomeImageSequenceRaw])
     {
-        let textureOrigin:MTLOrigin = MTLOriginMake(0, 0, 0)
         let countMainItems:Int = main.items.count
         
         for indexMainItem:Int in 0 ..< countMainItems
@@ -57,35 +88,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 continue
             }
             
-            let mainTextureWidth:Int = mainItemTexture.width
-            let mainTextureHeight:Int = mainItemTexture.height
-            let mainTexturePixelFormat:MTLPixelFormat = mainItemTexture.pixelFormat
-            var finalTexture:MTLTexture = newCanvasTexure(
-                pixelFormat:mainTexturePixelFormat,
-                width:mainTextureWidth,
-                height:mainTextureHeight)
-            
-            let finalTextureBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
-            let size:MTLSize = MTLSizeMake(
-                mainTextureWidth,
-                mainTextureHeight,
-                kTextureDepth)
-            let blitEncoder:MTLBlitCommandEncoder = finalTextureBuffer.makeBlitCommandEncoder()
-            
-            blitEncoder.copy(
-                from:mainItemTexture,
-                sourceSlice:0,
-                sourceLevel:0,
-                sourceOrigin:textureOrigin,
-                sourceSize:size,
-                to:finalTexture,
-                destinationSlice:0,
-                destinationLevel:0,
-                destinationOrigin:textureOrigin)
-            blitEncoder.endEncoding()
-            
-            finalTextureBuffer.commit()
-            finalTextureBuffer.waitUntilCompleted()
+            var baseTexture:MTLTexture = createBaseTexture(texture:mainItemTexture)
             
             for sequence:MHomeImageSequenceRaw in sequences
             {
