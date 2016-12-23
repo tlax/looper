@@ -221,6 +221,13 @@
 			path = Timeline;
 			sourceTree = "<group>";
 		};
+		DA20F3841E0D754100D9EBAC /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
 		DA505F481E0B46F200CE22FE /* Blender */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +262,7 @@
 		DA96FE811E03653100FD5265 /* looper */ = {
 			isa = PBXGroup;
 			children = (
+				DA20F3841E0D754100D9EBAC /* Metal */,
 				DA96FE941E03672F00FD5265 /* Assets */,
 				DA20F0B41E04449C00F8BAD4 /* Model */,
 				DA96FE961E03672F00FD5265 /* Controller */,
