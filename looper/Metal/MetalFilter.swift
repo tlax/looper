@@ -3,40 +3,44 @@ import MetalPerformanceShaders
 class MetalFilter:MPSUnaryImageKernel
 {
     weak var mtlFunction:MTLFunction!
-    private let kThreadgroupWidth:Int = 2
-    private let kThreadgroupHeight:Int = 2
+    private let kThreadgroupWidth:Int = 8
+    private let kThreadgroupHeight:Int = 8
     private let kThreadgroupDeep:Int = 1
-    weak var sourceTexture:MTLTexture?
-    weak var destinationTexture:MTLTexture?
+    private let kIndexBaseTexture:Int = 0
+    private let kIndexOverTexture:Int = 1
+    private let kIndexMapTexture:Int = 2
     
-    override func encode(commandBuffer:MTLCommandBuffer, sourceTexture:MTLTexture, destinationTexture:MTLTexture)
+    //MARK: public
+    
+    func render(
+        mtlFunction:MTLFunction,
+        commandBuffer:MTLCommandBuffer,
+        overlayTexture:MTLTexture,
+        baseTexture:MTLTexture,
+        mapTexture:MTLTexture)
     {
-        self.sourceTexture = sourceTexture
-        self.destinationTexture = destinationTexture
-        let optionalPipeline:MTLComputePipelineState?
+        let tryPipeline:MTLComputePipelineState?
         
         do
         {
-            try optionalPipeline = device.makeComputePipelineState(function:mtlFunction)
+            try tryPipeline = device.makeComputePipelineState(function:mtlFunction)
         }
         catch
         {
-            optionalPipeline = nil
+            tryPipeline = nil
         }
         
         guard
             
-            let pipeline:MTLComputePipelineState = optionalPipeline
-            
+            let pipeline:MTLComputePipelineState = tryPipeline
+        
         else
         {
             return
         }
         
-        let sourceWidth:Int = sourceTexture.width
-        let sourceHeight:Int = sourceTexture.height
-        let threadgroupsHorizontal:Int = sourceWidth / kThreadgroupWidth
-        let threadgroupsVertical:Int = sourceHeight / kThreadgroupHeight
+        let threadgroupsHorizontal:Int = baseTexture.width / kThreadgroupWidth
+        let threadgroupsVertical:Int = baseTexture.height / kThreadgroupHeight
         let threadgroupCounts:MTLSize = MTLSizeMake(
             kThreadgroupWidth,
             kThreadgroupHeight,
@@ -44,29 +48,17 @@ class MetalFilter:MPSUnaryImageKernel
         let threadgroups:MTLSize = MTLSizeMake(
             threadgroupsHorizontal,
             threadgroupsVertical,
-            1)
+            kThreadgroupDeep)
         
         let commandEncoder:MTLComputeCommandEncoder = commandBuffer.makeComputeCommandEncoder()
         commandEncoder.setComputePipelineState(pipeline)
-        commandEncoder.setTexture(sourceTexture, at:0)
-        commandEncoder.setTexture(destinationTexture, at:1)
-        
-        specialConfig(commandEncoder:commandEncoder)
+        commandEncoder.setTexture(baseTexture, at:kIndexBaseTexture)
+        commandEncoder.setTexture(overlayTexture, at:kIndexOverTexture)
+        commandEncoder.setTexture(mapTexture, at:kIndexMapTexture)
         
         commandEncoder.dispatchThreadgroups(
             threadgroups,
             threadsPerThreadgroup:threadgroupCounts)
         commandEncoder.endEncoding()
-    }
-    
-    //MARK: public
-    
-    func render(
-        commandBuffer:MTLCommandBuffer,
-        overlayTexture:MTLTexture,
-        baseTexture:MTLTexture,
-        mapTexture:MTLTexture)
-    {
-        
     }
 }

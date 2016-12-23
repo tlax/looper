@@ -72,7 +72,9 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
         return baseTexture
     }
     
-    private func mapTexture(texture:MTLTexture, point:MHomeImageSequenceRawPoint)
+    private func mapTexture(
+        texture:MTLTexture,
+        point:MHomeImageSequenceRawPoint) -> MTLTexture
     {
         let textureWidth:Int = texture.width
         let textureHeight:Int = texture.height
@@ -136,7 +138,6 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
             {
                 let pixelIndex:Int = currentRow + indexHr
                 textureArray[pixelIndex] = kReplaceElement
-                let currentWeight:Float = textureArray[pixelIndex]
             }
         }
         
@@ -178,26 +179,44 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 
                 if countSequenceItem > indexMainItem
                 {
+                    if sequence.mapTexture == nil
+                    {
+                        guard
+                            
+                            let point:MHomeImageSequenceRawPoint = sequence.point
+                            
+                        else
+                        {
+                            continue
+                        }
+                        
+                        sequence.mapTexture = mapTexture(
+                            texture:baseTexture,
+                            point:point)
+                    }
+                    
                     let sequenceItem:MHomeImageSequenceItem = sequence.items[indexMainItem]
                     sequenceItem.createTexture(textureLoader:textureLoader)
                     
                     guard
                         
-                        let overTexture:MTLTexture = sequenceItem.texture
+                        let overTexture:MTLTexture = sequenceItem.texture,
+                        let mapTexture:MTLTexture = sequence.mapTexture
                     
                     else
                     {
                         continue
                     }
                     
-                    let metalFilter:MetalFilter = MetalFilter(device:device)
-                    metalFilter.mtlFunction = mtlFunction
-                    
                     let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
-                    metalFilter.encode(
+                    let metalFilter:MetalFilter = MetalFilter(device:device)
+                    metalFilter.render(
+                        mtlFunction:mtlFunction,
                         commandBuffer:commandBuffer,
-                        sourceTexture:overTexture,
-                        destinationTexture:baseTexture)
+                        overlayTexture:overTexture,
+                        baseTexture:baseTexture,
+                        mapTexture:mapTexture)
+                    
                     commandBuffer.commit()
                     commandBuffer.waitUntilCompleted()
                 }

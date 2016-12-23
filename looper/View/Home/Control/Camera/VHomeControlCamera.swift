@@ -311,36 +311,19 @@ class VHomeControlCamera:UIView
             return
         }
         
-        let tryCaptureDeviceInput:AVCaptureDeviceInput?
-        let errorString:String?
-        
         do
         {
-            try tryCaptureDeviceInput = AVCaptureDeviceInput(
+            let captureDeviceInput:AVCaptureDeviceInput = try AVCaptureDeviceInput(
                 device:foundCaptureDevice)
-            errorString = nil
+            self.captureDeviceInput = captureDeviceInput
         }
         catch let error
         {
-            tryCaptureDeviceInput = nil
-            errorString = error.localizedDescription
-        }
-        
-        guard
-            
-            let captureDeviceInput:AVCaptureDeviceInput = tryCaptureDeviceInput
-            
-        else
-        {
-            if let error:String = errorString
-            {
-                VAlert.message(message:error)
-            }
+            VAlert.message(message:error.localizedDescription)
             
             return
         }
         
-        self.captureDeviceInput = captureDeviceInput
         captureSession?.addInput(captureDeviceInput)
         
         let captureOutput:AVCaptureStillImageOutput = AVCaptureStillImageOutput()

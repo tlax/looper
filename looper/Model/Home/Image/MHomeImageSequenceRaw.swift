@@ -1,8 +1,10 @@
 import UIKit
+import MetalKit
 
 class MHomeImageSequenceRaw:MHomeImageSequence
 {
     var point:MHomeImageSequenceRawPoint?
+    var mapTexture:MTLTexture?
     
     //MARK: public
     
