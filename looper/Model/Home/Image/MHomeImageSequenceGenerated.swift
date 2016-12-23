@@ -179,18 +179,18 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 
                 if countSequenceItem > indexMainItem
                 {
-                    if sequence.mapTexture == nil
-                    {
-                        guard
-                            
-                            let point:MHomeImageSequenceRawPoint = sequence.point
-                            
-                        else
-                        {
-                            continue
-                        }
+                    guard
                         
-                        sequence.mapTexture = mapTexture(
+                        let point:MHomeImageSequenceRawPoint = sequence.point
+                        
+                    else
+                    {
+                        continue
+                    }
+                    
+                    if point.mapTexture == nil
+                    {
+                        point.mapTexture = mapTexture(
                             texture:baseTexture,
                             point:point)
                     }
@@ -201,7 +201,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                     guard
                         
                         let overTexture:MTLTexture = sequenceItem.texture,
-                        let mapTexture:MTLTexture = sequence.mapTexture
+                        let mapTexture:MTLTexture = point.mapTexture
                     
                     else
                     {

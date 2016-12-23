@@ -18,7 +18,8 @@ class VHomeControlBlenderPieces:UIView
         var items:[VHomeControlBlenderPiecesItem] = []
         
         for sequence:MHomeImageSequenceRaw in controller.modelImage.sequences
-        {   
+        {
+            sequence.point = nil
             let item:VHomeControlBlenderPiecesItem = VHomeControlBlenderPiecesItem(
                 model:sequence,
                 originalX:currentX,
