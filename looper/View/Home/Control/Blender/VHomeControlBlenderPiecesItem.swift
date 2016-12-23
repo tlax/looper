@@ -74,8 +74,7 @@ class VHomeControlBlenderPiecesItem:UIView
     
     func clear()
     {
-        model.percentX = nil
-        model.percentY = nil
+        model.point = nil
         notSelected()
     }
     

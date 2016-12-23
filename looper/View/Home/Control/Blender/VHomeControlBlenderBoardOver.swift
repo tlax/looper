@@ -75,8 +75,10 @@ class VHomeControlBlenderBoardOver:UIView
             let centerY:CGFloat = pieceY - posY
             let percentX:CGFloat = centerX / size
             let percentY:CGFloat = centerY / size
-            piece.model.percentX = percentX
-            piece.model.percentY = percentY
+            piece.model.point = MHomeImageSequenceRawPoint(
+                percentRadius:percentX,
+                percentPosX:percentX,
+                percentPosY:percentY)
             
             piece.placed()
         }
