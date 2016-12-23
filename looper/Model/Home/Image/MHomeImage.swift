@@ -5,12 +5,14 @@ class MHomeImage
 {
     weak var mainSequence:MHomeImageSequenceRaw?
     private var device:MTLDevice?
+    private var mtlFunction:MTLFunction?
     private var commandQueue:MTLCommandQueue?
     private var commandBuffer:MTLCommandBuffer?
     private var textureLoader:MTKTextureLoader?
     private var generatedSequence:MHomeImageSequenceGenerated?
     private(set) var sequences:[MHomeImageSequenceRaw]
     private let textureOptions:[String:NSObject]
+    private let kMetalFunctionName:String = "metalFilter_blender"
     
     init()
     {
@@ -29,7 +31,9 @@ class MHomeImage
         
         guard
             
-            let device:MTLDevice = self.device
+            let device:MTLDevice = self.device,
+            let mtlLibrary:MTLLibrary = device.newDefaultLibrary(),
+            let mtlFunction:MTLFunction = mtlLibrary.makeFunction(name:kMetalFunctionName)
         
         else
         {
@@ -40,6 +44,7 @@ class MHomeImage
         commandBuffer = commandQueue!.makeCommandBuffer()
         textureLoader = MTKTextureLoader(device:device)
         self.device = device
+        self.mtlFunction = mtlFunction
     }
     
     private func asyncGenerateSequence()
