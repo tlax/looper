@@ -172,6 +172,8 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
             }
             
             let baseTexture:MTLTexture = createBaseTexture(texture:mainItemTexture)
+            let baseWidth:CGFloat = CGFloat(baseTexture.width)
+            let baseHeight:CGFloat = CGFloat(baseTexture.height)
             
             for sequence:MHomeImageSequenceRaw in sequences
             {
@@ -200,6 +202,9 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                     guard
                         
                         let overTexture:MTLTexture = sequenceItem.createTexture(
+                            point:point,
+                            textureWidth:baseWidth,
+                            textureHeight:baseHeight,
                             textureLoader:textureLoader),
                         let mapTexture:MTLTexture = point.mapTexture
                     

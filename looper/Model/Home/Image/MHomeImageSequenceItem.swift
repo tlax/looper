@@ -49,10 +49,47 @@ class MHomeImageSequenceItem
     //MARK: public
     
     func createTexture(
-        atPoint:MHomeImageSequenceRawPoint,
+        point:MHomeImageSequenceRawPoint,
+        textureWidth:CGFloat,
+        textureHeight:CGFloat,
         textureLoader:MTKTextureLoader) -> MTLTexture?
     {
+        let canvasSize:CGSize = CGSize(
+            width:textureWidth,
+            height:textureHeight)
+        let pointCenterX:CGFloat = point.percentPosX * textureWidth
+        let pointCenterY:CGFloat = point.percentPosY * textureHeight
+        let drawingRadius:CGFloat = point.percentRadius * textureWidth
+        let drawingRadius2:CGFloat = drawingRadius + drawingRadius
+        let drawingX:CGFloat = pointCenterX - drawingRadius
+        let drawingY:CGFloat = pointCenterY - drawingRadius
+        let drawingRect:CGRect = CGRect(
+            x:drawingX,
+            y:drawingY,
+            width:drawingRadius2,
+            height:drawingRadius2)
+
+        UIGraphicsBeginImageContext(canvasSize)
+        image.draw(in:drawingRect)
         
+        guard
+            
+            let overlayedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+            
+        else
+        {
+            UIGraphicsEndImageContext()
+            
+            return nil
+        }
+        
+        UIGraphicsEndImageContext()
+        
+        let texture:MTLTexture? = texturize(
+            image:overlayedImage,
+            textureLoader:textureLoader)
+        
+        return texture
     }
     
     func createTexture(
