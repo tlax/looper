@@ -5,6 +5,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
 {
     private weak var device:MTLDevice!
     private weak var commandQueue:MTLCommandQueue!
+    private weak var mtlFunction:MTLFunction!
     private weak var textureLoader:MTKTextureLoader!
     private let kTextureMipMapped:Bool = false
     private let kTextureDepth:Int = 1
@@ -88,7 +89,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 continue
             }
             
-            var baseTexture:MTLTexture = createBaseTexture(texture:mainItemTexture)
+            let baseTexture:MTLTexture = createBaseTexture(texture:mainItemTexture)
             
             for sequence:MHomeImageSequenceRaw in sequences
             {
@@ -99,16 +100,31 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                     let sequenceItem:MHomeImageSequenceItem = sequence.items[indexMainItem]
                     sequenceItem.createTexture(textureLoader:textureLoader)
                     
-                    let destinationTexture:MTLTexture = newCanvasTexure(
-                        pixelFormat:mainTexturePixelFormat,
-                        width:mainTextureWidth,
-                        height:mainTextureHeight)
+                    guard
+                        
+                        let overTexture:MTLTexture = sequenceItem.texture
+                    
+                    else
+                    {
+                        continue
+                    }
+                    
+                    let metalFilter:MetalFilter = MetalFilter(device:device)
+                    metalFilter.mtlFunction = mtlFunction
+                    
+                    let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
+                    metalFilter.encode(
+                        commandBuffer:commandBuffer,
+                        sourceTexture:overTexture,
+                        destinationTexture:baseTexture)
+                    commandBuffer.commit()
+                    commandBuffer.waitUntilCompleted()
                 }
             }
             
             guard
                 
-                let textureImage:UIImage = finalTexture.exportImage()
+                let textureImage:UIImage = baseTexture.exportImage()
                 
             else
             {
@@ -135,6 +151,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
     {
         self.device = device
         self.commandQueue = commandQueue
+        self.mtlFunction = mtlFunction
         self.textureLoader = textureLoader
         
         if let main:MHomeImageSequenceRaw = main
