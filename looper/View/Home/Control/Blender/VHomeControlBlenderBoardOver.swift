@@ -69,12 +69,12 @@ class VHomeControlBlenderBoardOver:UIView
             let posX:CGFloat = frame.minX
             let posY:CGFloat = frame.minY
             let size:CGFloat = bounds.maxX
-            let pieceSize:CGFloat = pieceRect.size.width
+            let pieceSize_2:CGFloat = pieceRect.size.width / 2.0
             let pieceX:CGFloat = pieceRect.midX
             let pieceY:CGFloat = pieceRect.midY
             let centerX:CGFloat = pieceX - posX
             let centerY:CGFloat = pieceY - posY
-            let percentRadius:CGFloat = pieceSize / size
+            let percentRadius:CGFloat = pieceSize_2 / size
             let percentX:CGFloat = centerX / size
             let percentY:CGFloat = centerY / size
             

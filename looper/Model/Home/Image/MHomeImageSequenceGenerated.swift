@@ -11,6 +11,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
     private let kTextureMipMapped:Bool = false
     private let kTextureDepth:Int = 1
     private let kRepeatingElement:Float = 0
+    private let kReplaceElement:Float = 1
     
     //MARK: private
     
@@ -100,107 +101,53 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
             textureWidthFloat * point.percentPosX))
         let overPosY:Int = Int(ceil(
             textureHeightFloat * point.percentPosY))
+        let overRadius:Int = Int(textureWidthFloat * point.percentRadius)
         
+        var minX:Int = overPosX - overRadius
+        var maxX:Int = overPosX + overRadius
+        var minY:Int = overPosY - overRadius
+        var maxY:Int = overPosY + overRadius
         
-        
-        let features:[CIFeature] = detector.features(in:image)
-        let faceRadius:Int = bokehSize * sizeRatio
-        let faceRadiusFloat:Float = Float(faceRadius)
-        
-        for feature:CIFeature in features
+        if minX < 0
         {
-            if let faceFeature:CIFaceFeature = feature as? CIFaceFeature
+            minX = 0
+        }
+        
+        if maxX > maxWidth
+        {
+            maxX = maxWidth
+        }
+        
+        if minY < 0
+        {
+            minY = 0
+        }
+        
+        if maxY > maxHeight
+        {
+            maxY = maxHeight
+        }
+        
+        for indexVr:Int in minY ..< maxY
+        {
+            let currentRow:Int = textureWidth * indexVr
+            
+            for indexHr:Int in minX ..< maxX
             {
-                let faceFeatureX:Int = Int(faceFeature.bounds.origin.x)
-                let faceFeatureW:Int = Int(faceFeature.bounds.size.width)
-                let faceFeatureH:Int = Int(faceFeature.bounds.size.height)
-                let faceFeatureY:Int = sourceHeight - (Int(faceFeature.bounds.origin.y) + faceFeatureH)
-                let faceFeatureMaxX:Int = faceFeatureX + faceFeatureW
-                let faceFeatureMaxY:Int = faceFeatureY + faceFeatureH
-                let faceFeatureW_2:Int = Int(round(Float(faceFeatureW) / 2.0))
-                let faceFeatureH_2:Int = Int(round(Float(faceFeatureH) / 2.0))
-                let faceFeatureCenterX:Int = faceFeatureX + faceFeatureW_2
-                let faceFeatureCenterY:Int = faceFeatureY + faceFeatureH_2
-                let faceFeatureRadius:Int = min(faceFeatureW_2, faceFeatureH_2)
-                
-                var minX:Int = faceFeatureX - faceRadius
-                var maxX:Int = faceFeatureMaxX + faceRadius
-                var minY:Int = faceFeatureY - faceRadius
-                var maxY:Int = faceFeatureMaxY + faceRadius
-                
-                if minX < 0
-                {
-                    minX = 0
-                }
-                
-                if maxX > maxWidth
-                {
-                    maxX = maxWidth
-                }
-                
-                if minY < 0
-                {
-                    minY = 0
-                }
-                
-                if maxY > maxHeight
-                {
-                    maxY = maxHeight
-                }
-                
-                for indexVr:Int in minY ..< maxY
-                {
-                    let deltaY:Int = indexVr - faceFeatureCenterY
-                    let deltaY2:Int = deltaY * deltaY
-                    let currentRow:Int = sourceWidth * indexVr
-                    
-                    for indexHr:Int in minX ..< maxX
-                    {
-                        let pixelIndex:Int = currentRow + indexHr
-                        let currentWeight:Float = textureArray[pixelIndex]
-                        
-                        if currentWeight > 0
-                        {
-                            let deltaX:Int = indexHr - faceFeatureCenterX
-                            let deltaX2:Int = deltaX * deltaX
-                            let deltaSum:Int = deltaX2 + deltaY2
-                            let hyp:Int = Int(sqrt(Float(deltaSum)))
-                            let deltaRadius:Int = hyp - faceFeatureRadius
-                            let pixelWeight:Float
-                            
-                            if deltaRadius > faceRadius
-                            {
-                                pixelWeight = 1
-                            }
-                            else if deltaRadius > 0
-                            {
-                                let deltaRadiusFloat:Float = Float(deltaRadius)
-                                pixelWeight = deltaRadiusFloat / faceRadiusFloat
-                            }
-                            else
-                            {
-                                pixelWeight = 0
-                            }
-                            
-                            if pixelWeight < currentWeight
-                            {
-                                textureArray[pixelIndex] = pixelWeight
-                            }
-                        }
-                    }
-                }
+                let pixelIndex:Int = currentRow + indexHr
+                textureArray[pixelIndex] = kReplaceElement
+                let currentWeight:Float = textureArray[pixelIndex]
             }
         }
         
         let bytes:UnsafeRawPointer = UnsafeRawPointer(textureArray)
-        facesTexture.replace(
+        mapTexture.replace(
             region:region,
             mipmapLevel:0,
             withBytes:bytes,
             bytesPerRow:bytesPerRow)
         
-        commandEncoder.setTexture(facesTexture, at:kFacesTextureIndex)
-        commandEncoder.setTexture(destinationTexture, at:kBokehTextureIndex)
+        return mapTexture
     }
     
     private func blendOverMain(
