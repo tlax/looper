@@ -10,9 +10,10 @@ class MHomeImageSequenceItem
         self.image = image
     }
     
-    //MARK: public
+    //MARK: private
     
-    func createTexture(
+    private func texturize(
+        image:UIImage,
         textureLoader:MTKTextureLoader) -> MTLTexture?
     {
         let texture:MTLTexture?
@@ -41,6 +42,25 @@ class MHomeImageSequenceItem
         {
             texture = nil
         }
+        
+        return texture
+    }
+    
+    //MARK: public
+    
+    func createTexture(
+        atPoint:MHomeImageSequenceRawPoint,
+        textureLoader:MTKTextureLoader) -> MTLTexture?
+    {
+        
+    }
+    
+    func createTexture(
+        textureLoader:MTKTextureLoader) -> MTLTexture?
+    {
+        let texture:MTLTexture? = texturize(
+            image:image,
+            textureLoader:textureLoader)
         
         return texture
     }
