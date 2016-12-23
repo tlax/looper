@@ -30,6 +30,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
     
     func blend(
         device:MTLDevice,
+        mtlFunction:MTLFunction,
         commandBuffer:MTLCommandBuffer,
         textureLoader:MTKTextureLoader,
         textureOptions:[String:NSObject],
@@ -86,7 +87,8 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 let destinationTexture:MTLTexture = device.makeTexture(
                     descriptor:textureDescriptor)
                 
-                let metalFilter:MetalFilter = metalFitlerType.init(device:controller.device)
+                let metalFilter:MetalFilter = MetalFilter(device:device)
+                
                 
                 metalFilter.encode(
                     commandBuffer:commandBuffer,

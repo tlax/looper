@@ -2,35 +2,14 @@ import MetalPerformanceShaders
 
 class MetalFilter:MPSUnaryImageKernel
 {
-    let mtlFunction:MTLFunction?
     private let kThreadgroupWidth:Int = 2
     private let kThreadgroupHeight:Int = 2
     private let kThreadgroupDeep:Int = 1
     weak var sourceTexture:MTLTexture?
     weak var destinationTexture:MTLTexture?
     
-    init(device:MTLDevice, functionName:String?)
-    {
-        if let strongFunctionName:String = functionName
-        {
-            let mtlLibrary:MTLLibrary? = device.newDefaultLibrary()
-            mtlFunction = mtlLibrary?.makeFunction(name:strongFunctionName)
-        }
-        else
-        {
-            mtlFunction = nil
-        }
-        
-        super.init(device:device)
-    }
-    
-    required override init(device:MTLDevice)
-    {
-        fatalError()
-    }
-    
     override func encode(commandBuffer:MTLCommandBuffer, sourceTexture:MTLTexture, destinationTexture:MTLTexture)
-    {
+    {/*
         self.sourceTexture = sourceTexture
         self.destinationTexture = destinationTexture
         let optionalPipeline:MTLComputePipelineState?
@@ -85,7 +64,7 @@ class MetalFilter:MPSUnaryImageKernel
         commandEncoder.dispatchThreadgroups(
             threadgroups,
             threadsPerThreadgroup:threadgroupCounts)
-        commandEncoder.endEncoding()
+        commandEncoder.endEncoding()*/
     }
     
     //MARK: public

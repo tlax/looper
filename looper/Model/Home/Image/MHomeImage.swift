@@ -58,7 +58,8 @@ class MHomeImage
             
             let device:MTLDevice = self.device,
             let commandBuffer:MTLCommandBuffer = self.commandBuffer,
-            let textureLoader:MTKTextureLoader = self.textureLoader
+            let textureLoader:MTKTextureLoader = self.textureLoader,
+            let mtlFunction:MTLFunction = self.mtlFunction
         
         else
         {
@@ -68,6 +69,7 @@ class MHomeImage
         generatedSequence = MHomeImageSequenceGenerated()
         generatedSequence?.blend(
             device:device,
+            mtlFunction:mtlFunction,
             commandBuffer:commandBuffer,
             textureLoader:textureLoader,
             textureOptions:textureOptions,
