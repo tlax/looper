@@ -83,28 +83,24 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 metalFilter.mtlFunction = mtlFunction
                 
                 let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
-                
                 metalFilter.encode(
                     commandBuffer:commandBuffer,
                     sourceTexture:sourceTexture,
                     destinationTexture:destinationTexture)
                 commandBuffer.commit()
+                commandBuffer.waitUntilCompleted()
                 
-                DispatchQueue.global(qos:DispatchQoS.QoSClass.background).asyncAfter(
-                    deadline:DispatchTime.now() + 1)
-                {
-                    guard
-                        
-                        let newImage:UIImage = destinationTexture.exportImage()
-                        
-                    else
-                    {
-                        return
-                    }
+                guard
                     
-                    let newItem:MHomeImageSequenceItem = MHomeImageSequenceItem(image:newImage)
-                    items.append(newItem)
+                let newImage:UIImage = destinationTexture.exportImage()
+                    
+                    else
+                {
+                    return
                 }
+                
+                let newItem:MHomeImageSequenceItem = MHomeImageSequenceItem(image:newImage)
+                items.append(newItem)
             }
         }
         else
@@ -120,12 +116,8 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 textureOptions:textureOptions)
         }
         
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).asyncAfter(
-            deadline:DispatchTime.now() + 1)
-        {
-            self.items = items
-            
-            self.blendFinished()
-        }
+        self.items = items
+        
+        self.blendFinished()
     }
 }
