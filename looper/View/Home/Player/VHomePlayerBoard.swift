@@ -6,6 +6,7 @@ class VHomePlayerBoard:UIView
     private weak var buttonMain:VHomePlayerBoardMain!
     private weak var layoutMainLeft:NSLayoutConstraint!
     private let kMainWidth:CGFloat = 70
+    private let kShareWidth:CGFloat = 60
     private let kButtonsHeight:CGFloat = 60
     
     convenience init(controller:CHome)
@@ -25,8 +26,12 @@ class VHomePlayerBoard:UIView
         buttonShare.setImage(
             #imageLiteral(resourceName: "assetHomePlayerShare"),
             for:UIControlState.normal)
+        buttonShare.setImage(
+            #imageLiteral(resourceName: "assetHomePlayerShareSelected"),
+            for:UIControlState.selected)
         
         addSubview(buttonMain)
+        addSubview(buttonShare)
         
         let layoutMainHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:buttonMain,
@@ -41,11 +46,28 @@ class VHomePlayerBoard:UIView
             view:buttonMain,
             constant:kMainWidth)
         
+        let layoutShareHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:buttonShare,
+            constant:kButtonsHeight)
+        let layoutShareBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+            view:buttonShare,
+            toView:self)
+        let layoutShareRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+            view:buttonShare,
+            toView:self)
+        let layoutShareWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:buttonShare,
+            constant:kShareWidth)
+        
         addConstraints([
             layoutMainHeight,
             layoutMainBottom,
             layoutMainLeft,
-            layoutMainWidth])
+            layoutMainWidth,
+            layoutShareHeight,
+            layoutShareBottom,
+            layoutShareRight,
+            layoutShareWidth])
     }
     
     override func layoutSubviews()
