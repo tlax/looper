@@ -7,6 +7,7 @@ class CHome:CController
     weak var viewHome:VHome!
     let modelImage:MHomeImage
     private let kFilename:String = "looper.gif"
+    private let kLoopCount:Int = 0
     
     override init()
     {
@@ -80,24 +81,37 @@ class CHome:CController
         
         guard
             
-            let generated:MHomeImageSequenceGenerated = modelImage.generateSequence(),
-            let destination:CGImageDestination = CGImageDestinationCreateWithURL(
-                fileUrl as CFURL,
-                kUTTypeGIF,
-                generated.items.count,
-                nil)
-        
+            let generated:MHomeImageSequenceGenerated = modelImage.generateSequence()
+            
         else
         {
             return
         }
         
+        let totalItems:Int = generated.items.count
+        
+        guard
+            
+            let destination:CGImageDestination = CGImageDestinationCreateWithURL(
+                fileUrl as CFURL,
+                kUTTypeGIF,
+                totalItems,
+                nil)
+            
+        else
+        {
+            return
+        }
+        
+        let timeInterval:TimeInterval = viewHome.viewPlayer.viewTimer.viewSlider.currentTime
+        let timePerItem:TimeInterval = timeInterval / TimeInterval(totalItems)
+        
         let destinationPropertiesRaw:[String:Any] = [
             kCGImagePropertyGIFDictionary as String:[
-                kCGImagePropertyGIFLoopCount as String:0]]
+                kCGImagePropertyGIFLoopCount as String:kLoopCount]]
         let gifPropertiesRaw:[String:Any] = [
             kCGImagePropertyGIFDictionary as String:[
-                kCGImagePropertyGIFDelayTime as String:0.2]]
+                kCGImagePropertyGIFDelayTime as String:timePerItem]]
         
         let destinationProperties:CFDictionary = destinationPropertiesRaw as CFDictionary
         let gifProperties:CFDictionary = gifPropertiesRaw as CFDictionary
