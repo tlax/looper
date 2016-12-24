@@ -1,11 +1,11 @@
 import UIKit
-import CoreGraphics
-import CoreImage
+import ImageIO
 
 class CHome:CController
 {
     weak var viewHome:VHome!
     let modelImage:MHomeImage
+    private let kFilename:String = "looper.gif"
     
     override init()
     {
@@ -74,7 +74,16 @@ class CHome:CController
     
     func share()
     {
-        cgimagedes
+        let filePath:String = NSTemporaryDirectory().appending(kFilename)
+        
+        guard
+            
+            let fileUrl:URL = URL(string:filePath)
+        
+        else
+        {
+            return
+        }
         
         let url = NSURL(fileURLWithPath: photosDirectory)?.URLByAppendingPathComponent(filename())
         
