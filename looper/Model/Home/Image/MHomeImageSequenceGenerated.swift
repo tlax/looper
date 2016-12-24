@@ -8,6 +8,8 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
     private weak var mtlFunction:MTLFunction!
     private weak var textureLoader:MTKTextureLoader!
     private let kMapTexturePixelFormat:MTLPixelFormat = MTLPixelFormat.r32Float
+    private let kTextureDefaultPixelFormat:MTLPixelFormat = MTLPixelFormat.bgra8Unorm
+    private let kTextureDefaultSize:Int = 600
     private let kTextureMipMapped:Bool = false
     private let kTextureDepth:Int = 1
     private let kRepeatingElement:Float = 0
@@ -245,6 +247,14 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 continue
             }
             
+            if mainItemTexture.pixelFormat == MTLPixelFormat.bgra8Unorm
+            {
+                print("yes way")
+            }
+            
+            print("main texture width:\(mainItemTexture.width)")
+            print("main texture format:\(mainItemTexture.pixelFormat.rawValue)")
+            
             let baseTexture:MTLTexture = createBaseTexture(texture:mainItemTexture)
             blendOverTexture(
                 baseTexture:baseTexture,
@@ -255,9 +265,31 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
         blendFinished()
     }
     
+    private func blendOverBlank(
+        longestSequence:Int,
+        sequences:[MHomeImageSequenceRaw])
+    {
+        for indexItem:Int in 0 ..< longestSequence
+        {
+            let canvasTexture:MTLTexture = newCanvasTexure(
+                pixelFormat:kTextureDefaultPixelFormat,
+                width:kTextureDefaultSize,
+                height:kTextureDefaultSize)
+            let baseTexture:MTLTexture = createBaseTexture(texture:canvasTexture)
+            
+            blendOverTexture(
+                baseTexture:baseTexture,
+                index:indexItem,
+                sequences:sequences)
+        }
+        
+        blendFinished()
+    }
+    
     //MARK: public
     
     func blend(
+        longestSequence:Int,
         device:MTLDevice,
         mtlFunction:MTLFunction,
         commandQueue:MTLCommandQueue,
@@ -276,7 +308,9 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
         }
         else
         {
-            blendFinished()
+            blendOverBlank(
+                longestSequence:longestSequence,
+                sequences:sequences)
         }
     }
 }

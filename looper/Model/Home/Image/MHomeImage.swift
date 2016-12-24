@@ -65,6 +65,7 @@ class MHomeImage
         
         generatedSequence = MHomeImageSequenceGenerated()
         generatedSequence?.blend(
+            longestSequence:longestSequence,
             device:device,
             mtlFunction:mtlFunction,
             commandQueue:commandQueue,
