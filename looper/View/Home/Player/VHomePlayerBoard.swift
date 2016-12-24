@@ -49,10 +49,10 @@ class VHomePlayerBoard:UIView
         let layoutShareHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:buttonShare,
             constant:kButtonsHeight)
-        let layoutShareBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+        let layoutShareBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:buttonShare,
             toView:self)
-        let layoutShareRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+        let layoutShareRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:buttonShare,
             toView:self)
         let layoutShareWidth:NSLayoutConstraint = NSLayoutConstraint.width(
