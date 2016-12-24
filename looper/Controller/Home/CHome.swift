@@ -75,12 +75,12 @@ class CHome:CController
     
     func share()
     {
-        let filePath:String = NSTemporaryDirectory().appending(kFilename)
+        let directoryUrl:URL = URL(fileURLWithPath:NSTemporaryDirectory())
+        let fileUrl:URL = directoryUrl.appendingPathComponent(kFilename)
         
         guard
             
             let generated:MHomeImageSequenceGenerated = modelImage.generateSequence(),
-            let fileUrl:URL = URL(string:filePath),
             let destination:CGImageDestination = CGImageDestinationCreateWithURL(
                 fileUrl as CFURL,
                 kUTTypeGIF,
@@ -124,5 +124,18 @@ class CHome:CController
         }
         
         CGImageDestinationFinalize(destination)
+        
+        let activity:UIActivityViewController = UIActivityViewController(
+            activityItems:[fileUrl],
+            applicationActivities:nil)
+        
+        if activity.popoverPresentationController != nil
+        {
+            activity.popoverPresentationController!.sourceView = viewHome
+            activity.popoverPresentationController!.sourceRect = CGRect.zero
+            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
+        present(activity, animated:true)
     }
 }
