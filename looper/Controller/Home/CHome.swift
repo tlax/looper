@@ -69,4 +69,9 @@ class CHome:CController
         viewHome.viewDisplay.stopAnimation()
         MSession.sharedInstance.state = MSession.State.standBy
     }
+    
+    func share()
+    {
+        
+    }
 }

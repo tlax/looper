@@ -28,9 +28,13 @@ class VHomePlayerBoard:UIView
             for:UIControlState.normal)
         buttonShare.setImage(
             #imageLiteral(resourceName: "assetHomePlayerShareSelected"),
-            for:UIControlState.selected)
+            for:UIControlState.highlighted)
         buttonShare.imageView!.clipsToBounds = true
         buttonShare.imageView!.contentMode = UIViewContentMode.center
+        buttonShare.addTarget(
+            self,
+            action:#selector(self.actionShare(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(buttonMain)
         addSubview(buttonShare)
@@ -80,5 +84,12 @@ class VHomePlayerBoard:UIView
         layoutMainLeft.constant = mainMargin
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionShare(sender button:UIButton)
+    {
+        controller.share()
     }
 }
