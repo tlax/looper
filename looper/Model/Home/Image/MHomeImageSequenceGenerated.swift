@@ -247,14 +247,6 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 continue
             }
             
-            if mainItemTexture.pixelFormat == MTLPixelFormat.bgra8Unorm
-            {
-                print("yes way")
-            }
-            
-            print("main texture width:\(mainItemTexture.width)")
-            print("main texture format:\(mainItemTexture.pixelFormat.rawValue)")
-            
             let baseTexture:MTLTexture = createBaseTexture(texture:mainItemTexture)
             blendOverTexture(
                 baseTexture:baseTexture,
