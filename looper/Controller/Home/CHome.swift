@@ -1,4 +1,6 @@
 import UIKit
+import CoreGraphics
+import CoreImage
 
 class CHome:CController
 {
@@ -72,6 +74,25 @@ class CHome:CController
     
     func share()
     {
+        cgimagedes
         
+        let url = NSURL(fileURLWithPath: photosDirectory)?.URLByAppendingPathComponent(filename())
+        
+        if let url = url {
+            let fileProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: 0]]
+            let gifProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: 0.125]]
+            let destination = CGImageDestinationCreateWithURL(url, kUTTypeGIF, photos.count, nil)
+            
+            CGImageDestinationSetProperties(destination, fileProperties)
+            
+            for photo in photos {
+                CGImageDestinationAddImage(destination, photo.CGImage, gifProperties)
+            }
+            
+            return CGImageDestinationFinalize(destination)
+        }
+        else {
+            return false
+        }
     }
 }
