@@ -1,5 +1,6 @@
 import UIKit
 import ImageIO
+import MobileCoreServices
 
 class CHome:CController
 {
@@ -78,30 +79,50 @@ class CHome:CController
         
         guard
             
-            let fileUrl:URL = URL(string:filePath)
+            let generated:MHomeImageSequenceGenerated = modelImage.generateSequence(),
+            let fileUrl:URL = URL(string:filePath),
+            let destination:CGImageDestination = CGImageDestinationCreateWithURL(
+                fileUrl as CFURL,
+                kUTTypeGIF,
+                generated.items.count,
+                nil)
         
         else
         {
             return
         }
         
-        let url = NSURL(fileURLWithPath: photosDirectory)?.URLByAppendingPathComponent(filename())
+        let destinationPropertiesRaw:[String:Any] = [
+            kCGImagePropertyGIFDictionary as String:[
+                kCGImagePropertyGIFLoopCount as String:0]]
+        let gifPropertiesRaw:[String:Any] = [
+            kCGImagePropertyGIFDictionary as String:[
+                kCGImagePropertyGIFDelayTime as String:0.2]]
         
-        if let url = url {
-            let fileProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: 0]]
-            let gifProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: 0.125]]
-            let destination = CGImageDestinationCreateWithURL(url, kUTTypeGIF, photos.count, nil)
+        let destinationProperties:CFDictionary = destinationPropertiesRaw as CFDictionary
+        let gifProperties:CFDictionary = gifPropertiesRaw as CFDictionary
+        
+        CGImageDestinationSetProperties(
+            destination,
+            destinationProperties)
+        
+        for item:MHomeImageSequenceItem in generated.items
+        {
+            guard
+                
+                let cgImage:CGImage = item.image.cgImage
             
-            CGImageDestinationSetProperties(destination, fileProperties)
-            
-            for photo in photos {
-                CGImageDestinationAddImage(destination, photo.CGImage, gifProperties)
+            else
+            {
+                continue
             }
             
-            return CGImageDestinationFinalize(destination)
+            CGImageDestinationAddImage(
+                destination,
+                cgImage,
+                gifProperties)
         }
-        else {
-            return false
-        }
+        
+        CGImageDestinationFinalize(destination)
     }
 }
