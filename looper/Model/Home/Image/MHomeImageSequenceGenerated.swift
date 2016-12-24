@@ -151,6 +151,80 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
         return mapTexture
     }
     
+    private func blendOverTexture(
+        baseTexture:MTLTexture,
+        index:Int,
+        sequences:[MHomeImageSequenceRaw])
+    {
+        let baseWidth:CGFloat = CGFloat(baseTexture.width)
+        let baseHeight:CGFloat = CGFloat(baseTexture.height)
+        
+        for sequence:MHomeImageSequenceRaw in sequences
+        {
+            let countSequenceItem:Int = sequence.items.count
+            
+            if countSequenceItem > index
+            {
+                guard
+                    
+                    let point:MHomeImageSequenceRawPoint = sequence.point
+                    
+                else
+                {
+                    continue
+                }
+                
+                if point.mapTexture == nil
+                {
+                    point.mapTexture = mapTexture(
+                        texture:baseTexture,
+                        point:point)
+                }
+                
+                let sequenceItem:MHomeImageSequenceItem = sequence.items[index]
+                
+                guard
+                    
+                    let overTexture:MTLTexture = sequenceItem.createTexture(
+                        point:point,
+                        textureWidth:baseWidth,
+                        textureHeight:baseHeight,
+                        textureLoader:textureLoader),
+                    let mapTexture:MTLTexture = point.mapTexture
+                    
+                else
+                {
+                    continue
+                }
+                
+                let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
+                let metalFilter:MetalFilter = MetalFilter(device:device)
+                metalFilter.render(
+                    mtlFunction:mtlFunction,
+                    commandBuffer:commandBuffer,
+                    overlayTexture:overTexture,
+                    baseTexture:baseTexture,
+                    mapTexture:mapTexture)
+                
+                commandBuffer.commit()
+                commandBuffer.waitUntilCompleted()
+            }
+        }
+        
+        guard
+            
+            let textureImage:UIImage = baseTexture.exportImage()
+            
+        else
+        {
+            return
+        }
+        
+        let finalItem:MHomeImageSequenceItem = MHomeImageSequenceItem(
+            image:textureImage)
+        items.append(finalItem)
+    }
+    
     private func blendOverMain(
         main:MHomeImageSequenceRaw,
         sequences:[MHomeImageSequenceRaw])
@@ -172,73 +246,10 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
             }
             
             let baseTexture:MTLTexture = createBaseTexture(texture:mainItemTexture)
-            let baseWidth:CGFloat = CGFloat(baseTexture.width)
-            let baseHeight:CGFloat = CGFloat(baseTexture.height)
-            
-            for sequence:MHomeImageSequenceRaw in sequences
-            {
-                let countSequenceItem:Int = sequence.items.count
-                
-                if countSequenceItem > indexMainItem
-                {
-                    guard
-                        
-                        let point:MHomeImageSequenceRawPoint = sequence.point
-                        
-                    else
-                    {
-                        continue
-                    }
-                    
-                    if point.mapTexture == nil
-                    {
-                        point.mapTexture = mapTexture(
-                            texture:baseTexture,
-                            point:point)
-                    }
-                    
-                    let sequenceItem:MHomeImageSequenceItem = sequence.items[indexMainItem]
-                    
-                    guard
-                        
-                        let overTexture:MTLTexture = sequenceItem.createTexture(
-                            point:point,
-                            textureWidth:baseWidth,
-                            textureHeight:baseHeight,
-                            textureLoader:textureLoader),
-                        let mapTexture:MTLTexture = point.mapTexture
-                    
-                    else
-                    {
-                        continue
-                    }
-                    
-                    let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
-                    let metalFilter:MetalFilter = MetalFilter(device:device)
-                    metalFilter.render(
-                        mtlFunction:mtlFunction,
-                        commandBuffer:commandBuffer,
-                        overlayTexture:overTexture,
-                        baseTexture:baseTexture,
-                        mapTexture:mapTexture)
-                    
-                    commandBuffer.commit()
-                    commandBuffer.waitUntilCompleted()
-                }
-            }
-            
-            guard
-                
-                let textureImage:UIImage = baseTexture.exportImage()
-                
-            else
-            {
-                continue
-            }
-            
-            let finalItem:MHomeImageSequenceItem = MHomeImageSequenceItem(
-                image:textureImage)
-            items.append(finalItem)
+            blendOverTexture(
+                baseTexture:baseTexture,
+                index:indexMainItem,
+                sequences:sequences)
         }
         
         blendFinished()
