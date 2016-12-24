@@ -29,6 +29,8 @@ class VHomePlayerBoard:UIView
         buttonShare.setImage(
             #imageLiteral(resourceName: "assetHomePlayerShareSelected"),
             for:UIControlState.selected)
+        buttonShare.imageView!.clipsToBounds = true
+        buttonShare.imageView!.contentMode = UIViewContentMode.center
         
         addSubview(buttonMain)
         addSubview(buttonShare)
