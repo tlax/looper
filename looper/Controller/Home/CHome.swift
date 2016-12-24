@@ -139,8 +139,28 @@ class CHome:CController
         
         CGImageDestinationFinalize(destination)
         
+        let tryData:Data?
+        
+        do
+        {
+            try tryData = Data(contentsOf:fileUrl)
+        }
+        catch
+        {
+            tryData = nil
+        }
+        
+        guard
+            
+            let data:Data = tryData
+        
+        else
+        {
+            return
+        }
+        
         let activity:UIActivityViewController = UIActivityViewController(
-            activityItems:[fileUrl],
+            activityItems:[data],
             applicationActivities:nil)
         
         if activity.popoverPresentationController != nil
