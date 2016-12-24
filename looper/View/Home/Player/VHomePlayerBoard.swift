@@ -20,6 +20,12 @@ class VHomePlayerBoard:UIView
             controller:controller)
         self.buttonMain = buttonMain
         
+        let buttonShare:UIButton = UIButton()
+        buttonShare.translatesAutoresizingMaskIntoConstraints = false
+        buttonShare.setImage(
+            #imageLiteral(resourceName: "assetHomePlayerShare"),
+            for:UIControlState.normal)
+        
         addSubview(buttonMain)
         
         let layoutMainHeight:NSLayoutConstraint = NSLayoutConstraint.height(
