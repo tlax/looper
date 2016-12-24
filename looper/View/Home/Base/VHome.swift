@@ -162,6 +162,7 @@ class VHome:VView
     
     func showBlender()
     {
+        controller.modelImage.mainSequence = nil
         viewControl.showBlender()
         layoutControlBottom.constant = viewControl.kCollectionHeight
         
