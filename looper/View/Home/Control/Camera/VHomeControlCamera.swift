@@ -5,6 +5,7 @@ class VHomeControlCamera:UIView
 {
     weak var viewMenu:VHomeControlCameraMenu!
     weak var viewTicker:VHomeControlCameraTicker!
+    weak var layoutTickerHeight:NSLayoutConstraint?
     private(set) var model:MHomeImageSequenceRaw?
     private weak var controller:CHome!
     private weak var captureSession:AVCaptureSession?
@@ -12,7 +13,6 @@ class VHomeControlCamera:UIView
     private weak var captureDeviceInput:AVCaptureDeviceInput?
     private weak var viewPreview:VHomeControlCameraPreview!
     private weak var layoutPreviewHeight:NSLayoutConstraint!
-    private weak var layoutTickerHeight:NSLayoutConstraint!
     private weak var timer:Timer?
     private var devicePosition:AVCaptureDevicePosition
     private let queue:DispatchQueue
@@ -103,7 +103,7 @@ class VHomeControlCamera:UIView
             layoutMenuLeft,
             layoutMenuRight,
             layoutTickerTop,
-            layoutTickerHeight,
+            layoutTickerHeight!,
             layoutTickerLeft,
             layoutTickerRight])
         
@@ -150,7 +150,7 @@ class VHomeControlCamera:UIView
         
         if tickerHeight >= 0
         {
-            layoutTickerHeight.constant = tickerHeight
+            layoutTickerHeight?.constant = tickerHeight
         }
         
         super.layoutSubviews()

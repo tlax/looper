@@ -144,7 +144,7 @@ class VHomeControlCameraMenu:UIView
                 activate:false)
         }
         
-        controller.viewHome.viewControl.viewCamera?.viewTicker.removeFromSuperview()
+        controller.viewHome.viewControl.viewCamera?.layoutTickerHeight = nil
         controller.viewHome.hideCamera()
     }
     
