@@ -18,6 +18,6 @@ class MHomeControlItemSequences:MHomeControlItem
     
     override func selected(controller:CHome)
     {
-        controller.viewHome.showBlender()
+        controller.viewHome.showSequences()
     }
 }
