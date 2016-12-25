@@ -174,6 +174,19 @@ class VHome:VView
         }
     }
     
+    func showSequences()
+    {
+        viewControl.showSequences()
+        layoutControlBottom.constant = viewControl.kCollectionHeight
+        
+        UIView.animate(
+            withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
+    }
+    
     func hideCamera()
     {
         let totalHeight:CGFloat = bounds.maxY
@@ -210,6 +223,25 @@ class VHome:VView
             
             self?.viewTimeline.refresh()
             self?.viewControl.hideBlender()
+        }
+    }
+    
+    func hideSequences()
+    {
+        let totalHeight:CGFloat = bounds.maxY
+        layoutControlBottom.constant = viewControl.kCollectionHeight - totalHeight
+        
+        UIView.animate(
+            withDuration:kAnimationDuration,
+            animations:
+            { [weak self] in
+                
+                self?.layoutIfNeeded()
+            })
+        { [weak self] (done:Bool) in
+            
+            self?.viewTimeline.refresh()
+            self?.viewControl.hideSequences()
         }
     }
 }

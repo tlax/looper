@@ -4,6 +4,7 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
 {
     weak var viewCamera:VHomeControlCamera?
     weak var viewBlender:VHomeControlBlender?
+    weak var viewSequences:VHomeControlSequences?
     private weak var controller:CHome!
     private weak var collectionView:UICollectionView!
     let kCollectionHeight:CGFloat = 70
@@ -165,6 +166,34 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         layoutIfNeeded()
     }
     
+    func showSequences()
+    {
+        let viewSequences:VHomeControlSequences = VHomeControlSequences(controller:controller)
+        self.viewSequences = viewSequences
+        addSubview(viewSequences)
+        
+        let layoutSequencesTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewSequences,
+            toView:self)
+        let layoutSequencesBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+            view:viewSequences,
+            toView:collectionView)
+        let layoutSequencesLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewSequences,
+            toView:self)
+        let layoutSequencesRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewSequences,
+            toView:self)
+        
+        addConstraints([
+            layoutSequencesTop,
+            layoutSequencesBottom,
+            layoutSequencesLeft,
+            layoutSequencesRight])
+        
+        layoutIfNeeded()
+    }
+    
     func hideCamera()
     {
         viewCamera?.removeFromSuperview()
@@ -173,6 +202,11 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     func hideBlender()
     {
         viewBlender?.removeFromSuperview()
+    }
+    
+    func hideSequences()
+    {
+        viewSequences?.removeFromSuperview()
     }
     
     //MARK: collectionView delegate
