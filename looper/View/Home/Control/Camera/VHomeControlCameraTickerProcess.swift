@@ -7,22 +7,23 @@ class VHomeControlCameraTickerProcess:UIView
     private weak var timer:Timer?
     private var endAngle:CGFloat
     private var innerFillColor:UIColor
-    private let fillColor:UIColor
+    private var fillColor:UIColor
     private let strokeColor:UIColor
-    private let kRadius:CGFloat = 32
+    private let kRadius:CGFloat = 30
     private let kStartAngle:CGFloat = 0.0001
     private let kEndAngle:CGFloat = 6.28319
     private let kBorderWidth:CGFloat = 16
     private let kLineWidth:CGFloat = 12
-    private let kTimerInterval:TimeInterval = 0.1
-    private let kMaxPictures:Int = 200
+    private let kTimerInterval:TimeInterval = 0.05
+    private let kMaxPictures:Int = 300
+    private let kEmpty:String = "0"
     
     init(controller:CHome)
     {
         innerFillColor = UIColor.black
-        fillColor = UIColor.black
+        fillColor = UIColor.genericDark
         strokeColor = UIColor.genericLight
-        endAngle = kEndAngle
+        endAngle = kStartAngle
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -34,10 +35,10 @@ class VHomeControlCameraTickerProcess:UIView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:14)
+        label.font = UIFont.bold(size:13)
         label.textColor = UIColor.genericLight
         label.textAlignment = NSTextAlignment.center
-        label.text = "0"
+        label.text = kEmpty
         self.label = label
         
         addSubview(label)
@@ -137,11 +138,13 @@ class VHomeControlCameraTickerProcess:UIView
         }
         else
         {
+            fillColor = UIColor.black
             innerFillColor = UIColor.genericDark
             var percent:CGFloat = CGFloat(countPics) / CGFloat(kMaxPictures)
             
             if percent <= 0
             {
+                fillColor = UIColor.genericDark
                 innerFillColor = UIColor.black
                 percent = kStartAngle
             }
@@ -169,6 +172,7 @@ class VHomeControlCameraTickerProcess:UIView
     func clean()
     {
         innerFillColor = UIColor.black
+        fillColor = UIColor.genericDark
         timer?.invalidate()
     }
 }
