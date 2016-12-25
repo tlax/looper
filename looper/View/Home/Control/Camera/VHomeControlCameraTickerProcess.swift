@@ -13,7 +13,7 @@ class VHomeControlCameraTickerProcess:UIView
     private let kBorderWidth:CGFloat = 16
     private let kLineWidth:CGFloat = 12
     private let kTimerInterval:TimeInterval = 0.1
-    private let kMaxPictures:Int = 100
+    private let kMaxPictures:Int = 200
     
     init(controller:CHome)
     {
