@@ -3,11 +3,12 @@ import UIKit
 class VHomeControlCameraTickerProcess:UIView
 {
     private weak var controller:CHome!
+    private weak var label:UILabel!
     private weak var timer:Timer?
     private var endAngle:CGFloat
     private let fillColor:UIColor
     private var strokeColor:UIColor
-    private let kRadius:CGFloat = 24
+    private let kRadius:CGFloat = 32
     private let kStartAngle:CGFloat = 0.0001
     private let kEndAngle:CGFloat = 6.28319
     private let kBorderWidth:CGFloat = 16
@@ -26,6 +27,36 @@ class VHomeControlCameraTickerProcess:UIView
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let label:UILabel = UILabel()
+        label.isUserInteractionEnabled = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.clear
+        label.font = UIFont.medium(size:12)
+        label.textColor = UIColor.genericLight
+        label.textAlignment = NSTextAlignment.center
+        self.label = label
+        
+        addSubview(label)
+        
+        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:label,
+            toView:self)
+        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:label,
+            toView:self)
+        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:label,
+            toView:self)
+        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:label,
+            toView:self)
+        
+        addConstraints([
+            layoutLabelTop,
+            layoutLabelBottom,
+            layoutLabelLeft,
+            layoutLabelRight])
     }
     
     required init?(coder:NSCoder)
