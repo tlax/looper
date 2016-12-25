@@ -71,6 +71,7 @@
 		DAB333E91E05DBBC003436C0 /* MHomeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB333E81E05DBBC003436C0 /* MHomeImage.swift */; };
 		DAB333ED1E05DBEC003436C0 /* MHomeImageSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB333EC1E05DBEC003436C0 /* MHomeImageSequence.swift */; };
 		DAB333EF1E05DC1A003436C0 /* MHomeImageSequenceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB333EE1E05DC1A003436C0 /* MHomeImageSequenceItem.swift */; };
+		DAD778E31E1060F5009B1A81 /* VHomeControlSequences.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD778E21E1060F5009B1A81 /* VHomeControlSequences.swift */; };
 		DAFFF3F41E0847D500E14F12 /* VHomeTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F31E0847D500E14F12 /* VHomeTimelineCell.swift */; };
 		DAFFF3F61E0856AC00E14F12 /* MHomeImageSequenceRaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F51E0856AC00E14F12 /* MHomeImageSequenceRaw.swift */; };
 		DAFFF3F81E0856B700E14F12 /* MHomeImageSequenceGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F71E0856B700E14F12 /* MHomeImageSequenceGenerated.swift */; };
@@ -146,6 +147,7 @@
 		DAB333E81E05DBBC003436C0 /* MHomeImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImage.swift; sourceTree = "<group>"; };
 		DAB333EC1E05DBEC003436C0 /* MHomeImageSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequence.swift; sourceTree = "<group>"; };
 		DAB333EE1E05DC1A003436C0 /* MHomeImageSequenceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceItem.swift; sourceTree = "<group>"; };
+		DAD778E21E1060F5009B1A81 /* VHomeControlSequences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlSequences.swift; sourceTree = "<group>"; };
 		DAFFF3F31E0847D500E14F12 /* VHomeTimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeTimelineCell.swift; sourceTree = "<group>"; };
 		DAFFF3F51E0856AC00E14F12 /* MHomeImageSequenceRaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceRaw.swift; sourceTree = "<group>"; };
 		DAFFF3F71E0856B700E14F12 /* MHomeImageSequenceGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceGenerated.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 		DA20F0BD1E0446C300F8BAD4 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				DAD778E11E1060E8009B1A81 /* Sequences */,
 				DA505F481E0B46F200CE22FE /* Blender */,
 				DA9D2F2F1E0ADF57003E37D5 /* Camera */,
 				DA9D2F351E0ADF57003E37D5 /* Collection */,
@@ -429,6 +432,14 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		DAD778E11E1060E8009B1A81 /* Sequences */ = {
+			isa = PBXGroup;
+			children = (
+				DAD778E21E1060F5009B1A81 /* VHomeControlSequences.swift */,
+			);
+			path = Sequences;
+			sourceTree = "<group>";
+		};
 		DAFFF3F91E085C3F00E14F12 /* Player */ = {
 			isa = PBXGroup;
 			children = (
@@ -549,6 +560,7 @@
 				DA9D2F381E0ADF57003E37D5 /* VHomeControlCamera.swift in Sources */,
 				DA9D2F4B1E0AFE0A003E37D5 /* MHomeFramesItem5.swift in Sources */,
 				DAB333E91E05DBBC003436C0 /* MHomeImage.swift in Sources */,
+				DAD778E31E1060F5009B1A81 /* VHomeControlSequences.swift in Sources */,
 				DAFFF3F41E0847D500E14F12 /* VHomeTimelineCell.swift in Sources */,
 				DA9D2F4D1E0AFE13003E37D5 /* MHomeFramesItem10.swift in Sources */,
 				DA9D2F591E0AFFD1003E37D5 /* MHomeFramesItem2.swift in Sources */,
