@@ -6,8 +6,9 @@ class VHomeControlCameraTickerProcess:UIView
     private weak var label:UILabel!
     private weak var timer:Timer?
     private var endAngle:CGFloat
+    private var innerFillColor:UIColor
     private let fillColor:UIColor
-    private var strokeColor:UIColor
+    private let strokeColor:UIColor
     private let kRadius:CGFloat = 32
     private let kStartAngle:CGFloat = 0.0001
     private let kEndAngle:CGFloat = 6.28319
@@ -18,8 +19,9 @@ class VHomeControlCameraTickerProcess:UIView
     
     init(controller:CHome)
     {
+        innerFillColor = UIColor.black
         fillColor = UIColor.black
-        strokeColor = UIColor.genericDark
+        strokeColor = UIColor.genericLight
         endAngle = kEndAngle
         
         super.init(frame:CGRect.zero)
@@ -32,9 +34,10 @@ class VHomeControlCameraTickerProcess:UIView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.medium(size:12)
+        label.font = UIFont.bold(size:14)
         label.textColor = UIColor.genericLight
         label.textAlignment = NSTextAlignment.center
+        label.text = "0"
         self.label = label
         
         addSubview(label)
@@ -91,13 +94,14 @@ class VHomeControlCameraTickerProcess:UIView
         context.setLineCap(CGLineCap.round)
         context.setLineWidth(kBorderWidth)
         context.setStrokeColor(fillColor.cgColor)
+        context.setFillColor(innerFillColor.cgColor)
         context.addArc(
             center:center,
             radius:kRadius,
             startAngle:kStartAngle,
             endAngle:kEndAngle,
             clockwise:false)
-        context.drawPath(using:CGPathDrawingMode.stroke)
+        context.drawPath(using:CGPathDrawingMode.fillStroke)
         context.setStrokeColor(strokeColor.cgColor)
         context.setLineWidth(kLineWidth)
         context.addArc(
@@ -122,21 +126,23 @@ class VHomeControlCameraTickerProcess:UIView
             return
         }
         
+        label.text = "\(countPics)"
+        
         if countPics >= kMaxPictures
         {
             controller.viewHome.viewControl.viewCamera?.viewMenu.buttonTrigger.stop()
             
-            strokeColor = UIColor.genericDark
             endAngle = kEndAngle
             timer.invalidate()
         }
         else
         {
-            strokeColor = UIColor.genericLight
+            innerFillColor = UIColor.genericDark
             var percent:CGFloat = CGFloat(countPics) / CGFloat(kMaxPictures)
             
             if percent <= 0
             {
+                innerFillColor = UIColor.black
                 percent = kStartAngle
             }
             
@@ -162,7 +168,7 @@ class VHomeControlCameraTickerProcess:UIView
     
     func clean()
     {
-        strokeColor = UIColor.genericDark
+        innerFillColor = UIColor.black
         timer?.invalidate()
     }
 }
