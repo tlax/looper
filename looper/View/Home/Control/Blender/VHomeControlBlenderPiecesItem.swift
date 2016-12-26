@@ -2,8 +2,6 @@ import UIKit
 
 class VHomeControlBlenderPiecesItem:UIView
 {
-    let originalX:CGFloat
-    let originalY:CGFloat
     weak var layoutTop:NSLayoutConstraint!
     weak var layoutLeft:NSLayoutConstraint!
     weak var model:MHomeImageSequenceRaw!
@@ -12,20 +10,13 @@ class VHomeControlBlenderPiecesItem:UIView
     private let kImageMargin:CGFloat = 3
     private let kAnimationDuration:TimeInterval = 0.3
     
-    init(
-        model:MHomeImageSequenceRaw,
-        originalX:CGFloat,
-        originalY:CGFloat,
-        size_2:CGFloat)
+    init(model:MHomeImageSequenceRaw)
     {
-        self.originalX = originalX
-        self.originalY = originalY
-        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
-        layer.cornerRadius = size_2
+        layer.cornerRadius = kCornerRadius
         self.model = model
         
         let imageView:UIImageView = UIImageView()
@@ -34,7 +25,7 @@ class VHomeControlBlenderPiecesItem:UIView
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.image = model.items.first?.image
-        imageView.layer.cornerRadius = size_2 - kImageMargin
+        imageView.layer.cornerRadius = kCornerRadius
         self.imageView = imageView
         
         addSubview(imageView)
@@ -80,9 +71,6 @@ class VHomeControlBlenderPiecesItem:UIView
     
     func selected()
     {
-        layer.cornerRadius = bounds.midX
-        imageView.layer.cornerRadius = imageView.bounds.midX
-        
         backgroundColor = UIColor.white
         superview?.bringSubview(toFront:self)
     }
@@ -94,22 +82,6 @@ class VHomeControlBlenderPiecesItem:UIView
     
     func placed()
     {
-        layer.cornerRadius = kCornerRadius
-        imageView.layer.cornerRadius = kCornerRadius
-        
         backgroundColor = UIColor.black
-    }
-    
-    func restartPlace()
-    {
-        layoutLeft.constant = originalX
-        layoutTop.constant = originalY
-        
-        UIView.animate(
-            withDuration:kAnimationDuration)
-        { [weak self] in
-            
-            self?.superview?.layoutIfNeeded()
-        }
     }
 }

@@ -190,6 +190,7 @@ class VHome:VView
     
     func showControl(control:VHomeControl.Control)
     {
+        viewDisplay.clear()
         viewPlayer.viewBoard.buttonMain.forceStop()
         viewControl.showControl(control:control)
         layoutControlBottom.constant = viewControl.kCollectionHeight

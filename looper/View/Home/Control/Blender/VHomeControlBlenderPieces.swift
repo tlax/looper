@@ -3,34 +3,16 @@ import UIKit
 class VHomeControlBlenderPieces:UIView
 {
     private weak var controller:CHome!
-    private let items:[VHomeControlBlenderPiecesItem]
+    private var items:[VHomeControlBlenderPiecesItem]
     private let kItemSize:CGFloat = 70
     private let kItemMargin:CGFloat = 10
     private let kItemsTop:CGFloat = 30
     private let kAnimationDuration:TimeInterval = 0.4
+    private let kDeadlineMain:TimeInterval = 0.3
     
     init(controller:CHome)
     {
-        let itemSize_2:CGFloat = kItemSize / 2.0
-        
-        let useY:CGFloat = kItemsTop
-        var currentX:CGFloat = kItemMargin
-        var items:[VHomeControlBlenderPiecesItem] = []
-        
-        for sequence:MHomeImageSequenceRaw in controller.modelImage.sequences
-        {
-            sequence.point = nil
-            let item:VHomeControlBlenderPiecesItem = VHomeControlBlenderPiecesItem(
-                model:sequence,
-                originalX:currentX,
-                originalY:useY,
-                size_2:itemSize_2)
-            items.append(item)
-            
-            currentX += kItemSize + kItemMargin
-        }
-        
-        self.items = items
+        items = []
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -39,33 +21,54 @@ class VHomeControlBlenderPieces:UIView
         isUserInteractionEnabled = false
         self.controller = controller
         
-        layoutItems()
-    }
-    
-    required init?(coder:NSCoder)
-    {
-        fatalError()
-    }
-    
-    //MARK: private
-    
-    private func layoutItems()
-    {
         var constraints:[NSLayoutConstraint] = []
+        let useY:CGFloat = kItemsTop
+        var currentX:CGFloat = kItemMargin
+        let main:MHomeImageSequenceRaw? = controller.modelImage.mainSequence
         
-        for item:VHomeControlBlenderPiecesItem in items
+        for sequence:MHomeImageSequenceRaw in controller.modelImage.sequences
         {
+            sequence.point = nil
+            let item:VHomeControlBlenderPiecesItem = VHomeControlBlenderPiecesItem(
+                model:sequence)
+            let useX:CGFloat
+            items.append(item)
+            
+            if sequence === main
+            {
+                useX = kItemMargin
+                
+                DispatchQueue.main.asyncAfter(
+                    deadline:DispatchTime.now() + kDeadlineMain)
+                {
+                    guard
+                    
+                        let viewBoardMain:VHomeControlBlenderBoardMain = controller.viewHome.viewControl.viewBlender?.viewBoard.viewMain
+                    
+                    else
+                    {
+                        return
+                    }
+                    
+                    viewBoardMain.dropping(piece:item)
+                }
+            }
+            else
+            {
+                useX = currentX
+                currentX = useX + kItemSize + kItemMargin
+            }
+            
             addSubview(item)
             
             item.layoutTop = NSLayoutConstraint.topToTop(
                 view:item,
                 toView:self,
-                constant:item.originalY)
+                constant:useY)
             item.layoutLeft = NSLayoutConstraint.leftToLeft(
                 view:item,
                 toView:self,
-                constant:item.originalX)
-            
+                constant:useX)
             let layoutItemWidth = NSLayoutConstraint.width(
                 view:item,
                 constant:kItemSize)
@@ -83,15 +86,42 @@ class VHomeControlBlenderPieces:UIView
         addConstraints(constraints)
     }
     
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+    
     //MARK: public
     
-    func restartPieces()
+    func relocate(piece:VHomeControlBlenderPiecesItem)
     {
-        for item:VHomeControlBlenderPiecesItem in items
+        var found:Bool = false
+        let useY:CGFloat = kItemsTop
+        var useX:CGFloat = kItemMargin
+        
+        while !found
         {
-            item.layoutLeft.constant = item.originalX
-            item.layoutTop.constant = item.originalY
+            found = true
+            let frame:CGRect = CGRect(
+                x:useX,
+                y:useY,
+                width:kItemSize,
+                height:kItemSize)
+            
+            for item:VHomeControlBlenderPiecesItem in items
+            {
+                if item.frame.intersects(frame)
+                {
+                    useX += 1
+                    found = false
+                    
+                    break
+                }
+            }
         }
+        
+        piece.layoutTop.constant = useY
+        piece.layoutLeft.constant = useX
         
         UIView.animate(
             withDuration:kAnimationDuration)

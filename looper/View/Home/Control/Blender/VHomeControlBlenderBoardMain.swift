@@ -59,7 +59,12 @@ class VHomeControlBlenderBoardMain:UIView
             
             if piece !== self.piece
             {
-                self.piece?.restartPlace()
+                if self.piece != nil
+                {
+                    controller.viewHome.viewControl.viewBlender?.viewPieces.relocate(
+                        piece:piece)
+                }
+                
                 self.piece = piece
                 controller.modelImage.mainSequence = piece.model
             }
