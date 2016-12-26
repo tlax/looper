@@ -216,6 +216,7 @@ class VHome:VView
         layoutControlBottom.constant = viewControl.kCollectionHeight - totalHeight
         viewTimeline.refresh()
         viewControl.refresh()
+        spinner.startAnimating()
         
         UIView.animate(
             withDuration:kAnimationDuration,

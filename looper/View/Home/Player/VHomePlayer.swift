@@ -3,8 +3,8 @@ import UIKit
 class VHomePlayer:UIView
 {
     weak var viewTimer:VHomePlayerTimer!
+    weak var viewBoard:VHomePlayerBoard!
     private weak var controller:CHome!
-    private weak var viewBoard:VHomePlayerBoard!
     private let kBoardHeight:CGFloat = 60
     private let kTimerHeight:CGFloat = 40
     private let kTimerBottom:CGFloat = -5
