@@ -4,7 +4,7 @@ class VHomeControlCell:UICollectionViewCell
 {
     private weak var label:UILabel!
     private weak var imageView:UIImageView!
-    private let kLabelHeight:CGFloat = 26
+    private let kLabelHeight:CGFloat = 30
     private let kImageHeight:CGFloat = 35
     private let kImageTop:CGFloat = 20
     private let kAlphaSelected:CGFloat = 0.2

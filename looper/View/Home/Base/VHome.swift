@@ -34,6 +34,7 @@ class VHome:VView
         self.viewPlayer = viewPlayer
         
         let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
         self.spinner = spinner
         
         addSubview(viewDisplay)
