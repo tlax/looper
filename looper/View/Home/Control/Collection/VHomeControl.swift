@@ -47,15 +47,7 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             VHomeControlCell.reusableIdentifier)
         self.collectionView = collectionView
         
-        let border:UIView = UIView()
-        border.isUserInteractionEnabled = false
-        border.translatesAutoresizingMaskIntoConstraints = false
-        border.backgroundColor = UIColor(
-            white:1,
-            alpha:0.2)
-        
         addSubview(collectionView)
-        addSubview(border)
         
         let layoutCollectionHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:collectionView,
@@ -70,28 +62,11 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             view:collectionView,
             toView:self)
         
-        let layoutBorderHeight:NSLayoutConstraint = NSLayoutConstraint.height(
-            view:border,
-            constant:1)
-        let layoutBorderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:border,
-            toView:self)
-        let layoutBorderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:border,
-            toView:self)
-        let layoutBorderRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:border,
-            toView:self)
-        
         addConstraints([
             layoutCollectionHeight,
             layoutCollectionBottom,
             layoutCollectionLeft,
-            layoutCollectionRight,
-            layoutBorderHeight,
-            layoutBorderBottom,
-            layoutBorderLeft,
-            layoutBorderRight])
+            layoutCollectionRight])
     }
     
     required init?(coder:NSCoder)

@@ -6,7 +6,9 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     private weak var collectionView:UICollectionView!
     private weak var model:MHomeImageSequenceGenerated?
     private let kInterline:CGFloat = 2
-    private let kBorderAlpha:CGFloat = 0.5
+    private let kBorderAlpha:CGFloat = 0.4
+    private let kAlphaActive:CGFloat = 1
+    private let kAlphaNotActive:CGFloat = 0.2
     
     init(controller:CHome)
     {
@@ -14,6 +16,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clear
+        alpha = kAlphaNotActive
         self.controller = controller
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -142,8 +145,10 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.model = self?.controller.modelImage.renderedSequence
-            self?.collectionView.reloadData()
+            if self?.controller.modelImage.renderedSequence != nil
+            {
+                self?.activate()
+            }
         }
     }
     
@@ -156,10 +161,18 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         return item
     }
     
+    private func activate()
+    {
+        alpha = kAlphaActive
+        model = controller.modelImage.renderedSequence
+        collectionView.reloadData()
+    }
+    
     //MARK: public
     
     func refresh()
     {
+        alpha = kAlphaNotActive
         model = nil
         collectionView.reloadData()
     }
