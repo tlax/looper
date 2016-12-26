@@ -72,4 +72,11 @@ class VHomeDisplay:UIView
         imageView.image = imageView.animationImages?.first
         imageView.animationImages = nil
     }
+    
+    func clear()
+    {
+        imageView.stopAnimating()
+        imageView.animationImages = nil
+        imageView.image = nil
+    }
 }
