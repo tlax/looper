@@ -61,8 +61,8 @@ class CHome:CController
     
     func returnToHome()
     {
-        modelImage.generateSequence()
         viewHome.returnToHome()
+        modelImage.generateSequence()
     }
     
     func animate()

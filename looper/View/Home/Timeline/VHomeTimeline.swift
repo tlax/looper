@@ -142,7 +142,8 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.refresh()
+            self?.model = self?.controller.modelImage.renderedSequence
+            self?.collectionView.reloadData()
         }
     }
     
