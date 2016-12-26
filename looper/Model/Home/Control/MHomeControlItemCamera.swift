@@ -6,17 +6,12 @@ class MHomeControlItemCamera:MHomeControlItem
     
     override init(controller:CHome)
     {
-        let name:String = NSLocalizedString(
-            "MHomeControlItemCamera_name",
-            comment:"")
-        
         super.init(
-            name:name,
             image:#imageLiteral(resourceName: "assetHomeCamera"),
             active:kActive)
     }
     
-    override init(name:String, image:UIImage, active:Bool)
+    override init(image:UIImage, active:Bool)
     {
         fatalError()
     }

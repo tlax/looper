@@ -2,13 +2,11 @@ import UIKit
 
 class MHomeControlItem
 {
-    let name:String
     let image:UIImage
     let active:Bool
     
-    init(name:String, image:UIImage, active:Bool)
+    init(image:UIImage, active:Bool)
     {
-        self.name = name
         self.image = image
         self.active = active
     }

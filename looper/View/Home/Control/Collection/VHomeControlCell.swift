@@ -2,10 +2,7 @@ import UIKit
 
 class VHomeControlCell:UICollectionViewCell
 {
-    private weak var label:UILabel!
     private weak var imageView:UIImageView!
-    private let kLabelHeight:CGFloat = 30
-    private let kImageHeight:CGFloat = 35
     private let kImageTop:CGFloat = 20
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
@@ -23,38 +20,15 @@ class VHomeControlCell:UICollectionViewCell
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.imageView = imageView
         
-        let label:UILabel = UILabel()
-        label.isUserInteractionEnabled = false
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clear
-        label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.regular(size:10)
-        label.textColor = UIColor.white
-        self.label = label
-        
         addSubview(imageView)
-        addSubview(label)
-        
-        let layoutLabelHeight:NSLayoutConstraint = NSLayoutConstraint.height(
-            view:label,
-            constant:kLabelHeight)
-        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:label,
-            toView:self)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:label,
-            toView:self)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:label,
-            toView:self)
         
         let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:imageView,
             toView:self,
             constant:kImageTop)
-        let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        let layoutImageBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:imageView,
-            constant:kImageHeight)
+            toView:self)
         let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:imageView,
             toView:self)
@@ -63,12 +37,8 @@ class VHomeControlCell:UICollectionViewCell
             toView:self)
         
         addConstraints([
-            layoutLabelHeight,
-            layoutLabelBottom,
-            layoutLabelLeft,
-            layoutLabelRight,
             layoutImageTop,
-            layoutImageHeight,
+            layoutImageBottom,
             layoutImageLeft,
             layoutImageRight])
     }
@@ -114,7 +84,6 @@ class VHomeControlCell:UICollectionViewCell
     
     func config(model:MHomeControlItem, controller:CHome)
     {
-        label.text = model.name
         imageView.image = model.image.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         
         let color:UIColor
@@ -131,7 +100,6 @@ class VHomeControlCell:UICollectionViewCell
         }
         
         imageView.tintColor = color
-        label.textColor = color
         
         hover()
     }

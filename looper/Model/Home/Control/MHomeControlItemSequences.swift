@@ -4,10 +4,6 @@ class MHomeControlItemSequences:MHomeControlItem
 {
     override init(controller:CHome)
     {
-        let name:String = NSLocalizedString(
-            "MHomeControlItemSequences_name",
-            comment:"")
-        
         let active:Bool
         
         if controller.modelImage.sequences.isEmpty
@@ -20,12 +16,11 @@ class MHomeControlItemSequences:MHomeControlItem
         }
         
         super.init(
-            name:name,
             image:#imageLiteral(resourceName: "assetHomeCamera"),
             active:active)
     }
     
-    override init(name:String, image:UIImage, active:Bool)
+    override init(image:UIImage, active:Bool)
     {
         fatalError()
     }
