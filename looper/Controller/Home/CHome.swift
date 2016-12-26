@@ -52,6 +52,7 @@ class CHome:CController
         DispatchQueue.main.async
         { [weak self] in
             
+            self?.viewHome.viewPlayer.playingBlocking()
             self?.viewHome.viewDisplay.animateImages(images:images)
             MSession.sharedInstance.state = MSession.State.playing
         }
@@ -80,6 +81,7 @@ class CHome:CController
     func stopAnimation()
     {
         viewHome.viewDisplay.stopAnimation()
+        viewHome.viewPlayer.playingNotBlocking()
         MSession.sharedInstance.state = MSession.State.standBy
     }
     

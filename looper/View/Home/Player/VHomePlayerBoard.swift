@@ -3,11 +3,14 @@ import UIKit
 class VHomePlayerBoard:UIView
 {
     weak var buttonMain:VHomePlayerBoardMain!
+    private weak var buttonShare:UIButton!
     private weak var controller:CHome!
     private weak var layoutMainLeft:NSLayoutConstraint!
     private let kMainWidth:CGFloat = 70
     private let kShareWidth:CGFloat = 60
     private let kButtonsHeight:CGFloat = 60
+    private let kAlphaActive:CGFloat = 1
+    private let kAlphaNotActive:CGFloat = 0.3
     
     convenience init(controller:CHome)
     {
@@ -35,6 +38,7 @@ class VHomePlayerBoard:UIView
             self,
             action:#selector(self.actionShare(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.buttonShare = buttonShare
         
         addSubview(buttonMain)
         addSubview(buttonShare)
@@ -91,5 +95,31 @@ class VHomePlayerBoard:UIView
     func actionShare(sender button:UIButton)
     {
         controller.share()
+    }
+    
+    //MARK: public
+    
+    func blocked()
+    {
+        alpha = kAlphaNotActive
+        buttonShare.alpha = kAlphaNotActive
+        isUserInteractionEnabled = false
+        buttonShare.isUserInteractionEnabled = true
+    }
+    
+    func partialBlocked()
+    {
+        alpha = kAlphaActive
+        buttonShare.alpha = kAlphaNotActive
+        isUserInteractionEnabled = true
+        buttonShare.isUserInteractionEnabled = false
+    }
+    
+    func notBlocked()
+    {
+        alpha = kAlphaActive
+        buttonShare.alpha = kAlphaActive
+        isUserInteractionEnabled = true
+        buttonShare.isUserInteractionEnabled = true
     }
 }

@@ -8,8 +8,6 @@ class VHomePlayer:UIView
     private let kBoardHeight:CGFloat = 60
     private let kTimerHeight:CGFloat = 40
     private let kTimerBottom:CGFloat = -5
-    private let kAlphaActive:CGFloat = 1
-    private let kAlphaNotActive:CGFloat = 0.3
     
     convenience init(controller:CHome)
     {
@@ -100,19 +98,25 @@ class VHomePlayer:UIView
         
         if controller.modelImage.renderedSequence == nil
         {
-            viewBoard.isUserInteractionEnabled = false
-            viewTimer.isUserInteractionEnabled = false
-            
-            viewBoard.alpha = kAlphaNotActive
-            viewTimer.alpha = kAlphaNotActive
+            viewBoard.blocked()
+            viewTimer.blocked()
         }
         else
         {
-            viewBoard.isUserInteractionEnabled = true
-            viewTimer.isUserInteractionEnabled = true
-            
-            viewBoard.alpha = kAlphaActive
-            viewTimer.alpha = kAlphaActive
+            viewBoard.notBlocked()
+            viewTimer.notBlocked()
         }
+    }
+    
+    func playingNotBlocking()
+    {
+        viewBoard.notBlocked()
+        viewTimer.notBlocked()
+    }
+    
+    func playingBlocking()
+    {
+        viewBoard.partialBlocked()
+        viewTimer.blocked()
     }
 }

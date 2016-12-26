@@ -13,14 +13,14 @@ class VHomePlayerTimer:UIView
     private let kLabelTitleLeft:CGFloat = 26
     private let kSliderLeft:CGFloat = 5
     private let kSliderRight:CGFloat = 0
-    private let kMaxFractions:Int = 0
+    private let kAlphaActive:CGFloat = 1
+    private let kAlphaNotActive:CGFloat = 0.3
     
     init(controller:CHome)
     {
         numberFormatter = NumberFormatter()
-        numberFormatter.maximumFractionDigits = kMaxFractions
-        numberFormatter.minimumFractionDigits = kMaxFractions
-        numberFormatter.minimumIntegerDigits = kMaxFractions
+        numberFormatter.maximumFractionDigits = 0
+        numberFormatter.minimumFractionDigits = 0
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -128,5 +128,17 @@ class VHomePlayerTimer:UIView
         let time:NSNumber = viewSlider.currentTime as NSNumber
         label.text = numberFormatter.string(
             from:time)
+    }
+    
+    func blocked()
+    {
+        alpha = kAlphaNotActive
+        isUserInteractionEnabled = false
+    }
+    
+    func notBlocked()
+    {
+        alpha = kAlphaActive
+        isUserInteractionEnabled = true
     }
 }
