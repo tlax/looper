@@ -2,16 +2,30 @@ import UIKit
 
 class MHomeControlItemSequences:MHomeControlItem
 {
-    override init()
+    override init(controller:CHome)
     {
         let name:String = NSLocalizedString(
             "MHomeControlItemSequences_name",
             comment:"")
         
-        super.init(name:name, image:#imageLiteral(resourceName: "assetHomeCamera"))
+        let active:Bool
+        
+        if controller.modelImage.sequences.isEmpty
+        {
+            active = false
+        }
+        else
+        {
+            active = true
+        }
+        
+        super.init(
+            name:name,
+            image:#imageLiteral(resourceName: "assetHomeCamera"),
+            active:active)
     }
     
-    override init(name:String, image:UIImage)
+    override init(name:String, image:UIImage, active:Bool)
     {
         fatalError()
     }

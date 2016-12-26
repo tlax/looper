@@ -4,6 +4,7 @@ class VHomeControlCell:UICollectionViewCell
 {
     private weak var label:UILabel!
     private weak var imageView:UIImageView!
+    private weak var model:MHomeControlItem?
     private let kLabelHeight:CGFloat = 30
     private let kImageHeight:CGFloat = 35
     private let kImageTop:CGFloat = 20
@@ -98,12 +99,23 @@ class VHomeControlCell:UICollectionViewCell
     
     private func hover()
     {
-        if isSelected || isHighlighted
+        guard
+        
+            let model:MHomeControlItem = self.model
+        
+        else
         {
+            return
+        }
+        
+        if !model.active || isSelected || isHighlighted
+        {
+            isUserInteractionEnabled = false
             alpha = kAlphaSelected
         }
         else
         {
+            isUserInteractionEnabled = true
             alpha = kAlphaNotSelected
         }
     }
@@ -112,6 +124,7 @@ class VHomeControlCell:UICollectionViewCell
     
     func config(model:MHomeControlItem, controller:CHome)
     {
+        self.model = model
         label.text = model.name
         imageView.image = model.image
         

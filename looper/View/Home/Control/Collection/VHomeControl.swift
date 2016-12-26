@@ -8,12 +8,12 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     private weak var controller:CHome!
     private weak var collectionView:UICollectionView!
     let kCollectionHeight:CGFloat = 70
-    private let model:MHomeControl
+    private var model:MHomeControl?
     private let kDeselectTime:TimeInterval = 0.4
     
     init(controller:CHome)
     {
-        model = MHomeControl()
+        model = MHomeControl(controller:controller)
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -103,7 +103,7 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     
     private func modelAtIndex(index:IndexPath) -> MHomeControlItem
     {
-        let item:MHomeControlItem = model.items[index.item]
+        let item:MHomeControlItem = model!.items[index.item]
         
         return item
     }
@@ -215,7 +215,7 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     {
         let width:CGFloat = collectionView.bounds.maxX
         let height:CGFloat = collectionView.bounds.maxY
-        let items:CGFloat = CGFloat(model.items.count)
+        let items:CGFloat = CGFloat(model!.items.count)
         let widthPerCell:CGFloat = width / items
         let size:CGSize = CGSize(width:widthPerCell, height:height)
         
@@ -229,6 +229,15 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
+        guard
+            
+            let model:MHomeControl = self.model
+        
+        else
+        {
+            return 0
+        }
+        
         let count:Int = model.items.count
         
         return count
@@ -245,6 +254,20 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             controller:controller)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        let item:MHomeControlItem = modelAtIndex(index:indexPath)
+        
+        return item.active
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        let item:MHomeControlItem = modelAtIndex(index:indexPath)
+        
+        return item.active
     }
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
