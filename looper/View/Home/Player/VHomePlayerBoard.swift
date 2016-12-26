@@ -2,8 +2,8 @@ import UIKit
 
 class VHomePlayerBoard:UIView
 {
+    weak var buttonMain:VHomePlayerBoardMain!
     private weak var controller:CHome!
-    private weak var buttonMain:VHomePlayerBoardMain!
     private weak var layoutMainLeft:NSLayoutConstraint!
     private let kMainWidth:CGFloat = 70
     private let kShareWidth:CGFloat = 60

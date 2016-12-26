@@ -17,8 +17,36 @@ class MHomeImage
     
     //MARK: private
     
+    private func notifyImagesUpdated()
+    {
+        MSession.sharedInstance.state = MSession.State.standBy
+        NotificationCenter.default.post(
+            name:Notification.imagesUpdated,
+            object:nil)
+    }
+    
     private func asyncGenerateSequence()
     {
+        var blendingSequences:[MHomeImageSequenceRaw] = []
+        
+        for sequence:MHomeImageSequenceRaw in sequences
+        {
+            if sequence.point != nil
+            {
+                blendingSequences.append(sequence)
+            }
+        }
+        
+        if mainSequence == nil
+        {
+            if blendingSequences.isEmpty
+            {
+                notifyImagesUpdated()
+                
+                return
+            }
+        }
+        
         if self.device == nil
         {
             self.device = MTLCreateSystemDefaultDevice()
@@ -30,10 +58,7 @@ class MHomeImage
         
         else
         {
-            MSession.sharedInstance.state = MSession.State.standBy
-            NotificationCenter.default.post(
-                name:Notification.imagesUpdated,
-                object:nil)
+            notifyImagesUpdated()
             
             return
         }
@@ -41,7 +66,7 @@ class MHomeImage
         renderedSequence = MHomeImageSequenceGenerated(
             device:device,
             main:mainSequence,
-            sequences:sequences,
+            sequences:blendingSequences,
             length:longestSequence)
     }
     

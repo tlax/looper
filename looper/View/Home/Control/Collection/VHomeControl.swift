@@ -18,7 +18,7 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor.genericDark
+        backgroundColor = UIColor.black
         self.controller = controller
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()

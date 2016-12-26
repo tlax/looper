@@ -72,6 +72,8 @@ class VHomePlayer:UIView
             selector:#selector(self.notifiedImagesUpdated(sender:)),
             name:Notification.imagesUpdated,
             object:nil)
+        
+        refresh()
     }
     
     deinit
@@ -94,6 +96,8 @@ class VHomePlayer:UIView
     
     func refresh()
     {
+        viewBoard.buttonMain.forceStop()
+        
         if controller.modelImage.renderedSequence == nil
         {
             viewBoard.isUserInteractionEnabled = false

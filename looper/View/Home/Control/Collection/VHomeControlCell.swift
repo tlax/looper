@@ -121,12 +121,12 @@ class VHomeControlCell:UICollectionViewCell
         
         if model.active
         {
-            color = UIColor.white
+            color = UIColor.genericLight
             isUserInteractionEnabled = true
         }
         else
         {
-            color = UIColor(white:1, alpha:0.2)
+            color = UIColor(white:1, alpha:0.3)
             isUserInteractionEnabled = false
         }
         

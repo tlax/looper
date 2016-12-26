@@ -6,8 +6,8 @@ class VHomeControlCameraTickerProcess:UIView
     private weak var label:UILabel!
     private weak var timer:Timer?
     private var endAngle:CGFloat
-    private var innerFillColor:UIColor
-    private var fillColor:UIColor
+    private let innerFillColor:UIColor
+    private let fillColor:UIColor
     private let strokeColor:UIColor
     private let kRadius:CGFloat = 30
     private let kStartAngle:CGFloat = 0.0001
@@ -20,8 +20,8 @@ class VHomeControlCameraTickerProcess:UIView
     
     init(controller:CHome)
     {
-        innerFillColor = UIColor.black
-        fillColor = UIColor.genericDark
+        innerFillColor = UIColor.genericDark
+        fillColor = UIColor.black
         strokeColor = UIColor.genericLight
         endAngle = kStartAngle
         
@@ -138,14 +138,10 @@ class VHomeControlCameraTickerProcess:UIView
         }
         else
         {
-            fillColor = UIColor.black
-            innerFillColor = UIColor.genericDark
             var percent:CGFloat = CGFloat(countPics) / CGFloat(kMaxPictures)
             
             if percent <= 0
             {
-                fillColor = UIColor.genericDark
-                innerFillColor = UIColor.black
                 percent = kStartAngle
             }
             
@@ -171,8 +167,6 @@ class VHomeControlCameraTickerProcess:UIView
     
     func clean()
     {
-        innerFillColor = UIColor.black
-        fillColor = UIColor.genericDark
         timer?.invalidate()
     }
 }
