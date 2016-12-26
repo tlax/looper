@@ -7,13 +7,13 @@ class VHomePlayerTimer:UIView
     private weak var label:UILabel!
     private weak var layoutSliderWidth:NSLayoutConstraint!
     private let numberFormatter:NumberFormatter
-    private let kLabelWidth:CGFloat = 46
+    private let kLabelWidth:CGFloat = 35
     private let kLabelTitleWidth:CGFloat = 90
     private let kLabelTitleHeight:CGFloat = 16
     private let kLabelTitleLeft:CGFloat = 26
     private let kSliderLeft:CGFloat = 5
     private let kSliderRight:CGFloat = 0
-    private let kMaxFractions:Int = 1
+    private let kMaxFractions:Int = 0
     
     init(controller:CHome)
     {

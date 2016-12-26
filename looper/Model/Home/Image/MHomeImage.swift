@@ -56,6 +56,11 @@ class MHomeImage
             longestSequence = sequenceLength
         }
         
+        if sequences.isEmpty
+        {
+            mainSequence = sequence
+        }
+        
         sequences.append(sequence)
         sequence.render()
     }

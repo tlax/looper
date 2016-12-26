@@ -8,6 +8,8 @@ class VHomePlayer:UIView
     private let kBoardHeight:CGFloat = 60
     private let kTimerHeight:CGFloat = 40
     private let kTimerBottom:CGFloat = -5
+    private let kAlphaActive:CGFloat = 1
+    private let kAlphaNotActive:CGFloat = 0.2
     
     convenience init(controller:CHome)
     {
@@ -64,5 +66,49 @@ class VHomePlayer:UIView
             layoutTimerBottom,
             layoutTimerLeft,
             layouttimerRight])
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(self.notifiedImagesUpdated(sender:)),
+            name:Notification.imagesUpdated,
+            object:nil)
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //MARK: notifications
+    
+    func notifiedImagesUpdated(sender notification:Notification)
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.refresh()
+        }
+    }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        if controller.modelImage.renderedSequence == nil
+        {
+            viewBoard.isUserInteractionEnabled = false
+            viewTimer.isUserInteractionEnabled = false
+            
+            viewBoard.alpha = kAlphaNotActive
+            viewTimer.alpha = kAlphaNotActive
+        }
+        else
+        {
+            viewBoard.isUserInteractionEnabled = true
+            viewTimer.isUserInteractionEnabled = true
+            
+            viewBoard.alpha = kAlphaActive
+            viewTimer.alpha = kAlphaActive
+        }
     }
 }

@@ -12,9 +12,9 @@ class VHomePlayerTimerSlider:UIView
     private var usableWidth:CGFloat
     private let timeSpan:TimeInterval
     private let thumbWidth_2:CGFloat
-    private let kMinTime:TimeInterval = 0.5
-    private let kMaxTime:TimeInterval = 10
-    private let kStartTime:TimeInterval = 2
+    private let kMinTime:TimeInterval = 1
+    private let kMaxTime:TimeInterval = 30
+    private let kStartTime:TimeInterval = 10
     private let kTrackHeight:CGFloat = 4
     private let kThumbWidth:CGFloat = 40
     
@@ -212,7 +212,7 @@ class VHomePlayerTimerSlider:UIView
             xPercent = 0
         }
         
-        currentTime = (TimeInterval(xPercent) * timeSpan) + kMinTime
+        currentTime = round((TimeInterval(xPercent) * timeSpan) + kMinTime)
         setNeedsLayout()
     }
     
