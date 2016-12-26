@@ -156,7 +156,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func refresh()
     {
-        model = controller.modelImage.generateSequence()
+        model = nil
         collectionView.reloadData()
     }
     

@@ -188,7 +188,6 @@ class VHome:VView
     {
         controller.modelImage.mainSequence = nil
         viewControl.showBlender()
-        layoutControlBottom.constant = viewControl.kCollectionHeight
         
         UIView.animate(
             withDuration:kAnimationDuration)
@@ -211,49 +210,12 @@ class VHome:VView
         }
     }
     
-    func hideCamera()
+    func returnToHome()
     {
         let totalHeight:CGFloat = bounds.maxY
         layoutControlBottom.constant = viewControl.kCollectionHeight - totalHeight
-        
-        UIView.animate(
-            withDuration:kAnimationDuration,
-            animations:
-        { [weak self] in
-            
-            self?.layoutIfNeeded()
-        })
-        { [weak self] (done:Bool) in
-            
-            self?.viewTimeline.refresh()
-            self?.viewControl.hideCamera()
-            self?.controller.parentController.changeBar(barHidden:false)
-        }
-    }
-    
-    func hideBlender()
-    {
-        let totalHeight:CGFloat = bounds.maxY
-        layoutControlBottom.constant = viewControl.kCollectionHeight - totalHeight
-        
-        UIView.animate(
-            withDuration:kAnimationDuration,
-            animations:
-        { [weak self] in
-            
-            self?.layoutIfNeeded()
-        })
-        { [weak self] (done:Bool) in
-            
-            self?.viewTimeline.refresh()
-            self?.viewControl.hideBlender()
-        }
-    }
-    
-    func hideSequences()
-    {
-        let totalHeight:CGFloat = bounds.maxY
-        layoutControlBottom.constant = viewControl.kCollectionHeight - totalHeight
+        viewTimeline.refresh()
+        viewControl.refresh()
         
         UIView.animate(
             withDuration:kAnimationDuration,
@@ -264,8 +226,9 @@ class VHome:VView
             })
         { [weak self] (done:Bool) in
             
-            self?.viewTimeline.refresh()
-            self?.viewControl.hideSequences()
+            self?.viewControl.viewCamera?.removeFromSuperview()
+            self?.viewControl.viewBlender?.removeFromSuperview()
+            self?.viewControl.viewSequences?.removeFromSuperview()
         }
     }
 }

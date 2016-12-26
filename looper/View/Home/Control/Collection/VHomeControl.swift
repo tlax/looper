@@ -110,6 +110,12 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     
     //MARK: public
     
+    func refresh()
+    {
+        model = MHomeControl(controller:controller)
+        collectionView.reloadData()
+    }
+    
     func showCamera()
     {
         let viewCamera:VHomeControlCamera = VHomeControlCamera(controller:controller)
@@ -192,21 +198,6 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             layoutSequencesRight])
         
         layoutIfNeeded()
-    }
-    
-    func hideCamera()
-    {
-        viewCamera?.removeFromSuperview()
-    }
-    
-    func hideBlender()
-    {
-        viewBlender?.removeFromSuperview()
-    }
-    
-    func hideSequences()
-    {
-        viewSequences?.removeFromSuperview()
     }
     
     //MARK: collectionView delegate
