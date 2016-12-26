@@ -7,9 +7,11 @@ class VHome:VView
     weak var viewDisplay:VHomeDisplay!
     weak var viewPlayer:VHomePlayer!
     private weak var controller:CHome!
+    private weak var spinner:VSpinner!
     private weak var layoutControlBottom:NSLayoutConstraint!
     private weak var layoutDisplayHeight:NSLayoutConstraint!
     private weak var layoutPlayerHeight:NSLayoutConstraint!
+    private weak var layoutSpinnerHeight:NSLayoutConstraint!
     private let kTimelineHeight:CGFloat = 35
     private let kPlayerMinHeight:CGFloat = 90
     private let kAnimationDuration:TimeInterval = 0.45
@@ -31,10 +33,14 @@ class VHome:VView
         let viewPlayer:VHomePlayer = VHomePlayer(controller:self.controller)
         self.viewPlayer = viewPlayer
         
+        let spinner:VSpinner = VSpinner()
+        self.spinner = spinner
+        
         addSubview(viewDisplay)
         addSubview(viewTimeline)
         addSubview(viewControl)
         addSubview(viewPlayer)
+        addSubview(spinner)
         
         let totalHeight:CGFloat = UIScreen.main.bounds.maxY
         let controlBottom:CGFloat = viewControl.kCollectionHeight - totalHeight
@@ -92,6 +98,18 @@ class VHome:VView
             view:viewPlayer,
             toView:self)
         
+        let layoutSpinnerTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:spinner,
+            toView:viewTimeline)
+        layoutSpinnerHeight = NSLayoutConstraint.height(
+            view:spinner)
+        let layoutSpinnerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:spinner,
+            toView:self)
+        let layoutSpinnerRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:spinner,
+            toView:self)
+        
         addConstraints([
             layoutControlTop,
             layoutControlBottom,
@@ -108,7 +126,11 @@ class VHome:VView
             layoutPlayerTop,
             layoutPlayerHeight,
             layoutPlayerLeft,
-            layoutPlayerRight])
+            layoutPlayerRight,
+            layoutSpinnerTop,
+            layoutSpinnerHeight,
+            layoutSpinnerLeft,
+            layoutSpinnerRight])
     }
     
     required init?(coder:NSCoder)
@@ -136,6 +158,7 @@ class VHome:VView
         
         layoutDisplayHeight.constant = displayHeight
         layoutPlayerHeight.constant = playerHeight
+        layoutSpinnerHeight.constant = displayHeight
         
         super.layoutSubviews()
     }
