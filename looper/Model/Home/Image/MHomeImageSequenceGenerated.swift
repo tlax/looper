@@ -4,9 +4,11 @@ import MetalKit
 class MHomeImageSequenceGenerated:MHomeImageSequence
 {
     private weak var device:MTLDevice!
-    private weak var commandQueue:MTLCommandQueue!
-    private weak var mtlFunction:MTLFunction!
-    private weak var textureLoader:MTKTextureLoader!
+    private let commandQueue:MTLCommandQueue
+    private let mtlFunction:MTLFunction
+    private let textureLoader:MTKTextureLoader
+    private let length:Int
+    private let kMetalFunctionName:String = "metalFilter_blender"
     private let kMapTexturePixelFormat:MTLPixelFormat = MTLPixelFormat.r32Float
     private let kTextureDefaultPixelFormat:MTLPixelFormat = MTLPixelFormat.bgra8Unorm
     private let kTextureDefaultSize:Int = 600
@@ -15,7 +17,67 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
     private let kRepeatingElement:Float = 0
     private let kReplaceElement:Float = 1
     
+    init?(
+        device:MTLDevice,
+        main:MHomeImageSequenceRaw?,
+        sequences:[MHomeImageSequenceRaw],
+        length:Int)
+    {
+        self.device = device
+        self.length = length
+        
+        guard
+            
+            let mtlLibrary:MTLLibrary = device.newDefaultLibrary(),
+            let mtlFunction:MTLFunction = mtlLibrary.makeFunction(name:kMetalFunctionName)
+        
+        else
+        {
+            return nil
+        }
+        
+        self.mtlFunction = mtlFunction
+        commandQueue = device.makeCommandQueue()
+        textureLoader = MTKTextureLoader(device:device)
+        
+        super.init()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.render(main:main, sequences:sequences)
+        }
+    }
+    
+    override init()
+    {
+        fatalError()
+    }
+    
+    override init(items:[MHomeImageSequenceItem])
+    {
+        fatalError()
+    }
+    
     //MARK: private
+    
+    private func render(
+        main:MHomeImageSequenceRaw?,
+        sequences:[MHomeImageSequenceRaw])
+    {
+        if let main:MHomeImageSequenceRaw = main
+        {
+            blendOverMain(main:main, sequences:sequences)
+        }
+        else if sequences.isEmpty
+        {
+            blendFinished()
+        }
+        else
+        {
+            blendOverBlank(sequences:sequences)
+        }
+    }
     
     private func blendFinished()
     {
@@ -257,11 +319,9 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
         blendFinished()
     }
     
-    private func blendOverBlank(
-        longestSequence:Int,
-        sequences:[MHomeImageSequenceRaw])
+    private func blendOverBlank(sequences:[MHomeImageSequenceRaw])
     {
-        for indexItem:Int in 0 ..< longestSequence
+        for indexItem:Int in 0 ..< length
         {
             let canvasTexture:MTLTexture = newCanvasTexure(
                 pixelFormat:kTextureDefaultPixelFormat,
@@ -276,33 +336,5 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
         }
         
         blendFinished()
-    }
-    
-    //MARK: public
-    
-    func blend(
-        longestSequence:Int,
-        device:MTLDevice,
-        mtlFunction:MTLFunction,
-        commandQueue:MTLCommandQueue,
-        textureLoader:MTKTextureLoader,
-        main:MHomeImageSequenceRaw?,
-        sequences:[MHomeImageSequenceRaw])
-    {
-        self.device = device
-        self.commandQueue = commandQueue
-        self.mtlFunction = mtlFunction
-        self.textureLoader = textureLoader
-        
-        if let main:MHomeImageSequenceRaw = main
-        {
-            blendOverMain(main:main, sequences:sequences)
-        }
-        else
-        {
-            blendOverBlank(
-                longestSequence:longestSequence,
-                sequences:sequences)
-        }
     }
 }

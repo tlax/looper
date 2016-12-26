@@ -62,6 +62,7 @@ class CHome:CController
     func returnToHome()
     {
         viewHome.returnToHome()
+        parentController.changeBar(barHidden:false)
         modelImage.generateSequence()
     }
     
