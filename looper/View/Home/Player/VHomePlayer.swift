@@ -9,7 +9,7 @@ class VHomePlayer:UIView
     private let kTimerHeight:CGFloat = 40
     private let kTimerBottom:CGFloat = -5
     private let kAlphaActive:CGFloat = 1
-    private let kAlphaNotActive:CGFloat = 0.2
+    private let kAlphaNotActive:CGFloat = 0.3
     
     convenience init(controller:CHome)
     {

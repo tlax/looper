@@ -4,7 +4,7 @@ class VHomeControlCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private let kImageTop:CGFloat = 20
-    private let kAlphaSelected:CGFloat = 0.2
+    private let kAlphaSelected:CGFloat = 0.4
     private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame:CGRect)

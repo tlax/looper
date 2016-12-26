@@ -6,9 +6,9 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     private weak var collectionView:UICollectionView!
     private weak var model:MHomeImageSequenceGenerated?
     private let kInterline:CGFloat = 2
-    private let kBorderAlpha:CGFloat = 0.4
+    private let kBorderAlpha:CGFloat = 0.3
     private let kAlphaActive:CGFloat = 1
-    private let kAlphaNotActive:CGFloat = 0.2
+    private let kAlphaNotActive:CGFloat = 0.5
     
     init(controller:CHome)
     {
