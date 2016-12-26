@@ -145,9 +145,14 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         DispatchQueue.main.async
         { [weak self] in
             
-            if self?.controller.modelImage.renderedSequence != nil
+            if let rendered:MHomeImageSequenceGenerated = self?.controller.modelImage.renderedSequence
             {
-                self?.activate()
+                if !rendered.items.isEmpty
+                {
+                    let index:IndexPath = IndexPath(item:0, section:0)
+                    self?.activate()
+                    self?.synthSelect(index:index)
+                }
             }
         }
     }
@@ -159,6 +164,17 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         let item:MHomeImageSequenceItem = model!.items[index.item]
         
         return item
+    }
+    
+    private func synthSelect(index:IndexPath)
+    {
+        let item:MHomeImageSequenceItem = modelAtIndex(index:index)
+        controller.viewHome.viewDisplay.displayFrame(image:item.image)
+        
+        collectionView.selectItem(
+            at:index,
+            animated:true,
+            scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
     }
     
     private func activate()
@@ -227,7 +243,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         MSession.sharedInstance.state = MSession.State.frame
-        let item:MHomeImageSequenceItem = modelAtIndex(index:indexPath)
+        let item:MHomeImageSequenceItem = modelAtIndex(index:index)
         controller.viewHome.viewDisplay.displayFrame(image:item.image)
         
         collectionView.scrollToItem(
