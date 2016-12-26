@@ -68,6 +68,8 @@ class CHome:CController
     
     func animate()
     {
+        viewHome.viewTimeline.clearSelection()
+        
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             

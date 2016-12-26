@@ -51,6 +51,8 @@ class VHomeDisplay:UIView
     
     func displayFrame(image:UIImage)
     {
+        MSession.sharedInstance.state = MSession.State.frame
+        
         imageView.animationImages = nil
         imageView.stopAnimating()
         imageView.image = image

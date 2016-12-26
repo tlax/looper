@@ -173,7 +173,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         
         collectionView.selectItem(
             at:index,
-            animated:true,
+            animated:false,
             scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
     }
     
@@ -191,6 +191,14 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         alpha = kAlphaNotActive
         model = nil
         collectionView.reloadData()
+    }
+    
+    func clearSelection()
+    {
+        collectionView.selectItem(
+            at:nil,
+            animated:false,
+            scrollPosition:UICollectionViewScrollPosition())
     }
     
     //MARK: collectionView delegate
@@ -242,8 +250,8 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        MSession.sharedInstance.state = MSession.State.frame
-        let item:MHomeImageSequenceItem = modelAtIndex(index:index)
+        controller.viewHome.viewPlayer.viewBoard.buttonMain.forceStop()
+        let item:MHomeImageSequenceItem = modelAtIndex(index:indexPath)
         controller.viewHome.viewDisplay.displayFrame(image:item.image)
         
         collectionView.scrollToItem(

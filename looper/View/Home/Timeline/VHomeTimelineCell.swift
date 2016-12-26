@@ -5,7 +5,7 @@ class VHomeTimelineCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private let kBorderWidth:CGFloat = 2
     private let kAlphaSelected:CGFloat = 1
-    private let kAlphaNotSelected:CGFloat = 0.4
+    private let kAlphaNotSelected:CGFloat = 0.5
     
     override init(frame:CGRect)
     {
