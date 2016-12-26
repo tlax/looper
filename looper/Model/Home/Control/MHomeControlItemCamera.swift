@@ -3,6 +3,7 @@ import UIKit
 class MHomeControlItemCamera:MHomeControlItem
 {
     private let kActive:Bool = true
+    private let kControl:VHomeControl.Control = VHomeControl.Control.camera
     
     override init(controller:CHome)
     {
@@ -18,6 +19,6 @@ class MHomeControlItemCamera:MHomeControlItem
     
     override func selected(controller:CHome)
     {
-        controller.viewHome.showCamera()
+        controller.viewHome.showControl(control:kControl)
     }
 }

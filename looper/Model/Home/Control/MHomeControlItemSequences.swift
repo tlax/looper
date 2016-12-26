@@ -2,6 +2,8 @@ import UIKit
 
 class MHomeControlItemSequences:MHomeControlItem
 {
+    private let kControl:VHomeControl.Control = VHomeControl.Control.sequences
+    
     override init(controller:CHome)
     {
         let active:Bool
@@ -27,6 +29,6 @@ class MHomeControlItemSequences:MHomeControlItem
     
     override func selected(controller:CHome)
     {
-        controller.viewHome.showSequences()
+        controller.viewHome.showControl(control:kControl)
     }
 }

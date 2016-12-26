@@ -2,6 +2,8 @@ import UIKit
 
 class MHomeControlItemBlender:MHomeControlItem
 {
+    private let kControl:VHomeControl.Control = VHomeControl.Control.blender
+    
     override init(controller:CHome)
     {
         let active:Bool
@@ -27,6 +29,6 @@ class MHomeControlItemBlender:MHomeControlItem
     
     override func selected(controller:CHome)
     {
-        controller.viewHome.showBlender()
+        controller.viewHome.showControl(control:kControl)
     }
 }

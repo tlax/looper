@@ -12,9 +12,9 @@ class VHome:VView
     private weak var layoutDisplayHeight:NSLayoutConstraint!
     private weak var layoutPlayerHeight:NSLayoutConstraint!
     private weak var layoutSpinnerHeight:NSLayoutConstraint!
+    private let kAnimationDuration:TimeInterval = 0.45
     private let kTimelineHeight:CGFloat = 35
     private let kPlayerMinHeight:CGFloat = 90
-    private let kAnimationDuration:TimeInterval = 0.45
     
     override init(controller:CController)
     {
@@ -188,47 +188,21 @@ class VHome:VView
     
     //MARK: public
     
-    func showCamera()
+    func showControl(control:VHomeControl.Control)
     {
-        viewControl.showCamera()
+        viewControl.showControl(control:control)
         layoutControlBottom.constant = viewControl.kCollectionHeight
         
         UIView.animate(
             withDuration:kAnimationDuration,
             animations:
-        { [weak self] in
-            
-            self?.layoutIfNeeded()
-        })
+            { [weak self] in
+                
+                self?.layoutIfNeeded()
+            })
         { [weak self] (done:Bool) in
             
             self?.controller.parentController.changeBar(barHidden:true)
-        }
-    }
-    
-    func showBlender()
-    {
-        controller.modelImage.mainSequence = nil
-        viewControl.showBlender()
-        
-        UIView.animate(
-            withDuration:kAnimationDuration)
-        { [weak self] in
-            
-            self?.layoutIfNeeded()
-        }
-    }
-    
-    func showSequences()
-    {
-        viewControl.showSequences()
-        layoutControlBottom.constant = viewControl.kCollectionHeight
-        
-        UIView.animate(
-            withDuration:kAnimationDuration)
-        { [weak self] in
-            
-            self?.layoutIfNeeded()
         }
     }
     

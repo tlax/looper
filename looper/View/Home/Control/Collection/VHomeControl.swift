@@ -2,6 +2,13 @@ import UIKit
 
 class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    enum Control
+    {
+        case camera
+        case sequences
+        case blender
+    }
+    
     weak var viewCamera:VHomeControlCamera?
     weak var viewBlender:VHomeControlBlender?
     weak var viewSequences:VHomeControlSequences?
@@ -89,6 +96,61 @@ class VHomeControl:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     {
         model = MHomeControl(controller:controller)
         collectionView.reloadData()
+    }
+    
+    func showControl(control:Control)
+    {
+        let view:UIView
+        
+        switch control
+        {
+            case Control.camera:
+                
+                let viewCamera:VHomeControlCamera = VHomeControlCamera(controller:controller)
+                self.viewCamera = viewCamera
+                view = viewCamera
+                
+                break
+                
+            case Control.sequences:
+                
+                let viewSequences:VHomeControlSequences = VHomeControlSequences(controller:controller)
+                self.viewSequences = viewSequences
+                view = viewSequences
+                
+                break
+                
+            case Control.blender:
+                
+                let viewBlender:VHomeControlBlender = VHomeControlBlender(controller:controller)
+                self.viewBlender = viewBlender
+                view = viewBlender
+                
+                break
+        }
+        
+        addSubview(view)
+        
+        let layoutViewTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:view,
+            toView:self)
+        let layoutViewBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+            view:view,
+            toView:collectionView)
+        let layoutViewLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:view,
+            toView:self)
+        let layoutViewRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:view,
+            toView:self)
+        
+        addConstraints([
+            layoutViewTop,
+            layoutViewBottom,
+            layoutViewLeft,
+            layoutViewRight])
+        
+        layoutIfNeeded()
     }
     
     func showCamera()
