@@ -34,7 +34,7 @@ class CHome:CController
     {
         guard
             
-            let modelGenerated:MHomeImageSequenceGenerated = modelImage.generateSequence()
+            let modelGenerated:MHomeImageSequenceGenerated = modelImage.renderedSequence
             
         else
         {
@@ -59,6 +59,12 @@ class CHome:CController
     
     //MARK: public
     
+    func returnToHome()
+    {
+        modelImage.generateSequence()
+        viewHome.returnToHome()
+    }
+    
     func animate()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
@@ -81,7 +87,7 @@ class CHome:CController
         
         guard
             
-            let generated:MHomeImageSequenceGenerated = modelImage.generateSequence()
+            let generated:MHomeImageSequenceGenerated = modelImage.renderedSequence
             
         else
         {

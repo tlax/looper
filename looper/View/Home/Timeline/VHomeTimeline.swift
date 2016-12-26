@@ -118,8 +118,6 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             layoutBorderBottomLeft,
             layoutBorderBottomRight])
         
-        model = controller.modelImage.generateSequence()
-        
         NotificationCenter.default.addObserver(
             self,
             selector:#selector(self.notifiedImagesUpdated(sender:)),
@@ -130,6 +128,11 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK: notifications

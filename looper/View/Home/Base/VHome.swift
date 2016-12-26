@@ -132,11 +132,22 @@ class VHome:VView
             layoutSpinnerHeight,
             layoutSpinnerLeft,
             layoutSpinnerRight])
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(self.notifiedImagesUpdated(sender:)),
+            name:Notification.imagesUpdated,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func layoutSubviews()
@@ -162,6 +173,17 @@ class VHome:VView
         layoutSpinnerHeight.constant = displayHeight
         
         super.layoutSubviews()
+    }
+    
+    //MARK: notifications
+    
+    func notifiedImagesUpdated(sender notification:Notification)
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.spinner.stopAnimating()
+        }
     }
     
     //MARK: public

@@ -145,7 +145,7 @@ class VHomeControlCameraMenu:UIView
         }
         
         controller.viewHome.viewControl.viewCamera?.layoutTickerHeight = nil
-        controller.viewHome.hideCamera()
+        controller.viewHome.returnToHome()
     }
     
     func actionReverse(sender button:UIButton)

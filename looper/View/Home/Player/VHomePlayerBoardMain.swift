@@ -34,7 +34,7 @@ class VHomePlayerBoardMain:UIButton
             case MSession.State.standBy,
                  MSession.State.frame:
                 
-                if controller.modelImage.generateSequence()?.items.first != nil
+                if controller.modelImage.renderedSequence?.items.first != nil
                 {
                     buttonStop()
                 }
@@ -76,5 +76,15 @@ class VHomePlayerBoardMain:UIButton
         setImage(
             #imageLiteral(resourceName: "assetHomePlayerPlaySelected"),
             for:UIControlState.highlighted)
+    }
+    
+    //MARK: public
+    
+    func forceStop()
+    {
+        if MSession.sharedInstance.state == MSession.State.playing
+        {
+            buttonPlay()
+        }
     }
 }

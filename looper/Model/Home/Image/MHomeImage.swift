@@ -3,13 +3,13 @@ import MetalKit
 
 class MHomeImage
 {
+    var renderedSequence:MHomeImageSequenceGenerated?
     weak var mainSequence:MHomeImageSequenceRaw?
     private var device:MTLDevice?
     private var mtlFunction:MTLFunction?
     private var commandQueue:MTLCommandQueue?
     private var commandBuffer:MTLCommandBuffer?
     private var textureLoader:MTKTextureLoader?
-    private var generatedSequence:MHomeImageSequenceGenerated?
     private(set) var longestSequence:Int
     private(set) var sequences:[MHomeImageSequenceRaw]
     private let kMetalFunctionName:String = "metalFilter_blender"
@@ -63,8 +63,8 @@ class MHomeImage
             return
         }
         
-        generatedSequence = MHomeImageSequenceGenerated()
-        generatedSequence?.blend(
+        renderedSequence = MHomeImageSequenceGenerated()
+        renderedSequence?.blend(
             longestSequence:longestSequence,
             device:device,
             mtlFunction:mtlFunction,
@@ -75,11 +75,6 @@ class MHomeImage
     }
     
     //MARK: public
-    
-    func clear()
-    {
-        generatedSequence = nil
-    }
     
     func add(sequence:MHomeImageSequenceRaw)
     {
@@ -94,29 +89,21 @@ class MHomeImage
         sequence.render()
     }
     
-    func generateSequence() -> MHomeImageSequenceGenerated?
+    func generateSequence()
     {
-        var generatedSequence:MHomeImageSequenceGenerated?
-        
         if !sequences.isEmpty
         {
             if MSession.sharedInstance.state != MSession.State.rendering
             {
-                generatedSequence = self.generatedSequence
+                MSession.sharedInstance.state = MSession.State.rendering
+                renderedSequence = nil
                 
-                if generatedSequence == nil
-                {
-                    MSession.sharedInstance.state = MSession.State.rendering
+                DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+                { [weak self] in
                     
-                    DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-                    { [weak self] in
-                        
-                        self?.asyncGenerateSequence()
-                    }
+                    self?.asyncGenerateSequence()
                 }
             }
         }
-        
-        return generatedSequence
     }
 }
