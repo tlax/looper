@@ -48,7 +48,7 @@
 		DA96FF061E03672F00FD5265 /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED11E03672F00FD5265 /* VSpinner.swift */; };
 		DA96FF071E03672F00FD5265 /* VView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FED21E03672F00FD5265 /* VView.swift */; };
 		DA9B83C51E12DCB8002B9810 /* CCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83C41E12DCB8002B9810 /* CCamera.swift */; };
-		DA9B83C71E12DD3A002B9810 /* VCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83C61E12DD3A002B9810 /* VCamera.swift */; };
+		DA9B83CD1E12E367002B9810 /* VCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83CA1E12E367002B9810 /* VCamera.swift */; };
 		DA9D2F381E0ADF57003E37D5 /* VHomeControlCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9D2F301E0ADF57003E37D5 /* VHomeControlCamera.swift */; };
 		DA9D2F391E0ADF57003E37D5 /* VHomeControlCameraMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9D2F311E0ADF57003E37D5 /* VHomeControlCameraMenu.swift */; };
 		DA9D2F3A1E0ADF57003E37D5 /* VHomeControlCameraMenuTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9D2F321E0ADF57003E37D5 /* VHomeControlCameraMenuTrigger.swift */; };
@@ -135,7 +135,7 @@
 		DA96FED11E03672F00FD5265 /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
 		DA96FED21E03672F00FD5265 /* VView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VView.swift; sourceTree = "<group>"; };
 		DA9B83C41E12DCB8002B9810 /* CCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCamera.swift; sourceTree = "<group>"; };
-		DA9B83C61E12DD3A002B9810 /* VCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCamera.swift; sourceTree = "<group>"; };
+		DA9B83CA1E12E367002B9810 /* VCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCamera.swift; sourceTree = "<group>"; };
 		DA9D2F301E0ADF57003E37D5 /* VHomeControlCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlCamera.swift; sourceTree = "<group>"; };
 		DA9D2F311E0ADF57003E37D5 /* VHomeControlCameraMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlCameraMenu.swift; sourceTree = "<group>"; };
 		DA9D2F321E0ADF57003E37D5 /* VHomeControlCameraMenuTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlCameraMenuTrigger.swift; sourceTree = "<group>"; };
@@ -421,9 +421,41 @@
 		DA9B83C31E12DCAE002B9810 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				DA9B83C61E12DD3A002B9810 /* VCamera.swift */,
+				DA9B83C81E12E367002B9810 /* Blend */,
+				DA9B83C91E12E367002B9810 /* Main */,
+				DA9B83CB1E12E367002B9810 /* Process */,
+				DA9B83CC1E12E367002B9810 /* Shoot */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		DA9B83C81E12E367002B9810 /* Blend */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Blend;
+			sourceTree = "<group>";
+		};
+		DA9B83C91E12E367002B9810 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DA9B83CA1E12E367002B9810 /* VCamera.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DA9B83CB1E12E367002B9810 /* Process */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Process;
+			sourceTree = "<group>";
+		};
+		DA9B83CC1E12E367002B9810 /* Shoot */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shoot;
 			sourceTree = "<group>";
 		};
 		DA9D2F2F1E0ADF57003E37D5 /* Camera */ = {
@@ -656,7 +688,7 @@
 				DAC7D3FB1E12C37D00312D4E /* CLoops.swift in Sources */,
 				DA20F0CA1E0452CA00F8BAD4 /* MHomeControlItemCamera.swift in Sources */,
 				DA20F3881E0D78B400D9EBAC /* MetalFilterBlender.metal in Sources */,
-				DA9B83C71E12DD3A002B9810 /* VCamera.swift in Sources */,
+				DA9B83CD1E12E367002B9810 /* VCamera.swift in Sources */,
 				DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */,
 				DAD778E51E10634D009B1A81 /* VHomeControlSequencesMenu.swift in Sources */,
 				DA9D2F511E0AFE28003E37D5 /* MHomeFramesItem20.swift in Sources */,
