@@ -5,10 +5,11 @@ class VHomeControlBlenderPieces:UIView
     private weak var controller:CHome!
     private var items:[VHomeControlBlenderPiecesItem]
     private let kItemSize:CGFloat = 70
-    private let kItemMargin:CGFloat = 10
-    private let kItemsTop:CGFloat = 30
+    private let kItemMargin:CGFloat = 0
+    private let kItemsLeft:CGFloat = 5
+    private let kItemsTop:CGFloat = 20
     private let kAnimationDuration:TimeInterval = 0.4
-    private let kDeadlineMain:TimeInterval = 0.3
+    private let kDeadlineMain:TimeInterval = 0.2
     
     init(controller:CHome)
     {
@@ -23,7 +24,7 @@ class VHomeControlBlenderPieces:UIView
         
         var constraints:[NSLayoutConstraint] = []
         let useY:CGFloat = kItemsTop
-        var currentX:CGFloat = kItemMargin
+        var currentX:CGFloat = kItemsLeft
         let main:MHomeImageSequenceRaw? = controller.modelImage.mainSequence
         
         for sequence:MHomeImageSequenceRaw in controller.modelImage.sequences
@@ -43,14 +44,15 @@ class VHomeControlBlenderPieces:UIView
                 {
                     guard
                     
-                        let viewBoardMain:VHomeControlBlenderBoardMain = controller.viewHome.viewControl.viewBlender?.viewBoard.viewMain
+                        let viewBoard:VHomeControlBlenderBoard = controller.viewHome.viewControl.viewBlender?.viewBoard
                     
                     else
                     {
                         return
                     }
                     
-                    viewBoardMain.dropping(piece:item)
+                    viewBoard.viewMain.forceDrop(piece:item)
+                    viewBoard.viewOver.imageView.image = item.model.items.first?.image
                 }
             }
             else
@@ -97,7 +99,7 @@ class VHomeControlBlenderPieces:UIView
     {
         var found:Bool = false
         let useY:CGFloat = kItemsTop
-        var useX:CGFloat = kItemMargin
+        var useX:CGFloat = kItemsLeft
         
         while !found
         {
@@ -122,6 +124,7 @@ class VHomeControlBlenderPieces:UIView
         
         piece.layoutTop.constant = useY
         piece.layoutLeft.constant = useX
+        piece.notSelected()
         
         UIView.animate(
             withDuration:kAnimationDuration)

@@ -32,6 +32,40 @@ class VHomeControlBlenderBoardMain:UIView
     
     //MARK: public
     
+    func forceDrop(piece:VHomeControlBlenderPiecesItem)
+    {
+        let pieceRect:CGRect = piece.frame
+        let posX:CGFloat = frame.minX
+        let posY:CGFloat = frame.minY
+        let size:CGFloat = bounds.maxX
+        let pieceSize:CGFloat = pieceRect.size.width
+        let deltaSize:CGFloat = size - pieceSize
+        let margin:CGFloat = deltaSize / 2.0
+        piece.layoutLeft.constant = posX + margin
+        piece.layoutTop.constant = posY + margin
+        
+        UIView.animate(
+            withDuration:kAnimationDuration)
+        { [weak piece] in
+            
+            piece?.superview?.layoutIfNeeded()
+        }
+        
+        piece.placed()
+        
+        if piece !== self.piece
+        {
+            if let currentPiece:VHomeControlBlenderPiecesItem = self.piece
+            {
+                controller.viewHome.viewControl.viewBlender?.viewPieces.relocate(
+                    piece:currentPiece)
+            }
+            
+            self.piece = piece
+            controller.modelImage.mainSequence = piece.model
+        }
+    }
+    
     func dropping(piece:VHomeControlBlenderPiecesItem)
     {
         let pieceRect:CGRect = piece.frame
@@ -39,35 +73,7 @@ class VHomeControlBlenderBoardMain:UIView
         
         if intersects
         {
-            let posX:CGFloat = frame.minX
-            let posY:CGFloat = frame.minY
-            let size:CGFloat = bounds.maxX
-            let pieceSize:CGFloat = pieceRect.size.width
-            let deltaSize:CGFloat = size - pieceSize
-            let margin:CGFloat = deltaSize / 2.0
-            piece.layoutLeft.constant = posX + margin
-            piece.layoutTop.constant = posY + margin
-            
-            UIView.animate(
-                withDuration:kAnimationDuration)
-            { [weak piece] in
-                
-                piece?.superview?.layoutIfNeeded()
-            }
-            
-            piece.placed()
-            
-            if piece !== self.piece
-            {
-                if self.piece != nil
-                {
-                    controller.viewHome.viewControl.viewBlender?.viewPieces.relocate(
-                        piece:piece)
-                }
-                
-                self.piece = piece
-                controller.modelImage.mainSequence = piece.model
-            }
+            forceDrop(piece:piece)
         }
         else
         {

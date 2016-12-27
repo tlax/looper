@@ -33,7 +33,10 @@ class MHomeImage
         {
             if sequence.point != nil
             {
-                blendingSequences.append(sequence)
+                if sequence !== mainSequence
+                {
+                    blendingSequences.append(sequence)
+                }
             }
         }
         
@@ -88,6 +91,23 @@ class MHomeImage
         
         sequences.append(sequence)
         sequence.render()
+    }
+    
+    func moveToLast(last:MHomeImageSequenceRaw)
+    {
+        var sequences:[MHomeImageSequenceRaw] = []
+        
+        for sequence:MHomeImageSequenceRaw in self.sequences
+        {
+            if sequence !== last
+            {
+                sequences.append(sequence)
+            }
+        }
+        
+        sequences.append(last)
+        
+        self.sequences = sequences
     }
     
     func generateSequence()

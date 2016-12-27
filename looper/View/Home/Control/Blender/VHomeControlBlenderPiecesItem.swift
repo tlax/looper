@@ -77,11 +77,11 @@ class VHomeControlBlenderPiecesItem:UIView
     
     func notSelected()
     {
-        backgroundColor = UIColor.genericLight
+        backgroundColor = UIColor.black
     }
     
     func placed()
     {
-        backgroundColor = UIColor.black
+        backgroundColor = UIColor.genericLight
     }
 }

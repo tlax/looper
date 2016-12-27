@@ -9,7 +9,7 @@ class VHomeControlBlenderBoardOver:UIView
     weak var layoutHeight:NSLayoutConstraint!
     private let kBorderWidth:CGFloat = 2
     private let kCornerRadius:CGFloat = 8
-    private let kImageAlpha:CGFloat = 0.3
+    private let kImageAlpha:CGFloat = 0.5
     
     init()
     {
