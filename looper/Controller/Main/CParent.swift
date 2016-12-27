@@ -62,9 +62,10 @@ class CParent:UIViewController
         controller.beginAppearanceTransition(true, animated:true)
         currentController.beginAppearanceTransition(false, animated:true)
         
-        viewParent.push(
+        viewParent.slide(
             currentView:currentView,
-            newView:vView)
+            newView:newView,
+            left:left)
         {
             controller.endAppearanceTransition()
             currentController.endAppearanceTransition()
@@ -97,13 +98,17 @@ class CParent:UIViewController
         controller.endAppearanceTransition()
     }
     
-    func moveToCamera()
+    func moveToCamera(controller:CController)
     {
+        let left:CGFloat = -viewParent.bounds.maxX
         
+        slide(controller:controller, left:left)
     }
     
-    func moveToStore()
+    func moveToStore(controller:CController)
     {
+        let left:CGFloat = viewParent.bounds.maxX
         
+        slide(controller:controller, left:left)
     }
 }
