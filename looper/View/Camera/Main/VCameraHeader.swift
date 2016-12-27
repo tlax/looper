@@ -100,5 +100,14 @@ class VCameraHeader:UICollectionReusableView
     func config(controller:CCamera)
     {
         self.controller = controller
+        
+        if controller.model.records.isEmpty
+        {
+            
+        }
+        else
+        {
+            
+        }
     }
 }
