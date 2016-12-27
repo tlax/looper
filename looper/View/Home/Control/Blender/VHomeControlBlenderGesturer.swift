@@ -53,6 +53,7 @@ class VHomeControlBlenderGesturer:UIView
             y:deltaY)
         
         gesturingItem.selected()
+        controller.modelImage.moveToLast(last:gesturingItem.model)
         self.gesturingItem = gesturingItem
     }
     
