@@ -160,7 +160,7 @@ class VHomeControlCameraTickerProcess:UIView
         timer = Timer.scheduledTimer(
             timeInterval:kTimerInterval,
             target:self,
-            selector:#selector(self.tick(sender:)),
+            selector:#selector(tick(sender:)),
             userInfo:nil,
             repeats:true)
     }

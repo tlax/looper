@@ -20,7 +20,7 @@ class VHomePlayerBoardMain:UIButton
             for:UIControlState.highlighted)
         addTarget(
             self,
-            action:#selector(self.actionMain(sender:)),
+            action:#selector(actionMain(sender:)),
             for:UIControlEvents.touchUpInside)
         self.controller = controller
     }

@@ -124,7 +124,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         
         NotificationCenter.default.addObserver(
             self,
-            selector:#selector(self.notifiedImagesUpdated(sender:)),
+            selector:#selector(notifiedImagesUpdated(sender:)),
             name:Notification.imagesUpdated,
             object:nil)
     }

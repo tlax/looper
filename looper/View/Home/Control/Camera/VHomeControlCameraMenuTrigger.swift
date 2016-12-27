@@ -16,7 +16,7 @@ class VHomeControlCameraMenuTrigger:UIButton
         imageView!.clipsToBounds = true
         addTarget(
             self,
-            action:#selector(self.actionTrigger(sender:)),
+            action:#selector(actionTrigger(sender:)),
             for:UIControlEvents.touchUpInside)
         self.controller = controller
         

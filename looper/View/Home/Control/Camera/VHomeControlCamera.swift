@@ -390,7 +390,7 @@ class VHomeControlCamera:UIView
             timer = Timer.scheduledTimer(
                 timeInterval:triggerInterval,
                 target:self,
-                selector:#selector(self.asyncActionTrigger),
+                selector:#selector(asyncActionTrigger),
                 userInfo:nil,
                 repeats:true)
             

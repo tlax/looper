@@ -32,7 +32,7 @@ class VHomeControlBlenderMenu:UIView
             right:10)
         buttonBack.addTarget(
             self,
-            action:#selector(self.actionBack(sender:)),
+            action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
         addSubview(buttonBack)

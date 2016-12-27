@@ -36,7 +36,7 @@ class VHomePlayerBoard:UIView
         buttonShare.imageView!.contentMode = UIViewContentMode.center
         buttonShare.addTarget(
             self,
-            action:#selector(self.actionShare(sender:)),
+            action:#selector(actionShare(sender:)),
             for:UIControlEvents.touchUpInside)
         self.buttonShare = buttonShare
         

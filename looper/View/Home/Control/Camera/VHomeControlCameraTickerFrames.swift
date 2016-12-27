@@ -51,7 +51,7 @@ class VHomeControlCameraTickerFrames:UIView
             right:0)
         buttonAdd.addTarget(
             self,
-            action:#selector(self.actionAdd(sender:)),
+            action:#selector(actionAdd(sender:)),
             for:UIControlEvents.touchDown)
         self.buttonAdd = buttonAdd
         
@@ -75,7 +75,7 @@ class VHomeControlCameraTickerFrames:UIView
             right:0)
         buttonRest.addTarget(
             self,
-            action:#selector(self.actionRest(sender:)),
+            action:#selector(actionRest(sender:)),
             for:UIControlEvents.touchDown)
         self.buttonRest = buttonRest
         

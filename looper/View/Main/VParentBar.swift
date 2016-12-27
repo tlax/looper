@@ -28,6 +28,10 @@ class VParentBar:UIView
         let buttonStore:VParentBarButton = VParentBarButton(
             image:#imageLiteral(resourceName: "assetHomeCamera"))
         self.buttonStore = buttonStore
+        buttonStore.addTarget(
+            self,
+            action:#selector(actionStore(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(buttonCamera)
         addSubview(buttonStore)
