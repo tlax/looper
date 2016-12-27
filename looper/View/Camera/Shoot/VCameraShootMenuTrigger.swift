@@ -2,13 +2,10 @@ import UIKit
 
 class VCameraShootMenuTrigger:UIButton
 {
-    private weak var controller:CHome!
-    private(set) var active:Bool
+    private weak var controller:CCameraShoot!
     
-    init(controller:CHome)
+    init(controller:CCameraShoot)
     {
-        active = false
-        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
@@ -32,21 +29,21 @@ class VCameraShootMenuTrigger:UIButton
     
     func actionTrigger(sender button:UIButton)
     {
-        active = !active
+        controller.recording = !controller.recording
         
-        if active
+        if controller.recording
         {
-            controller.viewHome.viewControl.viewCamera?.viewMenu.blockButtons()
+//            controller.viewHome.viewControl.viewCamera?.viewMenu.blockButtons()
             stateRecording()
         }
         else
         {
-            controller.viewHome.viewControl.viewCamera?.viewMenu.releaseButtons()
+//            controller.viewHome.viewControl.viewCamera?.viewMenu.releaseButtons()
             stateStandBy()
         }
         
-        controller.viewHome.viewControl.viewCamera?.actionTrigger(
-            activate:active)
+//        controller.viewHome.viewControl.viewCamera?.actionTrigger(
+//            activate:active)
     }
     
     //MARK: private
@@ -54,20 +51,20 @@ class VCameraShootMenuTrigger:UIButton
     private func stateStandBy()
     {
         setImage(
-            #imageLiteral(resourceName: "assetHomeCameraTriggerStand"),
+            #imageLiteral(resourceName: "assetCameraTriggerStand"),
             for:UIControlState.normal)
         setImage(
-            #imageLiteral(resourceName: "assetHomeCameraTriggerHighlighted"),
+            #imageLiteral(resourceName: "assetCameraTriggerHighlighted"),
             for:UIControlState.highlighted)
     }
     
     private func stateRecording()
     {
         setImage(
-            #imageLiteral(resourceName: "assetHomeCameraTriggerStop"),
+            #imageLiteral(resourceName: "assetCameraTriggerStop"),
             for:UIControlState.normal)
         setImage(
-            #imageLiteral(resourceName: "assetHomeCameraTriggerStopHighlighted"),
+            #imageLiteral(resourceName: "assetCameraTriggerStopHighlighted"),
             for:UIControlState.highlighted)
     }
     
@@ -75,7 +72,7 @@ class VCameraShootMenuTrigger:UIButton
     
     func stop()
     {
-        if active
+        if controller.recording
         {
             actionTrigger(sender:self)
         }

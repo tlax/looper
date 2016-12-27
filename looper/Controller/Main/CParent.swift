@@ -165,4 +165,40 @@ class CParent:UIViewController
             currentController.endAppearanceTransition()
         }
     }
+    
+    func pop(deltaX:CGFloat, deltaY:CGFloat)
+    {
+        let width:CGFloat = viewParent.bounds.maxX
+        let height:CGFloat = viewParent.bounds.maxY
+        let left:CGFloat = width * deltaX
+        let top:CGFloat = height * deltaY
+        let controllers:Int = childViewControllers.count
+        
+        if controllers > 2
+        {
+            guard
+                
+                let currentController:CController = childViewControllers[controllers - 1] as? CController,
+                let previousController:CController = childViewControllers[controllers - 2] as? CController,
+                let currentView:VView = currentController.view as? VView
+                
+            else
+            {
+                return
+            }
+            
+            currentController.beginAppearanceTransition(false, animated:true)
+            previousController.beginAppearanceTransition(true, animated:true)
+            
+            viewParent.pop(
+                currentView:currentView,
+                left:left,
+                top:top)
+            {
+                previousController.endAppearanceTransition()
+                currentController.endAppearanceTransition()
+                currentController.removeFromParentViewController()
+            }
+        }
+    }
 }

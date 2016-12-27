@@ -164,4 +164,28 @@ class VParent:UIView
             completion()
         }
     }
+    
+    func pop(
+        currentView:VView,
+        left:CGFloat,
+        top:CGFloat,
+        completion:@escaping(() -> ()))
+    {
+        currentView.layoutTop.constant = top
+        currentView.layoutBottom.constant = top
+        currentView.layoutRight.constant = left
+        currentView.layoutLeft.constant = left
+        
+        UIView.animate(
+            withDuration:kAnimationDuration,
+            animations:
+        {
+            self.layoutIfNeeded()
+        })
+        { (done:Bool) in
+            
+            completion()
+            currentView.removeFromSuperview()
+        }
+    }
 }

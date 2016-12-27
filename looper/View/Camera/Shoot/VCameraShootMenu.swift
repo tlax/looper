@@ -60,7 +60,7 @@ class VCameraShootMenu:UIView
             for:UIControlEvents.touchUpInside)
         self.buttonReverse = buttonReverse
         
-        let buttonTrigger:VHomeControlCameraMenuTrigger = VHomeControlCameraMenuTrigger(
+        let buttonTrigger:VCameraShootMenuTrigger = VCameraShootMenuTrigger(
             controller:controller)
         self.buttonTrigger = buttonTrigger
         
@@ -138,19 +138,12 @@ class VCameraShootMenu:UIView
     {
         button.isUserInteractionEnabled = false
         
-        if buttonTrigger.active
-        {
-            controller.viewHome.viewControl.viewCamera?.actionTrigger(
-                activate:false)
-        }
-        
-        controller.viewHome.viewControl.viewCamera?.layoutTickerHeight = nil
-        controller.returnToHome()
+        controller.back()
     }
     
     func actionReverse(sender button:UIButton)
     {
-        controller.viewHome.viewControl.viewCamera?.reverseCamera()
+//        controller.viewHome.viewControl.viewCamera?.reverseCamera()
     }
     
     //MARK: public

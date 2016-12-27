@@ -2,11 +2,13 @@ import UIKit
 
 class CCameraShoot:CController
 {
+    var recording:Bool
     private weak var viewCamera:VCameraShoot!
     private weak var model:MCamera?
     
     init(model:MCamera)
     {
+        recording = false
         self.model = model
         super.init()
     }
@@ -21,5 +23,21 @@ class CCameraShoot:CController
         let viewCamera:VCameraShoot = VCameraShoot(controller:self)
         self.viewCamera = viewCamera
         view = viewCamera
+    }
+    
+    //MARK: public
+    
+    func back()
+    {
+        
+        
+//        if buttonTrigger.active
+//        {
+//            controller.viewHome.viewControl.viewCamera?.actionTrigger(
+//                activate:false)
+//        }
+//        
+//        controller.viewHome.viewControl.viewCamera?.layoutTickerHeight = nil
+//        controller.returnToHome()
     }
 }

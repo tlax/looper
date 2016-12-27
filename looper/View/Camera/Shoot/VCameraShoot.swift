@@ -13,7 +13,7 @@ class VCameraShoot:VView
         self.controller = controller as? CCameraShoot
         
         let viewMenu:VCameraShootMenu = VCameraShootMenu(
-            controller:controller)
+            controller:self.controller)
         self.viewMenu = viewMenu
         
         addSubview(viewMenu)
