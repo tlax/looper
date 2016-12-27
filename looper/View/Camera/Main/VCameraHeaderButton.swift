@@ -3,7 +3,7 @@ import UIKit
 class VCameraHeaderButton:UIButton
 {
     private let kAlphaNotHover:CGFloat = 1
-    private let kAlphaHover:CGFloat = 0.2
+    private let kAlphaHover:CGFloat = 0.1
     
     convenience init(image:UIImage)
     {
@@ -54,12 +54,12 @@ class VCameraHeaderButton:UIButton
     func active()
     {
         alpha = kAlphaNotHover
-        isUserInteractionEnabled = false
+        isUserInteractionEnabled = true
     }
     
     func notActive()
     {
         alpha = kAlphaHover
-        isUserInteractionEnabled = true
+        isUserInteractionEnabled = false
     }
 }

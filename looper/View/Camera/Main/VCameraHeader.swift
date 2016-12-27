@@ -103,11 +103,13 @@ class VCameraHeader:UICollectionReusableView
         
         if controller.model.records.isEmpty
         {
-            
+            buttonFilter.notActive()
+            buttonProcess.notActive()
         }
         else
         {
-            
+            buttonFilter.active()
+            buttonProcess.active()
         }
     }
 }
