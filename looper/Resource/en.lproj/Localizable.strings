@@ -4,3 +4,5 @@
 "VHomeControlCameraTickerFrames_titleBottom"="Pic/sec";
 "VHomeControlBlenderBoard_labelMain"="Main picture";
 "VHomeControlBlenderBoard_labelBoard"="Blend over main";
+
+"VCameraFooter_label"="Start by recording a video";

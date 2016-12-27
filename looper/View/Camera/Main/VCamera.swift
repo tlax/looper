@@ -5,7 +5,8 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     private weak var controller:CCamera!
     private weak var collectionView:VCollection!
     private let kHeaderHeight:CGFloat = 160
-    private let kCollectionBottom:CGFloat = 50
+    private let kFooterHeight:CGFloat = 50
+    private let kCollectionBottom:CGFloat = 20
     private let kInterLine:CGFloat = 1
     private let kCellHeight:CGFloat = 100
     
@@ -24,6 +25,7 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             right:0)
         collectionView.alwaysBounceVertical = true
         collectionView.registerHeader(header:VCameraHeader.self)
+        collectionView.registerFooter(footer:VCameraFooter.self)
         collectionView.registerCell(cell:VCameraCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -56,6 +58,13 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         fatalError()
     }
     
+    //MARK: public
+    
+    func refresh()
+    {
+        collectionView.reloadData()
+    }
+    
     //MARK: collectionView delegate
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
@@ -64,6 +73,11 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         let size:CGSize = CGSize(width:width, height:kCellHeight)
         
         return size
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForFooterInSection section:Int) -> CGSize
+    {
+        
     }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
