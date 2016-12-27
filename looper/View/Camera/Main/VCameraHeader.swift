@@ -8,7 +8,7 @@ class VCameraHeader:UICollectionReusableView
     private weak var buttonFilter:VCameraHeaderButton!
     private let kButtonsTop:CGFloat = 75
     private let kButtonsWidth:CGFloat = 65
-    private let kProcessRight:CGFloat = -10
+    private let kProcessRight:CGFloat = -5
  
     override init(frame:CGRect)
     {
