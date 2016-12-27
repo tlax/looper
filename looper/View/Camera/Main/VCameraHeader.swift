@@ -18,14 +18,26 @@ class VCameraHeader:UICollectionReusableView
         
         let buttonShoot:VCameraHeaderButton = VCameraHeaderButton(
             image:#imageLiteral(resourceName: "assetCameraShoot"))
+        buttonShoot.addTarget(
+            self,
+            action:#selector(actionShoot(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonShoot = buttonShoot
         
         let buttonFilter:VCameraHeaderButton = VCameraHeaderButton(
             image:#imageLiteral(resourceName: "assetCameraFilter"))
+        buttonFilter.addTarget(
+            self,
+            action:#selector(actionFilter(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonFilter = buttonFilter
         
         let buttonProcess:VCameraHeaderButton = VCameraHeaderButton(
             image:#imageLiteral(resourceName: "assetCameraProcess"))
+        buttonProcess.addTarget(
+            self,
+            action:#selector(actionProcess(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonProcess = buttonProcess
         
         addSubview(buttonShoot)

@@ -24,6 +24,8 @@ class CParent:UIViewController
         
         let loops:CLoops = CLoops()
         mainController(controller:loops)
+        
+        MSession.sharedInstance.loadSettings()
     }
     
     override func loadView()
