@@ -62,6 +62,8 @@
 		DA9B83F21E131B01002B9810 /* DLooper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83F01E131B01002B9810 /* DLooper.xcdatamodeld */; };
 		DA9B83F41E13255F002B9810 /* CCameraShoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83F31E13255F002B9810 /* CCameraShoot.swift */; };
 		DA9B83F61E132586002B9810 /* VCameraShoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83F51E132586002B9810 /* VCameraShoot.swift */; };
+		DA9B83F81E132C3A002B9810 /* VCameraShootMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83F71E132C3A002B9810 /* VCameraShootMenu.swift */; };
+		DA9B83FA1E132C4D002B9810 /* VCameraShootMenuTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83F91E132C4D002B9810 /* VCameraShootMenuTrigger.swift */; };
 		DA9D2F381E0ADF57003E37D5 /* VHomeControlCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9D2F301E0ADF57003E37D5 /* VHomeControlCamera.swift */; };
 		DA9D2F391E0ADF57003E37D5 /* VHomeControlCameraMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9D2F311E0ADF57003E37D5 /* VHomeControlCameraMenu.swift */; };
 		DA9D2F3A1E0ADF57003E37D5 /* VHomeControlCameraMenuTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9D2F321E0ADF57003E37D5 /* VHomeControlCameraMenuTrigger.swift */; };
@@ -161,6 +163,8 @@
 		DA9B83F11E131B01002B9810 /* DLooper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DLooper.xcdatamodel; sourceTree = "<group>"; };
 		DA9B83F31E13255F002B9810 /* CCameraShoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraShoot.swift; sourceTree = "<group>"; };
 		DA9B83F51E132586002B9810 /* VCameraShoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraShoot.swift; sourceTree = "<group>"; };
+		DA9B83F71E132C3A002B9810 /* VCameraShootMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraShootMenu.swift; sourceTree = "<group>"; };
+		DA9B83F91E132C4D002B9810 /* VCameraShootMenuTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraShootMenuTrigger.swift; sourceTree = "<group>"; };
 		DA9D2F301E0ADF57003E37D5 /* VHomeControlCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlCamera.swift; sourceTree = "<group>"; };
 		DA9D2F311E0ADF57003E37D5 /* VHomeControlCameraMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlCameraMenu.swift; sourceTree = "<group>"; };
 		DA9D2F321E0ADF57003E37D5 /* VHomeControlCameraMenuTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlCameraMenuTrigger.swift; sourceTree = "<group>"; };
@@ -483,6 +487,8 @@
 			isa = PBXGroup;
 			children = (
 				DA9B83F51E132586002B9810 /* VCameraShoot.swift */,
+				DA9B83F71E132C3A002B9810 /* VCameraShootMenu.swift */,
+				DA9B83F91E132C4D002B9810 /* VCameraShootMenuTrigger.swift */,
 			);
 			path = Shoot;
 			sourceTree = "<group>";
@@ -709,6 +715,7 @@
 				DA9D2F3D1E0ADF57003E37D5 /* VHomeControl.swift in Sources */,
 				DA235C791E098DA900277550 /* VHomePlayerBoardMain.swift in Sources */,
 				DA96FEE41E03672F00FD5265 /* ExtensionNotification.swift in Sources */,
+				DA9B83F81E132C3A002B9810 /* VCameraShootMenu.swift in Sources */,
 				DA9B83CF1E12E3B3002B9810 /* VCameraHeader.swift in Sources */,
 				DA96FEE21E03672F00FD5265 /* CParent.swift in Sources */,
 				DA9D2F3E1E0ADF57003E37D5 /* VHomeControlCell.swift in Sources */,
@@ -786,6 +793,7 @@
 				DA505F521E0B535D00CE22FE /* VHomeControlBlenderGesturer.swift in Sources */,
 				DA9B83EA1E1310BC002B9810 /* MCamera.swift in Sources */,
 				DAFFF4001E08A78100E14F12 /* MSession.swift in Sources */,
+				DA9B83FA1E132C4D002B9810 /* VCameraShootMenuTrigger.swift in Sources */,
 				DA96FEE61E03672F00FD5265 /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA9B83F41E13255F002B9810 /* CCameraShoot.swift in Sources */,
 			);
