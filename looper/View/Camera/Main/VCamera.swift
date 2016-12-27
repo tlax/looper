@@ -77,7 +77,18 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForFooterInSection section:Int) -> CGSize
     {
+        let size:CGSize
         
+        if controller.model.records.isEmpty
+        {
+            size = CGSize(width:0, height:kFooterHeight)
+        }
+        else
+        {
+            size = CGSize.zero
+        }
+        
+        return size
     }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
@@ -87,19 +98,36 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        return 0
+        let count:Int = controller.model.records.count
+        
+        return count
     }
     
     func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
     {
-        let header:VCameraHeader = collectionView.dequeueReusableSupplementaryView(
-            ofKind:kind,
-            withReuseIdentifier:
-            VCameraHeader.reusableIdentifier,
-            for:indexPath) as! VCameraHeader
-        header.config(controller:controller)
+        let reusable:UICollectionReusableView
         
-        return header
+        if kind == UICollectionElementKindSectionHeader
+        {
+            let header:VCameraHeader = collectionView.dequeueReusableSupplementaryView(
+                ofKind:kind,
+                withReuseIdentifier:
+                VCameraHeader.reusableIdentifier,
+                for:indexPath) as! VCameraHeader
+            header.config(controller:controller)
+            reusable = header
+        }
+        else
+        {
+            let footer:VCameraFooter = collectionView.dequeueReusableSupplementaryView(
+                ofKind:kind,
+                withReuseIdentifier:
+                VCameraFooter.reusableIdentifier,
+                for:indexPath) as! VCameraFooter
+            reusable = footer
+        }
+        
+        return reusable
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
