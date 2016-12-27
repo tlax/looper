@@ -25,7 +25,7 @@
                                 <color key="tintColor" red="0.32143467664718628" green="0.52892464399337769" blue="0.99405711889266968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.32549019607843138" green="0.52941176470588236" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="1ob-tD-Aev" secondAttribute="trailing" id="esa-wy-g5k"/>
                             <constraint firstItem="1ob-tD-Aev" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="jzx-wK-iEU"/>
