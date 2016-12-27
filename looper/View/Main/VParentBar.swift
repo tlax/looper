@@ -17,9 +17,20 @@ class VParentBar:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let buttonLoops:VParentBarButton = VParentBarButton(image:#imageLiteral(resourceName: "assetHomeCamera"))
+        let buttonLoops:VParentBarButton = VParentBarButton(
+            image:#imageLiteral(resourceName: "assetHomeCamera"))
         self.buttonLoops = buttonLoops
         
+        let buttonCamera:VParentBarButton = VParentBarButton(
+            image:#imageLiteral(resourceName: "assetHomeCamera"))
+        self.buttonCamera = buttonCamera
+        
+        let buttonStore:VParentBarButton = VParentBarButton(
+            image:#imageLiteral(resourceName: "assetHomeCamera"))
+        self.buttonStore = buttonStore
+        
+        addSubview(buttonCamera)
+        addSubview(buttonStore)
         addSubview(buttonLoops)
         
         let layoutLoopsTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
@@ -35,11 +46,45 @@ class VParentBar:UIView
             view:buttonLoops,
             constant:kButtonsWidth)
         
+        let layoutCameraTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:buttonCamera,
+            toView:self)
+        let layoutCameraBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:buttonCamera,
+            toView:self)
+        let layoutCameraWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:buttonCamera,
+            constant:kButtonsWidth)
+        let layoutCameraRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:buttonCamera,
+            toView:self)
+        
+        let layoutStoreTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:buttonStore,
+            toView:self)
+        let layoutStoreBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:buttonStore,
+            toView:self)
+        let layoutStoreWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:buttonStore,
+            constant:kButtonsWidth)
+        let layoutStoreLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:buttonStore,
+            toView:self)
+        
         addConstraints([
             layoutLoopsTop,
             layoutLoopsBottom,
             layoutLoopsLeft,
-            layoutLoopsWidth])
+            layoutLoopsWidth,
+            layoutCameraTop,
+            layoutCameraBottom,
+            layoutCameraRight,
+            layoutCameraWidth,
+            layoutStoreTop,
+            layoutStoreBottom,
+            layoutStoreWidth,
+            layoutStoreLeft])
     }
     
     override func layoutSubviews()

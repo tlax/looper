@@ -4,6 +4,7 @@ class VParentBarButton:UIButton
 {
     private let kAlphaNotHover:CGFloat = 1
     private let kAlphaHover:CGFloat = 0.2
+    private let kInsetTop:CGFloat = 20
     
     convenience init(image:UIImage)
     {
@@ -17,6 +18,11 @@ class VParentBarButton:UIButton
             for:UIControlState.highlighted)
         imageView!.contentMode = UIViewContentMode.center
         imageView!.clipsToBounds = true
+        imageEdgeInsets = UIEdgeInsets(
+            top:kInsetTop,
+            left:0,
+            bottom:0,
+            right:0)
         
         notSelected()
     }
