@@ -7,7 +7,9 @@ class VParentBar:UIView
     private weak var buttonCamera:VParentBarButton!
     private weak var buttonStore:VParentBarButton!
     private weak var layoutLoopsLeft:NSLayoutConstraint!
-    private let kButtonsWidth:CGFloat = 50
+    private let kButtonsWidth:CGFloat = 70
+    private let kStoreRight:CGFloat = 25
+    private let kCameraLeft:CGFloat = 25
     
     convenience init(controller:CParent)
     {
@@ -18,7 +20,7 @@ class VParentBar:UIView
         self.controller = controller
         
         let buttonLoops:VParentBarButton = VParentBarButton(
-            image:#imageLiteral(resourceName: "assetHomeCamera"))
+            image:#imageLiteral(resourceName: "assetGenericLoops"))
         buttonLoops.addTarget(
             self,
             action:#selector(actionLoops(sender:)),
@@ -27,11 +29,16 @@ class VParentBar:UIView
         self.buttonLoops = buttonLoops
         
         let buttonCamera:VParentBarButton = VParentBarButton(
-            image:#imageLiteral(resourceName: "assetHomeCamera"))
+            image:#imageLiteral(resourceName: "assetGenericCamera"))
         buttonCamera.addTarget(
             self,
             action:#selector(actionCamera(sender:)),
             for:UIControlEvents.touchUpInside)
+        buttonCamera.imageEdgeInsets = UIEdgeInsets(
+            top:buttonCamera.imageEdgeInsets.top,
+            left:buttonCamera.imageEdgeInsets.left + kCameraLeft,
+            bottom:buttonCamera.imageEdgeInsets.bottom,
+            right:buttonCamera.imageEdgeInsets.right)
         self.buttonCamera = buttonCamera
         
         let buttonStore:VParentBarButton = VParentBarButton(
@@ -40,6 +47,11 @@ class VParentBar:UIView
             self,
             action:#selector(actionStore(sender:)),
             for:UIControlEvents.touchUpInside)
+        buttonStore.imageEdgeInsets = UIEdgeInsets(
+            top:buttonStore.imageEdgeInsets.top,
+            left:buttonStore.imageEdgeInsets.left,
+            bottom:buttonStore.imageEdgeInsets.bottom,
+            right:buttonStore.imageEdgeInsets.right + kStoreRight)
         self.buttonStore = buttonStore
         
         addSubview(buttonCamera)

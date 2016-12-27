@@ -11,7 +11,6 @@ class VCollection:UICollectionView
         flow.footerReferenceSize = CGSize.zero
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
-        flow.itemSize = CGSize.zero
         flow.sectionInset = UIEdgeInsets.zero
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
         self.flow = flow
