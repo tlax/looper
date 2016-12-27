@@ -65,4 +65,52 @@ class VParent:UIView
             view.layoutLeft,
             view.layoutRight])
     }
+    
+    func slide(
+        currentView:VView,
+        newView:VView,
+        left:CGFloat,
+        completion:@escaping(() -> ()))
+    {
+        addSubview(newView)
+        
+        newView.layoutTop = NSLayoutConstraint.topToBottom(
+            view:newView,
+            toView:viewBar)
+        newView.layoutBottom = NSLayoutConstraint.bottomToBottom(
+            view:newView,
+            toView:self)
+        newView.layoutLeft = NSLayoutConstraint.leftToLeft(
+            view:newView,
+            toView:self,
+            constant:-left)
+        newView.layoutRight = NSLayoutConstraint.rightToRight(
+            view:newView,
+            toView:self,
+            constant:-left)
+        
+        addConstraints([
+            newView.layoutTop,
+            newView.layoutBottom,
+            newView.layoutLeft,
+            newView.layoutRight])
+        
+        layoutIfNeeded()
+        
+        currentView.layoutRight.constant = left
+        currentView.layoutLeft.constant = left
+        newView.layoutRight.constant = 0
+        newView.layoutLeft.constant = 0
+        
+        UIView.animate(
+        withDuration:kAnimationDuration,
+        animations:
+        {
+            self.layoutIfNeeded()
+        })
+        { (done:Bool) in
+            
+            completion()
+        }
+    }
 }

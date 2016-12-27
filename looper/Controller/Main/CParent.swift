@@ -43,6 +43,34 @@ class CParent:UIViewController
         return barHidden
     }
     
+    //MARK: private
+    
+    private func slide(controller:CController, left:CGFloat)
+    {
+        guard
+            
+            let currentController:CController = childViewControllers.last as? CController,
+            let newView:VView = controller.view as? VView,
+            let currentView:VView = currentController.view as? VView
+            
+        else
+        {
+            return
+        }
+        
+        addChildViewController(controller)
+        controller.beginAppearanceTransition(true, animated:true)
+        currentController.beginAppearanceTransition(false, animated:true)
+        
+        viewParent.push(
+            currentView:currentView,
+            newView:vView)
+        {
+            controller.endAppearanceTransition()
+            currentController.endAppearanceTransition()
+        }
+    }
+    
     //MARK: public
     
     func changeBar(barHidden:Bool)
@@ -58,14 +86,24 @@ class CParent:UIViewController
         
         guard
             
-            let vView:VView = controller.view as? VView
+            let newView:VView = controller.view as? VView
         
         else
         {
             return
         }
             
-        viewParent.mainView(view:vView)
+        viewParent.mainView(view:newView)
         controller.endAppearanceTransition()
+    }
+    
+    func moveToCamera()
+    {
+        
+    }
+    
+    func moveToStore()
+    {
+        
     }
 }
