@@ -24,10 +24,10 @@ class VCameraShootMenu:UIView
         let buttonBack:UIButton = UIButton()
         buttonBack.translatesAutoresizingMaskIntoConstraints = false
         buttonBack.setImage(
-            #imageLiteral(resourceName: "assetHomeCameraBack").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            #imageLiteral(resourceName: "assetGenericBackDown").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
             for:UIControlState.normal)
         buttonBack.setImage(
-            #imageLiteral(resourceName: "assetHomeCameraBack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            #imageLiteral(resourceName: "assetGenericBackDown").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
         buttonBack.imageView!.contentMode = UIViewContentMode.center
         buttonBack.imageView!.clipsToBounds = true
@@ -46,10 +46,10 @@ class VCameraShootMenu:UIView
         let buttonReverse:UIButton = UIButton()
         buttonReverse.translatesAutoresizingMaskIntoConstraints = false
         buttonReverse.setImage(
-            #imageLiteral(resourceName: "assetHomeCameraReverse").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            #imageLiteral(resourceName: "assetCameraReverse").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
             for:UIControlState.normal)
         buttonReverse.setImage(
-            #imageLiteral(resourceName: "assetHomeCameraReverse").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            #imageLiteral(resourceName: "assetCameraReverse").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
         buttonReverse.imageView!.contentMode = UIViewContentMode.center
         buttonReverse.imageView!.clipsToBounds = true
