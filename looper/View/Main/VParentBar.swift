@@ -8,7 +8,7 @@ class VParentBar:UIView
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.genericLight
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
     }

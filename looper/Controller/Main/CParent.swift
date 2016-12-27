@@ -22,8 +22,8 @@ class CParent:UIViewController
     {
         super.viewDidLoad()
         
-        let home:CHome = CHome()
-        mainController(controller:home)
+        let loops:CLoops = CLoops()
+        mainController(controller:loops)
     }
     
     override func loadView()
