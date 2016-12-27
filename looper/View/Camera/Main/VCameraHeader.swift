@@ -3,6 +3,7 @@ import UIKit
 class VCameraHeader:UICollectionReusableView
 {
     private weak var controller:CCamera?
+    private weak var buttonShoot:UIButton!
     
     //MARK: public
     
