@@ -1,9 +1,13 @@
-//
-//  CCameraShoot.swift
-//  looper
-//
-//  Created by zero on 12/27/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class CCameraShoot:CController
+{
+    private weak var viewCamera:VCameraShoot!
+    
+    override func loadView()
+    {
+        let viewCamera:VCameraShoot = VCameraShoot(controller:self)
+        self.viewCamera = viewCamera
+        view = viewCamera
+    }
+}
