@@ -98,14 +98,14 @@ class CParent:UIViewController
         controller.endAppearanceTransition()
     }
     
-    func moveToCamera(controller:CController)
+    func moveToCamera()
     {
         let left:CGFloat = -viewParent.bounds.maxX
         
         slide(controller:controller, left:left)
     }
     
-    func moveToStore(controller:CController)
+    func moveToStore()
     {
         let left:CGFloat = viewParent.bounds.maxX
         
