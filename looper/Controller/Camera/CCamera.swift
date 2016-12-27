@@ -28,6 +28,10 @@ class CCamera:CController
     
     func shoot()
     {
-        
+        let controller:CCameraShoot = CCameraShoot(model:model)
+        parentController.push(
+            controller:controller,
+            deltaX:0,
+            deltaY:-1)
     }
 }
