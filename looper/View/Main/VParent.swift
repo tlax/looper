@@ -46,10 +46,23 @@ class VParent:UIView
     {
         addSubview(view)
         
-        view.constraints(
-            initialLeft:0,
-            initialRight:0,
-            initialTop:0,
-            initialBottom:0)
+        view.layoutTop = NSLayoutConstraint.topToBottom(
+            view:view,
+            toView:viewBar)
+        view.layoutBottom = NSLayoutConstraint.bottomToBottom(
+            view:view,
+            toView:self)
+        view.layoutLeft = NSLayoutConstraint.leftToLeft(
+            view:view,
+            toView:self)
+        view.layoutRight = NSLayoutConstraint.rightToRight(
+            view:view,
+            toView:self)
+        
+        addConstraints([
+            view.layoutTop,
+            view.layoutBottom,
+            view.layoutLeft,
+            view.layoutRight])
     }
 }
