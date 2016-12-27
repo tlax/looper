@@ -44,11 +44,11 @@ class VParent:UIView
     
     func mainView(view:VView)
     {
-        addSubview(view)
+        insertSubview(view, belowSubview:viewBar)
         
-        view.layoutTop = NSLayoutConstraint.topToBottom(
+        view.layoutTop = NSLayoutConstraint.topToTop(
             view:view,
-            toView:viewBar)
+            toView:self)
         view.layoutBottom = NSLayoutConstraint.bottomToBottom(
             view:view,
             toView:self)
@@ -72,11 +72,11 @@ class VParent:UIView
         left:CGFloat,
         completion:@escaping(() -> ()))
     {
-        addSubview(newView)
+        insertSubview(newView, belowSubview:viewBar)
         
-        newView.layoutTop = NSLayoutConstraint.topToBottom(
+        newView.layoutTop = NSLayoutConstraint.topToTop(
             view:newView,
-            toView:viewBar)
+            toView:self)
         newView.layoutBottom = NSLayoutConstraint.bottomToBottom(
             view:newView,
             toView:self)

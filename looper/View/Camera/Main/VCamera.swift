@@ -4,7 +4,7 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
 {
     private weak var controller:CCamera!
     private weak var collectionView:VCollection!
-    private let kHeaderHeight:CGFloat = 150
+    private let kHeaderHeight:CGFloat = 160
     private let kCollectionBottom:CGFloat = 50
     private let kInterLine:CGFloat = 1
     private let kCellHeight:CGFloat = 100
