@@ -19,6 +19,7 @@
 		DA20F38C1E0D8AC700D9EBAC /* MHomeImageSequenceRawPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F38B1E0D8AC700D9EBAC /* MHomeImageSequenceRawPoint.swift */; };
 		DA235C771E098D9800277550 /* VHomePlayerBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA235C761E098D9800277550 /* VHomePlayerBoard.swift */; };
 		DA235C791E098DA900277550 /* VHomePlayerBoardMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA235C781E098DA900277550 /* VHomePlayerBoardMain.swift */; };
+		DA2518771E12BF7D00C1801B /* VParentBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2518761E12BF7D00C1801B /* VParentBar.swift */; };
 		DA35021E1E0C505100CBDF64 /* VHomeControlBlenderBoardMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35021D1E0C505100CBDF64 /* VHomeControlBlenderBoardMain.swift */; };
 		DA3502201E0C5EC700CBDF64 /* VHomeControlBlenderBoardOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35021F1E0C5EC700CBDF64 /* VHomeControlBlenderBoardOver.swift */; };
 		DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */; };
@@ -97,6 +98,7 @@
 		DA20F38B1E0D8AC700D9EBAC /* MHomeImageSequenceRawPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceRawPoint.swift; sourceTree = "<group>"; };
 		DA235C761E098D9800277550 /* VHomePlayerBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomePlayerBoard.swift; sourceTree = "<group>"; };
 		DA235C781E098DA900277550 /* VHomePlayerBoardMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomePlayerBoardMain.swift; sourceTree = "<group>"; };
+		DA2518761E12BF7D00C1801B /* VParentBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParentBar.swift; sourceTree = "<group>"; };
 		DA35021D1E0C505100CBDF64 /* VHomeControlBlenderBoardMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlenderBoardMain.swift; sourceTree = "<group>"; };
 		DA35021F1E0C5EC700CBDF64 /* VHomeControlBlenderBoardOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlenderBoardOver.swift; sourceTree = "<group>"; };
 		DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 			children = (
 				DA96FECE1E03672F00FD5265 /* VAlert.swift */,
 				DA96FECF1E03672F00FD5265 /* VParent.swift */,
+				DA2518761E12BF7D00C1801B /* VParentBar.swift */,
 				DA96FED11E03672F00FD5265 /* VSpinner.swift */,
 				DA96FED21E03672F00FD5265 /* VView.swift */,
 			);
@@ -563,6 +566,7 @@
 				DA96FEE21E03672F00FD5265 /* CParent.swift in Sources */,
 				DA9D2F3E1E0ADF57003E37D5 /* VHomeControlCell.swift in Sources */,
 				DAA68D5D1E09C31500A830A2 /* VHomePlayerTimer.swift in Sources */,
+				DA2518771E12BF7D00C1801B /* VParentBar.swift in Sources */,
 				DA9D2F4F1E0AFE1F003E37D5 /* MHomeFramesItem15.swift in Sources */,
 				DA96FEE71E03672F00FD5265 /* ExtensionUIColor.swift in Sources */,
 				DA9D2F551E0AFE41003E37D5 /* MHomeFramesItem45.swift in Sources */,

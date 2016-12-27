@@ -13,6 +13,7 @@ class VHomeTimeline:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     init(controller:CHome)
     {
         super.init(frame:CGRect.zero)
+        isHidden = true
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clear
