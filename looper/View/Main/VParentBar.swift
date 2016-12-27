@@ -19,27 +19,28 @@ class VParentBar:UIView
         
         let buttonLoops:VParentBarButton = VParentBarButton(
             image:#imageLiteral(resourceName: "assetHomeCamera"))
-        self.buttonLoops = buttonLoops
         buttonLoops.addTarget(
             self,
             action:#selector(actionLoops(sender:)),
             for:UIControlEvents.touchUpInside)
+        buttonLoops.active()
+        self.buttonLoops = buttonLoops
         
         let buttonCamera:VParentBarButton = VParentBarButton(
             image:#imageLiteral(resourceName: "assetHomeCamera"))
-        self.buttonCamera = buttonCamera
         buttonCamera.addTarget(
             self,
             action:#selector(actionCamera(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.buttonCamera = buttonCamera
         
         let buttonStore:VParentBarButton = VParentBarButton(
             image:#imageLiteral(resourceName: "assetHomeCamera"))
-        self.buttonStore = buttonStore
         buttonStore.addTarget(
             self,
             action:#selector(actionStore(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.buttonStore = buttonStore
         
         addSubview(buttonCamera)
         addSubview(buttonStore)
@@ -116,6 +117,8 @@ class VParentBar:UIView
         button.active()
         buttonCamera.notActive()
         buttonStore.notActive()
+        
+        controller.moveToLoops()
     }
     
     func actionCamera(sender button:VParentBarButton)
@@ -123,6 +126,8 @@ class VParentBar:UIView
         button.active()
         buttonLoops.notActive()
         buttonStore.notActive()
+        
+        controller.moveToCamera()
     }
     
     func actionStore(sender button:VParentBarButton)
@@ -130,5 +135,7 @@ class VParentBar:UIView
         button.active()
         buttonCamera.notActive()
         buttonLoops.notActive()
+        
+        controller.moveToStore()
     }
 }

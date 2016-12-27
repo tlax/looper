@@ -69,6 +69,7 @@ class CParent:UIViewController
         {
             controller.endAppearanceTransition()
             currentController.endAppearanceTransition()
+            currentController.removeFromParentViewController()
         }
     }
     
@@ -101,6 +102,7 @@ class CParent:UIViewController
     func moveToCamera()
     {
         let left:CGFloat = -viewParent.bounds.maxX
+        let controller:CCamera = CCamera()
         
         slide(controller:controller, left:left)
     }
@@ -108,6 +110,25 @@ class CParent:UIViewController
     func moveToStore()
     {
         let left:CGFloat = viewParent.bounds.maxX
+        let controller:CCamera = CCamera()
+        
+        slide(controller:controller, left:left)
+    }
+    
+    func moveToLoops()
+    {
+        let left:CGFloat
+        
+        if let _:CCamera = childViewControllers.last as? CCamera
+        {
+            left = viewParent.bounds.maxX
+        }
+        else
+        {
+            left = -viewParent.bounds.maxX
+        }
+        
+        let controller:CLoops = CLoops()
         
         slide(controller:controller, left:left)
     }
