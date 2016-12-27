@@ -24,7 +24,7 @@ class VParentBarButton:UIButton
             bottom:0,
             right:0)
         
-        notSelected()
+        notActive()
     }
     
     override var isSelected:Bool

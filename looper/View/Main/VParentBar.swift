@@ -20,10 +20,18 @@ class VParentBar:UIView
         let buttonLoops:VParentBarButton = VParentBarButton(
             image:#imageLiteral(resourceName: "assetHomeCamera"))
         self.buttonLoops = buttonLoops
+        buttonLoops.addTarget(
+            self,
+            action:#selector(actionLoops(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let buttonCamera:VParentBarButton = VParentBarButton(
             image:#imageLiteral(resourceName: "assetHomeCamera"))
         self.buttonCamera = buttonCamera
+        buttonCamera.addTarget(
+            self,
+            action:#selector(actionCamera(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let buttonStore:VParentBarButton = VParentBarButton(
             image:#imageLiteral(resourceName: "assetHomeCamera"))
