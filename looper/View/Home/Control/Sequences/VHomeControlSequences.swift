@@ -3,6 +3,7 @@ import UIKit
 class VHomeControlSequences:UIView
 {
     weak var viewMenu:VHomeControlSequencesMenu!
+    private weak var collectionView:UICollectionView!
     private weak var controller:CHome!
     private let kMenuHeight:CGFloat = 50
     
@@ -17,6 +18,13 @@ class VHomeControlSequences:UIView
         let viewMenu:VHomeControlSequencesMenu = VHomeControlSequencesMenu(
             controller:controller)
         self.viewMenu = viewMenu
+        
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        
+        let collectionView:UICollectionView = UICollectionView(
+            frame:CGRect.zero,
+            collectionViewLayout:flow)
+        self.collectionView = collectionView
         
         addSubview(viewMenu)
         
