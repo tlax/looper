@@ -174,7 +174,7 @@ class CParent:UIViewController
         let top:CGFloat = height * deltaY
         let controllers:Int = childViewControllers.count
         
-        if controllers > 2
+        if controllers > 1
         {
             guard
                 

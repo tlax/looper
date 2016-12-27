@@ -29,7 +29,7 @@ class CCameraShoot:CController
     
     func back()
     {
-        
+        parentController.pop(deltaX:0, deltaY:-1)
         
 //        if buttonTrigger.active
 //        {

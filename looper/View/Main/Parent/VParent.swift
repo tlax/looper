@@ -5,7 +5,7 @@ class VParent:UIView
     private weak var controller:CParent!
     private weak var viewBar:VParentBar!
     private weak var layoutBarTop:NSLayoutConstraint!
-    private let kAnimationDuration:TimeInterval = 0.3
+    private let kAnimationDuration:TimeInterval = 0.4
     private let kBarHeight:CGFloat = 64
     
     convenience init(controller:CParent)
