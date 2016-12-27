@@ -174,6 +174,7 @@ class VHomeControlCamera:UIView
          
             guard
             
+                let model:MHomeImageSequenceRaw = self?.model,
                 let devicePosition:AVCaptureDevicePosition = self?.devicePosition,
                 let buffer:CMSampleBuffer = sampleBuffer,
                 let data:Data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(
@@ -208,7 +209,7 @@ class VHomeControlCamera:UIView
                 storeImage = image
             }
             
-            self?.model?.add(image:storeImage)
+            model.add(image:storeImage)
         }
     }
     
@@ -413,6 +414,7 @@ class VHomeControlCamera:UIView
                     return
                 }
                 
+                self?.model = nil
                 self?.controller.modelImage.add(sequence:model)
             }
         }
