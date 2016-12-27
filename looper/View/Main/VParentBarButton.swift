@@ -59,13 +59,13 @@ class VParentBarButton:UIButton
     
     //MARK: public
     
-    func selected()
+    func active()
     {
         imageView!.tintColor = UIColor.genericLight
         isUserInteractionEnabled = false
     }
     
-    func notSelected()
+    func notActive()
     {
         imageView!.tintColor = UIColor(white:0.85, alpha:1)
         isUserInteractionEnabled = true

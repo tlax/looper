@@ -96,4 +96,27 @@ class VParentBar:UIView
         
         super.layoutSubviews()
     }
+    
+    //MARK: actions
+    
+    func actionLoops(sender button:VParentBarButton)
+    {
+        button.active()
+        buttonCamera.notActive()
+        buttonStore.notActive()
+    }
+    
+    func actionCamera(sender button:VParentBarButton)
+    {
+        button.active()
+        buttonLoops.notActive()
+        buttonStore.notActive()
+    }
+    
+    func actionStore(sender button:VParentBarButton)
+    {
+        button.active()
+        buttonCamera.notActive()
+        buttonLoops.notActive()
+    }
 }
