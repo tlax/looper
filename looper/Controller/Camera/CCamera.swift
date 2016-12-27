@@ -23,4 +23,11 @@ class CCamera:CController
         self.viewCamera = viewCamera
         view = viewCamera
     }
+    
+    //MARK: public
+    
+    func shoot()
+    {
+        
+    }
 }

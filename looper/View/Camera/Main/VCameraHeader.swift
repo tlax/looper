@@ -95,6 +95,40 @@ class VCameraHeader:UICollectionReusableView
         fatalError()
     }
     
+    //MARK: actions
+    
+    func actionShoot(sender button:VCameraHeaderButton)
+    {
+        guard
+        
+            let unlimitedRecords:Bool = MSession.sharedInstance.settings?.unlimitedRecords,
+            let currentRecords:Int = controller?.model.records.count
+        
+        else
+        {
+            return
+        }
+        
+        if !unlimitedRecords && currentRecords > MSession.kFroobMaxRecords
+        {
+            print("records full")
+        }
+        else
+        {
+            controller?.shoot()
+        }
+    }
+    
+    func actionFilter(sender button:VCameraHeaderButton)
+    {
+        
+    }
+    
+    func actionProcess(sender button:VCameraHeaderButton)
+    {
+        
+    }
+    
     //MARK: public
     
     func config(controller:CCamera)
