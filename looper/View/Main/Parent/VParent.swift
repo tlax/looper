@@ -114,4 +114,54 @@ class VParent:UIView
             currentView.removeFromSuperview()
         }
     }
+    
+    func push(
+        newView:VView,
+        left:CGFloat,
+        top:CGFloat,
+        completion:@escaping(() -> ()))
+    {
+        addSubview(newView)
+        
+        newView.layoutTop = NSLayoutConstraint.topToTop(
+            view:newView,
+            toView:self,
+            constant:top)
+        newView.layoutBottom = NSLayoutConstraint.bottomToBottom(
+            view:newView,
+            toView:self,
+            constant:top)
+        newView.layoutLeft = NSLayoutConstraint.leftToLeft(
+            view:newView,
+            toView:self,
+            constant:left)
+        newView.layoutRight = NSLayoutConstraint.rightToRight(
+            view:newView,
+            toView:self,
+            constant:left)
+        
+        addConstraints([
+            newView.layoutTop,
+            newView.layoutBottom,
+            newView.layoutLeft,
+            newView.layoutRight])
+        
+        layoutIfNeeded()
+        
+        newView.layoutTop.constant = 0
+        newView.layoutBottom.constant = 0
+        newView.layoutRight.constant = 0
+        newView.layoutLeft.constant = 0
+        
+        UIView.animate(
+            withDuration:kAnimationDuration,
+            animations:
+        {
+            self.layoutIfNeeded()
+        })
+        { (done:Bool) in
+            
+            completion()
+        }
+    }
 }

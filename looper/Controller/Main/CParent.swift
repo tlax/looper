@@ -132,4 +132,35 @@ class CParent:UIViewController
         
         slide(controller:controller, left:left)
     }
+    
+    func push(controller:CController, deltaX:CGFloat, deltaY:CGFloat)
+    {
+        let width:CGFloat = viewParent.bounds.maxX
+        let height:CGFloat = viewParent.bounds.maxY
+        let left:CGFloat = width * deltaX
+        let top:CGFloat = height * deltaY
+        
+        guard
+            
+            let currentController:CController = childViewControllers.last as? CController,
+            let newView:VView = controller.view as? VView
+            
+        else
+        {
+            return
+        }
+        
+        addChildViewController(controller)
+        controller.beginAppearanceTransition(true, animated:true)
+        currentController.beginAppearanceTransition(false, animated:true)
+        
+        viewParent.push(
+            newView:newView,
+            left:left,
+            top:top)
+        {
+            controller.endAppearanceTransition()
+            currentController.endAppearanceTransition()
+        }
+    }
 }
