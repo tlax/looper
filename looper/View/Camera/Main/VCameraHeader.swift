@@ -180,15 +180,15 @@ class VCameraHeader:UICollectionReusableView
     {
         self.controller = controller
         
-        if controller.model.records.isEmpty
-        {
-            buttonFilter.notActive()
-            buttonProcess.notActive()
-        }
-        else
-        {
-            buttonFilter.active()
-            buttonProcess.active()
-        }
+//        if controller.model.records.isEmpty
+//        {
+//            buttonFilter.notActive()
+//            buttonProcess.notActive()
+//        }
+//        else
+//        {
+//            buttonFilter.active()
+//            buttonProcess.active()
+//        }
     }
 }
