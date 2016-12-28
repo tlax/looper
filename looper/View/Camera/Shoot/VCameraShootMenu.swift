@@ -144,11 +144,13 @@ class VCameraShootMenu:UIView
         {
             buttonTrigger.stateRecording()
             blockRecording()
+            controller.startRecording()
         }
         else
         {
             buttonTrigger.stateStandBy()
             activateButtons()
+            controller.stopRecording()
         }
     }
     

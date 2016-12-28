@@ -260,4 +260,14 @@ class CCameraShoot:CController
             self?.startSession()
         }
     }
+    
+    func startRecording()
+    {
+        viewCamera.startRecording()
+    }
+    
+    func stopRecording()
+    {
+        viewCamera.stopRecording()
+    }
 }
