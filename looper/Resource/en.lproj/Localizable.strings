@@ -1,8 +1,9 @@
-"VHomeControlCamera_noAuth"="looper has no access to your camera";
 "VHomePlayerTimer_time"="Seconds";
-"VHomeControlCamera_errorCaptureDevice"="Error connecting to camera";
 "VHomeControlCameraTickerFrames_titleBottom"="Pic/sec";
 "VHomeControlBlenderBoard_labelMain"="Main picture";
 "VHomeControlBlenderBoard_labelBoard"="Blend over main";
 
 "VCameraFooter_label"="Start by recording a video";
+
+"CCameraShoot_noAuth"="looper has no access to your camera";
+"CCameraShoot_errorCaptureDevice"="Error connecting to camera";

@@ -3,7 +3,7 @@ import UIKit
 class VCameraShoot:VView
 {
     weak var viewPreview:VCameraShootPreview!
-    private weak var viewMenu:VCameraShootMenu!
+    weak var viewMenu:VCameraShootMenu!
     private weak var layoutPreviewHeight:NSLayoutConstraint!
     private weak var controller:CCameraShoot!
     private let kMenuHeight:CGFloat = 90

@@ -10,7 +10,7 @@ class VCameraShootMenu:UIView
     private let kButtonsWidth:CGFloat = 60
     private let kButtonsHeight:CGFloat = 50
     private let kButtonTriggerSize:CGFloat = 90
-    private let kButtonsAlphaBlocked:CGFloat = 0.2
+    private let kButtonsAlphaBlocked:CGFloat = 0.3
     private let kButtonsAlpha:CGFloat = 1
     
     convenience init(controller:CCameraShoot)
@@ -31,7 +31,7 @@ class VCameraShootMenu:UIView
             for:UIControlState.highlighted)
         buttonBack.imageView!.contentMode = UIViewContentMode.center
         buttonBack.imageView!.clipsToBounds = true
-        buttonBack.imageView!.tintColor = UIColor(white:1, alpha:0.1)
+        buttonBack.imageView!.tintColor = UIColor(white:1, alpha:kButtonsAlphaBlocked)
         buttonBack.addTarget(
             self,
             action:#selector(actionBack(sender:)),
@@ -39,6 +39,8 @@ class VCameraShootMenu:UIView
         self.buttonBack = buttonBack
         
         let buttonReverse:UIButton = UIButton()
+        buttonReverse.isUserInteractionEnabled = false
+        buttonReverse.alpha = kButtonsAlphaBlocked
         buttonReverse.translatesAutoresizingMaskIntoConstraints = false
         buttonReverse.setImage(
             #imageLiteral(resourceName: "assetCameraReverse").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
@@ -48,7 +50,7 @@ class VCameraShootMenu:UIView
             for:UIControlState.highlighted)
         buttonReverse.imageView!.contentMode = UIViewContentMode.center
         buttonReverse.imageView!.clipsToBounds = true
-        buttonReverse.imageView!.tintColor = UIColor(white:1, alpha:0.1)
+        buttonReverse.imageView!.tintColor = UIColor(white:1, alpha:kButtonsAlphaBlocked)
         buttonReverse.addTarget(
             self,
             action:#selector(actionReverse(sender:)),
@@ -56,6 +58,8 @@ class VCameraShootMenu:UIView
         self.buttonReverse = buttonReverse
         
         let buttonTrigger:VCameraShootMenuTrigger = VCameraShootMenuTrigger()
+        buttonTrigger.isUserInteractionEnabled = false
+        buttonTrigger.alpha = kButtonsAlphaBlocked
         buttonTrigger.addTarget(
             self,
             action:#selector(actionTrigger(sender:)),
@@ -134,7 +138,16 @@ class VCameraShootMenu:UIView
     
     func actionTrigger(sender button:VCameraShootMenuTrigger)
     {
+        controller.recording = !controller.recording
         
+        if controller.recording
+        {
+            blockRecording()
+        }
+        else
+        {
+            activateButtons()
+        }
     }
     
     func actionBack(sender button:UIButton)
@@ -149,9 +162,9 @@ class VCameraShootMenu:UIView
 //        controller.viewHome.viewControl.viewCamera?.reverseCamera()
     }
     
-    //MARK: public
+    //MARK: private
     
-    func blockButtons()
+    private func blockRecording()
     {
         buttonReverse.isUserInteractionEnabled = false
         buttonBack.isUserInteractionEnabled = false
@@ -159,10 +172,14 @@ class VCameraShootMenu:UIView
         buttonBack.alpha = kButtonsAlphaBlocked
     }
     
-    func releaseButtons()
+    //MARK: public
+    
+    func activateButtons()
     {
+        buttonTrigger.isUserInteractionEnabled = true
         buttonReverse.isUserInteractionEnabled = true
         buttonBack.isUserInteractionEnabled = true
+        buttonTrigger.alpha = kButtonsAlpha
         buttonReverse.alpha = kButtonsAlpha
         buttonBack.alpha = kButtonsAlpha
     }
