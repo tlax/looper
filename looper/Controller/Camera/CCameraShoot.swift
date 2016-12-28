@@ -67,6 +67,65 @@ class CCameraShoot:CController
         }
     }
     
+    func recordingTick(sender timer:Timer)
+    {
+        guard
+            
+            let connection:AVCaptureConnection = captureOutput?.connection(
+                withMediaType:kMediaType)
+            
+        else
+        {
+            return
+        }
+        
+        captureOutput?.captureStillImageAsynchronously(
+            from:connection)
+        { [weak self] (sampleBuffer:CMSampleBuffer?, error:Error?) in
+            
+            guard
+                
+                let model:MCameraRaw = self?.model.raw,
+                let devicePosition:AVCaptureDevicePosition = self?.devicePosition,
+                let buffer:CMSampleBuffer = sampleBuffer,
+                let data:Data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(
+                    buffer),
+                let image:UIImage = UIImage(data:data)
+                
+            else
+            {
+                return
+            }
+            
+            let storeImage:UIImage
+            
+            if devicePosition == AVCaptureDevicePosition.front
+            {
+                guard
+                    
+                    let cgImage:CGImage = image.cgImage
+                    
+                else
+                {
+                    return
+                }
+                
+                storeImage = UIImage(
+                    cgImage:cgImage,
+                    scale:image.scale,
+                    orientation:UIImageOrientation.leftMirrored)
+            }
+            else
+            {
+                storeImage = image
+            }
+            
+            model.add(image:storeImage)
+        }
+        
+        viewCamera.viewProcess.update()
+    }
+    
     //MARK: private
     
     private func askAuthorization()
@@ -212,6 +271,7 @@ class CCameraShoot:CController
     
     func back()
     {
+        timer?.invalidate()
         parentController.changeBar(barHidden:false)
         parentController.pop(deltaX:0, deltaY:-1)
         
@@ -263,11 +323,48 @@ class CCameraShoot:CController
     
     func startRecording()
     {
-        viewCamera.startRecording()
+        if model.raw == nil
+        {
+            timer?.invalidate()
+            
+            let modelSpeed:MCameraSpeed = model.currentSpeedModel()
+            let speed:TimeInterval = modelSpeed.timeInterval
+            model.raw = MCameraRaw()
+            
+            timer = Timer.scheduledTimer(
+                timeInterval:speed,
+                target:self,
+                selector:#selector(recordingTick(sender:)),
+                userInfo:nil,
+                repeats:true)
+            
+            viewCamera.startRecording()
+        }
     }
     
     func stopRecording()
     {
+        timer?.invalidate()
+        /*
+        viewTicker.viewProcess.clean()
+        viewTicker.viewFrames.releaseButtons()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                guard
+                    
+                    let model:MHomeImageSequenceRaw = self?.model
+                    
+                    else
+                {
+                    return
+                }
+                
+                self?.model = nil
+                self?.controller.modelImage.add(sequence:model)
+        }
+        */
         viewCamera.stopRecording()
     }
 }

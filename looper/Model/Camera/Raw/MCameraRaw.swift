@@ -1,11 +1,11 @@
-import UIKit
+import Foundation
 
 class MCameraRaw
 {
-    var images:[UIImage]
+    var items:[UIImage]
     
     init()
     {
-        images = []
+        items = []
     }
 }
