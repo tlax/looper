@@ -64,4 +64,35 @@ class VCameraShoot:VView
     {
         fatalError()
     }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let height:CGFloat = bounds.maxY
+        let previewHeight:CGFloat
+        let tickerHeight:CGFloat
+        
+        if width < height
+        {
+            previewHeight = width
+            tickerHeight = height - (previewHeight + kMenuHeight)
+        }
+        else
+        {
+            previewHeight = height - kMenuHeight
+            tickerHeight = 0
+        }
+        
+        if previewHeight >= 0
+        {
+            layoutPreviewHeight.constant = previewHeight
+        }
+        
+        if tickerHeight >= 0
+        {
+//            layoutTickerHeight?.constant = tickerHeight
+        }
+        
+        super.layoutSubviews()
+    }
 }
