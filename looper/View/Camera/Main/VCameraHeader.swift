@@ -5,6 +5,7 @@ class VCameraHeader:UICollectionReusableView
     private weak var controller:CCamera?
     private weak var buttonShoot:VCameraHeaderButton!
     private weak var buttonProcess:VCameraHeaderButton!
+    private weak var buttonCompress:VCameraHeaderButton!
     private weak var buttonFilter:VCameraHeaderButton!
     private let kButtonsTop:CGFloat = 80
     private let kButtonsWidth:CGFloat = 65
@@ -32,6 +33,14 @@ class VCameraHeader:UICollectionReusableView
             for:UIControlEvents.touchUpInside)
         self.buttonFilter = buttonFilter
         
+        let buttonCompress:VCameraHeaderButton = VCameraHeaderButton(
+            image:#imageLiteral(resourceName: "assetCameraCompress"))
+        buttonCompress.addTarget(
+            self,
+            action:#selector(actionProcess(sender:)),
+            for:UIControlEvents.touchUpInside)
+        self.buttonCompress = buttonCompress
+        
         let buttonProcess:VCameraHeaderButton = VCameraHeaderButton(
             image:#imageLiteral(resourceName: "assetCameraProcess"))
         buttonProcess.addTarget(
@@ -42,6 +51,7 @@ class VCameraHeader:UICollectionReusableView
         
         addSubview(buttonShoot)
         addSubview(buttonFilter)
+        addSubview(buttonCompress)
         addSubview(buttonProcess)
         
         let layoutShootTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
@@ -67,9 +77,23 @@ class VCameraHeader:UICollectionReusableView
             toView:self)
         let layoutFilterRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
             view:buttonFilter,
-            toView:buttonProcess)
+            toView:buttonCompress)
         let layoutFilterWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:buttonFilter,
+            constant:kButtonsWidth)
+        
+        let layoutCompressTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:buttonCompress,
+            toView:self,
+            constant:kButtonsTop)
+        let layoutCompressBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:buttonCompress,
+            toView:self)
+        let layoutCompressRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+            view:buttonCompress,
+            toView:buttonProcess)
+        let layoutCompressWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:buttonCompress,
             constant:kButtonsWidth)
         
         let layoutProcessTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
@@ -96,6 +120,10 @@ class VCameraHeader:UICollectionReusableView
             layoutFilterBottom,
             layoutFilterRight,
             layoutFilterWidth,
+            layoutCompressTop,
+            layoutCompressBottom,
+            layoutCompressRight,
+            layoutCompressWidth,
             layoutProcessTop,
             layoutProcessBottom,
             layoutProcessRight,
@@ -132,6 +160,11 @@ class VCameraHeader:UICollectionReusableView
     }
     
     func actionFilter(sender button:VCameraHeaderButton)
+    {
+        
+    }
+    
+    func actionCompress(sender button:VCameraHeaderButton)
     {
         
     }
