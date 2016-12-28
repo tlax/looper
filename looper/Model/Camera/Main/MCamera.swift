@@ -16,4 +16,13 @@ class MCamera
         records = []
         currentSpeed = kDefaultSpeed
     }
+    
+    //MARK: public
+    
+    func currentSpeedModel() -> MCameraSpeed
+    {
+        let item:MCameraSpeed = speeds[currentSpeed]
+        
+        return item
+    }
 }

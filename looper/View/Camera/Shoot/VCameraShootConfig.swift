@@ -230,7 +230,7 @@ class VCameraShootConfig:UIView
     
     private func print()
     {
-        let item:MCameraSpeed = controller.model.speeds[controller.model.currentSpeed]
+        let item:MCameraSpeed = controller.model.currentSpeedModel()
         label.text = item.name
     }
     
