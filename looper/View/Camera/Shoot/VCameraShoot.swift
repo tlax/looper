@@ -5,6 +5,7 @@ class VCameraShoot:VView
     weak var viewPreview:VCameraShootPreview!
     weak var viewMenu:VCameraShootMenu!
     weak var viewConfig:VCameraShootConfig!
+    weak var viewProcess:VCameraShootProcess!
     private weak var layoutPreviewHeight:NSLayoutConstraint!
     private weak var layoutConfigHeight:NSLayoutConstraint!
     private weak var layoutProcessHeight:NSLayoutConstraint!
@@ -28,7 +29,13 @@ class VCameraShoot:VView
             controller:self.controller)
         self.viewConfig = viewConfig
         
+        let viewProcess:VCameraShootProcess = VCameraShootProcess(
+            controller:self.controller)
+        viewProcess.isHidden = true
+        self.viewProcess = viewProcess
+        
         addSubview(viewConfig)
+        addSubview(viewProcess)
         addSubview(viewPreview)
         addSubview(viewMenu)
         
@@ -57,6 +64,30 @@ class VCameraShoot:VView
             view:viewMenu,
             toView:self)
         
+        let layoutConfigTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewConfig,
+            toView:viewPreview)
+        layoutConfigHeight = NSLayoutConstraint.height(
+            view:viewConfig)
+        let layoutConfigLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewConfig,
+            toView:self)
+        let layoutConfigRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewConfig,
+            toView:self)
+        
+        let layoutProcessTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewProcess,
+            toView:viewPreview)
+        layoutProcessHeight = NSLayoutConstraint.height(
+            view:viewProcess)
+        let layoutProcessLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewProcess,
+            toView:self)
+        let layoutProcessRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewProcess,
+            toView:self)
+        
         addConstraints([
             layoutPreviewHeight,
             layoutPreviewTop,
@@ -65,7 +96,15 @@ class VCameraShoot:VView
             layoutMenuHeight,
             layoutMenuBottom,
             layoutMenuLeft,
-            layoutMenuRight])
+            layoutMenuRight,
+            layoutConfigTop,
+            layoutConfigHeight,
+            layoutConfigLeft,
+            layoutConfigRight,
+            layoutProcessTop,
+            layoutProcessHeight,
+            layoutProcessLeft,
+            layoutProcessRight])
     }
     
     required init?(coder:NSCoder)
@@ -103,5 +142,19 @@ class VCameraShoot:VView
         }
         
         super.layoutSubviews()
+    }
+    
+    //MARK: public
+    
+    func startRecording()
+    {
+        viewProcess.isHidden = false
+        viewConfig.isHidden = true
+    }
+    
+    func stopRecording()
+    {
+        viewProcess.isHidden = true
+        viewConfig.isHidden = false
     }
 }

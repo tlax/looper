@@ -10,6 +10,9 @@ class VCameraShootProcess:UIView
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clear
+        isUserInteractionEnabled = false
         self.controller = controller
     }
+    
+    
 }
