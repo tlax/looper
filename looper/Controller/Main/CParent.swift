@@ -2,6 +2,20 @@ import UIKit
 
 class CParent:UIViewController
 {
+    enum TransitionVertical:CGFloat
+    {
+        case fromTop = -1
+        case fromBottom = 1
+        case none = 0
+    }
+    
+    enum TransitionHorizontal:CGFloat
+    {
+        case fromLeft = 1
+        case fromRight = -1
+        case none = 0
+    }
+    
     weak var viewParent:VParent!
     private var statusBarStyle:UIStatusBarStyle
     private var barHidden:Bool
@@ -135,12 +149,15 @@ class CParent:UIViewController
         slide(controller:controller, left:left)
     }
     
-    func push(controller:CController, deltaX:CGFloat, deltaY:CGFloat)
+    func push(
+        controller:CController,
+        horizontal:TransitionHorizontal = TransitionHorizontal.none,
+        vertical:TransitionVertical = TransitionVertical.none)
     {
         let width:CGFloat = viewParent.bounds.maxX
         let height:CGFloat = viewParent.bounds.maxY
-        let left:CGFloat = width * deltaX
-        let top:CGFloat = height * deltaY
+        let left:CGFloat = width * horizontal.rawValue
+        let top:CGFloat = height * vertical.rawValue
         
         guard
             
@@ -166,12 +183,14 @@ class CParent:UIViewController
         }
     }
     
-    func pop(deltaX:CGFloat, deltaY:CGFloat)
+    func pop(
+        horizontal:TransitionHorizontal = TransitionHorizontal.none,
+        vertical:TransitionVertical = TransitionVertical.none)
     {
         let width:CGFloat = viewParent.bounds.maxX
         let height:CGFloat = viewParent.bounds.maxY
-        let left:CGFloat = width * deltaX
-        let top:CGFloat = height * deltaY
+        let left:CGFloat = width * horizontal.rawValue
+        let top:CGFloat = height * vertical.rawValue
         let controllers:Int = childViewControllers.count
         
         if controllers > 1

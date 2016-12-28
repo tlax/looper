@@ -17,6 +17,22 @@ class MCamera
         currentSpeed = kDefaultSpeed
     }
     
+    //MARK: private
+    
+    private func asyncRenderRecording(modelRaw:MCameraRaw)
+    {
+        NotificationCenter.default.post(
+            name:Notification.cameraLoading,
+            object:nil)
+        
+        let record:MCameraRecord = modelRaw.render()
+        records.append(record)
+        
+        NotificationCenter.default.post(
+            name:Notification.cameraLoadFinished,
+            object:nil)
+    }
+    
     //MARK: public
     
     func currentSpeedModel() -> MCameraSpeed
@@ -24,5 +40,14 @@ class MCamera
         let item:MCameraSpeed = speeds[currentSpeed]
         
         return item
+    }
+    
+    func renderRecording(modelRaw:MCameraRaw)
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncRenderRecording(modelRaw:modelRaw)
+        }
     }
 }

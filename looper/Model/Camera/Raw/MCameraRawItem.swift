@@ -11,4 +11,8 @@ class MCameraRawItem
         self.image = image
         self.devicePosition = devicePosition
     }
+    
+    //MARK: public
+    
+    
 }

@@ -277,17 +277,12 @@ class CCameraShoot:CController
     func back()
     {
         timer?.invalidate()
-        parentController.changeBar(barHidden:false)
-        parentController.pop(deltaX:0, deltaY:-1)
         
-//        if buttonTrigger.active
-//        {
-//            controller.viewHome.viewControl.viewCamera?.actionTrigger(
-//                activate:false)
-//        }
-//        
-//        controller.viewHome.viewControl.viewCamera?.layoutTickerHeight = nil
-//        controller.returnToHome()
+        if !recording
+        {
+            parentController.changeBar(barHidden:false)
+            parentController.pop(vertical:CParent.TransitionVertical.fromTop)
+        }
     }
     
     func reverseCamera()
@@ -357,7 +352,7 @@ class CCameraShoot:CController
          
             guard
                 
-                let model:MCameraRaw = self?.model.raw
+                let modelRaw:MCameraRaw = self?.model.raw
             
             else
             {
@@ -370,7 +365,15 @@ class CCameraShoot:CController
             DispatchQueue.main.async
             { [weak self] in
                 
-                self?.viewCamera.stopRecording()
+                if modelRaw.items.isEmpty
+                {
+                    self?.viewCamera.stopRecording()
+                }
+                else
+                {
+                    self?.back()
+                    self?.model.renderRecording(modelRaw:modelRaw)
+                }
             }
         }
     }
