@@ -107,44 +107,45 @@ class VCameraShootProcess:UIView
         context.drawPath(using:CGPathDrawingMode.stroke)
     }
     
+    //MARK: public
+    
     func update()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
-            /*
+            
             guard
-                
-                let countPics:Int = controller.viewHome.viewControl.viewCamera?.model?.items.count
-                
-                else
+            
+                let countShots:Int = self?.controller.model.raw?.images.count,
+                let startAngle:CGFloat = self?.kStartAngle,
+                let endAngle:CGFloat = self?.kEndAngle
+            
+            else
             {
-                timer.invalidate()
-                
                 return
             }
             
-            label.text = "\(countPics)"
-            
-            if countPics >= kMaxPictures
+            if countShots >= MCamera.kMaxShots
             {
-                controller.viewHome.viewControl.viewCamera?.viewMenu.buttonTrigger.stop()
-                
-                endAngle = kEndAngle
-                timer.invalidate()
+                self?.endAngle = endAngle
             }
             else
             {
-                var percent:CGFloat = CGFloat(countPics) / CGFloat(kMaxPictures)
+                var percent:CGFloat = CGFloat(countShots) / CGFloat(MCamera.kMaxShots)
                 
                 if percent <= 0
                 {
-                    percent = kStartAngle
+                    percent = startAngle
                 }
                 
-                endAngle = percent * kEndAngle
+                self?.endAngle = percent * endAngle
             }
             
-            setNeedsDisplay()*/
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.setNeedsDisplay()
+            }
         }
     }
 }
