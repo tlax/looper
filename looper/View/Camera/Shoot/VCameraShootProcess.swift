@@ -13,7 +13,6 @@ class VCameraShootProcess:UIView
     private let kEndAngle:CGFloat = 6.28319
     private let kLineWidth:CGFloat = 12
     private let kBorderWidth:CGFloat = 14
-    private let kEmpty:String = "0"
     
     init(controller:CCameraShoot)
     {
@@ -36,7 +35,6 @@ class VCameraShootProcess:UIView
         label.font = UIFont.bold(size:20)
         label.textColor = UIColor.genericLight
         label.textAlignment = NSTextAlignment.center
-        label.text = kEmpty
         self.label = label
         
         addSubview(label)

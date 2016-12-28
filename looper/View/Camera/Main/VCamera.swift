@@ -4,6 +4,7 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
 {
     private weak var controller:CCamera!
     private weak var collectionView:VCollection!
+    private weak var spinner:VSpinner!
     private let kHeaderHeight:CGFloat = 160
     private let kFooterHeight:CGFloat = 60
     private let kCollectionBottom:CGFloat = 20
@@ -16,7 +17,9 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         self.controller = controller as? CCamera
         
         let collectionView:VCollection = VCollection()
-        collectionView.flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
+        collectionView.flow.headerReferenceSize = CGSize(
+            width:0,
+            height:kHeaderHeight)
         collectionView.flow.minimumLineSpacing = kInterLine
         collectionView.flow.sectionInset = UIEdgeInsets(
             top:0,
@@ -31,6 +34,11 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         collectionView.dataSource = self
         self.collectionView = collectionView
         
+        let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
+        self.spinner = spinner
+        
+        addSubview(spinner)
         addSubview(collectionView)
         
         let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
@@ -46,11 +54,28 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             view:collectionView,
             toView:self)
         
+        let layoutSpinnerTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:spinner,
+            toView:self)
+        let layoutSpinnerBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:spinner,
+            toView:self)
+        let layoutSpinnerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:spinner,
+            toView:self)
+        let layoutSpinnerRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:spinner,
+            toView:self)
+        
         addConstraints([
             layoutCollectionTop,
             layoutCollectionBottom,
             layoutCollectionLeft,
-            layoutCollectionRight])
+            layoutCollectionRight,
+            layoutSpinnerTop,
+            layoutSpinnerBottom,
+            layoutSpinnerLeft,
+            layoutSpinnerRight])
     }
     
     required init?(coder:NSCoder)
@@ -60,8 +85,16 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     //MARK: public
     
+    func showLoading()
+    {
+        spinner.startAnimating()
+        collectionView.isHidden = true
+    }
+    
     func refresh()
     {
+        spinner.stopAnimating()
+        collectionView.isHidden = false
         collectionView.reloadData()
     }
     

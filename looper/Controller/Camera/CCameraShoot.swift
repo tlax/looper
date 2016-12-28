@@ -364,7 +364,7 @@ class CCameraShoot:CController
                 return
             }
             
-            self?.model = nil
+            self?.model.raw = nil
             self?.recording = false
             
             DispatchQueue.main.async
