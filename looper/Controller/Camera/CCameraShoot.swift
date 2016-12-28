@@ -3,7 +3,7 @@ import AVFoundation
 
 class CCameraShoot:CController
 {
-    var recording:Bool
+    private(set) var recording:Bool
     weak var model:MCamera!
     private weak var viewCamera:VCameraShoot!
     private weak var captureSession:AVCaptureSession?
@@ -69,58 +69,10 @@ class CCameraShoot:CController
     
     func recordingTick(sender timer:Timer)
     {
-        guard
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
             
-            let connection:AVCaptureConnection = captureOutput?.connection(
-                withMediaType:kMediaType)
-            
-        else
-        {
-            return
-        }
-        
-        captureOutput?.captureStillImageAsynchronously(
-            from:connection)
-        { [weak self] (sampleBuffer:CMSampleBuffer?, error:Error?) in
-            
-            guard
-                
-                let model:MCameraRaw = self?.model.raw,
-                let devicePosition:AVCaptureDevicePosition = self?.devicePosition,
-                let buffer:CMSampleBuffer = sampleBuffer,
-                let data:Data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(
-                    buffer),
-                let image:UIImage = UIImage(data:data)
-                
-            else
-            {
-                return
-            }
-            
-            let storeImage:UIImage
-            
-            if devicePosition == AVCaptureDevicePosition.front
-            {
-                guard
-                    
-                    let cgImage:CGImage = image.cgImage
-                    
-                else
-                {
-                    return
-                }
-                
-                storeImage = UIImage(
-                    cgImage:cgImage,
-                    scale:image.scale,
-                    orientation:UIImageOrientation.leftMirrored)
-            }
-            else
-            {
-                storeImage = image
-            }
-            
-            model.add(image:storeImage)
+            self?.asyncRecordingTick()
         }
         
         viewCamera.viewProcess.update()
@@ -267,6 +219,59 @@ class CCameraShoot:CController
         }
     }
     
+    private func asyncRecordingTick()
+    {
+        guard
+        
+            let currentShots:Int = model.raw?.items.count
+        
+        else
+        {
+            return
+        }
+        
+        if currentShots < MCamera.kMaxShots
+        {
+            guard
+                
+                let connection:AVCaptureConnection = captureOutput?.connection(
+                    withMediaType:kMediaType)
+                
+            else
+            {
+                return
+            }
+            
+            captureOutput?.captureStillImageAsynchronously(
+                from:connection)
+            { [weak self] (sampleBuffer:CMSampleBuffer?, error:Error?) in
+                
+                guard
+                    
+                    let model:MCameraRaw = self?.model.raw,
+                    let devicePosition:AVCaptureDevicePosition = self?.devicePosition,
+                    let buffer:CMSampleBuffer = sampleBuffer,
+                    let data:Data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(
+                        buffer),
+                    let image:UIImage = UIImage(data:data)
+                    
+                else
+                {
+                    return
+                }
+                
+                let item:MCameraRawItem = MCameraRawItem(
+                    image:image,
+                    devicePosition:devicePosition)
+                model.items.append(item)
+            }
+        }
+        else
+        {
+            stopRecording()
+        }
+    }
+    
     //MARK: public
     
     func back()
@@ -326,6 +331,7 @@ class CCameraShoot:CController
         if model.raw == nil
         {
             timer?.invalidate()
+            recording = true
             
             let modelSpeed:MCameraSpeed = model.currentSpeedModel()
             let speed:TimeInterval = modelSpeed.timeInterval
@@ -345,26 +351,27 @@ class CCameraShoot:CController
     func stopRecording()
     {
         timer?.invalidate()
-        /*
-        viewTicker.viewProcess.clean()
-        viewTicker.viewFrames.releaseButtons()
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+         
+            guard
+                
+                let model:MCameraRaw = self?.model.raw
+            
+            else
+            {
+                return
+            }
+            
+            self?.model = nil
+            self?.recording = false
+            
+            DispatchQueue.main.async
             { [weak self] in
                 
-                guard
-                    
-                    let model:MHomeImageSequenceRaw = self?.model
-                    
-                    else
-                {
-                    return
-                }
-                
-                self?.model = nil
-                self?.controller.modelImage.add(sequence:model)
+                self?.viewCamera.stopRecording()
+            }
         }
-        */
-        viewCamera.stopRecording()
     }
 }

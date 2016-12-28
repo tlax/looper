@@ -10,7 +10,7 @@ class VCameraShootMenuTrigger:UIButton
         imageView!.contentMode = UIViewContentMode.center
         imageView!.clipsToBounds = true
         
-        stateStandBy()
+        stopRecording()
     }
     
     required init?(coder:NSCoder)
@@ -20,7 +20,7 @@ class VCameraShootMenuTrigger:UIButton
     
     //MARK: public
     
-    func stateStandBy()
+    func stopRecording()
     {
         setImage(
             #imageLiteral(resourceName: "assetCameraTriggerStand"),
@@ -30,7 +30,7 @@ class VCameraShootMenuTrigger:UIButton
             for:UIControlState.highlighted)
     }
     
-    func stateRecording()
+    func startRecording()
     {
         setImage(
             #imageLiteral(resourceName: "assetCameraTriggerStop"),

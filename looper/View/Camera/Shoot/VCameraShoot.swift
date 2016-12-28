@@ -150,11 +150,13 @@ class VCameraShoot:VView
     {
         viewProcess.isHidden = false
         viewConfig.isHidden = true
+        viewMenu.startRecording()
     }
     
     func stopRecording()
     {
         viewProcess.isHidden = true
         viewConfig.isHidden = false
+        viewMenu.stopRecording()
     }
 }

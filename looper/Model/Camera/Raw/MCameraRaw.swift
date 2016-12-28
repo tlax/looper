@@ -2,7 +2,7 @@ import Foundation
 
 class MCameraRaw
 {
-    var items:[UIImage]
+    var items:[MCameraRawItem]
     
     init()
     {

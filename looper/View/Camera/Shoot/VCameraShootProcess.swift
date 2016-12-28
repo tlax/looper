@@ -6,20 +6,20 @@ class VCameraShootProcess:UIView
     private weak var label:UILabel!
     private var endAngle:CGFloat
     private let innerFillColor:UIColor
-    private let fillColor:UIColor
     private let strokeColor:UIColor
-    private let kRadius:CGFloat = 30
+    private let borderColor:UIColor
+    private let kRadius:CGFloat = 40
     private let kStartAngle:CGFloat = 0.0001
     private let kEndAngle:CGFloat = 6.28319
-    private let kBorderWidth:CGFloat = 16
     private let kLineWidth:CGFloat = 12
+    private let kBorderWidth:CGFloat = 14
     private let kEmpty:String = "0"
     
     init(controller:CCameraShoot)
     {
-        innerFillColor = UIColor.genericDark
-        fillColor = UIColor.black
+        innerFillColor = UIColor.black
         strokeColor = UIColor.genericLight
+        borderColor = UIColor.genericDark
         endAngle = kStartAngle
         
         super.init(frame:CGRect.zero)
@@ -33,7 +33,7 @@ class VCameraShootProcess:UIView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:13)
+        label.font = UIFont.bold(size:20)
         label.textColor = UIColor.genericLight
         label.textAlignment = NSTextAlignment.center
         label.text = kEmpty
@@ -87,7 +87,7 @@ class VCameraShootProcess:UIView
         
         context.setLineCap(CGLineCap.round)
         context.setLineWidth(kBorderWidth)
-        context.setStrokeColor(fillColor.cgColor)
+        context.setStrokeColor(borderColor.cgColor)
         context.setFillColor(innerFillColor.cgColor)
         context.addArc(
             center:center,
@@ -116,7 +116,7 @@ class VCameraShootProcess:UIView
             
             guard
             
-                let countShots:Int = self?.controller.model.raw?.images.count,
+                let countShots:Int = self?.controller.model.raw?.items.count,
                 let startAngle:CGFloat = self?.kStartAngle,
                 let endAngle:CGFloat = self?.kEndAngle
             
@@ -124,6 +124,8 @@ class VCameraShootProcess:UIView
             {
                 return
             }
+            
+            let shotsString:String = "\(countShots)"
             
             if countShots >= MCamera.kMaxShots
             {
@@ -144,6 +146,7 @@ class VCameraShootProcess:UIView
             DispatchQueue.main.async
             { [weak self] in
                 
+                self?.label.text = shotsString
                 self?.setNeedsDisplay()
             }
         }

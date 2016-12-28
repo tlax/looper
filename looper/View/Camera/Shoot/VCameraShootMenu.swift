@@ -138,19 +138,13 @@ class VCameraShootMenu:UIView
     
     func actionTrigger(sender button:VCameraShootMenuTrigger)
     {
-        controller.recording = !controller.recording
-        
         if controller.recording
         {
-            buttonTrigger.stateRecording()
-            blockRecording()
-            controller.startRecording()
+            controller.stopRecording()
         }
         else
         {
-            buttonTrigger.stateStandBy()
-            activateButtons()
-            controller.stopRecording()
+            controller.startRecording()
         }
     }
     
@@ -197,5 +191,17 @@ class VCameraShootMenu:UIView
         buttonTrigger.alpha = kButtonsAlpha
         buttonReverse.alpha = kButtonsAlpha
         buttonBack.alpha = kButtonsAlpha
+    }
+    
+    func startRecording()
+    {
+        buttonTrigger.startRecording()
+        blockRecording()
+    }
+    
+    func stopRecording()
+    {
+        buttonTrigger.stopRecording()
+        activateButtons()
     }
 }
