@@ -3,7 +3,7 @@
 "VHomeControlBlenderBoard_labelBoard"="Blend over main";
 
 "VCameraFooter_label"="Start by recording a video";
-"VCameraShootConfig_titleBottom"="Pic/sec";
+"VCameraShootConfig_titleBottom"="Frames/second";
 
 "CCameraShoot_noAuth"="looper has no access to your camera";
 "CCameraShoot_errorCaptureDevice"="Error connecting to camera";

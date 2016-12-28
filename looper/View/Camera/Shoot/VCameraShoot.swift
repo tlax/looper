@@ -64,7 +64,7 @@ class VCameraShoot:VView
             view:viewMenu,
             toView:self)
         
-        let layoutConfigTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let layoutConfigTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:viewConfig,
             toView:viewPreview)
         layoutConfigHeight = NSLayoutConstraint.height(
@@ -76,7 +76,7 @@ class VCameraShoot:VView
             view:viewConfig,
             toView:self)
         
-        let layoutProcessTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let layoutProcessTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:viewProcess,
             toView:viewPreview)
         layoutProcessHeight = NSLayoutConstraint.height(

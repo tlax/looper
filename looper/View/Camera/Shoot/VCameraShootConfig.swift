@@ -10,15 +10,14 @@ class VCameraShootConfig:UIView
     private weak var buttonRest:UIButton!
     private weak var label:UILabel!
     private weak var layoutAddTop:NSLayoutConstraint!
-    private let kButtonsHeight:CGFloat = 45
-    private let kButtonsWidth:CGFloat = 55
-    private let kButtonsMargin:CGFloat = 18
-    private let kButtonsRight:CGFloat = -40
-    private let kLabelWidth:CGFloat = 120
-    private let kLabelRight:CGFloat = 12
-    private let kTitlesHeight:CGFloat = 38
+    private let kButtonsHeight:CGFloat = 50
+    private let kButtonsWidth:CGFloat = 58
+    private let kButtonsMargin:CGFloat = 14
+    private let kLabelWidth:CGFloat = 200
+    private let kLabelRight:CGFloat = 10
+    private let kTitlesHeight:CGFloat = 42
     private let kAlphaActive:CGFloat = 1
-    private let kAlphaNotActive:CGFloat = 0.2
+    private let kAlphaNotActive:CGFloat = 0.4
     
     init(controller:CCameraShoot)
     {
@@ -84,7 +83,7 @@ class VCameraShootConfig:UIView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.medium(size:22)
+        label.font = UIFont.medium(size:30)
         label.textAlignment = NSTextAlignment.right
         label.textColor = UIColor.white
         self.label = label
@@ -94,7 +93,7 @@ class VCameraShootConfig:UIView
         titleBottom.backgroundColor = UIColor.clear
         titleBottom.translatesAutoresizingMaskIntoConstraints = false
         titleBottom.font = UIFont.regular(size:13)
-        titleBottom.textColor = UIColor(white:1, alpha:0.65)
+        titleBottom.textColor = UIColor(white:1, alpha:0.7)
         titleBottom.textAlignment = NSTextAlignment.right
         titleBottom.text = NSLocalizedString(
             "VCameraShootConfig_titleBottom", comment:"")
@@ -112,8 +111,7 @@ class VCameraShootConfig:UIView
             constant:kButtonsHeight)
         let layoutAddRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:buttonAdd,
-            toView:self,
-            constant:kButtonsRight)
+            toView:self)
         let layoutAddWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:buttonAdd,
             constant:kButtonsWidth)
@@ -126,8 +124,7 @@ class VCameraShootConfig:UIView
             constant:kButtonsHeight)
         let layoutRestRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:buttonRest,
-            toView:self,
-            constant:kButtonsRight)
+            toView:self)
         let layoutRestWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:buttonRest,
             constant:kButtonsWidth)
