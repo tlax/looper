@@ -25,10 +25,17 @@ class CCameraShoot:CController
         view = viewCamera
     }
     
+    override func viewWillAppear(_ animated:Bool)
+    {
+        super.viewWillAppear(animated)
+        parentController.changeBar(barHidden:true)
+    }
+    
     //MARK: public
     
     func back()
     {
+        parentController.changeBar(barHidden:false)
         parentController.pop(deltaX:0, deltaY:-1)
         
 //        if buttonTrigger.active
