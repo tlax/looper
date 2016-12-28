@@ -1,9 +1,18 @@
-//
-//  MCameraSpeed.swift
-//  looper
-//
-//  Created by zero on 12/28/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class MCameraSpeed
+{
+    let timeInterval:TimeInterval
+    let name:String
+    
+    init(framesPerSecond:TimeInterval)
+    {
+        timeInterval = 1 / framesPerSecond
+        name = "\(Int(framesPerSecond))"
+    }
+    
+    init()
+    {
+        fatalError()
+    }
+}
