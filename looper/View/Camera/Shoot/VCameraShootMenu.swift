@@ -161,10 +161,21 @@ class VCameraShootMenu:UIView
     
     func actionReverse(sender button:UIButton)
     {
-//        controller.viewHome.viewControl.viewCamera?.reverseCamera()
+        blockReverse()
+        controller.reverseCamera()
     }
     
     //MARK: private
+    
+    private func blockReverse()
+    {
+        buttonTrigger.isUserInteractionEnabled = false
+        buttonReverse.isUserInteractionEnabled = false
+        buttonBack.isUserInteractionEnabled = false
+        buttonTrigger.alpha = kButtonsAlphaBlocked
+        buttonReverse.alpha = kButtonsAlphaBlocked
+        buttonBack.alpha = kButtonsAlphaBlocked
+    }
     
     private func blockRecording()
     {

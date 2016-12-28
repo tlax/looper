@@ -224,4 +224,40 @@ class CCameraShoot:CController
 //        controller.viewHome.viewControl.viewCamera?.layoutTickerHeight = nil
 //        controller.returnToHome()
     }
+    
+    func reverseCamera()
+    {
+        queue.async
+        { [weak self] in
+            
+            self?.cleanSession()
+            
+            guard
+            
+                let currentDevicePosition:AVCaptureDevicePosition = self?.devicePosition
+        
+            else
+            {
+                return
+            }
+            
+            switch currentDevicePosition
+            {
+                case AVCaptureDevicePosition.back,
+                     AVCaptureDevicePosition.unspecified:
+                    
+                    self?.devicePosition = AVCaptureDevicePosition.front
+                    
+                    break
+                    
+                case AVCaptureDevicePosition.front:
+                    
+                    self?.devicePosition = AVCaptureDevicePosition.back
+                    
+                    break
+            }
+            
+            self?.startSession()
+        }
+    }
 }
