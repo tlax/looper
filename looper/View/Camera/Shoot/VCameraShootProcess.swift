@@ -1,6 +1,6 @@
 import UIKit
 
-class VCameraShootConfig:UIView
+class VCameraShootProcess:UIView
 {
     private weak var controller:CCameraShoot!
     

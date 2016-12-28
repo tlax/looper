@@ -4,7 +4,10 @@ class VCameraShoot:VView
 {
     weak var viewPreview:VCameraShootPreview!
     weak var viewMenu:VCameraShootMenu!
+    weak var viewConfig:VCameraShootConfig!
     private weak var layoutPreviewHeight:NSLayoutConstraint!
+    private weak var layoutConfigHeight:NSLayoutConstraint!
+    private weak var layoutProcessHeight:NSLayoutConstraint!
     private weak var controller:CCameraShoot!
     private let kMenuHeight:CGFloat = 90
     
@@ -21,6 +24,11 @@ class VCameraShoot:VView
             controller:self.controller)
         self.viewMenu = viewMenu
         
+        let viewConfig:VCameraShootConfig = VCameraShootConfig(
+            controller:self.controller)
+        self.viewConfig = viewConfig
+        
+        addSubview(viewConfig)
         addSubview(viewPreview)
         addSubview(viewMenu)
         
@@ -70,17 +78,17 @@ class VCameraShoot:VView
         let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
         let previewHeight:CGFloat
-        let tickerHeight:CGFloat
+        let configHeight:CGFloat
         
         if width < height
         {
             previewHeight = width
-            tickerHeight = height - (previewHeight + kMenuHeight)
+            configHeight = height - (previewHeight + kMenuHeight)
         }
         else
         {
             previewHeight = height - kMenuHeight
-            tickerHeight = 0
+            configHeight = 0
         }
         
         if previewHeight >= 0
@@ -88,9 +96,10 @@ class VCameraShoot:VView
             layoutPreviewHeight.constant = previewHeight
         }
         
-        if tickerHeight >= 0
+        if configHeight >= 0
         {
-//            layoutTickerHeight?.constant = tickerHeight
+            layoutConfigHeight.constant = configHeight
+            layoutProcessHeight.constant = configHeight
         }
         
         super.layoutSubviews()
