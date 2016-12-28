@@ -43,6 +43,8 @@
 		DA799CEA1E1436D900AB45DD /* MCameraSpeed15.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CE91E1436D900AB45DD /* MCameraSpeed15.swift */; };
 		DA799CEC1E1436F400AB45DD /* MCameraSpeed20.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CEB1E1436F400AB45DD /* MCameraSpeed20.swift */; };
 		DA799CEE1E1436FD00AB45DD /* MCameraSpeed30.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CED1E1436FD00AB45DD /* MCameraSpeed30.swift */; };
+		DA799CF01E14403B00AB45DD /* MCameraRecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CEF1E14403B00AB45DD /* MCameraRecordItem.swift */; };
+		DA799CF31E1440F500AB45DD /* MCameraRaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CF21E1440F500AB45DD /* MCameraRaw.swift */; };
 		DA913DF51E049238000565D6 /* home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA913DF41E049238000565D6 /* home.xcassets */; };
 		DA96FEDE1E03672F00FD5265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */; };
 		DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FE981E03672F00FD5265 /* CHome.swift */; };
@@ -154,6 +156,8 @@
 		DA799CE91E1436D900AB45DD /* MCameraSpeed15.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraSpeed15.swift; sourceTree = "<group>"; };
 		DA799CEB1E1436F400AB45DD /* MCameraSpeed20.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraSpeed20.swift; sourceTree = "<group>"; };
 		DA799CED1E1436FD00AB45DD /* MCameraSpeed30.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraSpeed30.swift; sourceTree = "<group>"; };
+		DA799CEF1E14403B00AB45DD /* MCameraRecordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraRecordItem.swift; sourceTree = "<group>"; };
+		DA799CF21E1440F500AB45DD /* MCameraRaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraRaw.swift; sourceTree = "<group>"; };
 		DA913DF41E049238000565D6 /* home.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = home.xcassets; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -346,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				DA799CD51E14354C00AB45DD /* MCameraRecord.swift */,
+				DA799CEF1E14403B00AB45DD /* MCameraRecordItem.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -365,6 +370,14 @@
 				DA799CED1E1436FD00AB45DD /* MCameraSpeed30.swift */,
 			);
 			path = Speed;
+			sourceTree = "<group>";
+		};
+		DA799CF11E1440E800AB45DD /* Raw */ = {
+			isa = PBXGroup;
+			children = (
+				DA799CF21E1440F500AB45DD /* MCameraRaw.swift */,
+			);
+			path = Raw;
 			sourceTree = "<group>";
 		};
 		DA96FE761E03653100FD5265 = {
@@ -580,6 +593,7 @@
 			isa = PBXGroup;
 			children = (
 				DA799CD21E14354C00AB45DD /* Main */,
+				DA799CF11E1440E800AB45DD /* Raw */,
 				DA799CD41E14354C00AB45DD /* Record */,
 				DA799CD61E14354C00AB45DD /* Speed */,
 			);
@@ -771,6 +785,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA799CF01E14403B00AB45DD /* MCameraRecordItem.swift in Sources */,
 				DA96FEE31E03672F00FD5265 /* ExtensionFileManager.swift in Sources */,
 				DA20F38A1E0D7A9100D9EBAC /* ExtensionMTLTexture.swift in Sources */,
 				DA799CEC1E1436F400AB45DD /* MCameraSpeed20.swift in Sources */,
@@ -786,6 +801,7 @@
 				DA96FEE21E03672F00FD5265 /* CParent.swift in Sources */,
 				DA9D2F3E1E0ADF57003E37D5 /* VHomeControlCell.swift in Sources */,
 				DAA68D5D1E09C31500A830A2 /* VHomePlayerTimer.swift in Sources */,
+				DA799CF31E1440F500AB45DD /* MCameraRaw.swift in Sources */,
 				DA9D2F4F1E0AFE1F003E37D5 /* MHomeFramesItem15.swift in Sources */,
 				DA96FEE71E03672F00FD5265 /* ExtensionUIColor.swift in Sources */,
 				DA9D2F551E0AFE41003E37D5 /* MHomeFramesItem45.swift in Sources */,

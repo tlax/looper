@@ -4,8 +4,8 @@ import AVFoundation
 class CCameraShoot:CController
 {
     var recording:Bool
+    weak var model:MCamera!
     private weak var viewCamera:VCameraShoot!
-    private weak var model:MCamera?
     private weak var captureSession:AVCaptureSession?
     private weak var captureOutput:AVCaptureStillImageOutput?
     private weak var captureDeviceInput:AVCaptureDeviceInput?

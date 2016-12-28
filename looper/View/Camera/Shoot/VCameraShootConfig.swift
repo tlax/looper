@@ -3,9 +3,7 @@ import UIKit
 class VCameraShootConfig:UIView
 {
     private weak var controller:CCameraShoot!
-    private let model:MHomeFrames
     private let buttonsHeight2:CGFloat
-    private var currentIndex:Int
     private weak var buttonAdd:UIButton!
     private weak var buttonRest:UIButton!
     private weak var label:UILabel!
@@ -21,8 +19,6 @@ class VCameraShootConfig:UIView
     
     init(controller:CCameraShoot)
     {
-        model = MHomeFrames()
-        currentIndex = model.kInitial
         buttonsHeight2 = kButtonsHeight + kButtonsHeight
         
         super.init(frame:CGRect.zero)
@@ -197,11 +193,11 @@ class VCameraShootConfig:UIView
     
     func actionAdd(sender button:UIButton)
     {
-        currentIndex -= 1
+        controller.model.currentSpeed -= 1
         
-        if currentIndex <= 0
+        if controller.model.currentSpeed <= 0
         {
-            currentIndex = 0
+            controller.model.currentSpeed = 0
             deActivateAdd()
         }
         else
@@ -214,12 +210,12 @@ class VCameraShootConfig:UIView
     
     func actionRest(sender button:UIButton)
     {
-        currentIndex += 1
-        let maxIndex:Int = model.items.count - 1
+        controller.model.currentSpeed += 1
+        let maxIndex:Int = controller.model.speeds.count - 1
         
-        if currentIndex >= maxIndex
+        if controller.model.currentSpeed >= maxIndex
         {
-            currentIndex = maxIndex
+            controller.model.currentSpeed = maxIndex
             deActivateRest()
         }
         else
@@ -234,7 +230,7 @@ class VCameraShootConfig:UIView
     
     private func print()
     {
-        let item:MHomeFramesItem = model.items[currentIndex]
+        let item:MCameraSpeed = controller.model.speeds[controller.model.currentSpeed]
         label.text = item.name
     }
     
@@ -260,14 +256,5 @@ class VCameraShootConfig:UIView
     {
         buttonRest.alpha = kAlphaNotActive
         buttonRest.isUserInteractionEnabled = false
-    }
-    
-    //MARK: public
-    
-    func timeInterval() -> TimeInterval
-    {
-        let item:MHomeFramesItem = model.items[currentIndex]
-        
-        return item.timeInterval
     }
 }

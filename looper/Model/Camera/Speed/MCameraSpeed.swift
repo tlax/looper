@@ -35,7 +35,15 @@ class MCameraSpeed
     init(framesPerSecond:TimeInterval)
     {
         timeInterval = 1 / framesPerSecond
-        name = "\(Int(framesPerSecond))"
+        
+        if framesPerSecond >= 1
+        {
+            name = "\(Int(framesPerSecond))"
+        }
+        else
+        {
+            name = "\(framesPerSecond)"
+        }
     }
     
     init()
