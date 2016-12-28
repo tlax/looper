@@ -7,7 +7,8 @@ class VCameraHeader:UICollectionReusableView
     private weak var buttonProcess:VCameraHeaderButton!
     private weak var buttonCompress:VCameraHeaderButton!
     private weak var buttonFilter:VCameraHeaderButton!
-    private let kButtonsTop:CGFloat = 80
+    private let kButtonsTop:CGFloat = 79
+    private let kButtonsBottom:CGFloat = -15
     private let kButtonsWidth:CGFloat = 65
     private let kProcessRight:CGFloat = -5
  
@@ -60,7 +61,8 @@ class VCameraHeader:UICollectionReusableView
             constant:kButtonsTop)
         let layoutShootBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:buttonShoot,
-            toView:self)
+            toView:self,
+            constant:kButtonsBottom)
         let layoutShootRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
             view:buttonShoot,
             toView:buttonFilter)
@@ -74,7 +76,8 @@ class VCameraHeader:UICollectionReusableView
             constant:kButtonsTop)
         let layoutFilterBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:buttonFilter,
-            toView:self)
+            toView:self,
+            constant:kButtonsBottom)
         let layoutFilterRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
             view:buttonFilter,
             toView:buttonCompress)
@@ -88,7 +91,8 @@ class VCameraHeader:UICollectionReusableView
             constant:kButtonsTop)
         let layoutCompressBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:buttonCompress,
-            toView:self)
+            toView:self,
+            constant:kButtonsBottom)
         let layoutCompressRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
             view:buttonCompress,
             toView:buttonProcess)
@@ -102,7 +106,8 @@ class VCameraHeader:UICollectionReusableView
             constant:kButtonsTop)
         let layoutProcessBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:buttonProcess,
-            toView:self)
+            toView:self,
+            constant:kButtonsBottom)
         let layoutProcessRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:buttonProcess,
             toView:self,

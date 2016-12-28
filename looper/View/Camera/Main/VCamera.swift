@@ -22,7 +22,7 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             height:kHeaderHeight)
         collectionView.flow.minimumLineSpacing = kInterLine
         collectionView.flow.sectionInset = UIEdgeInsets(
-            top:0,
+            top:kInterLine,
             left:0,
             bottom:kCollectionBottom,
             right:0)

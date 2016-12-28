@@ -3,10 +3,9 @@ import UIKit
 class VParentBarButton:UIButton
 {
     private weak var border:UIView!
-    private let kBorderHeight:CGFloat = 2
-    private let kBorderMargin:CGFloat = 15
+    private let kBorderHeight:CGFloat = 1
     private let kAlphaNotHover:CGFloat = 1
-    private let kAlphaHover:CGFloat = 0.5
+    private let kAlphaHover:CGFloat = 0.3
     private let kInsetTop:CGFloat = 20
     
     convenience init(image:UIImage)
@@ -44,12 +43,10 @@ class VParentBarButton:UIButton
             toView:self)
         let layoutBorderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:border,
-            toView:self,
-            constant:kBorderMargin)
+            toView:self)
         let layoutBorderRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:border,
-            toView:self,
-            constant:kBorderMargin)
+            toView:self)
         
         addConstraints([
             layoutBorderHeight,
@@ -96,13 +93,13 @@ class VParentBarButton:UIButton
     {
         imageView!.tintColor = UIColor.genericLight
         isUserInteractionEnabled = false
-        border.isHidden = true
+        border.isHidden = false
     }
     
     func notActive()
     {
         imageView!.tintColor = UIColor.genericLight.withAlphaComponent(kAlphaHover)
         isUserInteractionEnabled = true
-        border.isHidden = false
+        border.isHidden = true
     }
 }

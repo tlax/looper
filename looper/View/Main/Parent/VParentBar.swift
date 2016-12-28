@@ -8,8 +8,8 @@ class VParentBar:UIView
     private weak var buttonStore:VParentBarButton!
     private weak var layoutLoopsLeft:NSLayoutConstraint!
     private let kButtonsWidth:CGFloat = 70
-    private let kStoreRight:CGFloat = 25
-    private let kCameraLeft:CGFloat = 25
+    private let kStoreRight:CGFloat = 22
+    private let kCameraLeft:CGFloat = 22
     
     convenience init(controller:CParent)
     {
