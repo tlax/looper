@@ -2,7 +2,9 @@ import UIKit
 
 class VCameraShoot:VView
 {
-    weak var viewMenu:VCameraShootMenu!
+    weak var viewPreview:VCameraShootPreview!
+    private weak var viewMenu:VCameraShootMenu!
+    private weak var layoutPreviewHeight:NSLayoutConstraint!
     private weak var controller:CCameraShoot!
     private let kMenuHeight:CGFloat = 90
     
@@ -12,11 +14,27 @@ class VCameraShoot:VView
         backgroundColor = UIColor.black
         self.controller = controller as? CCameraShoot
         
+        let viewPreview:VCameraShootPreview = VCameraShootPreview()
+        self.viewPreview = viewPreview
+        
         let viewMenu:VCameraShootMenu = VCameraShootMenu(
             controller:self.controller)
         self.viewMenu = viewMenu
         
+        addSubview(viewPreview)
         addSubview(viewMenu)
+        
+        layoutPreviewHeight = NSLayoutConstraint.height(
+            view:viewPreview)
+        let layoutPreviewTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewPreview,
+            toView:self)
+        let layoutPreviewLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewPreview,
+            toView:self)
+        let layoutPreviewRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewPreview,
+            toView:self)
         
         let layoutMenuHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:viewMenu,
@@ -32,6 +50,10 @@ class VCameraShoot:VView
             toView:self)
         
         addConstraints([
+            layoutPreviewHeight,
+            layoutPreviewTop,
+            layoutPreviewLeft,
+            layoutPreviewRight,
             layoutMenuHeight,
             layoutMenuBottom,
             layoutMenuLeft,

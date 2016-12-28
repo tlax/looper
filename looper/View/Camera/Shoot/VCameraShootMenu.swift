@@ -32,11 +32,6 @@ class VCameraShootMenu:UIView
         buttonBack.imageView!.contentMode = UIViewContentMode.center
         buttonBack.imageView!.clipsToBounds = true
         buttonBack.imageView!.tintColor = UIColor(white:1, alpha:0.1)
-        buttonBack.imageEdgeInsets = UIEdgeInsets(
-            top:5,
-            left:0,
-            bottom:0,
-            right:10)
         buttonBack.addTarget(
             self,
             action:#selector(actionBack(sender:)),
@@ -60,8 +55,11 @@ class VCameraShootMenu:UIView
             for:UIControlEvents.touchUpInside)
         self.buttonReverse = buttonReverse
         
-        let buttonTrigger:VCameraShootMenuTrigger = VCameraShootMenuTrigger(
-            controller:controller)
+        let buttonTrigger:VCameraShootMenuTrigger = VCameraShootMenuTrigger()
+        buttonTrigger.addTarget(
+            self,
+            action:#selector(actionTrigger(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonTrigger = buttonTrigger
         
         addSubview(buttonBack)
@@ -133,6 +131,11 @@ class VCameraShootMenu:UIView
     }
     
     //MARK: actions
+    
+    func actionTrigger(sender button:VCameraShootMenuTrigger)
+    {
+        
+    }
     
     func actionBack(sender button:UIButton)
     {
