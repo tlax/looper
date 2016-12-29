@@ -5,10 +5,10 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     private weak var controller:CCamera!
     private weak var collectionView:VCollection!
     private weak var spinner:VSpinner!
-    private let kHeaderHeight:CGFloat = 160
+    private let kHeaderHeight:CGFloat = 245
     private let kFooterHeight:CGFloat = 60
     private let kCollectionBottom:CGFloat = 20
-    private let kCellHeight:CGFloat = 128
+    private let kCellHeight:CGFloat = 120
     
     override init(controller:CController)
     {

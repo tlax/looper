@@ -8,9 +8,8 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private let kCellSize:CGFloat = 68
     private let kInterLine:CGFloat = 1
     private let kBorderHeight:CGFloat = 1
-    private let kButtonsTop:CGFloat = 5
     private let kButtonsWidth:CGFloat = 55
-    private let kButtonsHeight:CGFloat = 40
+    private let kButtonsHeight:CGFloat = 50
     
     override init(frame:CGRect)
     {
@@ -94,8 +93,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         
         let layoutCheckAllTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:buttonCheckAll,
-            toView:collectionView,
-            constant:kButtonsTop)
+            toView:collectionView)
         let layoutCheckAllHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:buttonCheckAll,
             constant:kButtonsHeight)
@@ -108,8 +106,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         
         let layoutUncheckAllTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:buttonUncheckAll,
-            toView:collectionView,
-            constant:kButtonsTop)
+            toView:collectionView)
         let layoutUncheckAllHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:buttonUncheckAll,
             constant:kButtonsHeight)
@@ -122,8 +119,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         
         let layoutTrashTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:buttonTrash,
-            toView:collectionView,
-            constant:kButtonsTop)
+            toView:collectionView)
         let layoutTrashHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:buttonTrash,
             constant:kButtonsHeight)
