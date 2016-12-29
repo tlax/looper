@@ -11,8 +11,8 @@ class CParent:UIViewController
     
     enum TransitionHorizontal:CGFloat
     {
-        case fromLeft = 1
-        case fromRight = -1
+        case fromLeft = -1
+        case fromRight = 1
         case none = 0
     }
     
