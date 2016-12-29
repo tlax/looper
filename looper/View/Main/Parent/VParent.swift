@@ -42,6 +42,22 @@ class VParent:UIView
     
     //MARK: public
     
+    func scrollDidScroll(offsetY:CGFloat)
+    {
+        let barTopConstant:CGFloat
+        
+        if offsetY > 0
+        {
+            barTopConstant = offsetY
+        }
+        else
+        {
+            barTopConstant = 0
+        }
+        
+        layoutBarTop.constant = barTopConstant
+    }
+    
     func mainView(view:VView)
     {
         insertSubview(view, belowSubview:viewBar)
