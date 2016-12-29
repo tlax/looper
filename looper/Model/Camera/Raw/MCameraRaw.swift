@@ -50,9 +50,10 @@ class MCameraRaw
             }
             
             UIGraphicsEndImageContext()
-            let generatedItem:MHomeImageSequenceItem = MHomeImageSequenceItem(
+            
+            let renderedItem:MCameraRecordItem = MCameraRecordItem(
                 image:normalizedImage)
-            items.append(generatedItem)
+            record.items.append(renderedItem)
         }
         
         return record

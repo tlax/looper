@@ -31,7 +31,7 @@ class MCameraRawItem
             
             image = UIImage(
                 cgImage:cgImage,
-                scale:image.scale,
+                scale:self.image.scale,
                 orientation:UIImageOrientation.leftMirrored)
         }
         else
