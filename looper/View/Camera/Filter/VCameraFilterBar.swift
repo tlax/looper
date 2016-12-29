@@ -3,8 +3,10 @@ import UIKit
 class VCameraFilterBar:UIView
 {
     private weak var controller:CCameraFilter!
+    private weak var layoutIconLeft:NSLayoutConstraint!
     private let kContentTop:CGFloat = 20
     private let kBackWidth:CGFloat = 60
+    private let kIconWidth:CGFloat = 60
     
     convenience init(controller:CCameraFilter)
     {
@@ -30,6 +32,14 @@ class VCameraFilterBar:UIView
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let icon:UIImageView = UIImageView()
+        icon.isUserInteractionEnabled = false
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        icon.clipsToBounds = true
+        icon.contentMode = UIViewContentMode.center
+        icon.image = #imageLiteral(resourceName: "assetCameraFilter")
+        
+        addSubview(icon)
         addSubview(backButton)
         
         let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
@@ -46,11 +56,39 @@ class VCameraFilterBar:UIView
             view:backButton,
             constant:kBackWidth)
         
+        let layoutIconTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:icon,
+            toView:self,
+            constant:kContentTop)
+        let layoutIconBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:icon,
+            toView:self)
+        layoutIconLeft = NSLayoutConstraint.leftToLeft(
+            view:icon,
+            toView:self)
+        let layoutIconWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:icon,
+            constant:kIconWidth)
+        
         addConstraints([
             layoutBackTop,
             layoutBackBottom,
             layoutBackLeft,
-            layoutBackWidth])
+            layoutBackWidth,
+            layoutIconTop,
+            layoutIconBottom,
+            layoutIconLeft,
+            layoutIconWidth])
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let remainIcon:CGFloat = width - kIconWidth
+        let margin:CGFloat = remainIcon / 2.0
+        layoutIconLeft.constant = margin
+        
+        super.layoutSubviews()
     }
     
     //MARK: actions

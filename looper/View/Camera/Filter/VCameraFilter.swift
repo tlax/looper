@@ -3,7 +3,7 @@ import UIKit
 class VCameraFilter:VView
 {
     private weak var controller:CCameraFilter!
-    private let kBarHeight:CGFloat = 100
+    private let kBarHeight:CGFloat = 64
     
     override init(controller:CController)
     {
