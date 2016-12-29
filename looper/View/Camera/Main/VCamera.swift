@@ -8,8 +8,7 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     private let kHeaderHeight:CGFloat = 160
     private let kFooterHeight:CGFloat = 60
     private let kCollectionBottom:CGFloat = 20
-    private let kInterLine:CGFloat = 1
-    private let kCellHeight:CGFloat = 100
+    private let kCellHeight:CGFloat = 200
     
     override init(controller:CController)
     {
@@ -20,9 +19,8 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         collectionView.flow.headerReferenceSize = CGSize(
             width:0,
             height:kHeaderHeight)
-        collectionView.flow.minimumLineSpacing = kInterLine
         collectionView.flow.sectionInset = UIEdgeInsets(
-            top:kInterLine,
+            top:0,
             left:0,
             bottom:kCollectionBottom,
             right:0)
@@ -100,6 +98,13 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     //MARK: collectionView delegate
     
+    func scrollViewDidScroll(_ scrollView:UIScrollView)
+    {
+        let offset:CGPoint = scrollView.contentOffset
+        let offsetY:CGFloat = offset.y
+        controller.parentController.viewParent.scrollDidScroll(offsetY:offsetY)
+    }
+    
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         let width:CGFloat = collectionView.bounds.maxX
@@ -171,5 +176,15 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             for:indexPath) as! VCameraCell
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
     }
 }

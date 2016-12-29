@@ -55,7 +55,7 @@ class VParent:UIView
             barTopConstant = 0
         }
         
-        layoutBarTop.constant = barTopConstant
+        layoutBarTop.constant = -barTopConstant
     }
     
     func mainView(view:VView)
