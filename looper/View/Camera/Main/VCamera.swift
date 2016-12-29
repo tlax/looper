@@ -8,7 +8,7 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     private let kHeaderHeight:CGFloat = 160
     private let kFooterHeight:CGFloat = 60
     private let kCollectionBottom:CGFloat = 20
-    private let kCellHeight:CGFloat = 160
+    private let kCellHeight:CGFloat = 130
     
     override init(controller:CController)
     {

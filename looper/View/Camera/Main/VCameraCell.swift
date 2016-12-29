@@ -4,15 +4,14 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
 {
     private weak var collectionView:VCollection!
     private weak var model:MCameraRecord?
-    private let kCollectionMargin:CGFloat = 10
+    private let kCollectionMargin:CGFloat = 15
     private let kCollectionHeight:CGFloat = 70
     private let kCellSize:CGFloat = 68
     private let kInterLine:CGFloat = 1
     private let kBorderHeight:CGFloat = 1
-    private let kButtonsTop:CGFloat = 10
-    private let kButtonsRight:CGFloat = -15
-    private let kButtonsWidth:CGFloat = 60
-    private let kButtonsHeight:CGFloat = 35
+    private let kButtonsTop:CGFloat = 5
+    private let kButtonsWidth:CGFloat = 55
+    private let kButtonsHeight:CGFloat = 40
     
     override init(frame:CGRect)
     {
@@ -57,14 +56,26 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             action:#selector(actionCheckAll(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonUncheckAll:UIButton = UIButton()
+        buttonUncheckAll.translatesAutoresizingMaskIntoConstraints = false
+        buttonUncheckAll.setImage(
+            #imageLiteral(resourceName: "assetCameraUncheckAll"),
+            for:UIControlState.normal)
+        buttonUncheckAll.imageView!.clipsToBounds = true
+        buttonUncheckAll.imageView!.contentMode = UIViewContentMode.center
+        buttonUncheckAll.addTarget(
+            self,
+            action:#selector(actionUncheckAll(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         addSubview(borderTop)
         addSubview(collectionView)
         addSubview(buttonCheckAll)
+        addSubview(buttonUncheckAll)
         
         let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:collectionView,
-            toView:self,
-            constant:kCollectionMargin)
+            toView:self)
         let layoutCollectionHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:collectionView,
             constant:kCollectionHeight)
@@ -95,12 +106,25 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         let layoutCheckAllHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:buttonCheckAll,
             constant:kButtonsHeight)
-        let layoutCheckAllRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        let layoutCheckAllLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:buttonCheckAll,
-            toView:self,
-            constant:kButtonsRight)
+            toView:self)
         let layoutCheckAllWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:buttonCheckAll,
+            constant:kButtonsWidth)
+        
+        let layoutUncheckAllTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:buttonUncheckAll,
+            toView:collectionView,
+            constant:kButtonsTop)
+        let layoutUncheckAllHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:buttonUncheckAll,
+            constant:kButtonsHeight)
+        let layoutUncheckAllLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
+            view:buttonUncheckAll,
+            toView:buttonCheckAll)
+        let layoutUncheckAllWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:buttonUncheckAll,
             constant:kButtonsWidth)
         
         addConstraints([
@@ -114,8 +138,12 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             layoutBorderTopRight,
             layoutCheckAllTop,
             layoutCheckAllHeight,
-            layoutCheckAllRight,
-            layoutCheckAllWidth])
+            layoutCheckAllLeft,
+            layoutCheckAllWidth,
+            layoutUncheckAllTop,
+            layoutUncheckAllHeight,
+            layoutUncheckAllLeft,
+            layoutUncheckAllWidth])
     }
     
     required init?(coder:NSCoder)
@@ -126,6 +154,11 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     //MARK: actions
     
     func actionCheckAll(sender button:UIButton)
+    {
+        
+    }
+    
+    func actionUncheckAll(sender button:UIButton)
     {
         
     }

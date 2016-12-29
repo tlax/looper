@@ -22,7 +22,7 @@ class VCameraCellItem:UICollectionViewCell
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor(white:0, alpha:0.5).cgColor
+        imageView.layer.borderColor = UIColor(white:0, alpha:0.1).cgColor
         self.imageView = imageView
         
         let indicator:UIView = UIView()
