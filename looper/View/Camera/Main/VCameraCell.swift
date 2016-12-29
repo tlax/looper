@@ -4,7 +4,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
 {
     private weak var collectionView:VCollection!
     private weak var model:MCameraRecord?
-    private let kCollectionMargin:CGFloat = 15
     private let kCollectionHeight:CGFloat = 70
     private let kCellSize:CGFloat = 68
     private let kInterLine:CGFloat = 1
@@ -28,21 +27,16 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         collectionView.flow.sectionInset = UIEdgeInsets(
             top:0,
-            left:kCollectionMargin,
+            left:kInterLine,
             bottom:0,
-            right:kCollectionMargin)
+            right:kInterLine)
+        collectionView.backgroundColor = UIColor(white:0, alpha:0.05)
         collectionView.alwaysBounceHorizontal = true
         collectionView.registerCell(
             cell:VCameraCellItem.self)
         collectionView.dataSource = self
         collectionView.delegate = self
         self.collectionView = collectionView
-        
-        let borderTop:UIView = UIView()
-        borderTop.isUserInteractionEnabled = false
-        borderTop.backgroundColor = UIColor(white:0, alpha:0.1)
-        borderTop.translatesAutoresizingMaskIntoConstraints = false
-        borderTop.clipsToBounds = true
         
         let buttonCheckAll:UIButton = UIButton()
         buttonCheckAll.translatesAutoresizingMaskIntoConstraints = false
@@ -68,7 +62,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             action:#selector(actionUncheckAll(sender:)),
             for:UIControlEvents.touchUpInside)
         
-        addSubview(borderTop)
         addSubview(collectionView)
         addSubview(buttonCheckAll)
         addSubview(buttonUncheckAll)
@@ -84,19 +77,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             toView:self)
         let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:collectionView,
-            toView:self)
-        
-        let layoutBorderTopTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:borderTop,
-            toView:self)
-        let layoutBorderTopHeight:NSLayoutConstraint = NSLayoutConstraint.height(
-            view:borderTop,
-            constant:kBorderHeight)
-        let layoutBorderTopLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:borderTop,
-            toView:self)
-        let layoutBorderTopRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:borderTop,
             toView:self)
         
         let layoutCheckAllTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
@@ -132,10 +112,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             layoutCollectionHeight,
             layoutCollectionLeft,
             layoutCollectionRight,
-            layoutBorderTopTop,
-            layoutBorderTopHeight,
-            layoutBorderTopLeft,
-            layoutBorderTopRight,
             layoutCheckAllTop,
             layoutCheckAllHeight,
             layoutCheckAllLeft,
@@ -155,15 +131,42 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     func actionCheckAll(sender button:UIButton)
     {
-        
+        changeAllItems(active:true)
     }
     
     func actionUncheckAll(sender button:UIButton)
     {
-        
+        changeAllItems(active:false)
     }
     
     //MARK: private
+    
+    private func changeAllItems(active:Bool)
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            guard
+            
+                let model:MCameraRecord = self?.model
+            
+            else
+            {
+                return
+            }
+            
+            for item:MCameraRecordItem in model.items
+            {
+                item.active = active
+            }
+            
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.collectionView.reloadData()
+            }
+        }
+    }
     
     private func modelAtIndex(index:IndexPath) -> MCameraRecordItem
     {
