@@ -62,9 +62,22 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             action:#selector(actionUncheckAll(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonTrash:UIButton = UIButton()
+        buttonTrash.translatesAutoresizingMaskIntoConstraints = false
+        buttonTrash.setImage(
+            #imageLiteral(resourceName: "assetCameraTrash"),
+            for:UIControlState.normal)
+        buttonTrash.imageView!.clipsToBounds = true
+        buttonTrash.imageView!.contentMode = UIViewContentMode.center
+        buttonTrash.addTarget(
+            self,
+            action:#selector(actionTrash(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         addSubview(collectionView)
         addSubview(buttonCheckAll)
         addSubview(buttonUncheckAll)
+        addSubview(buttonTrash)
         
         let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:collectionView,
@@ -107,6 +120,20 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             view:buttonUncheckAll,
             constant:kButtonsWidth)
         
+        let layoutTrashTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:buttonTrash,
+            toView:collectionView,
+            constant:kButtonsTop)
+        let layoutTrashHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:buttonTrash,
+            constant:kButtonsHeight)
+        let layoutTrashLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
+            view:buttonTrash,
+            toView:buttonUncheckAll)
+        let layoutTrashWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:buttonTrash,
+            constant:kButtonsWidth)
+        
         addConstraints([
             layoutCollectionTop,
             layoutCollectionHeight,
@@ -119,7 +146,11 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             layoutUncheckAllTop,
             layoutUncheckAllHeight,
             layoutUncheckAllLeft,
-            layoutUncheckAllWidth])
+            layoutUncheckAllWidth,
+            layoutTrashTop,
+            layoutTrashHeight,
+            layoutTrashLeft,
+            layoutTrashWidth])
     }
     
     required init?(coder:NSCoder)
@@ -137,6 +168,11 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     func actionUncheckAll(sender button:UIButton)
     {
         changeAllItems(active:false)
+    }
+    
+    func actionTrash(sender button:UIButton)
+    {
+        
     }
     
     //MARK: private
