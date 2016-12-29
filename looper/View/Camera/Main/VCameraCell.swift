@@ -6,8 +6,8 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private weak var model:MCameraRecord?
     private let kCollectionMargin:CGFloat = 10
     private let kCollectionHeight:CGFloat = 70
-    private let kCellSize:CGFloat = 55
-    private let kInterLine:CGFloat = 2
+    private let kCellSize:CGFloat = 63
+    private let kInterLine:CGFloat = 1
     private let kBorderHeight:CGFloat = 1
     
     override init(frame:CGRect)
