@@ -154,7 +154,7 @@ class VCameraHeader:UICollectionReusableView
             return
         }
         
-        if !unlimitedRecords && currentRecords > MSession.kFroobMaxRecords
+        if !unlimitedRecords && currentRecords >= MSession.kFroobMaxRecords
         {
             print("records full")
         }
