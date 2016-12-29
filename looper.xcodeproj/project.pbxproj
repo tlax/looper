@@ -31,6 +31,7 @@
 		DA505F541E0B557400CE22FE /* VHomeControlBlenderPiecesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505F531E0B557400CE22FE /* VHomeControlBlenderPiecesItem.swift */; };
 		DA5C523A1E15723100D296C6 /* VCameraCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C52391E15723100D296C6 /* VCameraCellItem.swift */; };
 		DA5C523C1E15CC3000D296C6 /* CCameraFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C523B1E15CC3000D296C6 /* CCameraFilter.swift */; };
+		DA5C52401E15CC8800D296C6 /* VCameraFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C523F1E15CC8800D296C6 /* VCameraFilter.swift */; };
 		DA799CCD1E14148D00AB45DD /* VCameraShootConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CCC1E14148D00AB45DD /* VCameraShootConfig.swift */; };
 		DA799CCF1E1426A100AB45DD /* VCameraShootProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CCE1E1426A100AB45DD /* VCameraShootProcess.swift */; };
 		DA799CD81E14354C00AB45DD /* MCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CD31E14354C00AB45DD /* MCamera.swift */; };
@@ -147,6 +148,7 @@
 		DA505F531E0B557400CE22FE /* VHomeControlBlenderPiecesItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlenderPiecesItem.swift; sourceTree = "<group>"; };
 		DA5C52391E15723100D296C6 /* VCameraCellItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraCellItem.swift; sourceTree = "<group>"; };
 		DA5C523B1E15CC3000D296C6 /* CCameraFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraFilter.swift; sourceTree = "<group>"; };
+		DA5C523F1E15CC8800D296C6 /* VCameraFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilter.swift; sourceTree = "<group>"; };
 		DA799CCC1E14148D00AB45DD /* VCameraShootConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraShootConfig.swift; sourceTree = "<group>"; };
 		DA799CCE1E1426A100AB45DD /* VCameraShootProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraShootProcess.swift; sourceTree = "<group>"; };
 		DA799CD31E14354C00AB45DD /* MCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCamera.swift; sourceTree = "<group>"; };
@@ -344,6 +346,21 @@
 			path = Blender;
 			sourceTree = "<group>";
 		};
+		DA5C523D1E15CC7900D296C6 /* Compress */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Compress;
+			sourceTree = "<group>";
+		};
+		DA5C523E1E15CC7900D296C6 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				DA5C523F1E15CC8800D296C6 /* VCameraFilter.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		DA799CD21E14354C00AB45DD /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,19 +546,13 @@
 		DA9B83C31E12DCAE002B9810 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				DA9B83C81E12E367002B9810 /* Blend */,
+				DA5C523D1E15CC7900D296C6 /* Compress */,
+				DA5C523E1E15CC7900D296C6 /* Filter */,
 				DA9B83C91E12E367002B9810 /* Main */,
 				DA9B83CB1E12E367002B9810 /* Process */,
 				DA9B83CC1E12E367002B9810 /* Shoot */,
 			);
 			path = Camera;
-			sourceTree = "<group>";
-		};
-		DA9B83C81E12E367002B9810 /* Blend */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Blend;
 			sourceTree = "<group>";
 		};
 		DA9B83C91E12E367002B9810 /* Main */ = {
@@ -825,6 +836,7 @@
 				DA799CE81E1436D200AB45DD /* MCameraSpeed10.swift in Sources */,
 				DA9D2F3B1E0ADF57003E37D5 /* VHomeControlCameraPreview.swift in Sources */,
 				DA505F4E1E0B4F1100CE22FE /* VHomeControlBlenderBoard.swift in Sources */,
+				DA5C52401E15CC8800D296C6 /* VCameraFilter.swift in Sources */,
 				DA799CCF1E1426A100AB45DD /* VCameraShootProcess.swift in Sources */,
 				DA505F4C1E0B4C9F00CE22FE /* VHomeControlBlenderMenu.swift in Sources */,
 				DA20F0BA1E0444E800F8BAD4 /* MHomeControlItem.swift in Sources */,
