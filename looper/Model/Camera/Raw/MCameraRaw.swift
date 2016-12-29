@@ -18,14 +18,11 @@ class MCameraRaw
         
         for item:MCameraRawItem in self.items
         {
-            let image:UIImage
-            
-            
-            let originalImage:UIImage = sequenceItem.image
-            
+            let originalImage:UIImage = item.normalizedImage()
             let width:CGFloat = originalImage.size.width
             let height:CGFloat = originalImage.size.height
-            let minSize:CGFloat = min(width, height)
+            let minRawSize:CGFloat = min(width, height)
+            let minSize:CGFloat = min(minRawSize, MCamera.kImageMaxSize)
             let remainLeft:CGFloat = width - minSize
             let remainTop:CGFloat = height - minSize
             let marginLeft:CGFloat = remainLeft / -2.0
@@ -46,7 +43,7 @@ class MCameraRaw
                 
                 let normalizedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
                 
-                else
+            else
             {
                 UIGraphicsEndImageContext()
                 continue
@@ -56,7 +53,7 @@ class MCameraRaw
             let generatedItem:MHomeImageSequenceItem = MHomeImageSequenceItem(
                 image:normalizedImage)
             items.append(generatedItem)
-        }*/
+        }
         
         return record
     }
