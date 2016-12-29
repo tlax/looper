@@ -5,8 +5,8 @@ class VCameraCellItem:UICollectionViewCell
     private weak var model:MCameraRecordItem?
     private weak var imageView:UIImageView!
     private weak var indicator:UIView!
-    private let kImageBottom:CGFloat = -7
-    private let kIndicatorHeight:CGFloat = 3
+    private let kImageBottom:CGFloat = -2
+    private let kIndicatorHeight:CGFloat = 2
     private let kAlphaActive:CGFloat = 1
     private let kAlphaNotActive:CGFloat = 0.2
     
@@ -105,7 +105,7 @@ class VCameraCellItem:UICollectionViewCell
         else
         {
             imageView.alpha = kAlphaNotActive
-            indicator.backgroundColor = UIColor(white:0.8, alpha:1)
+            indicator.backgroundColor = UIColor(white:0.9, alpha:1)
         }
     }
 }

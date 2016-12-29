@@ -26,7 +26,7 @@ class MCamera
             object:nil)
         
         let record:MCameraRecord = modelRaw.render()
-        records.append(record)
+        records.insert(record, at:0)
         
         NotificationCenter.default.post(
             name:Notification.cameraLoadFinished,
