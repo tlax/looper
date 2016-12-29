@@ -108,7 +108,7 @@ class VCameraHeader:UICollectionReusableView
     
     func actionProcess(sender button:VCameraHeaderButton)
     {
-        
+        controller?.next()
     }
     
     //MARK: public

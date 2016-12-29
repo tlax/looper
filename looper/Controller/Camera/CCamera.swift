@@ -112,4 +112,12 @@ class CCamera:CController
         alert.addAction(actionCancel)
         present(alert, animated:true, completion:nil)
     }
+    
+    func next()
+    {
+        let controller:CCameraFilter = CCameraFilter(model:model)
+        parentController.push(
+            controller:controller,
+            horizontal:CParent.TransitionHorizontal.fromRight)
+    }
 }
