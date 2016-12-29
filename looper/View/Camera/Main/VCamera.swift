@@ -81,6 +81,15 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         fatalError()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MCameraRecord
+    {
+        let item:MCameraRecord = controller.model.records[index.item]
+        
+        return item
+    }
+    
     //MARK: public
     
     func showLoading()
@@ -170,10 +179,12 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MCameraRecord = modelAtIndex(index:indexPath)
         let cell:VCameraCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VCameraCell.reusableIdentifier,
             for:indexPath) as! VCameraCell
+        cell.config(model:item)
         
         return cell
     }

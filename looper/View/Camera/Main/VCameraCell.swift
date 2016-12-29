@@ -4,34 +4,59 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
 {
     private weak var collectionView:VCollection!
     private weak var model:MCameraRecord?
-    private let kCollectionTop:CGFloat = 10
-    private let kCollectionHeight:CGFloat = 80
+    private let kCollectionMargin:CGFloat = 10
+    private let kCollectionHeight:CGFloat = 70
+    private let kCellSize:CGFloat = 55
     private let kInterLine:CGFloat = 2
+    private let kBorderHeight:CGFloat = 1
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.gray
+        backgroundColor = UIColor.clear
         
         let collectionView:VCollection = VCollection()
+        collectionView.flow.itemSize = CGSize(
+            width:kCellSize,
+            height:kCollectionHeight)
         collectionView.flow.minimumInteritemSpacing = kInterLine
         collectionView.flow.minimumLineSpacing = kInterLine
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         collectionView.flow.sectionInset = UIEdgeInsets(
             top:0,
-            left:kInterLine,
+            left:kCollectionMargin,
             bottom:0,
-            right:kInterLine)
+            right:kCollectionMargin)
         collectionView.alwaysBounceHorizontal = true
+        collectionView.registerCell(
+            cell:VCameraCellItem.self)
+        collectionView.dataSource = self
+        collectionView.delegate = self
         self.collectionView = collectionView
         
+        let borderColor:UIColor = UIColor(white:0, alpha:0.1)
+        
+        let borderTop:UIView = UIView()
+        borderTop.isUserInteractionEnabled = false
+        borderTop.backgroundColor = borderColor
+        borderTop.translatesAutoresizingMaskIntoConstraints = false
+        borderTop.clipsToBounds = true
+        
+        let borderBottom:UIView = UIView()
+        borderBottom.isUserInteractionEnabled = false
+        borderBottom.backgroundColor = borderColor
+        borderBottom.translatesAutoresizingMaskIntoConstraints = false
+        borderBottom.clipsToBounds = true
+        
+        addSubview(borderTop)
+        addSubview(borderBottom)
         addSubview(collectionView)
         
         let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:collectionView,
             toView:self,
-            constant:kCollectionTop)
+            constant:kCollectionMargin)
         let layoutCollectionHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:collectionView,
             constant:kCollectionHeight)
@@ -42,11 +67,45 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             view:collectionView,
             toView:self)
         
+        let layoutBorderTopTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:borderTop,
+            toView:self)
+        let layoutBorderTopHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:borderTop,
+            constant:kBorderHeight)
+        let layoutBorderTopLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:borderTop,
+            toView:self)
+        let layoutBorderTopRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:borderTop,
+            toView:self)
+        
+        let layoutBorderBottomBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:borderBottom,
+            toView:self)
+        let layoutBorderBottomHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:borderBottom,
+            constant:kBorderHeight)
+        let layoutBorderBottomLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:borderBottom,
+            toView:self)
+        let layoutBorderBottomRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:borderBottom,
+            toView:self)
+        
         addConstraints([
             layoutCollectionTop,
             layoutCollectionHeight,
             layoutCollectionLeft,
-            layoutCollectionRight])
+            layoutCollectionRight,
+            layoutBorderTopTop,
+            layoutBorderTopHeight,
+            layoutBorderTopLeft,
+            layoutBorderTopRight,
+            layoutBorderBottomBottom,
+            layoutBorderBottomHeight,
+            layoutBorderBottomLeft,
+            layoutBorderBottomRight])
     }
     
     required init?(coder:NSCoder)
@@ -72,14 +131,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     }
     
     //MARK: collectionView delegate
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-    {
-        let height:CGFloat = collectionView.bounds.maxY
-        let size:CGSize = CGSize(width:height, height:height)
-        
-        return size
-    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
