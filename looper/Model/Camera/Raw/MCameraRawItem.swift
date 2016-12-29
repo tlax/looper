@@ -3,8 +3,8 @@ import AVFoundation
 
 class MCameraRawItem
 {
-    let image:UIImage
-    let devicePosition:AVCaptureDevicePosition
+    private let image:UIImage
+    private let devicePosition:AVCaptureDevicePosition
     
     init(image:UIImage, devicePosition:AVCaptureDevicePosition)
     {
@@ -14,5 +14,31 @@ class MCameraRawItem
     
     //MARK: public
     
-    
+    func normalizedImage() -> UIImage
+    {
+        let image:UIImage
+        
+        if devicePosition == AVCaptureDevicePosition.front
+        {
+            guard
+                
+                let cgImage:CGImage = self.image.cgImage
+                
+            else
+            {
+                return self.image
+            }
+            
+            image = UIImage(
+                cgImage:cgImage,
+                scale:image.scale,
+                orientation:UIImageOrientation.leftMirrored)
+        }
+        else
+        {
+            image = self.image
+        }
+        
+        return image
+    }
 }

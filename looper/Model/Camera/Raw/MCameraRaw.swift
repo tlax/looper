@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 class MCameraRaw
 {
@@ -14,9 +15,12 @@ class MCameraRaw
     func render() -> MCameraRecord
     {
         let record:MCameraRecord = MCameraRecord()
-        /*
-        for sequenceItem:MHomeImageSequenceItem in self.items
+        
+        for item:MCameraRawItem in self.items
         {
+            let image:UIImage
+            
+            
             let originalImage:UIImage = sequenceItem.image
             
             let width:CGFloat = originalImage.size.width
