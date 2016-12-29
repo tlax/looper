@@ -9,6 +9,10 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private let kCellSize:CGFloat = 68
     private let kInterLine:CGFloat = 1
     private let kBorderHeight:CGFloat = 1
+    private let kButtonsTop:CGFloat = 10
+    private let kButtonsRight:CGFloat = -15
+    private let kButtonsWidth:CGFloat = 60
+    private let kButtonsHeight:CGFloat = 35
     
     override init(frame:CGRect)
     {
@@ -35,16 +39,27 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         self.collectionView = collectionView
         
-        let borderColor:UIColor = UIColor(white:0, alpha:0.1)
-        
         let borderTop:UIView = UIView()
         borderTop.isUserInteractionEnabled = false
-        borderTop.backgroundColor = borderColor
+        borderTop.backgroundColor = UIColor(white:0, alpha:0.1)
         borderTop.translatesAutoresizingMaskIntoConstraints = false
         borderTop.clipsToBounds = true
         
+        let buttonCheckAll:UIButton = UIButton()
+        buttonCheckAll.translatesAutoresizingMaskIntoConstraints = false
+        buttonCheckAll.setImage(
+            #imageLiteral(resourceName: "assetCameraCheckAll"),
+            for:UIControlState.normal)
+        buttonCheckAll.imageView!.clipsToBounds = true
+        buttonCheckAll.imageView!.contentMode = UIViewContentMode.center
+        buttonCheckAll.addTarget(
+            self,
+            action:#selector(actionCheckAll(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         addSubview(borderTop)
         addSubview(collectionView)
+        addSubview(buttonCheckAll)
         
         let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:collectionView,
@@ -73,6 +88,21 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             view:borderTop,
             toView:self)
         
+        let layoutCheckAllTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:buttonCheckAll,
+            toView:collectionView,
+            constant:kButtonsTop)
+        let layoutCheckAllHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:buttonCheckAll,
+            constant:kButtonsHeight)
+        let layoutCheckAllRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:buttonCheckAll,
+            toView:self,
+            constant:kButtonsRight)
+        let layoutCheckAllWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:buttonCheckAll,
+            constant:kButtonsWidth)
+        
         addConstraints([
             layoutCollectionTop,
             layoutCollectionHeight,
@@ -81,12 +111,23 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             layoutBorderTopTop,
             layoutBorderTopHeight,
             layoutBorderTopLeft,
-            layoutBorderTopRight])
+            layoutBorderTopRight,
+            layoutCheckAllTop,
+            layoutCheckAllHeight,
+            layoutCheckAllRight,
+            layoutCheckAllWidth])
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: actions
+    
+    func actionCheckAll(sender button:UIButton)
+    {
+        
     }
     
     //MARK: private
