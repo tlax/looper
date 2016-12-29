@@ -1,6 +1,6 @@
 import UIKit
 
-class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewFlowLayout
+class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var collectionView:VCollection!
     private weak var model:MCameraRecord?
@@ -54,6 +54,15 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         fatalError()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MCameraRecordItem
+    {
+        let item:MCameraRecordItem = model!.items[index.item]
+        
+        return item
+    }
+    
     //MARK: public
     
     func config(model:MCameraRecord)
@@ -63,6 +72,14 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        let height:CGFloat = collectionView.bounds.maxY
+        let size:CGSize = CGSize(width:height, height:height)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
@@ -85,5 +102,17 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         count = model.items.count
         
         return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MCameraRecordItem = modelAtIndex(index:indexPath)
+        let cell:VCameraCellItem = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VCameraCellItem.reusableIdentifier,
+            for:indexPath) as! VCameraCellItem
+        cell.config(model:item)
+        
+        return cell
     }
 }
