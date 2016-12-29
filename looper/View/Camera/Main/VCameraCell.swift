@@ -4,6 +4,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
 {
     private weak var collectionView:VCollection!
     private weak var model:MCameraRecord?
+    private weak var controller:CCamera?
     private let kCollectionHeight:CGFloat = 70
     private let kCellSize:CGFloat = 68
     private let kInterLine:CGFloat = 1
@@ -168,7 +169,16 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     func actionTrash(sender button:UIButton)
     {
+        guard
+            
+            let model:MCameraRecord = self.model
+            
+        else
+        {
+            return
+        }
         
+        controller?.trash(item:model)
     }
     
     //MARK: private
@@ -209,9 +219,10 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     //MARK: public
     
-    func config(model:MCameraRecord)
+    func config(model:MCameraRecord, controller:CCamera)
     {
         self.model = model
+        self.controller = controller
         collectionView.reloadData()
     }
     

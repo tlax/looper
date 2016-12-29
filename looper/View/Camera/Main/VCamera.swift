@@ -184,7 +184,7 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             withReuseIdentifier:
             VCameraCell.reusableIdentifier,
             for:indexPath) as! VCameraCell
-        cell.config(model:item)
+        cell.config(model:item, controller:controller)
         
         return cell
     }

@@ -2,8 +2,11 @@
 "VHomeControlBlenderBoard_labelMain"="Main picture";
 "VHomeControlBlenderBoard_labelBoard"="Blend over main";
 
-"VCameraFooter_label"="Start by recording a video";
+"VCameraFooter_label"="Start by recording a sequence";
 "VCameraShootConfig_titleBottom"="Frames/second";
 
 "CCameraShoot_noAuth"="looper has no access to your camera";
 "CCameraShoot_errorCaptureDevice"="Error connecting to camera";
+"CCamera_alertTitle"="Delete sequence?";
+"CCamera_alertDelete"="Delete";
+"CCamera_alertCancel"="Cancel";

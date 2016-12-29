@@ -66,6 +66,14 @@ class CCamera:CController
         }
     }
     
+    //MARK: private
+    
+    private func confirmTrash(item:MCameraRecord)
+    {
+        model.trashRecord(record:item)
+        viewCamera.refresh()
+    }
+    
     //MARK: public
     
     func shoot()
@@ -74,5 +82,34 @@ class CCamera:CController
         parentController.push(
             controller:controller,
             vertical:CParent.TransitionVertical.fromTop)
+    }
+    
+    func trash(item:MCameraRecord)
+    {
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("CCamera_alertTitle", comment:""),
+            message:nil,
+            preferredStyle:UIAlertControllerStyle.actionSheet)
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CCamera_alertCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionDelete:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CCamera_alertDelete", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { [weak self] (action:UIAlertAction) in
+            
+            self?.confirmTrash(item:item)
+        }
+        
+        alert.addAction(actionDelete)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
     }
 }

@@ -50,4 +50,24 @@ class MCamera
             self?.asyncRenderRecording(modelRaw:modelRaw)
         }
     }
+    
+    func trashRecord(record:MCameraRecord)
+    {
+        let countRecords:Int = records.count
+        var recordToDelete:Int = 0
+        
+        for indexRecord:Int in 0 ..< countRecords
+        {
+            let recordItem:MCameraRecord = records[indexRecord]
+            
+            if recordItem === record
+            {
+                recordToDelete = indexRecord
+                
+                break
+            }
+        }
+        
+        records.remove(at:recordToDelete)
+    }
 }
