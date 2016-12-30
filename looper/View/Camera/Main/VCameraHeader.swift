@@ -117,7 +117,7 @@ class VCameraHeader:UICollectionReusableView
     
     //MARK: actions
     
-    func actionShoot(sender button:VCameraHeaderButton)
+    func actionShoot(sender button:VCameraActiveButton)
     {
         guard
         
@@ -139,7 +139,7 @@ class VCameraHeader:UICollectionReusableView
         }
     }
     
-    func actionProcess(sender button:VCameraHeaderButton)
+    func actionProcess(sender button:VCameraActiveButton)
     {
         controller?.next()
     }

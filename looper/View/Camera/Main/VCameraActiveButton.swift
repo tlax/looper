@@ -3,7 +3,7 @@ import UIKit
 class VCameraActiveButton:UIButton
 {
     private let kAlphaNotHover:CGFloat = 1
-    private let kAlphaHover:CGFloat = 0.4
+    private let kAlphaHover:CGFloat = 0.5
     private let image:UIImage
     
     init(image:UIImage)
@@ -13,7 +13,7 @@ class VCameraActiveButton:UIButton
         translatesAutoresizingMaskIntoConstraints = false
         imageView!.contentMode = UIViewContentMode.center
         imageView!.clipsToBounds = true
-        imageView!.tintColor = UIColor(white:0.8, alpha:1)
+        imageView!.tintColor = UIColor(white:0.85, alpha:1)
     }
     
     required init?(coder:NSCoder)
