@@ -41,8 +41,12 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         let buttonCheckAll:UIButton = UIButton()
         buttonCheckAll.translatesAutoresizingMaskIntoConstraints = false
         buttonCheckAll.setImage(
-            #imageLiteral(resourceName: "assetCameraCheckAll"),
+            #imageLiteral(resourceName: "assetCameraCheckAll").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
             for:UIControlState.normal)
+        buttonCheckAll.setImage(
+            #imageLiteral(resourceName: "assetCameraCheckAll").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonCheckAll.imageView!.tintColor = UIColor(white:0, alpha:0.1)
         buttonCheckAll.imageView!.clipsToBounds = true
         buttonCheckAll.imageView!.contentMode = UIViewContentMode.center
         buttonCheckAll.addTarget(
@@ -53,8 +57,12 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         let buttonUncheckAll:UIButton = UIButton()
         buttonUncheckAll.translatesAutoresizingMaskIntoConstraints = false
         buttonUncheckAll.setImage(
-            #imageLiteral(resourceName: "assetCameraUncheckAll"),
+            #imageLiteral(resourceName: "assetCameraUncheckAll").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
             for:UIControlState.normal)
+        buttonUncheckAll.setImage(
+            #imageLiteral(resourceName: "assetCameraUncheckAll").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonUncheckAll.imageView!.tintColor = UIColor(white:0, alpha:0.1)
         buttonUncheckAll.imageView!.clipsToBounds = true
         buttonUncheckAll.imageView!.contentMode = UIViewContentMode.center
         buttonUncheckAll.addTarget(
@@ -65,8 +73,12 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         let buttonTrash:UIButton = UIButton()
         buttonTrash.translatesAutoresizingMaskIntoConstraints = false
         buttonTrash.setImage(
-            #imageLiteral(resourceName: "assetCameraTrash"),
+            #imageLiteral(resourceName: "assetCameraTrash").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
             for:UIControlState.normal)
+        buttonTrash.setImage(
+            #imageLiteral(resourceName: "assetCameraTrash").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonTrash.imageView!.tintColor = UIColor(white:0, alpha:0.1)
         buttonTrash.imageView!.clipsToBounds = true
         buttonTrash.imageView!.contentMode = UIViewContentMode.center
         buttonTrash.addTarget(
