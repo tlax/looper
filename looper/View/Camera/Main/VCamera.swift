@@ -8,7 +8,8 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     private let kHeaderHeight:CGFloat = 245
     private let kFooterHeight:CGFloat = 60
     private let kCollectionBottom:CGFloat = 20
-    private let kCellHeight:CGFloat = 120
+    private let kInterLine:CGFloat = 2
+    private let kCellHeight:CGFloat = 85
     
     override init(controller:CController)
     {
@@ -16,11 +17,13 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         self.controller = controller as? CCamera
         
         let collectionView:VCollection = VCollection()
+        collectionView.flow.minimumInteritemSpacing = kInterLine
+        collectionView.flow.minimumLineSpacing = kInterLine
         collectionView.flow.headerReferenceSize = CGSize(
             width:0,
             height:kHeaderHeight)
         collectionView.flow.sectionInset = UIEdgeInsets(
-            top:0,
+            top:2,
             left:0,
             bottom:kCollectionBottom,
             right:0)

@@ -5,10 +5,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private weak var collectionView:VCollection!
     private weak var model:MCameraRecord?
     private weak var controller:CCamera?
-    private let kCollectionHeight:CGFloat = 70
-    private let kCellSize:CGFloat = 68
     private let kInterLine:CGFloat = 1
-    private let kBorderHeight:CGFloat = 1
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 50
     
@@ -19,9 +16,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         backgroundColor = UIColor.clear
         
         let collectionView:VCollection = VCollection()
-        collectionView.flow.itemSize = CGSize(
-            width:kCellSize,
-            height:kCollectionHeight)
         collectionView.flow.minimumInteritemSpacing = kInterLine
         collectionView.flow.minimumLineSpacing = kInterLine
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
@@ -94,9 +88,9 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:collectionView,
             toView:self)
-        let layoutCollectionHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:collectionView,
-            constant:kCollectionHeight)
+            toView:self)
         let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:collectionView,
             toView:self)
@@ -145,7 +139,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         
         addConstraints([
             layoutCollectionTop,
-            layoutCollectionHeight,
+            layoutCollectionBottom,
             layoutCollectionLeft,
             layoutCollectionRight,
             layoutCheckAllTop,
@@ -239,6 +233,14 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let height:CGFloat = collectionView.bounds.maxY
+        let size:CGSize = CGSize(width:height, height:height)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
