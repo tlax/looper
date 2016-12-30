@@ -11,6 +11,9 @@ class VCameraActiveButton:UIButton
         self.image = image
         super.init(frame:CGRect.zero)
         translatesAutoresizingMaskIntoConstraints = false
+        setImage(
+            image.withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.highlighted)
         imageView!.contentMode = UIViewContentMode.center
         imageView!.clipsToBounds = true
         imageView!.tintColor = UIColor(white:0.85, alpha:1)
@@ -22,7 +25,7 @@ class VCameraActiveButton:UIButton
     }
     
     override var isSelected:Bool
-        {
+    {
         didSet
         {
             hover()
@@ -30,7 +33,7 @@ class VCameraActiveButton:UIButton
     }
     
     override var isHighlighted:Bool
-        {
+    {
         didSet
         {
             hover()
