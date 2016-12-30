@@ -3,11 +3,13 @@ import UIKit
 class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var collectionView:VCollection!
+    private weak var layoutControlsWidth:NSLayoutConstraint!
     private weak var model:MCameraRecord?
     private weak var controller:CCamera?
     private let kInterLine:CGFloat = 1
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 50
+    private let kControlsWidth:CGFloat = 100
     
     override init(frame:CGRect)
     {
@@ -21,7 +23,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         collectionView.flow.sectionInset = UIEdgeInsets(
             top:0,
-            left:kInterLine,
+            left:kInterLine + kControlsWidth,
             bottom:0,
             right:kInterLine)
         collectionView.backgroundColor = UIColor(white:0, alpha:0.05)
@@ -31,6 +33,8 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         collectionView.dataSource = self
         collectionView.delegate = self
         self.collectionView = collectionView
+        
+        let viewControls:VCameraCellControls = VCameraCellControls()
         
         let buttonCheckAll:UIButton = UIButton()
         buttonCheckAll.translatesAutoresizingMaskIntoConstraints = false
@@ -81,6 +85,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             for:UIControlEvents.touchUpInside)
         
         addSubview(collectionView)
+        addSubview(viewControls)
         addSubview(buttonCheckAll)
         addSubview(buttonUncheckAll)
         addSubview(buttonTrash)
@@ -137,6 +142,19 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             view:buttonTrash,
             constant:kButtonsWidth)
         
+        let layoutControlsTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewControls,
+            toView:self)
+        let layoutControlsBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:viewControls,
+            toView:self)
+        let layoutControlsLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewControls,
+            toView:self)
+        layoutControlsWidth = NSLayoutConstraint.width(
+            view:viewControls,
+            constant:kControlsWidth)
+        
         addConstraints([
             layoutCollectionTop,
             layoutCollectionBottom,
@@ -153,7 +171,11 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             layoutTrashTop,
             layoutTrashHeight,
             layoutTrashLeft,
-            layoutTrashWidth])
+            layoutTrashWidth,
+            layoutControlsTop,
+            layoutControlsBottom,
+            layoutControlsLeft,
+            layoutControlsWidth])
     }
     
     required init?(coder:NSCoder)
@@ -237,6 +259,24 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     }
     
     //MARK: collectionView delegate
+    
+    func scrollViewDidScroll(_ scrollView:UIScrollView)
+    {
+        let offsetX:CGFloat = scrollView.contentOffset.x
+        let rawControlsWidth:CGFloat = kControlsWidth - offsetX
+        let controlsWidth:CGFloat
+        
+        if rawControlsWidth < 0
+        {
+            controlsWidth = 0
+        }
+        else
+        {
+            controlsWidth = rawControlsWidth
+        }
+        
+        layoutControlsWidth.constant = controlsWidth
+    }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
