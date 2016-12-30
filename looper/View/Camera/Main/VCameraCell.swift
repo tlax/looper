@@ -229,7 +229,11 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     {
         self.model = model
         self.controller = controller
+        let initialRect:CGRect = CGRect(x:0, y:0, width:1, height:1)
         collectionView.reloadData()
+        collectionView.scrollRectToVisible(
+            initialRect,
+            animated:false)
     }
     
     //MARK: collectionView delegate

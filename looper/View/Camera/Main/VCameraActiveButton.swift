@@ -1,26 +1,28 @@
 import UIKit
 
-class VCameraHeaderButton:UIButton
+class VCameraActiveButton:UIButton
 {
     private let kAlphaNotHover:CGFloat = 1
-    private let kAlphaHover:CGFloat = 0.1
+    private let kAlphaHover:CGFloat = 0.4
+    private let image:UIImage
     
-    convenience init(image:UIImage)
+    init(image:UIImage)
     {
-        self.init()
+        self.image = image
+        super.init(frame:CGRect.zero)
         translatesAutoresizingMaskIntoConstraints = false
-        setImage(
-            image,
-            for:UIControlState.normal)
-        setImage(
-            image,
-            for:UIControlState.highlighted)
         imageView!.contentMode = UIViewContentMode.center
         imageView!.clipsToBounds = true
+        imageView!.tintColor = UIColor(white:0.8, alpha:1)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
     }
     
     override var isSelected:Bool
-    {
+        {
         didSet
         {
             hover()
@@ -28,7 +30,7 @@ class VCameraHeaderButton:UIButton
     }
     
     override var isHighlighted:Bool
-    {
+        {
         didSet
         {
             hover()
@@ -55,11 +57,19 @@ class VCameraHeaderButton:UIButton
     {
         alpha = kAlphaNotHover
         isUserInteractionEnabled = true
+        
+        setImage(
+            image.withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
     }
     
     func notActive()
     {
-        alpha = kAlphaHover
+        alpha = kAlphaNotHover
         isUserInteractionEnabled = false
+        
+        setImage(
+            image.withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.normal)
     }
 }

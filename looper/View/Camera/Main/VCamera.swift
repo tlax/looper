@@ -23,7 +23,7 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             width:0,
             height:kHeaderHeight)
         collectionView.flow.sectionInset = UIEdgeInsets(
-            top:2,
+            top:kInterLine,
             left:0,
             bottom:kCollectionBottom,
             right:0)

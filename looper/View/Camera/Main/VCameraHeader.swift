@@ -3,8 +3,8 @@ import UIKit
 class VCameraHeader:UICollectionReusableView
 {
     private weak var controller:CCamera?
-    private weak var buttonShoot:VCameraHeaderButton!
-    private weak var buttonNext:VCameraHeaderButton!
+    private weak var buttonShoot:VCameraActiveButton!
+    private weak var buttonNext:VCameraActiveButton!
     private weak var layoutShootLeft:NSLayoutConstraint!
     private let kButtonsTop:CGFloat = 90
     private let kButtonsHeight:CGFloat = 60
@@ -17,15 +17,16 @@ class VCameraHeader:UICollectionReusableView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         
-        let buttonShoot:VCameraHeaderButton = VCameraHeaderButton(
+        let buttonShoot:VCameraActiveButton = VCameraActiveButton(
             image:#imageLiteral(resourceName: "assetCameraShoot"))
         buttonShoot.addTarget(
             self,
             action:#selector(actionShoot(sender:)),
             for:UIControlEvents.touchUpInside)
+        buttonShoot.active()
         self.buttonShoot = buttonShoot
         
-        let buttonNext:VCameraHeaderButton = VCameraHeaderButton(
+        let buttonNext:VCameraActiveButton = VCameraActiveButton(
             image:#imageLiteral(resourceName: "assetGenericNext"))
         buttonNext.addTarget(
             self,
@@ -37,7 +38,7 @@ class VCameraHeader:UICollectionReusableView
         border.isUserInteractionEnabled = false
         border.translatesAutoresizingMaskIntoConstraints = false
         border.clipsToBounds = true
-        border.backgroundColor = UIColor(white:0, alpha:0.1)
+        border.backgroundColor = UIColor(white:0, alpha:0.2)
         
         addSubview(border)
         addSubview(buttonShoot)
