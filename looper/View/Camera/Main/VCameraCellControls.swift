@@ -8,7 +8,7 @@ class VCameraCellControls:UIView
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.genericLight
         translatesAutoresizingMaskIntoConstraints = false
         
         

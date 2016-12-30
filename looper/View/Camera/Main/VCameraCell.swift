@@ -6,15 +6,18 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private weak var layoutControlsWidth:NSLayoutConstraint!
     private weak var model:MCameraRecord?
     private weak var controller:CCamera?
-    private let kHideControlsTime:TimeInterval = 0.1
+    private var listenDrag:Bool
+    private let kAnimationDuration:TimeInterval = 0.3
     private let kCellSize:CGFloat = 85
     private let kInterLine:CGFloat = 1
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 50
-    private let kControlsWidth:CGFloat = 160
+    private let kControlsMaxWidth:CGFloat = 160
+    private let kControlsMinWidth:CGFloat = 30
     
     override init(frame:CGRect)
     {
+        listenDrag = true
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -266,21 +269,46 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     func scrollViewDidScroll(_ scrollView:UIScrollView)
     {
-        let offsetX:CGFloat = scrollView.contentOffset.x
-        let rawControlsWidth:CGFloat = kControlsWidth - offsetX
-        let controlsWidth:CGFloat
-        
-        if rawControlsWidth < 0
+        if listenDrag
         {
-            controlsWidth = 0
+            let offsetX:CGFloat = -scrollView.contentOffset.x
+            let controlsWidth:CGFloat
+            
+            if offsetX < 0
+            {
+                controlsWidth = 0
+            }
+            else
+            {
+                controlsWidth = offsetX
+            }
+            
+            layoutControlsWidth.constant = controlsWidth
         }
-        else
-        {
-            controlsWidth = rawControlsWidth
-        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView:UIScrollView)
+    {
+        listenDrag = true
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView:UIScrollView, willDecelerate decelerate:Bool)
+    {
+        let offsetX:CGFloat = -scrollView.contentOffset.x
         
-        layoutControlsWidth.constant = controlsWidth
-        collectionView.flow.invalidateLayout()
+        if offsetX > kControlsMinWidth
+        {
+            listenDrag = false
+            layoutControlsWidth.constant = kControlsMaxWidth
+            collectionView.flow.invalidateLayout()
+            
+            UIView.animate(
+                withDuration:kAnimationDuration)
+            { [weak self] in
+                    
+                self?.layoutIfNeeded()
+            }
+        }
     }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
