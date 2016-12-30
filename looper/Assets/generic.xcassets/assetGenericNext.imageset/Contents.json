@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "assetCameraProcess.png",
+      "filename" : "assetGenericNext.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "assetCameraProcess@2x.png",
+      "filename" : "assetGenericNext@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "assetCameraProcess@3x.png",
+      "filename" : "assetGenericNext@3x.png",
       "scale" : "3x"
     }
   ],
