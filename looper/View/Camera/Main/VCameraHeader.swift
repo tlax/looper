@@ -8,7 +8,8 @@ class VCameraHeader:UICollectionReusableView
     private weak var layoutShootLeft:NSLayoutConstraint!
     private let kButtonsTop:CGFloat = 90
     private let kButtonsHeight:CGFloat = 60
-    private let kButtonsWidth:CGFloat = 65
+    private let kButtonsWidth:CGFloat = 60
+    private let kBorderHeight:CGFloat = 1
  
     override init(frame:CGRect)
     {
@@ -32,6 +33,13 @@ class VCameraHeader:UICollectionReusableView
             for:UIControlEvents.touchUpInside)
         self.buttonNext = buttonNext
         
+        let border:UIView = UIView()
+        border.isUserInteractionEnabled = false
+        border.translatesAutoresizingMaskIntoConstraints = false
+        border.clipsToBounds = true
+        border.backgroundColor = UIColor(white:0, alpha:0.1)
+        
+        addSubview(border)
         addSubview(buttonShoot)
         addSubview(buttonNext)
         
@@ -63,6 +71,19 @@ class VCameraHeader:UICollectionReusableView
             view:buttonNext,
             constant:kButtonsWidth)
         
+        let layoutBorderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:border,
+            toView:self)
+        let layoutBorderHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        let layoutBorderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:border,
+            toView:self)
+        let layoutBorderRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:border,
+            toView:self)
+        
         addConstraints([
             layoutShootTop,
             layoutShootHeight,
@@ -71,7 +92,11 @@ class VCameraHeader:UICollectionReusableView
             layoutNextTop,
             layoutNextHeight,
             layoutNextRight,
-            layoutNextWidth])
+            layoutNextWidth,
+            layoutBorderBottom,
+            layoutBorderHeight,
+            layoutBorderLeft,
+            layoutBorderRight])
     }
     
     required init?(coder:NSCoder)
