@@ -6,10 +6,12 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private weak var layoutControlsWidth:NSLayoutConstraint!
     private weak var model:MCameraRecord?
     private weak var controller:CCamera?
+    private let kHideControlsTime:TimeInterval = 0.1
+    private let kCellSize:CGFloat = 85
     private let kInterLine:CGFloat = 1
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 50
-    private let kControlsWidth:CGFloat = 100
+    private let kControlsWidth:CGFloat = 160
     
     override init(frame:CGRect)
     {
@@ -20,12 +22,10 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         let collectionView:VCollection = VCollection()
         collectionView.flow.minimumInteritemSpacing = kInterLine
         collectionView.flow.minimumLineSpacing = kInterLine
+        collectionView.flow.itemSize = CGSize(
+            width:kCellSize,
+            height:kCellSize)
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
-        collectionView.flow.sectionInset = UIEdgeInsets(
-            top:0,
-            left:kInterLine + kControlsWidth,
-            bottom:0,
-            right:kInterLine)
         collectionView.backgroundColor = UIColor(white:0, alpha:0.05)
         collectionView.alwaysBounceHorizontal = true
         collectionView.registerCell(
@@ -152,8 +152,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             view:viewControls,
             toView:self)
         layoutControlsWidth = NSLayoutConstraint.width(
-            view:viewControls,
-            constant:kControlsWidth)
+            view:viewControls)
         
         addConstraints([
             layoutCollectionTop,
@@ -251,7 +250,12 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     {
         self.model = model
         self.controller = controller
-        let initialRect:CGRect = CGRect(x:0, y:0, width:1, height:1)
+        layoutControlsWidth.constant = 0
+        let initialRect:CGRect = CGRect(
+            x:0,
+            y:0,
+            width:1,
+            height:1)
         collectionView.reloadData()
         collectionView.scrollRectToVisible(
             initialRect,
@@ -276,14 +280,19 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         }
         
         layoutControlsWidth.constant = controlsWidth
+        collectionView.flow.invalidateLayout()
     }
     
-    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
     {
-        let height:CGFloat = collectionView.bounds.maxY
-        let size:CGSize = CGSize(width:height, height:height)
+        let controlsWidth:CGFloat = layoutControlsWidth.constant
+        let insets:UIEdgeInsets = UIEdgeInsets(
+            top:0,
+            left:controlsWidth + kInterLine,
+            bottom:0,
+            right:kInterLine)
         
-        return size
+        return insets
     }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
