@@ -5,7 +5,7 @@ class VCameraFilterBar:UIView
     private weak var controller:CCameraFilter!
     private weak var layoutIconLeft:NSLayoutConstraint!
     private let kContentTop:CGFloat = 20
-    private let kBackWidth:CGFloat = 60
+    private let kBackWidth:CGFloat = 55
     private let kIconWidth:CGFloat = 60
     
     convenience init(controller:CCameraFilter)
@@ -19,14 +19,14 @@ class VCameraFilterBar:UIView
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.setImage(
-            #imageLiteral(resourceName: "assetGenericBackDown").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
             for:UIControlState.normal)
         backButton.setImage(
-            #imageLiteral(resourceName: "assetGenericBackDown").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
         backButton.imageView!.contentMode = UIViewContentMode.center
         backButton.imageView!.clipsToBounds = true
-        backButton.imageView!.tintColor = UIColor.red
+        backButton.imageView!.tintColor = UIColor(white:0, alpha:0.2)
         backButton.addTarget(
             self,
             action:#selector(actionBack(sender:)),
