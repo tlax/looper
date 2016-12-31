@@ -5,7 +5,7 @@ class VCameraFilterBar:UIView
     private weak var controller:CCameraFilter!
     private weak var layoutIconLeft:NSLayoutConstraint!
     private let kContentTop:CGFloat = 20
-    private let kBackWidth:CGFloat = 55
+    private let kButtonsWidth:CGFloat = 55
     private let kIconWidth:CGFloat = 60
     
     convenience init(controller:CCameraFilter)
@@ -32,6 +32,20 @@ class VCameraFilterBar:UIView
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let nextButton:UIButton = UIButton()
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.setImage(
+            #imageLiteral(resourceName: "assetGenericNext").withRenderingMode(
+                UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        nextButton.setImage(
+            #imageLiteral(resourceName: "assetGenericNext").withRenderingMode(
+                UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        nextButton.imageView!.contentMode = UIViewContentMode.center
+        nextButton.imageView!.tintColor = UIColor(white:0, alpha:0.2)
+        nextButton.imageView!.clipsToBounds = true
+        
         let icon:UIImageView = UIImageView()
         icon.isUserInteractionEnabled = false
         icon.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +55,7 @@ class VCameraFilterBar:UIView
         
         addSubview(icon)
         addSubview(backButton)
+        addSubview(nextButton)
         
         let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:backButton,
@@ -54,7 +69,7 @@ class VCameraFilterBar:UIView
             toView:self)
         let layoutBackWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:backButton,
-            constant:kBackWidth)
+            constant:kButtonsWidth)
         
         let layoutIconTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:icon,
@@ -69,6 +84,9 @@ class VCameraFilterBar:UIView
         let layoutIconWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:icon,
             constant:kIconWidth)
+        
+        let layoutNextTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view: <#T##UIView#>, toView: <#T##UIView#>)
         
         addConstraints([
             layoutBackTop,
