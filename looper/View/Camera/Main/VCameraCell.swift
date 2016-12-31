@@ -14,8 +14,10 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private let kInterLine:CGFloat = 1
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 50
-    private let kControlsMaxWidth:CGFloat = 160
-    private let kControlsMinWidth:CGFloat = 15
+    private let kControlsMaxWidth:CGFloat = 180
+    private let kControlsMidWidth:CGFloat = 60
+    private let kControlsMinWidth:CGFloat = 9
+    private let kControlsMaxTreshold:CGFloat = 100
     
     override init(frame:CGRect)
     {
@@ -270,8 +272,20 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         if offsetX > kControlsMinWidth
         {
             listenDrag = false
-            layoutControlsWidth.constant = kControlsMaxWidth
-            layoutCollectionLeft.constant = kControlsMaxWidth
+            
+            let newControlsWidth:CGFloat
+            
+            if offsetX > kControlsMaxTreshold
+            {
+                newControlsWidth = kControlsMaxWidth
+            }
+            else
+            {
+                newControlsWidth = kControlsMidWidth
+            }
+            
+            layoutControlsWidth.constant = newControlsWidth
+            layoutCollectionLeft.constant = newControlsWidth
             
             UIView.animate(
                 withDuration:kAnimationDuration)

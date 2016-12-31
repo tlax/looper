@@ -2,7 +2,10 @@ import UIKit
 
 class VCameraCellControls:UIView
 {
-    private let kButtonsWidth:CGFloat = 50
+    weak var buttonTrash:UIButton!
+    weak var buttonCheckAll:UIButton!
+    weak var buttonUncheckAll:UIButton!
+    private let kButtonsWidth:CGFloat = 60
     
     init()
     {
