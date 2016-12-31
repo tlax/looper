@@ -17,7 +17,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private let kControlsMaxWidth:CGFloat = 180
     private let kControlsMidWidth:CGFloat = 60
     private let kControlsMinWidth:CGFloat = 9
-    private let kControlsMaxTreshold:CGFloat = 65
+    private let kControlsMaxTreshold:CGFloat = 50
     
     override init(frame:CGRect)
     {
