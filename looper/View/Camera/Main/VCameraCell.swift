@@ -17,7 +17,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private let kControlsMaxWidth:CGFloat = 180
     private let kControlsMidWidth:CGFloat = 60
     private let kControlsMinWidth:CGFloat = 9
-    private let kControlsMaxTreshold:CGFloat = 100
+    private let kControlsMaxTreshold:CGFloat = 80
     
     override init(frame:CGRect)
     {
@@ -48,6 +48,18 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         self.collectionView = collectionView
         
         let viewControls:VCameraCellControls = VCameraCellControls()
+        viewControls.buttonTrash.addTarget(
+            self,
+            action:#selector(actionTrash(sender:)),
+            for:UIControlEvents.touchUpInside)
+        viewControls.buttonCheckAll.addTarget(
+            self,
+            action:#selector(actionCheckAll(sender:)),
+            for:UIControlEvents.touchUpInside)
+        viewControls.buttonUncheckAll.addTarget(
+            self,
+            action:#selector(actionUncheckAll(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(collectionView)
         addSubview(viewControls)
@@ -130,16 +142,20 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     func actionCheckAll(sender button:UIButton)
     {
+        restartingScroll()
         changeAllItems(active:true)
     }
     
     func actionUncheckAll(sender button:UIButton)
     {
+        restartingScroll()
         changeAllItems(active:false)
     }
     
     func actionTrash(sender button:UIButton)
     {
+        restartingScroll()
+        
         guard
             
             let model:MCameraRecord = self.model
