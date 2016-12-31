@@ -2,6 +2,7 @@ import UIKit
 
 class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    weak var header:VCameraHeader?
     private weak var controller:CCamera!
     private weak var collectionView:VCollection!
     private weak var spinner:VSpinner!
@@ -165,6 +166,8 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
                 VCameraHeader.reusableIdentifier,
                 for:indexPath) as! VCameraHeader
             header.config(controller:controller)
+            self.header = header
+            
             reusable = header
         }
         else

@@ -149,6 +149,19 @@ class VCameraHeader:UICollectionReusableView
     func config(controller:CCamera)
     {
         self.controller = controller
+        refresh()
+    }
+    
+    func refresh()
+    {
+        guard
+        
+            let controller:CCamera = self.controller
+        
+        else
+        {
+            return
+        }
         
         if controller.model.records.isEmpty
         {
@@ -156,7 +169,14 @@ class VCameraHeader:UICollectionReusableView
         }
         else
         {
-            buttonNext.active()
+            if controller.model.hasActive()
+            {
+                buttonNext.active()
+            }
+            else
+            {
+                buttonNext.notActive()
+            }
         }
     }
 }

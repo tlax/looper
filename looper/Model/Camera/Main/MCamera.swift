@@ -70,4 +70,17 @@ class MCamera
         
         records.remove(at:recordToDelete)
     }
+    
+    func hasActive() -> Bool
+    {
+        for record:MCameraRecord in records
+        {
+            if record.isActive()
+            {
+                return true
+            }
+        }
+        
+        return false
+    }
 }

@@ -193,6 +193,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             { [weak self] in
                 
                 self?.collectionView.reloadData()
+                self?.controller?.viewCamera.header?.refresh()
             }
         }
     }
@@ -366,7 +367,9 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             let cell:VCameraCellItem = collectionView.cellForItem(
                 at:indexPath) as! VCameraCellItem
             item.active = !item.active
+            
             cell.update()
+            controller?.viewCamera.header?.refresh()
         }
     }
 }
