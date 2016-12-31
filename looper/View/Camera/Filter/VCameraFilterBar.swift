@@ -86,7 +86,18 @@ class VCameraFilterBar:UIView
             constant:kIconWidth)
         
         let layoutNextTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view: <#T##UIView#>, toView: <#T##UIView#>)
+            view:nextButton,
+            toView:self,
+            constant:kContentTop)
+        let layoutNextBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:nextButton,
+            toView:self)
+        let layoutNextRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+            view:nextButton,
+            toView:self)
+        let layoutNextWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:nextButton,
+            constant:kButtonsWidth)
         
         addConstraints([
             layoutBackTop,
@@ -96,7 +107,11 @@ class VCameraFilterBar:UIView
             layoutIconTop,
             layoutIconBottom,
             layoutIconLeft,
-            layoutIconWidth])
+            layoutIconWidth,
+            layoutNextTop,
+            layoutNextBottom,
+            layoutNextRight,
+            layoutNextWidth])
     }
     
     override func layoutSubviews()
