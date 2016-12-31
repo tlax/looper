@@ -3,21 +3,24 @@ import UIKit
 class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var collectionView:VCollection!
+    private weak var layoutCollectionLeft:NSLayoutConstraint!
     private weak var layoutControlsWidth:NSLayoutConstraint!
     private weak var model:MCameraRecord?
     private weak var controller:CCamera?
     private var listenDrag:Bool
+    private var restartScroll:Bool
     private let kAnimationDuration:TimeInterval = 0.3
     private let kCellSize:CGFloat = 85
     private let kInterLine:CGFloat = 1
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 50
     private let kControlsMaxWidth:CGFloat = 160
-    private let kControlsMinWidth:CGFloat = 30
+    private let kControlsMinWidth:CGFloat = 15
     
     override init(frame:CGRect)
     {
         listenDrag = true
+        restartScroll = false
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -28,6 +31,11 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         collectionView.flow.itemSize = CGSize(
             width:kCellSize,
             height:kCellSize)
+        collectionView.flow.sectionInset = UIEdgeInsets(
+            top:0,
+            left:kInterLine,
+            bottom:0,
+            right:kInterLine)
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         collectionView.backgroundColor = UIColor(white:0, alpha:0.05)
         collectionView.alwaysBounceHorizontal = true
@@ -99,7 +107,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:collectionView,
             toView:self)
-        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        layoutCollectionLeft = NSLayoutConstraint.leftToLeft(
             view:collectionView,
             toView:self)
         let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
@@ -178,11 +186,44 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             layoutControlsBottom,
             layoutControlsLeft,
             layoutControlsWidth])
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedCameraControlsRestart(sender:)),
+            name:Notification.cameraControlsScroll,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //MARK: notifications
+    
+    func notifiedCameraControlsRestart(sender notification:Notification)
+    {
+        guard
+        
+            let notificator:VCameraCell = notification.object as? VCameraCell
+        
+        else
+        {
+            return
+        }
+        
+        if notificator !== self
+        {
+            if restartScroll
+            {
+                restartingScroll()
+            }
+        }
     }
     
     //MARK: actions
@@ -247,6 +288,27 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         return item
     }
     
+    private func restartingScroll()
+    {
+        restartScroll = false
+        layoutControlsWidth.constant = 0
+        layoutCollectionLeft.constant = 0
+        
+        UIView.animate(
+            withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
+    }
+    
+    private func notifyRestartScrolls()
+    {
+        NotificationCenter.default.post(
+            name:Notification.cameraControlsScroll,
+            object:self)
+    }
+    
     //MARK: public
     
     func config(model:MCameraRecord, controller:CCamera)
@@ -254,6 +316,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         self.model = model
         self.controller = controller
         layoutControlsWidth.constant = 0
+        layoutCollectionLeft.constant = 0
         let initialRect:CGRect = CGRect(
             x:0,
             y:0,
@@ -269,7 +332,13 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     func scrollViewDidScroll(_ scrollView:UIScrollView)
     {
-        if listenDrag
+        notifyRestartScrolls()
+        
+        if restartScroll
+        {
+            restartingScroll()
+        }
+        else if listenDrag
         {
             let offsetX:CGFloat = -scrollView.contentOffset.x
             let controlsWidth:CGFloat
@@ -289,7 +358,11 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     func scrollViewDidEndDecelerating(_ scrollView:UIScrollView)
     {
-        listenDrag = true
+        if !listenDrag
+        {
+            listenDrag = true
+            restartScroll = true
+        }
     }
     
     func scrollViewDidEndDragging(_ scrollView:UIScrollView, willDecelerate decelerate:Bool)
@@ -300,7 +373,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         {
             listenDrag = false
             layoutControlsWidth.constant = kControlsMaxWidth
-            collectionView.flow.invalidateLayout()
+            layoutCollectionLeft.constant = kControlsMaxWidth
             
             UIView.animate(
                 withDuration:kAnimationDuration)
@@ -309,18 +382,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
                 self?.layoutIfNeeded()
             }
         }
-    }
-    
-    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
-    {
-        let controlsWidth:CGFloat = layoutControlsWidth.constant
-        let insets:UIEdgeInsets = UIEdgeInsets(
-            top:0,
-            left:controlsWidth + kInterLine,
-            bottom:0,
-            right:kInterLine)
-        
-        return insets
     }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
@@ -365,10 +426,19 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             animated:false,
             scrollPosition:UICollectionViewScrollPosition())
         
-        let item:MCameraRecordItem = modelAtIndex(index:indexPath)
-        let cell:VCameraCellItem = collectionView.cellForItem(
-            at:indexPath) as! VCameraCellItem
-        item.active = !item.active
-        cell.update()
+        if restartScroll
+        {
+            restartingScroll()
+        }
+        else
+        {
+            notifyRestartScrolls()
+            
+            let item:MCameraRecordItem = modelAtIndex(index:indexPath)
+            let cell:VCameraCellItem = collectionView.cellForItem(
+                at:indexPath) as! VCameraCellItem
+            item.active = !item.active
+            cell.update()
+        }
     }
 }
