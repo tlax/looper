@@ -29,4 +29,9 @@ class CCameraFilter:CController
     {
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
+    
+    func next()
+    {
+        
+    }
 }

@@ -45,6 +45,10 @@ class VCameraFilterBar:UIView
         nextButton.imageView!.contentMode = UIViewContentMode.center
         nextButton.imageView!.tintColor = UIColor(white:0, alpha:0.2)
         nextButton.imageView!.clipsToBounds = true
+        nextButton.addTarget(
+            self,
+            action:#selector(actionNext(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let icon:UIImageView = UIImageView()
         icon.isUserInteractionEnabled = false
@@ -92,7 +96,7 @@ class VCameraFilterBar:UIView
         let layoutNextBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:nextButton,
             toView:self)
-        let layoutNextRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+        let layoutNextRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:nextButton,
             toView:self)
         let layoutNextWidth:NSLayoutConstraint = NSLayoutConstraint.width(
@@ -129,5 +133,10 @@ class VCameraFilterBar:UIView
     func actionBack(sender button:UIButton)
     {
         controller.back()
+    }
+    
+    func actionNext(sender button:UIButton)
+    {
+        controller.next()
     }
 }
