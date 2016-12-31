@@ -25,6 +25,7 @@ class VCameraCellControls:UIView
         buttonCheckAll.imageView!.tintColor = UIColor(white:0, alpha:0.1)
         buttonCheckAll.imageView!.clipsToBounds = true
         buttonCheckAll.imageView!.contentMode = UIViewContentMode.center
+        self.buttonCheckAll = buttonCheckAll
         
         let buttonUncheckAll:UIButton = UIButton()
         buttonUncheckAll.translatesAutoresizingMaskIntoConstraints = false
@@ -37,6 +38,7 @@ class VCameraCellControls:UIView
         buttonUncheckAll.imageView!.tintColor = UIColor(white:0, alpha:0.1)
         buttonUncheckAll.imageView!.clipsToBounds = true
         buttonUncheckAll.imageView!.contentMode = UIViewContentMode.center
+        self.buttonUncheckAll = buttonUncheckAll
         
         let buttonTrash:UIButton = UIButton()
         buttonTrash.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +51,7 @@ class VCameraCellControls:UIView
         buttonTrash.imageView!.tintColor = UIColor(white:0, alpha:0.1)
         buttonTrash.imageView!.clipsToBounds = true
         buttonTrash.imageView!.contentMode = UIViewContentMode.center
+        self.buttonTrash = buttonTrash
         
         addSubview(buttonCheckAll)
         addSubview(buttonUncheckAll)
