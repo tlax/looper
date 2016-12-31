@@ -1,8 +1,9 @@
 import UIKit
 
-class VCameraFilter:VView
+class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CCameraFilter!
+    private weak var collectionView:VCollection!
     private let kBarHeight:CGFloat = 64
     
     override init(controller:CController)
@@ -13,6 +14,14 @@ class VCameraFilter:VView
         let viewBar:VCameraFilterBar = VCameraFilterBar(
             controller:self.controller)
         
+        let collectionView:VCollection = VCollection()
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(cell:VCameraFilterCell.self)
+        self.collectionView = collectionView
+        
+        addSubview(collectionView)
         addSubview(viewBar)
         
         let layoutBarTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
@@ -28,11 +37,28 @@ class VCameraFilter:VView
             view:viewBar,
             toView:self)
         
+        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:collectionView,
+            toView:self)
+        
         addConstraints([
             layoutBarTop,
             layoutBarHeight,
             layoutBarLeft,
-            layoutBarRight])
+            layoutBarRight,
+            layoutCollectionTop,
+            layoutCollectionBottom,
+            layoutCollectionLeft,
+            layoutCollectionRight])
     }
     
     required init?(coder:NSCoder)
