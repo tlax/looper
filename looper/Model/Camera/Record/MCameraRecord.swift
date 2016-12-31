@@ -8,4 +8,19 @@ class MCameraRecord
     {
         items = []
     }
+    
+    //MARK: public
+    
+    func isActive() -> Bool
+    {
+        for item:MCameraRecordItem in items
+        {
+            if item.active
+            {
+                return true
+            }
+        }
+        
+        return false
+    }
 }
