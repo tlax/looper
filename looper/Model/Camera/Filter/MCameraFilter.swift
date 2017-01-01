@@ -7,7 +7,10 @@ class MCameraFilter
     
     init()
     {
+        let itemNone:MCameraFilterItemNone = MCameraFilterItemNone()
+        
         items = [
+            itemNone
         ]
         
         currentFilter = items.first

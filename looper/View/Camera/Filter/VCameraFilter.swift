@@ -65,4 +65,28 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
     {
         fatalError()
     }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.modelFilter.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let cell:VCameraFilterCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VCameraFilterCell.reusableIdentifier,
+            for:indexPath) as! VCameraFilterCell
+        
+        return cell
+    }
 }
