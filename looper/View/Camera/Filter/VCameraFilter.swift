@@ -66,6 +66,15 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
         fatalError()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MCameraFilterItem
+    {
+        let item:MCameraFilterItem = controller.modelFilter.items[index.item]
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
@@ -82,10 +91,12 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MCameraFilterItem = modelAtIndex(index:indexPath)
         let cell:VCameraFilterCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VCameraFilterCell.reusableIdentifier,
             for:indexPath) as! VCameraFilterCell
+        cell.config(model:item)
         
         return cell
     }
