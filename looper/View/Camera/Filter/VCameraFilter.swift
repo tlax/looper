@@ -5,6 +5,10 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
     private weak var controller:CCameraFilter!
     private weak var collectionView:VCollection!
     private let kBarHeight:CGFloat = 64
+    private let kCellHeight:CGFloat = 70
+    private let kInterLine:CGFloat = 1
+    private let kCollectionBottom:CGFloat = 20
+    private let kAfterSelect:TimeInterval = 0.2
     
     override init(controller:CController)
     {
@@ -15,6 +19,12 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
             controller:self.controller)
         
         let collectionView:VCollection = VCollection()
+        collectionView.flow.minimumLineSpacing = kInterLine
+        collectionView.flow.sectionInset = UIEdgeInsets(
+            top:kInterLine,
+            left:0,
+            bottom:kCollectionBottom,
+            right:0)
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -59,6 +69,41 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
             layoutCollectionBottom,
             layoutCollectionLeft,
             layoutCollectionRight])
+        
+        var indexSelected:Int?
+        var countItems:Int = self.controller.modelFilter.items.count
+        
+        for indexItem:Int in 0 ..< countItems
+        {
+            let item:MCameraFilterItem = self.controller.modelFilter.items[indexItem]
+            
+            if item === self.controller.modelFilter.currentFilter
+            {
+                indexSelected = indexItem
+                
+                break
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kAfterSelect)
+        { [weak self] in
+            
+            guard
+            
+                let index:Int = indexSelected
+            
+            else
+            {
+                return
+            }
+            
+            let indexPath:IndexPath = IndexPath(item:index, section:0)
+            self?.collectionView.selectItem(
+                at:indexPath,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition.top)
+        }
     }
     
     required init?(coder:NSCoder)
@@ -76,6 +121,14 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
@@ -99,5 +152,11 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MCameraFilterItem = modelAtIndex(index:indexPath)
+        controller.modelFilter.currentFilter = item
     }
 }
