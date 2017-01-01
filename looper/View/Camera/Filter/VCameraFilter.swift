@@ -71,7 +71,7 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
             layoutCollectionRight])
         
         var indexSelected:Int?
-        var countItems:Int = self.controller.modelFilter.items.count
+        let countItems:Int = self.controller.modelFilter.items.count
         
         for indexItem:Int in 0 ..< countItems
         {
