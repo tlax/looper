@@ -6,6 +6,7 @@ class MCamera
     static let kMaxShots:Int = 300
     let speeds:[MCameraSpeed]
     var records:[MCameraRecord]
+    var activeRecords:[MCameraRecord]?
     var raw:MCameraRaw?
     var currentSpeed:Int
     private let kDefaultSpeed:Int = 4
@@ -82,5 +83,20 @@ class MCamera
         }
         
         return false
+    }
+    
+    func buildActiveRecords()
+    {
+        var activeRecords:[MCameraRecord] = []
+        
+        for record:MCameraRecord in records
+        {
+            if record.isActive()
+            {
+                activeRecords.append(record)
+            }
+        }
+        
+        self.activeRecords = activeRecords
     }
 }
