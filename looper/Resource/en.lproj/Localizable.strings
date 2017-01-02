@@ -10,3 +10,5 @@
 "CCamera_alertTitle"="Delete sequence?";
 "CCamera_alertDelete"="Delete";
 "CCamera_alertCancel"="Cancel";
+
+"MCameraFilterItemNone_title"="No filtering";

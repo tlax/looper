@@ -5,7 +5,7 @@ class VCameraFilterCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var label:UILabel!
     private weak var selectedIcon:UIImageView!
-    private let kImageWidth:CGFloat = 90
+    private let kImageWidth:CGFloat = 130
     private let kSelectedWidth:CGFloat = 70
     
     override init(frame:CGRect)
@@ -25,7 +25,7 @@ class VCameraFilterCell:UICollectionViewCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:16)
+        label.font = UIFont.regular(size:18)
         label.textColor = UIColor.black
         label.numberOfLines = 0
         self.label = label
