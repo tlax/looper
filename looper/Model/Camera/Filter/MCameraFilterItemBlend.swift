@@ -1,9 +1,17 @@
-//
-//  MCameraFilterItemBlend.swift
-//  looper
-//
-//  Created by zero on 1/2/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MCameraFilterItemBlend:MCameraFilterItem
+{
+    override init()
+    {
+        let title:String = NSLocalizedString("MCameraFilterItemBlend_title", comment:"")
+        let image:UIImage = #imageLiteral(resourceName: "assetCameraFilterNone")
+        
+        super.init(title:title, image:image)
+    }
+    
+    override init(title:String, image:UIImage)
+    {
+        fatalError()
+    }
+}

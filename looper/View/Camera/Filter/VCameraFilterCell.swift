@@ -5,8 +5,8 @@ class VCameraFilterCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var label:UILabel!
     private weak var selectedIcon:UIImageView!
-    private let kImageWidth:CGFloat = 130
-    private let kSelectedWidth:CGFloat = 70
+    private let kImageWidth:CGFloat = 140
+    private let kSelectedWidth:CGFloat = 50
     
     override init(frame:CGRect)
     {

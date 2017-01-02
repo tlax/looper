@@ -8,9 +8,11 @@ class MCameraFilter
     init()
     {
         let itemNone:MCameraFilterItemNone = MCameraFilterItemNone()
+        let itemBlend:MCameraFilterItemBlend = MCameraFilterItemBlend()
         
         items = [
-            itemNone
+            itemNone,
+            itemBlend
         ]
         
         currentFilter = items.first
