@@ -16,6 +16,15 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
         fatalError()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MCameraRecord
+    {
+        let item:MCameraRecord = controller.model.activeRecords![index.item]
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
     
     func numberOfSections(in collectionView: UICollectionView) -> Int
@@ -25,7 +34,18 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        return 0
+        let count:Int
+        
+        if let records:[MCameraRecord] = controller.model.activeRecords
+        {
+            count = records.count
+        }
+        else
+        {
+            count = 0
+        }
+        
+        return count
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell

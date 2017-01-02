@@ -115,6 +115,8 @@ class CCamera:CController
     
     func next()
     {
+        model.buildActiveRecords()
+        
         let controller:CCameraFilter = CCameraFilter(model:model)
         parentController.push(
             controller:controller,
