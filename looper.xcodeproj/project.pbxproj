@@ -127,6 +127,7 @@
 		DAFC40BC1E1A03B10044B14B /* MCameraCompress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC40BB1E1A03B10044B14B /* MCameraCompress.swift */; };
 		DAFC40BE1E1A03CB0044B14B /* MCameraCompressItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC40BD1E1A03CB0044B14B /* MCameraCompressItem.swift */; };
 		DAFC40C01E1A03FA0044B14B /* MCameraCompressItemNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC40BF1E1A03FA0044B14B /* MCameraCompressItemNone.swift */; };
+		DAFC40C21E1A044C0044B14B /* MCameraCompressItemMax.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC40C11E1A044C0044B14B /* MCameraCompressItemMax.swift */; };
 		DAFFF3F41E0847D500E14F12 /* VHomeTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F31E0847D500E14F12 /* VHomeTimelineCell.swift */; };
 		DAFFF3F61E0856AC00E14F12 /* MHomeImageSequenceRaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F51E0856AC00E14F12 /* MHomeImageSequenceRaw.swift */; };
 		DAFFF3F81E0856B700E14F12 /* MHomeImageSequenceGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F71E0856B700E14F12 /* MHomeImageSequenceGenerated.swift */; };
@@ -258,6 +259,7 @@
 		DAFC40BB1E1A03B10044B14B /* MCameraCompress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraCompress.swift; sourceTree = "<group>"; };
 		DAFC40BD1E1A03CB0044B14B /* MCameraCompressItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraCompressItem.swift; sourceTree = "<group>"; };
 		DAFC40BF1E1A03FA0044B14B /* MCameraCompressItemNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraCompressItemNone.swift; sourceTree = "<group>"; };
+		DAFC40C11E1A044C0044B14B /* MCameraCompressItemMax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraCompressItemMax.swift; sourceTree = "<group>"; };
 		DAFFF3F31E0847D500E14F12 /* VHomeTimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeTimelineCell.swift; sourceTree = "<group>"; };
 		DAFFF3F51E0856AC00E14F12 /* MHomeImageSequenceRaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceRaw.swift; sourceTree = "<group>"; };
 		DAFFF3F71E0856B700E14F12 /* MHomeImageSequenceGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceGenerated.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				DAFC40BB1E1A03B10044B14B /* MCameraCompress.swift */,
 				DAFC40BD1E1A03CB0044B14B /* MCameraCompressItem.swift */,
 				DAFC40BF1E1A03FA0044B14B /* MCameraCompressItemNone.swift */,
+				DAFC40C11E1A044C0044B14B /* MCameraCompressItemMax.swift */,
 			);
 			path = Compress;
 			sourceTree = "<group>";
@@ -885,6 +888,7 @@
 				DAD778E71E106665009B1A81 /* MHomeControlItemSequences.swift in Sources */,
 				DA9B83DF1E12E81C002B9810 /* VCollection.swift in Sources */,
 				DA799CE81E1436D200AB45DD /* MCameraSpeed10.swift in Sources */,
+				DAFC40C21E1A044C0044B14B /* MCameraCompressItemMax.swift in Sources */,
 				DA9D2F3B1E0ADF57003E37D5 /* VHomeControlCameraPreview.swift in Sources */,
 				DA505F4E1E0B4F1100CE22FE /* VHomeControlBlenderBoard.swift in Sources */,
 				DA5C52401E15CC8800D296C6 /* VCameraFilter.swift in Sources */,
