@@ -6,15 +6,15 @@ class VCameraFilterCell:UICollectionViewCell
     private weak var label:UILabel!
     private weak var selectedIcon:UIImageView!
     private let kImageWidth:CGFloat = 120
-    private let kSelectedWidth:CGFloat = 50
+    private let kSelectedWidth:CGFloat = 55
     private let kAlphaSelected:CGFloat = 1
-    private let kAlphaNotSelected:CGFloat = 0.5
+    private let kAlphaNotSelected:CGFloat = 0.2
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.white
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
