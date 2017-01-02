@@ -8,4 +8,9 @@ class MCameraCompressItem
     {
         self.title = title
     }
+    
+    init()
+    {
+        fatalError()
+    }
 }

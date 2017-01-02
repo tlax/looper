@@ -126,6 +126,7 @@
 		DAFC40BA1E1A02A00044B14B /* VCameraCompress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC40B91E1A02A00044B14B /* VCameraCompress.swift */; };
 		DAFC40BC1E1A03B10044B14B /* MCameraCompress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC40BB1E1A03B10044B14B /* MCameraCompress.swift */; };
 		DAFC40BE1E1A03CB0044B14B /* MCameraCompressItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC40BD1E1A03CB0044B14B /* MCameraCompressItem.swift */; };
+		DAFC40C01E1A03FA0044B14B /* MCameraCompressItemNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC40BF1E1A03FA0044B14B /* MCameraCompressItemNone.swift */; };
 		DAFFF3F41E0847D500E14F12 /* VHomeTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F31E0847D500E14F12 /* VHomeTimelineCell.swift */; };
 		DAFFF3F61E0856AC00E14F12 /* MHomeImageSequenceRaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F51E0856AC00E14F12 /* MHomeImageSequenceRaw.swift */; };
 		DAFFF3F81E0856B700E14F12 /* MHomeImageSequenceGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF3F71E0856B700E14F12 /* MHomeImageSequenceGenerated.swift */; };
@@ -256,6 +257,7 @@
 		DAFC40B91E1A02A00044B14B /* VCameraCompress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraCompress.swift; sourceTree = "<group>"; };
 		DAFC40BB1E1A03B10044B14B /* MCameraCompress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraCompress.swift; sourceTree = "<group>"; };
 		DAFC40BD1E1A03CB0044B14B /* MCameraCompressItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraCompressItem.swift; sourceTree = "<group>"; };
+		DAFC40BF1E1A03FA0044B14B /* MCameraCompressItemNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraCompressItemNone.swift; sourceTree = "<group>"; };
 		DAFFF3F31E0847D500E14F12 /* VHomeTimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeTimelineCell.swift; sourceTree = "<group>"; };
 		DAFFF3F51E0856AC00E14F12 /* MHomeImageSequenceRaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceRaw.swift; sourceTree = "<group>"; };
 		DAFFF3F71E0856B700E14F12 /* MHomeImageSequenceGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceGenerated.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 			children = (
 				DAFC40BB1E1A03B10044B14B /* MCameraCompress.swift */,
 				DAFC40BD1E1A03CB0044B14B /* MCameraCompressItem.swift */,
+				DAFC40BF1E1A03FA0044B14B /* MCameraCompressItemNone.swift */,
 			);
 			path = Compress;
 			sourceTree = "<group>";
@@ -930,6 +933,7 @@
 				DA20F3881E0D78B400D9EBAC /* MetalFilterBlender.metal in Sources */,
 				DA9B83CD1E12E367002B9810 /* VCamera.swift in Sources */,
 				DA14D1131E187695000753B3 /* VCameraFilterCell.swift in Sources */,
+				DAFC40C01E1A03FA0044B14B /* MCameraCompressItemNone.swift in Sources */,
 				DA799CDE1E1436B000AB45DD /* MCameraSpeed1.swift in Sources */,
 				DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */,
 				DAFC40BA1E1A02A00044B14B /* VCameraCompress.swift in Sources */,
