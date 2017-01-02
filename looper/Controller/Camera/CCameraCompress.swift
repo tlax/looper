@@ -3,11 +3,13 @@ import UIKit
 class CCameraCompress:CController
 {
     weak var model:MCamera!
+    let modelCompress:MCameraCompress
     private weak var viewCompress:VCameraCompress!
     
     init(model:MCamera)
     {
         self.model = model
+        self.modelCompress = MCameraCompress()
         super.init()
     }
     
