@@ -6,7 +6,7 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
     private weak var collectionView:VCollection!
     private let kBarHeight:CGFloat = 64
     private let kCellHeight:CGFloat = 130
-    private let kInterLine:CGFloat = 1
+    private let kInterLine:CGFloat = 2
     private let kCollectionTop:CGFloat = 67
     private let kCollectionBottom:CGFloat = 20
     private let kAfterSelect:TimeInterval = 0.2
@@ -14,7 +14,7 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
     override init(controller:CController)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor(white:0.96, alpha:1)
+        backgroundColor = UIColor(white:0.98, alpha:1)
         self.controller = controller as? CCameraFilter
         
         let viewBar:VCameraFilterBar = VCameraFilterBar(
