@@ -7,6 +7,7 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
     private let kBarHeight:CGFloat = 64
     private let kCellHeight:CGFloat = 70
     private let kInterLine:CGFloat = 1
+    private let kCollectionTop:CGFloat = 68
     private let kCollectionBottom:CGFloat = 20
     private let kAfterSelect:TimeInterval = 0.2
     
@@ -21,7 +22,7 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
         let collectionView:VCollection = VCollection()
         collectionView.flow.minimumLineSpacing = kInterLine
         collectionView.flow.sectionInset = UIEdgeInsets(
-            top:kInterLine,
+            top:kCollectionTop,
             left:0,
             bottom:kCollectionBottom,
             right:0)
