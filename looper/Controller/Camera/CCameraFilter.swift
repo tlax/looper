@@ -34,6 +34,9 @@ class CCameraFilter:CController
     
     func next()
     {
-        
+        let controller:CCameraCompress = CCameraCompress(model:model)
+        parentController.push(
+            controller:controller,
+            horizontal:CParent.TransitionHorizontal.fromRight)
     }
 }
