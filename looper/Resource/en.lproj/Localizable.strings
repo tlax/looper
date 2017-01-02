@@ -2,7 +2,7 @@
 "VHomeControlBlenderBoard_labelMain"="Main picture";
 "VHomeControlBlenderBoard_labelBoard"="Blend over main";
 
-"VCameraFooter_label"="Start by recording a sequence";
+"VCameraFooter_label"="Start by recording a video";
 "VCameraShootConfig_titleBottom"="Frames/second";
 
 "CCameraShoot_noAuth"="looper has no access to your camera";
@@ -12,3 +12,4 @@
 "CCamera_alertCancel"="Cancel";
 
 "MCameraFilterItemNone_title"="No filtering";
+"MCameraFilterItemBlend_title"="Blending videos";

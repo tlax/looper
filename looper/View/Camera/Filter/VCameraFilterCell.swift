@@ -5,8 +5,10 @@ class VCameraFilterCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var label:UILabel!
     private weak var selectedIcon:UIImageView!
-    private let kImageWidth:CGFloat = 140
+    private let kImageWidth:CGFloat = 120
     private let kSelectedWidth:CGFloat = 50
+    private let kAlphaSelected:CGFloat = 1
+    private let kAlphaNotSelected:CGFloat = 0.5
     
     override init(frame:CGRect)
     {
@@ -124,10 +126,14 @@ class VCameraFilterCell:UICollectionViewCell
         if isSelected || isHighlighted
         {
             selectedIcon.isHidden = false
+            label.alpha = kAlphaSelected
+            imageView.alpha = kAlphaSelected
         }
         else
         {
             selectedIcon.isHidden = true
+            label.alpha = kAlphaNotSelected
+            imageView.alpha = kAlphaNotSelected
         }
     }
     
