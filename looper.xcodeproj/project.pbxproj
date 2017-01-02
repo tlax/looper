@@ -120,6 +120,7 @@
 		DAD778E91E1174D7009B1A81 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD778E81E1174D7009B1A81 /* brand.xcassets */; };
 		DAD778EB1E117667009B1A81 /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD778EA1E117667009B1A81 /* generic.xcassets */; };
 		DAD778ED1E11788D009B1A81 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD778EC1E11788D009B1A81 /* spinner.xcassets */; };
+		DAD88CFD1E1AE93400EAB6B7 /* MCameraFilterItemBlend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD88CFC1E1AE93400EAB6B7 /* MCameraFilterItemBlend.swift */; };
 		DAF976181E17187500811D61 /* VCameraActiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF976171E17187500811D61 /* VCameraActiveButton.swift */; };
 		DAF9761A1E171E1A00811D61 /* VCameraCellControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF976191E171E1A00811D61 /* VCameraCellControls.swift */; };
 		DAFC40B81E1A02780044B14B /* CCameraCompress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC40B71E1A02780044B14B /* CCameraCompress.swift */; };
@@ -254,6 +255,7 @@
 		DAD778E81E1174D7009B1A81 /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DAD778EA1E117667009B1A81 /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DAD778EC1E11788D009B1A81 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
+		DAD88CFC1E1AE93400EAB6B7 /* MCameraFilterItemBlend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilterItemBlend.swift; sourceTree = "<group>"; };
 		DAF976171E17187500811D61 /* VCameraActiveButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraActiveButton.swift; sourceTree = "<group>"; };
 		DAF976191E171E1A00811D61 /* VCameraCellControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraCellControls.swift; sourceTree = "<group>"; };
 		DAFC40B71E1A02780044B14B /* CCameraCompress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraCompress.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				DA14D1161E187A23000753B3 /* MCameraFilter.swift */,
 				DA14D1181E187A30000753B3 /* MCameraFilterItem.swift */,
 				DA14D11A1E187AFF000753B3 /* MCameraFilterItemNone.swift */,
+				DAD88CFC1E1AE93400EAB6B7 /* MCameraFilterItemBlend.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -902,6 +905,7 @@
 				DA505F4C1E0B4C9F00CE22FE /* VHomeControlBlenderMenu.swift in Sources */,
 				DA20F0BA1E0444E800F8BAD4 /* MHomeControlItem.swift in Sources */,
 				DA3502201E0C5EC700CBDF64 /* VHomeControlBlenderBoardOver.swift in Sources */,
+				DAD88CFD1E1AE93400EAB6B7 /* MCameraFilterItemBlend.swift in Sources */,
 				DAC7D3FE1E12C3BC00312D4E /* VLoops.swift in Sources */,
 				DA9D2F381E0ADF57003E37D5 /* VHomeControlCamera.swift in Sources */,
 				DA9D2F4B1E0AFE0A003E37D5 /* MHomeFramesItem5.swift in Sources */,
