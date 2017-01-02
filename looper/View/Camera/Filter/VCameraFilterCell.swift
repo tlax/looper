@@ -35,6 +35,7 @@ class VCameraFilterCell:UICollectionViewCell
         selectedIcon.clipsToBounds = true
         selectedIcon.isUserInteractionEnabled = false
         selectedIcon.contentMode = UIViewContentMode.center
+        selectedIcon.image = #imageLiteral(resourceName: "assetCameraFilterSelect")
         self.selectedIcon = selectedIcon
         
         addSubview(label)

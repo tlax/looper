@@ -5,7 +5,7 @@ class MCameraFilterItemNone:MCameraFilterItem
     override init()
     {
         let title:String = NSLocalizedString("MCameraFilterItemNone_title", comment:"")
-        let image:UIImage = #imageLiteral(resourceName: "assetSpinner4")
+        let image:UIImage = #imageLiteral(resourceName: "assetCameraFilterNone")
         
         super.init(title:title, image:image)
     }
