@@ -64,6 +64,10 @@ class CCameraPreview:CController
             UIAlertActionStyle.destructive)
         { [weak self] (action:UIAlertAction) in
             
+            self?.parentController.removeBetweenFirstAndLast()
+            self?.parentController.pop(
+                horizontal:
+                CParent.TransitionHorizontal.fromRight)
         }
         
         alert.addAction(actionDelete)

@@ -187,18 +187,18 @@ class CParent:UIViewController
     {
         var controllers:Int = childViewControllers.count - 1
         
-        while controllers > 0
+        while controllers > 1
         {
             controllers -= 1
             
             guard
                 
-                let controller:CController = childViewControllers[controllers - 1] as? CController,
+                let controller:CController = childViewControllers[controllers] as? CController,
                 let view:VView = controller.view as? VView
                 
             else
             {
-                return
+                continue
             }
             
             controller.beginAppearanceTransition(false, animated:false)
