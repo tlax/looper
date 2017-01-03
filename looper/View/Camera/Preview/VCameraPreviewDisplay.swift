@@ -8,7 +8,7 @@ class VCameraPreviewDisplay:UIView
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.genericBackground
         translatesAutoresizingMaskIntoConstraints = false
         
         let imageView:UIImageView = UIImageView()

@@ -1,10 +1,8 @@
-"VHomePlayerTimer_time"="Seconds";
-"VHomeControlBlenderBoard_labelMain"="Main picture";
-"VHomeControlBlenderBoard_labelBoard"="Blend over main";
-
 "VCameraFooter_label"="Start by recording a video";
 "VCameraShootConfig_titleBottom"="Frames/second";
 "VCameraFilterNoneHeader_label"="Select video";
+"VCameraPreviewBar_cancelButton"="Cancel";
+"VCameraPreviewBar_saveButton"="Save";
 
 "CCameraShoot_noAuth"="looper has no access to your camera";
 "CCameraShoot_errorCaptureDevice"="Error connecting to camera";
