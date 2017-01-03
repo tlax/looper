@@ -11,9 +11,9 @@ class CCameraPreview:CController
         super.init()
     }
     
-    override func viewWillAppear(_ animated:Bool)
+    override func viewDidAppear(_ animated:Bool)
     {
-        super.viewWillAppear(animated)
+        super.viewDidAppear(animated)
         parentController.changeBar(barHidden:true)
     }
     
@@ -40,5 +40,34 @@ class CCameraPreview:CController
     func back()
     {
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+    }
+    
+    func cancel()
+    {
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("CCameraPreview_alertTitle", comment:""),
+            message:
+            NSLocalizedString("CCameraPreview_alertMessage", comment:""),
+            preferredStyle:UIAlertControllerStyle.actionSheet)
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CCameraPreview_alertCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionDelete:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CCameraPreview_alertDelete", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { [weak self] (action:UIAlertAction) in
+            
+        }
+        
+        alert.addAction(actionDelete)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
     }
 }

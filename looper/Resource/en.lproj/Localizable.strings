@@ -9,6 +9,10 @@
 "CCamera_alertTitle"="Delete sequence?";
 "CCamera_alertDelete"="Delete";
 "CCamera_alertCancel"="Cancel";
+"CCameraPreview_alertTitle"="Cancel project?";
+"CCameraPreview_alertMessage"="Project videos and progress will be lost";
+"CCameraPreview_alertCancel"="Do nothing";
+"CCameraPreview_alertDelete"="Cancel project";
 
 "MCameraFilterItemNone_title"="No filtering";
 "MCameraFilterItemBlend_title"="Blending multiple videos";
