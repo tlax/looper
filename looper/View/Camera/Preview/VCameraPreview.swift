@@ -3,8 +3,10 @@ import UIKit
 class VCameraPreview:VView
 {
     private weak var controller:CCameraPreview!
+    private weak var viewBar:VCameraPreviewBar!
     private weak var viewDisplay:VCameraPreviewDisplay!
     private weak var viewPlayer:VCameraPreviewPlayer!
+    private weak var spinner:VSpinner!
     private weak var layoutDisplayHeight:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 50
     private let kPlayerHeight:CGFloat = 100
@@ -15,6 +17,7 @@ class VCameraPreview:VView
         self.controller = controller as? CCameraPreview
         
         let viewBar:VCameraPreviewBar = VCameraPreviewBar(controller:self.controller)
+        self.viewBar = viewBar
         
         let viewDisplay:VCameraPreviewDisplay = VCameraPreviewDisplay()
         self.viewDisplay = viewDisplay
@@ -22,9 +25,14 @@ class VCameraPreview:VView
         let viewPlayer:VCameraPreviewPlayer = VCameraPreviewPlayer(controller:self.controller)
         self.viewPlayer = viewPlayer
         
+        let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
+        self.spinner = spinner
+        
         addSubview(viewPlayer)
         addSubview(viewBar)
         addSubview(viewDisplay)
+        addSubview(spinner)
         
         let layoutBarBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:viewBar,
@@ -90,5 +98,15 @@ class VCameraPreview:VView
         layoutDisplayHeight.constant = width
         
         super.layoutSubviews()
+    }
+    
+    //MARK: public
+    
+    func saving()
+    {
+        viewDisplay.imageView.stopAnimating()
+        viewDisplay.isHidden = true
+        viewPlayer.isHidden = true
+        viewBar.saving()
     }
 }
