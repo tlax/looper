@@ -22,4 +22,11 @@ class CCameraFilterNone:CController
         self.viewNone = viewNone
         view = viewNone
     }
+    
+    //MARK: public
+    
+    func back()
+    {
+        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+    }
 }
