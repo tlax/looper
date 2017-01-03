@@ -4,11 +4,50 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
 {
     private weak var controller:CCameraFilterNone!
     private weak var collectionView:VCollection!
+    private let kHeaderHeight:CGFloat = 110
+    private let kCollectionBottom:CGFloat = 20
     
     override init(controller:CController)
     {
         super.init(controller:controller)
         self.controller = controller as? CCameraFilterNone
+        
+        let collectionView:VCollection = VCollection()
+        collectionView.flow.headerReferenceSize = CGSize(
+            width:0,
+            height:kHeaderHeight)
+        collectionView.flow.sectionInset = UIEdgeInsets(
+            top:0,
+            left:0,
+            bottom:kCollectionBottom,
+            right:0)
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(cell:VCameraFilterNoneCell.self)
+        collectionView.registerHeader(header:VCameraFilterNoneHeader.self)
+        self.collectionView = collectionView
+        
+        addSubview(collectionView)
+        
+        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:collectionView,
+            toView:self)
+        
+        addConstraints([
+            layoutCollectionTop,
+            layoutCollectionBottom,
+            layoutCollectionLeft,
+            layoutCollectionRight])
     }
     
     required init?(coder:NSCoder)
