@@ -7,8 +7,9 @@ class VCameraCompressCell:UICollectionViewCell
     private weak var percent:UILabel!
     private weak var selectedIcon:UIImageView!
     private let kLabelLeft:CGFloat = 10
-    private let kLabelWidth:CGFloat = 70
-    private let kSelectedWidth:CGFloat = 75
+    private let kLabelWidth:CGFloat = 105
+    private let kPercentRight:CGFloat = 15
+    private let kSelectedWidth:CGFloat = 55
     private let kAlphaSelected:CGFloat = 1
     private let kAlphaNotSelected:CGFloat = 0.4
     
@@ -31,7 +32,7 @@ class VCameraCompressCell:UICollectionViewCell
         percent.isUserInteractionEnabled = false
         percent.translatesAutoresizingMaskIntoConstraints = false
         percent.backgroundColor = UIColor.clear
-        percent.font = UIFont.bold(size:25)
+        percent.font = UIFont.bold(size:35)
         percent.textColor = UIColor.genericLight
         percent.textAlignment = NSTextAlignment.right
         self.percent = percent
@@ -71,9 +72,9 @@ class VCameraCompressCell:UICollectionViewCell
             view:label,
             toView:self,
             constant:kLabelLeft)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+        let layoutLabelWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:label,
-            toView:selectedIcon)
+            constant:kLabelWidth)
         
         let layoutPercentTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:percent,
@@ -86,7 +87,8 @@ class VCameraCompressCell:UICollectionViewCell
             toView:label)
         let layoutPercentRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
             view:percent,
-            toView:selectedIcon)
+            toView:selectedIcon,
+            constant:kPercentRight)
         
         addConstraints([
             layoutSelectedTop,
@@ -96,7 +98,7 @@ class VCameraCompressCell:UICollectionViewCell
             layoutLabelTop,
             layoutLabelBottom,
             layoutLabelLeft,
-            layoutLabelRight,
+            layoutLabelWidth,
             layoutPercentTop,
             layoutPercentBottom,
             layoutPercentLeft,
@@ -147,6 +149,7 @@ class VCameraCompressCell:UICollectionViewCell
     func config(model:MCameraCompressItem)
     {
         label.text = model.title
+        percent.text = "\(model.percent)%"
         
         hover()
     }
