@@ -4,6 +4,8 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
 {
     private weak var controller:CCameraCompress!
     private weak var collectionView:VCollection!
+    private weak var spinner:VSpinner!
+    private weak var viewBar:VCameraCompressBar!
     private let kBarHeight:CGFloat = 64
     private let kCellHeight:CGFloat = 80
     private let kInterLine:CGFloat = 2
@@ -19,6 +21,11 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
         
         let viewBar:VCameraCompressBar = VCameraCompressBar(
             controller:self.controller)
+        self.viewBar = viewBar
+        
+        let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
+        self.spinner = spinner
         
         let collectionView:VCollection = VCollection()
         collectionView.flow.minimumLineSpacing = kInterLine
@@ -34,6 +41,7 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
         self.collectionView = collectionView
         
         addSubview(collectionView)
+        addSubview(spinner)
         addSubview(viewBar)
         
         let layoutBarTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
@@ -62,6 +70,19 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
             view:collectionView,
             toView:self)
         
+        let layoutSpinnerTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:spinner,
+            toView:self)
+        let layoutSpinnerBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:spinner,
+            toView:self)
+        let layoutSpinnerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:spinner,
+            toView:self)
+        let layoutSpinnerRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:spinner,
+            toView:self)
+        
         addConstraints([
             layoutBarTop,
             layoutBarHeight,
@@ -70,7 +91,11 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
             layoutCollectionTop,
             layoutCollectionBottom,
             layoutCollectionLeft,
-            layoutCollectionRight])
+            layoutCollectionRight,
+            layoutSpinnerTop,
+            layoutSpinnerBottom,
+            layoutSpinnerLeft,
+            layoutSpinnerRight])
         
         var indexSelected:Int?
         let countItems:Int = self.controller.modelCompress.items.count
@@ -120,6 +145,22 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
         let item:MCameraCompressItem = controller.modelCompress.items[index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func startLoading()
+    {
+        viewBar.startLoading()
+        collectionView.isHidden = true
+        spinner.startAnimating()
+    }
+    
+    func stopLoading()
+    {
+        viewBar.stopLoading()
+        collectionView.isHidden = false
+        spinner.stopAnimating()
     }
     
     //MARK: collectionView delegate
