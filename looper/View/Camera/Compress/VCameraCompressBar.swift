@@ -3,10 +3,14 @@ import UIKit
 class VCameraCompressBar:UIView
 {
     private weak var controller:CCameraCompress!
+    private weak var backButton:UIButton!
+    private weak var nextButton:UIButton!
     private weak var layoutIconLeft:NSLayoutConstraint!
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
     private let kIconWidth:CGFloat = 60
+    private let kAlphaActive:CGFloat = 1
+    private let kAlphaNotActive:CGFloat = 0.3
     
     convenience init(controller:CCameraCompress)
     {
@@ -38,6 +42,7 @@ class VCameraCompressBar:UIView
             self,
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.backButton = backButton
         
         let nextButton:UIButton = UIButton()
         nextButton.translatesAutoresizingMaskIntoConstraints = false
@@ -56,6 +61,7 @@ class VCameraCompressBar:UIView
             self,
             action:#selector(actionNext(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.nextButton = nextButton
         
         let icon:UIImageView = UIImageView()
         icon.isUserInteractionEnabled = false
@@ -163,5 +169,23 @@ class VCameraCompressBar:UIView
     func actionNext(sender button:UIButton)
     {
         controller.next()
+    }
+    
+    //MARK: public
+    
+    func startLoading()
+    {
+        backButton.isUserInteractionEnabled = false
+        nextButton.isUserInteractionEnabled = false
+        backButton.alpha = kAlphaNotActive
+        nextButton.alpha = kAlphaNotActive
+    }
+    
+    func stopLoading()
+    {
+        backButton.isUserInteractionEnabled = true
+        nextButton.isUserInteractionEnabled = true
+        backButton.alpha = kAlphaActive
+        nextButton.alpha = kAlphaActive
     }
 }
