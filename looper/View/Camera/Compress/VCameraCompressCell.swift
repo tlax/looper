@@ -7,11 +7,10 @@ class VCameraCompressCell:UICollectionViewCell
     private weak var percent:UILabel!
     private weak var selectedIcon:UIImageView!
     private let kLabelLeft:CGFloat = 10
-    private let kLabelWidth:CGFloat = 115
-    private let kPercentRight:CGFloat = -4
+    private let kLabelWidth:CGFloat = 125
     private let kSelectedWidth:CGFloat = 55
     private let kAlphaSelected:CGFloat = 1
-    private let kAlphaNotSelected:CGFloat = 0.4
+    private let kAlphaNotSelected:CGFloat = 0.3
     
     override init(frame:CGRect)
     {
@@ -23,7 +22,7 @@ class VCameraCompressCell:UICollectionViewCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.medium(size:15)
+        label.font = UIFont.bold(size:16)
         label.textColor = UIColor.black
         label.numberOfLines = 0
         self.label = label
@@ -32,7 +31,7 @@ class VCameraCompressCell:UICollectionViewCell
         percent.isUserInteractionEnabled = false
         percent.translatesAutoresizingMaskIntoConstraints = false
         percent.backgroundColor = UIColor.clear
-        percent.font = UIFont.bold(size:35)
+        percent.font = UIFont.bold(size:22)
         percent.textAlignment = NSTextAlignment.right
         self.percent = percent
         
@@ -86,8 +85,7 @@ class VCameraCompressCell:UICollectionViewCell
             toView:label)
         let layoutPercentRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
             view:percent,
-            toView:selectedIcon,
-            constant:kPercentRight)
+            toView:selectedIcon)
         
         addConstraints([
             layoutSelectedTop,

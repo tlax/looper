@@ -7,7 +7,7 @@ class MCameraCompressItemMedium:MCameraCompressItem
     override init()
     {
         let title:String = NSLocalizedString("MCameraCompressItemMedium_title", comment:"")
-        let color:UIColor = UIColor.orange
+        let color:UIColor = UIColor(red:0.9, green:0.5, blue:0, alpha:1)
         
         super.init(title:title, percent:kPercent, color:color)
     }
