@@ -35,6 +35,8 @@
 		DA38AF141E1C302D008C86A8 /* VCameraPreviewPlayerTimerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF131E1C302D008C86A8 /* VCameraPreviewPlayerTimerSlider.swift */; };
 		DA38AF161E1C4E5E008C86A8 /* ExtensionURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF151E1C4E5E008C86A8 /* ExtensionURL.swift */; };
 		DA38AF181E1C5F20008C86A8 /* VLoopsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF171E1C5F20008C86A8 /* VLoopsCell.swift */; };
+		DA38AF1B1E1C6031008C86A8 /* MLoops.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF1A1E1C6031008C86A8 /* MLoops.swift */; };
+		DA38AF1D1E1C6046008C86A8 /* MLoopsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF1C1E1C6046008C86A8 /* MLoopsItem.swift */; };
 		DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */; };
 		DA505F471E0B3CF900CE22FE /* MHomeControlItemBlender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505F461E0B3CF900CE22FE /* MHomeControlItemBlender.swift */; };
 		DA505F4A1E0B473600CE22FE /* VHomeControlBlender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505F491E0B473600CE22FE /* VHomeControlBlender.swift */; };
@@ -183,6 +185,8 @@
 		DA38AF131E1C302D008C86A8 /* VCameraPreviewPlayerTimerSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraPreviewPlayerTimerSlider.swift; sourceTree = "<group>"; };
 		DA38AF151E1C4E5E008C86A8 /* ExtensionURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionURL.swift; sourceTree = "<group>"; };
 		DA38AF171E1C5F20008C86A8 /* VLoopsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoopsCell.swift; sourceTree = "<group>"; };
+		DA38AF1A1E1C6031008C86A8 /* MLoops.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoops.swift; sourceTree = "<group>"; };
+		DA38AF1C1E1C6046008C86A8 /* MLoopsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoopsItem.swift; sourceTree = "<group>"; };
 		DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
 		DA505F461E0B3CF900CE22FE /* MHomeControlItemBlender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeControlItemBlender.swift; sourceTree = "<group>"; };
 		DA505F491E0B473600CE22FE /* VHomeControlBlender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlender.swift; sourceTree = "<group>"; };
@@ -343,6 +347,7 @@
 		DA20F0B41E04449C00F8BAD4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA38AF191E1C6026008C86A8 /* Loops */,
 				DA9B83E81E1310AC002B9810 /* Camera */,
 				DAFFF3FE1E08A77400E14F12 /* Session */,
 				DA20F0B51E0444C900F8BAD4 /* Home */,
@@ -429,6 +434,15 @@
 				DA38AF131E1C302D008C86A8 /* VCameraPreviewPlayerTimerSlider.swift */,
 			);
 			path = Preview;
+			sourceTree = "<group>";
+		};
+		DA38AF191E1C6026008C86A8 /* Loops */ = {
+			isa = PBXGroup;
+			children = (
+				DA38AF1A1E1C6031008C86A8 /* MLoops.swift */,
+				DA38AF1C1E1C6046008C86A8 /* MLoopsItem.swift */,
+			);
+			path = Loops;
 			sourceTree = "<group>";
 		};
 		DA505F481E0B46F200CE22FE /* Blender */ = {
@@ -955,6 +969,7 @@
 				DA20F38C1E0D8AC700D9EBAC /* MHomeImageSequenceRawPoint.swift in Sources */,
 				DAD778E71E106665009B1A81 /* MHomeControlItemSequences.swift in Sources */,
 				DA9B83DF1E12E81C002B9810 /* VCollection.swift in Sources */,
+				DA38AF1B1E1C6031008C86A8 /* MLoops.swift in Sources */,
 				DA799CE81E1436D200AB45DD /* MCameraSpeed10.swift in Sources */,
 				DAFC40C21E1A044C0044B14B /* MCameraCompressItemMax.swift in Sources */,
 				DA9D2F3B1E0ADF57003E37D5 /* VHomeControlCameraPreview.swift in Sources */,
@@ -1037,6 +1052,7 @@
 				DAA68D5F1E09C7D200A830A2 /* VHomePlayerTimerSlider.swift in Sources */,
 				DA799CF51E14488000AB45DD /* MCameraRawItem.swift in Sources */,
 				DA38AF161E1C4E5E008C86A8 /* ExtensionURL.swift in Sources */,
+				DA38AF1D1E1C6046008C86A8 /* MLoopsItem.swift in Sources */,
 				DA5C523C1E15CC3000D296C6 /* CCameraFilter.swift in Sources */,
 				DAFC40C61E1A04960044B14B /* MCameraCompressItemMedium.swift in Sources */,
 				DAB333EF1E05DC1A003436C0 /* MHomeImageSequenceItem.swift in Sources */,

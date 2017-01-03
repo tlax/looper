@@ -3,6 +3,7 @@ import UIKit
 class CLoops:CController
 {
     weak var viewLoops:VLoops!
+    let model:mloo
 
     override func loadView()
     {
