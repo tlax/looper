@@ -2,8 +2,8 @@ import UIKit
 
 class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    weak var collectionView:VCollection!
     private weak var controller:CCameraFilterNone!
-    private weak var collectionView:VCollection!
     private let kHeaderHeight:CGFloat = 67
     private let kCollectionTop:CGFloat = 20
     private let kCollectionBottom:CGFloat = 20

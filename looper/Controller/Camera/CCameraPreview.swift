@@ -3,11 +3,14 @@ import UIKit
 class CCameraPreview:CController
 {
     weak var viewPreview:VCameraPreview!
+    var currentTime:TimeInterval
     let model:MCameraRecord
+    private let kStartTime:TimeInterval = 5
     
     init(model:MCameraRecord)
     {
         self.model = model
+        currentTime = kStartTime
         super.init()
     }
     
@@ -51,12 +54,15 @@ class CCameraPreview:CController
     {
         if viewPreview.viewDisplay.imageView.isAnimating
         {
+            viewPreview.viewPlayer.viewTimer.notBlocked()
             viewPreview.viewPlayer.buttonPlay.play()
             viewPreview.viewDisplay.imageView.stopAnimating()
         }
         else
         {
+            viewPreview.viewPlayer.viewTimer.blocked()
             viewPreview.viewPlayer.buttonPlay.stop()
+            viewPreview.viewDisplay.imageView.animationDuration = currentTime
             viewPreview.viewDisplay.imageView.startAnimating()
         }
     }

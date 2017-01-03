@@ -86,7 +86,7 @@ class VCameraPreviewPlayerTimer:UIView
     
     func print()
     {
-        let time:NSNumber = viewSlider.currentTime as NSNumber
+        let time:NSNumber = controller.currentTime as NSNumber
         
         guard
             

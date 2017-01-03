@@ -2,7 +2,6 @@ import UIKit
 
 class VCameraPreviewPlayerTimerSlider:UIView
 {
-    var currentTime:TimeInterval
     private weak var controller:CCameraPreview!
     private weak var viewThumb:UIImageView!
     private weak var layoutTrackTop:NSLayoutConstraint!
@@ -14,14 +13,12 @@ class VCameraPreviewPlayerTimerSlider:UIView
     private let thumbWidth_2:CGFloat
     private let kMinTime:TimeInterval = 1
     private let kMaxTime:TimeInterval = 15
-    private let kStartTime:TimeInterval = 5
     private let kTrackHeight:CGFloat = 4
     private let kThumbWidth:CGFloat = 40
     
     init(controller:CCameraPreview)
     {
         usableWidth = 0
-        currentTime = kStartTime
         timeSpan = kMaxTime - kMinTime
         thumbWidth_2 = kThumbWidth / 2.0
         
@@ -123,7 +120,7 @@ class VCameraPreviewPlayerTimerSlider:UIView
         usableWidth = width - kThumbWidth
         let marginTop:CGFloat = remainHeight / 2.0
         
-        let addedTime:TimeInterval = currentTime - kMinTime
+        let addedTime:TimeInterval = controller.currentTime - kMinTime
         let percentage:CGFloat = CGFloat(addedTime / timeSpan)
         var percentageWidth:CGFloat = percentage * usableWidth
         
@@ -212,7 +209,7 @@ class VCameraPreviewPlayerTimerSlider:UIView
             xPercent = 0
         }
         
-        currentTime = round((TimeInterval(xPercent) * timeSpan) + kMinTime)
+        controller.currentTime = round((TimeInterval(xPercent) * timeSpan) + kMinTime)
         setNeedsLayout()
     }
     

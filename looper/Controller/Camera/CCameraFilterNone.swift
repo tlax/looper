@@ -23,11 +23,18 @@ class CCameraFilterNone:CController
         view = viewNone
     }
     
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        viewNone.collectionView.reloadData()
+    }
+    
     //MARK: public
     
     func back()
     {
-        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+        parentController.pop(
+            horizontal:CParent.TransitionHorizontal.fromRight)
     }
     
     func selected(record:MCameraRecord)
