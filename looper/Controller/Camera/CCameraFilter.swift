@@ -34,9 +34,18 @@ class CCameraFilter:CController
     
     func next()
     {
-        let controller:CCameraCompress = CCameraCompress(model:model)
+        guard
+            
+            let controller:CController = modelFilter.currentFilter?.processController(model:model)
+        
+        else
+        {
+            return
+        }
+        
         parentController.push(
             controller:controller,
-            horizontal:CParent.TransitionHorizontal.fromRight)
+            horizontal:
+            CParent.TransitionHorizontal.fromRight)
     }
 }

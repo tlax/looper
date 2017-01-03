@@ -15,4 +15,11 @@ class MCameraFilterItem
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func processController(model:MCamera) -> CController?
+    {
+        return nil
+    }
 }
