@@ -34,4 +34,11 @@ class CCameraPreview:CController
         self.viewPreview = viewPreview
         view = viewPreview
     }
+    
+    //MARK: public
+    
+    func back()
+    {
+        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+    }
 }
