@@ -74,7 +74,6 @@ class CCameraPreview:CController
         let projectFolderName:String = UUID().uuidString
         let appDirectory:URL = FileManager.appDirectory
         var projectPath:URL = appDirectory.appendingPathComponent(projectFolderName)
-        projectPath = URL.excludeFromBackup(original:projectPath)
         
         do
         {
@@ -93,6 +92,8 @@ class CCameraPreview:CController
                 self?.savingFailed()
             }
         }
+        
+        projectPath = URL.excludeFromBackup(original:projectPath)
     }
     
     private func savingFailed()
