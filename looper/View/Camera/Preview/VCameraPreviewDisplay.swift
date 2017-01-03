@@ -44,4 +44,18 @@ class VCameraPreviewDisplay:UIView
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func load(record:MCameraRecord)
+    {
+        var images:[UIImage] = []
+        
+        for item:MCameraRecordItem in record.items
+        {
+            images.append(item.image)
+        }
+        
+        imageView.animationImages = images
+    }
 }

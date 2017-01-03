@@ -15,6 +15,7 @@ class CCameraPreview:CController
     {
         super.viewDidAppear(animated)
         parentController.changeBar(barHidden:true)
+        viewPreview.viewDisplay.load(record:model)
     }
     
     override func viewWillDisappear(_ animated:Bool)
