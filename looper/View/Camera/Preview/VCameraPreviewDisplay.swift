@@ -57,5 +57,6 @@ class VCameraPreviewDisplay:UIView
         }
         
         imageView.animationImages = images
+        imageView.image = record.items.first?.image
     }
 }

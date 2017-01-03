@@ -11,6 +11,15 @@ class CCameraPreview:CController
         super.init()
     }
     
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        viewPreview.viewPlayer.buttonPlay.addTarget(
+            self,
+            action:#selector(actionPlay(sender:)),
+            for:UIControlEvents.touchUpInside)
+    }
+    
     override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
@@ -34,6 +43,22 @@ class CCameraPreview:CController
         let viewPreview:VCameraPreview = VCameraPreview(controller:self)
         self.viewPreview = viewPreview
         view = viewPreview
+    }
+    
+    //MARK: actions
+    
+    func actionPlay(sender button:UIButton)
+    {
+        if viewPreview.viewDisplay.imageView.isAnimating
+        {
+            viewPreview.viewPlayer.buttonPlay.play()
+            viewPreview.viewDisplay.imageView.stopAnimating()
+        }
+        else
+        {
+            viewPreview.viewPlayer.buttonPlay.stop()
+            viewPreview.viewDisplay.imageView.startAnimating()
+        }
     }
     
     //MARK: public

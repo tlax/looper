@@ -3,9 +3,9 @@ import UIKit
 class VCameraPreview:VView
 {
     weak var viewDisplay:VCameraPreviewDisplay!
+    weak var viewPlayer:VCameraPreviewPlayer!
     private weak var controller:CCameraPreview!
     private weak var viewBar:VCameraPreviewBar!
-    private weak var viewPlayer:VCameraPreviewPlayer!
     private weak var spinner:VSpinner!
     private weak var layoutDisplayHeight:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 50
