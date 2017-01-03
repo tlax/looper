@@ -3,7 +3,11 @@ import UIKit
 class VCameraPreview:VView
 {
     private weak var controller:CCameraPreview!
+    private weak var viewDisplay:VCameraPreviewDisplay!
+    private weak var viewPlayer:VCameraPreviewPlayer!
+    private weak var layoutDisplayHeight:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 50
+    private let kPlayerHeight:CGFloat = 100
     
     override init(controller:CController)
     {
@@ -12,7 +16,15 @@ class VCameraPreview:VView
         
         let viewBar:VCameraPreviewBar = VCameraPreviewBar(controller:self.controller)
         
+        let viewDisplay:VCameraPreviewDisplay = VCameraPreviewDisplay()
+        self.viewDisplay = viewDisplay
+        
+        let viewPlayer:VCameraPreviewPlayer = VCameraPreviewPlayer(controller:self.controller)
+        self.viewPlayer = viewPlayer
+        
+        addSubview(viewPlayer)
         addSubview(viewBar)
+        addSubview(viewDisplay)
         
         let layoutBarBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:viewBar,
@@ -27,15 +39,56 @@ class VCameraPreview:VView
             view:viewBar,
             toView:self)
         
+        let layoutDisplayTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewDisplay,
+            toView:self)
+        layoutDisplayHeight = NSLayoutConstraint.height(
+            view:viewDisplay)
+        let layoutDisplayLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewDisplay,
+            toView:self)
+        let layoutDisplayRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewDisplay,
+            toView:self)
+        
+        let layoutPlayerTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:viewPlayer,
+            toView:viewDisplay)
+        let layoutPlayerHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:viewPlayer,
+            constant:kPlayerHeight)
+        let layoutPlayerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewPlayer,
+            toView:self)
+        let layoutPlayerRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewPlayer,
+            toView:self)
+        
         addConstraints([
             layoutBarBottom,
             layoutBarHeight,
             layoutBarLeft,
-            layoutBarRight])
+            layoutBarRight,
+            layoutDisplayTop,
+            layoutDisplayHeight,
+            layoutDisplayLeft,
+            layoutDisplayRight,
+            layoutPlayerTop,
+            layoutPlayerHeight,
+            layoutPlayerLeft,
+            layoutPlayerRight])
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        layoutDisplayHeight.constant = width
+        
+        super.layoutSubviews()
     }
 }
