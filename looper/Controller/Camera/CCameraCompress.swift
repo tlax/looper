@@ -25,6 +25,46 @@ class CCameraCompress:CController
         view = viewCompress
     }
     
+    //MARK: private
+    
+    private func compress()
+    {
+        guard
+        
+            let compressItem:MCameraCompressItem = modelCompress.currentCompress
+        
+        else
+        {
+            return
+        }
+        
+        guard
+        
+            let compressedRecord:MCameraRecord = compressItem.compress(record:model)
+        
+        else
+        {
+            return
+        }
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.finishedCompressing(compressed:compressedRecord)
+        }
+    }
+    
+    private func finishedCompressing(compressed:MCameraRecord)
+    {
+        viewCompress.stopLoading()
+        
+        let controller:CCameraPreview = CCameraPreview(model:compressed)
+        parentController.push(
+            controller:controller,
+            horizontal:
+            CParent.TransitionHorizontal.fromRight)
+    }
+    
     //MARK: public
     
     func back()
@@ -34,6 +74,12 @@ class CCameraCompress:CController
     
     func next()
     {
+        viewCompress.startLoading()
         
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.compress()
+        }
     }
 }

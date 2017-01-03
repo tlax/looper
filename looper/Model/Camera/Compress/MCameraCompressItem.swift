@@ -17,4 +17,11 @@ class MCameraCompressItem
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func compress(record:MCameraRecord) -> MCameraRecord?
+    {
+        return nil
+    }
 }

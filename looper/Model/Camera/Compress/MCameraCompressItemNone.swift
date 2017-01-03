@@ -16,4 +16,9 @@ class MCameraCompressItemNone:MCameraCompressItem
     {
         fatalError()
     }
+    
+    override func compress(record:MCameraRecord) -> MCameraRecord?
+    {
+        return record
+    }
 }
