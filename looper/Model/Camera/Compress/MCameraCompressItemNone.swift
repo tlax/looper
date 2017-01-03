@@ -7,11 +7,12 @@ class MCameraCompressItemNone:MCameraCompressItem
     override init()
     {
         let title:String = NSLocalizedString("MCameraCompressItemNone_title", comment:"")
+        let color:UIColor = UIColor.genericLight
         
-        super.init(title:title, percent:kPercent)
+        super.init(title:title, percent:kPercent, color:color)
     }
     
-    override init(title:String, percent:Int)
+    override init(title:String, percent:Int, color:UIColor)
     {
         fatalError()
     }

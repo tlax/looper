@@ -7,8 +7,8 @@ class VCameraCompressCell:UICollectionViewCell
     private weak var percent:UILabel!
     private weak var selectedIcon:UIImageView!
     private let kLabelLeft:CGFloat = 10
-    private let kLabelWidth:CGFloat = 105
-    private let kPercentRight:CGFloat = 15
+    private let kLabelWidth:CGFloat = 115
+    private let kPercentRight:CGFloat = -4
     private let kSelectedWidth:CGFloat = 55
     private let kAlphaSelected:CGFloat = 1
     private let kAlphaNotSelected:CGFloat = 0.4
@@ -23,7 +23,7 @@ class VCameraCompressCell:UICollectionViewCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:16)
+        label.font = UIFont.medium(size:15)
         label.textColor = UIColor.black
         label.numberOfLines = 0
         self.label = label
@@ -33,7 +33,6 @@ class VCameraCompressCell:UICollectionViewCell
         percent.translatesAutoresizingMaskIntoConstraints = false
         percent.backgroundColor = UIColor.clear
         percent.font = UIFont.bold(size:35)
-        percent.textColor = UIColor.genericLight
         percent.textAlignment = NSTextAlignment.right
         self.percent = percent
         
@@ -150,6 +149,7 @@ class VCameraCompressCell:UICollectionViewCell
     {
         label.text = model.title
         percent.text = "\(model.percent)%"
+        percent.textColor = model.color
         
         hover()
     }
