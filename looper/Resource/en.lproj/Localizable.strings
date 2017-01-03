@@ -4,7 +4,7 @@
 
 "VCameraFooter_label"="Start by recording a video";
 "VCameraShootConfig_titleBottom"="Frames/second";
-"VCameraFilterNoneHeader_label"="Select the video to export";
+"VCameraFilterNoneHeader_label"="Select video";
 
 "CCameraShoot_noAuth"="looper has no access to your camera";
 "CCameraShoot_errorCaptureDevice"="Error connecting to camera";

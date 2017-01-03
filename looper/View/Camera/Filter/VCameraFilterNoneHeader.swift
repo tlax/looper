@@ -12,7 +12,6 @@ class VCameraFilterNoneHeader:UICollectionReusableView
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
-        isUserInteractionEnabled = false
         
         let label:UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -20,7 +19,7 @@ class VCameraFilterNoneHeader:UICollectionReusableView
         label.backgroundColor = UIColor.clear
         label.numberOfLines = 0
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.regular(size:15)
+        label.font = UIFont.medium(size:16)
         label.textColor = UIColor.black
         label.text = NSLocalizedString("VCameraFilterNoneHeader_label", comment:"")
         
@@ -41,6 +40,7 @@ class VCameraFilterNoneHeader:UICollectionReusableView
             for:UIControlEvents.touchUpInside)
         
         addSubview(label)
+        addSubview(backButton)
         
         let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:label,
@@ -56,7 +56,7 @@ class VCameraFilterNoneHeader:UICollectionReusableView
         let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:label,
             toView:self,
-            constant:kLabelMarginHorizontal)
+            constant:-kLabelMarginHorizontal)
         
         let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:backButton,

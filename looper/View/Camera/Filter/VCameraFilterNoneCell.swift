@@ -15,6 +15,8 @@ class VCameraFilterNoneCell:UICollectionViewCell
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.black.cgColor
         self.imageView = imageView
         
         addSubview(imageView)

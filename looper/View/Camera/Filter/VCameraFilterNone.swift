@@ -5,8 +5,9 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
     private weak var controller:CCameraFilterNone!
     private weak var collectionView:VCollection!
     private let kHeaderHeight:CGFloat = 67
+    private let kCollectionTop:CGFloat = 20
     private let kCollectionBottom:CGFloat = 20
-    private let kInterItem:CGFloat = 2
+    private let kInterItem:CGFloat = 5
     private let interItem3:CGFloat
     
     override init(controller:CController)
@@ -23,10 +24,10 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
         collectionView.flow.minimumInteritemSpacing = kInterItem
         collectionView.flow.minimumLineSpacing = kInterItem
         collectionView.flow.sectionInset = UIEdgeInsets(
-            top:0,
-            left:1,
+            top:kCollectionTop,
+            left:kInterItem,
             bottom:kCollectionBottom,
-            right:1)
+            right:kInterItem)
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -124,5 +125,11 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MCameraRecord = modelAtIndex(index:indexPath)
+        controller.selected(record:item)
     }
 }

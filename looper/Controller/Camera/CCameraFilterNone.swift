@@ -29,4 +29,24 @@ class CCameraFilterNone:CController
     {
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
+    
+    func selected(record:MCameraRecord)
+    {
+        let filteredRecord:MCameraRecord = MCameraRecord()
+        
+        for item:MCameraRecordItem in record.items
+        {
+            if item.active
+            {
+                filteredRecord.items.append(item)
+            }
+        }
+        
+        let controllerCompress:CCameraCompress = CCameraCompress(
+            model:filteredRecord)
+        parentController.push(
+            controller:controllerCompress,
+            horizontal:
+            CParent.TransitionHorizontal.fromRight)
+    }
 }
