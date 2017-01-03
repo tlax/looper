@@ -11,9 +11,9 @@ class CCameraPreview:CController
         super.init()
     }
     
-    override func viewDidAppear(_ animated:Bool)
+    override func viewWillAppear(_ animated:Bool)
     {
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
         parentController.changeBar(barHidden:true)
     }
     

@@ -200,8 +200,8 @@ class VParent:UIView
         })
         { (done:Bool) in
             
-            completion()
             currentView.removeFromSuperview()
+            completion()
         }
     }
 }
