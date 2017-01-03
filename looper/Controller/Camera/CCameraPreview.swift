@@ -2,7 +2,7 @@ import UIKit
 
 class CCameraPreview:CController
 {
-    private weak var viewPreview:VCameraPreview!
+    weak var viewPreview:VCameraPreview!
     let model:MCameraRecord
     
     init(model:MCameraRecord)

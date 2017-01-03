@@ -13,7 +13,7 @@ class VCameraPreviewPlayerTimerSlider:UIView
     private let timeSpan:TimeInterval
     private let thumbWidth_2:CGFloat
     private let kMinTime:TimeInterval = 1
-    private let kMaxTime:TimeInterval = 10
+    private let kMaxTime:TimeInterval = 15
     private let kStartTime:TimeInterval = 5
     private let kTrackHeight:CGFloat = 4
     private let kThumbWidth:CGFloat = 40
@@ -35,7 +35,7 @@ class VCameraPreviewPlayerTimerSlider:UIView
         track.isUserInteractionEnabled = false
         track.translatesAutoresizingMaskIntoConstraints = false
         track.clipsToBounds = true
-        track.backgroundColor = UIColor.black
+        track.backgroundColor = UIColor(white:0.94, alpha:1)
         track.layer.cornerRadius = kTrackHeight / 2.0
         
         let insideTrack:UIView = UIView()
@@ -142,9 +142,9 @@ class VCameraPreviewPlayerTimerSlider:UIView
         layoutInsideTrackWidth.constant = percentageWidth
         
         DispatchQueue.main.async
-            { [weak self] in
-                
-                self?.controller.viewHome.viewPlayer.viewTimer.print()
+        { [weak self] in
+          
+            self?.controller.viewPreview.viewPlayer.viewTimer.print()
         }
         
         super.layoutSubviews()
