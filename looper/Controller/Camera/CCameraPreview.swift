@@ -74,4 +74,9 @@ class CCameraPreview:CController
         alert.addAction(actionCancel)
         present(alert, animated:true, completion:nil)
     }
+    
+    func save()
+    {
+        viewPreview.saving()
+    }
 }
