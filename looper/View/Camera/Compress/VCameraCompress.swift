@@ -5,7 +5,7 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
     private weak var controller:CCameraCompress!
     private weak var collectionView:VCollection!
     private let kBarHeight:CGFloat = 64
-    private let kCellHeight:CGFloat = 90
+    private let kCellHeight:CGFloat = 130
     private let kInterLine:CGFloat = 2
     private let kCollectionTop:CGFloat = 67
     private let kCollectionBottom:CGFloat = 20

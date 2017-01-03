@@ -5,10 +5,10 @@ class VCameraCompressCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var label:UILabel!
     private weak var selectedIcon:UIImageView!
-    private let kLabelLeft:CGFloat = 20
+    private let kLabelLeft:CGFloat = 10
     private let kSelectedWidth:CGFloat = 55
     private let kAlphaSelected:CGFloat = 1
-    private let kAlphaNotSelected:CGFloat = 0.2
+    private let kAlphaNotSelected:CGFloat = 0.4
     
     override init(frame:CGRect)
     {
@@ -20,7 +20,7 @@ class VCameraCompressCell:UICollectionViewCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:18)
+        label.font = UIFont.regular(size:16)
         label.textColor = UIColor.black
         label.numberOfLines = 0
         self.label = label
