@@ -5,7 +5,7 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
     private weak var controller:CCameraCompress!
     private weak var collectionView:VCollection!
     private let kBarHeight:CGFloat = 64
-    private let kCellHeight:CGFloat = 130
+    private let kCellHeight:CGFloat = 90
     private let kInterLine:CGFloat = 2
     private let kCollectionTop:CGFloat = 67
     private let kCollectionBottom:CGFloat = 20
@@ -30,7 +30,7 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.registerCell(cell:VCameraFilterCell.self)
+        collectionView.registerCell(cell:VCameraCompressCell.self)
         self.collectionView = collectionView
         
         addSubview(collectionView)
@@ -147,10 +147,10 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
         let item:MCameraCompressItem = modelAtIndex(index:indexPath)
-        let cell:VCameraFilterCell = collectionView.dequeueReusableCell(
+        let cell:VCameraCompressCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
-            VCameraFilterCell.reusableIdentifier,
-            for:indexPath) as! VCameraFilterCell
+            VCameraCompressCell.reusableIdentifier,
+            for:indexPath) as! VCameraCompressCell
         cell.config(model:item)
         
         return cell
@@ -159,6 +159,6 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let item:MCameraCompressItem = modelAtIndex(index:indexPath)
-        controller.modelCompress.currentFilter = item
+        controller.modelCompress.currentCompress = item
     }
 }

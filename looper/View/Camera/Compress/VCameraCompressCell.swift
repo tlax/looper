@@ -55,7 +55,7 @@ class VCameraCompressCell:UICollectionViewCell
         let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:label,
             toView:self)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
+        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:label,
             toView:self,
             constant:kLabelLeft)
@@ -113,9 +113,8 @@ class VCameraCompressCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MCameraFilterItem)
+    func config(model:MCameraCompressItem)
     {
-        imageView.image = model.image
         label.text = model.title
         
         hover()
