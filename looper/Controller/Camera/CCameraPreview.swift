@@ -94,6 +94,64 @@ class CCameraPreview:CController
         }
         
         projectPath = URL.excludeFromBackup(original:projectPath)
+        
+        let countItems:Int = model.items.count
+        
+        for indexItem:Int in 0 ..<  countItems
+        {
+            let item:MCameraRecordItem = model.items[indexItem]
+            let itemPath:URL = projectPath.appendingPathComponent("\(indexItem)")
+            let image:UIImage = item.image
+            
+            guard
+            
+                let data:Data = UIImagePNGRepresentation(image)
+            
+            else
+            {
+                continue
+            }
+            
+            do
+            {
+                try data.write(
+                    to:itemPath,
+                    options:Data.WritingOptions.atomic)
+            }
+            catch
+            {
+            }
+        }
+        
+        DManager.sharedInstance.createManagedObject(
+            entityName:DLoop.entityName)
+        { [weak self] (created) in
+            
+            guard
+            
+                let loop:DLoop = created as? DLoop,
+                let duration:TimeInterval = self?.currentTime
+            
+            else
+            {
+                return
+            }
+            
+            let timestamp:TimeInterval = Date().timeIntervalSince1970
+            
+            loop.folder = projectFolderName
+            loop.created = timestamp
+            loop.duration = duration
+            loop.items = Int16(countItems)
+            
+            DManager.sharedInstance.save()
+            
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.savingDone()
+            }
+        }
     }
     
     private func savingFailed()
@@ -103,7 +161,7 @@ class CCameraPreview:CController
     
     private func savingDone()
     {
-        
+        print("saving done")
     }
     
     //MARK: public

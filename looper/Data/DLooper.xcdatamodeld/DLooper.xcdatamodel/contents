@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DLoop" representedClassName="DLoop" syncable="YES" codeGenerationType="class">
         <attribute name="created" attributeType="Date" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="duration" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="duration" attributeType="Date" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="folder" attributeType="String" syncable="YES"/>
         <attribute name="items" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
