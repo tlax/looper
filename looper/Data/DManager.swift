@@ -39,7 +39,7 @@ class DManager
                 at:storeCoordinatorURL,
                 options:nil)
         }
-        catch let error as Error
+        catch let error
         {
             #if DEBUG
                 
@@ -68,7 +68,7 @@ class DManager
                     {
                         try self.managedObjectContext.save()
                     }
-                    catch let error as Error
+                    catch let error
                     {
                         #if DEBUG
                             

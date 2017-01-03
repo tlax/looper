@@ -73,7 +73,8 @@ class CCameraPreview:CController
     {
         let projectFolderName:String = UUID().uuidString
         let appDirectory:URL = FileManager.appDirectory
-        let projectPath:URL = appDirectory.appendingPathComponent(projectFolderName)
+        var projectPath:URL = appDirectory.appendingPathComponent(projectFolderName)
+        projectPath = URL.excludeFromBackup(original:projectPath)
         
         do
         {
@@ -82,7 +83,7 @@ class CCameraPreview:CController
                 withIntermediateDirectories:false,
                 attributes:nil)
         }
-        catch let error as Error
+        catch let error
         {
             VAlert.message(message:error.localizedDescription)
             

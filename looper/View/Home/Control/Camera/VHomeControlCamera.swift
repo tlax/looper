@@ -319,7 +319,7 @@ class VHomeControlCamera:UIView
             try tryCaptureDeviceInput = AVCaptureDeviceInput(
                 device:foundCaptureDevice)
         }
-        catch let error as Error
+        catch let error
         {
             tryCaptureDeviceInput = nil
             VAlert.message(message:error.localizedDescription)
