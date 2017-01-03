@@ -72,6 +72,19 @@ class VCameraPreview:VView
             view:viewPlayer,
             toView:self)
         
+        let layoutSpinnerTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:spinner,
+            toView:self)
+        let layoutSpinnerBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+            view:spinner,
+            toView:viewBar)
+        let layoutSpinnerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:spinner,
+            toView:self)
+        let layoutSpinnerRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:spinner,
+            toView:self)
+        
         addConstraints([
             layoutBarBottom,
             layoutBarHeight,
@@ -84,7 +97,11 @@ class VCameraPreview:VView
             layoutPlayerTop,
             layoutPlayerHeight,
             layoutPlayerLeft,
-            layoutPlayerRight])
+            layoutPlayerRight,
+            layoutSpinnerTop,
+            layoutSpinnerBottom,
+            layoutSpinnerLeft,
+            layoutSpinnerRight])
     }
     
     required init?(coder:NSCoder)
@@ -104,6 +121,7 @@ class VCameraPreview:VView
     
     func saving()
     {
+        spinner.startAnimating()
         viewDisplay.imageView.stopAnimating()
         viewDisplay.isHidden = true
         viewPlayer.isHidden = true

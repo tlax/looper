@@ -67,6 +67,10 @@ class VCameraPreviewBar:UIView
             UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
         saveButton.titleLabel!.font = UIFont.bold(size:19)
+        saveButton.addTarget(
+            self,
+            action:#selector(actionSave(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.saveButton = saveButton
         
         addSubview(backButton)
