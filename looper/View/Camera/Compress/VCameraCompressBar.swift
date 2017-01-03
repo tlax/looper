@@ -62,7 +62,7 @@ class VCameraCompressBar:UIView
         icon.translatesAutoresizingMaskIntoConstraints = false
         icon.clipsToBounds = true
         icon.contentMode = UIViewContentMode.center
-        icon.image = #imageLiteral(resourceName: "assetCameraFilter")
+        icon.image = #imageLiteral(resourceName: "assetCameraCompress")
         
         addSubview(visualEffect)
         addSubview(icon)

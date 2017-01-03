@@ -14,3 +14,7 @@
 
 "MCameraFilterItemNone_title"="No filtering";
 "MCameraFilterItemBlend_title"="Blending multiple videos";
+"MCameraCompressItemNone_title"="No compression";
+"MCameraCompressItemSlight_title"="Slight";
+"MCameraCompressItemMedium_title"="Medium";
+"MCameraCompressItemMax_title"="Max";

@@ -4,7 +4,7 @@ class MCameraCompressItemMedium:MCameraCompressItem
 {
     override init()
     {
-        let title:String = NSLocalizedString("", comment:"")
+        let title:String = NSLocalizedString("MCameraCompressItemMedium_title", comment:"")
         super.init(title:title)
     }
     
