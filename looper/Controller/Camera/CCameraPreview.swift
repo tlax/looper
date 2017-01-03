@@ -67,6 +67,43 @@ class CCameraPreview:CController
         }
     }
     
+    //MARK: private
+    
+    private func asyncSave()
+    {
+        let projectFolderName:String = UUID().uuidString
+        let appDirectory:URL = FileManager.appDirectory
+        let projectPath:URL = appDirectory.appendingPathComponent(projectFolderName)
+        
+        do
+        {
+            try FileManager.default.createDirectory(
+                at:projectPath,
+                withIntermediateDirectories:false,
+                attributes:nil)
+        }
+        catch let error as Error
+        {
+            VAlert.message(message:error.localizedDescription)
+            
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.savingFailed()
+            }
+        }
+    }
+    
+    private func savingFailed()
+    {
+        viewPreview.savingFailed()
+    }
+    
+    private func savingDone()
+    {
+        
+    }
+    
     //MARK: public
     
     func back()
@@ -110,5 +147,11 @@ class CCameraPreview:CController
     func save()
     {
         viewPreview.saving()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncSave()
+        }
     }
 }

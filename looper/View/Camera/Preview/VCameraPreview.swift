@@ -127,4 +127,12 @@ class VCameraPreview:VView
         viewPlayer.isHidden = true
         viewBar.saving()
     }
+    
+    func savingFailed()
+    {
+        spinner.stopAnimating()
+        viewDisplay.isHidden = false
+        viewPlayer.isHidden = false
+        viewBar.savingFailed()
+    }
 }

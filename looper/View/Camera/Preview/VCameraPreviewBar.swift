@@ -11,6 +11,7 @@ class VCameraPreviewBar:UIView
     private let kSaveWidth:CGFloat = 120
     private let kCancelWidth:CGFloat = 80
     private let kAlphaSaving:CGFloat = 0.3
+    private let kAlphaNotSaving:CGFloat = 1
     
     convenience init(controller:CCameraPreview)
     {
@@ -166,5 +167,13 @@ class VCameraPreviewBar:UIView
         backButton.alpha = kAlphaSaving
         saveButton.alpha = kAlphaSaving
         cancelButton.alpha = kAlphaSaving
+    }
+    
+    func savingFailed()
+    {
+        isUserInteractionEnabled = true
+        backButton.alpha = kAlphaNotSaving
+        saveButton.alpha = kAlphaNotSaving
+        cancelButton.alpha = kAlphaNotSaving
     }
 }

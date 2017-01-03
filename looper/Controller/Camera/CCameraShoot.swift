@@ -183,7 +183,7 @@ class CCameraShoot:CController
             try tryCaptureDeviceInput = AVCaptureDeviceInput(
                 device:foundCaptureDevice)
         }
-        catch let error
+        catch let error as Error
         {
             tryCaptureDeviceInput = nil
             VAlert.message(message:error.localizedDescription)
