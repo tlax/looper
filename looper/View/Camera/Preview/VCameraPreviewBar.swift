@@ -48,6 +48,10 @@ class VCameraPreviewBar:UIView
             UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
         cancelButton.titleLabel!.font = UIFont.bold(size:14)
+        cancelButton.addTarget(
+            self,
+            action:#selector(actionCancel(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.cancelButton = cancelButton
         
         let saveButton:UIButton = UIButton()
@@ -137,5 +141,10 @@ class VCameraPreviewBar:UIView
     func actionBack(sender button:UIButton)
     {
         controller.back()
+    }
+    
+    func actionCancel(sender button:UIButton)
+    {
+        controller.cancel()
     }
 }
