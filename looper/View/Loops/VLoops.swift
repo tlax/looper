@@ -7,8 +7,8 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     private weak var spinner:VSpinner!
     private let kCollectionTop:CGFloat = 74
     private let kCollectionBottom:CGFloat = 20
-    private let kInterline:CGFloat = 2
-    private let kCellHeight:CGFloat = 200
+    private let kInterline:CGFloat = 5
+    private let kAddCellHeight:CGFloat = 60
     
     override init(controller:CController)
     {
@@ -105,7 +105,9 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        let size:CGSize = CGSize(
+            width:width,
+            height:width + kAddCellHeight)
         
         return size
     }
