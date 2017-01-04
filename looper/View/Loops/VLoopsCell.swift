@@ -4,8 +4,7 @@ class VLoopsCell:UICollectionViewCell
 {
     private weak var model:MLoopsItem?
     private weak var imageView:UIImageView!
-    private let kMargin:CGFloat = 40
-    private let kCornerRadius:CGFloat = 15
+    private let kBackgroundMargin:CGFloat = 2
     
     override init(frame:CGRect)
     {
@@ -13,17 +12,22 @@ class VLoopsCell:UICollectionViewCell
         clipsToBounds = true
         backgroundColor = UIColor.clear
         
+        let height:CGFloat = frame.size.height
+        
+        let background:UIView = UIView()
+        background.clipsToBounds = true
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.isUserInteractionEnabled = false
+        background.backgroundColor = UIColor.genericBackground
+        
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.genericBackground
-        imageView.layer.cornerRadius = kCornerRadius
-        imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor.black.cgColor
         self.imageView = imageView
         
+        addSubview(background)
         addSubview(imageView)
         
         let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
@@ -31,22 +35,36 @@ class VLoopsCell:UICollectionViewCell
             toView:self)
         let layoutImageBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:imageView,
-            toView:self,
-            constant:-(kMargin + kMargin))
+            toView:self)
         let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:imageView,
-            toView:self,
-            constant:kMargin)
-        let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            toView:self)
+        let layoutImageWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:imageView,
-            toView:self,
-            constant:-kMargin)
+            constant:height)
+        
+        let layoutBackgroundTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:background,
+            toView:self)
+        let layoutBackgroundBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:background,
+            toView:self)
+        let layoutBackgroundLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:background,
+            toView:self)
+        let layoutBackgroundWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:background,
+            constant:height + kBackgroundMargin)
         
         addConstraints([
             layoutImageTop,
             layoutImageBottom,
             layoutImageLeft,
-            layoutImageRight])
+            layoutImageWidth,
+            layoutBackgroundTop,
+            layoutBackgroundBottom,
+            layoutBackgroundLeft,
+            layoutBackgroundWidth])
     }
     
     required init?(coder:NSCoder)
@@ -59,5 +77,6 @@ class VLoopsCell:UICollectionViewCell
     func config(model:MLoopsItem)
     {
         self.model = model
+        imageView.image = model.images.first
     }
 }

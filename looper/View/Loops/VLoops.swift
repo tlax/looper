@@ -5,8 +5,10 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     private weak var controller:CLoops!
     private weak var collectionView:VCollection!
     private weak var spinner:VSpinner!
-    private let kCollectionTop:CGFloat = 84
+    private let kCollectionTop:CGFloat = 74
     private let kCollectionBottom:CGFloat = 20
+    private let kInterline:CGFloat = 2
+    private let kCellHeight:CGFloat = 200
     
     override init(controller:CController)
     {
@@ -17,6 +19,7 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         self.spinner = spinner
         
         let collectionView:VCollection = VCollection()
+        collectionView.flow.minimumLineSpacing = kInterline
         collectionView.flow.sectionInset = UIEdgeInsets(
             top:kCollectionTop,
             left:0,
@@ -102,7 +105,7 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSize(width:width, height:width)
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
         
         return size
     }
