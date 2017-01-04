@@ -23,7 +23,33 @@ class MLoopsItem
         
         for indexImage:Int in 0 ..< countImages
         {
+            let pathComponent:String = "\(indexImage)"
+            let imageUrl:URL = folderPath.appendingPathComponent(pathComponent)
+            let data:Data?
             
+            do
+            {
+                try data = Data(
+                    contentsOf:imageUrl,
+                    options:Data.ReadingOptions.mappedIfSafe)
+            }
+            catch let error
+            {
+                data = nil
+                print("error: \(error.localizedDescription)")
+            }
+            
+            guard
+            
+                let imageData:Data = data,
+                let image:UIImage = UIImage(data:imageData)
+            
+            else
+            {
+                continue
+            }
+            
+            images.append(image)
         }
     }
 }
