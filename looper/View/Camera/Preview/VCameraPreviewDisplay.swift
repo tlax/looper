@@ -58,6 +58,11 @@ class VCameraPreviewDisplay:UIView
         fatalError()
     }
     
+    deinit
+    {
+        imageView.stopAnimating()
+    }
+    
     //MARK: public
     
     func load(record:MCameraRecord)

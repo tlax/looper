@@ -72,6 +72,10 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func scrollViewDidScroll(_ scrollView:UIScrollView)
     {
+        NotificationCenter.default.post(
+            name:Notification.loopsPause,
+            object:nil)
+        
         let offset:CGPoint = scrollView.contentOffset
         let offsetY:CGFloat = offset.y
         controller.parentController.viewParent.scrollDidScroll(offsetY:offsetY)

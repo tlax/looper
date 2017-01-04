@@ -152,23 +152,47 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         fatalError()
     }
     
+    deinit
+    {
+        imageView.stopAnimating()
+    }
+    
+    //MARK: notifications
+    
+    func notifiedStopLoop(sender notification:Notification)
+    {
+        if imageView.isAnimating
+        {
+            stopLoop()
+        }
+    }
+    
     //MARK: actions
     
     func actionButton(sender button:UIButton)
     {
         if imageView.isAnimating
         {
-            imageView.stopAnimating()
-            buttonPlay()
+            stopLoop()
         }
         else
         {
             imageView.startAnimating()
             buttonPause()
+            
+            NotificationCenter.default.post(
+                name:Notification.loopsPause,
+                object:nil)
         }
     }
     
     //MARK: private
+    
+    private func stopLoop()
+    {
+        imageView.stopAnimating()
+        buttonPlay()
+    }
     
     private func modelAtIndex(index:IndexPath) -> MLoopsOptionsItem
     {
@@ -230,6 +254,10 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        NotificationCenter.default.post(
+            name:Notification.loopsPause,
+            object:nil)
+        
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselect)
         { [weak collectionView] in
