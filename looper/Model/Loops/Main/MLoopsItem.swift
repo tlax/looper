@@ -80,12 +80,14 @@ class MLoopsItem
             {
                 try FileManager.default.removeItem(at:imageUrl)
             }
-            catch let error
+            catch
             {
-                print("error \(error.localizedDescription)")
             }
         }
         
         DManager.sharedInstance.delete(object:loop)
+        {
+            DManager.sharedInstance.save()
+        }
     }
 }
