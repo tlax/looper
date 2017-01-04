@@ -4,7 +4,7 @@ class MLoopsOptionsItemShare:MLoopsOptionsItem
 {
     override init()
     {
-        let image:UIImage = #imageLiteral(resourceName: "assetHomePlayerShare")
+        let image:UIImage = #imageLiteral(resourceName: "assetLoopsShare")
         
         super.init(image:image)
     }
@@ -12,5 +12,9 @@ class MLoopsOptionsItemShare:MLoopsOptionsItem
     override init(image:UIImage)
     {
         fatalError()
+    }
+    
+    override func selected(controller:CLoops, model:MLoopsItem)
+    {
     }
 }
