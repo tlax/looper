@@ -101,7 +101,7 @@ class VCameraShootProcess:UIView
             
             guard
             
-                let countShots:Int = self?.controller.model.raw?.items.count,
+                let countShots:Int = MSession.sharedInstance.camera?.raw?.items.count,
                 let startAngle:CGFloat = self?.kStartAngle,
                 let endAngle:CGFloat = self?.kEndAngle
             

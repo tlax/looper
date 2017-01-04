@@ -34,7 +34,7 @@ class CCameraFilter:CController
     {
         guard
             
-            let controller:CController = modelFilter.currentFilter?.processController(model:model)
+            let controller:CController = modelFilter.currentFilter?.processController()
         
         else
         {

@@ -221,7 +221,7 @@ class CCameraShoot:CController
     {
         guard
         
-            let currentShots:Int = model.raw?.items.count
+            let currentShots:Int = MSession.sharedInstance.camera?.raw?.items.count
         
         else
         {
@@ -246,7 +246,7 @@ class CCameraShoot:CController
                 
                 guard
                     
-                    let model:MCameraRaw = self?.model.raw,
+                    let model:MCameraRaw = MSession.sharedInstance.camera?.raw,
                     let devicePosition:AVCaptureDevicePosition = self?.devicePosition,
                     let buffer:CMSampleBuffer = sampleBuffer,
                     let data:Data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(
@@ -321,6 +321,15 @@ class CCameraShoot:CController
     
     func startRecording()
     {
+        guard
+        
+            let model:MCamera = MSession.sharedInstance.camera
+        
+        else
+        {
+            return
+        }
+        
         if model.raw == nil
         {
             timer?.invalidate()
@@ -350,14 +359,14 @@ class CCameraShoot:CController
          
             guard
                 
-                let modelRaw:MCameraRaw = self?.model.raw
+                let modelRaw:MCameraRaw = MSession.sharedInstance.camera?.raw
             
             else
             {
                 return
             }
             
-            self?.model.raw = nil
+            MSession.sharedInstance.camera?.raw = nil
             self?.recording = false
             
             DispatchQueue.main.async
@@ -370,7 +379,9 @@ class CCameraShoot:CController
                 else
                 {
                     self?.back()
-                    self?.model.renderRecording(modelRaw:modelRaw)
+                    
+                    MSession.sharedInstance.camera?.renderRecording(
+                        modelRaw:modelRaw)
                 }
             }
         }

@@ -35,7 +35,19 @@ class CCamera:CController
             deadline:DispatchTime.now() + kAfterShoot)
         { [weak self] in
             
-            self?.shoot()
+            guard
+                
+                let model:MCamera = MSession.sharedInstance.camera
+            
+            else
+            {
+                return
+            }
+            
+            if model.records.isEmpty
+            {
+                self?.shoot()
+            }
         }
     }
     

@@ -18,7 +18,7 @@ class MCameraFilterItem
     
     //MARK: public
     
-    func processController(model:MCamera) -> CController?
+    func processController() -> CController?
     {
         return nil
     }

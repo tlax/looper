@@ -15,9 +15,9 @@ class MCameraFilterItemNone:MCameraFilterItem
         fatalError()
     }
     
-    override func processController(model:MCamera) -> CController?
+    override func processController() -> CController?
     {
-        let controller:CCameraFilterNone = CCameraFilterNone(model:model)
+        let controller:CCameraFilterNone = CCameraFilterNone()
         
         return controller
     }

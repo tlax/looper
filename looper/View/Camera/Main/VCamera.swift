@@ -103,9 +103,20 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForFooterInSection section:Int) -> CGSize
     {
+        guard
+            
+            let model:MCamera = MSession.sharedInstance.camera
+        
+        else
+        {
+            let size:CGSize = CGSize(width:0, height:kFooterHeight)
+            
+            return size
+        }
+        
         let size:CGSize
         
-        if controller.model.records.isEmpty
+        if model.records.isEmpty
         {
             size = CGSize(width:0, height:kFooterHeight)
         }
@@ -124,7 +135,7 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = controller.model.records.count
+        let count:Int = MSession.sharedInstance.camera!.records.count
         
         return count
     }

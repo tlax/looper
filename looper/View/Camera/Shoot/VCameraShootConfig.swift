@@ -193,11 +193,20 @@ class VCameraShootConfig:UIView
     
     func actionAdd(sender button:UIButton)
     {
-        controller.model.currentSpeed -= 1
+        guard
+            
+            let model:MCamera = MSession.sharedInstance.camera
         
-        if controller.model.currentSpeed <= 0
+        else
         {
-            controller.model.currentSpeed = 0
+            return
+        }
+        
+        model.currentSpeed -= 1
+        
+        if model.currentSpeed <= 0
+        {
+            model.currentSpeed = 0
             deActivateAdd()
         }
         else
@@ -210,12 +219,21 @@ class VCameraShootConfig:UIView
     
     func actionRest(sender button:UIButton)
     {
-        controller.model.currentSpeed += 1
-        let maxIndex:Int = controller.model.speeds.count - 1
-        
-        if controller.model.currentSpeed >= maxIndex
+        guard
+            
+            let model:MCamera = MSession.sharedInstance.camera
+            
+        else
         {
-            controller.model.currentSpeed = maxIndex
+            return
+        }
+        
+        model.currentSpeed += 1
+        let maxIndex:Int = model.speeds.count - 1
+        
+        if model.currentSpeed >= maxIndex
+        {
+            model.currentSpeed = maxIndex
             deActivateRest()
         }
         else
@@ -230,7 +248,16 @@ class VCameraShootConfig:UIView
     
     private func print()
     {
-        let item:MCameraSpeed = controller.model.currentSpeedModel()
+        guard
+            
+            let model:MCamera = MSession.sharedInstance.camera
+            
+        else
+        {
+            return
+        }
+        
+        let item:MCameraSpeed = model.currentSpeedModel()
         label.text = item.name
     }
     

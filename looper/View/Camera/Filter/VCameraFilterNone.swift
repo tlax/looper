@@ -53,7 +53,7 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
     
     private func modelAtIndex(index:IndexPath) -> MCameraRecord
     {
-        let item:MCameraRecord = controller.model.activeRecords![index.item]
+        let item:MCameraRecord = MSession.sharedInstance.camera!.activeRecords![index.item]
         
         return item
     }
@@ -78,7 +78,7 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
     {
         let count:Int
         
-        if let records:[MCameraRecord] = controller.model.activeRecords
+        if let records:[MCameraRecord] = MSession.sharedInstance.camera!.activeRecords
         {
             count = records.count
         }

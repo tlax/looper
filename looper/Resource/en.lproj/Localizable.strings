@@ -9,10 +9,10 @@
 "CCamera_alertTitle"="Delete sequence?";
 "CCamera_alertDelete"="Delete";
 "CCamera_alertCancel"="Cancel";
-"CCameraPreview_alertTitle"="Cancel project?";
+"CCameraPreview_alertTitle"="Go back to beginning?";
 "CCameraPreview_alertMessage"="Progress will be lost";
-"CCameraPreview_alertCancel"="Do nothing";
-"CCameraPreview_alertDelete"="Cancel project";
+"CCameraPreview_alertCancel"="Stay";
+"CCameraPreview_alertDelete"="Go back";
 "CLoops_alertTitle"="Delete loop?";
 "CLoops_alertCancel"="Cancel";
 "CLoops_alertDelete"="Delete";
