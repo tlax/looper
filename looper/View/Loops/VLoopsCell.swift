@@ -27,8 +27,13 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         let marginRight:CGFloat = width - cellsWidth
         
         let button:UIButton = UIButton()
+        button.backgroundColor = UIColor.clear
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = true
+        button.addTarget(
+            self,
+            action:#selector(actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let collectionView:VCollection = VCollection()
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
@@ -107,6 +112,12 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
             view:collectionView,
             toView:self)
         
+        let constraintsButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:button,
+            parent:imageView)
+        
+        addConstraints(constraintsButton)
+        
         addConstraints([
             layoutImageTop,
             layoutImageBottom,
@@ -125,6 +136,20 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: actions
+    
+    func actionButton(sender button:UIButton)
+    {
+        if imageView.isAnimating
+        {
+            imageView.stopAnimating()
+        }
+        else
+        {
+            imageView.startAnimating()
+        }
     }
     
     //MARK: private
