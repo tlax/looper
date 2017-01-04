@@ -19,6 +19,7 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         self.spinner = spinner
         
         let collectionView:VCollection = VCollection()
+        collectionView.isHidden = true
         collectionView.flow.minimumLineSpacing = kInterline
         collectionView.flow.sectionInset = UIEdgeInsets(
             top:kCollectionTop,
@@ -66,6 +67,13 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     {
         spinner.stopAnimating()
         collectionView.reloadData()
+        collectionView.isHidden = false
+    }
+    
+    func startLoading()
+    {
+        spinner.startAnimating()
+        collectionView.isHidden = true
     }
     
     //MARK: collectionView delegate

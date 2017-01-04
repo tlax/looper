@@ -52,4 +52,48 @@ class CLoops:CController
     {
         viewLoops.loopsLoaded()
     }
+    
+    private func confirmDelete(model:MLoopsItem)
+    {
+        
+        
+        loadFromDB()
+    }
+    
+    //MARK: public
+    
+    func delete(model:MLoopsItem)
+    {
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("CLoops_alertTitle", comment:""),
+            message:nil,
+            preferredStyle:UIAlertControllerStyle.actionSheet)
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CLoops_alertCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionDelete:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CLoops_alertDelete", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { [weak self] (action:UIAlertAction) in
+            
+            self?.viewLoops.startLoading()
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.confirmDelete(model:model)
+            }
+        }
+        
+        alert.addAction(actionDelete)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
+    }
 }

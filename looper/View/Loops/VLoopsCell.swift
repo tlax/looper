@@ -229,7 +229,7 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         self.model = model
         self.controller = controller
         imageView.image = model.images.first
-        imageView.animationDuration = model.duration
+        imageView.animationDuration = model.loop.duration
         imageView.animationImages = model.images
     }
     
@@ -274,5 +274,20 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
                 animated:true,
                 scrollPosition:UICollectionViewScrollPosition())
         }
+        
+        guard
+            
+            let controller:CLoops = self.controller,
+            let model:MLoopsItem = self.model
+        
+        else
+        {
+            return
+        }
+        
+        let item:MLoopsOptionsItem = modelAtIndex(index:indexPath)
+        item.selected(
+            controller:controller,
+            model:model)
     }
 }

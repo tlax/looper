@@ -2,12 +2,12 @@ import UIKit
 
 class MLoopsItem
 {
-    let duration:TimeInterval
+    let loop:DLoop
     private(set) var images:[UIImage]
     
     init(loop:DLoop)
     {
-        duration = loop.duration
+        self.loop = loop
         images = []
         
         guard
@@ -52,5 +52,12 @@ class MLoopsItem
             
             images.append(image)
         }
+    }
+    
+    //MARK: public
+    
+    func delete()
+    {
+        DManager.sharedInstance.delete(object:loop)
     }
 }
