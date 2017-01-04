@@ -14,7 +14,6 @@ class VLoopsCellOption:UICollectionViewCell
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.center
-        imageView.image = #imageLiteral(resourceName: "assetHomePlayerShare")
         self.imageView = imageView
         
         addSubview(imageView)
@@ -35,6 +34,6 @@ class VLoopsCellOption:UICollectionViewCell
     
     func config(model:MLoopsOptionsItem)
     {
-        
+        imageView.image = model.image
     }
 }

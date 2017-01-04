@@ -4,6 +4,7 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
 {
     private let modelOptions:MLoopsOptions
     private weak var model:MLoopsItem?
+    private weak var controller:CLoops?
     private weak var collectionView:VCollection!
     private weak var imageView:UIImageView!
     private let kBackgroundMargin:CGFloat = 1
@@ -137,9 +138,10 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     
     //MARK: public
     
-    func config(model:MLoopsItem)
+    func config(model:MLoopsItem, controller:CLoops)
     {
         self.model = model
+        self.controller = controller
         imageView.image = model.images.first
         imageView.animationDuration = model.duration
         imageView.animationImages = model.images

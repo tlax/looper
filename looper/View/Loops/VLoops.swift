@@ -7,8 +7,8 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     private weak var spinner:VSpinner!
     private let kCollectionTop:CGFloat = 64
     private let kCollectionBottom:CGFloat = 20
-    private let kInterline:CGFloat = 10
-    private let kAddCellHeight:CGFloat = 70
+    private let kInterline:CGFloat = 20
+    private let kAddCellHeight:CGFloat = 60
     
     override init(controller:CController)
     {
@@ -106,7 +106,7 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             withReuseIdentifier:
             VLoopsCell.reusableIdentifier,
             for:indexPath) as! VLoopsCell
-        cell.config(model:item)
+        cell.config(model:item, controller:controller)
         
         return cell
     }
