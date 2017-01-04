@@ -6,6 +6,12 @@ class MLoopsOptions
     
     init()
     {
-        items = []
+        let itemTrash:MLoopsOptionsItemTrash = MLoopsOptionsItemTrash()
+        let itemShare:MLoopsOptionsItemShare = MLoopsOptionsItemShare()
+        
+        items = [
+            itemTrash,
+            itemShare
+        ]
     }
 }

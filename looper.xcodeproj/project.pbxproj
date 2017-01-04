@@ -52,6 +52,8 @@
 		DA6FB2401E1D59CF0062EE13 /* MLoopsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6FB23D1E1D59CF0062EE13 /* MLoopsItem.swift */; };
 		DA6FB2421E1D59EE0062EE13 /* MLoopsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6FB2411E1D59EE0062EE13 /* MLoopsOptions.swift */; };
 		DA6FB2441E1D59FA0062EE13 /* MLoopsOptionsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6FB2431E1D59FA0062EE13 /* MLoopsOptionsItem.swift */; };
+		DA6FB2461E1D7F9D0062EE13 /* MLoopsOptionsItemTrash.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6FB2451E1D7F9D0062EE13 /* MLoopsOptionsItemTrash.swift */; };
+		DA6FB2481E1D7FAA0062EE13 /* MLoopsOptionsItemShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6FB2471E1D7FAA0062EE13 /* MLoopsOptionsItemShare.swift */; };
 		DA799CCD1E14148D00AB45DD /* VCameraShootConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CCC1E14148D00AB45DD /* VCameraShootConfig.swift */; };
 		DA799CCF1E1426A100AB45DD /* VCameraShootProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CCE1E1426A100AB45DD /* VCameraShootProcess.swift */; };
 		DA799CD81E14354C00AB45DD /* MCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CD31E14354C00AB45DD /* MCamera.swift */; };
@@ -205,6 +207,8 @@
 		DA6FB23D1E1D59CF0062EE13 /* MLoopsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoopsItem.swift; sourceTree = "<group>"; };
 		DA6FB2411E1D59EE0062EE13 /* MLoopsOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoopsOptions.swift; sourceTree = "<group>"; };
 		DA6FB2431E1D59FA0062EE13 /* MLoopsOptionsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoopsOptionsItem.swift; sourceTree = "<group>"; };
+		DA6FB2451E1D7F9D0062EE13 /* MLoopsOptionsItemTrash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoopsOptionsItemTrash.swift; sourceTree = "<group>"; };
+		DA6FB2471E1D7FAA0062EE13 /* MLoopsOptionsItemShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoopsOptionsItemShare.swift; sourceTree = "<group>"; };
 		DA799CCC1E14148D00AB45DD /* VCameraShootConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraShootConfig.swift; sourceTree = "<group>"; };
 		DA799CCE1E1426A100AB45DD /* VCameraShootProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraShootProcess.swift; sourceTree = "<group>"; };
 		DA799CD31E14354C00AB45DD /* MCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCamera.swift; sourceTree = "<group>"; };
@@ -503,6 +507,8 @@
 			children = (
 				DA6FB2411E1D59EE0062EE13 /* MLoopsOptions.swift */,
 				DA6FB2431E1D59FA0062EE13 /* MLoopsOptionsItem.swift */,
+				DA6FB2451E1D7F9D0062EE13 /* MLoopsOptionsItemTrash.swift */,
+				DA6FB2471E1D7FAA0062EE13 /* MLoopsOptionsItemShare.swift */,
 			);
 			path = Options;
 			sourceTree = "<group>";
@@ -1071,6 +1077,7 @@
 				DA38AF101E1C29CB008C86A8 /* VCameraPreviewPlayerButton.swift in Sources */,
 				DAA68D5F1E09C7D200A830A2 /* VHomePlayerTimerSlider.swift in Sources */,
 				DA799CF51E14488000AB45DD /* MCameraRawItem.swift in Sources */,
+				DA6FB2481E1D7FAA0062EE13 /* MLoopsOptionsItemShare.swift in Sources */,
 				DA38AF161E1C4E5E008C86A8 /* ExtensionURL.swift in Sources */,
 				DA5C523C1E15CC3000D296C6 /* CCameraFilter.swift in Sources */,
 				DAFC40C61E1A04960044B14B /* MCameraCompressItemMedium.swift in Sources */,
@@ -1095,6 +1102,7 @@
 				DA9B83FA1E132C4D002B9810 /* VCameraShootMenuTrigger.swift in Sources */,
 				DA14D1191E187A30000753B3 /* MCameraFilterItem.swift in Sources */,
 				DA96FEE61E03672F00FD5265 /* ExtensionUICollectionReusableView.swift in Sources */,
+				DA6FB2461E1D7F9D0062EE13 /* MLoopsOptionsItemTrash.swift in Sources */,
 				DA9B83F41E13255F002B9810 /* CCameraShoot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
