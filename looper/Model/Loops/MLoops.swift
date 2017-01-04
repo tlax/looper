@@ -11,7 +11,14 @@ class MLoops
     
     //MARK: private
     
-    private func asyncLoadFromDb()
+    private func LoadFromDb()
+    {
+        
+    }
+    
+    //MARK: public
+    
+    func loadFromDb(completion:@escaping(() -> ()))
     {
         DManager.sharedInstance.fetchManagedObjects(
             entityName:DLoop.entityName)
@@ -24,7 +31,7 @@ class MLoops
             else
             {
                 self?.items = []
-                self?.finishedLoading()
+                completion()
                 
                 return
             }
@@ -38,23 +45,7 @@ class MLoops
             }
             
             self?.items = items
-            self?.finishedLoading()
-        }
-    }
-    
-    private func finishedLoading()
-    {
-        
-    }
-    
-    //MARK: public
-    
-    func loadFromDb()
-    {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.asyncLoadFromDb()
+            completion()
         }
     }
 }
