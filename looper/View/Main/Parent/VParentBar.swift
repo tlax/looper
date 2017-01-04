@@ -54,6 +54,13 @@ class VParentBar:UIView
             right:buttonStore.imageEdgeInsets.right + kStoreRight)
         self.buttonStore = buttonStore
         
+        let border:UIView = UIView()
+        border.isUserInteractionEnabled = false
+        border.translatesAutoresizingMaskIntoConstraints = false
+        border.backgroundColor = UIColor(white:0, alpha:0.1)
+        border.clipsToBounds = true
+        
+        addSubview(border)
         addSubview(buttonCamera)
         addSubview(buttonStore)
         addSubview(buttonLoops)
@@ -97,6 +104,19 @@ class VParentBar:UIView
             view:buttonStore,
             toView:self)
         
+        let layoutBorderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:border,
+            toView:self)
+        let layoutBorderHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:border,
+            constant:1)
+        let layoutBorderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:border,
+            toView:self)
+        let layoutBorderRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:border,
+            toView:self)
+        
         addConstraints([
             layoutLoopsTop,
             layoutLoopsBottom,
@@ -109,7 +129,11 @@ class VParentBar:UIView
             layoutStoreTop,
             layoutStoreBottom,
             layoutStoreWidth,
-            layoutStoreLeft])
+            layoutStoreLeft,
+            layoutBorderBottom,
+            layoutBorderHeight,
+            layoutBorderLeft,
+            layoutBorderRight])
     }
     
     override func layoutSubviews()
