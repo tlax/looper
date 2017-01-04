@@ -135,13 +135,13 @@ class CParent:UIViewController
     {
         let left:CGFloat
         
-        if let _:CCamera = childViewControllers.last as? CCamera
+        if let _:CStore = childViewControllers.last as? CStore
         {
-            left = viewParent.bounds.maxX
+            left = -viewParent.bounds.maxX
         }
         else
         {
-            left = -viewParent.bounds.maxX
+            left = viewParent.bounds.maxX
         }
         
         let controller:CLoops = CLoops()
@@ -188,6 +188,31 @@ class CParent:UIViewController
         var controllers:Int = childViewControllers.count - 1
         
         while controllers > 1
+        {
+            controllers -= 1
+            
+            guard
+                
+                let controller:CController = childViewControllers[controllers] as? CController,
+                let view:VView = controller.view as? VView
+                
+            else
+            {
+                continue
+            }
+            
+            controller.beginAppearanceTransition(false, animated:false)
+            view.removeFromSuperview()
+            controller.endAppearanceTransition()
+            controller.removeFromParentViewController()
+        }
+    }
+    
+    func removeAllButLast()
+    {
+        var controllers:Int = childViewControllers.count - 1
+        
+        while controllers > 0
         {
             controllers -= 1
             

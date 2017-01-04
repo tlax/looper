@@ -150,11 +150,7 @@ class VParentBar:UIView
     
     func actionLoops(sender button:VParentBarButton)
     {
-        button.active()
-        buttonCamera.notActive()
-        buttonStore.notActive()
-        
-        controller.moveToLoops()
+        moveToLoops()
     }
     
     func actionCamera(sender button:VParentBarButton)
@@ -173,5 +169,16 @@ class VParentBar:UIView
         buttonLoops.notActive()
         
         controller.moveToStore()
+    }
+    
+    //MARK: public
+    
+    func moveToLoops()
+    {
+        buttonLoops.active()
+        buttonCamera.notActive()
+        buttonStore.notActive()
+        
+        controller.moveToLoops()
     }
 }

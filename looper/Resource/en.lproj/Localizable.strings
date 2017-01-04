@@ -6,7 +6,7 @@
 
 "CCameraShoot_noAuth"="looper has no access to your camera";
 "CCameraShoot_errorCaptureDevice"="Error connecting to camera";
-"CCamera_alertTitle"="Delete sequence?";
+"CCamera_alertTitle"="Delete video?";
 "CCamera_alertDelete"="Delete";
 "CCamera_alertCancel"="Cancel";
 "CCameraPreview_alertTitle"="Go back to beginning?";

@@ -2,8 +2,8 @@ import UIKit
 
 class VParent:UIView
 {
+    weak var viewBar:VParentBar!
     private weak var controller:CParent!
-    private weak var viewBar:VParentBar!
     private weak var layoutBarTop:NSLayoutConstraint!
     private let kAnimationDuration:TimeInterval = 0.4
     private let kBarHeight:CGFloat = 64
@@ -126,8 +126,8 @@ class VParent:UIView
         })
         { (done:Bool) in
             
-            completion()
             currentView.removeFromSuperview()
+            completion()
         }
     }
     

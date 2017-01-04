@@ -161,7 +161,8 @@ class CCameraPreview:CController
     
     private func savingDone()
     {
-        print("saving done")
+        parentController.removeAllButLast()
+        parentController.viewParent.viewBar.moveToLoops()
     }
     
     //MARK: public
