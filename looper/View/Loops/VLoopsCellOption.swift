@@ -4,7 +4,7 @@ class VLoopsCellOption:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private let kAlphaNotHover:CGFloat = 1
-    private let kAlphaHover:CGFloat = 0.4
+    private let kAlphaHover:CGFloat = 0.3
     
     override init(frame:CGRect)
     {

@@ -9,7 +9,7 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     private weak var imageView:UIImageView!
     private weak var button:UIButton!
     private let kBackgroundMargin:CGFloat = 1
-    private let kDeselect:TimeInterval = 0.3
+    private let kDeselect:TimeInterval = 0.2
     private let kPlaySize:CGFloat = 60
     
     override init(frame:CGRect)
@@ -69,7 +69,7 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         background.clipsToBounds = true
         background.translatesAutoresizingMaskIntoConstraints = false
         background.isUserInteractionEnabled = false
-        background.backgroundColor = UIColor.black
+        background.backgroundColor = UIColor(white:0, alpha:0.1)
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
