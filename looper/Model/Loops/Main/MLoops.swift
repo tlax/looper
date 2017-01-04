@@ -9,13 +9,6 @@ class MLoops
         items = []
     }
     
-    //MARK: private
-    
-    private func LoadFromDb()
-    {
-        
-    }
-    
     //MARK: public
     
     func loadFromDb(completion:@escaping(() -> ()))

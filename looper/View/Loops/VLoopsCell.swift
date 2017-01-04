@@ -2,12 +2,17 @@ import UIKit
 
 class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    private let modelOptions:MLoopsOptions
     private weak var model:MLoopsItem?
+    private weak var collectionView:VCollection!
     private weak var imageView:UIImageView!
     private let kBackgroundMargin:CGFloat = 1
+    private let kDeselect:TimeInterval = 0.3
     
     override init(frame:CGRect)
     {
+        modelOptions = MLoopsOptions()
+        
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -74,6 +79,15 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         fatalError()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MLoopsOptionsItem
+    {
+        let item:MLoopsOptionsItem = modelOptions.items[index.item]
+        
+        return item
+    }
+    
     //MARK: public
     
     func config(model:MLoopsItem)
@@ -91,11 +105,33 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
+        let count:Int = modelOptions.items.count
         
+        return count
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MLoopsOptionsItem = modelAtIndex(index:indexPath)
+        let cell:VLoopsCellOption = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VLoopsCellOption.reusableIdentifier,
+            for:indexPath) as! VLoopsCellOption
+        cell.config(model:item)
         
+        return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselect)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

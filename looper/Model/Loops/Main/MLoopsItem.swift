@@ -33,10 +33,9 @@ class MLoopsItem
                     contentsOf:imageUrl,
                     options:Data.ReadingOptions.mappedIfSafe)
             }
-            catch let error
+            catch
             {
                 data = nil
-                print("error: \(error.localizedDescription)")
             }
             
             guard

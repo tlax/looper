@@ -12,4 +12,11 @@ class VLoopsCellOption:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MLoopsOptionsItem)
+    {
+        
+    }
 }
