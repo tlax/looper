@@ -145,6 +145,12 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
             layoutCollectionRight])
         
         buttonPlay()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedStopLoop(sender:)),
+            name:Notification.loopsPause,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
@@ -154,6 +160,7 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     
     deinit
     {
+        NotificationCenter.default.removeObserver(self)
         imageView.stopAnimating()
     }
     
@@ -177,12 +184,12 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         }
         else
         {
-            imageView.startAnimating()
-            buttonPause()
-            
             NotificationCenter.default.post(
                 name:Notification.loopsPause,
                 object:nil)
+            
+            imageView.startAnimating()
+            buttonPause()
         }
     }
     
