@@ -34,41 +34,16 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         addSubview(spinner)
         addSubview(collectionView)
         
-        let layoutSpinnerTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:spinner,
-            toView:self)
-        let layoutSpinnerBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:spinner,
-            toView:self)
-        let layoutSpinnerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:spinner,
-            toView:self)
-        let layoutSpinnerRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:spinner,
-            toView:self)
+        let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:collectionView,
+            parent:self)
         
-        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:collectionView,
-            toView:self)
-        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:collectionView,
-            toView:self)
-        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:collectionView,
-            toView:self)
-        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:collectionView,
-            toView:self)
+        let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:spinner,
+            parent:self)
         
-        addConstraints([
-            layoutSpinnerTop,
-            layoutSpinnerBottom,
-            layoutSpinnerLeft,
-            layoutSpinnerRight,
-            layoutCollectionTop,
-            layoutCollectionBottom,
-            layoutCollectionLeft,
-            layoutCollectionRight])
+        addConstraints(constraintsCollection)
+        addConstraints(constraintsSpinner)
     }
     
     required init?(coder:NSCoder)

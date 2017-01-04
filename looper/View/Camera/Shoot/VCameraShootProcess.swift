@@ -39,24 +39,11 @@ class VCameraShootProcess:UIView
         
         addSubview(label)
         
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let constraintsLabel:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:label,
-            toView:self)
-        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:label,
-            toView:self)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:label,
-            toView:self)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:label,
-            toView:self)
+            parent:self)
         
-        addConstraints([
-            layoutLabelTop,
-            layoutLabelBottom,
-            layoutLabelLeft,
-            layoutLabelRight])
+        addConstraints(constraintsLabel)
     }
     
     required init?(coder:NSCoder)

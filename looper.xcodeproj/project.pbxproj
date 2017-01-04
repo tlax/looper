@@ -700,7 +700,6 @@
 				DA5C523D1E15CC7900D296C6 /* Compress */,
 				DA5C523E1E15CC7900D296C6 /* Filter */,
 				DA9B83C91E12E367002B9810 /* Main */,
-				DA9B83CB1E12E367002B9810 /* Process */,
 				DA9B83CC1E12E367002B9810 /* Shoot */,
 			);
 			path = Camera;
@@ -718,13 +717,6 @@
 				DA5C52391E15723100D296C6 /* VCameraCellItem.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		DA9B83CB1E12E367002B9810 /* Process */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Process;
 			sourceTree = "<group>";
 		};
 		DA9B83CC1E12E367002B9810 /* Shoot */ = {

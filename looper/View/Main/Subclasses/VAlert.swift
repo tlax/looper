@@ -94,45 +94,37 @@ class VAlert:UIView
         addSubview(label)
         addSubview(button)
         
-        let views:[String:UIView] = [
-            "blur":blur,
-            "label":label,
-            "button":button]
+        let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:blur,
+            parent:self)
         
-        let metrics:[String:CGFloat] = [
-            "labelMargin":kLabelMargin
-        ]
+        let constraintsButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:blur,
+            parent:self)
         
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[blur]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(labelMargin)-[label]-(labelMargin)-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[button]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[blur]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[label]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[button]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
+        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:label,
+            toView:self)
+        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:label,
+            toView:self)
+        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:label,
+            toView:self,
+            constant:kLabelMargin)
+        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:label,
+            toView:self,
+            constant:-kLabelMargin)
+        
+        addConstraints(constraintsEffect)
+        addConstraints(constraintsButton)
+        
+        addConstraints([
+            layoutLabelTop,
+            layoutLabelBottom,
+            layoutLabelLeft,
+            layoutLabelRight])
     }
     
     func alertTimeOut(sender timer:Timer?)

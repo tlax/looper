@@ -21,24 +21,11 @@ class VCameraCellItem:UICollectionViewCell
         
         addSubview(imageView)
         
-        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let constraintsImage:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:imageView,
-            toView:self)
-        let layoutImageBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:imageView,
-            toView:self)
-        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:imageView,
-            toView:self)
-        let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:imageView,
-            toView:self)
+            parent:self)
         
-        addConstraints([
-            layoutImageTop,
-            layoutImageBottom,
-            layoutImageLeft,
-            layoutImageRight])
+        addConstraints(constraintsImage)
     }
     
     required init?(coder:NSCoder)

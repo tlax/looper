@@ -18,7 +18,11 @@ class VLoopsCellOption:UICollectionViewCell
         
         addSubview(imageView)
         
+        let constraintsImage:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:imageView,
+            parent:self)
         
+        addConstraints(constraintsImage)
     }
     
     required init?(coder:NSCoder)

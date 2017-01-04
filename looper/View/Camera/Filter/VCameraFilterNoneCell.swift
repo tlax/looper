@@ -21,7 +21,11 @@ class VCameraFilterNoneCell:UICollectionViewCell
         
         addSubview(imageView)
         
-        let
+        let constraintsImage:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:imageView,
+            parent:self)
+        
+        addConstraints(constraintsImage)
     }
     
     required init?(coder:NSCoder)

@@ -76,7 +76,7 @@ class VCameraCompressBar:UIView
         addSubview(nextButton)
         
         let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
-            view:view,
+            view:visualEffect,
             parent:self)
         
         let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
