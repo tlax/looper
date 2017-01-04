@@ -49,28 +49,17 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
             view:viewBar,
             toView:self)
         
-        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:collectionView,
-            toView:self)
-        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:collectionView,
-            toView:self)
-        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:collectionView,
-            toView:self)
-        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:collectionView,
-            toView:self)
+            parent:self)
+        
+        addConstraints(constraintsCollection)
         
         addConstraints([
             layoutBarTop,
             layoutBarHeight,
             layoutBarLeft,
-            layoutBarRight,
-            layoutCollectionTop,
-            layoutCollectionBottom,
-            layoutCollectionLeft,
-            layoutCollectionRight])
+            layoutBarRight])
         
         var indexSelected:Int?
         let countItems:Int = self.controller.modelFilter.items.count

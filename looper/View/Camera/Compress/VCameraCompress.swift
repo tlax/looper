@@ -57,45 +57,21 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
             view:viewBar,
             toView:self)
         
-        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:collectionView,
-            toView:self)
-        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:collectionView,
-            toView:self)
-        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:collectionView,
-            toView:self)
-        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:collectionView,
-            toView:self)
+            parent:self)
+        let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:spinner,
+            parent:self)
         
-        let layoutSpinnerTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:spinner,
-            toView:self)
-        let layoutSpinnerBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:spinner,
-            toView:self)
-        let layoutSpinnerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:spinner,
-            toView:self)
-        let layoutSpinnerRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:spinner,
-            toView:self)
+        addConstraints(constraintsCollection)
+        addConstraints(constraintsSpinner)
         
         addConstraints([
             layoutBarTop,
             layoutBarHeight,
             layoutBarLeft,
-            layoutBarRight,
-            layoutCollectionTop,
-            layoutCollectionBottom,
-            layoutCollectionLeft,
-            layoutCollectionRight,
-            layoutSpinnerTop,
-            layoutSpinnerBottom,
-            layoutSpinnerLeft,
-            layoutSpinnerRight])
+            layoutBarRight])
         
         var indexSelected:Int?
         let countItems:Int = self.controller.modelCompress.items.count

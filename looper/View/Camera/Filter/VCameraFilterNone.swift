@@ -37,24 +37,11 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
         
         addSubview(collectionView)
         
-        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:collectionView,
-            toView:self)
-        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:collectionView,
-            toView:self)
-        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:collectionView,
-            toView:self)
-        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:collectionView,
-            toView:self)
+            parent:self)
         
-        addConstraints([
-            layoutCollectionTop,
-            layoutCollectionBottom,
-            layoutCollectionLeft,
-            layoutCollectionRight])
+        addConstraints(constraintsCollection)
     }
     
     required init?(coder:NSCoder)

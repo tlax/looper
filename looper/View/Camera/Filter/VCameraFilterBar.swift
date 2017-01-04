@@ -69,18 +69,9 @@ class VCameraFilterBar:UIView
         addSubview(backButton)
         addSubview(nextButton)
         
-        let layoutEffectTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:visualEffect,
-            toView:self)
-        let layoutEffectBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:visualEffect,
-            toView:self)
-        let layoutEffectLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:visualEffect,
-            toView:self)
-        let layoutEffectRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:visualEffect,
-            toView:self)
+            parent:self)
         
         let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:backButton,
@@ -124,11 +115,9 @@ class VCameraFilterBar:UIView
             view:nextButton,
             constant:kButtonsWidth)
         
+        addConstraints(constraintsEffect)
+        
         addConstraints([
-            layoutEffectTop,
-            layoutEffectBottom,
-            layoutEffectLeft,
-            layoutEffectRight,
             layoutBackTop,
             layoutBackBottom,
             layoutBackLeft,

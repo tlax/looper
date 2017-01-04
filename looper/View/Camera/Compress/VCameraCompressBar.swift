@@ -75,18 +75,9 @@ class VCameraCompressBar:UIView
         addSubview(backButton)
         addSubview(nextButton)
         
-        let layoutEffectTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:visualEffect,
-            toView:self)
-        let layoutEffectBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:visualEffect,
-            toView:self)
-        let layoutEffectLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:visualEffect,
-            toView:self)
-        let layoutEffectRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:visualEffect,
-            toView:self)
+        let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:view,
+            parent:self)
         
         let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:backButton,
@@ -130,11 +121,9 @@ class VCameraCompressBar:UIView
             view:nextButton,
             constant:kButtonsWidth)
         
+        addConstraints(constraintsEffect)
+        
         addConstraints([
-            layoutEffectTop,
-            layoutEffectBottom,
-            layoutEffectLeft,
-            layoutEffectRight,
             layoutBackTop,
             layoutBackBottom,
             layoutBackLeft,
