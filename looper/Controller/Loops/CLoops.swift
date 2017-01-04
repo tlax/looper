@@ -55,8 +55,7 @@ class CLoops:CController
     
     private func confirmDelete(model:MLoopsItem)
     {
-        
-        
+        model.delete()
         loadFromDB()
     }
     

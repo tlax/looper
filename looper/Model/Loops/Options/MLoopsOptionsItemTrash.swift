@@ -16,5 +16,6 @@ class MLoopsOptionsItemTrash:MLoopsOptionsItem
     
     override func selected(controller:CLoops, model:MLoopsItem)
     {
+        controller.delete(model:model)
     }
 }

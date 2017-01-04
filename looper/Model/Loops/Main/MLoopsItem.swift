@@ -58,6 +58,34 @@ class MLoopsItem
     
     func delete()
     {
+        guard
+            
+            let folderName:String = loop.folder
+            
+        else
+        {
+            return
+        }
+        
+        let appDirectory:URL = FileManager.appDirectory
+        let folderPath:URL = appDirectory.appendingPathComponent(folderName)
+        let countImages:Int = Int(loop.items)
+        
+        for indexImage:Int in 0 ..< countImages
+        {
+            let pathComponent:String = "\(indexImage)"
+            let imageUrl:URL = folderPath.appendingPathComponent(pathComponent)
+            
+            do
+            {
+                try FileManager.default.removeItem(at:imageUrl)
+            }
+            catch let error
+            {
+                print("error \(error.localizedDescription)")
+            }
+        }
+        
         DManager.sharedInstance.delete(object:loop)
     }
 }
