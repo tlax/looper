@@ -37,6 +37,12 @@ class MLoops
                 items.append(item)
             }
             
+            items.sort
+            { (itemA:MLoopsItem, itemB:MLoopsItem) -> Bool in
+                
+                return itemA.loop.created > itemB.loop.created
+            }
+            
             self?.items = items
             completion()
         }
