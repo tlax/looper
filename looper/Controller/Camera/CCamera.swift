@@ -4,6 +4,7 @@ class CCamera:CController
 {
     weak var viewCamera:VCamera!
     let model:MCamera
+    private let kAfterShoot:TimeInterval = 0.3
 
     override init()
     {
@@ -37,6 +38,13 @@ class CCamera:CController
             selector:#selector(notifiedCameraLoadFinished(sender:)),
             name:Notification.cameraLoadFinished,
             object:nil)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kAfterShoot)
+        { [weak self] in
+            
+            self?.shoot()
+        }
     }
     
     override func loadView()
