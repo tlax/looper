@@ -81,4 +81,21 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         self.model = model
         imageView.image = model.images.first
     }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        
+    }
 }
