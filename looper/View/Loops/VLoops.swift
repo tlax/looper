@@ -7,8 +7,8 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     private weak var spinner:VSpinner!
     private let kCollectionTop:CGFloat = 74
     private let kCollectionBottom:CGFloat = 20
-    private let kInterline:CGFloat = 5
-    private let kAddCellHeight:CGFloat = 60
+    private let kInterline:CGFloat = 10
+    private let kAddCellHeight:CGFloat = 70
     
     override init(controller:CController)
     {

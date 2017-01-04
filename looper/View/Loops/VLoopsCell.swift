@@ -1,6 +1,6 @@
 import UIKit
 
-class VLoopsCell:UICollectionViewCell
+class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var model:MLoopsItem?
     private weak var imageView:UIImageView!
