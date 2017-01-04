@@ -2,13 +2,11 @@ import UIKit
 
 class CCameraFilter:CController
 {
-    weak var model:MCamera!
     let modelFilter:MCameraFilter
     private weak var viewFilter:VCameraFilter!
     
-    init(model:MCamera)
+    override init()
     {
-        self.model = model
         modelFilter = MCameraFilter()
         super.init()
     }

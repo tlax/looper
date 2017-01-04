@@ -64,7 +64,7 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     private func modelAtIndex(index:IndexPath) -> MCameraRecord
     {
-        let item:MCameraRecord = controller.model.records[index.item]
+        let item:MCameraRecord = MSession.sharedInstance.camera!.records[index.item]
         
         return item
     }

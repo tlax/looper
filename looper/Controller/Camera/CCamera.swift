@@ -3,20 +3,7 @@ import UIKit
 class CCamera:CController
 {
     weak var viewCamera:VCamera!
-    let model:MCamera
     private let kAfterShoot:TimeInterval = 0.3
-
-    override init()
-    {
-        model = MCamera()
-        
-        super.init()
-    }
-    
-    required init?(coder:NSCoder)
-    {
-        fatalError()
-    }
     
     deinit
     {
@@ -26,6 +13,11 @@ class CCamera:CController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        if MSession.sharedInstance.camera == nil
+        {
+            MSession.sharedInstance.camera = MCamera()
+        }
         
         NotificationCenter.default.addObserver(
             self,
@@ -78,7 +70,7 @@ class CCamera:CController
     
     private func confirmTrash(item:MCameraRecord)
     {
-        model.trashRecord(record:item)
+        MSession.sharedInstance.camera?.trashRecord(record:item)
         viewCamera.refresh()
     }
     
@@ -86,7 +78,7 @@ class CCamera:CController
     
     func shoot()
     {
-        let controller:CCameraShoot = CCameraShoot(model:model)
+        let controller:CCameraShoot = CCameraShoot()
         parentController.push(
             controller:controller,
             vertical:CParent.TransitionVertical.fromTop)
@@ -123,9 +115,9 @@ class CCamera:CController
     
     func next()
     {
-        model.buildActiveRecords()
+        MSession.sharedInstance.camera?.buildActiveRecords()
         
-        let controller:CCameraFilter = CCameraFilter(model:model)
+        let controller:CCameraFilter = CCameraFilter()
         parentController.push(
             controller:controller,
             horizontal:CParent.TransitionHorizontal.fromRight)

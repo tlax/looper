@@ -122,7 +122,7 @@ class VCameraHeader:UICollectionReusableView
         guard
         
             let unlimitedRecords:Bool = MSession.sharedInstance.settings?.unlimitedRecords,
-            let currentRecords:Int = controller?.model.records.count
+            let currentRecords:Int = MSession.sharedInstance.camera?.records.count
         
         else
         {
@@ -156,20 +156,22 @@ class VCameraHeader:UICollectionReusableView
     {
         guard
         
-            let controller:CCamera = self.controller
+            let model:MCamera = MSession.sharedInstance.camera
         
         else
         {
+            buttonNext.notActive()
+            
             return
         }
         
-        if controller.model.records.isEmpty
+        if model.records.isEmpty
         {
             buttonNext.notActive()
         }
         else
         {
-            if controller.model.hasActive()
+            if model.hasActive()
             {
                 buttonNext.active()
             }

@@ -4,7 +4,6 @@ import AVFoundation
 class CCameraShoot:CController
 {
     private(set) var recording:Bool
-    weak var model:MCamera!
     private weak var viewCamera:VCameraShoot!
     private weak var captureSession:AVCaptureSession?
     private weak var captureOutput:AVCaptureStillImageOutput?
@@ -18,7 +17,7 @@ class CCameraShoot:CController
     private let kVideoCodec:String = AVVideoCodecJPEG
     private let kQueueLabel:String = "cameraQueue"
     
-    init(model:MCamera)
+    override init()
     {
         recording = false
         devicePosition = AVCaptureDevicePosition.front
@@ -29,7 +28,6 @@ class CCameraShoot:CController
             autoreleaseFrequency:DispatchQueue.AutoreleaseFrequency.inherit,
             target:DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
         
-        self.model = model
         super.init()
     }
     
