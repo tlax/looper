@@ -17,7 +17,35 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         clipsToBounds = true
         backgroundColor = UIColor.clear
         
+        let countOptions:CGFloat = CGFloat(modelOptions.items.count)
         let width:CGFloat = frame.size.width
+        let height:CGFloat = frame.size.height
+        let backgroundHeight:CGFloat = width + kBackgroundMargin + kBackgroundMargin
+        let collectionHeight:CGFloat = height - backgroundHeight
+        let cellsWidth:CGFloat = collectionHeight * countOptions
+        let marginRight:CGFloat = width - cellsWidth
+        
+        let button:UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.clipsToBounds = true
+        
+        let collectionView:VCollection = VCollection()
+        collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+        collectionView.flow.itemSize = CGSize(
+            width:collectionHeight,
+            height:collectionHeight)
+        collectionView.flow.sectionInset = UIEdgeInsets(
+            top:0,
+            left:0,
+            bottom:0,
+            right:marginRight)
+        collectionView.isScrollEnabled = false
+        collectionView.bounces = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(
+            cell:VLoopsCellOption.self)
+        self.collectionView = collectionView
         
         let background:UIView = UIView()
         background.clipsToBounds = true
@@ -34,6 +62,8 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         
         addSubview(background)
         addSubview(imageView)
+        addSubview(button)
+        addSubview(collectionView)
         
         let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:imageView,
@@ -55,12 +85,25 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
             toView:self)
         let layoutBackgroundHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:background,
-            constant:width + kBackgroundMargin + kBackgroundMargin)
+            constant:backgroundHeight)
         let layoutBackgroundLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:background,
             toView:self)
         let layoutBackgroundRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:background,
+            toView:self)
+        
+        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:collectionView,
+            toView:background)
+        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:collectionView,
             toView:self)
         
         addConstraints([
@@ -71,7 +114,11 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
             layoutBackgroundTop,
             layoutBackgroundHeight,
             layoutBackgroundLeft,
-            layoutBackgroundRight])
+            layoutBackgroundRight,
+            layoutCollectionTop,
+            layoutCollectionBottom,
+            layoutCollectionLeft,
+            layoutCollectionRight])
     }
     
     required init?(coder:NSCoder)
@@ -94,6 +141,8 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     {
         self.model = model
         imageView.image = model.images.first
+        imageView.animationDuration = model.duration
+        imageView.animationImages = model.images
     }
     
     //MARK: collectionView delegate

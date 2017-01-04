@@ -2,10 +2,23 @@ import UIKit
 
 class VLoopsCellOption:UICollectionViewCell
 {
+    private weak var imageView:UIImageView!
+    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
+        
+        let imageView:UIImageView = UIImageView()
+        imageView.isUserInteractionEnabled = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = UIViewContentMode.center
+        self.imageView = imageView
+        
+        addSubview(imageView)
+        
+        
     }
     
     required init?(coder:NSCoder)

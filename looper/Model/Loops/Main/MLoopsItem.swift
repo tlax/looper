@@ -2,10 +2,12 @@ import UIKit
 
 class MLoopsItem
 {
+    let duration:TimeInterval
     private(set) var images:[UIImage]
     
     init(loop:DLoop)
     {
+        duration = loop.duration
         images = []
         
         guard
