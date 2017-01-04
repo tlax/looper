@@ -1,9 +1,13 @@
 import UIKit
+import ImageIO
+import MobileCoreServices
 
 class CLoops:CController
 {
     weak var viewLoops:VLoops!
     let model:MLoops
+    private let kFilename:String = "looper.gif"
+    private let kLoopCount:Int = 0
 
     override init()
     {
@@ -50,13 +54,98 @@ class CLoops:CController
     
     private func loadedFromDB()
     {
-        viewLoops.loopsLoaded()
+        viewLoops.stopLoading()
     }
     
     private func confirmDelete(model:MLoopsItem)
     {
         model.delete()
         loadFromDB()
+    }
+    
+    private func asyncShare(model:MLoopsItem)
+    {
+        let directoryUrl:URL = URL(fileURLWithPath:NSTemporaryDirectory())
+        let fileUrl:URL = directoryUrl.appendingPathComponent(kFilename)
+        
+        let totalImages:Int = model.images.count
+        
+        guard
+            
+            let destination:CGImageDestination = CGImageDestinationCreateWithURL(
+                fileUrl as CFURL,
+                kUTTypeGIF,
+                totalImages,
+                nil)
+            
+        else
+        {
+            return
+        }
+        
+        let duration:TimeInterval = model.loop.duration
+        let timePerItem:TimeInterval = duration / TimeInterval(totalImages)
+        
+        let destinationPropertiesRaw:[String:Any] = [
+            kCGImagePropertyGIFDictionary as String:[
+                kCGImagePropertyGIFLoopCount as String:kLoopCount]]
+        let gifPropertiesRaw:[String:Any] = [
+            kCGImagePropertyGIFDictionary as String:[
+                kCGImagePropertyGIFDelayTime as String:timePerItem]]
+        
+        let destinationProperties:CFDictionary = destinationPropertiesRaw as CFDictionary
+        let gifProperties:CFDictionary = gifPropertiesRaw as CFDictionary
+        
+        CGImageDestinationSetProperties(
+            destination,
+            destinationProperties)
+        
+        for image:UIImage in model.images
+        {
+            guard
+                
+                let cgImage:CGImage = image.cgImage
+                
+            else
+            {
+                continue
+            }
+            
+            CGImageDestinationAddImage(
+                destination,
+                cgImage,
+                gifProperties)
+        }
+        
+        CGImageDestinationFinalize(destination)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.finishShare(gif:fileUrl)
+        }
+    }
+    
+    private func finishShare(gif:URL)
+    {
+        let activity:UIActivityViewController = UIActivityViewController(
+            activityItems:[gif],
+            applicationActivities:nil)
+        
+        if activity.popoverPresentationController != nil
+        {
+            activity.popoverPresentationController!.sourceView = viewLoops
+            activity.popoverPresentationController!.sourceRect = CGRect.zero
+            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
+        present(
+            activity,
+            animated:true)
+        { [weak self] in
+            
+            self?.viewLoops.stopLoading()
+        }
     }
     
     //MARK: public
@@ -94,5 +183,16 @@ class CLoops:CController
         alert.addAction(actionDelete)
         alert.addAction(actionCancel)
         present(alert, animated:true, completion:nil)
+    }
+    
+    func share(model:MLoopsItem)
+    {
+        viewLoops.startLoading()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncShare(model:model)
+        }
     }
 }

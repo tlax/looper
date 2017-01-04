@@ -16,5 +16,6 @@ class MLoopsOptionsItemShare:MLoopsOptionsItem
     
     override func selected(controller:CLoops, model:MLoopsItem)
     {
+        controller.share(model:model)
     }
 }

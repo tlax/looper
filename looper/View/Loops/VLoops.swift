@@ -63,7 +63,7 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     //MARK: public
     
-    func loopsLoaded()
+    func stopLoading()
     {
         spinner.stopAnimating()
         collectionView.reloadData()
