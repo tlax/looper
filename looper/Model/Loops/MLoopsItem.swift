@@ -19,5 +19,11 @@ class MLoopsItem
         
         let appDirectory:URL = FileManager.appDirectory
         let folderPath:URL = appDirectory.appendingPathComponent(folderName)
+        let countImages:Int = Int(loop.items)
+        
+        for indexImage:Int in 0 ..< countImages
+        {
+            
+        }
     }
 }
