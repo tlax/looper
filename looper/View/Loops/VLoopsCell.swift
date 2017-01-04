@@ -7,8 +7,10 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     private weak var controller:CLoops?
     private weak var collectionView:VCollection!
     private weak var imageView:UIImageView!
+    private weak var button:UIButton!
     private let kBackgroundMargin:CGFloat = 1
     private let kDeselect:TimeInterval = 0.3
+    private let kPlaySize:CGFloat = 60
     
     override init(frame:CGRect)
     {
@@ -21,6 +23,8 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         let countOptions:CGFloat = CGFloat(modelOptions.items.count)
         let width:CGFloat = frame.size.width
         let height:CGFloat = frame.size.height
+        let playMarginTop:CGFloat = width - kPlaySize
+        let playMarginRight:CGFloat = width - kPlaySize
         let backgroundHeight:CGFloat = width + kBackgroundMargin + kBackgroundMargin
         let collectionHeight:CGFloat = height - backgroundHeight
         let cellsWidth:CGFloat = collectionHeight * countOptions
@@ -30,10 +34,18 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         button.backgroundColor = UIColor.clear
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = true
+        button.imageView!.contentMode = UIViewContentMode.center
+        button.imageView!.clipsToBounds = true
+        button.imageEdgeInsets = UIEdgeInsets(
+            top:playMarginTop,
+            left:0,
+            bottom:0,
+            right:playMarginRight)
         button.addTarget(
             self,
             action:#selector(actionButton(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.button = button
         
         let collectionView:VCollection = VCollection()
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
@@ -131,6 +143,8 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
             layoutCollectionBottom,
             layoutCollectionLeft,
             layoutCollectionRight])
+        
+        buttonPlay()
     }
     
     required init?(coder:NSCoder)
@@ -145,10 +159,12 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         if imageView.isAnimating
         {
             imageView.stopAnimating()
+            buttonPlay()
         }
         else
         {
             imageView.startAnimating()
+            buttonPause()
         }
     }
     
@@ -159,6 +175,20 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         let item:MLoopsOptionsItem = modelOptions.items[index.item]
         
         return item
+    }
+    
+    private func buttonPlay()
+    {
+        button.setImage(
+            #imageLiteral(resourceName: "assetLoopsPlay"),
+            for:UIControlState.normal)
+    }
+    
+    private func buttonPause()
+    {
+        button.setImage(
+            #imageLiteral(resourceName: "assetLoopsPause"),
+            for:UIControlState.normal)
     }
     
     //MARK: public
