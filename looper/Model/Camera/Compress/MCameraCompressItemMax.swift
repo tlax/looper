@@ -2,7 +2,7 @@ import UIKit
 
 class MCameraCompressItemMax:MCameraCompressItem
 {
-    private let kResize:CGFloat = 0.5
+    private let kResize:CGFloat = 0.6
     private let kPercent:Int = 10
     private let kRemoveInterval:Int = 3
     

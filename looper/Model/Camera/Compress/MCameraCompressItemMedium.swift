@@ -2,7 +2,9 @@ import UIKit
 
 class MCameraCompressItemMedium:MCameraCompressItem
 {
+    private let kResize:CGFloat = 0.8
     private let kPercent:Int = 50
+    private let kRemoveInterval:Int = 1
     
     override init()
     {
@@ -15,5 +17,17 @@ class MCameraCompressItemMedium:MCameraCompressItem
     override init(title:String, percent:Int, color:UIColor)
     {
         fatalError()
+    }
+    
+    override func compress(record:MCameraRecord) -> MCameraRecord?
+    {
+        let removeRecord:MCameraRecord = removeInterItems(
+            record:record,
+            intervalRemove:kRemoveInterval)
+        let lowerQuality:MCameraRecord = lowerImageQuality(
+            record:removeRecord,
+            resize:kResize)
+        
+        return lowerQuality
     }
 }
