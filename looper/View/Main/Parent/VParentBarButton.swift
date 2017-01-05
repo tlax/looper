@@ -28,7 +28,7 @@ class VParentBarButton:UIButton
         
         let border:UIView = UIView()
         border.translatesAutoresizingMaskIntoConstraints = false
-        border.backgroundColor = UIColor.genericLight
+        border.backgroundColor = UIColor.black
         border.isUserInteractionEnabled = false
         border.clipsToBounds = true
         self.border = border
@@ -91,14 +91,14 @@ class VParentBarButton:UIButton
     
     func active()
     {
-        imageView!.tintColor = UIColor.genericLight
+        imageView!.tintColor = UIColor.black
         isUserInteractionEnabled = false
         border.isHidden = false
     }
     
     func notActive()
     {
-        imageView!.tintColor = UIColor.genericLight.withAlphaComponent(kAlphaHover)
+        imageView!.tintColor = UIColor(white:0, alpha:kAlphaHover)
         isUserInteractionEnabled = true
         border.isHidden = true
     }
