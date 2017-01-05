@@ -119,6 +119,8 @@ class VCameraHeader:UICollectionReusableView
     
     func actionShoot(sender button:VCameraActiveButton)
     {
+        button.notActive()
+        
         guard
         
             let unlimitedRecords:Bool = MSession.sharedInstance.settings?.unlimitedRecords,
@@ -126,11 +128,14 @@ class VCameraHeader:UICollectionReusableView
         
         else
         {
+            button.active()
+            
             return
         }
         
         if !unlimitedRecords && currentRecords >= MSession.kFroobMaxRecords
         {
+            button.active()
             print("records full")
         }
         else
@@ -141,6 +146,7 @@ class VCameraHeader:UICollectionReusableView
     
     func actionProcess(sender button:VCameraActiveButton)
     {
+        button.notActive()
         controller?.next()
     }
     

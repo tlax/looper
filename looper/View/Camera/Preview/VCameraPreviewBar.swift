@@ -156,6 +156,7 @@ class VCameraPreviewBar:UIView
     
     func actionSave(sender button:UIButton)
     {
+        button.isUserInteractionEnabled = false
         controller.save()
     }
     

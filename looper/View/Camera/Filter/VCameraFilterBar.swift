@@ -148,7 +148,6 @@ class VCameraFilterBar:UIView
     
     func actionBack(sender button:UIButton)
     {
-        button.isUserInteractionEnabled = false
         controller.back()
     }
     

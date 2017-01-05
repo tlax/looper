@@ -51,6 +51,12 @@ class CCamera:CController
         }
     }
     
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        viewCamera.refresh()
+    }
+    
     override func loadView()
     {
         let viewCamera:VCamera = VCamera(controller:self)

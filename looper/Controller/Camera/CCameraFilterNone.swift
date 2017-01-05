@@ -14,6 +14,7 @@ class CCameraFilterNone:CController
     override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
+        viewNone.collectionView.isUserInteractionEnabled = true
         viewNone.collectionView.reloadData()
     }
     

@@ -116,6 +116,7 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        collectionView.isUserInteractionEnabled = false
         let item:MCameraRecord = modelAtIndex(index:indexPath)
         controller.selected(record:item)
     }
