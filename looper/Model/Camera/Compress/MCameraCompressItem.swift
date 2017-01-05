@@ -5,6 +5,7 @@ class MCameraCompressItem
     let title:String
     let percent:Int
     let color:UIColor
+    private let kCompressQuality:CGFloat = 0.1
     
     init(title:String, percent:Int, color:UIColor)
     {
@@ -42,21 +43,21 @@ class MCameraCompressItem
         return removedRecord
     }
     
-    func lowerImageQuality(record:MCameraRecord, quality:CGFloat) -> MCameraRecord
+    func lowerImageQuality(record:MCameraRecord, resize:CGFloat) -> MCameraRecord
     {
         let lowerRecord:MCameraRecord = MCameraRecord()
         
         for originalItem:MCameraRecordItem in record.items
         {
-            let originalImage:UIImage = originalItem.image
             let newItem:MCameraRecordItem
+            let originalImage:UIImage = originalItem.image
             
             guard
-            
-                let data:Data = UIImageJPEGRepresentation(
-                                originalImage,
-                                quality),
-                let newImage:UIImage = UIImage(data:data)
+                
+                let originalData:Data = UIImageJPEGRepresentation(
+                                        originalImage,
+                                        kCompressQuality),
+                let compressedImage:UIImage = UIImage(data:originalData)
             
             else
             {
@@ -66,7 +67,33 @@ class MCameraCompressItem
                 continue
             }
             
-            newItem = MCameraRecordItem(image:newImage)
+            let originalSize:CGFloat = originalImage.size.width
+            let scaledSize:CGFloat = originalSize * resize
+            let imageSize:CGSize = CGSize(
+                width:scaledSize,
+                height:scaledSize)
+            let drawingRect:CGRect = CGRect(
+                origin:CGPoint.zero,
+                size:imageSize)
+            
+            UIGraphicsBeginImageContext(imageSize)
+            compressedImage.draw(in:drawingRect)
+            
+            guard
+                
+                let scaledImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+            
+            else
+            {
+                UIGraphicsEndImageContext()
+                newItem = MCameraRecordItem(image:originalImage)
+                lowerRecord.items.append(newItem)
+                
+                continue
+            }
+            
+            UIGraphicsEndImageContext()
+            newItem = MCameraRecordItem(image:scaledImage)
             lowerRecord.items.append(newItem)
         }
         

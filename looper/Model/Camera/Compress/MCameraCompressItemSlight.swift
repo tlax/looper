@@ -2,6 +2,7 @@ import UIKit
 
 class MCameraCompressItemSlight:MCameraCompressItem
 {
+    private let kResize:CGFloat = 0.5
     private let kPercent:Int = 80
     
     override init()
@@ -15,5 +16,14 @@ class MCameraCompressItemSlight:MCameraCompressItem
     override init(title:String, percent:Int, color:UIColor)
     {
         fatalError()
+    }
+    
+    override func compress(record:MCameraRecord) -> MCameraRecord?
+    {
+        let lowerQuality:MCameraRecord = lowerImageQuality(
+            record:record,
+            resize:kResize)
+        
+        return lowerQuality
     }
 }
