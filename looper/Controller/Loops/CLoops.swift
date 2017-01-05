@@ -54,7 +54,7 @@ class CLoops:CController
     
     private func loadedFromDB()
     {
-        viewLoops.stopLoading()
+//        viewLoops.stopLoading()
     }
     
     private func confirmDelete(model:MLoopsItem)
