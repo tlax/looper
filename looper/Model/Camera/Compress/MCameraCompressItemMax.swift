@@ -2,8 +2,9 @@ import UIKit
 
 class MCameraCompressItemMax:MCameraCompressItem
 {
+    private let kQuality:CGFloat = 0.1
     private let kPercent:Int = 10
-    private let kRemoveInterval:Int = 5
+    private let kRemoveInterval:Int = 3
     
     override init()
     {
@@ -23,8 +24,10 @@ class MCameraCompressItemMax:MCameraCompressItem
         let removeRecord:MCameraRecord = removeInterItems(
             record:record,
             intervalRemove:kRemoveInterval)
-        let compressed:MCameraRecord = MCameraRecord()
+        let lowerQuality:MCameraRecord = lowerImageQuality(
+            record:removeRecord,
+            quality:kQuality)
         
-        return removeRecord
+        return lowerQuality
     }
 }
