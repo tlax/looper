@@ -25,6 +25,12 @@ class CCameraCompress:CController
         view = viewCompress
     }
     
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        viewCompress.stopLoading()
+    }
+    
     //MARK: private
     
     private func compress()
@@ -56,8 +62,6 @@ class CCameraCompress:CController
     
     private func finishedCompressing(compressed:MCameraRecord)
     {
-        viewCompress.stopLoading()
-        
         let controller:CCameraPreview = CCameraPreview(model:compressed)
         parentController.push(
             controller:controller,

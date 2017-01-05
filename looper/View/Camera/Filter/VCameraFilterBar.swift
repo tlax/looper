@@ -2,6 +2,7 @@ import UIKit
 
 class VCameraFilterBar:UIView
 {
+    weak var nextButton:UIButton!
     private weak var controller:CCameraFilter!
     private weak var layoutIconLeft:NSLayoutConstraint!
     private let kContentTop:CGFloat = 20
@@ -56,6 +57,7 @@ class VCameraFilterBar:UIView
             self,
             action:#selector(actionNext(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.nextButton = nextButton
         
         let icon:UIImageView = UIImageView()
         icon.isUserInteractionEnabled = false
@@ -146,11 +148,13 @@ class VCameraFilterBar:UIView
     
     func actionBack(sender button:UIButton)
     {
+        button.isUserInteractionEnabled = false
         controller.back()
     }
     
     func actionNext(sender button:UIButton)
     {
+        button.isUserInteractionEnabled = false
         controller.next()
     }
 }

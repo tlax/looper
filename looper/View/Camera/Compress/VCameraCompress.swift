@@ -2,10 +2,10 @@ import UIKit
 
 class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    weak var viewBar:VCameraCompressBar!
     private weak var controller:CCameraCompress!
     private weak var collectionView:VCollection!
     private weak var spinner:VSpinner!
-    private weak var viewBar:VCameraCompressBar!
     private let kBarHeight:CGFloat = 64
     private let kCellHeight:CGFloat = 80
     private let kInterLine:CGFloat = 2

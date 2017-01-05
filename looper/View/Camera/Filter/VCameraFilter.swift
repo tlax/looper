@@ -2,6 +2,7 @@ import UIKit
 
 class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    weak var viewBar:VCameraFilterBar!
     private weak var controller:CCameraFilter!
     private weak var collectionView:VCollection!
     private let kBarHeight:CGFloat = 64
@@ -18,6 +19,7 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
         
         let viewBar:VCameraFilterBar = VCameraFilterBar(
             controller:self.controller)
+        self.viewBar = viewBar
         
         let collectionView:VCollection = VCollection()
         collectionView.flow.minimumLineSpacing = kInterLine

@@ -23,6 +23,12 @@ class CCameraFilter:CController
         view = viewFilter
     }
     
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        viewFilter.viewBar.nextButton.isUserInteractionEnabled = true
+    }
+    
     //MARK: public
     
     func back()

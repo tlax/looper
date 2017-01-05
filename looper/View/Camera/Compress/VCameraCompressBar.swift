@@ -152,11 +152,13 @@ class VCameraCompressBar:UIView
     
     func actionBack(sender button:UIButton)
     {
+        button.isUserInteractionEnabled = false
         controller.back()
     }
     
     func actionNext(sender button:UIButton)
     {
+        button.isUserInteractionEnabled = false
         controller.next()
     }
     
