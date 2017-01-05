@@ -160,6 +160,8 @@ class VCameraHeader:UICollectionReusableView
     
     func refresh()
     {
+        buttonShoot.active()
+        
         guard
         
             let model:MCamera = MSession.sharedInstance.camera
