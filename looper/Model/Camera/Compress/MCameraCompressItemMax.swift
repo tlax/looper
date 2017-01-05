@@ -16,4 +16,12 @@ class MCameraCompressItemMax:MCameraCompressItem
     {
         fatalError()
     }
+    
+    override func compress(record:MCameraRecord) -> MCameraRecord?
+    {
+        let compressed:MCameraRecord = MCameraRecord()
+        
+        
+        return compressed
+    }
 }

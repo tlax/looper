@@ -16,7 +16,6 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
     override init(controller:CController)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor(white:0.98, alpha:1)
         self.controller = controller as? CCameraCompress
         
         let viewBar:VCameraCompressBar = VCameraCompressBar(

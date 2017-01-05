@@ -24,4 +24,21 @@ class MCameraCompressItem
     {
         return nil
     }
+    
+    func removeInterItems(record:MCameraRecord, intervalRemove:Int) -> MCameraRecord
+    {
+        let removedRecord:MCameraRecord = MCameraRecord()
+        let countItems:Int = record.items.count
+        var indexItem:Int = 0
+        
+        while indexItem < countItems
+        {
+            let item:MCameraRecordItem = record.items[indexItem]
+            removedRecord.items.append(item)
+            
+            indexItem += intervalRemove + 1
+        }
+        
+        return removedRecord
+    }
 }

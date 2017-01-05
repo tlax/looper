@@ -14,7 +14,6 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
     override init(controller:CController)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor(white:0.98, alpha:1)
         self.controller = controller as? CCameraFilter
         
         let viewBar:VCameraFilterBar = VCameraFilterBar(
