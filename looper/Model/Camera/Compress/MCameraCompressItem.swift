@@ -5,7 +5,6 @@ class MCameraCompressItem
     let title:String
     let percent:Int
     let color:UIColor
-    private let kCompressQuality:CGFloat = 0.1
     
     init(title:String, percent:Int, color:UIColor)
     {
@@ -43,7 +42,7 @@ class MCameraCompressItem
         return removedRecord
     }
     
-    func lowerImageQuality(record:MCameraRecord, resize:CGFloat) -> MCameraRecord
+    func lowerImageQuality(record:MCameraRecord, quality:CGFloat, resize:CGFloat) -> MCameraRecord
     {
         let lowerRecord:MCameraRecord = MCameraRecord()
         
@@ -56,7 +55,7 @@ class MCameraCompressItem
                 
                 let originalData:Data = UIImageJPEGRepresentation(
                                         originalImage,
-                                        kCompressQuality),
+                                        quality),
                 let compressedImage:UIImage = UIImage(data:originalData)
             
             else

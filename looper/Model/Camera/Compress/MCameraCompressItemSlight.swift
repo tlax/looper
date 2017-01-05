@@ -2,7 +2,7 @@ import UIKit
 
 class MCameraCompressItemSlight:MCameraCompressItem
 {
-    private let kPercent:Int = 80
+    private let kPercent:Int = 50
     private let kRemoveInterval:Int = 1
     
     override init()
