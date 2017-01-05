@@ -42,7 +42,7 @@ class VParentBar:UIView
         self.buttonCamera = buttonCamera
         
         let buttonStore:VParentBarButton = VParentBarButton(
-            image:#imageLiteral(resourceName: "assetHomeCamera"))
+            image:#imageLiteral(resourceName: "assetGenericStore"))
         buttonStore.addTarget(
             self,
             action:#selector(actionStore(sender:)),
