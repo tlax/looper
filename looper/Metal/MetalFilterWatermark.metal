@@ -11,7 +11,7 @@ metalFilter_watermark(texture2d<float, access::read> baseTexture [[texture(0)]],
 {
     float4 basePixel = baseTexture.read(gridId);
     float4 overPixel = overTexture.read(gridId);
-    float overAlpha = overPixel[2];
+    float overAlpha = overPixel[3];
     
     if (overAlpha > 0)
     {
