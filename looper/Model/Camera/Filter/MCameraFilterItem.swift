@@ -44,25 +44,14 @@ class MCameraFilterItem
         {
             markedRecord = MCameraRecord()
             
-            if self.device == nil
-            {
-                self.device = MTLCreateSystemDefaultDevice()
-            }
-            
             guard
-                
-                let device:MTLDevice = self.device
-                
+            
+                let waterMarker:MCameraFilterWatermark = MCameraFilterWatermark()
+            
             else
             {
                 return markedRecord
             }
-            
-            renderedSequence = MHomeImageSequenceGenerated(
-                device:device,
-                main:mainSequence,
-                sequences:blendingSequences,
-                length:longestSequence)
         }
         
         return markedRecord

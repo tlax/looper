@@ -134,6 +134,8 @@
 		DAC7D3FB1E12C37D00312D4E /* CLoops.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7D3FA1E12C37D00312D4E /* CLoops.swift */; };
 		DAC7D3FE1E12C3BC00312D4E /* VLoops.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7D3FD1E12C3BC00312D4E /* VLoops.swift */; };
 		DAD404CE1E1F2934005EA836 /* MCameraFilterWatermark.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD404CD1E1F2934005EA836 /* MCameraFilterWatermark.swift */; };
+		DAD404D01E1F3048005EA836 /* MCameraFilterProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD404CF1E1F3048005EA836 /* MCameraFilterProcessor.swift */; };
+		DAD404D21E1F3057005EA836 /* MCameraFilterProcessorWatermark.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD404D11E1F3057005EA836 /* MCameraFilterProcessorWatermark.swift */; };
 		DAD778E31E1060F5009B1A81 /* VHomeControlSequences.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD778E21E1060F5009B1A81 /* VHomeControlSequences.swift */; };
 		DAD778E51E10634D009B1A81 /* VHomeControlSequencesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD778E41E10634D009B1A81 /* VHomeControlSequencesMenu.swift */; };
 		DAD778E71E106665009B1A81 /* MHomeControlItemSequences.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD778E61E106665009B1A81 /* MHomeControlItemSequences.swift */; };
@@ -295,6 +297,8 @@
 		DAC7D3FA1E12C37D00312D4E /* CLoops.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLoops.swift; sourceTree = "<group>"; };
 		DAC7D3FD1E12C3BC00312D4E /* VLoops.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoops.swift; sourceTree = "<group>"; };
 		DAD404CD1E1F2934005EA836 /* MCameraFilterWatermark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilterWatermark.swift; sourceTree = "<group>"; };
+		DAD404CF1E1F3048005EA836 /* MCameraFilterProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilterProcessor.swift; sourceTree = "<group>"; };
+		DAD404D11E1F3057005EA836 /* MCameraFilterProcessorWatermark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilterProcessorWatermark.swift; sourceTree = "<group>"; };
 		DAD778E21E1060F5009B1A81 /* VHomeControlSequences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlSequences.swift; sourceTree = "<group>"; };
 		DAD778E41E10634D009B1A81 /* VHomeControlSequencesMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlSequencesMenu.swift; sourceTree = "<group>"; };
 		DAD778E61E106665009B1A81 /* MHomeControlItemSequences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeControlItemSequences.swift; sourceTree = "<group>"; };
@@ -357,6 +361,8 @@
 				DA14D11A1E187AFF000753B3 /* MCameraFilterItemNone.swift */,
 				DAD88CFC1E1AE93400EAB6B7 /* MCameraFilterItemBlend.swift */,
 				DAD404CD1E1F2934005EA836 /* MCameraFilterWatermark.swift */,
+				DAD404CF1E1F3048005EA836 /* MCameraFilterProcessor.swift */,
+				DAD404D11E1F3057005EA836 /* MCameraFilterProcessorWatermark.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -1091,7 +1097,9 @@
 				DA6FB23A1E1D57530062EE13 /* VLoopsCellOption.swift in Sources */,
 				DAFFF3FB1E085C4900E14F12 /* VHomePlayer.swift in Sources */,
 				DA9D2F471E0AFC2A003E37D5 /* MHomeFramesItem.swift in Sources */,
+				DAD404D21E1F3057005EA836 /* MCameraFilterProcessorWatermark.swift in Sources */,
 				DA505F541E0B557400CE22FE /* VHomeControlBlenderPiecesItem.swift in Sources */,
+				DAD404D01E1F3048005EA836 /* MCameraFilterProcessor.swift in Sources */,
 				DAF9761A1E171E1A00811D61 /* VCameraCellControls.swift in Sources */,
 				DA20F0C61E0446C300F8BAD4 /* VHomeTimeline.swift in Sources */,
 				DA38AF101E1C29CB008C86A8 /* VCameraPreviewPlayerButton.swift in Sources */,

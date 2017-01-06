@@ -7,7 +7,7 @@ class MCameraFilterWatermark
     private let commandQueue:MTLCommandQueue
     private let mtlFunction:MTLFunction
     private let textureLoader:MTKTextureLoader
-    private let kMetalBlenderFunctionName:String = "metalFilter_blender"
+    private let kMetalFunctionName:String = "metalFilter_blender"
     private let kMapTexturePixelFormat:MTLPixelFormat = MTLPixelFormat.r32Float
     private let kTextureDefaultPixelFormat:MTLPixelFormat = MTLPixelFormat.bgra8Unorm
     private let kTextureMipMapped:Bool = false
@@ -15,66 +15,22 @@ class MCameraFilterWatermark
     private let kRepeatingElement:Float = 0
     private let kReplaceElement:Float = 1
     
-    init(title:String, image:UIImage)
-    {
-        self.title = title
-        self.image = image
-    }
-    
-    init()
-    {
-        fatalError()
-    }
-    
-    //MARK: public
-    
-    func processController() -> CController?
-    {
-        return nil
-    }
-    
-    func waterMark(original:MCameraRecord) -> MCameraRecord
+    init?()
     {
         guard
-            
-            let noWatermark:Bool = MSession.sharedInstance.settings?.noWatermark
-            
-            else
-        {
-            return original
-        }
         
-        let markedRecord:MCameraRecord
+            let device:MTLDevice = MTLCreateSystemDefaultDevice(),
+            let mtlLibrary:MTLLibrary = device.newDefaultLibrary(),
+            let mtlFunction:MTLFunction = mtlLibrary.makeFunction(name:kMetalFunctionName)
         
-        if noWatermark
-        {
-            markedRecord = original
-        }
         else
         {
-            markedRecord = MCameraRecord()
-            
-            if self.device == nil
-            {
-                self.device = MTLCreateSystemDefaultDevice()
-            }
-            
-            guard
-                
-                let device:MTLDevice = self.device
-                
-                else
-            {
-                return markedRecord
-            }
-            
-            renderedSequence = MHomeImageSequenceGenerated(
-                device:device,
-                main:mainSequence,
-                sequences:blendingSequences,
-                length:longestSequence)
+            return nil
         }
         
-        return markedRecord
+        commandQueue = device.makeCommandQueue()
+        textureLoader = MTKTextureLoader(device:device)
+        self.device = device
+        self.mtlFunction = mtlFunction
     }
 }
