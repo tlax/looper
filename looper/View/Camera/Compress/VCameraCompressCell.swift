@@ -5,6 +5,7 @@ class VCameraCompressCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var label:UILabel!
     private weak var percent:UILabel!
+    private weak var labelSize:UILabel!
     private weak var selectedIcon:UIImageView!
     private let kLabelLeft:CGFloat = 10
     private let kLabelWidth:CGFloat = 125
@@ -43,7 +44,16 @@ class VCameraCompressCell:UICollectionViewCell
         selectedIcon.image = #imageLiteral(resourceName: "assetCameraFilterSelect")
         self.selectedIcon = selectedIcon
         
+        let labelSize:UILabel = UILabel()
+        labelSize.isUserInteractionEnabled = false
+        labelSize.translatesAutoresizingMaskIntoConstraints = false
+        labelSize.backgroundColor = UIColor.clear
+        labelSize.font = UIFont.regular(size:15)
+        labelSize.textColor = UIColor(white:0.4, alpha:1)
+        self.labelSize = labelSize
+        
         addSubview(label)
+        addSubview(labelSize)
         addSubview(percent)
         addSubview(selectedIcon)
         
