@@ -13,6 +13,8 @@ class MCameraFilterProcessor
     let kTextureDepth:Int = 1
     let kRepeatingElement:Float = 0
     let kReplaceElement:Float = 1
+    let originZero:MTLOrigin
+    let sizeOfFloat:Int
     
     init?()
     {
@@ -28,11 +30,109 @@ class MCameraFilterProcessor
         
         commandQueue = device.makeCommandQueue()
         textureLoader = MTKTextureLoader(device:device)
+        originZero = MTLOriginMake(0, 0, 0)
+        sizeOfFloat = MemoryLayout.size(ofValue:kRepeatingElement)
+        
         self.device = device
         self.mtlLibrary = mtlLibrary
     }
     
     //MARK: public
+    
+    func createBlankTexure(
+        pixelFormat:MTLPixelFormat,
+        width:Int,
+        height:Int) -> MTLTexture
+    {
+        let textureDescriptor:MTLTextureDescriptor = MTLTextureDescriptor.texture2DDescriptor(
+            pixelFormat:pixelFormat,
+            width:width,
+            height:height,
+            mipmapped:kTextureMipMapped)
+        
+        let newTexture:MTLTexture = device.makeTexture(
+            descriptor:textureDescriptor)
+        
+        return newTexture
+    }
+    
+    func createMutableTexture(texture:MTLTexture) -> MTLTexture
+    {
+        let baseTexture:MTLTexture = createBlankTexure(
+            pixelFormat:texture.pixelFormat,
+            width:texture.width,
+            height:texture.height)
+        
+        let originZero:MTLOrigin = MTLOriginMake(0, 0, 0)
+        let textureBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
+        let size:MTLSize = MTLSizeMake(
+            texture.width,
+            texture.height,
+            kTextureDepth)
+        let blitEncoder:MTLBlitCommandEncoder = textureBuffer.makeBlitCommandEncoder()
+        
+        blitEncoder.copy(
+            from:texture,
+            sourceSlice:0,
+            sourceLevel:0,
+            sourceOrigin:originZero,
+            sourceSize:size,
+            to:baseTexture,
+            destinationSlice:0,
+            destinationLevel:0,
+            destinationOrigin:originZero)
+        blitEncoder.endEncoding()
+        
+        textureBuffer.commit()
+        textureBuffer.waitUntilCompleted()
+        
+        return baseTexture
+    }
+    
+    func mappingTexture(
+        textureWidth:Int,
+        textureHeight:Int,
+        mapMinX:Int,
+        mapMinY:Int,
+        mapMaxX:Int,
+        mapMaxY:Int) -> MTLTexture
+    {
+        let textureMatrixSize:Int = textureWidth * textureHeight
+        var textureArray:[Float] = Array(
+            repeating:kRepeatingElement,
+            count:textureMatrixSize)
+        let bytesPerRow:Int = sizeOfFloat * textureWidth
+        let region:MTLRegion = MTLRegionMake2D(
+            0,
+            0,
+            textureWidth,
+            textureHeight)
+        
+        let mapTexture:MTLTexture = createBlankTexure(
+            pixelFormat:kMapTexturePixelFormat,
+            width:textureWidth,
+            height:textureHeight)
+        
+        for indexVr:Int in mapMinY ..< mapMaxY
+        {
+            let currentRow:Int = textureWidth * indexVr
+            
+            for indexHr:Int in mapMinX ..< mapMaxX
+            {
+                let pixelIndex:Int = currentRow + indexHr
+                textureArray[pixelIndex] = kReplaceElement
+            }
+        }
+        
+        let bytes:UnsafeRawPointer = UnsafeRawPointer(textureArray)
+        mapTexture.replace(
+            region:region,
+            mipmapLevel:0,
+            withBytes:bytes,
+            bytesPerRow:bytesPerRow)
+        
+        return mapTexture
+    }
     
     func texturize(image:UIImage) -> MTLTexture?
     {
