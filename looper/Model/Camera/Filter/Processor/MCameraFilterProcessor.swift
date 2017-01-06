@@ -89,7 +89,7 @@ class MCameraFilterProcessor
         return baseTexture
     }
     
-    func mappingTexture(
+    func createMappingTexture(
         textureWidth:Int,
         textureHeight:Int,
         mapMinX:Int,
@@ -162,6 +162,45 @@ class MCameraFilterProcessor
         {
             texture = nil
         }
+        
+        return texture
+    }
+    
+    func texturizeAt(
+        image:UIImage,
+        textureWidth:Int,
+        textureHeight:Int,
+        imageX:Int,
+        imageY:Int,
+        imageWidth:Int,
+        imageHeight:Int) -> MTLTexture?
+    {
+        let canvasSize:CGSize = CGSize(
+            width:textureWidth,
+            height:textureHeight)
+        let drawingRect:CGRect = CGRect(
+            x:imageX,
+            y:imageY,
+            width:imageWidth,
+            height:imageHeight)
+        
+        UIGraphicsBeginImageContext(canvasSize)
+        image.draw(in:drawingRect)
+        
+        guard
+            
+            let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+            
+        else
+        {
+            UIGraphicsEndImageContext()
+            
+            return nil
+        }
+        
+        UIGraphicsEndImageContext()
+        
+        let texture:MTLTexture? = texturize(image:newImage)
         
         return texture
     }

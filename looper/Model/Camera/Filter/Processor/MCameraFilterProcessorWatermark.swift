@@ -27,6 +27,9 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
     func addWatermark(original:MCameraRecord) -> MCameraRecord
     {
         let marked:MCameraRecord = MCameraRecord()
+        let imageWater:UIImage = #imageLiteral(resourceName: "assetGenericWaterMark")
+        let waterWidth:Int = Int(imageWater.size.width)
+        let waterHeight:Int = Int(imageWater.size.height)
         
         for item:MCameraRecordItem in original.items
         {
@@ -43,8 +46,38 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
             
             let mutableTexture:MTLTexture = createMutableTexture(texture:texture)
             
-            let baseWidth:CGFloat = CGFloat(mutableTexture.width)
-            let baseHeight:CGFloat = CGFloat(mutableTexture.height)
+            let textureWidth:Int = mutableTexture.width
+            let textureHeight:Int = mutableTexture.height
+            let mapMinX:Int = 0
+            var mapMaxX:Int = waterWidth
+            var mapMinY:Int = textureHeight - waterHeight
+            
+            if mapMaxX > textureWidth
+            {
+                mapMaxX = textureWidth
+            }
+            
+            if mapMinY < 0
+            {
+                mapMinY = 0
+            }
+            
+            var mapMaxY:Int = mapMinY + waterHeight
+            
+            if mapMaxY > textureHeight
+            {
+                mapMaxY = textureHeight
+            }
+            
+            let baseWidth:CGFloat = CGFloat(textureWidth)
+            let baseHeight:CGFloat = CGFloat(textureHeight)
+            let mappingTexture:MTLTexture = createMappingTexture(
+                textureWidth:textureWidth,
+                textureHeight:textureHeight,
+                mapMinX:mapMinX,
+                mapMinY:mapMinY,
+                mapMaxX:mapMaxX,
+                mapMaxY:mapMaxY)
             
         }
         
@@ -72,7 +105,7 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
                     
                     let point:MHomeImageSequenceRawPoint = sequence.point
                     
-                    else
+                else
                 {
                     continue
                 }
