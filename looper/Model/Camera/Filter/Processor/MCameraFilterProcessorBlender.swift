@@ -99,8 +99,11 @@ class MCameraFilterProcessorBlender:MCameraFilterProcessor
             {
                 continue
             }
-            
+            /*
             let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
+            
+            
+            
             let metalFilter:MetalFilterWatermark = MetalFilterWatermark(device:device)
             metalFilter.render(
                 mtlFunction:mtlFunction,
@@ -123,7 +126,7 @@ class MCameraFilterProcessorBlender:MCameraFilterProcessor
             
             let wateredItem:MCameraRecordItem = MCameraRecordItem(
                 image:wateredImage)
-            marked.items.append(wateredItem)
+            marked.items.append(wateredItem)*/
         }
         
         return marked

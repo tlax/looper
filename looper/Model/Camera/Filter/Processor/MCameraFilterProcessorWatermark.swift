@@ -55,20 +55,6 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
             mapMinY = 0
         }
         
-        var mapMaxX:Int = mapMinX + waterWidth
-        
-        if mapMaxX > textureWidth
-        {
-            mapMaxX = textureWidth
-        }
-        
-        var mapMaxY:Int = mapMinY + waterHeight
-        
-        if mapMaxY > textureHeight
-        {
-            mapMaxY = textureHeight
-        }
-        
         guard
             
             let overlayTexture:MTLTexture = texturizeAt(
@@ -99,23 +85,25 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
             }
             
             let mutableTexture:MTLTexture = createMutableTexture(texture:texture)
-            
-            let mappingTexture:MTLTexture = createMappingTexture(
-                textureWidth:textureWidth,
-                textureHeight:textureHeight,
-                mapMinX:mapMinX,
-                mapMinY:mapMinY,
-                mapMaxX:mapMaxX,
-                mapMaxY:mapMaxY)
-            
             let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
-            let metalFilter:MetalFilterWatermark = MetalFilterWatermark(device:device)
+            
+            guard
+                
+                let metalFilter:MetalFilterWatermark = MetalFilterWatermark(
+                    device:device,
+                    mtlFunction:mtlFunction,
+                    commandBuffer:commandBuffer,
+                    width:textureWidth,
+                    height:textureHeight)
+            
+            else
+            {
+                continue
+            }
+            
             metalFilter.render(
-                mtlFunction:mtlFunction,
-                commandBuffer:commandBuffer,
                 overlayTexture:overlayTexture,
-                baseTexture:mutableTexture,
-                mapTexture:mappingTexture)
+                baseTexture:mutableTexture)
             
             commandBuffer.commit()
             commandBuffer.waitUntilCompleted()

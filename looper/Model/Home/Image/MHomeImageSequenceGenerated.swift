@@ -260,7 +260,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 {
                     continue
                 }
-                
+                /*
                 let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
                 let metalFilter:MetalFilterBlender = MetalFilterBlender(device:device)
                 metalFilter.render(
@@ -271,7 +271,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                     mapTexture:mapTexture)
                 
                 commandBuffer.commit()
-                commandBuffer.waitUntilCompleted()
+                commandBuffer.waitUntilCompleted()*/
             }
         }
         
