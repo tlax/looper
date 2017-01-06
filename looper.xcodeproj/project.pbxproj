@@ -14,7 +14,6 @@
 		DA20F0C51E0446C300F8BAD4 /* VHomeDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0C01E0446C300F8BAD4 /* VHomeDisplay.swift */; };
 		DA20F0C61E0446C300F8BAD4 /* VHomeTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0C21E0446C300F8BAD4 /* VHomeTimeline.swift */; };
 		DA20F0CA1E0452CA00F8BAD4 /* MHomeControlItemCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0C91E0452CA00F8BAD4 /* MHomeControlItemCamera.swift */; };
-		DA20F3861E0D755500D9EBAC /* MetalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F3851E0D755500D9EBAC /* MetalFilter.swift */; };
 		DA20F3881E0D78B400D9EBAC /* MetalFilterBlender.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA20F3871E0D78B400D9EBAC /* MetalFilterBlender.metal */; };
 		DA20F38A1E0D7A9100D9EBAC /* ExtensionMTLTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F3891E0D7A9100D9EBAC /* ExtensionMTLTexture.swift */; };
 		DA20F38C1E0D8AC700D9EBAC /* MHomeImageSequenceRawPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F38B1E0D8AC700D9EBAC /* MHomeImageSequenceRawPoint.swift */; };
@@ -136,6 +135,9 @@
 		DAD404DE1E1F3180005EA836 /* MCameraFilterItemNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD404D71E1F3180005EA836 /* MCameraFilterItemNone.swift */; };
 		DAD404DF1E1F3180005EA836 /* MCameraFilterProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD404D91E1F3180005EA836 /* MCameraFilterProcessor.swift */; };
 		DAD404E01E1F3180005EA836 /* MCameraFilterProcessorWatermark.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD404DA1E1F3180005EA836 /* MCameraFilterProcessorWatermark.swift */; };
+		DAD404E21E1F445B005EA836 /* MetalFilterWatermark.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD404E11E1F445B005EA836 /* MetalFilterWatermark.swift */; };
+		DAD404E41E1F447F005EA836 /* MetalFilterBlender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD404E31E1F447F005EA836 /* MetalFilterBlender.swift */; };
+		DAD404E61E1F44A1005EA836 /* MetalFilterWatermark.metal in Sources */ = {isa = PBXBuildFile; fileRef = DAD404E51E1F44A1005EA836 /* MetalFilterWatermark.metal */; };
 		DAD778E31E1060F5009B1A81 /* VHomeControlSequences.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD778E21E1060F5009B1A81 /* VHomeControlSequences.swift */; };
 		DAD778E51E10634D009B1A81 /* VHomeControlSequencesMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD778E41E10634D009B1A81 /* VHomeControlSequencesMenu.swift */; };
 		DAD778E71E106665009B1A81 /* MHomeControlItemSequences.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD778E61E106665009B1A81 /* MHomeControlItemSequences.swift */; };
@@ -173,7 +175,6 @@
 		DA20F0C01E0446C300F8BAD4 /* VHomeDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeDisplay.swift; sourceTree = "<group>"; };
 		DA20F0C21E0446C300F8BAD4 /* VHomeTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeTimeline.swift; sourceTree = "<group>"; };
 		DA20F0C91E0452CA00F8BAD4 /* MHomeControlItemCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeControlItemCamera.swift; sourceTree = "<group>"; };
-		DA20F3851E0D755500D9EBAC /* MetalFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilter.swift; sourceTree = "<group>"; };
 		DA20F3871E0D78B400D9EBAC /* MetalFilterBlender.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalFilterBlender.metal; sourceTree = "<group>"; };
 		DA20F3891E0D7A9100D9EBAC /* ExtensionMTLTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLTexture.swift; sourceTree = "<group>"; };
 		DA20F38B1E0D8AC700D9EBAC /* MHomeImageSequenceRawPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeImageSequenceRawPoint.swift; sourceTree = "<group>"; };
@@ -298,6 +299,9 @@
 		DAD404D71E1F3180005EA836 /* MCameraFilterItemNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilterItemNone.swift; sourceTree = "<group>"; };
 		DAD404D91E1F3180005EA836 /* MCameraFilterProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilterProcessor.swift; sourceTree = "<group>"; };
 		DAD404DA1E1F3180005EA836 /* MCameraFilterProcessorWatermark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilterProcessorWatermark.swift; sourceTree = "<group>"; };
+		DAD404E11E1F445B005EA836 /* MetalFilterWatermark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterWatermark.swift; sourceTree = "<group>"; };
+		DAD404E31E1F447F005EA836 /* MetalFilterBlender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilterBlender.swift; sourceTree = "<group>"; };
+		DAD404E51E1F44A1005EA836 /* MetalFilterWatermark.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalFilterWatermark.metal; sourceTree = "<group>"; };
 		DAD778E21E1060F5009B1A81 /* VHomeControlSequences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlSequences.swift; sourceTree = "<group>"; };
 		DAD778E41E10634D009B1A81 /* VHomeControlSequencesMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlSequencesMenu.swift; sourceTree = "<group>"; };
 		DAD778E61E106665009B1A81 /* MHomeControlItemSequences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeControlItemSequences.swift; sourceTree = "<group>"; };
@@ -432,8 +436,10 @@
 		DA20F3841E0D754100D9EBAC /* Metal */ = {
 			isa = PBXGroup;
 			children = (
-				DA20F3851E0D755500D9EBAC /* MetalFilter.swift */,
+				DAD404E31E1F447F005EA836 /* MetalFilterBlender.swift */,
 				DA20F3871E0D78B400D9EBAC /* MetalFilterBlender.metal */,
+				DAD404E11E1F445B005EA836 /* MetalFilterWatermark.swift */,
+				DAD404E51E1F44A1005EA836 /* MetalFilterWatermark.metal */,
 			);
 			path = Metal;
 			sourceTree = "<group>";
@@ -1014,6 +1020,7 @@
 				DA9D2F3E1E0ADF57003E37D5 /* VHomeControlCell.swift in Sources */,
 				DAA68D5D1E09C31500A830A2 /* VHomePlayerTimer.swift in Sources */,
 				DA799CF31E1440F500AB45DD /* MCameraRaw.swift in Sources */,
+				DAD404E21E1F445B005EA836 /* MetalFilterWatermark.swift in Sources */,
 				DA9D2F4F1E0AFE1F003E37D5 /* MHomeFramesItem15.swift in Sources */,
 				DA5C52421E15CD0D00D296C6 /* VCameraFilterBar.swift in Sources */,
 				DA96FEE71E03672F00FD5265 /* ExtensionUIColor.swift in Sources */,
@@ -1077,6 +1084,7 @@
 				DAD404DC1E1F3180005EA836 /* MCameraFilterItem.swift in Sources */,
 				DA9D2F491E0AFCDF003E37D5 /* MHomeFramesItem1.swift in Sources */,
 				DA9B83DB1E12E7E8002B9810 /* VParent.swift in Sources */,
+				DAD404E61E1F44A1005EA836 /* MetalFilterWatermark.metal in Sources */,
 				DAD404DB1E1F3180005EA836 /* MCameraFilter.swift in Sources */,
 				DA235C771E098D9800277550 /* VHomePlayerBoard.swift in Sources */,
 				DAFC40B81E1A02780044B14B /* CCameraCompress.swift in Sources */,
@@ -1111,6 +1119,7 @@
 				DAFFF3FB1E085C4900E14F12 /* VHomePlayer.swift in Sources */,
 				DA9D2F471E0AFC2A003E37D5 /* MHomeFramesItem.swift in Sources */,
 				DAD404E01E1F3180005EA836 /* MCameraFilterProcessorWatermark.swift in Sources */,
+				DAD404E41E1F447F005EA836 /* MetalFilterBlender.swift in Sources */,
 				DA505F541E0B557400CE22FE /* VHomeControlBlenderPiecesItem.swift in Sources */,
 				DAF9761A1E171E1A00811D61 /* VCameraCellControls.swift in Sources */,
 				DA20F0C61E0446C300F8BAD4 /* VHomeTimeline.swift in Sources */,
@@ -1131,7 +1140,6 @@
 				DA9D2F3C1E0ADF57003E37D5 /* VHomeControlCameraTicker.swift in Sources */,
 				DAD88D011E1AF4D500EAB6B7 /* VCameraFilterNone.swift in Sources */,
 				DAD404DF1E1F3180005EA836 /* MCameraFilterProcessor.swift in Sources */,
-				DA20F3861E0D755500D9EBAC /* MetalFilter.swift in Sources */,
 				DA96FEE11E03672F00FD5265 /* CController.swift in Sources */,
 				DA799CE01E1436B600AB45DD /* MCameraSpeed2.swift in Sources */,
 				DA9B83EF1E1316AC002B9810 /* DManager.swift in Sources */,

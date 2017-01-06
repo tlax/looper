@@ -1,6 +1,6 @@
 import MetalPerformanceShaders
 
-class MetalFilter:MPSUnaryImageKernel
+class MetalFilterWatermark:MPSUnaryImageKernel
 {
     weak var mtlFunction:MTLFunction!
     private let kThreadgroupWidth:Int = 8
@@ -34,8 +34,8 @@ class MetalFilter:MPSUnaryImageKernel
         guard
             
             let pipeline:MTLComputePipelineState = tryPipeline
-        
-        else
+            
+            else
         {
             return
         }
