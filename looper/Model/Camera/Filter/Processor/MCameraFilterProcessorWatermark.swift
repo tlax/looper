@@ -31,7 +31,59 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
         let waterWidth:Int = Int(imageWater.size.width)
         let waterHeight:Int = Int(imageWater.size.height)
         
-        print("water width: \(waterWidth)  height:\(waterHeight)")
+        guard
+        
+            let firstImage:UIImage = original.items.first?.image
+        
+        else
+        {
+            return marked
+        }
+        
+        let textureWidth:Int = Int(firstImage.size.width)
+        let textureHeight:Int = Int(firstImage.size.height)
+        var mapMinX:Int = textureWidth - waterWidth
+        var mapMinY:Int = textureHeight - waterHeight
+        
+        if mapMinX < 0
+        {
+            mapMinX = 0
+        }
+        
+        if mapMinY < 0
+        {
+            mapMinY = 0
+        }
+        
+        var mapMaxX:Int = mapMinX + waterWidth
+        
+        if mapMaxX > textureWidth
+        {
+            mapMaxX = textureWidth
+        }
+        
+        var mapMaxY:Int = mapMinY + waterHeight
+        
+        if mapMaxY > textureHeight
+        {
+            mapMaxY = textureHeight
+        }
+        
+        guard
+            
+            let overlayTexture:MTLTexture = texturizeAt(
+                image:imageWater,
+                textureWidth:textureWidth,
+                textureHeight:textureHeight,
+                imageX:mapMinX,
+                imageY:mapMinY,
+                imageWidth:waterWidth,
+                imageHeight:waterHeight)
+            
+        else
+        {
+            return marked
+        }        
         
         for item:MCameraRecordItem in original.items
         {
@@ -47,34 +99,6 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
             }
             
             let mutableTexture:MTLTexture = createMutableTexture(texture:texture)
-            let textureWidth:Int = mutableTexture.width
-            let textureHeight:Int = mutableTexture.height
-            var mapMinX:Int = textureWidth - waterWidth
-            var mapMinY:Int = textureHeight - waterHeight
-            
-            if mapMinX < 0
-            {
-                mapMinX = 0
-            }
-            
-            if mapMinY < 0
-            {
-                mapMinY = 0
-            }
-            
-            var mapMaxX:Int = mapMinX + waterWidth
-            
-            if mapMaxX > textureWidth
-            {
-                mapMaxX = textureWidth
-            }
-            
-            var mapMaxY:Int = mapMinY + waterHeight
-            
-            if mapMaxY > textureHeight
-            {
-                mapMaxY = textureHeight
-            }
             
             let mappingTexture:MTLTexture = createMappingTexture(
                 textureWidth:textureWidth,
@@ -83,22 +107,6 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
                 mapMinY:mapMinY,
                 mapMaxX:mapMaxX,
                 mapMaxY:mapMaxY)
-            
-            guard
-            
-                let overlayTexture:MTLTexture = texturizeAt(
-                    image:imageWater,
-                    textureWidth:textureWidth,
-                    textureHeight:textureHeight,
-                    imageX:mapMinX,
-                    imageY:mapMinY,
-                    imageWidth:waterWidth,
-                    imageHeight:waterHeight)
-            
-            else
-            {
-                continue
-            }
             
             let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
             let metalFilter:MetalFilterWatermark = MetalFilterWatermark(device:device)

@@ -11,10 +11,10 @@ class MCameraFilterProcessorBlender:MCameraFilterProcessor
         super.init()
         
         guard
-        
-        let mtlFunction:MTLFunction = mtlLibrary.makeFunction(name:kMetalFunctionName)
-        
-        else
+            
+            let mtlFunction:MTLFunction = mtlLibrary.makeFunction(name:kMetalFunctionName)
+            
+            else
         {
             return nil
         }
@@ -38,10 +38,10 @@ class MCameraFilterProcessorBlender:MCameraFilterProcessor
             let itemImage:UIImage = item.image
             
             guard
-            
-            let texture:MTLTexture = texturize(image:itemImage)
-            
-            else
+                
+                let texture:MTLTexture = texturize(image:itemImage)
+                
+                else
             {
                 continue
             }
@@ -56,46 +56,46 @@ class MCameraFilterProcessorBlender:MCameraFilterProcessor
             {
                 mapMinX = 0
             }
-                
-                if mapMinY < 0
+            
+            if mapMinY < 0
             {
                 mapMinY = 0
             }
-                
-                var mapMaxX:Int = mapMinX + waterWidth
-                
-                if mapMaxX > textureWidth
+            
+            var mapMaxX:Int = mapMinX + waterWidth
+            
+            if mapMaxX > textureWidth
             {
                 mapMaxX = textureWidth
             }
-                
-                var mapMaxY:Int = mapMinY + waterHeight
-                
-                if mapMaxY > textureHeight
+            
+            var mapMaxY:Int = mapMinY + waterHeight
+            
+            if mapMaxY > textureHeight
             {
                 mapMaxY = textureHeight
             }
             
             let mappingTexture:MTLTexture = createMappingTexture(
-                                                                 textureWidth:textureWidth,
-                                                                 textureHeight:textureHeight,
-                                                                 mapMinX:mapMinX,
-                                                                 mapMinY:mapMinY,
-                                                                 mapMaxX:mapMaxX,
-                                                                 mapMaxY:mapMaxY)
+                textureWidth:textureWidth,
+                textureHeight:textureHeight,
+                mapMinX:mapMinX,
+                mapMinY:mapMinY,
+                mapMaxX:mapMaxX,
+                mapMaxY:mapMaxY)
             
             guard
-            
-            let overlayTexture:MTLTexture = texturizeAt(
-                                                        image:imageWater,
-                                                        textureWidth:textureWidth,
-                                                        textureHeight:textureHeight,
-                                                        imageX:mapMinX,
-                                                        imageY:mapMinY,
-                                                        imageWidth:waterWidth,
-                                                        imageHeight:waterHeight)
-            
-            else
+                
+                let overlayTexture:MTLTexture = texturizeAt(
+                    image:imageWater,
+                    textureWidth:textureWidth,
+                    textureHeight:textureHeight,
+                    imageX:mapMinX,
+                    imageY:mapMinY,
+                    imageWidth:waterWidth,
+                    imageHeight:waterHeight)
+                
+                else
             {
                 continue
             }
@@ -103,26 +103,26 @@ class MCameraFilterProcessorBlender:MCameraFilterProcessor
             let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
             let metalFilter:MetalFilterWatermark = MetalFilterWatermark(device:device)
             metalFilter.render(
-                               mtlFunction:mtlFunction,
-                               commandBuffer:commandBuffer,
-                               overlayTexture:overlayTexture,
-                               baseTexture:mutableTexture,
-                               mapTexture:mappingTexture)
+                mtlFunction:mtlFunction,
+                commandBuffer:commandBuffer,
+                overlayTexture:overlayTexture,
+                baseTexture:mutableTexture,
+                mapTexture:mappingTexture)
             
             commandBuffer.commit()
             commandBuffer.waitUntilCompleted()
             
             guard
-            
-            let wateredImage:UIImage = mutableTexture.exportImage()
-            
-            else
+                
+                let wateredImage:UIImage = mutableTexture.exportImage()
+                
+                else
             {
                 continue
             }
             
             let wateredItem:MCameraRecordItem = MCameraRecordItem(
-                                                                  image:wateredImage)
+                image:wateredImage)
             marked.items.append(wateredItem)
         }
         
