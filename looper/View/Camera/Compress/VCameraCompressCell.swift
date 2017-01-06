@@ -5,8 +5,9 @@ class VCameraCompressCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var label:UILabel!
     private weak var percent:UILabel!
-    private weak var labelSize:UILabel!
     private weak var selectedIcon:UIImageView!
+    private let attributesTitle:[String:AnyObject]
+    private let attributesSize:[String:AnyObject]
     private let kLabelLeft:CGFloat = 10
     private let kLabelWidth:CGFloat = 125
     private let kSelectedWidth:CGFloat = 55
@@ -15,6 +16,14 @@ class VCameraCompressCell:UICollectionViewCell
     
     override init(frame:CGRect)
     {
+        attributesTitle = [
+            NSFontAttributeName:UIFont.bold(size:14),
+            NSForegroundColorAttributeName:UIColor.black]
+        
+        attributesSize = [
+            NSFontAttributeName:UIFont.regular(size:16),
+            NSForegroundColorAttributeName:UIColor(white:0.3, alpha:1)]
+        
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.white
@@ -23,8 +32,6 @@ class VCameraCompressCell:UICollectionViewCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:16)
-        label.textColor = UIColor.black
         label.numberOfLines = 0
         self.label = label
         
@@ -44,16 +51,7 @@ class VCameraCompressCell:UICollectionViewCell
         selectedIcon.image = #imageLiteral(resourceName: "assetCameraFilterSelect")
         self.selectedIcon = selectedIcon
         
-        let labelSize:UILabel = UILabel()
-        labelSize.isUserInteractionEnabled = false
-        labelSize.translatesAutoresizingMaskIntoConstraints = false
-        labelSize.backgroundColor = UIColor.clear
-        labelSize.font = UIFont.regular(size:15)
-        labelSize.textColor = UIColor(white:0.4, alpha:1)
-        self.labelSize = labelSize
-        
         addSubview(label)
-        addSubview(labelSize)
         addSubview(percent)
         addSubview(selectedIcon)
         
@@ -158,6 +156,14 @@ class VCameraCompressCell:UICollectionViewCell
         label.text = model.title
         percent.text = "\(model.percent)%"
         percent.textColor = model.color
+     
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        let stringTitle:NSAttributedString = NSAttributedString(
+            string:model.title,
+            attributes:attributesTitle)
+        mutableString.append(stringTitle)
+        
+        label.attributedText = mutableString
         
         hover()
     }
