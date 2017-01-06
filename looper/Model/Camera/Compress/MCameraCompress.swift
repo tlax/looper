@@ -5,7 +5,7 @@ class MCameraCompress
     let items:[MCameraCompressItem]
     var currentCompress:MCameraCompressItem?
     
-    init()
+    init(model:MCameraRecord)
     {
         let itemNone:MCameraCompressItemNone = MCameraCompressItemNone()
         let itemSlight:MCameraCompressItemSlight = MCameraCompressItemSlight()
