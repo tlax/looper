@@ -262,7 +262,7 @@ class MHomeImageSequenceGenerated:MHomeImageSequence
                 }
                 
                 let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
-                let metalFilter:MetalFilter = MetalFilter(device:device)
+                let metalFilter:MetalFilterBlender = MetalFilterBlender(device:device)
                 metalFilter.render(
                     mtlFunction:mtlFunction,
                     commandBuffer:commandBuffer,

@@ -4,7 +4,7 @@ import MetalKit
 class MCameraFilterProcessorWatermark:MCameraFilterProcessor
 {
     private var mtlFunction:MTLFunction!
-    private let kMetalFunctionName:String = "metalFilter_blender"
+    private let kMetalFunctionName:String = "metalFilter_watermark"
     
     override init?()
     {
@@ -101,7 +101,7 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
             }
             
             let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
-            let metalFilter:MetalFilter = MetalFilter(device:device)
+            let metalFilter:MetalFilterWatermark = MetalFilterWatermark(device:device)
             metalFilter.render(
                 mtlFunction:mtlFunction,
                 commandBuffer:commandBuffer,
