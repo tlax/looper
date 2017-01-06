@@ -3,12 +3,12 @@ import UIKit
 class MLoopsItem
 {
     let loop:DLoop
-    private(set) var images:[UIImage]
+    let images:MLoopsItemImages
     
     init(loop:DLoop)
     {
         self.loop = loop
-        images = []
+        var urls:[URL] = []
         
         guard
             
@@ -16,6 +16,7 @@ class MLoopsItem
         
         else
         {
+            images = MLoopsItemImages(urls:urls)
             return
         }
         
@@ -27,31 +28,10 @@ class MLoopsItem
         {
             let pathComponent:String = "\(indexImage)"
             let imageUrl:URL = folderPath.appendingPathComponent(pathComponent)
-            let data:Data?
-            
-            do
-            {
-                try data = Data(
-                    contentsOf:imageUrl,
-                    options:Data.ReadingOptions.mappedIfSafe)
-            }
-            catch
-            {
-                data = nil
-            }
-            
-            guard
-            
-                let imageData:Data = data,
-                let image:UIImage = UIImage(data:imageData)
-            
-            else
-            {
-                continue
-            }
-            
-            images.append(image)
+            urls.append(imageUrl)
         }
+        
+        images = MLoopsItemImages(urls:urls)
     }
     
     //MARK: public

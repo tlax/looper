@@ -7,6 +7,7 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     private weak var controller:CLoops?
     private weak var collectionView:VCollection!
     private weak var imageView:UIImageView!
+    private weak var spinner:VSpinner!
     private weak var button:UIButton!
     private let kBackgroundMargin:CGFloat = 1
     private let kDeselect:TimeInterval = 0.2
@@ -78,7 +79,12 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.imageView = imageView
         
+        let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
+        self.spinner = spinner
+        
         addSubview(background)
+        addSubview(spinner)
         addSubview(imageView)
         addSubview(button)
         addSubview(collectionView)
@@ -127,8 +133,12 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         let constraintsButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:button,
             parent:imageView)
+        let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:spinner,
+            parent:imageView)
         
         addConstraints(constraintsButton)
+        addConstraints(constraintsSpinner)
         
         addConstraints([
             layoutImageTop,
@@ -161,6 +171,7 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     deinit
     {
         NotificationCenter.default.removeObserver(self)
+        spinner.stopAnimating()
         imageView.stopAnimating()
     }
     
@@ -178,18 +189,15 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     
     func actionButton(sender button:UIButton)
     {
+        button.isHidden = true
+        
         if imageView.isAnimating
         {
             stopLoop()
         }
         else
         {
-            NotificationCenter.default.post(
-                name:Notification.loopsPause,
-                object:nil)
-            
-            imageView.startAnimating()
-            buttonPause()
+            startLoop()
         }
     }
     
@@ -197,8 +205,47 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     
     private func stopLoop()
     {
+        spinner.stopAnimating()
         imageView.stopAnimating()
+        imageView.isHidden = false
+        imageView.animationImages = nil
         buttonPlay()
+    }
+    
+    private func startLoop()
+    {
+        NotificationCenter.default.post(
+            name:Notification.loopsPause,
+            object:nil)
+        
+        imageView.isHidden = true
+        spinner.startAnimating()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncStartLoop()
+        }
+    }
+    
+    private func asyncStartLoop()
+    {
+        let images:[UIImage]? = model?.images.imageLists()
+        
+        DispatchQueue.main.async
+        { [weak self] in
+        
+            self?.loopReady(images:images)
+        }
+    }
+    
+    private func loopReady(images:[UIImage]?)
+    {
+        imageView.isHidden = false
+        spinner.stopAnimating()
+        imageView.animationImages = images
+        imageView.startAnimating()
+        buttonPause()
     }
     
     private func modelAtIndex(index:IndexPath) -> MLoopsOptionsItem
@@ -213,6 +260,7 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         button.setImage(
             #imageLiteral(resourceName: "assetLoopsPlay"),
             for:UIControlState.normal)
+        button.isHidden = false
     }
     
     private func buttonPause()
@@ -220,6 +268,7 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         button.setImage(
             #imageLiteral(resourceName: "assetLoopsPause"),
             for:UIControlState.normal)
+        button.isHidden = false
     }
     
     //MARK: public
@@ -228,9 +277,12 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     {
         self.model = model
         self.controller = controller
-        imageView.image = model.images.first
+        spinner.stopAnimating()
+        imageView.stopAnimating()
+        imageView.image = model.images.cover
         imageView.animationDuration = model.loop.duration
-        imageView.animationImages = model.images
+        imageView.animationImages = nil
+        imageView.isHidden = false
     }
     
     //MARK: collectionView delegate

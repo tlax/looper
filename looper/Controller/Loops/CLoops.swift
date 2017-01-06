@@ -65,10 +65,11 @@ class CLoops:CController
     
     private func asyncShare(model:MLoopsItem)
     {
+        let images:[UIImage] = model.images.imageLists()
         let directoryUrl:URL = URL(fileURLWithPath:NSTemporaryDirectory())
         let fileUrl:URL = directoryUrl.appendingPathComponent(kFilename)
         
-        let totalImages:Int = model.images.count
+        let totalImages:Int = images.count
         
         guard
             
@@ -100,7 +101,7 @@ class CLoops:CController
             destination,
             destinationProperties)
         
-        for image:UIImage in model.images
+        for image:UIImage in images
         {
             guard
                 
