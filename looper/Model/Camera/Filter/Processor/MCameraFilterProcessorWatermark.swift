@@ -62,7 +62,7 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
                 mapMinY = 0
             }
             
-            var mapMaxX:Int = waterWidth
+            var mapMaxX:Int = mapMinX + waterWidth
             
             if mapMaxX > textureWidth
             {
