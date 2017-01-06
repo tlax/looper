@@ -1,9 +1,19 @@
 import UIKit
+import MetalKit
 
-class MCameraFilterItem
+class MCameraFilterWatermark
 {
-    let title:String
-    let image:UIImage
+    private let device:MTLDevice
+    private let commandQueue:MTLCommandQueue
+    private let mtlFunction:MTLFunction
+    private let textureLoader:MTKTextureLoader
+    private let kMetalBlenderFunctionName:String = "metalFilter_blender"
+    private let kMapTexturePixelFormat:MTLPixelFormat = MTLPixelFormat.r32Float
+    private let kTextureDefaultPixelFormat:MTLPixelFormat = MTLPixelFormat.bgra8Unorm
+    private let kTextureMipMapped:Bool = false
+    private let kTextureDepth:Int = 1
+    private let kRepeatingElement:Float = 0
+    private let kReplaceElement:Float = 1
     
     init(title:String, image:UIImage)
     {
@@ -26,10 +36,10 @@ class MCameraFilterItem
     func waterMark(original:MCameraRecord) -> MCameraRecord
     {
         guard
-        
+            
             let noWatermark:Bool = MSession.sharedInstance.settings?.noWatermark
-        
-        else
+            
+            else
         {
             return original
         }
@@ -53,7 +63,7 @@ class MCameraFilterItem
                 
                 let device:MTLDevice = self.device
                 
-            else
+                else
             {
                 return markedRecord
             }
