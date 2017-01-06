@@ -82,6 +82,7 @@ class MCameraCompress
                 continue
             }
             
+            item.sizeNumber = Int(itemSize)
             item.size = sizeString
         }
     }

@@ -5,6 +5,7 @@ class MCameraCompressItem
     let color:UIColor
     let title:String
     let percent:Int
+    var sizeNumber:Int
     var size:String
     private let kEmpty:String = ""
     
@@ -13,6 +14,7 @@ class MCameraCompressItem
         self.title = title
         self.percent = percent
         self.color = color
+        sizeNumber = 0
         size = kEmpty
     }
     

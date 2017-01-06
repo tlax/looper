@@ -58,16 +58,22 @@ class CCameraCompress:CController
             return
         }
         
+        let size:Int = compressItem.sizeNumber
+        
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.finishedCompressing(compressed:compressedRecord)
+            self?.finishedCompressing(
+                compressed:compressedRecord,
+                size:size)
         }
     }
     
-    private func finishedCompressing(compressed:MCameraRecord)
+    private func finishedCompressing(compressed:MCameraRecord, size:Int)
     {
-        let controller:CCameraPreview = CCameraPreview(model:compressed)
+        let controller:CCameraPreview = CCameraPreview(
+            model:compressed,
+            size:size)
         parentController.push(
             controller:controller,
             horizontal:

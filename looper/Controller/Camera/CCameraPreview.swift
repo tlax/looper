@@ -5,11 +5,13 @@ class CCameraPreview:CController
     weak var viewPreview:VCameraPreview!
     var currentTime:TimeInterval
     let model:MCameraRecord
+    let size:Int
     private let kStartTime:TimeInterval = 5
     
-    init(model:MCameraRecord)
+    init(model:MCameraRecord, size:Int)
     {
         self.model = model
+        self.size = size
         currentTime = kStartTime
         super.init()
     }
@@ -140,6 +142,7 @@ class CCameraPreview:CController
             let timestamp:TimeInterval = Date().timeIntervalSince1970
             
             loop.folder = projectFolderName
+            loop.kiloBytes = size
             loop.created = timestamp
             loop.duration = duration
             loop.items = Int16(countItems)
