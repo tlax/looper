@@ -31,4 +31,38 @@ class MCameraFilterProcessor
         self.device = device
         self.mtlLibrary = mtlLibrary
     }
+    
+    //MARK: public
+    
+    func texturize(image:UIImage) -> MTLTexture?
+    {
+        let texture:MTLTexture?
+        
+        guard
+            
+            let cgImage:CGImage = image.cgImage
+            
+        else
+        {
+            return nil
+        }
+        
+        do
+        {
+            texture = try textureLoader.newTexture(
+                with:cgImage,
+                options:[
+                    MTKTextureLoaderOptionTextureUsage:
+                        MTLTextureUsage.shaderRead.rawValue as NSObject,
+                    MTKTextureLoaderOptionSRGB:
+                        true as NSObject
+                ])
+        }
+        catch
+        {
+            texture = nil
+        }
+        
+        return texture
+    }
 }
