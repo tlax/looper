@@ -21,4 +21,11 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
         
         self.mtlFunction = mtlFunction
     }
+    
+    //MARK: public
+    
+    func addWatermark(original:MCameraRecord) -> MCameraRecord
+    {
+        
+    }
 }

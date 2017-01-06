@@ -42,16 +42,18 @@ class MCameraFilterItem
         }
         else
         {
-            markedRecord = MCameraRecord()
-            
             guard
             
-                let waterMarker:MCameraFilterWatermark = MCameraFilterWatermark()
+                let waterMarker:MCameraFilterProcessorWatermark = MCameraFilterProcessorWatermark()
             
             else
             {
+                markedRecord = MCameraRecord()
+                
                 return markedRecord
             }
+            
+            markedRecord = waterMarker.addWatermark(original:original)
         }
         
         return markedRecord
