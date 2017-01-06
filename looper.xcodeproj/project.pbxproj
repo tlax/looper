@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA14D1131E187695000753B3 /* VCameraFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D1121E187695000753B3 /* VCameraFilterCell.swift */; };
 		DA1701B51E2037930049CE90 /* MLoopsItemImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1701B41E2037930049CE90 /* MLoopsItemImages.swift */; };
+		DA1701B91E2061AC0049CE90 /* VLoopsFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1701B81E2061AC0049CE90 /* VLoopsFooter.swift */; };
 		DA20F0B81E0444D500F8BAD4 /* MHomeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0B71E0444D500F8BAD4 /* MHomeControl.swift */; };
 		DA20F0BA1E0444E800F8BAD4 /* MHomeControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0B91E0444E800F8BAD4 /* MHomeControlItem.swift */; };
 		DA20F0C31E0446C300F8BAD4 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0BC1E0446C300F8BAD4 /* VHome.swift */; };
@@ -173,6 +174,7 @@
 /* Begin PBXFileReference section */
 		DA14D1121E187695000753B3 /* VCameraFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterCell.swift; sourceTree = "<group>"; };
 		DA1701B41E2037930049CE90 /* MLoopsItemImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoopsItemImages.swift; sourceTree = "<group>"; };
+		DA1701B81E2061AC0049CE90 /* VLoopsFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoopsFooter.swift; sourceTree = "<group>"; };
 		DA20F0B71E0444D500F8BAD4 /* MHomeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeControl.swift; sourceTree = "<group>"; };
 		DA20F0B91E0444E800F8BAD4 /* MHomeControlItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeControlItem.swift; sourceTree = "<group>"; };
 		DA20F0BC1E0446C300F8BAD4 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
@@ -879,6 +881,7 @@
 				DAC7D3FD1E12C3BC00312D4E /* VLoops.swift */,
 				DA38AF171E1C5F20008C86A8 /* VLoopsCell.swift */,
 				DA6FB2391E1D57530062EE13 /* VLoopsCellOption.swift */,
+				DA1701B81E2061AC0049CE90 /* VLoopsFooter.swift */,
 			);
 			path = Loops;
 			sourceTree = "<group>";
@@ -1055,6 +1058,7 @@
 				DA799CCF1E1426A100AB45DD /* VCameraShootProcess.swift in Sources */,
 				DA505F4C1E0B4C9F00CE22FE /* VHomeControlBlenderMenu.swift in Sources */,
 				DA20F0BA1E0444E800F8BAD4 /* MHomeControlItem.swift in Sources */,
+				DA1701B91E2061AC0049CE90 /* VLoopsFooter.swift in Sources */,
 				DA3502201E0C5EC700CBDF64 /* VHomeControlBlenderBoardOver.swift in Sources */,
 				DAC7D3FE1E12C3BC00312D4E /* VLoops.swift in Sources */,
 				DA9D2F381E0ADF57003E37D5 /* VHomeControlCamera.swift in Sources */,
