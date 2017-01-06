@@ -132,7 +132,8 @@ class CCameraPreview:CController
             guard
             
                 let loop:DLoop = created as? DLoop,
-                let duration:TimeInterval = self?.currentTime
+                let duration:TimeInterval = self?.currentTime,
+                let size:Int = self?.size
             
             else
             {
@@ -142,7 +143,7 @@ class CCameraPreview:CController
             let timestamp:TimeInterval = Date().timeIntervalSince1970
             
             loop.folder = projectFolderName
-            loop.kiloBytes = size
+            loop.kiloBytes = Int16(size)
             loop.created = timestamp
             loop.duration = duration
             loop.items = Int16(countItems)
