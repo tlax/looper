@@ -20,13 +20,14 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
         
         let viewBar:VCameraCompressBar = VCameraCompressBar(
             controller:self.controller)
+        viewBar.startLoading()
         self.viewBar = viewBar
         
         let spinner:VSpinner = VSpinner()
-        spinner.stopAnimating()
         self.spinner = spinner
         
         let collectionView:VCollection = VCollection()
+        collectionView.isHidden = true
         collectionView.flow.minimumLineSpacing = kInterLine
         collectionView.flow.sectionInset = UIEdgeInsets(
             top:kCollectionTop,

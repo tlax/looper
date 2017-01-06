@@ -2,15 +2,18 @@ import UIKit
 
 class MCameraCompressItem
 {
+    let color:UIColor
     let title:String
     let percent:Int
-    let color:UIColor
+    var size:String
+    private let kEmpty:String = ""
     
     init(title:String, percent:Int, color:UIColor)
     {
         self.title = title
         self.percent = percent
         self.color = color
+        size = kEmpty
     }
     
     init()

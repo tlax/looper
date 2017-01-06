@@ -1,9 +1,8 @@
-import UIKit
+import Foundation
 
 class MCameraRecord
 {
     var items:[MCameraRecordItem]
-    var size:Int?
     
     init()
     {
@@ -23,14 +22,5 @@ class MCameraRecord
         }
         
         return false
-    }
-    
-    func computeSize()
-    {
-        for item:MCameraRecordItem in items
-        {
-            let image:UIImage = item.image
-            let data:datum
-        }
     }
 }

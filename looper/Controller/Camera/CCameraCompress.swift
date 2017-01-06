@@ -28,7 +28,12 @@ class CCameraCompress:CController
     override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
-        viewCompress.stopLoading()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.loadSizes()
+        }
     }
     
     //MARK: private
@@ -67,6 +72,11 @@ class CCameraCompress:CController
             controller:controller,
             horizontal:
             CParent.TransitionHorizontal.fromRight)
+    }
+    
+    private func loadSizes()
+    {
+        
     }
     
     //MARK: public
