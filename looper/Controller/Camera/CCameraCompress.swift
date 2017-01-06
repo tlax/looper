@@ -76,7 +76,18 @@ class CCameraCompress:CController
     
     private func loadSizes()
     {
+        modelCompress.loadSizes()
         
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.loadSizesFinished()
+        }
+    }
+    
+    private func loadSizesFinished()
+    {
+        viewCompress.stopLoading()
     }
     
     //MARK: public

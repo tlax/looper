@@ -8,8 +8,11 @@ class VCameraCompressCell:UICollectionViewCell
     private weak var selectedIcon:UIImageView!
     private let attributesTitle:[String:AnyObject]
     private let attributesSize:[String:AnyObject]
-    private let kLabelLeft:CGFloat = 10
-    private let kLabelWidth:CGFloat = 125
+    private let stringSuffix:NSAttributedString
+    private let kSuffix:String = " Kb"
+    private let kLabelLeft:CGFloat = 8
+    private let kLabelWidth:CGFloat = 250
+    private let kPercentWidth:CGFloat = 80
     private let kSelectedWidth:CGFloat = 55
     private let kAlphaSelected:CGFloat = 1
     private let kAlphaNotSelected:CGFloat = 0.3
@@ -17,12 +20,20 @@ class VCameraCompressCell:UICollectionViewCell
     override init(frame:CGRect)
     {
         attributesTitle = [
-            NSFontAttributeName:UIFont.bold(size:14),
+            NSFontAttributeName:UIFont.medium(size:14),
             NSForegroundColorAttributeName:UIColor.black]
         
         attributesSize = [
-            NSFontAttributeName:UIFont.regular(size:16),
-            NSForegroundColorAttributeName:UIColor(white:0.3, alpha:1)]
+            NSFontAttributeName:UIFont.regular(size:24),
+            NSForegroundColorAttributeName:UIColor(white:0.2, alpha:1)]
+        
+        let attributesSuffix:[String:AnyObject] = [
+            NSFontAttributeName:UIFont.regular(size:13),
+            NSForegroundColorAttributeName:UIColor(white:0.4, alpha:1)]
+        
+        stringSuffix = NSAttributedString(
+            string:kSuffix,
+            attributes:attributesSuffix)
         
         super.init(frame:frame)
         clipsToBounds = true
@@ -74,9 +85,9 @@ class VCameraCompressCell:UICollectionViewCell
         let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:label,
             toView:self)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
             view:label,
-            toView:self,
+            toView:percent,
             constant:kLabelLeft)
         let layoutLabelWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:label,
@@ -88,12 +99,12 @@ class VCameraCompressCell:UICollectionViewCell
         let layoutPercentBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:percent,
             toView:self)
-        let layoutPercentLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
+        let layoutPercentLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:percent,
-            toView:label)
-        let layoutPercentRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+            toView:self)
+        let layoutPercentWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:percent,
-            toView:selectedIcon)
+            constant:kPercentWidth)
         
         addConstraints([
             layoutSelectedTop,
@@ -107,7 +118,7 @@ class VCameraCompressCell:UICollectionViewCell
             layoutPercentTop,
             layoutPercentBottom,
             layoutPercentLeft,
-            layoutPercentRight])
+            layoutPercentWidth])
     }
     
     required init?(coder:NSCoder)
@@ -161,7 +172,13 @@ class VCameraCompressCell:UICollectionViewCell
         let stringTitle:NSAttributedString = NSAttributedString(
             string:model.title,
             attributes:attributesTitle)
+        let stringSize:NSAttributedString = NSAttributedString(
+            string:model.size,
+            attributes:attributesSize)
+        
         mutableString.append(stringTitle)
+        mutableString.append(stringSize)
+        mutableString.append(stringSuffix)
         
         label.attributedText = mutableString
         

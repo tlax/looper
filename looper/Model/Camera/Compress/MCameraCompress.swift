@@ -7,7 +7,8 @@ class MCameraCompress
     private weak var model:MCameraRecord?
     private let kBytesPerKilo:CGFloat = 1000
     private let kPercentMulti:CGFloat = 100
-    private let kMaxDecimal:Int = 2
+    private let kCompressionAverage:CGFloat = 0.6
+    private let kMaxDecimal:Int = 0
     private let kMinInteger:Int = 1
     
     init(model:MCameraRecord)
@@ -64,7 +65,7 @@ class MCameraCompress
             totalBytes += data.count
         }
         
-        let kiloBytes:CGFloat = CGFloat(totalBytes) / kBytesPerKilo
+        let kiloBytes:CGFloat = (CGFloat(totalBytes) * kCompressionAverage) / kBytesPerKilo
         
         for item:MCameraCompressItem in items
         {
@@ -82,8 +83,6 @@ class MCameraCompress
             }
             
             item.size = sizeString
-            
-            print("size: \(sizeString)")
         }
     }
 }

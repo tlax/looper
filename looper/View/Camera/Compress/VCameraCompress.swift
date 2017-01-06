@@ -11,7 +11,7 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
     private let kInterLine:CGFloat = 2
     private let kCollectionTop:CGFloat = 67
     private let kCollectionBottom:CGFloat = 20
-    private let kAfterSelect:TimeInterval = 0.2
+    private let kAfterSelect:TimeInterval = 0.1
     
     override init(controller:CController)
     {
@@ -72,9 +72,26 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
             layoutBarHeight,
             layoutBarLeft,
             layoutBarRight])
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MCameraCompressItem
+    {
+        let item:MCameraCompressItem = controller.modelCompress.items[index.item]
         
+        return item
+    }
+    
+    private func showSelected()
+    {
         var indexSelected:Int?
-        let countItems:Int = self.controller.modelCompress.items.count
+        let countItems:Int = controller.modelCompress.items.count
         
         for indexItem:Int in 0 ..< countItems
         {
@@ -96,7 +113,7 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
                 
                 let index:Int = indexSelected
                 
-            else
+                else
             {
                 return
             }
@@ -107,20 +124,6 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
                 animated:false,
                 scrollPosition:UICollectionViewScrollPosition.top)
         }
-    }
-    
-    required init?(coder:NSCoder)
-    {
-        fatalError()
-    }
-    
-    //MARK: private
-    
-    private func modelAtIndex(index:IndexPath) -> MCameraCompressItem
-    {
-        let item:MCameraCompressItem = controller.modelCompress.items[index.item]
-        
-        return item
     }
     
     //MARK: public
@@ -136,7 +139,9 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
     {
         viewBar.stopLoading()
         collectionView.isHidden = false
+        collectionView.reloadData()
         spinner.stopAnimating()
+        showSelected()
     }
     
     //MARK: collectionView delegate
