@@ -9,7 +9,7 @@ class CCameraCompress:CController
     init(model:MCameraRecord)
     {
         self.model = model
-        self.modelCompress = MCameraCompress()
+        self.modelCompress = MCameraCompress(model:model)
         super.init()
     }
     
