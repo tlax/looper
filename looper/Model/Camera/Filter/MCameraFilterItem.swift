@@ -22,4 +22,29 @@ class MCameraFilterItem
     {
         return nil
     }
+    
+    func waterMark(original:MCameraRecord) -> MCameraRecord
+    {
+        guard
+        
+            let noWatermark:Bool = MSession.sharedInstance.settings?.noWatermark
+        
+        else
+        {
+            return original
+        }
+        
+        let markedRecord:MCameraRecord
+        
+        if noWatermark
+        {
+            markedRecord = original
+        }
+        else
+        {
+            markedRecord = MCameraRecord()
+        }
+        
+        return markedRecord
+    }
 }

@@ -17,7 +17,7 @@ class MCameraFilterItemNone:MCameraFilterItem
     
     override func processController() -> CController?
     {
-        let controller:CCameraFilterNone = CCameraFilterNone()
+        let controller:CCameraFilterNone = CCameraFilterNone(model:self)
         
         return controller
     }

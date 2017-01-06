@@ -4,6 +4,7 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
 {
     weak var collectionView:VCollection!
     private weak var controller:CCameraFilterNone!
+    private weak var spinner:VSpinner!
     private let kHeaderHeight:CGFloat = 67
     private let kCollectionTop:CGFloat = 20
     private let kCollectionBottom:CGFloat = 20
@@ -35,13 +36,22 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
         collectionView.registerHeader(header:VCameraFilterNoneHeader.self)
         self.collectionView = collectionView
         
+        let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
+        self.spinner = spinner
+        
+        addSubview(spinner)
         addSubview(collectionView)
         
         let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:collectionView,
             parent:self)
+        let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:spinner,
+            parent:self)
         
         addConstraints(constraintsCollection)
+        addConstraints(constraintsSpinner)
     }
     
     required init?(coder:NSCoder)
@@ -56,6 +66,15 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
         let item:MCameraRecord = MSession.sharedInstance.camera!.activeRecords![index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        spinner.stopAnimating()
+        collectionView.isHidden = false
+        collectionView.reloadData()
     }
     
     //MARK: collectionView delegate
@@ -116,7 +135,8 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        collectionView.isUserInteractionEnabled = false
+        collectionView.isHidden = true
+        spinner.startAnimating()
         let item:MCameraRecord = modelAtIndex(index:indexPath)
         controller.selected(record:item)
     }
