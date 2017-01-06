@@ -10,12 +10,12 @@ class VCameraCompressCell:UICollectionViewCell
     private let attributesSize:[String:AnyObject]
     private let stringSuffix:NSAttributedString
     private let kSuffix:String = " Kb"
-    private let kLabelLeft:CGFloat = 8
+    private let kLabelLeft:CGFloat = 6
     private let kLabelWidth:CGFloat = 250
     private let kPercentWidth:CGFloat = 80
     private let kSelectedWidth:CGFloat = 55
     private let kAlphaSelected:CGFloat = 1
-    private let kAlphaNotSelected:CGFloat = 0.3
+    private let kAlphaNotSelected:CGFloat = 0.18
     
     override init(frame:CGRect)
     {

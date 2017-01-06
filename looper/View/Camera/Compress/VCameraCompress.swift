@@ -7,10 +7,8 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
     private weak var collectionView:VCollection!
     private weak var spinner:VSpinner!
     private let kBarHeight:CGFloat = 64
-    private let kCellHeight:CGFloat = 80
-    private let kInterLine:CGFloat = 2
-    private let kCollectionTop:CGFloat = 67
-    private let kCollectionBottom:CGFloat = 20
+    private let kCellHeight:CGFloat = 64
+    private let kCollectionTop:CGFloat = 80
     private let kAfterSelect:TimeInterval = 0.1
     
     override init(controller:CController)
@@ -28,13 +26,13 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
         
         let collectionView:VCollection = VCollection()
         collectionView.isHidden = true
-        collectionView.flow.minimumLineSpacing = kInterLine
         collectionView.flow.sectionInset = UIEdgeInsets(
             top:kCollectionTop,
             left:0,
-            bottom:kCollectionBottom,
+            bottom:0,
             right:0)
-        collectionView.alwaysBounceVertical = true
+        collectionView.isScrollEnabled = false
+        collectionView.bounces = false
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerCell(cell:VCameraCompressCell.self)
