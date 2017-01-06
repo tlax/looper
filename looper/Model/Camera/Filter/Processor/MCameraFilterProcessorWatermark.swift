@@ -31,6 +31,8 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
         let waterWidth:Int = Int(imageWater.size.width)
         let waterHeight:Int = Int(imageWater.size.height)
         
+        print("water width: \(waterWidth)  height:\(waterHeight)")
+        
         for item:MCameraRecordItem in original.items
         {
             let itemImage:UIImage = item.image
@@ -45,21 +47,26 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
             }
             
             let mutableTexture:MTLTexture = createMutableTexture(texture:texture)
-            
             let textureWidth:Int = mutableTexture.width
             let textureHeight:Int = mutableTexture.height
-            let mapMinX:Int = 0
-            var mapMaxX:Int = waterWidth
+            var mapMinX:Int = textureWidth - waterWidth
             var mapMinY:Int = textureHeight - waterHeight
             
-            if mapMaxX > textureWidth
+            if mapMinX < 0
             {
-                mapMaxX = textureWidth
+                mapMinX = 0
             }
             
             if mapMinY < 0
             {
                 mapMinY = 0
+            }
+            
+            var mapMaxX:Int = waterWidth
+            
+            if mapMaxX > textureWidth
+            {
+                mapMaxX = textureWidth
             }
             
             var mapMaxY:Int = mapMinY + waterHeight
@@ -69,8 +76,6 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
                 mapMaxY = textureHeight
             }
             
-            let baseWidth:CGFloat = CGFloat(textureWidth)
-            let baseHeight:CGFloat = CGFloat(textureHeight)
             let mappingTexture:MTLTexture = createMappingTexture(
                 textureWidth:textureWidth,
                 textureHeight:textureHeight,
@@ -79,85 +84,48 @@ class MCameraFilterProcessorWatermark:MCameraFilterProcessor
                 mapMaxX:mapMaxX,
                 mapMaxY:mapMaxY)
             
+            guard
+            
+                let overlayTexture:MTLTexture = texturizeAt(
+                    image:imageWater,
+                    textureWidth:textureWidth,
+                    textureHeight:textureHeight,
+                    imageX:mapMinX,
+                    imageY:mapMinY,
+                    imageWidth:waterWidth,
+                    imageHeight:waterHeight)
+            
+            else
+            {
+                continue
+            }
+            
+            let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
+            let metalFilter:MetalFilter = MetalFilter(device:device)
+            metalFilter.render(
+                mtlFunction:mtlFunction,
+                commandBuffer:commandBuffer,
+                overlayTexture:overlayTexture,
+                baseTexture:mutableTexture,
+                mapTexture:mappingTexture)
+            
+            commandBuffer.commit()
+            commandBuffer.waitUntilCompleted()
+            
+            guard
+            
+                let wateredImage:UIImage = mutableTexture.exportImage()
+            
+            else
+            {
+                continue
+            }
+            
+            let wateredItem:MCameraRecordItem = MCameraRecordItem(
+                image:wateredImage)
+            marked.items.append(wateredItem)
         }
         
         return marked
-    }
-    
-    
-    
-    
-    private func blendOverTexture(
-        baseTexture:MTLTexture,
-        index:Int,
-        sequences:[MHomeImageSequenceRaw])
-    {
-        let baseWidth:CGFloat = CGFloat(baseTexture.width)
-        let baseHeight:CGFloat = CGFloat(baseTexture.height)
-        
-        for sequence:MHomeImageSequenceRaw in sequences
-        {
-            let countSequenceItem:Int = sequence.items.count
-            
-            if countSequenceItem > index
-            {
-                guard
-                    
-                    let point:MHomeImageSequenceRawPoint = sequence.point
-                    
-                else
-                {
-                    continue
-                }
-                
-                if point.mapTexture == nil
-                {
-                    point.mapTexture = mapTexture(
-                        texture:baseTexture,
-                        point:point)
-                }
-                
-                let sequenceItem:MHomeImageSequenceItem = sequence.items[index]
-                
-                guard
-                    
-                    let overTexture:MTLTexture = sequenceItem.createTexture(
-                        point:point,
-                        textureWidth:baseWidth,
-                        textureHeight:baseHeight,
-                        textureLoader:textureLoader),
-                    let mapTexture:MTLTexture = point.mapTexture
-                    
-                    else
-                {
-                    continue
-                }
-                
-                let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
-                let metalFilter:MetalFilter = MetalFilter(device:device)
-                metalFilter.render(
-                    mtlFunction:mtlFunction,
-                    commandBuffer:commandBuffer,
-                    overlayTexture:overTexture,
-                    baseTexture:baseTexture,
-                    mapTexture:mapTexture)
-                
-                commandBuffer.commit()
-                commandBuffer.waitUntilCompleted()
-            }
-        }
-        
-        guard
-            
-            let textureImage:UIImage = baseTexture.exportImage()
-            
-            else
-        {
-            return
-        }
-        
-        let finalItem:MHomeImageSequenceItem = MHomeImageSequenceItem(
-            image:textureImage)
-        items.append(finalItem)
     }
 }

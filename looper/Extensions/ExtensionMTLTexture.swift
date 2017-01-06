@@ -60,7 +60,7 @@ extension MTLTexture
                 shouldInterpolate:false,
                 intent:renderingIntent)
             
-            else
+        else
         {
             return nil
         }
