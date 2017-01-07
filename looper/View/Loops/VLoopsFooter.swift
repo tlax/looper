@@ -26,6 +26,10 @@ class VLoopsFooter:UICollectionReusableView
         button.imageView!.tintColor = UIColor(white:0.97, alpha:1)
         button.imageView!.clipsToBounds = true
         button.imageView!.contentMode = UIViewContentMode.center
+        button.addTarget(
+            self,
+            action:#selector(actionHelp(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.button = button
         
         addSubview(button)

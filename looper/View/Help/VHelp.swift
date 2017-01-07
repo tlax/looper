@@ -5,9 +5,9 @@ class VHelp:VView
     private weak var controller:CHelp!
     private weak var layoutButtonLeft:NSLayoutConstraint!
     private let kButtonWidth:CGFloat = 120
-    private let kButtonHeight:CGFloat = 32
-    private let kButtonBottom:CGFloat = -30
-    private let kCornerRadius:CGFloat = 15
+    private let kButtonHeight:CGFloat = 34
+    private let kButtonBottom:CGFloat = -20
+    private let kCornerRadius:CGFloat = 17
     
     override init(controller:CController)
     {
@@ -35,7 +35,7 @@ class VHelp:VView
         button.setTitleColor(
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
-        button.titleLabel!.font = UIFont.regular(size:15)
+        button.titleLabel!.font = UIFont.bold(size:16)
         button.layer.cornerRadius = kCornerRadius
         button.addTarget(
             self,

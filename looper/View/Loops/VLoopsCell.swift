@@ -9,13 +9,23 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     private weak var imageView:UIImageView!
     private weak var spinner:VSpinner!
     private weak var button:UIButton!
+    private weak var label:UILabel!
+    private let numberFormatter:NumberFormatter
+    private let kLabelFormat:String = "%@ s, %@ Kb"
     private let kBackgroundMargin:CGFloat = 1
     private let kDeselect:TimeInterval = 0.2
     private let kPlaySize:CGFloat = 60
+    private let kLabelRight:CGFloat = -10
+    private let kMinInteger:Int = 1
+    private let kMaxFraction:Int = 0
     
     override init(frame:CGRect)
     {
         modelOptions = MLoopsOptions()
+        numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        numberFormatter.minimumIntegerDigits = kMinInteger
+        numberFormatter.maximumFractionDigits = kMaxFraction
         
         super.init(frame:frame)
         clipsToBounds = true
@@ -79,6 +89,15 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.imageView = imageView
         
+        let label:UILabel = UILabel()
+        label.isUserInteractionEnabled = false
+        label.textAlignment = NSTextAlignment.right
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.clear
+        label.font = UIFont.regular(size:13)
+        label.textColor = UIColor(white:0.4, alpha:1)
+        self.label = label
+        
         let spinner:VSpinner = VSpinner()
         spinner.stopAnimating()
         self.spinner = spinner
@@ -86,6 +105,7 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         addSubview(background)
         addSubview(spinner)
         addSubview(imageView)
+        addSubview(label)
         addSubview(button)
         addSubview(collectionView)
         
@@ -130,6 +150,20 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
             view:collectionView,
             toView:self)
         
+        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:label,
+            toView:collectionView)
+        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:label,
+            toView:collectionView)
+        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:label,
+            toView:self)
+        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:label,
+            toView:self,
+            constant:kLabelRight)
+        
         let constraintsButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:button,
             parent:imageView)
@@ -152,7 +186,11 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
             layoutCollectionTop,
             layoutCollectionBottom,
             layoutCollectionLeft,
-            layoutCollectionRight])
+            layoutCollectionRight,
+            layoutLabelTop,
+            layoutLabelBottom,
+            layoutLabelLeft,
+            layoutLabelRight])
         
         buttonPlay()
         
@@ -283,6 +321,27 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         imageView.animationDuration = model.loop.duration
         imageView.animationImages = nil
         imageView.isHidden = false
+        
+        let numberDuration:NSNumber = model.loop.duration as NSNumber
+        let numberKilobytes:NSNumber = model.loop.kiloBytes as NSNumber
+        
+        guard
+        
+            let stringDuration:String = numberFormatter.string(
+                from:numberDuration),
+            let stringKilobytes:String = numberFormatter.string(
+                from:numberKilobytes)
+        
+        else
+        {
+            return
+        }
+        
+        let compositeString:String = String(
+            format:kLabelFormat,
+            stringDuration,
+            stringKilobytes)
+        label.text = compositeString
     }
     
     //MARK: collectionView delegate
