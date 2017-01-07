@@ -126,7 +126,7 @@ class CParent:UIViewController
     func moveToStore()
     {
         let left:CGFloat = viewParent.bounds.maxX
-        let controller:CCamera = CCamera()
+        let controller:CStore = CStore()
         
         slide(controller:controller, left:left)
     }
