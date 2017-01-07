@@ -8,10 +8,14 @@ class MHelp
     {
         let itemRecord:MHelpItemRecord = MHelpItemRecord()
         let itemFilter:MHelpItemFilter = MHelpItemFilter()
+        let itemCompress:MHelpItemCompress = MHelpItemCompress()
+        let itemSave:MHelpItemSave = MHelpItemSave()
         
         items = [
             itemRecord,
-            itemFilter
+            itemFilter,
+            itemCompress,
+            itemSave
         ]
     }
 }
