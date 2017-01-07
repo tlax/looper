@@ -153,6 +153,30 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     //MARK: collectionView delegate
     
+    func scrollViewDidScroll(_ scrollView:UIScrollView)
+    {
+        let midX:CGFloat = scrollView.bounds.midX
+        let midY:CGFloat = scrollView.bounds.midY
+        let offsetX:CGFloat = scrollView.contentOffset.x
+        let centerX:CGFloat = midX + offsetX
+        let pointCenter:CGPoint = CGPoint(
+            x:centerX,
+            y:midY)
+        
+        guard
+        
+            let indexPath:IndexPath = collectionView.indexPathForItem(
+                at:pointCenter)
+        
+        else
+        {
+            return
+        }
+        
+        let indexItem:Int = indexPath.item
+        pageControl.currentPage = indexItem
+    }
+    
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         let width:CGFloat = collectionView.bounds.maxX
