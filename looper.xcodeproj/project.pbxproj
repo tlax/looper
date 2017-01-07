@@ -37,6 +37,7 @@
 		DA38AF181E1C5F20008C86A8 /* VLoopsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF171E1C5F20008C86A8 /* VLoopsCell.swift */; };
 		DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */; };
 		DA4EBC591E2086E000F9AC3D /* help.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4EBC581E2086E000F9AC3D /* help.xcassets */; };
+		DA4EBC5C1E208A0900F9AC3D /* MHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EBC5B1E208A0900F9AC3D /* MHelp.swift */; };
 		DA505F471E0B3CF900CE22FE /* MHomeControlItemBlender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505F461E0B3CF900CE22FE /* MHomeControlItemBlender.swift */; };
 		DA505F4A1E0B473600CE22FE /* VHomeControlBlender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505F491E0B473600CE22FE /* VHomeControlBlender.swift */; };
 		DA505F4C1E0B4C9F00CE22FE /* VHomeControlBlenderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA505F4B1E0B4C9F00CE22FE /* VHomeControlBlenderMenu.swift */; };
@@ -205,6 +206,7 @@
 		DA38AF171E1C5F20008C86A8 /* VLoopsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoopsCell.swift; sourceTree = "<group>"; };
 		DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
 		DA4EBC581E2086E000F9AC3D /* help.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = help.xcassets; sourceTree = "<group>"; };
+		DA4EBC5B1E208A0900F9AC3D /* MHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelp.swift; sourceTree = "<group>"; };
 		DA505F461E0B3CF900CE22FE /* MHomeControlItemBlender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeControlItemBlender.swift; sourceTree = "<group>"; };
 		DA505F491E0B473600CE22FE /* VHomeControlBlender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlender.swift; sourceTree = "<group>"; };
 		DA505F4B1E0B4C9F00CE22FE /* VHomeControlBlenderMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeControlBlenderMenu.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 		DA20F0B41E04449C00F8BAD4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA4EBC5A1E2089FF00F9AC3D /* Help */,
 				DA38AF191E1C6026008C86A8 /* Loops */,
 				DA9B83E81E1310AC002B9810 /* Camera */,
 				DAFFF3FE1E08A77400E14F12 /* Session */,
@@ -496,6 +499,14 @@
 				DA6FB23E1E1D59CF0062EE13 /* Options */,
 			);
 			path = Loops;
+			sourceTree = "<group>";
+		};
+		DA4EBC5A1E2089FF00F9AC3D /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				DA4EBC5B1E208A0900F9AC3D /* MHelp.swift */,
+			);
+			path = Help;
 			sourceTree = "<group>";
 		};
 		DA505F481E0B46F200CE22FE /* Blender */ = {
@@ -1133,6 +1144,7 @@
 				DA38AF031E1BE6C0008C86A8 /* CCameraPreview.swift in Sources */,
 				DA505F471E0B3CF900CE22FE /* MHomeControlItemBlender.swift in Sources */,
 				DA9D2F571E0AFE4B003E37D5 /* MHomeFramesItem60.swift in Sources */,
+				DA4EBC5C1E208A0900F9AC3D /* MHelp.swift in Sources */,
 				DAB333ED1E05DBEC003436C0 /* MHomeImageSequence.swift in Sources */,
 				DA9B83FE1E133329002B9810 /* VCameraShootPreview.swift in Sources */,
 				DAC7D3FB1E12C37D00312D4E /* CLoops.swift in Sources */,
