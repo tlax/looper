@@ -2,7 +2,20 @@ import UIKit
 
 class CHelp:CController
 {
+    let model:MHelp
     private weak var viewHelp:VHelp!
+    
+    override init()
+    {
+        model = MHelp()
+        
+        super.init()
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
     
     override func loadView()
     {
