@@ -51,6 +51,8 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         collectionView.alwaysBounceHorizontal = true
         collectionView.isPagingEnabled = true
         collectionView.registerCell(cell:VHelpCell.self)
+        collectionView.delegate = self
+        collectionView.dataSource = self
         self.collectionView = collectionView
         
         let pageControl:UIPageControl = UIPageControl()

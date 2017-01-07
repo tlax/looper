@@ -3,8 +3,11 @@ import UIKit
 class VHelpCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
+    private weak var label:UILabel!
     private let kImageTop:CGFloat = 20
-    private let kImageHeight:CGFloat = 180
+    private let kImageHeight:CGFloat = 220
+    private let kLabelHeight:CGFloat = 60
+    private let kLabelMargin:CGFloat = 20
     
     override init(frame:CGRect)
     {
@@ -20,7 +23,18 @@ class VHelpCell:UICollectionViewCell
         imageView.clipsToBounds = true
         self.imageView = imageView
         
+        let label:UILabel = UILabel()
+        label.isUserInteractionEnabled = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.clear
+        label.font = UIFont.regular(size:20)
+        label.textAlignment = NSTextAlignment.center
+        label.numberOfLines = 0
+        label.textColor = UIColor.black
+        self.label = label
+        
         addSubview(imageView)
+        addSubview(label)
         
         let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:imageView,
@@ -36,11 +50,30 @@ class VHelpCell:UICollectionViewCell
             view:imageView,
             toView:self)
         
+        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:label,
+            toView:imageView)
+        let layoutLabelHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:label,
+            constant:kLabelHeight)
+        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:label,
+            toView:self,
+            constant:kLabelMargin)
+        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:label,
+            toView:self,
+            constant:-kLabelMargin)
+        
         addConstraints([
             layoutImageTop,
             layoutImageHeight,
             layoutImageLeft,
-            layoutImageRight])
+            layoutImageRight,
+            layoutLabelTop,
+            layoutLabelHeight,
+            layoutLabelLeft,
+            layoutLabelRight])
     }
     
     required init?(coder:NSCoder)
@@ -53,6 +86,6 @@ class VHelpCell:UICollectionViewCell
     func config(model:MHelpItem)
     {
         imageView.image = model.image
-        
+        label.text = model.title
     }
 }
