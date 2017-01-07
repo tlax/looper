@@ -11,11 +11,12 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
     private weak var button:UIButton!
     private weak var label:UILabel!
     private let numberFormatter:NumberFormatter
-    private let kLabelFormat:String = "%@ s, %@ Kb"
+    private let kLabelFormat:String = "%@ s   -   %@ kb"
     private let kBackgroundMargin:CGFloat = 1
     private let kDeselect:TimeInterval = 0.2
     private let kPlaySize:CGFloat = 60
     private let kLabelRight:CGFloat = -10
+    private let kLabelBottom:CGFloat = -16
     private let kMinInteger:Int = 1
     private let kMaxFraction:Int = 0
     
@@ -94,8 +95,8 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         label.textAlignment = NSTextAlignment.right
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:13)
-        label.textColor = UIColor(white:0.4, alpha:1)
+        label.font = UIFont.regular(size:12)
+        label.textColor = UIColor(white:0.2, alpha:1)
         self.label = label
         
         let spinner:VSpinner = VSpinner()
@@ -155,7 +156,8 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
             toView:collectionView)
         let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:label,
-            toView:collectionView)
+            toView:collectionView,
+            constant:kLabelBottom)
         let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:label,
             toView:self)
