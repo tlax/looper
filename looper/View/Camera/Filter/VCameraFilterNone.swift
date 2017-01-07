@@ -6,10 +6,10 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
     private weak var controller:CCameraFilterNone!
     private weak var spinner:VSpinner!
     private let kHeaderHeight:CGFloat = 67
-    private let kCollectionTop:CGFloat = 20
+    private let kCollectionTop:CGFloat = 10
     private let kCollectionBottom:CGFloat = 20
-    private let kCellHeight:CGFloat = 100
-    private let kInterLine:CGFloat = 5
+    private let kCellHeight:CGFloat = 150
+    private let kInterLine:CGFloat = 10
     
     override init(controller:CController)
     {

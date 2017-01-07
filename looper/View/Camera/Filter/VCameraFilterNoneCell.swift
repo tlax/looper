@@ -3,10 +3,12 @@ import UIKit
 class VCameraFilterNoneCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
+    private weak var selectedIcon:UIImageView!
     private weak var layoutImageWidth:NSLayoutConstraint!
     private weak var layoutImageLeft:NSLayoutConstraint!
-    private let kAlphaNotHover:CGFloat = 1
-    private let kAlphaHover:CGFloat = 0.5
+    private let kAlphaNotHover:CGFloat = 0.2
+    private let kAlphaHover:CGFloat = 1
+    private let kSelectedWidth:CGFloat = 100
     
     override init(frame:CGRect)
     {
@@ -21,7 +23,16 @@ class VCameraFilterNoneCell:UICollectionViewCell
         imageView.layer.borderColor = UIColor.black.cgColor
         self.imageView = imageView
         
+        let selectedIcon:UIImageView = UIImageView()
+        selectedIcon.translatesAutoresizingMaskIntoConstraints = false
+        selectedIcon.clipsToBounds = true
+        selectedIcon.isUserInteractionEnabled = false
+        selectedIcon.contentMode = UIViewContentMode.center
+        selectedIcon.image = #imageLiteral(resourceName: "assetCameraFilterSelect")
+        self.selectedIcon = selectedIcon
+        
         addSubview(imageView)
+        addSubview(selectedIcon)
         
         let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:imageView,
@@ -35,11 +46,28 @@ class VCameraFilterNoneCell:UICollectionViewCell
             view:imageView,
             toView:self)
         
+        let layoutSelectedTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:selectedIcon,
+            toView:self)
+        let layoutSelectedBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:selectedIcon,
+            toView:self)
+        let layoutSelectedLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:selectedIcon,
+            toView:imageView)
+        let layoutSelectedWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:selectedIcon,
+            constant:kSelectedWidth)
+        
         addConstraints([
             layoutImageTop,
             layoutImageBottom,
             layoutImageWidth,
-            layoutImageLeft])
+            layoutImageLeft,
+            layoutSelectedTop,
+            layoutSelectedBottom,
+            layoutSelectedLeft,
+            layoutSelectedWidth])
     }
     
     required init?(coder:NSCoder)
@@ -84,10 +112,12 @@ class VCameraFilterNoneCell:UICollectionViewCell
         if isSelected || isHighlighted
         {
             alpha = kAlphaHover
+            selectedIcon.isHidden = false
         }
         else
         {
             alpha = kAlphaNotHover
+            selectedIcon.isHidden = true
         }
     }
     
