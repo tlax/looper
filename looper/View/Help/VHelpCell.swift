@@ -6,7 +6,7 @@ class VHelpCell:UICollectionViewCell
     private weak var label:UILabel!
     private let kImageTop:CGFloat = 100
     private let kImageHeight:CGFloat = 160
-    private let kLabelHeight:CGFloat = 60
+    private let kLabelHeight:CGFloat = 110
     private let kLabelMargin:CGFloat = 10
     
     override init(frame:CGRect)
