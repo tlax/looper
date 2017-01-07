@@ -11,6 +11,7 @@
 		DA1701B51E2037930049CE90 /* MLoopsItemImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1701B41E2037930049CE90 /* MLoopsItemImages.swift */; };
 		DA1701B91E2061AC0049CE90 /* VLoopsFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1701B81E2061AC0049CE90 /* VLoopsFooter.swift */; };
 		DA1701BC1E2069E40049CE90 /* CHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1701BB1E2069E40049CE90 /* CHelp.swift */; };
+		DA1701BF1E206B300049CE90 /* VHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1701BE1E206B300049CE90 /* VHelp.swift */; };
 		DA20F0B81E0444D500F8BAD4 /* MHomeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0B71E0444D500F8BAD4 /* MHomeControl.swift */; };
 		DA20F0BA1E0444E800F8BAD4 /* MHomeControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0B91E0444E800F8BAD4 /* MHomeControlItem.swift */; };
 		DA20F0C31E0446C300F8BAD4 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F0BC1E0446C300F8BAD4 /* VHome.swift */; };
@@ -177,6 +178,7 @@
 		DA1701B41E2037930049CE90 /* MLoopsItemImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoopsItemImages.swift; sourceTree = "<group>"; };
 		DA1701B81E2061AC0049CE90 /* VLoopsFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoopsFooter.swift; sourceTree = "<group>"; };
 		DA1701BB1E2069E40049CE90 /* CHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHelp.swift; sourceTree = "<group>"; };
+		DA1701BE1E206B300049CE90 /* VHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHelp.swift; sourceTree = "<group>"; };
 		DA20F0B71E0444D500F8BAD4 /* MHomeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeControl.swift; sourceTree = "<group>"; };
 		DA20F0B91E0444E800F8BAD4 /* MHomeControlItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeControlItem.swift; sourceTree = "<group>"; };
 		DA20F0BC1E0446C300F8BAD4 /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
@@ -378,6 +380,14 @@
 			isa = PBXGroup;
 			children = (
 				DA1701BB1E2069E40049CE90 /* CHelp.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		DA1701BD1E206B270049CE90 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				DA1701BE1E206B300049CE90 /* VHelp.swift */,
 			);
 			path = Help;
 			sourceTree = "<group>";
@@ -700,6 +710,7 @@
 		DA96FEA91E03672F00FD5265 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA1701BD1E206B270049CE90 /* Help */,
 				DA9B83C31E12DCAE002B9810 /* Camera */,
 				DAC7D3FC1E12C3B500312D4E /* Loops */,
 				DA96FEAA1E03672F00FD5265 /* Home */,
@@ -1142,6 +1153,7 @@
 				DAD88D091E1B2C5400EAB6B7 /* VCameraCompressCell.swift in Sources */,
 				DAD88D031E1AF64B00EAB6B7 /* VCameraFilterNoneHeader.swift in Sources */,
 				DA9B83F61E132586002B9810 /* VCameraShoot.swift in Sources */,
+				DA1701BF1E206B300049CE90 /* VHelp.swift in Sources */,
 				DA6FB23A1E1D57530062EE13 /* VLoopsCellOption.swift in Sources */,
 				DAFFF3FB1E085C4900E14F12 /* VHomePlayer.swift in Sources */,
 				DA9D2F471E0AFC2A003E37D5 /* MHomeFramesItem.swift in Sources */,

@@ -18,8 +18,12 @@ class VLoopsFooter:UICollectionReusableView
         button.isUserInteractionEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(
-            #imageLiteral(resourceName: "assetLoopsHelp"),
+            #imageLiteral(resourceName: "assetLoopsHelp").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
             for:UIControlState.normal)
+        button.setImage(
+            #imageLiteral(resourceName: "assetLoopsHelp").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        button.imageView!.tintColor = UIColor(white:0.97, alpha:1)
         button.imageView!.clipsToBounds = true
         button.imageView!.contentMode = UIViewContentMode.center
         self.button = button
