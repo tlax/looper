@@ -8,7 +8,7 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
     private let kHeaderHeight:CGFloat = 67
     private let kCollectionTop:CGFloat = 10
     private let kCollectionBottom:CGFloat = 20
-    private let kCellHeight:CGFloat = 150
+    private let kCellHeight:CGFloat = 90
     private let kInterLine:CGFloat = 10
     
     override init(controller:CController)

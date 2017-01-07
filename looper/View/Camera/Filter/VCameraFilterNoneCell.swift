@@ -6,9 +6,9 @@ class VCameraFilterNoneCell:UICollectionViewCell
     private weak var selectedIcon:UIImageView!
     private weak var layoutImageWidth:NSLayoutConstraint!
     private weak var layoutImageLeft:NSLayoutConstraint!
-    private let kAlphaNotHover:CGFloat = 0.2
+    private let kAlphaNotHover:CGFloat = 0.6
     private let kAlphaHover:CGFloat = 1
-    private let kSelectedWidth:CGFloat = 100
+    private let kSelectedWidth:CGFloat = 60
     
     override init(frame:CGRect)
     {
@@ -52,7 +52,7 @@ class VCameraFilterNoneCell:UICollectionViewCell
         let layoutSelectedBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:selectedIcon,
             toView:self)
-        let layoutSelectedLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        let layoutSelectedRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
             view:selectedIcon,
             toView:imageView)
         let layoutSelectedWidth:NSLayoutConstraint = NSLayoutConstraint.width(
@@ -66,7 +66,7 @@ class VCameraFilterNoneCell:UICollectionViewCell
             layoutImageLeft,
             layoutSelectedTop,
             layoutSelectedBottom,
-            layoutSelectedLeft,
+            layoutSelectedRight,
             layoutSelectedWidth])
     }
     
