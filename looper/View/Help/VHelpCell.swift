@@ -4,9 +4,9 @@ class VHelpCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var label:UILabel!
-    private let kImageTop:CGFloat = 20
-    private let kImageHeight:CGFloat = 250
-    private let kLabelHeight:CGFloat = 80
+    private let kImageTop:CGFloat = 50
+    private let kImageHeight:CGFloat = 160
+    private let kLabelHeight:CGFloat = 100
     private let kLabelMargin:CGFloat = 10
     
     override init(frame:CGRect)
@@ -27,7 +27,7 @@ class VHelpCell:UICollectionViewCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:22)
+        label.font = UIFont.regular(size:24)
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 0
         label.textColor = UIColor.black

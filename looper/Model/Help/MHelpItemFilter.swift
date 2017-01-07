@@ -4,7 +4,7 @@ class MHelpItemFilter:MHelpItem
 {
     override init()
     {
-        let image:UIImage = #imageLiteral(resourceName: "assetHelpRecord")
+        let image:UIImage = #imageLiteral(resourceName: "assetHelpFilter")
         let title:String = NSLocalizedString("MHelpItemFilter_title", comment:"")
         
         super.init(

@@ -7,9 +7,11 @@ class MHelp
     init()
     {
         let itemRecord:MHelpItemRecord = MHelpItemRecord()
+        let itemFilter:MHelpItemFilter = MHelpItemFilter()
         
         items = [
-            itemRecord
+            itemRecord,
+            itemFilter
         ]
     }
 }

@@ -60,6 +60,9 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.clipsToBounds = true
         pageControl.numberOfPages = self.controller.model.items.count
+        pageControl.currentPage = 0
+        pageControl.currentPageIndicatorTintColor = UIColor.genericLight
+        pageControl.pageIndicatorTintColor = UIColor(white:0, alpha:0.1)
         self.pageControl = pageControl
         
         addSubview(visualEffect)
@@ -91,7 +94,7 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         let layoutControlBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
             view:pageControl,
-            toView:self,
+            toView:button,
             constant:kControlBottom)
         let layoutControlHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:pageControl,
