@@ -8,13 +8,11 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
     private let kHeaderHeight:CGFloat = 67
     private let kCollectionTop:CGFloat = 20
     private let kCollectionBottom:CGFloat = 20
-    private let kInterItem:CGFloat = 5
-    private let interItem3:CGFloat
+    private let kCellHeight:CGFloat = 100
+    private let kInterLine:CGFloat = 5
     
     override init(controller:CController)
     {
-        interItem3 = kInterItem * 3
-        
         super.init(controller:controller)
         self.controller = controller as? CCameraFilterNone
         
@@ -22,13 +20,12 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
         collectionView.flow.headerReferenceSize = CGSize(
             width:0,
             height:kHeaderHeight)
-        collectionView.flow.minimumInteritemSpacing = kInterItem
-        collectionView.flow.minimumLineSpacing = kInterItem
+        collectionView.flow.minimumLineSpacing = kInterLine
         collectionView.flow.sectionInset = UIEdgeInsets(
             top:kCollectionTop,
-            left:kInterItem,
+            left:0,
             bottom:kCollectionBottom,
-            right:kInterItem)
+            right:0)
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -81,9 +78,8 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
-        let width:CGFloat = collectionView.bounds.maxX - interItem3
-        let cellSize:CGFloat = width / 2.0
-        let size:CGSize = CGSize(width:cellSize, height:cellSize)
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
         
         return size
     }

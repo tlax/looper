@@ -3,6 +3,8 @@ import UIKit
 class VCameraFilterNoneCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
+    private weak var layoutImageWidth:NSLayoutConstraint!
+    private weak var layoutImageLeft:NSLayoutConstraint!
     private let kAlphaNotHover:CGFloat = 1
     private let kAlphaHover:CGFloat = 0.5
     
@@ -21,16 +23,42 @@ class VCameraFilterNoneCell:UICollectionViewCell
         
         addSubview(imageView)
         
-        let constraintsImage:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:imageView,
-            parent:self)
+            toView:self)
+        let layoutImageBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:imageView,
+            toView:self)
+        layoutImageWidth = NSLayoutConstraint.width(
+            view:imageView)
+        layoutImageLeft = NSLayoutConstraint.leftToLeft(
+            view:imageView,
+            toView:self)
         
-        addConstraints(constraintsImage)
+        addConstraints([
+            layoutImageTop,
+            layoutImageBottom,
+            layoutImageWidth,
+            layoutImageLeft])
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let height:CGFloat = bounds.maxY
+        let remain:CGFloat = width - height
+        let margin:CGFloat = remain / 2.0
+        let cornerRadius:CGFloat = height / 2.0
+        imageView.layer.cornerRadius = cornerRadius
+        layoutImageWidth.constant = height
+        layoutImageLeft.constant = margin
+        
+        super.layoutSubviews()
     }
     
     override var isSelected:Bool
