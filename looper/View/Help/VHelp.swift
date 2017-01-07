@@ -1,9 +1,13 @@
 import UIKit
 
-class VHelp:VView
+class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CHelp!
+    private weak var collectionView:VCollection!
+    private weak var pageControl:UIPageControl!
     private weak var layoutButtonLeft:NSLayoutConstraint!
+    private let kControlBottom:CGFloat = -30
+    private let kControlHeight:CGFloat = 50
     private let kButtonWidth:CGFloat = 120
     private let kButtonHeight:CGFloat = 34
     private let kButtonBottom:CGFloat = -20
@@ -42,11 +46,30 @@ class VHelp:VView
             action:#selector(actionButton(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let collectionView:VCollection = VCollection()
+        collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+        collectionView.alwaysBounceHorizontal = true
+        collectionView.isPagingEnabled = true
+        self.collectionView = collectionView
+        
+        let pageControl:UIPageControl = UIPageControl()
+        pageControl.isUserInteractionEnabled = false
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.clipsToBounds = true
+        pageControl.numberOfPages = self.controller.model.items.count
+        self.pageControl = pageControl
+        
         addSubview(visualEffect)
+        addSubview(collectionView)
+        addSubview(pageControl)
         addSubview(button)
         
         let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:visualEffect,
+            parent:self)
+        
+        let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:collectionView,
             parent:self)
         
         let layoutButtonBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
@@ -63,13 +86,32 @@ class VHelp:VView
             view:button,
             constant:kButtonWidth)
         
+        let layoutControlBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+            view:pageControl,
+            toView:self,
+            constant:kControlBottom)
+        let layoutControlHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:pageControl,
+            constant:kControlHeight)
+        let layoutControlLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:pageControl,
+            toView:self)
+        let layoutControlRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:pageControl,
+            toView:self)
+        
         addConstraints(constraintsEffect)
+        addConstraints(constraintsCollection)
         
         addConstraints([
             layoutButtonBottom,
             layoutButtonHeight,
             layoutButtonLeft,
-            layoutButtonWidth])
+            layoutButtonWidth,
+            layoutControlBottom,
+            layoutControlHeight,
+            layoutControlLeft,
+            layoutControlRight])
     }
     
     required init?(coder:NSCoder)
