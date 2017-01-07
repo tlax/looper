@@ -9,6 +9,7 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     private let kCollectionBottom:CGFloat = 20
     private let kInterline:CGFloat = 20
     private let kAddCellHeight:CGFloat = 50
+    private let kHeaderHeight:CGFloat = 140
     
     override init(controller:CController)
     {
@@ -20,6 +21,9 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         
         let collectionView:VCollection = VCollection()
         collectionView.isHidden = true
+        collectionView.flow.footerReferenceSize = CGSize(
+            width:0,
+            height:kHeaderHeight)
         collectionView.flow.minimumLineSpacing = kInterline
         collectionView.flow.sectionInset = UIEdgeInsets(
             top:kCollectionTop,
@@ -30,6 +34,7 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerCell(cell:VLoopsCell.self)
+        collectionView.registerFooter(footer:VLoopsFooter.self)
         self.collectionView = collectionView
         
         addSubview(spinner)
@@ -109,6 +114,18 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         let count:Int = controller.model.items.count
         
         return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
+    {
+        let footer:VLoopsFooter = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:
+            VLoopsFooter.reusableIdentifier,
+            for:indexPath) as! VLoopsFooter
+        footer.config(controller:controller)
+        
+        return footer
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell

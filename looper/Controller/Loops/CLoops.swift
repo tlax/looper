@@ -196,4 +196,9 @@ class CLoops:CController
             self?.asyncShare(model:model)
         }
     }
+    
+    func help()
+    {
+        
+    }
 }
