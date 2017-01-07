@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA11EF921E21A9D7002C10C4 /* MHelpItemCompress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11EF911E21A9D7002C10C4 /* MHelpItemCompress.swift */; };
+		DA11EF941E21AA83002C10C4 /* MHelpItemSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11EF931E21AA83002C10C4 /* MHelpItemSave.swift */; };
 		DA14D1131E187695000753B3 /* VCameraFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D1121E187695000753B3 /* VCameraFilterCell.swift */; };
 		DA1701B51E2037930049CE90 /* MLoopsItemImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1701B41E2037930049CE90 /* MLoopsItemImages.swift */; };
 		DA1701B91E2061AC0049CE90 /* VLoopsFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1701B81E2061AC0049CE90 /* VLoopsFooter.swift */; };
@@ -182,6 +183,7 @@
 
 /* Begin PBXFileReference section */
 		DA11EF911E21A9D7002C10C4 /* MHelpItemCompress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpItemCompress.swift; sourceTree = "<group>"; };
+		DA11EF931E21AA83002C10C4 /* MHelpItemSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpItemSave.swift; sourceTree = "<group>"; };
 		DA14D1121E187695000753B3 /* VCameraFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterCell.swift; sourceTree = "<group>"; };
 		DA1701B41E2037930049CE90 /* MLoopsItemImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoopsItemImages.swift; sourceTree = "<group>"; };
 		DA1701B81E2061AC0049CE90 /* VLoopsFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoopsFooter.swift; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 				DA4EBC5F1E208A4300F9AC3D /* MHelpItemRecord.swift */,
 				DA4EBC631E20919D00F9AC3D /* MHelpItemFilter.swift */,
 				DA11EF911E21A9D7002C10C4 /* MHelpItemCompress.swift */,
+				DA11EF931E21AA83002C10C4 /* MHelpItemSave.swift */,
 			);
 			path = Help;
 			sourceTree = "<group>";
@@ -1217,6 +1220,7 @@
 				DAD88D011E1AF4D500EAB6B7 /* VCameraFilterNone.swift in Sources */,
 				DAD404DF1E1F3180005EA836 /* MCameraFilterProcessor.swift in Sources */,
 				DA96FEE11E03672F00FD5265 /* CController.swift in Sources */,
+				DA11EF941E21AA83002C10C4 /* MHelpItemSave.swift in Sources */,
 				DA799CE01E1436B600AB45DD /* MCameraSpeed2.swift in Sources */,
 				DA9B83EF1E1316AC002B9810 /* DManager.swift in Sources */,
 				DA505F521E0B535D00CE22FE /* VHomeControlBlenderGesturer.swift in Sources */,
