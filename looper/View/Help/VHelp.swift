@@ -50,7 +50,7 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         collectionView.alwaysBounceHorizontal = true
         collectionView.isPagingEnabled = true
-        collectionView.registerCell(cell:VHelpCell.reusableIdentifier)
+        collectionView.registerCell(cell:VHelpCell.self)
         self.collectionView = collectionView
         
         let pageControl:UIPageControl = UIPageControl()
@@ -137,6 +137,15 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         controller.back()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MHelpItem
+    {
+        let item:MHelpItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
@@ -162,10 +171,12 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MHelpItem = modelAtIndex(index:indexPath)
         let cell:VHelpCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VHelpCell.reusableIdentifier,
             for:indexPath) as! VHelpCell
+        cell.config(model:item)
         
         return cell
     }

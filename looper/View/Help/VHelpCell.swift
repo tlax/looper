@@ -14,4 +14,11 @@ class VHelpCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MHelpItem)
+    {
+        
+    }
 }
