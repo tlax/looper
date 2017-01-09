@@ -4,20 +4,20 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
 {
     private weak var controller:CStore!
     private weak var viewSpinner:VSpinner?
-    private weak var collectionView:UICollectionView!
+    private weak var collectionView:VCollection!
     private let kHeaderHeight:CGFloat = 150
     private let kFooterHeight:CGFloat = 70
     private let kInterLine:CGFloat = 1
+    private let kCollectionTop:CGFloat = 64
     private let kCollectionBottom:CGFloat = 10
     private let kBarHeight:CGFloat = 92
     
     override init(controller:CController)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor.genericBorder
+        backgroundColor = UIColor.genericBackground
         self.controller = controller as? CStore
         
-        let viewBar:VStoreBar = VStoreBar(controller:self.controller)
         let viewSpinner:VSpinner = VSpinner()
         self.viewSpinner = viewSpinner
         
@@ -76,7 +76,6 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         
         addSubview(collectionView)
         addSubview(viewSpinner)
-        addSubview(viewBar)
         
         let layoutBarTop:NSLayoutConstraint = NSLayoutConstraint(
             item:viewBar,
@@ -197,12 +196,6 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         fatalError()
     }
     
-    override func layoutSubviews()
-    {
-        collectionView.collectionViewLayout.invalidateLayout()
-        super.layoutSubviews()
-    }
-    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MStoreItem
@@ -218,22 +211,22 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
     func refreshStore()
     {
         DispatchQueue.main.async
-            { [weak self] in
+        { [weak self] in
                 
-                self?.viewSpinner?.removeFromSuperview()
-                self?.collectionView.reloadData()
-                self?.collectionView.isHidden = false
+            self?.viewSpinner?.removeFromSuperview()
+            self?.collectionView.reloadData()
+            self?.collectionView.isHidden = false
+            
+            guard
                 
-                guard
-                    
-                    let errorMessage:String = self?.controller.model.error
-                    
-                    else
-                {
-                    return
-                }
+                let errorMessage:String = self?.controller.model.error
                 
-                VAlert.message(message:errorMessage)
+                else
+            {
+                return
+            }
+            
+            VAlert.message(message:errorMessage)
         }
     }
     
