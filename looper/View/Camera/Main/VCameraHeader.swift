@@ -136,7 +136,7 @@ class VCameraHeader:UICollectionReusableView
         if !plus && currentRecords >= MSession.kFroobMaxRecords
         {
             button.active()
-            print("records full")
+            controller.goPlus()
         }
         else
         {

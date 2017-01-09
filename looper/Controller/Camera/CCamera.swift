@@ -140,4 +140,10 @@ class CCamera:CController
             controller:controller,
             horizontal:CParent.TransitionHorizontal.fromRight)
     }
+    
+    func goPlus()
+    {
+        let controllerGoPlus:CStoreGoPlus = CStoreGoPlus()
+        parentController.animateOver(controller:controllerGoPlus)
+    }
 }

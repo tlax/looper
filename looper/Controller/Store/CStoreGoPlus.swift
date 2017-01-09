@@ -20,13 +20,11 @@ class CStoreGoPlus:CController
     
     func openStore()
     {
-        let store:CStore = CStore()
-        
         let parentController:CParent = self.parentController
         
         parentController.dismissAnimateOver
         {
-                parentController.push(controller:store)
+            parentController.moveToStore()
         }
     }
 }
