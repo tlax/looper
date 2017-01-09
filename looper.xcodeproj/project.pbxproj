@@ -10,7 +10,6 @@
 		DA11EF921E21A9D7002C10C4 /* MHelpItemCompress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11EF911E21A9D7002C10C4 /* MHelpItemCompress.swift */; };
 		DA11EF941E21AA83002C10C4 /* MHelpItemSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11EF931E21AA83002C10C4 /* MHelpItemSave.swift */; };
 		DA11EF971E21ACE6002C10C4 /* VStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11EF961E21ACE6002C10C4 /* VStore.swift */; };
-		DA11EF9A1E21AF96002C10C4 /* MStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11EF991E21AF96002C10C4 /* MStore.swift */; };
 		DA14D1131E187695000753B3 /* VCameraFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D1121E187695000753B3 /* VCameraFilterCell.swift */; };
 		DA1701B51E2037930049CE90 /* MLoopsItemImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1701B41E2037930049CE90 /* MLoopsItemImages.swift */; };
 		DA1701B91E2061AC0049CE90 /* VLoopsFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1701B81E2061AC0049CE90 /* VLoopsFooter.swift */; };
@@ -174,13 +173,14 @@
 		DAF604C61E23DBB100A1259E /* VStoreCellPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604C51E23DBB100A1259E /* VStoreCellPurchasing.swift */; };
 		DAF604C81E23DBF000A1259E /* VStoreCellPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604C71E23DBF000A1259E /* VStoreCellPurchased.swift */; };
 		DAF604CA1E23DC1800A1259E /* VStoreCellNotAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604C91E23DC1800A1259E /* VStoreCellNotAvailable.swift */; };
-		DAF604CC1E23DEF500A1259E /* MStoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604CB1E23DEF500A1259E /* MStoreItem.swift */; };
-		DAF604CE1E23DF1B00A1259E /* MStoreItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604CD1E23DF1B00A1259E /* MStoreItemStatus.swift */; };
-		DAF604D01E23DF4400A1259E /* MStoreItemStatusDeferred.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604CF1E23DF4400A1259E /* MStoreItemStatusDeferred.swift */; };
-		DAF604D21E23E00800A1259E /* MStoreItemStatusNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604D11E23E00800A1259E /* MStoreItemStatusNew.swift */; };
-		DAF604D41E23E03900A1259E /* MStoreItemStatusNotAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604D31E23E03900A1259E /* MStoreItemStatusNotAvailable.swift */; };
-		DAF604D61E23E04800A1259E /* MStoreItemStatusPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604D51E23E04800A1259E /* MStoreItemStatusPurchasing.swift */; };
-		DAF604D81E23E05300A1259E /* MStoreItemStatusPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604D71E23E05300A1259E /* MStoreItemStatusPurchased.swift */; };
+		DAF604E31E23E16B00A1259E /* MStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604DA1E23E16B00A1259E /* MStore.swift */; };
+		DAF604E41E23E16B00A1259E /* MStoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604DB1E23E16B00A1259E /* MStoreItem.swift */; };
+		DAF604E51E23E16B00A1259E /* MStoreItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604DC1E23E16B00A1259E /* MStoreItemStatus.swift */; };
+		DAF604E61E23E16B00A1259E /* MStoreItemStatusDeferred.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604DD1E23E16B00A1259E /* MStoreItemStatusDeferred.swift */; };
+		DAF604E71E23E16B00A1259E /* MStoreItemStatusNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604DE1E23E16B00A1259E /* MStoreItemStatusNew.swift */; };
+		DAF604E81E23E16B00A1259E /* MStoreItemStatusNotAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604DF1E23E16B00A1259E /* MStoreItemStatusNotAvailable.swift */; };
+		DAF604E91E23E16B00A1259E /* MStoreItemStatusPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604E01E23E16B00A1259E /* MStoreItemStatusPurchased.swift */; };
+		DAF604EA1E23E16B00A1259E /* MStoreItemStatusPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604E11E23E16B00A1259E /* MStoreItemStatusPurchasing.swift */; };
 		DAF976181E17187500811D61 /* VCameraActiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF976171E17187500811D61 /* VCameraActiveButton.swift */; };
 		DAF9761A1E171E1A00811D61 /* VCameraCellControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF976191E171E1A00811D61 /* VCameraCellControls.swift */; };
 		DAFC40B81E1A02780044B14B /* CCameraCompress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC40B71E1A02780044B14B /* CCameraCompress.swift */; };
@@ -202,7 +202,6 @@
 		DA11EF911E21A9D7002C10C4 /* MHelpItemCompress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpItemCompress.swift; sourceTree = "<group>"; };
 		DA11EF931E21AA83002C10C4 /* MHelpItemSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpItemSave.swift; sourceTree = "<group>"; };
 		DA11EF961E21ACE6002C10C4 /* VStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStore.swift; sourceTree = "<group>"; };
-		DA11EF991E21AF96002C10C4 /* MStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStore.swift; sourceTree = "<group>"; };
 		DA14D1121E187695000753B3 /* VCameraFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterCell.swift; sourceTree = "<group>"; };
 		DA1701B41E2037930049CE90 /* MLoopsItemImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoopsItemImages.swift; sourceTree = "<group>"; };
 		DA1701B81E2061AC0049CE90 /* VLoopsFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoopsFooter.swift; sourceTree = "<group>"; };
@@ -369,13 +368,14 @@
 		DAF604C51E23DBB100A1259E /* VStoreCellPurchasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellPurchasing.swift; sourceTree = "<group>"; };
 		DAF604C71E23DBF000A1259E /* VStoreCellPurchased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellPurchased.swift; sourceTree = "<group>"; };
 		DAF604C91E23DC1800A1259E /* VStoreCellNotAvailable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellNotAvailable.swift; sourceTree = "<group>"; };
-		DAF604CB1E23DEF500A1259E /* MStoreItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItem.swift; sourceTree = "<group>"; };
-		DAF604CD1E23DF1B00A1259E /* MStoreItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatus.swift; sourceTree = "<group>"; };
-		DAF604CF1E23DF4400A1259E /* MStoreItemStatusDeferred.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusDeferred.swift; sourceTree = "<group>"; };
-		DAF604D11E23E00800A1259E /* MStoreItemStatusNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusNew.swift; sourceTree = "<group>"; };
-		DAF604D31E23E03900A1259E /* MStoreItemStatusNotAvailable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusNotAvailable.swift; sourceTree = "<group>"; };
-		DAF604D51E23E04800A1259E /* MStoreItemStatusPurchasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusPurchasing.swift; sourceTree = "<group>"; };
-		DAF604D71E23E05300A1259E /* MStoreItemStatusPurchased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusPurchased.swift; sourceTree = "<group>"; };
+		DAF604DA1E23E16B00A1259E /* MStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStore.swift; sourceTree = "<group>"; };
+		DAF604DB1E23E16B00A1259E /* MStoreItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItem.swift; sourceTree = "<group>"; };
+		DAF604DC1E23E16B00A1259E /* MStoreItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatus.swift; sourceTree = "<group>"; };
+		DAF604DD1E23E16B00A1259E /* MStoreItemStatusDeferred.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusDeferred.swift; sourceTree = "<group>"; };
+		DAF604DE1E23E16B00A1259E /* MStoreItemStatusNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusNew.swift; sourceTree = "<group>"; };
+		DAF604DF1E23E16B00A1259E /* MStoreItemStatusNotAvailable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusNotAvailable.swift; sourceTree = "<group>"; };
+		DAF604E01E23E16B00A1259E /* MStoreItemStatusPurchased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusPurchased.swift; sourceTree = "<group>"; };
+		DAF604E11E23E16B00A1259E /* MStoreItemStatusPurchasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusPurchasing.swift; sourceTree = "<group>"; };
 		DAF976171E17187500811D61 /* VCameraActiveButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraActiveButton.swift; sourceTree = "<group>"; };
 		DAF976191E171E1A00811D61 /* VCameraCellControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraCellControls.swift; sourceTree = "<group>"; };
 		DAFC40B71E1A02780044B14B /* CCameraCompress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraCompress.swift; sourceTree = "<group>"; };
@@ -423,14 +423,8 @@
 		DA11EF981E21AF8D002C10C4 /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				DA11EF991E21AF96002C10C4 /* MStore.swift */,
-				DAF604CB1E23DEF500A1259E /* MStoreItem.swift */,
-				DAF604CD1E23DF1B00A1259E /* MStoreItemStatus.swift */,
-				DAF604CF1E23DF4400A1259E /* MStoreItemStatusDeferred.swift */,
-				DAF604D11E23E00800A1259E /* MStoreItemStatusNew.swift */,
-				DAF604D31E23E03900A1259E /* MStoreItemStatusNotAvailable.swift */,
-				DAF604D51E23E04800A1259E /* MStoreItemStatusPurchasing.swift */,
-				DAF604D71E23E05300A1259E /* MStoreItemStatusPurchased.swift */,
+				DAF604D91E23E16B00A1259E /* Base */,
+				DAF604E21E23E16B00A1259E /* Purchases */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -1037,6 +1031,28 @@
 			path = Sequences;
 			sourceTree = "<group>";
 		};
+		DAF604D91E23E16B00A1259E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DAF604DA1E23E16B00A1259E /* MStore.swift */,
+				DAF604DB1E23E16B00A1259E /* MStoreItem.swift */,
+				DAF604DC1E23E16B00A1259E /* MStoreItemStatus.swift */,
+				DAF604DD1E23E16B00A1259E /* MStoreItemStatusDeferred.swift */,
+				DAF604DE1E23E16B00A1259E /* MStoreItemStatusNew.swift */,
+				DAF604DF1E23E16B00A1259E /* MStoreItemStatusNotAvailable.swift */,
+				DAF604E01E23E16B00A1259E /* MStoreItemStatusPurchased.swift */,
+				DAF604E11E23E16B00A1259E /* MStoreItemStatusPurchasing.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		DAF604E21E23E16B00A1259E /* Purchases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Purchases;
+			sourceTree = "<group>";
+		};
 		DAFFF3F91E085C3F00E14F12 /* Player */ = {
 			isa = PBXGroup;
 			children = (
@@ -1154,7 +1170,7 @@
 				DA5C523A1E15723100D296C6 /* VCameraCellItem.swift in Sources */,
 				DA9D2F3E1E0ADF57003E37D5 /* VHomeControlCell.swift in Sources */,
 				DAA68D5D1E09C31500A830A2 /* VHomePlayerTimer.swift in Sources */,
-				DAF604CC1E23DEF500A1259E /* MStoreItem.swift in Sources */,
+				DAF604E41E23E16B00A1259E /* MStoreItem.swift in Sources */,
 				DA799CF31E1440F500AB45DD /* MCameraRaw.swift in Sources */,
 				DAD404E21E1F445B005EA836 /* MetalFilterWatermark.swift in Sources */,
 				DAF604BC1E233E5F00A1259E /* VStoreHeader.swift in Sources */,
@@ -1192,7 +1208,7 @@
 				DA9D2F4B1E0AFE0A003E37D5 /* MHomeFramesItem5.swift in Sources */,
 				DA11EF921E21A9D7002C10C4 /* MHelpItemCompress.swift in Sources */,
 				DA9B83E71E130AF5002B9810 /* VCameraFooter.swift in Sources */,
-				DAF604CE1E23DF1B00A1259E /* MStoreItemStatus.swift in Sources */,
+				DAF604E51E23E16B00A1259E /* MStoreItemStatus.swift in Sources */,
 				DAD404DE1E1F3180005EA836 /* MCameraFilterItemNone.swift in Sources */,
 				DAB333E91E05DBBC003436C0 /* MHomeImage.swift in Sources */,
 				DA6FB24D1E1DC0720062EE13 /* CStore.swift in Sources */,
@@ -1204,18 +1220,16 @@
 				DAFFF3F41E0847D500E14F12 /* VHomeTimelineCell.swift in Sources */,
 				DA9D2F4D1E0AFE13003E37D5 /* MHomeFramesItem10.swift in Sources */,
 				DA9D2F591E0AFFD1003E37D5 /* MHomeFramesItem2.swift in Sources */,
-				DA11EF9A1E21AF96002C10C4 /* MStore.swift in Sources */,
 				DA96FEE51E03672F00FD5265 /* ExtensionNSManagedObject.swift in Sources */,
-				DAF604D81E23E05300A1259E /* MStoreItemStatusPurchased.swift in Sources */,
 				DAD404EC1E1F5169005EA836 /* MetalFilter.swift in Sources */,
 				DA9B83F21E131B01002B9810 /* DLooper.xcdatamodeld in Sources */,
 				DA9D2F531E0AFE31003E37D5 /* MHomeFramesItem30.swift in Sources */,
 				DA96FEE81E03672F00FD5265 /* ExtensionUIFont.swift in Sources */,
 				DA799CD81E14354C00AB45DD /* MCamera.swift in Sources */,
-				DAF604D61E23E04800A1259E /* MStoreItemStatusPurchasing.swift in Sources */,
 				DA799CDA1E14354C00AB45DD /* MCameraSpeed.swift in Sources */,
 				DA799CCD1E14148D00AB45DD /* VCameraShootConfig.swift in Sources */,
 				DAFC40BE1E1A03CB0044B14B /* MCameraCompressItem.swift in Sources */,
+				DAF604E31E23E16B00A1259E /* MStore.swift in Sources */,
 				DAD88D071E1B2AD700EAB6B7 /* VCameraCompressBar.swift in Sources */,
 				DA1701B51E2037930049CE90 /* MLoopsItemImages.swift in Sources */,
 				DA20F0B81E0444D500F8BAD4 /* MHomeControl.swift in Sources */,
@@ -1225,6 +1239,7 @@
 				DA38AF0E1E1BFF20008C86A8 /* VCameraPreviewPlayer.swift in Sources */,
 				DA9D2F391E0ADF57003E37D5 /* VHomeControlCameraMenu.swift in Sources */,
 				DAFFF3F61E0856AC00E14F12 /* MHomeImageSequenceRaw.swift in Sources */,
+				DAF604E91E23E16B00A1259E /* MStoreItemStatusPurchased.swift in Sources */,
 				DA505F4A1E0B473600CE22FE /* VHomeControlBlender.swift in Sources */,
 				DA20F0C51E0446C300F8BAD4 /* VHomeDisplay.swift in Sources */,
 				DA9D2F451E0AFBE1003E37D5 /* MHomeFrames.swift in Sources */,
@@ -1237,6 +1252,7 @@
 				DAD404E61E1F44A1005EA836 /* MetalFilterWatermark.metal in Sources */,
 				DAF604BE1E233FDD00A1259E /* VStoreFooter.swift in Sources */,
 				DAD404DB1E1F3180005EA836 /* MCameraFilter.swift in Sources */,
+				DAF604EA1E23E16B00A1259E /* MStoreItemStatusPurchasing.swift in Sources */,
 				DA4EBC601E208A4300F9AC3D /* MHelpItemRecord.swift in Sources */,
 				DA235C771E098D9800277550 /* VHomePlayerBoard.swift in Sources */,
 				DAFC40B81E1A02780044B14B /* CCameraCompress.swift in Sources */,
@@ -1257,7 +1273,7 @@
 				DA38AF141E1C302D008C86A8 /* VCameraPreviewPlayerTimerSlider.swift in Sources */,
 				DAFC40C01E1A03FA0044B14B /* MCameraCompressItemNone.swift in Sources */,
 				DA799CDE1E1436B000AB45DD /* MCameraSpeed1.swift in Sources */,
-				DAF604D01E23DF4400A1259E /* MStoreItemStatusDeferred.swift in Sources */,
+				DAF604E61E23E16B00A1259E /* MStoreItemStatusDeferred.swift in Sources */,
 				DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */,
 				DAFC40BA1E1A02A00044B14B /* VCameraCompress.swift in Sources */,
 				DAF604C81E23DBF000A1259E /* VStoreCellPurchased.swift in Sources */,
@@ -1302,7 +1318,7 @@
 				DAD88D011E1AF4D500EAB6B7 /* VCameraFilterNone.swift in Sources */,
 				DAD404DF1E1F3180005EA836 /* MCameraFilterProcessor.swift in Sources */,
 				DA96FEE11E03672F00FD5265 /* CController.swift in Sources */,
-				DAF604D41E23E03900A1259E /* MStoreItemStatusNotAvailable.swift in Sources */,
+				DAF604E81E23E16B00A1259E /* MStoreItemStatusNotAvailable.swift in Sources */,
 				DA11EF941E21AA83002C10C4 /* MHelpItemSave.swift in Sources */,
 				DA799CE01E1436B600AB45DD /* MCameraSpeed2.swift in Sources */,
 				DA9B83EF1E1316AC002B9810 /* DManager.swift in Sources */,
@@ -1315,7 +1331,7 @@
 				DA96FEE61E03672F00FD5265 /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA6FB2461E1D7F9D0062EE13 /* MLoopsOptionsItemTrash.swift in Sources */,
 				DA9B83F41E13255F002B9810 /* CCameraShoot.swift in Sources */,
-				DAF604D21E23E00800A1259E /* MStoreItemStatusNew.swift in Sources */,
+				DAF604E71E23E16B00A1259E /* MStoreItemStatusNew.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
