@@ -19,7 +19,7 @@ class VStoreGoPlusButtons:UIView
         buttonStore.clipsToBounds = true
         buttonStore.backgroundColor = UIColor.white
         buttonStore.setTitle(
-            NSLocalizedString("VHomeFroobButtons_buttonStore", comment:""),
+            NSLocalizedString("VStoreGoPlusButtons_buttonStore", comment:""),
             for:UIControlState.normal)
         buttonStore.setTitleColor(
             UIColor.genericLight,
@@ -38,7 +38,7 @@ class VStoreGoPlusButtons:UIView
         buttonCancel.clipsToBounds = true
         buttonCancel.backgroundColor = UIColor.white
         buttonCancel.setTitle(
-            NSLocalizedString("VHomeFroobButtons_buttonCancel", comment:""),
+            NSLocalizedString("VStoreGoPlusButtons_buttonCancel", comment:""),
             for:UIControlState.normal)
         buttonCancel.setTitleColor(
             UIColor(white:0.6, alpha:1),

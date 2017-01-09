@@ -11,8 +11,8 @@ class VStoreGoPlus:VView
     private let kCornerRadius:CGFloat = 20
     private let kLabelTitleHeight:CGFloat = 25
     private let kLabelDescrHeight:CGFloat = 20
-    private let kImageTop:CGFloat = -40
-    private let kImageHeight:CGFloat = 80
+    private let kImageTop:CGFloat = -55
+    private let kImageHeight:CGFloat = 110
     
     override init(controller:CController)
     {
@@ -48,7 +48,7 @@ class VStoreGoPlus:VView
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
-        labelTitle.text = NSLocalizedString("VHomeFroob_title", comment:"")
+        labelTitle.text = NSLocalizedString("VStoreGoPlus_title", comment:"")
         
         let labelDescr:UILabel = UILabel()
         labelDescr.isUserInteractionEnabled = false
@@ -58,9 +58,9 @@ class VStoreGoPlus:VView
         labelDescr.backgroundColor = UIColor.clear
         labelDescr.numberOfLines = 0
         labelDescr.translatesAutoresizingMaskIntoConstraints = false
-        labelDescr.text = NSLocalizedString("VHomeFroob_descr", comment:"")
+        labelDescr.text = NSLocalizedString("VStoreGoPlus_descr", comment:"")
         
-        let buttons:VStoreGoPlus = VStoreGoPlus(
+        let buttons:VStoreGoPlusButtons = VStoreGoPlusButtons(
             controller:self.controller)
         
         let imageView:UIImageView = UIImageView()
@@ -68,7 +68,7 @@ class VStoreGoPlus:VView
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.center
-        imageView.image = #imageLiteral(resourceName: "assetGenericPlus")
+        imageView.image = #imageLiteral(resourceName: "assetGenericGoPlus")
         
         baseView.addSubview(labelTitle)
         baseView.addSubview(labelDescr)
@@ -106,10 +106,10 @@ class VStoreGoPlus:VView
             constant:kLabelTitleHeight)
         let layoutTitleLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:labelTitle,
-            toView:self)
+            toView:baseView)
         let layoutTitleRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:labelTitle,
-            toView:self)
+            toView:baseView)
         
         let layoutDescrTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:labelDescr,
@@ -119,37 +119,37 @@ class VStoreGoPlus:VView
             constant:kLabelDescrHeight)
         let layoutDescrLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:labelDescr,
-            toView:self)
+            toView:baseView)
         let layoutDescrRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:labelDescr,
-            toView:self)
+            toView:baseView)
         
         let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:imageView,
-            toView:self,
+            toView:baseView,
             constant:kImageTop)
         let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:imageView,
             constant:kImageHeight)
         let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:imageView,
-            toView:self)
+            toView:baseView)
         let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:imageView,
-            toView:self)
+            toView:baseView)
         
         let layoutButtonsBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:buttons,
-            toView:self)
+            toView:baseView)
         let layoutButtonsHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:buttons,
             constant:kButtonHeight)
         let layoutButtonsLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:buttons,
-            toView:self)
+            toView:baseView)
         let layoutButtonsRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:buttons,
-            toView:self)
+            toView:baseView)
         
         addConstraints(constraintsEffect)
         addConstraints(constraintsBaseButton)

@@ -10,6 +10,10 @@
 "VStoreCellPurchasing_label"="Purchasing";
 "VStoreCellPurchased_label"="Purchased";
 "VStoreCellNotAvailable_label"="Not available";
+"VStoreGoPlus_title"="Reached limit of video captures";
+"VStoreGoPlus_descr"="Go plus to have unlimited captures";
+"VStoreGoPlusButtons_buttonCancel"="No thanks";
+"VStoreGoPlusButtons_buttonStore"="Go Plus";
 
 "CCameraShoot_noAuth"="looper has no access to your camera";
 "CCameraShoot_errorCaptureDevice"="Error connecting to camera";

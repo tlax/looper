@@ -11,7 +11,7 @@ class MSession
     }
     
     static let sharedInstance:MSession = MSession()
-    static let kFroobMaxRecords:Int = 3
+    static let kFroobMaxRecords:Int = 1
     private(set) var settings:DSettings?
     var camera:MCamera?
     var state:State
