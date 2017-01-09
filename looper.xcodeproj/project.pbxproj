@@ -41,6 +41,7 @@
 		DA4079041E241FFE002EED42 /* CStoreGoPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079031E241FFE002EED42 /* CStoreGoPlus.swift */; };
 		DA4079071E242358002EED42 /* VStoreGoPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079061E242358002EED42 /* VStoreGoPlus.swift */; };
 		DA4079091E2424DA002EED42 /* VStoreGoPlusButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079081E2424DA002EED42 /* VStoreGoPlusButtons.swift */; };
+		DA40790D1E2435F3002EED42 /* CCameraFilterBlender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40790C1E2435F3002EED42 /* CCameraFilterBlender.swift */; };
 		DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */; };
 		DA4EBC591E2086E000F9AC3D /* help.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4EBC581E2086E000F9AC3D /* help.xcassets */; };
 		DA4EBC5C1E208A0900F9AC3D /* MHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EBC5B1E208A0900F9AC3D /* MHelp.swift */; };
@@ -237,6 +238,7 @@
 		DA4079031E241FFE002EED42 /* CStoreGoPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStoreGoPlus.swift; sourceTree = "<group>"; };
 		DA4079061E242358002EED42 /* VStoreGoPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreGoPlus.swift; sourceTree = "<group>"; };
 		DA4079081E2424DA002EED42 /* VStoreGoPlusButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreGoPlusButtons.swift; sourceTree = "<group>"; };
+		DA40790C1E2435F3002EED42 /* CCameraFilterBlender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraFilterBlender.swift; sourceTree = "<group>"; };
 		DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
 		DA4EBC581E2086E000F9AC3D /* help.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = help.xcassets; sourceTree = "<group>"; };
 		DA4EBC5B1E208A0900F9AC3D /* MHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelp.swift; sourceTree = "<group>"; };
@@ -858,6 +860,7 @@
 				DA9B83F31E13255F002B9810 /* CCameraShoot.swift */,
 				DA5C523B1E15CC3000D296C6 /* CCameraFilter.swift */,
 				DAD88CFE1E1AF47300EAB6B7 /* CCameraFilterNone.swift */,
+				DA40790C1E2435F3002EED42 /* CCameraFilterBlender.swift */,
 				DAFC40B71E1A02780044B14B /* CCameraCompress.swift */,
 				DA38AF021E1BE6C0008C86A8 /* CCameraPreview.swift */,
 			);
@@ -1334,6 +1337,7 @@
 				DA9B83DD1E12E7E8002B9810 /* VParentBarButton.swift in Sources */,
 				DA9B83C51E12DCB8002B9810 /* CCamera.swift in Sources */,
 				DA9B83DC1E12E7E8002B9810 /* VParentBar.swift in Sources */,
+				DA40790D1E2435F3002EED42 /* CCameraFilterBlender.swift in Sources */,
 				DA1701BC1E2069E40049CE90 /* CHelp.swift in Sources */,
 				DA9D2F3A1E0ADF57003E37D5 /* VHomeControlCameraMenuTrigger.swift in Sources */,
 				DA4EBC5E1E208A2300F9AC3D /* MHelpItem.swift in Sources */,
