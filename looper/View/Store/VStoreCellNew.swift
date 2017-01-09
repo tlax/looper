@@ -41,6 +41,14 @@ class VStoreCellNew:VStoreCell
         addSubview(buttonPurchase)
         addSubview(labelPrice)
         
+        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:labelPrice,
+            toView:self)
+        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:labelPrice,
+            toView:self)
+        
+        
         let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint(
             item:labelPrice,
             attribute:NSLayoutAttribute.top,
