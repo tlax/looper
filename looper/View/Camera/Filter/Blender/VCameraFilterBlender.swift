@@ -8,7 +8,7 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 44
-    private let kCellWidth:CGFloat = 126
+    private let kCellWidth:CGFloat = 144
     
     override init(controller:CController)
     {
@@ -207,11 +207,17 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
                 return
             }
             
+            controller.currentSelected = indexPath.item
             collectionView.selectItem(
                 at:indexPath,
                 animated:true,
                 scrollPosition:UICollectionViewScrollPosition())
         }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView:UIScrollView)
+    {
+        trackScroll = true
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView:UIScrollView)
@@ -277,6 +283,7 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         trackScroll = false
+        controller.currentSelected = indexPath.item
         
         collectionView.scrollToItem(
             at:indexPath,

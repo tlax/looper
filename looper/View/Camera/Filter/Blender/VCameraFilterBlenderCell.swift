@@ -8,7 +8,7 @@ class VCameraFilterBlenderCell:UICollectionViewCell
     private weak var layoutImageLeft:NSLayoutConstraint!
     private let kCornerRadius:CGFloat = 8
     private let kImageTop:CGFloat = 250
-    private let kImageSize:CGFloat = 115
+    private let kImageSize:CGFloat = 134
     private let kSelectorHeight:CGFloat = 75
     private let kAlphaSelected:CGFloat = 1
     private let kAlphaNotSelected:CGFloat = 0.25
@@ -41,7 +41,7 @@ class VCameraFilterBlenderCell:UICollectionViewCell
         background.isUserInteractionEnabled = false
         background.translatesAutoresizingMaskIntoConstraints = false
         background.clipsToBounds = true
-        background.layer.cornerRadius = kCornerRadius
+        background.layer.cornerRadius = kCornerRadius + kBackgroundMargin
         self.background = background
         
         addSubview(selector)
