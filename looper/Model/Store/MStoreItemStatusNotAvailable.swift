@@ -1,9 +1,21 @@
-//
-//  MStoreItemStatusNotAvailable.swift
-//  looper
-//
-//  Created by zero on 1/9/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MStoreItemStatusNotAvailable:MStoreItemStatus
+{
+    private let kCellHeight:CGFloat = 50
+    private let kRestorable:Bool = false
+    
+    override init()
+    {
+        let reusableIdentifier:String = VStoreCellNotAvailable.reusableIdentifier
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            cellHeight:kCellHeight,
+            restorable:kRestorable)
+    }
+    
+    override init(reusableIdentifier:String, cellHeight:CGFloat, restorable:Bool)
+    {
+        fatalError()
+    }
+}
