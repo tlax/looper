@@ -8,7 +8,7 @@ class MStoreItemPlus:MStoreItem
     {
         let title:String = NSLocalizedString("MStoreItemPlus_title", comment:"")
         let descr:String = NSLocalizedString("MStoreItemPlus_descr", comment:"")
-        let image:UIImage = #imageLiteral(resourceName: "assetGenericPlus")
+        let image:UIImage = #imageLiteral(resourceName: "assetHelpFilter")
         
         super.init(
             purchaseId:kStorePurchaseId,
@@ -28,9 +28,8 @@ class MStoreItemPlus:MStoreItem
     
     override func purchaseAction()
     {
-        MSession.sharedInstance.settings?.hyperboreaPlus = true
+        MSession.sharedInstance.settings?.plus = true
         DManager.sharedInstance.save()
-        let _:Bool = MSession.sharedInstance.froobValidate()
     }
     
     override func validatePurchase() -> Bool
@@ -39,9 +38,9 @@ class MStoreItemPlus:MStoreItem
         
         guard
             
-            let plus:Bool = MSession.sharedInstance.settings?.hyperboreaPlus
+            let plus:Bool = MSession.sharedInstance.settings?.plus
             
-            else
+        else
         {
             return isPurchased
         }
