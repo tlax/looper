@@ -51,7 +51,7 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
         title.isUserInteractionEnabled = false
         title.translatesAutoresizingMaskIntoConstraints = false
         title.backgroundColor = UIColor.clear
-        title.font = UIFont.regular(size:14)
+        title.font = UIFont.medium(size:16§)
         title.textAlignment = NSTextAlignment.center
         title.textColor = UIColor.black
         title.text = NSLocalizedString("VCameraFilterBlender_title", comment:"")
@@ -146,6 +146,25 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
         
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MCameraRecord?
+    {
+        let item:MCameraRecord?
+        let indexItem:Int = index.item - 1
+        
+        if indexItem < 0
+        {
+            item = nil
+        }
+        else
+        {
+            item = MSession.sharedInstance.camera!.activeRecords![indexItem]
+        }
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
     
     func numberOfSections(in collectionView: UICollectionView) -> Int
@@ -155,15 +174,28 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        return 0
+        let count:Int
+        
+        if let activeRecords:[MCameraRecord] = MSession.sharedInstance.camera?.activeRecords
+        {
+            count = activeRecords.count + 1
+        }
+        else
+        {
+            count = 1
+        }
+        
+        return count
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MCameraRecord = modelAtIndex(index:indexPath)
         let cell:VCameraFilterBlenderCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VCameraFilterBlenderCell.reusableIdentifier,
             for:indexPath) as! VCameraFilterBlenderCell
+        cell.config(model:item)
         
         return cell
     }

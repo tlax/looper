@@ -2,7 +2,7 @@ import UIKit
 
 class CCameraFilterBlender:CController
 {
-    private weak var model:MCameraFilterItemBlend!
+    weak var model:MCameraFilterItemBlend!
     private weak var viewBlender:VCameraFilterBlender!
     
     init(model:MCameraFilterItemBlend)

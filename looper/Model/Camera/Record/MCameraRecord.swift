@@ -11,16 +11,23 @@ class MCameraRecord
     
     //MARK: public
     
-    func isActive() -> Bool
+    func activeVersion() -> MCameraRecord?
     {
+        var active:MCameraRecord?
+        
         for item:MCameraRecordItem in items
         {
             if item.active
             {
-                return true
+                if active == nil
+                {
+                    active = MCameraRecord()
+                }
+                
+                active!.items.append(item)
             }
         }
         
-        return false
+        return active
     }
 }

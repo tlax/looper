@@ -125,19 +125,7 @@ class VCameraFilterNoneCell:UICollectionViewCell
     
     func config(model:MCameraRecord)
     {
-        var image:UIImage?
-        
-        for item:MCameraRecordItem in model.items
-        {
-            if item.active
-            {
-                image = item.image
-                
-                break
-            }
-        }
-        
-        imageView.image = image
+        imageView.image = model.items.first?.image
         hover()
     }
 }

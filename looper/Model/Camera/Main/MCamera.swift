@@ -76,9 +76,12 @@ class MCamera
     {
         for record:MCameraRecord in records
         {
-            if record.isActive()
+            for item:MCameraRecordItem in record.items
             {
-                return true
+                if item.active
+                {
+                    return true
+                }
             }
         }
         
@@ -91,10 +94,16 @@ class MCamera
         
         for record:MCameraRecord in records
         {
-            if record.isActive()
+            guard
+            
+                let activeRecord:MCameraRecord = record.activeVersion()
+            
+            else
             {
-                activeRecords.append(record)
+                continue
             }
+            
+            activeRecords.append(activeRecord)
         }
         
         self.activeRecords = activeRecords
