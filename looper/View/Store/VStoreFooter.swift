@@ -3,7 +3,7 @@ import UIKit
 class VStoreFooter:UICollectionReusableView
 {
     private weak var controller:CStore?
-    private let kButtonHeight:CGFloat = 35
+    private let kButtonHeight:CGFloat = 32
     
     override init(frame:CGRect)
     {
@@ -30,11 +30,12 @@ class VStoreFooter:UICollectionReusableView
         
         addSubview(button)
         
-        let constraintsButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        let layoutButtonTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:button,
-            parent:self)
+            toView:self)
+        let layoutButtonHeight:NSLayoutConstraint = NSLayoutConstraint.height(view: <#T##UIView#>, constant: <#T##CGFloat#>)
         
-        addConstraints(constraintsButton)
+        addConstraints([])
     }
     
     required init?(coder:NSCoder)

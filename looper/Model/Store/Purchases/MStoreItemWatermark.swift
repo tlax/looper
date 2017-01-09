@@ -8,7 +8,7 @@ class MStoreItemWatermark:MStoreItem
     {
         let title:String = NSLocalizedString("MStoreItemWatermark_title", comment:"")
         let descr:String = NSLocalizedString("MStoreItemWatermark_descr", comment:"")
-        let image:UIImage = #imageLiteral(resourceName: "assetHelpFilter")
+        let image:UIImage = #imageLiteral(resourceName: "assetGenericStoreWatermark")
         
         super.init(
             purchaseId:kStorePurchaseId,
