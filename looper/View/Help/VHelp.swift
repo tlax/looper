@@ -155,7 +155,7 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func scrollViewDidScroll(_ scrollView:UIScrollView)
     {
-        let midX:CGFloat = scrollView.bounds.midX
+        let midX:CGFloat = scrollView.bounds.size.width / 2.0
         let midY:CGFloat = scrollView.bounds.midY
         let offsetX:CGFloat = scrollView.contentOffset.x
         let centerX:CGFloat = midX + offsetX

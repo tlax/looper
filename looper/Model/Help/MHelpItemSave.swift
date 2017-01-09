@@ -4,7 +4,7 @@ class MHelpItemSave:MHelpItem
 {
     override init()
     {
-        let image:UIImage = #imageLiteral(resourceName: "assetHelpFilter")
+        let image:UIImage = #imageLiteral(resourceName: "assetHelpSave")
         let title:String = NSLocalizedString("MHelpItemSave_title", comment:"")
         
         super.init(
