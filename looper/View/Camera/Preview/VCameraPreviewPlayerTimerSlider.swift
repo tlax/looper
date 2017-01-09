@@ -215,11 +215,11 @@ class VCameraPreviewPlayerTimerSlider:UIView
     
     private func thumbSelected()
     {
-        viewThumb.image = #imageLiteral(resourceName: "assetHomePlayerSliderSelected")
+        viewThumb.image = #imageLiteral(resourceName: "assetCameraSliderSelected")
     }
     
     private func thumbNormal()
     {
-        viewThumb.image = #imageLiteral(resourceName: "assetHomePlayerSlider")
+        viewThumb.image = #imageLiteral(resourceName: "assetCameraSlider")
     }
 }

@@ -30,11 +30,11 @@ class VCameraShootConfig:UIView
         let buttonAdd:UIButton = UIButton()
         buttonAdd.translatesAutoresizingMaskIntoConstraints = false
         buttonAdd.setImage(
-            #imageLiteral(resourceName: "assetHomeCameraFramesAdd").withRenderingMode(
+            #imageLiteral(resourceName: "assetCameraFramesAdd").withRenderingMode(
                 UIImageRenderingMode.alwaysOriginal),
             for:UIControlState.normal)
         buttonAdd.setImage(
-            #imageLiteral(resourceName: "assetHomeCameraFramesAdd").withRenderingMode(
+            #imageLiteral(resourceName: "assetCameraFramesAdd").withRenderingMode(
                 UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
         buttonAdd.imageView!.contentMode = UIViewContentMode.center
@@ -54,11 +54,11 @@ class VCameraShootConfig:UIView
         let buttonRest:UIButton = UIButton()
         buttonRest.translatesAutoresizingMaskIntoConstraints = false
         buttonRest.setImage(
-            #imageLiteral(resourceName: "assetHomeCameraFramesRest").withRenderingMode(
+            #imageLiteral(resourceName: "assetCameraFramesRest").withRenderingMode(
                 UIImageRenderingMode.alwaysOriginal),
             for:UIControlState.normal)
         buttonRest.setImage(
-            #imageLiteral(resourceName: "assetHomeCameraFramesRest").withRenderingMode(
+            #imageLiteral(resourceName: "assetCameraFramesRest").withRenderingMode(
                 UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
         buttonRest.imageView!.contentMode = UIViewContentMode.center
