@@ -4,13 +4,16 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
 {
     private weak var controller:CCameraFilterBlender!
     private weak var collectionView:VCollection!
+    private var trackScroll:Bool
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 44
-    private let kCellWidth:CGFloat = 90
+    private let kCellWidth:CGFloat = 126
     
     override init(controller:CController)
     {
+        trackScroll = true
+        
         super.init(controller:controller)
         self.controller = controller as? CCameraFilterBlender
         
@@ -52,7 +55,7 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
         title.isUserInteractionEnabled = false
         title.translatesAutoresizingMaskIntoConstraints = false
         title.backgroundColor = UIColor.clear
-        title.font = UIFont.medium(size:16)
+        title.font = UIFont.bold(size:16)
         title.textAlignment = NSTextAlignment.center
         title.textColor = UIColor.black
         title.text = NSLocalizedString("VCameraFilterBlender_title", comment:"")
@@ -171,6 +174,37 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
     
     //MARK: collectionView delegate
     
+    func scrollViewDidScroll(_ scrollView:UIScrollView)
+    {
+        if trackScroll
+        {
+            let offsetX:CGFloat = scrollView.contentOffset.x
+            let midX:CGFloat = scrollView.bounds.size.width / 2.0
+            let midY:CGFloat = scrollView.bounds.size.height / 2.0
+            let totalX:CGFloat = midX + offsetX
+            let point:CGPoint = CGPoint(x:totalX, y:midY)
+            
+            guard
+                
+                let indexPath:IndexPath = collectionView.indexPathForItem(at:point)
+                
+            else
+            {
+                return
+            }
+            
+            collectionView.selectItem(
+                at:indexPath,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView:UIScrollView)
+    {
+        trackScroll = true
+    }
+    
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         let height:CGFloat = collectionView.bounds.maxY
@@ -224,5 +258,15 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        trackScroll = false
+        
+        collectionView.scrollToItem(
+            at:indexPath,
+            at:UICollectionViewScrollPosition.centeredHorizontally,
+            animated:true)
     }
 }

@@ -4,16 +4,15 @@ class VCameraFilterBlenderCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var layoutImageLeft:NSLayoutConstraint!
-    private let kImageTop:CGFloat = 200
-    private let kImageSize:CGFloat = 80
+    private let kCornerRadius:CGFloat = 8
+    private let kImageTop:CGFloat = 300
+    private let kImageSize:CGFloat = 115
     private let kAlphaSelected:CGFloat = 1
-    private let kAlphaNotSelected:CGFloat = 0.3
-    private let imageRadius:CGFloat
+    private let kAlphaNotSelected:CGFloat = 0.25
+    private let kBackgroundMargin:CGFloat = 2
     
     override init(frame:CGRect)
     {
-        imageRadius = kImageSize / 2.0
-        
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -24,10 +23,17 @@ class VCameraFilterBlenderCell:UICollectionViewCell
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.backgroundColor = UIColor.black
-        imageView.layer.borderColor = UIColor(white:0.9, alpha:1).cgColor
-        imageView.layer.borderWidth = 1
+        imageView.layer.cornerRadius = kCornerRadius
         self.imageView = imageView
         
+        let background:UIView = UIView()
+        background.isUserInteractionEnabled = false
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.clipsToBounds = true
+        background.backgroundColor = UIColor(white:0.96, alpha:1)
+        background.layer.cornerRadius = kCornerRadius
+        
+        addSubview(background)
         addSubview(imageView)
         
         let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
@@ -44,11 +50,32 @@ class VCameraFilterBlenderCell:UICollectionViewCell
             view:imageView,
             constant:kImageSize)
         
+        let layoutBackgroundTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:background,
+            toView:imageView,
+            constant:-kBackgroundMargin)
+        let layoutBackgroundBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:background,
+            toView:imageView,
+            constant:kBackgroundMargin)
+        let layoutBackgroundLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:background,
+            toView:imageView,
+            constant:-kBackgroundMargin)
+        let layoutBackgroundRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:background,
+            toView:imageView,
+            constant:kBackgroundMargin)
+        
         addConstraints([
             layoutImageTop,
             layoutImageHeight,
             layoutImageLeft,
-            layoutImageWidth])
+            layoutImageWidth,
+            layoutBackgroundTop,
+            layoutBackgroundBottom,
+            layoutBackgroundLeft,
+            layoutBackgroundRight])
     }
     
     required init?(coder:NSCoder)
@@ -62,7 +89,6 @@ class VCameraFilterBlenderCell:UICollectionViewCell
         let remainImage:CGFloat = width - kImageSize
         let marginImage:CGFloat = remainImage / 2.0
         
-        imageView.layer.cornerRadius = imageRadius
         layoutImageLeft.constant = marginImage
         super.layoutSubviews()
     }
@@ -102,5 +128,6 @@ class VCameraFilterBlenderCell:UICollectionViewCell
     func config(model:MCameraRecord?)
     {
         imageView.image = model?.items.first?.image
+        hover()
     }
 }
