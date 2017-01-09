@@ -33,9 +33,21 @@ class VStoreFooter:UICollectionReusableView
         let layoutButtonTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:button,
             toView:self)
-        let layoutButtonHeight:NSLayoutConstraint = NSLayoutConstraint.height(view: <#T##UIView#>, constant: <#T##CGFloat#>)
+        let layoutButtonHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:button,
+            constant:kButtonHeight)
+        let layoutButtonLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:button,
+            toView:self)
+        let layoutButtonRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:button,
+            toView:self)
         
-        addConstraints([])
+        addConstraints([
+            layoutButtonTop,
+            layoutButtonHeight,
+            layoutButtonLeft,
+            layoutButtonRight])
     }
     
     required init?(coder:NSCoder)
