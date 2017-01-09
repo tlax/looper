@@ -24,7 +24,7 @@ class CStoreGoPlus:CController
         
         parentController.dismissAnimateOver
         {
-            parentController.moveToStore()
+            parentController.viewParent.viewBar.moveToStore()
         }
     }
 }

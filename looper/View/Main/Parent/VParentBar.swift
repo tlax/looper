@@ -181,4 +181,13 @@ class VParentBar:UIView
         
         controller.moveToLoops()
     }
+    
+    func moveToStore()
+    {
+        buttonLoops.notActive()
+        buttonCamera.notActive()
+        buttonStore.active()
+        
+        controller.moveToStore()
+    }
 }
