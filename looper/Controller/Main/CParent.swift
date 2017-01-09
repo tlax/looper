@@ -183,6 +183,30 @@ class CParent:UIViewController
         }
     }
     
+    func animateOver(controller:CController)
+    {
+        guard
+            
+            let currentController:CController = childViewControllers.last as? CController,
+            let newView:VView = controller.view as? VView
+            
+        else
+        {
+            return
+        }
+        
+        addChildViewController(controller)
+        controller.beginAppearanceTransition(true, animated:true)
+        currentController.beginAppearanceTransition(false, animated:true)
+        
+        viewParent.animateOver(
+            newView:newView)
+        {
+            controller.endAppearanceTransition()
+            currentController.endAppearanceTransition()
+        }
+    }
+    
     func removeBetweenFirstAndLast()
     {
         var controllers:Int = childViewControllers.count - 1

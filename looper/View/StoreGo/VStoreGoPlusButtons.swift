@@ -22,7 +22,7 @@ class VStoreGoPlusButtons:UIView
             NSLocalizedString("VHomeFroobButtons_buttonStore", comment:""),
             for:UIControlState.normal)
         buttonStore.setTitleColor(
-            UIColor.genericBlue,
+            UIColor.genericLight,
             for:UIControlState.normal)
         buttonStore.setTitleColor(
             UIColor(white:0, alpha:0.1),

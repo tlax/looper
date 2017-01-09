@@ -2,13 +2,13 @@ import UIKit
 
 class CStoreGoPlus:CController
 {
-    private weak var viewFroob:VHomeFroob!
+    private weak var viewGoPlus:VStoreGoPlus!
     
     override func loadView()
     {
-        let viewFroob:VHomeFroob = VHomeFroob(controller:self)
-        self.viewFroob = viewFroob
-        view = viewFroob
+        let viewGoPlus:VStoreGoPlus = VStoreGoPlus(controller:self)
+        self.viewGoPlus = viewGoPlus
+        view = viewGoPlus
     }
     
     //MARK: public
@@ -25,7 +25,7 @@ class CStoreGoPlus:CController
         let parentController:CParent = self.parentController
         
         parentController.dismissAnimateOver
-            {
+        {
                 parentController.push(controller:store)
         }
     }

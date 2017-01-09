@@ -62,24 +62,11 @@ class VParent:UIView
     {
         insertSubview(view, belowSubview:viewBar)
         
-        view.layoutTop = NSLayoutConstraint.topToTop(
+        let constraintsView:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:view,
-            toView:self)
-        view.layoutBottom = NSLayoutConstraint.bottomToBottom(
-            view:view,
-            toView:self)
-        view.layoutLeft = NSLayoutConstraint.leftToLeft(
-            view:view,
-            toView:self)
-        view.layoutRight = NSLayoutConstraint.rightToRight(
-            view:view,
-            toView:self)
+            parent:self)
         
-        addConstraints([
-            view.layoutTop,
-            view.layoutBottom,
-            view.layoutLeft,
-            view.layoutRight])
+        addConstraints(constraintsView)
     }
     
     func slide(
@@ -175,6 +162,32 @@ class VParent:UIView
         {
             self.layoutIfNeeded()
         })
+        { (done:Bool) in
+            
+            completion()
+        }
+    }
+    
+    func animateOver(
+        newView:VView,
+        completion:@escaping(() -> ()))
+    {
+        newView.alpha = 0
+        addSubview(newView)
+        
+        let constraintsView:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:newView,
+            parent:self)
+        
+        addConstraints(constraintsView)
+        
+        UIView.animate(
+            withDuration:kAnimationDuration,
+            animations:
+            { [weak newView] in
+                
+                newView?.alpha = 1
+            })
         { (done:Bool) in
             
             completion()
