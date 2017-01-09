@@ -7,6 +7,7 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 44
+    private let kCellWidth:CGFloat = 90
     
     override init(controller:CController)
     {
@@ -51,7 +52,7 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
         title.isUserInteractionEnabled = false
         title.translatesAutoresizingMaskIntoConstraints = false
         title.backgroundColor = UIColor.clear
-        title.font = UIFont.medium(size:16§)
+        title.font = UIFont.medium(size:16)
         title.textAlignment = NSTextAlignment.center
         title.textColor = UIColor.black
         title.text = NSLocalizedString("VCameraFilterBlender_title", comment:"")
@@ -59,6 +60,9 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
         let collectionView:VCollection = VCollection()
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         collectionView.alwaysBounceHorizontal = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(cell:VCameraFilterBlenderCell.self)
         self.collectionView = collectionView
         
         addSubview(title)
@@ -167,6 +171,28 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
     
     //MARK: collectionView delegate
     
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let height:CGFloat = collectionView.bounds.maxY
+        let size:CGSize = CGSize(width:kCellWidth, height:height)
+        
+        return size
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let remain:CGFloat = width - kCellWidth
+        let margin:CGFloat = remain / 2.0
+        let insets:UIEdgeInsets = UIEdgeInsets(
+            top:0,
+            left:margin,
+            bottom:0,
+            right:margin)
+        
+        return insets
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int
     {
         return 1
@@ -190,7 +216,7 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MCameraRecord = modelAtIndex(index:indexPath)
+        let item:MCameraRecord? = modelAtIndex(index:indexPath)
         let cell:VCameraFilterBlenderCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VCameraFilterBlenderCell.reusableIdentifier,

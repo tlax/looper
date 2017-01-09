@@ -3,8 +3,9 @@ import UIKit
 class VCameraFilterBlenderCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
+    private weak var layoutImageLeft:NSLayoutConstraint!
     private let kImageTop:CGFloat = 200
-    private let kImageSize:CGFloat = 120
+    private let kImageSize:CGFloat = 80
     private let kAlphaSelected:CGFloat = 1
     private let kAlphaNotSelected:CGFloat = 0.3
     private let imageRadius:CGFloat
@@ -21,13 +22,33 @@ class VCameraFilterBlenderCell:UICollectionViewCell
         imageView.isUserInteractionEnabled = false
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = UIViewContentMode.center
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.backgroundColor = UIColor.black
-        imageView.layer.borderColor = UIColor(white:0.96, alpha:1).cgColor
+        imageView.layer.borderColor = UIColor(white:0.9, alpha:1).cgColor
         imageView.layer.borderWidth = 1
         self.imageView = imageView
         
         addSubview(imageView)
+        
+        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:imageView,
+            toView:self,
+            constant:kImageTop)
+        let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:imageView,
+            constant:kImageSize)
+        layoutImageLeft = NSLayoutConstraint.leftToLeft(
+            view:imageView,
+            toView:self)
+        let layoutImageWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:imageView,
+            constant:kImageSize)
+        
+        addConstraints([
+            layoutImageTop,
+            layoutImageHeight,
+            layoutImageLeft,
+            layoutImageWidth])
     }
     
     required init?(coder:NSCoder)
@@ -37,8 +58,12 @@ class VCameraFilterBlenderCell:UICollectionViewCell
     
     override func layoutSubviews()
     {
-        imageView.layer.cornerRadius = imageRadius
+        let width:CGFloat = bounds.maxX
+        let remainImage:CGFloat = width - kImageSize
+        let marginImage:CGFloat = remainImage / 2.0
         
+        imageView.layer.cornerRadius = imageRadius
+        layoutImageLeft.constant = marginImage
         super.layoutSubviews()
     }
     
