@@ -172,6 +172,7 @@
 		DAF604C21E23408400A1259E /* VStoreCellDeferred.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604C11E23408400A1259E /* VStoreCellDeferred.swift */; };
 		DAF604C41E2340CE00A1259E /* VStoreCellNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604C31E2340CE00A1259E /* VStoreCellNew.swift */; };
 		DAF604C61E23DBB100A1259E /* VStoreCellPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604C51E23DBB100A1259E /* VStoreCellPurchasing.swift */; };
+		DAF604C81E23DBF000A1259E /* VStoreCellPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604C71E23DBF000A1259E /* VStoreCellPurchased.swift */; };
 		DAF976181E17187500811D61 /* VCameraActiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF976171E17187500811D61 /* VCameraActiveButton.swift */; };
 		DAF9761A1E171E1A00811D61 /* VCameraCellControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF976191E171E1A00811D61 /* VCameraCellControls.swift */; };
 		DAFC40B81E1A02780044B14B /* CCameraCompress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC40B71E1A02780044B14B /* CCameraCompress.swift */; };
@@ -358,6 +359,7 @@
 		DAF604C11E23408400A1259E /* VStoreCellDeferred.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellDeferred.swift; sourceTree = "<group>"; };
 		DAF604C31E2340CE00A1259E /* VStoreCellNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellNew.swift; sourceTree = "<group>"; };
 		DAF604C51E23DBB100A1259E /* VStoreCellPurchasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellPurchasing.swift; sourceTree = "<group>"; };
+		DAF604C71E23DBF000A1259E /* VStoreCellPurchased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellPurchased.swift; sourceTree = "<group>"; };
 		DAF976171E17187500811D61 /* VCameraActiveButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraActiveButton.swift; sourceTree = "<group>"; };
 		DAF976191E171E1A00811D61 /* VCameraCellControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraCellControls.swift; sourceTree = "<group>"; };
 		DAFC40B71E1A02780044B14B /* CCameraCompress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraCompress.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				DAF604C11E23408400A1259E /* VStoreCellDeferred.swift */,
 				DAF604C31E2340CE00A1259E /* VStoreCellNew.swift */,
 				DAF604C51E23DBB100A1259E /* VStoreCellPurchasing.swift */,
+				DAF604C71E23DBF000A1259E /* VStoreCellPurchased.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -1227,6 +1230,7 @@
 				DA799CDE1E1436B000AB45DD /* MCameraSpeed1.swift in Sources */,
 				DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */,
 				DAFC40BA1E1A02A00044B14B /* VCameraCompress.swift in Sources */,
+				DAF604C81E23DBF000A1259E /* VStoreCellPurchased.swift in Sources */,
 				DAD778E51E10634D009B1A81 /* VHomeControlSequencesMenu.swift in Sources */,
 				DA38AF181E1C5F20008C86A8 /* VLoopsCell.swift in Sources */,
 				DAFC40BC1E1A03B10044B14B /* MCameraCompress.swift in Sources */,
