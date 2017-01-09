@@ -14,4 +14,11 @@ class MCameraFilterItemBlend:MCameraFilterItem
     {
         fatalError()
     }
+    
+    override func processController() -> CController?
+    {
+        let controller:CCameraFilterBlender = CCameraFilterBlender(model:self)
+        
+        return controller
+    }
 }

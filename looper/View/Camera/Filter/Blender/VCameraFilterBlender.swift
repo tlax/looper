@@ -5,7 +5,7 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
     private weak var controller:CCameraFilterBlender!
     private weak var collectionView:VCollection!
     private let kContentTop:CGFloat = 20
-    private let kBackWidth:CGFloat = 55
+    private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 44
     
     override init(controller:CController)
@@ -47,12 +47,24 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
             action:#selector(actionNext(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let title:UILabel = UILabel()
+        title.isUserInteractionEnabled = false
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.backgroundColor = UIColor.clear
+        title.font = UIFont.regular(size:14)
+        title.textAlignment = NSTextAlignment.center
+        title.textColor = UIColor.black
+        title.text = NSLocalizedString("VCameraFilterBlender_title", comment:"")
+        
         let collectionView:VCollection = VCollection()
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         collectionView.alwaysBounceHorizontal = true
         self.collectionView = collectionView
         
+        addSubview(title)
         addSubview(collectionView)
+        addSubview(backButton)
+        addSubview(nextButton)
         
         let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:collectionView,
@@ -70,7 +82,35 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
             toView:self)
         let layoutBackWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:backButton,
-            constant:kBackWidth)
+            constant:kButtonsWidth)
+        
+        let layoutNextTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:nextButton,
+            toView:self,
+            constant:kContentTop)
+        let layoutNextHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:nextButton,
+            constant:kButtonsHeight)
+        let layoutNextRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:nextButton,
+            toView:self)
+        let layoutNextWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:nextButton,
+            constant:kButtonsWidth)
+        
+        let layoutTitleTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:title,
+            toView:self,
+            constant:kContentTop)
+        let layoutTitleHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:title,
+            constant:kButtonsHeight)
+        let layoutTitleLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:title,
+            toView:self)
+        let layoutTitleRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:title,
+            toView:self)
         
         addConstraints(constraintsCollection)
         
@@ -78,7 +118,15 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
             layoutBackTop,
             layoutBackHeight,
             layoutBackLeft,
-            layoutBackWidth])
+            layoutBackWidth,
+            layoutNextTop,
+            layoutNextHeight,
+            layoutNextRight,
+            layoutNextWidth,
+            layoutTitleTop,
+            layoutTitleHeight,
+            layoutTitleLeft,
+            layoutTitleRight])
     }
     
     required init?(coder:NSCoder)
