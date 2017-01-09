@@ -2,12 +2,14 @@ import UIKit
 
 class CCameraFilterBlender:CController
 {
+    var currentSelected:Int
     weak var model:MCameraFilterItemBlend!
     private weak var viewBlender:VCameraFilterBlender!
     
     init(model:MCameraFilterItemBlend)
     {
         self.model = model
+        currentSelected = 0
         super.init()
     }
     
@@ -21,6 +23,12 @@ class CCameraFilterBlender:CController
         let viewBlender:VCameraFilterBlender = VCameraFilterBlender(controller:self)
         self.viewBlender = viewBlender
         view = viewBlender
+    }
+    
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        viewBlender.selectCurrent()
     }
     
     //MARK: public

@@ -4,14 +4,15 @@ class VCameraFilterBlenderCell:UICollectionViewCell
 {
     private weak var selector:UIImageView!
     private weak var imageView:UIImageView!
+    private weak var background:UIView!
     private weak var layoutImageLeft:NSLayoutConstraint!
     private let kCornerRadius:CGFloat = 8
-    private let kImageTop:CGFloat = 300
+    private let kImageTop:CGFloat = 250
     private let kImageSize:CGFloat = 115
-    private let kSelectorHeight:CGFloat = 100
+    private let kSelectorHeight:CGFloat = 75
     private let kAlphaSelected:CGFloat = 1
     private let kAlphaNotSelected:CGFloat = 0.25
-    private let kBackgroundMargin:CGFloat = 2
+    private let kBackgroundMargin:CGFloat = 3
     
     override init(frame:CGRect)
     {
@@ -40,8 +41,8 @@ class VCameraFilterBlenderCell:UICollectionViewCell
         background.isUserInteractionEnabled = false
         background.translatesAutoresizingMaskIntoConstraints = false
         background.clipsToBounds = true
-        background.backgroundColor = UIColor(white:0.96, alpha:1)
         background.layer.cornerRadius = kCornerRadius
+        self.background = background
         
         addSubview(selector)
         addSubview(background)
@@ -145,11 +146,13 @@ class VCameraFilterBlenderCell:UICollectionViewCell
         {
             alpha = kAlphaSelected
             selector.isHidden = false
+            background.backgroundColor = UIColor.genericLight
         }
         else
         {
             alpha = kAlphaNotSelected
             selector.isHidden = true
+            background.backgroundColor = UIColor(white:0.96, alpha:1)
         }
     }
     

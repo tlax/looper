@@ -172,6 +172,20 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
         return item
     }
     
+    //MARK: public
+    
+    func selectCurrent()
+    {
+        let indexPath:IndexPath = IndexPath(
+            item:controller.currentSelected,
+            section:0)
+        
+        collectionView.selectItem(
+            at:indexPath,
+            animated:true,
+            scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
+    }
+    
     //MARK: collectionView delegate
     
     func scrollViewDidScroll(_ scrollView:UIScrollView)
