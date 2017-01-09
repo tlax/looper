@@ -294,4 +294,40 @@ class CParent:UIViewController
             }
         }
     }
+    
+    func dismissAnimateOver(completion:(() -> ())?)
+    {
+        guard
+            
+            let currentController:CController = childViewControllers.last as? CController,
+            let currentView:VView = currentController.view as? VView
+            
+        else
+        {
+            return
+        }
+        
+        currentController.removeFromParentViewController()
+        
+        guard
+            
+            let previousController:CController = childViewControllers.last as? CController
+            
+        else
+        {
+            return
+        }
+        
+        currentController.beginAppearanceTransition(false, animated:true)
+        previousController.beginAppearanceTransition(true, animated:true)
+        
+        viewParent.dismissAnimateOver(
+            currentView:currentView)
+        {
+            currentController.endAppearanceTransition()
+            previousController.endAppearanceTransition()
+            
+            completion?()
+        }
+    }
 }

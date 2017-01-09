@@ -217,4 +217,22 @@ class VParent:UIView
             completion()
         }
     }
+    
+    func dismissAnimateOver(
+        currentView:VView,
+        completion:@escaping(() -> ()))
+    {
+        UIView.animate(
+            withDuration:kAnimationDuration,
+            animations:
+            { [weak currentView] in
+                
+                currentView?.alpha = 0
+            })
+        { [weak currentView] (done:Bool) in
+            
+            currentView?.removeFromSuperview()
+            completion()
+        }
+    }
 }
