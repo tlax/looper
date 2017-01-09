@@ -27,7 +27,7 @@ class MCameraFilterItem
     {
         guard
         
-            let noWatermark:Bool = MSession.sharedInstance.settings?.noWatermark
+            let watermark:Bool = MSession.sharedInstance.settings?.watermark
         
         else
         {
@@ -36,7 +36,7 @@ class MCameraFilterItem
         
         let markedRecord:MCameraRecord
         
-        if noWatermark
+        if watermark
         {
             markedRecord = original
         }

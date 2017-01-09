@@ -123,7 +123,7 @@ class VCameraHeader:UICollectionReusableView
         
         guard
         
-            let unlimitedRecords:Bool = MSession.sharedInstance.settings?.unlimitedRecords,
+            let plus:Bool = MSession.sharedInstance.settings?.plus,
             let currentRecords:Int = MSession.sharedInstance.camera?.records.count
         
         else
@@ -133,7 +133,7 @@ class VCameraHeader:UICollectionReusableView
             return
         }
         
-        if !unlimitedRecords && currentRecords >= MSession.kFroobMaxRecords
+        if !plus && currentRecords >= MSession.kFroobMaxRecords
         {
             button.active()
             print("records full")

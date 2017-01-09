@@ -13,7 +13,7 @@ class VStoreCellNew:VStoreCell
         
         let buttonPurchase:UIButton = UIButton()
         buttonPurchase.translatesAutoresizingMaskIntoConstraints = false
-        buttonPurchase.backgroundColor = UIColor.genericBlue
+        buttonPurchase.backgroundColor = UIColor.genericLight
         buttonPurchase.setTitleColor(
             UIColor.white,
             for:UIControlState.normal)
