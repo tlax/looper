@@ -2,11 +2,13 @@ import UIKit
 
 class VCameraFilterBlenderCell:UICollectionViewCell
 {
+    private weak var selector:UIImageView!
     private weak var imageView:UIImageView!
     private weak var layoutImageLeft:NSLayoutConstraint!
     private let kCornerRadius:CGFloat = 8
     private let kImageTop:CGFloat = 300
     private let kImageSize:CGFloat = 115
+    private let kSelectorHeight:CGFloat = 100
     private let kAlphaSelected:CGFloat = 1
     private let kAlphaNotSelected:CGFloat = 0.25
     private let kBackgroundMargin:CGFloat = 2
@@ -16,6 +18,14 @@ class VCameraFilterBlenderCell:UICollectionViewCell
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
+        
+        let selector:UIImageView = UIImageView()
+        selector.isUserInteractionEnabled = false
+        selector.translatesAutoresizingMaskIntoConstraints = false
+        selector.clipsToBounds = true
+        selector.image = #imageLiteral(resourceName: "assetCameraFilterBlenderSelect")
+        selector.contentMode = UIViewContentMode.center
+        self.selector = selector
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -33,6 +43,7 @@ class VCameraFilterBlenderCell:UICollectionViewCell
         background.backgroundColor = UIColor(white:0.96, alpha:1)
         background.layer.cornerRadius = kCornerRadius
         
+        addSubview(selector)
         addSubview(background)
         addSubview(imageView)
         
@@ -67,6 +78,19 @@ class VCameraFilterBlenderCell:UICollectionViewCell
             toView:imageView,
             constant:kBackgroundMargin)
         
+        let layoutSelectorBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+            view:selector,
+            toView:imageView)
+        let layoutSelectorHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:selector,
+            constant:kSelectorHeight)
+        let layoutSelectorLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:selector,
+            toView:self)
+        let layoutSelectorRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:selector,
+            toView:self)
+        
         addConstraints([
             layoutImageTop,
             layoutImageHeight,
@@ -75,7 +99,11 @@ class VCameraFilterBlenderCell:UICollectionViewCell
             layoutBackgroundTop,
             layoutBackgroundBottom,
             layoutBackgroundLeft,
-            layoutBackgroundRight])
+            layoutBackgroundRight,
+            layoutSelectorBottom,
+            layoutSelectorHeight,
+            layoutSelectorLeft,
+            layoutSelectorRight])
     }
     
     required init?(coder:NSCoder)
@@ -116,10 +144,12 @@ class VCameraFilterBlenderCell:UICollectionViewCell
         if isSelected || isHighlighted
         {
             alpha = kAlphaSelected
+            selector.isHidden = false
         }
         else
         {
             alpha = kAlphaNotSelected
+            selector.isHidden = true
         }
     }
     
