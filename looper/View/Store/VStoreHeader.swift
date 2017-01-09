@@ -28,6 +28,7 @@ class VStoreHeader:UICollectionReusableView
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.white
+        isUserInteractionEnabled = false
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
