@@ -5,7 +5,7 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
     private weak var controller:CStore!
     private weak var spinner:VSpinner?
     private weak var collectionView:VCollection!
-    private let kHeaderHeight:CGFloat = 150
+    private let kHeaderHeight:CGFloat = 180
     private let kFooterHeight:CGFloat = 70
     private let kInterLine:CGFloat = 1
     private let kCollectionTop:CGFloat = 64
@@ -44,15 +44,30 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         addSubview(collectionView)
         addSubview(spinner)
         
-        let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:collectionView,
-            parent:self)
+            toView:self,
+            constant:kCollectionTop)
+        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:collectionView,
+            toView:self)
+        
         let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:spinner,
             parent:self)
         
-        addConstraints(constraintsCollection)
         addConstraints(constraintsSpinner)
+        addConstraints([
+            layoutCollectionTop,
+            layoutCollectionBottom,
+            layoutCollectionLeft,
+            layoutCollectionRight])
     }
     
     required init?(coder:NSCoder)

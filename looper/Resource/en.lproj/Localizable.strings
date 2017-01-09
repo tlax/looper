@@ -36,6 +36,6 @@
 "MHelpItemSave_title"="Save it, you can play it anytime and share it";
 
 "MStoreItemPlus_title"="looper plus";
-"MStoreItemPlus_descr"="\nRemove restrictions for video recording when creating a new loop";
-"MStoreItemWatermark_title"="Remove watermark";
-"MStoreItemWatermark_descr"="\nRemove watermark from your loops";
+"MStoreItemPlus_descr"="\No more restrictions for video recording when creating new loops";
+"MStoreItemWatermark_title"="No watermark";
+"MStoreItemWatermark_descr"="\nRemove the watermark from your loops";

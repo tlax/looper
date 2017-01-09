@@ -11,7 +11,7 @@ class VStoreHeader:UICollectionReusableView
     private let kLabelTop:CGFloat = 16
     private let kLabelLeft:CGFloat = 10
     private let kLabelRight:CGFloat = -10
-    private let kImageSize:CGFloat = 72
+    private let kImageSize:CGFloat = 100
     
     override init(frame:CGRect)
     {
@@ -23,7 +23,7 @@ class VStoreHeader:UICollectionReusableView
             NSFontAttributeName:UIFont.regular(size:18),
             NSForegroundColorAttributeName:UIColor.black]
         
-        labelMargins = kLabelRight + kImageSize
+        labelMargins = -kLabelRight + kLabelLeft + kImageSize
         
         super.init(frame:frame)
         clipsToBounds = true
