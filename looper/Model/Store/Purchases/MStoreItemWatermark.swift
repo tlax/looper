@@ -6,8 +6,8 @@ class MStoreItemWatermark:MStoreItem
     
     override init()
     {
-        let title:String = NSLocalizedString("MStoreItemPlus_title", comment:"")
-        let descr:String = NSLocalizedString("MStoreItemPlus_descr", comment:"")
+        let title:String = NSLocalizedString("MStoreItemWatermark_title", comment:"")
+        let descr:String = NSLocalizedString("MStoreItemWatermark_descr", comment:"")
         let image:UIImage = #imageLiteral(resourceName: "assetGenericPlus")
         
         super.init(
@@ -28,9 +28,8 @@ class MStoreItemWatermark:MStoreItem
     
     override func purchaseAction()
     {
-        MSession.sharedInstance.settings?.hyperboreaPlus = true
+        MSession.sharedInstance.settings?.watermark = true
         DManager.sharedInstance.save()
-        let _:Bool = MSession.sharedInstance.froobValidate()
     }
     
     override func validatePurchase() -> Bool
@@ -39,14 +38,14 @@ class MStoreItemWatermark:MStoreItem
         
         guard
             
-            let plus:Bool = MSession.sharedInstance.settings?.hyperboreaPlus
+            let watermark:Bool = MSession.sharedInstance.settings?.watermark
             
-            else
+        else
         {
             return isPurchased
         }
         
-        isPurchased = plus
+        isPurchased = watermark
         
         return isPurchased
     }
