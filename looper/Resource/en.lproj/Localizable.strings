@@ -32,10 +32,10 @@
 "MCameraCompressItemMax_title"="Max compression\n";
 "MHelpItemRecord_title"="Capture your videos";
 "MHelpItemFilter_title"="Apply filters and other cool effects on the videos";
-"MHelpItemCompress_title"="Select how much you want to compress it making it easier to store and share";
-"MHelpItemSave_title"="Save it, you can play it anytime and share it";
+"MHelpItemCompress_title"="Compress your loop to make it easier to share";
+"MHelpItemSave_title"="Save it, you will be able to play it anytime and share it";
 
 "MStoreItemPlus_title"="looper plus";
-"MStoreItemPlus_descr"="\No more restrictions for video recording when creating new loops";
+"MStoreItemPlus_descr"="\nNo more restrictions for video recording when creating new loops";
 "MStoreItemWatermark_title"="No watermark";
 "MStoreItemWatermark_descr"="\nRemove the watermark from your loops";
