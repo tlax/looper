@@ -3,15 +3,12 @@ import UIKit
 class VStoreGoPlus:VView
 {
     private weak var controller:CStoreGoPlus!
-    private weak var clock:VHomeFroobClock?
     private weak var layoutBaseViewLeft:NSLayoutConstraint!
     private weak var layoutBaseViewTop:NSLayoutConstraint!
     private let kBaseWidth:CGFloat = 299
     private let kBaseHeight:CGFloat = 180
     private let kButtonHeight:CGFloat = 54
     private let kCornerRadius:CGFloat = 20
-    private let kClockHeight:CGFloat = 35
-    private let kClockTop:CGFloat = 35
     private let kLabelTitleHeight:CGFloat = 25
     private let kLabelDescrHeight:CGFloat = 20
     private let kImageTop:CGFloat = -40
@@ -21,7 +18,7 @@ class VStoreGoPlus:VView
     {
         super.init(controller:controller)
         backgroundColor = UIColor.clear
-        self.controller = controller as? CHomeFroob
+        self.controller = controller as? CStoreGoPlus
         
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.dark)
         let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
@@ -62,9 +59,6 @@ class VStoreGoPlus:VView
         labelDescr.numberOfLines = 0
         labelDescr.translatesAutoresizingMaskIntoConstraints = false
         labelDescr.text = NSLocalizedString("VHomeFroob_descr", comment:"")
-        
-        let clock:VHomeFroobClock = VHomeFroobClock(controller:self.controller)
-        self.clock = clock
         
         let buttons:VHomeFroobButtons = VHomeFroobButtons(controller:self.controller)
         
