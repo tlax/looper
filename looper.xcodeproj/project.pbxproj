@@ -38,6 +38,7 @@
 		DA38AF141E1C302D008C86A8 /* VCameraPreviewPlayerTimerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF131E1C302D008C86A8 /* VCameraPreviewPlayerTimerSlider.swift */; };
 		DA38AF161E1C4E5E008C86A8 /* ExtensionURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF151E1C4E5E008C86A8 /* ExtensionURL.swift */; };
 		DA38AF181E1C5F20008C86A8 /* VLoopsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF171E1C5F20008C86A8 /* VLoopsCell.swift */; };
+		DA4079041E241FFE002EED42 /* CStoreGoPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079031E241FFE002EED42 /* CStoreGoPlus.swift */; };
 		DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */; };
 		DA4EBC591E2086E000F9AC3D /* help.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4EBC581E2086E000F9AC3D /* help.xcassets */; };
 		DA4EBC5C1E208A0900F9AC3D /* MHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EBC5B1E208A0900F9AC3D /* MHelp.swift */; };
@@ -231,6 +232,7 @@
 		DA38AF131E1C302D008C86A8 /* VCameraPreviewPlayerTimerSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraPreviewPlayerTimerSlider.swift; sourceTree = "<group>"; };
 		DA38AF151E1C4E5E008C86A8 /* ExtensionURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionURL.swift; sourceTree = "<group>"; };
 		DA38AF171E1C5F20008C86A8 /* VLoopsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoopsCell.swift; sourceTree = "<group>"; };
+		DA4079031E241FFE002EED42 /* CStoreGoPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStoreGoPlus.swift; sourceTree = "<group>"; };
 		DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
 		DA4EBC581E2086E000F9AC3D /* help.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = help.xcassets; sourceTree = "<group>"; };
 		DA4EBC5B1E208A0900F9AC3D /* MHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelp.swift; sourceTree = "<group>"; };
@@ -652,6 +654,7 @@
 			isa = PBXGroup;
 			children = (
 				DA6FB24C1E1DC0720062EE13 /* CStore.swift */,
+				DA4079031E241FFE002EED42 /* CStoreGoPlus.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -1159,6 +1162,7 @@
 				DA96FEE31E03672F00FD5265 /* ExtensionFileManager.swift in Sources */,
 				DA20F38A1E0D7A9100D9EBAC /* ExtensionMTLTexture.swift in Sources */,
 				DA799CEC1E1436F400AB45DD /* MCameraSpeed20.swift in Sources */,
+				DA4079041E241FFE002EED42 /* CStoreGoPlus.swift in Sources */,
 				DA799CEE1E1436FD00AB45DD /* MCameraSpeed30.swift in Sources */,
 				DAFFF3F81E0856B700E14F12 /* MHomeImageSequenceGenerated.swift in Sources */,
 				DA96FEE01E03672F00FD5265 /* CAppDelegate.swift in Sources */,

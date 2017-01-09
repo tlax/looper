@@ -49,7 +49,7 @@ class VStoreCellNew:VStoreCell
             toView:self)
         let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
             view:labelPrice,
-            toView:self,
+            toView:buttonPurchase,
             constant:kLabelButtonSeparation)
         let layoutLabelWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:labelPrice,
