@@ -39,6 +39,7 @@
 		DA38AF161E1C4E5E008C86A8 /* ExtensionURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF151E1C4E5E008C86A8 /* ExtensionURL.swift */; };
 		DA38AF181E1C5F20008C86A8 /* VLoopsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF171E1C5F20008C86A8 /* VLoopsCell.swift */; };
 		DA4079041E241FFE002EED42 /* CStoreGoPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079031E241FFE002EED42 /* CStoreGoPlus.swift */; };
+		DA4079071E242358002EED42 /* VStoreGoPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079061E242358002EED42 /* VStoreGoPlus.swift */; };
 		DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */; };
 		DA4EBC591E2086E000F9AC3D /* help.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4EBC581E2086E000F9AC3D /* help.xcassets */; };
 		DA4EBC5C1E208A0900F9AC3D /* MHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EBC5B1E208A0900F9AC3D /* MHelp.swift */; };
@@ -233,6 +234,7 @@
 		DA38AF151E1C4E5E008C86A8 /* ExtensionURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionURL.swift; sourceTree = "<group>"; };
 		DA38AF171E1C5F20008C86A8 /* VLoopsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoopsCell.swift; sourceTree = "<group>"; };
 		DA4079031E241FFE002EED42 /* CStoreGoPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStoreGoPlus.swift; sourceTree = "<group>"; };
+		DA4079061E242358002EED42 /* VStoreGoPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreGoPlus.swift; sourceTree = "<group>"; };
 		DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
 		DA4EBC581E2086E000F9AC3D /* help.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = help.xcassets; sourceTree = "<group>"; };
 		DA4EBC5B1E208A0900F9AC3D /* MHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelp.swift; sourceTree = "<group>"; };
@@ -578,6 +580,14 @@
 			path = Loops;
 			sourceTree = "<group>";
 		};
+		DA4079051E242339002EED42 /* StoreGo */ = {
+			isa = PBXGroup;
+			children = (
+				DA4079061E242358002EED42 /* VStoreGoPlus.swift */,
+			);
+			path = StoreGo;
+			sourceTree = "<group>";
+		};
 		DA4EBC5A1E2089FF00F9AC3D /* Help */ = {
 			isa = PBXGroup;
 			children = (
@@ -806,6 +816,7 @@
 		DA96FEA91E03672F00FD5265 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA4079051E242339002EED42 /* StoreGo */,
 				DA11EF951E21ACDC002C10C4 /* Store */,
 				DA1701BD1E206B270049CE90 /* Help */,
 				DA9B83C31E12DCAE002B9810 /* Camera */,
@@ -1255,6 +1266,7 @@
 				DAD404DC1E1F3180005EA836 /* MCameraFilterItem.swift in Sources */,
 				DA9D2F491E0AFCDF003E37D5 /* MHomeFramesItem1.swift in Sources */,
 				DAF604C21E23408400A1259E /* VStoreCellDeferred.swift in Sources */,
+				DA4079071E242358002EED42 /* VStoreGoPlus.swift in Sources */,
 				DA9B83DB1E12E7E8002B9810 /* VParent.swift in Sources */,
 				DAD404E61E1F44A1005EA836 /* MetalFilterWatermark.metal in Sources */,
 				DAF604BE1E233FDD00A1259E /* VStoreFooter.swift in Sources */,
