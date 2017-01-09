@@ -4,7 +4,7 @@ class MHelpItemCompress:MHelpItem
 {
     override init()
     {
-        let image:UIImage = #imageLiteral(resourceName: "assetHelpFilter")
+        let image:UIImage = #imageLiteral(resourceName: "assetHelpCompress")
         let title:String = NSLocalizedString("MHelpItemCompress_title", comment:"")
         
         super.init(
