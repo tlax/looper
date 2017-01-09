@@ -60,7 +60,8 @@ class VStoreGoPlus:VView
         labelDescr.translatesAutoresizingMaskIntoConstraints = false
         labelDescr.text = NSLocalizedString("VHomeFroob_descr", comment:"")
         
-        let buttons:VHomeFroobButtons = VHomeFroobButtons(controller:self.controller)
+        let buttons:VStoreGoPlus = VStoreGoPlus(
+            controller:self.controller)
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -69,7 +70,6 @@ class VStoreGoPlus:VView
         imageView.contentMode = UIViewContentMode.center
         imageView.image = #imageLiteral(resourceName: "assetGenericPlus")
         
-        baseView.addSubview(clock)
         baseView.addSubview(labelTitle)
         baseView.addSubview(labelDescr)
         baseView.addSubview(buttons)
@@ -78,299 +78,99 @@ class VStoreGoPlus:VView
         addSubview(baseView)
         addSubview(imageView)
         
-        let layoutVisualEffectTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:visualEffect,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
-            constant:0)
-        let layoutVisualEffectBottom:NSLayoutConstraint = NSLayoutConstraint(
-            item:visualEffect,
-            attribute:NSLayoutAttribute.bottom,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        let layoutVisualEffectLeft:NSLayoutConstraint = NSLayoutConstraint(
-            item:visualEffect,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        let layoutVisualEffectRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:visualEffect,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
+        let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:visualEffect,
+            parent:self)
+        let constraintsBaseButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:baseButton,
+            parent:self)
         
-        let layoutBaseButtonTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:baseButton,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
-            constant:0)
-        let layoutBaseButtonBottom:NSLayoutConstraint = NSLayoutConstraint(
-            item:baseButton,
-            attribute:NSLayoutAttribute.bottom,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        let layoutBaseButtonLeft:NSLayoutConstraint = NSLayoutConstraint(
-            item:baseButton,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        let layoutBaseButtonRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:baseButton,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
-        
-        layoutBaseViewTop = NSLayoutConstraint(
-            item:baseView,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
-            constant:0)
-        layoutBaseViewLeft = NSLayoutConstraint(
-            item:baseView,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        let layoutBaseViewWidth:NSLayoutConstraint = NSLayoutConstraint(
-            item:baseView,
-            attribute:NSLayoutAttribute.width,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
+        layoutBaseViewTop = NSLayoutConstraint.topToTop(
+            view:baseView,
+            toView:self)
+        layoutBaseViewLeft = NSLayoutConstraint.leftToLeft(
+            view:baseView,
+            toView:self)
+        let layoutBaseViewWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:baseView,
             constant:kBaseWidth)
-        let layoutBaseViewHeight:NSLayoutConstraint = NSLayoutConstraint(
-            item:baseView,
-            attribute:NSLayoutAttribute.height,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
+        let layoutBaseViewHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:baseView,
             constant:kBaseHeight)
         
-        let layoutClockTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:clock,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:baseView,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
-            constant:kClockTop)
-        let layoutClockHeight:NSLayoutConstraint = NSLayoutConstraint(
-            item:clock,
-            attribute:NSLayoutAttribute.height,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
-            constant:kClockHeight)
-        let layoutClockLeft:NSLayoutConstraint = NSLayoutConstraint(
-            item:clock,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:baseView,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        let layoutClockRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:clock,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:baseView,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
-        
-        let layoutLabelTitleTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:labelTitle,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:clock,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        let layoutLabelTitleHeight:NSLayoutConstraint = NSLayoutConstraint(
-            item:labelTitle,
-            attribute:NSLayoutAttribute.height,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
+        let layoutTitleTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:labelTitle,
+            toView:imageView)
+        let layoutTitleHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:labelTitle,
             constant:kLabelTitleHeight)
-        let layoutLabelTitleLeft:NSLayoutConstraint = NSLayoutConstraint(
-            item:labelTitle,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:baseView,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        let layoutLabelTitleRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:labelTitle,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:baseView,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
+        let layoutTitleLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:labelTitle,
+            toView:self)
+        let layoutTitleRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:labelTitle,
+            toView:self)
         
-        let layoutLabelDescrTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:labelDescr,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:labelTitle,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        let layoutLabelDescrHeight:NSLayoutConstraint = NSLayoutConstraint(
-            item:labelDescr,
-            attribute:NSLayoutAttribute.height,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
+        let layoutDescrTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:labelDescr,
+            toView:labelTitle)
+        let layoutDescrHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:labelDescr,
             constant:kLabelDescrHeight)
-        let layoutLabelDescrLeft:NSLayoutConstraint = NSLayoutConstraint(
-            item:labelDescr,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:baseView,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        let layoutLabelDescrRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:labelDescr,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:baseView,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
+        let layoutDescrLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:labelDescr,
+            toView:self)
+        let layoutDescrRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:labelDescr,
+            toView:self)
         
-        let layoutImageViewTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:imageView,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:baseView,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
+        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:imageView,
+            toView:self,
             constant:kImageTop)
-        let layoutImageViewHeight:NSLayoutConstraint = NSLayoutConstraint(
-            item:imageView,
-            attribute:NSLayoutAttribute.height,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
+        let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:imageView,
             constant:kImageHeight)
-        let layoutImageViewLeft:NSLayoutConstraint = NSLayoutConstraint(
-            item:imageView,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        let layoutImageViewRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:imageView,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
+        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:imageView,
+            toView:self)
+        let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:imageView,
+            toView:self)
         
-        let layoutButtonsHeight:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttons,
-            attribute:NSLayoutAttribute.height,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
+        let layoutButtonsBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:buttons,
+            toView:self)
+        let layoutButtonsHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:buttons,
             constant:kButtonHeight)
-        let layoutButtonsBottom:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttons,
-            attribute:NSLayoutAttribute.bottom,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:baseView,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        let layoutButtonsLeft:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttons,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:baseView,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        let layoutButtonsRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttons,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:baseView,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
+        let layoutButtonsLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:buttons,
+            toView:self)
+        let layoutButtonsRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:buttons,
+            toView:self)
+        
+        addConstraints(constraintsEffect)
+        addConstraints(constraintsBaseButton)
         
         addConstraints([
-            layoutVisualEffectTop,
-            layoutVisualEffectBottom,
-            layoutVisualEffectLeft,
-            layoutVisualEffectRight,
-            layoutBaseButtonTop,
-            layoutBaseButtonBottom,
-            layoutBaseButtonLeft,
-            layoutBaseButtonRight,
             layoutBaseViewTop,
             layoutBaseViewLeft,
             layoutBaseViewWidth,
             layoutBaseViewHeight,
-            layoutClockTop,
-            layoutClockHeight,
-            layoutClockLeft,
-            layoutClockRight,
-            layoutLabelTitleTop,
-            layoutLabelTitleHeight,
-            layoutLabelTitleLeft,
-            layoutLabelTitleRight,
-            layoutLabelDescrTop,
-            layoutLabelDescrHeight,
-            layoutLabelDescrLeft,
-            layoutLabelDescrRight,
-            layoutImageViewTop,
-            layoutImageViewHeight,
-            layoutImageViewLeft,
-            layoutImageViewRight,
+            layoutTitleTop,
+            layoutTitleHeight,
+            layoutTitleLeft,
+            layoutTitleRight,
+            layoutDescrTop,
+            layoutDescrHeight,
+            layoutDescrLeft,
+            layoutDescrRight,
+            layoutImageTop,
+            layoutImageHeight,
+            layoutImageLeft,
+            layoutImageRight,
             layoutButtonsHeight,
             layoutButtonsBottom,
             layoutButtonsLeft,
@@ -380,11 +180,6 @@ class VStoreGoPlus:VView
     required init?(coder:NSCoder)
     {
         fatalError()
-    }
-    
-    deinit
-    {
-        clock?.timer?.invalidate()
     }
     
     override func layoutSubviews()
