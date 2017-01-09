@@ -47,6 +47,7 @@
 		DA40791A1E2437E1002EED42 /* VCameraFilterNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079141E2437E1002EED42 /* VCameraFilterNone.swift */; };
 		DA40791B1E2437E1002EED42 /* VCameraFilterNoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079151E2437E1002EED42 /* VCameraFilterNoneCell.swift */; };
 		DA40791C1E2437E1002EED42 /* VCameraFilterNoneHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079161E2437E1002EED42 /* VCameraFilterNoneHeader.swift */; };
+		DA40791E1E2437F9002EED42 /* VCameraFilterBlender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40791D1E2437F9002EED42 /* VCameraFilterBlender.swift */; };
 		DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */; };
 		DA4EBC591E2086E000F9AC3D /* help.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4EBC581E2086E000F9AC3D /* help.xcassets */; };
 		DA4EBC5C1E208A0900F9AC3D /* MHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EBC5B1E208A0900F9AC3D /* MHelp.swift */; };
@@ -244,6 +245,7 @@
 		DA4079141E2437E1002EED42 /* VCameraFilterNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterNone.swift; sourceTree = "<group>"; };
 		DA4079151E2437E1002EED42 /* VCameraFilterNoneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterNoneCell.swift; sourceTree = "<group>"; };
 		DA4079161E2437E1002EED42 /* VCameraFilterNoneHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterNoneHeader.swift; sourceTree = "<group>"; };
+		DA40791D1E2437F9002EED42 /* VCameraFilterBlender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterBlender.swift; sourceTree = "<group>"; };
 		DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
 		DA4EBC581E2086E000F9AC3D /* help.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = help.xcassets; sourceTree = "<group>"; };
 		DA4EBC5B1E208A0900F9AC3D /* MHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelp.swift; sourceTree = "<group>"; };
@@ -596,6 +598,7 @@
 		DA40790E1E2437E1002EED42 /* Blender */ = {
 			isa = PBXGroup;
 			children = (
+				DA40791D1E2437F9002EED42 /* VCameraFilterBlender.swift */,
 			);
 			path = Blender;
 			sourceTree = "<group>";
@@ -1202,6 +1205,7 @@
 				DAF604C61E23DBB100A1259E /* VStoreCellPurchasing.swift in Sources */,
 				DA96FEE31E03672F00FD5265 /* ExtensionFileManager.swift in Sources */,
 				DA20F38A1E0D7A9100D9EBAC /* ExtensionMTLTexture.swift in Sources */,
+				DA40791E1E2437F9002EED42 /* VCameraFilterBlender.swift in Sources */,
 				DA799CEC1E1436F400AB45DD /* MCameraSpeed20.swift in Sources */,
 				DA4079041E241FFE002EED42 /* CStoreGoPlus.swift in Sources */,
 				DA799CEE1E1436FD00AB45DD /* MCameraSpeed30.swift in Sources */,
