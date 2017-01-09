@@ -11,21 +11,19 @@ class VStoreHeader:UICollectionReusableView
     private let kLabelTop:CGFloat = 16
     private let kLabelLeft:CGFloat = 10
     private let kLabelRight:CGFloat = -10
-    private let kImageViewSize:CGFloat = 72
+    private let kImageSize:CGFloat = 72
     
     override init(frame:CGRect)
     {
         attrTitle = [
             NSFontAttributeName:UIFont.medium(size:18),
-            NSForegroundColorAttributeName:UIColor.genericBlue
-        ]
+            NSForegroundColorAttributeName:UIColor.genericLight]
         
         attrDescr = [
             NSFontAttributeName:UIFont.regular(size:18),
-            NSForegroundColorAttributeName:UIColor.black
-        ]
+            NSForegroundColorAttributeName:UIColor.black]
         
-        labelMargins = kLabelRight + kImageViewSize
+        labelMargins = kLabelRight + kImageSize
         
         super.init(frame:frame)
         clipsToBounds = true
@@ -48,71 +46,33 @@ class VStoreHeader:UICollectionReusableView
         addSubview(label)
         addSubview(imageView)
         
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:label,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
+        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:label,
+            toView:self,
             constant:kLabelTop)
-        layoutLabelHeight = NSLayoutConstraint(
-            item:label,
-            attribute:NSLayoutAttribute.height,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
-            constant:0)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint(
-            item:label,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:imageView,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
+        layoutLabelHeight = NSLayoutConstraint.height(
+            view:label)
+        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
+            view:label,
+            toView:imageView,
             constant:kLabelLeft)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:label,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
+        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:label,
+            toView:self,
             constant:kLabelRight)
         
-        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:imageView,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
-            constant:0)
-        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint(
-            item:imageView,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        let layoutImageWidth:NSLayoutConstraint = NSLayoutConstraint(
-            item:imageView,
-            attribute:NSLayoutAttribute.width,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
-            constant:kImageViewSize)
-        let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint(
-            item:imageView,
-            attribute:NSLayoutAttribute.height,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
-            constant:kImageViewSize)
+        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:imageView,
+            toView:self)
+        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:imageView,
+            toView:self)
+        let layoutImageWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:imageView,
+            constant:kImageSize)
+        let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:imageView,
+            constant:kImageSize)
         
         addConstraints([
             layoutLabelTop,
@@ -136,7 +96,7 @@ class VStoreHeader:UICollectionReusableView
             
             let attributedText:NSAttributedString = label.attributedText
             
-            else
+        else
         {
             return
         }
@@ -149,8 +109,7 @@ class VStoreHeader:UICollectionReusableView
             with:usableSize,
             options:NSStringDrawingOptions([
                 NSStringDrawingOptions.usesLineFragmentOrigin,
-                NSStringDrawingOptions.usesFontLeading
-                ]),
+                NSStringDrawingOptions.usesFontLeading]),
             context:nil)
         layoutLabelHeight.constant = ceil(boundingRect.size.height)
         
