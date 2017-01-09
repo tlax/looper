@@ -3,14 +3,13 @@ import UIKit
 class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CStore!
-    private weak var viewSpinner:VSpinner?
+    private weak var spinner:VSpinner?
     private weak var collectionView:VCollection!
     private let kHeaderHeight:CGFloat = 150
     private let kFooterHeight:CGFloat = 70
     private let kInterLine:CGFloat = 1
     private let kCollectionTop:CGFloat = 64
     private let kCollectionBottom:CGFloat = 10
-    private let kBarHeight:CGFloat = 92
     
     override init(controller:CController)
     {
@@ -18,182 +17,52 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         backgroundColor = UIColor.genericBackground
         self.controller = controller as? CStore
         
-        let viewSpinner:VSpinner = VSpinner()
-        self.viewSpinner = viewSpinner
+        let spinner:VSpinner = VSpinner()
+        self.spinner = spinner
         
-        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
-        flow.minimumLineSpacing = kInterLine
-        flow.minimumInteritemSpacing = 0
-        flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        flow.sectionInset = UIEdgeInsets(
+        let collectionView:VCollection = VCollection()
+        collectionView.flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
+        collectionView.flow.minimumLineSpacing = kInterLine
+        collectionView.flow.sectionInset = UIEdgeInsets(
             top:kInterLine,
             left:0,
             bottom:kCollectionBottom,
             right:0)
-        
-        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.isHidden = true
-        collectionView.clipsToBounds = true
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = UIColor.clear
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(
-            VStoreCellNotAvailable.self,
-            forCellWithReuseIdentifier:
-            VStoreCellNotAvailable.reusableIdentifier)
-        collectionView.register(
-            VStoreCellDeferred.self,
-            forCellWithReuseIdentifier:
-            VStoreCellDeferred.reusableIdentifier)
-        collectionView.register(
-            VStoreCellNew.self,
-            forCellWithReuseIdentifier:
-            VStoreCellNew.reusableIdentifier)
-        collectionView.register(
-            VStoreCellPurchased.self,
-            forCellWithReuseIdentifier:
-            VStoreCellPurchased.reusableIdentifier)
-        collectionView.register(
-            VStoreCellPurchasing.self,
-            forCellWithReuseIdentifier:
-            VStoreCellPurchasing.reusableIdentifier)
-        collectionView.register(
-            VStoreHeader.self,
-            forSupplementaryViewOfKind:UICollectionElementKindSectionHeader,
-            withReuseIdentifier:
-            VStoreHeader.reusableIdentifier)
-        collectionView.register(
-            VStoreFooter.self,
-            forSupplementaryViewOfKind:UICollectionElementKindSectionFooter,
-            withReuseIdentifier:
-            VStoreFooter.reusableIdentifier)
+        collectionView.registerCell(cell:VStoreCellNotAvailable.self)
+        collectionView.registerCell(cell:VStoreCellDeferred.self)
+        collectionView.registerCell(cell:VStoreCellNew.self)
+        collectionView.registerCell(cell:VStoreCellPurchased.self)
+        collectionView.registerCell(cell:VStoreCellPurchasing.self)
+        collectionView.registerHeader(header:VStoreHeader.self)
+        collectionView.registerFooter(footer:VStoreFooter.self)
         self.collectionView = collectionView
         
         addSubview(collectionView)
-        addSubview(viewSpinner)
+        addSubview(spinner)
         
-        let layoutBarTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:viewBar,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
-            constant:0)
-        let layoutBarHeight:NSLayoutConstraint = NSLayoutConstraint(
-            item:viewBar,
-            attribute:NSLayoutAttribute.height,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
-            constant:kBarHeight)
-        let layoutBarLeft:NSLayoutConstraint = NSLayoutConstraint(
-            item:viewBar,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        let layoutBarRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:viewBar,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
+        let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:collectionView,
+            parent:self)
+        let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:spinner,
+            parent:self)
         
-        let layoutSpinnerTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:viewSpinner,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:viewBar,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        let layoutSpinnerBottom:NSLayoutConstraint = NSLayoutConstraint(
-            item:viewSpinner,
-            attribute:NSLayoutAttribute.bottom,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        let layoutSpinnerLeft:NSLayoutConstraint = NSLayoutConstraint(
-            item:viewSpinner,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        let layoutSpinnerRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:viewSpinner,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
-        
-        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:collectionView,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:viewBar,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint(
-            item:collectionView,
-            attribute:NSLayoutAttribute.bottom,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint(
-            item:collectionView,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:collectionView,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
-        
-        addConstraints([
-            layoutBarTop,
-            layoutBarHeight,
-            layoutBarLeft,
-            layoutBarRight,
-            layoutSpinnerTop,
-            layoutSpinnerBottom,
-            layoutSpinnerLeft,
-            layoutSpinnerRight,
-            layoutCollectionTop,
-            layoutCollectionBottom,
-            layoutCollectionLeft,
-            layoutCollectionRight])
+        addConstraints(constraintsCollection)
+        addConstraints(constraintsSpinner)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    deinit
+    {
+        spinner?.stopAnimating()
     }
     
     //MARK: private
@@ -213,7 +82,7 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         DispatchQueue.main.async
         { [weak self] in
                 
-            self?.viewSpinner?.removeFromSuperview()
+            self?.spinner?.removeFromSuperview()
             self?.collectionView.reloadData()
             self?.collectionView.isHidden = false
             
@@ -221,7 +90,7 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
                 
                 let errorMessage:String = self?.controller.model.error
                 
-                else
+            else
             {
                 return
             }

@@ -77,12 +77,12 @@ class MStoreItem
         status = MStoreItemStatusPurchased()
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            { [weak self] in
-                
-                if callAction
-                {
-                    self?.purchaseAction()
-                }
+        { [weak self] in
+            
+            if callAction
+            {
+                self?.purchaseAction()
+            }
         }
     }
 }

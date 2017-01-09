@@ -57,6 +57,11 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         fatalError()
     }
     
+    deinit
+    {
+        spinner.stopAnimating()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MLoopsItem

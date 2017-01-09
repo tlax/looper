@@ -77,6 +77,11 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
         fatalError()
     }
     
+    deinit
+    {
+        spinner.stopAnimating()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MCameraCompressItem

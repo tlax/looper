@@ -109,6 +109,11 @@ class VCameraPreview:VView
         fatalError()
     }
     
+    deinit
+    {
+        spinner.stopAnimating()
+    }
+    
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.maxX

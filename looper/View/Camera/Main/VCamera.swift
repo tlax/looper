@@ -60,6 +60,11 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         fatalError()
     }
     
+    deinit
+    {
+        spinner.stopAnimating()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MCameraRecord

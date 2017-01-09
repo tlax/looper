@@ -38,19 +38,19 @@ class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserve
         SKPaymentQueue.default().add(self)
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            { [weak self] in
+        { [weak self] in
+            
+            guard
                 
-                guard
-                    
-                    let purchaseIds:[MStore.PurchaseId] = self?.model.references
-                    
-                    else
-                {
-                    return
-                }
+                let purchaseIds:[MStore.PurchaseId] = self?.model.references
                 
-                let purchases:Set<MStore.PurchaseId> = Set<MStore.PurchaseId>(purchaseIds)
-                self?.checkAvailabilities(purchases:purchases)
+            else
+            {
+                return
+            }
+            
+            let purchases:Set<MStore.PurchaseId> = Set<MStore.PurchaseId>(purchaseIds)
+            self?.checkAvailabilities(purchases:purchases)
         }
     }
     
@@ -66,34 +66,29 @@ class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserve
     
     //MARK: public
     
-    func back()
-    {
-        parentController.dismissPush(completion:nil)
-    }
-    
     func restorePurchases()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            {
-                SKPaymentQueue.default().restoreCompletedTransactions()
+        {
+            SKPaymentQueue.default().restoreCompletedTransactions()
         }
     }
     
     func purchase(skProduct:SKProduct?)
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            {
-                guard
-                    
-                    let skProduct:SKProduct = skProduct
-                    
-                    else
-                {
-                    return
-                }
+        {
+            guard
                 
-                let skPayment:SKPayment = SKPayment(product:skProduct)
-                SKPaymentQueue.default().add(skPayment)
+                let skProduct:SKProduct = skProduct
+                
+            else
+            {
+                return
+            }
+            
+            let skPayment:SKPayment = SKPayment(product:skProduct)
+            SKPaymentQueue.default().add(skPayment)
         }
     }
     

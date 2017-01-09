@@ -148,6 +148,7 @@ class VHome:VView
     deinit
     {
         NotificationCenter.default.removeObserver(self)
+        spinner.stopAnimating()
     }
     
     override func layoutSubviews()
