@@ -47,72 +47,25 @@ class VStoreCellNew:VStoreCell
         let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:labelPrice,
             toView:self)
-        
-        
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:labelPrice,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
-            constant:0)
-        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint(
-            item:labelPrice,
-            attribute:NSLayoutAttribute.bottom,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:labelPrice,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:buttonPurchase,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
+        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+            view:labelPrice,
+            toView:self,
             constant:kLabelButtonSeparation)
-        let layoutLabelWidth:NSLayoutConstraint = NSLayoutConstraint(
-            item:labelPrice,
-            attribute:NSLayoutAttribute.width,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
+        let layoutLabelWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:labelPrice,
             constant:kLabelPriceWidth)
         
-        let layoutButtonTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttonPurchase,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
-            constant:0)
-        let layoutButtonBottom:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttonPurchase,
-            attribute:NSLayoutAttribute.bottom,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        let layoutButtonRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttonPurchase,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
-        let layoutButtonWidth:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttonPurchase,
-            attribute:NSLayoutAttribute.width,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
+        let layoutButtonTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:buttonPurchase,
+            toView:self)
+        let layoutButtonBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:buttonPurchase,
+            toView:self)
+        let layoutButtonRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:buttonPurchase,
+            toView:self)
+        let layoutButtonWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:buttonPurchase,
             constant:kButtonPurchaseWidth)
         
         addConstraints([
