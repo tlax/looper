@@ -32,6 +32,31 @@ class CCameraFilterBlenderOverlay:CController
         view = viewOverlay
     }
     
+    //MARK: private
+    
+    private func filterFinished(record:MCameraRecord)
+    {
+        let controllerCompress:CCameraCompress = CCameraCompress(
+            model:record)
+        parentController.push(
+            controller:controllerCompress,
+            horizontal:
+            CParent.TransitionHorizontal.fromRight)
+    }
+    
+    private func filter()
+    {
+        
+        
+        let waterMarked:MCameraRecord = model.waterMark(original:record)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.filterFinished(record:waterMarked)
+        }
+    }
+    
     //MARK: public
     
     func back()
@@ -42,5 +67,11 @@ class CCameraFilterBlenderOverlay:CController
     func next()
     {
         viewOverlay.startLoading()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.filter()
+        }
     }
 }

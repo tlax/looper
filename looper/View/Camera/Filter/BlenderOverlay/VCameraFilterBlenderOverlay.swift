@@ -2,8 +2,8 @@ import UIKit
 
 class VCameraFilterBlenderOverlay:VView
 {
+    weak var viewBase:VCameraFilterBlenderOverlayBase!
     private weak var controller:CCameraFilterBlenderOverlay!
-    private weak var viewBase:VCameraFilterBlenderOverlayBase!
     private weak var viewList:VCameraFilterBlenderOverlayList!
     private weak var viewPlacer:VCameraFilterBlenderOverlayPlacer!
     private weak var spinner:VSpinner!
@@ -251,6 +251,7 @@ class VCameraFilterBlenderOverlay:VView
     func stopLoading()
     {
         spinner.stopAnimating()
+        viewPlacer.killDrag()
         nextButton.isUserInteractionEnabled = true
         backButton.isUserInteractionEnabled = true
         nextButton.alpha = kButtonsActiveAlpha

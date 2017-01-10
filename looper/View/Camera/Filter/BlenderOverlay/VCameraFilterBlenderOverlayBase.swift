@@ -4,7 +4,7 @@ class VCameraFilterBlenderOverlayBase:UIView
 {
     private weak var imageView:UIImageView!
     private let kImageMargin:CGFloat = 2
-    private let kImageAlpha:CGFloat = 0.5
+    private let kImageAlpha:CGFloat = 0.4
     
     init(model:MCameraRecord?)
     {
@@ -52,5 +52,21 @@ class VCameraFilterBlenderOverlayBase:UIView
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: public
+    
+    func validatePiece(viewPiece:VCameraFilterBlenderOverlayPiece)
+    {
+        let pieceFrame:CGRect = viewPiece.frame
+        
+        if frame.intersects(pieceFrame)
+        {
+            viewPiece.insideBase()
+        }
+        else
+        {
+            viewPiece.outsideBase()
+        }
     }
 }
