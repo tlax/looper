@@ -64,8 +64,11 @@ class VCameraFilterBlenderOverlayListAdd:UIButton
             return
         }
         
+        let halfWidth:CGFloat = width / 2.0
+        let halfSelfWidth:CGFloat = bounds.midX
+        let totalWidth:CGFloat = width + halfWidth - halfSelfWidth
         image.startAnimating()
-        layoutLeft.constant = width
+        layoutLeft.constant = totalWidth
         UIView.animate(
             withDuration:kAnimationDuration,
             animations:

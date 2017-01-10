@@ -8,8 +8,8 @@ class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollec
     private weak var layoutCollectionRight:NSLayoutConstraint!
     private let kAfterInit:TimeInterval = 0.3
     private let kButtonAddSize:CGFloat = 80
-    private let kButtonAddTop:CGFloat = 10
-    private let kCellSize:CGFloat = 60
+    private let kButtonAddTop:CGFloat = 20
+    private let kCellSize:CGFloat = 80
     private let kInterline:CGFloat = 2
     
     convenience init(controller:CCameraFilterBlenderOverlay)
@@ -83,7 +83,7 @@ class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollec
             constant:kCellSize)
         layoutCollectionRight = NSLayoutConstraint.rightToLeft(
             view:collectionView,
-            toView:self)
+            toView:buttonAdd)
         let layoutCollectionWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:collectionView,
             toView:self)

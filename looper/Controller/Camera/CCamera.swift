@@ -3,7 +3,7 @@ import UIKit
 class CCamera:CController
 {
     weak var viewCamera:VCamera!
-    private let kAfterShoot:TimeInterval = 0.4
+    private let kAfterShoot:TimeInterval = 0.6
     
     deinit
     {
