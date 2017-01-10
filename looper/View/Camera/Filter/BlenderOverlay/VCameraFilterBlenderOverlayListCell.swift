@@ -3,9 +3,10 @@ import UIKit
 class VCameraFilterBlenderOverlayListCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
-    private let kBorderWidth:CGFloat = 2
+    private let kBorderWidth:CGFloat = 3
     private let kAlphaNotSelected:CGFloat = 0.7
     private let kAlphaSelected:CGFloat = 1
+    private let kCornerRadius:CGFloat = 6
     
     override init(frame:CGRect)
     {
@@ -19,6 +20,7 @@ class VCameraFilterBlenderOverlayListCell:UICollectionViewCell
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.borderWidth = kBorderWidth
+        imageView.layer.cornerRadius = kCornerRadius
         self.imageView = imageView
         
         addSubview(imageView)
@@ -63,7 +65,7 @@ class VCameraFilterBlenderOverlayListCell:UICollectionViewCell
         else
         {
             alpha = kAlphaNotSelected
-            imageView.layer.borderColor = UIColor.black.cgColor
+            imageView.layer.borderColor = UIColor(white:0.9, alpha:1).cgColor
         }
     }
     

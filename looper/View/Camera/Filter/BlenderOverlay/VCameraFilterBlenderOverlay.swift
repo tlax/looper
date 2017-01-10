@@ -15,10 +15,10 @@ class VCameraFilterBlenderOverlay:VView
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 44
     private let kTitleHeight:CGFloat = 60
-    private let kBaseTop:CGFloat = 100
-    private let kBaseSize:CGFloat = 280
+    private let kBaseTop:CGFloat = 150
+    private let kBaseSize:CGFloat = 200
     private let kListHeight:CGFloat = 130
-    private let kPieceSize:CGFloat = 150
+    private let kPieceSize:CGFloat = 100
     private let kButtonsNotActiveAlpha:CGFloat = 0.3
     private let kButtonsActiveAlpha:CGFloat = 1
     
@@ -94,8 +94,8 @@ class VCameraFilterBlenderOverlay:VView
         addSubview(spinner)
         addSubview(title)
         addSubview(viewBase)
-        addSubview(viewList)
         addSubview(viewPlacer)
+        addSubview(viewList)
         addSubview(backButton)
         addSubview(nextButton)
         
@@ -284,6 +284,6 @@ class VCameraFilterBlenderOverlay:VView
             view:viewPiece,
             constant:kPieceSize)
         
-        a
+        viewPlacer.addPiece(viewPiece:viewPiece)
     }
 }

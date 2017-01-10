@@ -4,6 +4,7 @@ class VCameraFilterBlenderOverlayBase:UIView
 {
     private weak var imageView:UIImageView!
     private let kImageMargin:CGFloat = 2
+    private let kImageAlpha:CGFloat = 0.5
     
     init(model:MCameraRecord?)
     {
@@ -19,6 +20,7 @@ class VCameraFilterBlenderOverlayBase:UIView
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = model?.items.first?.image
+        imageView.alpha = kImageAlpha
         self.imageView = imageView
         
         addSubview(imageView)
