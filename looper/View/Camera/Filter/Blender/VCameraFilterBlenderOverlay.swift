@@ -4,6 +4,7 @@ class VCameraFilterBlenderOverlay:VView
 {
     private weak var controller:CCameraFilterBlenderOverlay!
     private weak var viewBase:VCameraFilterBlenderOverlayBase!
+    private weak var viewList:VCameraFilterBlenderOverlayList!
     private weak var layoutBaseLeft:NSLayoutConstraint!
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
@@ -65,10 +66,15 @@ class VCameraFilterBlenderOverlay:VView
             model:self.controller.baseRecord)
         self.viewBase = viewBase
         
+        let viewList:VCameraFilterBlenderOverlayList = VCameraFilterBlenderOverlayList(
+            controller:self.controller)
+        
+        
         addSubview(title)
         addSubview(backButton)
         addSubview(nextButton)
         addSubview(viewBase)
+        addSubview(viewList)
         
         let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:backButton,
