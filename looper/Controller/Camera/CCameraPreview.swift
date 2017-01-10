@@ -56,9 +56,7 @@ class CCameraPreview:CController
     {
         if viewPreview.viewDisplay.imageView.isAnimating
         {
-            viewPreview.viewPlayer.viewTimer.notBlocked()
-            viewPreview.viewPlayer.buttonPlay.play()
-            viewPreview.viewDisplay.imageView.stopAnimating()
+            stopPlaying()
         }
         else
         {
@@ -70,6 +68,13 @@ class CCameraPreview:CController
     }
     
     //MARK: private
+    
+    private func stopPlaying()
+    {
+        viewPreview.viewPlayer.viewTimer.notBlocked()
+        viewPreview.viewPlayer.buttonPlay.play()
+        viewPreview.viewDisplay.imageView.stopAnimating()
+    }
     
     private func asyncSave()
     {
@@ -173,11 +178,14 @@ class CCameraPreview:CController
     
     func back()
     {
+        stopPlaying()
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
     
     func cancel()
     {
+        stopPlaying()
+        
         let alert:UIAlertController = UIAlertController(
             title:
             NSLocalizedString("CCameraPreview_alertTitle", comment:""),
@@ -211,6 +219,7 @@ class CCameraPreview:CController
     
     func save()
     {
+        stopPlaying()
         viewPreview.saving()
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async

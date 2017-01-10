@@ -43,25 +43,29 @@ class CCamera:CController
             name:Notification.cameraLoadFinished,
             object:nil)
         
-        DispatchQueue.main.asyncAfter(
-            deadline:DispatchTime.now() + kAfterShoot)
-        { [weak self] in
+        guard
             
-            guard
+            let model:MCamera = MSession.sharedInstance.camera
+            
+        else
+        {
+            return
+        }
+        
+        if model.records.isEmpty
+        {
+            DispatchQueue.main.asyncAfter(
+                deadline:DispatchTime.now() + kAfterShoot)
+            { [weak self] in
                 
-                let model:MCamera = MSession.sharedInstance.camera
-            
-            else
-            {
-                return
-            }
-            
-            self?.refreshCamera = true
-            
-            if model.records.isEmpty
-            {
+                self?.refreshCamera = true
                 self?.shoot()
             }
+        }
+        else
+        {
+            refreshCamera = true
+            viewCamera.refresh()
         }
     }
     
