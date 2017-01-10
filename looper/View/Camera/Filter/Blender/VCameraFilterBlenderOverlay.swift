@@ -3,10 +3,14 @@ import UIKit
 class VCameraFilterBlenderOverlay:VView
 {
     private weak var controller:CCameraFilterBlenderOverlay!
+    private weak var viewBase:VCameraFilterBlenderOverlayBase!
+    private weak var layoutBaseLeft:NSLayoutConstraint!
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 44
     private let kTitleHeight:CGFloat = 60
+    private let kBaseTop:CGFloat = 100
+    private let kBaseSize:CGFloat = 280
     
     override init(controller:CController)
     {
@@ -57,9 +61,14 @@ class VCameraFilterBlenderOverlay:VView
         title.numberOfLines = 2
         title.text = NSLocalizedString("VCameraFilterBlenderOverlay_title", comment:"")
         
+        let viewBase:VCameraFilterBlenderOverlayBase = VCameraFilterBlenderOverlayBase(
+            model:self.controller.baseRecord)
+        self.viewBase = viewBase
+        
         addSubview(title)
         addSubview(backButton)
         addSubview(nextButton)
+        addSubview(viewBase)
         
         let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:backButton,
@@ -103,6 +112,20 @@ class VCameraFilterBlenderOverlay:VView
             view:title,
             toView:self)
         
+        let layoutBaseTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:viewBase,
+            toView:self,
+            constant:kBaseTop)
+        layoutBaseLeft = NSLayoutConstraint.leftToLeft(
+            view:viewBase,
+            toView:self)
+        let layoutBaseWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:viewBase,
+            constant:kBaseSize)
+        let layoutBaseHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:viewBase,
+            constant:kBaseSize)
+        
         addConstraints([
             layoutBackTop,
             layoutBackHeight,
@@ -115,12 +138,26 @@ class VCameraFilterBlenderOverlay:VView
             layoutTitleTop,
             layoutTitleHeight,
             layoutTitleLeft,
-            layoutTitleRight])
+            layoutTitleRight,
+            layoutBaseTop,
+            layoutBaseHeight,
+            layoutBaseLeft,
+            layoutBaseWidth])
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let remainBase:CGFloat = width - kBaseSize
+        let marginBase:CGFloat = remainBase / 2.0
+        layoutBaseLeft.constant = marginBase
+        
+        super.layoutSubviews()
     }
     
     //MARK: actions
