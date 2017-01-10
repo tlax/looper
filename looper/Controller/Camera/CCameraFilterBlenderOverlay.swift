@@ -69,8 +69,8 @@ class CCameraFilterBlenderOverlay:CController
                 let piecePosX:CGFloat = framePiece.origin.x
                 let piecePosY:CGFloat = framePiece.origin.y
                 let pieceWidth:CGFloat = framePiece.size.width
-                let respectivePosX:CGFloat = basePosX - piecePosX
-                let respectivePosY:CGFloat = basePosY - piecePosY
+                let respectivePosX:CGFloat = piecePosX - basePosX
+                let respectivePosY:CGFloat = piecePosY - basePosY
                 let percentPosX:CGFloat = respectivePosX / baseWidth
                 let percentPosY:CGFloat = respectivePosY / baseWidth
                 let percentSize:CGFloat = pieceWidth / baseWidth

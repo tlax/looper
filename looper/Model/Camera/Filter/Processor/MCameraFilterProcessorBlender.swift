@@ -100,7 +100,7 @@ class MCameraFilterProcessorBlender:MCameraFilterProcessor
                 let recordOverlay:MCameraRecord = overlay.record
                 let countItemsRecord:Int = recordOverlay.items.count
                 
-                if countItemsRecord >= indexItem
+                if indexItem >= countItemsRecord
                 {
                     continue
                 }
