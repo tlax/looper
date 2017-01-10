@@ -6,6 +6,7 @@ class VCameraFilterBlenderOverlay:VView
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 44
+    private let kTitleHeight:CGFloat = 60
     
     override init(controller:CController)
     {
@@ -94,7 +95,7 @@ class VCameraFilterBlenderOverlay:VView
             constant:kContentTop)
         let layoutTitleHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:title,
-            constant:kButtonsHeight)
+            constant:kTitleHeight)
         let layoutTitleLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:title,
             toView:self)

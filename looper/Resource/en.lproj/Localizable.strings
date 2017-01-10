@@ -2,7 +2,7 @@
 "VCameraShootConfig_titleBottom"="Frames/second";
 "VCameraFilterNoneHeader_label"="Select video";
 "VCameraFilterBlender_title"="Select base";
-"VCameraFilterBlenderOverlay_title"="Drag videos to overlay\n in desired position";
+"VCameraFilterBlenderOverlay_title"="Drag videos to\ndesired overlay position";
 "VCameraPreviewBar_cancelButton"="Cancel";
 "VCameraPreviewBar_saveButton"="Save";
 "VHelp_button"="Got it";
