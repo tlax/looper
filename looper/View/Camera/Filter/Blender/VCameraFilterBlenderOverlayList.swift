@@ -84,12 +84,19 @@ class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollec
         layoutCollectionRight = NSLayoutConstraint.rightToLeft(
             view:collectionView,
             toView:self)
+        let layoutCollectionWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:collectionView,
+            toView:self)
         
         addConstraints([
             layoutAddTop,
             layoutAddHeight,
             buttonAdd.layoutLeft,
-            layoutAddWidth])
+            layoutAddWidth,
+            layoutCollectionBottom,
+            layoutCollectionHeight,
+            layoutCollectionRight,
+            layoutCollectionWidth])
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kAfterInit)
@@ -99,10 +106,44 @@ class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollec
         }
     }
     
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let remainAdd:CGFloat = width - kButtonAddSize
+        let marginAdd:CGFloat = remainAdd / 2.0
+        layoutCollectionRight.constant = -marginAdd
+        
+        super.layoutSubviews()
+    }
+    
     //MARK: actions
     
     func actionAdd(sender button:UIButton)
     {
         buttonAdd.animateHide()
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = MSession.sharedInstance.camera!.activeRecords!.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let cell:VCameraFilterBlenderOverlayListCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VCameraFilterBlenderOverlayListCell.reusableIdentifier,
+            for:indexPath) as! VCameraFilterBlenderOverlayListCell
+        
+        return cell
     }
 }
