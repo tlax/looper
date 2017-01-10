@@ -12,7 +12,7 @@ class VCameraFilterBlenderOverlay:VView
     private let kTitleHeight:CGFloat = 60
     private let kBaseTop:CGFloat = 100
     private let kBaseSize:CGFloat = 280
-    private let kListHeight:CGFloat = 120
+    private let kListHeight:CGFloat = 100
     
     override init(controller:CController)
     {

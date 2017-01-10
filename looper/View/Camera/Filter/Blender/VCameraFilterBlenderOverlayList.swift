@@ -40,4 +40,18 @@ class VCameraFilterBlenderOverlayList:UIView
             layoutAddLeft,
             layoutAddWidth])
     }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let height:CGFloat = bounds.maxY
+        let remainAddX:CGFloat = width - kButtonAddSize
+        let remainAddY:CGFloat = height - kButtonAddSize
+        let marginAddX:CGFloat = remainAddX / 2.0
+        let marginAddY:CGFloat = remainAddY / 2.0
+        layoutAddTop.constant = marginAddY
+        layoutAddLeft.constant = marginAddX
+        
+        super.layoutSubviews()
+    }
 }
