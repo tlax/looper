@@ -32,4 +32,9 @@ class CCameraFilterBlenderOverlay:CController
     {
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
+    
+    func next()
+    {
+        
+    }
 }

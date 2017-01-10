@@ -5,6 +5,10 @@ class VCameraFilterBlenderOverlay:VView
     private weak var controller:CCameraFilterBlenderOverlay!
     private weak var viewBase:VCameraFilterBlenderOverlayBase!
     private weak var viewList:VCameraFilterBlenderOverlayList!
+    private weak var viewPieces:UIView!
+    private weak var spinner:VSpinner!
+    private weak var nextButton:UIButton!
+    private weak var backButton:UIButton!
     private weak var layoutBaseLeft:NSLayoutConstraint!
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
@@ -13,11 +17,18 @@ class VCameraFilterBlenderOverlay:VView
     private let kBaseTop:CGFloat = 100
     private let kBaseSize:CGFloat = 280
     private let kListHeight:CGFloat = 130
+    private let kPieceSize:CGFloat = 150
+    private let kButtonsNotActiveAlpha:CGFloat = 0.3
+    private let kButtonsActiveAlpha:CGFloat = 1
     
     override init(controller:CController)
     {
         super.init(controller:controller)
         self.controller = controller as? CCameraFilterBlenderOverlay
+        
+        let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
+        self.spinner = spinner
         
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +45,7 @@ class VCameraFilterBlenderOverlay:VView
             self,
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.backButton = backButton
         
         let nextButton:UIButton = UIButton()
         nextButton.translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +64,7 @@ class VCameraFilterBlenderOverlay:VView
             self,
             action:#selector(actionNext(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.nextButton = nextButton
         
         let title:UILabel = UILabel()
         title.isUserInteractionEnabled = false
@@ -75,6 +88,11 @@ class VCameraFilterBlenderOverlay:VView
         addSubview(nextButton)
         addSubview(viewBase)
         addSubview(viewList)
+        addSubview(spinner)
+        
+        let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:spinner,
+            toView:self)
         
         let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:backButton,
@@ -145,6 +163,8 @@ class VCameraFilterBlenderOverlay:VView
             view:viewList,
             toView:self)
         
+        addConstraints(constraintsSpinner)
+        
         addConstraints([
             layoutBackTop,
             layoutBackHeight,
@@ -173,6 +193,11 @@ class VCameraFilterBlenderOverlay:VView
         fatalError()
     }
     
+    deinit
+    {
+        spinner.stopAnimating()
+    }
+    
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.maxX
@@ -192,6 +217,23 @@ class VCameraFilterBlenderOverlay:VView
     
     func actionNext(sender button:UIButton)
     {
-        
+        button.isUserInteractionEnabled = false
+        controller.next()
+    }
+    
+    //MARK: public
+    
+    func startLoading()
+    {
+        spinner.startAnimating()
+    }
+    
+    func stopLoading()
+    {
+        spinner.stopAnimating()
+        nextButton.isUserInteractionEnabled = true
+        backButton.isUserInteractionEnabled = true
+        nextButton.alpha = kButtonsActiveAlpha
+        backButton.alpha = kButtonsActiveAlpha
     }
 }
