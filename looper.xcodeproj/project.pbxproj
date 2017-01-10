@@ -96,7 +96,6 @@
 		DA799CF31E1440F500AB45DD /* MCameraRaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CF21E1440F500AB45DD /* MCameraRaw.swift */; };
 		DA799CF51E14488000AB45DD /* MCameraRawItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CF41E14488000AB45DD /* MCameraRawItem.swift */; };
 		DA96FEDE1E03672F00FD5265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */; };
-		DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FE981E03672F00FD5265 /* CHome.swift */; };
 		DA96FEE01E03672F00FD5265 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FE9A1E03672F00FD5265 /* CAppDelegate.swift */; };
 		DA96FEE11E03672F00FD5265 /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FE9B1E03672F00FD5265 /* CController.swift */; };
 		DA96FEE21E03672F00FD5265 /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FE9C1E03672F00FD5265 /* CParent.swift */; };
@@ -283,7 +282,6 @@
 		DA799CF41E14488000AB45DD /* MCameraRawItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraRawItem.swift; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DA96FE981E03672F00FD5265 /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DA96FE9A1E03672F00FD5265 /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA96FE9B1E03672F00FD5265 /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
 		DA96FE9C1E03672F00FD5265 /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
@@ -766,18 +764,9 @@
 				DA6FB24B1E1DC0660062EE13 /* Store */,
 				DA9B83C21E12DCA6002B9810 /* Camera */,
 				DAC7D3F91E12C37500312D4E /* Loops */,
-				DA96FE971E03672F00FD5265 /* Home */,
 				DA96FE991E03672F00FD5265 /* Main */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		DA96FE971E03672F00FD5265 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				DA96FE981E03672F00FD5265 /* CHome.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		DA96FE991E03672F00FD5265 /* Main */ = {
@@ -1259,7 +1248,6 @@
 				DAFC40C01E1A03FA0044B14B /* MCameraCompressItemNone.swift in Sources */,
 				DA799CDE1E1436B000AB45DD /* MCameraSpeed1.swift in Sources */,
 				DAF604E61E23E16B00A1259E /* MStoreItemStatusDeferred.swift in Sources */,
-				DA96FEDF1E03672F00FD5265 /* CHome.swift in Sources */,
 				DAFC40BA1E1A02A00044B14B /* VCameraCompress.swift in Sources */,
 				DAF604C81E23DBF000A1259E /* VStoreCellPurchased.swift in Sources */,
 				DAD778E51E10634D009B1A81 /* VHomeControlSequencesMenu.swift in Sources */,
