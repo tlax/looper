@@ -4,7 +4,7 @@ class VCameraFilterBlenderOverlayList:UIView
 {
     private weak var controller:CCameraFilterBlenderOverlay!
     private weak var buttonAdd:VCameraFilterBlenderOverlayListAdd!
-    private let kAfterInit:TimeInterval = 1
+    private let kAfterInit:TimeInterval = 0.3
     private let kButtonAddSize:CGFloat = 80
     private let kButtonAddTop:CGFloat = 10
     

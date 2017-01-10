@@ -4,8 +4,8 @@ class VCameraFilterBlenderOverlayListAdd:UIButton
 {
     weak var layoutLeft:NSLayoutConstraint!
     private weak var image:UIImageView!
-    private let kAnimationImagesDuration:TimeInterval = 0.3
-    private let kAnimationDuration:TimeInterval = 1
+    private let kAnimationImagesDuration:TimeInterval = 0.16
+    private let kAnimationDuration:TimeInterval = 0.8
     
     init()
     {
