@@ -12,6 +12,7 @@ class VCameraFilterBlenderOverlay:VView
     private let kTitleHeight:CGFloat = 60
     private let kBaseTop:CGFloat = 100
     private let kBaseSize:CGFloat = 280
+    private let kListHeight:CGFloat = 120
     
     override init(controller:CController)
     {
@@ -68,7 +69,6 @@ class VCameraFilterBlenderOverlay:VView
         
         let viewList:VCameraFilterBlenderOverlayList = VCameraFilterBlenderOverlayList(
             controller:self.controller)
-        
         
         addSubview(title)
         addSubview(backButton)
@@ -132,6 +132,19 @@ class VCameraFilterBlenderOverlay:VView
             view:viewBase,
             constant:kBaseSize)
         
+        let layoutListBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:viewList,
+            toView:self)
+        let layoutListHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:viewList,
+            constant:kListHeight)
+        let layoutListLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:viewList,
+            toView:self)
+        let layoutListRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:viewList,
+            toView:self)
+        
         addConstraints([
             layoutBackTop,
             layoutBackHeight,
@@ -148,7 +161,11 @@ class VCameraFilterBlenderOverlay:VView
             layoutBaseTop,
             layoutBaseHeight,
             layoutBaseLeft,
-            layoutBaseWidth])
+            layoutBaseWidth,
+            layoutListBottom,
+            layoutListHeight,
+            layoutListLeft,
+            layoutListRight])
     }
     
     required init?(coder:NSCoder)
