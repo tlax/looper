@@ -18,6 +18,7 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         self.controller = controller as? CCamera
         
         let collectionView:VCollection = VCollection()
+        collectionView.isHidden = true
         collectionView.flow.minimumInteritemSpacing = kInterLine
         collectionView.flow.minimumLineSpacing = kInterLine
         collectionView.flow.headerReferenceSize = CGSize(

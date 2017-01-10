@@ -3,7 +3,19 @@ import UIKit
 class CCamera:CController
 {
     weak var viewCamera:VCamera!
+    private var refreshCamera:Bool
     private let kAfterShoot:TimeInterval = 0.6
+    
+    override init()
+    {
+        refreshCamera = false
+        super.init()
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
     
     deinit
     {
@@ -44,6 +56,8 @@ class CCamera:CController
                 return
             }
             
+            self?.refreshCamera = true
+            
             if model.records.isEmpty
             {
                 self?.shoot()
@@ -54,7 +68,11 @@ class CCamera:CController
     override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
-        viewCamera.refresh()
+        
+        if refreshCamera
+        {
+            viewCamera.refresh()
+        }
     }
     
     override func loadView()

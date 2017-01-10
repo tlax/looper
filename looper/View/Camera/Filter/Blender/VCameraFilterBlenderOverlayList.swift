@@ -10,8 +10,10 @@ class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollec
     private let kAfterInit:TimeInterval = 0.3
     private let kDeselectTime:TimeInterval = 0.3
     private let kButtonAddSize:CGFloat = 80
-    private let kButtonAddTop:CGFloat = 20
+    private let kButtonAddTop:CGFloat = 50
     private let kButtonDoneWidth:CGFloat = 120
+    private let kButtonDoneHeight:CGFloat = 32
+    private let kButtonDoneBottom:CGFloat = -16
     private let kCellSize:CGFloat = 80
     private let kInterline:CGFloat = 2
     
@@ -23,6 +25,22 @@ class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollec
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
+        let screenWidth:CGFloat = UIScreen.main.bounds.width
+        let countCells:Int = MSession.sharedInstance.camera!.activeRecords!.count
+        let cellsWidth:CGFloat = (CGFloat(countCells) * (kCellSize + kInterline)) + kInterline
+        let remainScreenWidth:CGFloat = screenWidth - cellsWidth
+        let marginScreenWidth:CGFloat = remainScreenWidth / 2.0
+        let marginSides:CGFloat
+        
+        if marginScreenWidth > 0
+        {
+            marginSides = marginScreenWidth
+        }
+        else
+        {
+            marginSides = kInterline
+        }
+        
         let buttonAdd:VCameraFilterBlenderOverlayListAdd = VCameraFilterBlenderOverlayListAdd()
         buttonAdd.addTarget(
             self,
@@ -31,16 +49,24 @@ class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollec
         self.buttonAdd = buttonAdd
         
         let buttonDone:UIButton = UIButton()
+        buttonDone.clipsToBounds = true
+        buttonDone.backgroundColor = UIColor.genericLight
         buttonDone.translatesAutoresizingMaskIntoConstraints = false
         buttonDone.setTitleColor(
-            UIColor.genericLight,
+            UIColor.white,
             for:UIControlState.normal)
         buttonDone.setTitleColor(
-            UIColor.genericDark,
+            UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
         buttonDone.setTitle(
             NSLocalizedString("VCameraFilterBlenderOverlayList_done", comment:""),
             for:UIControlState.normal)
+        buttonDone.titleLabel!.font = UIFont.bold(size:16)
+        buttonDone.addTarget(
+            self,
+            action:#selector(actionDone(sender:)),
+            for:UIControlEvents.touchUpInside)
+        buttonDone.layer.cornerRadius = kButtonDoneHeight / 2.0
         
         let collectionView:VCollection = VCollection()
         collectionView.flow.itemSize = CGSize(width:kCellSize, height:kCellSize)
@@ -49,9 +75,9 @@ class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollec
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         collectionView.flow.sectionInset = UIEdgeInsetsMake(
             0,
-            kInterline,
+            marginSides,
             0,
-            kInterline)
+            marginSides)
         collectionView.alwaysBounceHorizontal = true
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -91,18 +117,19 @@ class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollec
             view:collectionView,
             toView:self)
         
-        let layoutDoneTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let layoutDoneHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:buttonDone,
-            toView:self)
+            constant:kButtonDoneHeight)
         let layoutDoneBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
             view:buttonDone,
-            toView:collectionView)
+            toView:collectionView,
+            constant:kButtonDoneBottom)
         let layoutDoneWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:buttonDone,
             constant:kButtonDoneWidth)
         layoutDoneLeft = NSLayoutConstraint.leftToLeft(
             view:buttonDone,
-            toView:self)
+            toView:collectionView)
         
         addConstraints([
             layoutAddTop,
@@ -113,7 +140,7 @@ class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollec
             layoutCollectionHeight,
             layoutCollectionRight,
             layoutCollectionWidth,
-            layoutDoneTop,
+            layoutDoneHeight,
             layoutDoneBottom,
             layoutDoneWidth,
             layoutDoneLeft])
@@ -144,6 +171,11 @@ class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollec
     func actionAdd(sender button:UIButton)
     {
         buttonAdd.animateHide()
+    }
+    
+    func actionDone(sender button:UIButton)
+    {
+        buttonAdd.animateShow()
     }
     
     //MARK: private
