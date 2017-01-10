@@ -28,6 +28,21 @@ class MCameraFilterItemBlend:MCameraFilterItem
         baseRecord:MCameraRecord?,
         overlays:[MCameraFilterItemBlendOverlay]) -> MCameraRecord
     {
+        let filteredRecord:MCameraRecord
         
+        guard
+            
+            let blender:MCameraFilterProcessorBlender = MCameraFilterProcessorBlender()
+            
+        else
+        {
+            filteredRecord = MCameraRecord()
+            
+            return filteredRecord
+        }
+        
+        markedRecord = waterMarker.addWatermark(original:original)
+        
+        return filteredRecord
     }
 }
