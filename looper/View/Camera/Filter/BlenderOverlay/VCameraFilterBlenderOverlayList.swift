@@ -215,6 +215,9 @@ class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        let item:MCameraRecord = modelAtIndex(index:indexPath)
+        controller.viewOverlay.addPiece(model:item)
+        
         buttonAdd.animateShow()
         
         DispatchQueue.main.asyncAfter(

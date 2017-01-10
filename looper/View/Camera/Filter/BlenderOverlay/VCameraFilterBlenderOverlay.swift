@@ -10,6 +10,7 @@ class VCameraFilterBlenderOverlay:VView
     private weak var nextButton:UIButton!
     private weak var backButton:UIButton!
     private weak var layoutBaseLeft:NSLayoutConstraint!
+    private let pieceSize_2:CGFloat
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 44
@@ -23,6 +24,8 @@ class VCameraFilterBlenderOverlay:VView
     
     override init(controller:CController)
     {
+        pieceSize_2 = kPieceSize / 2.0
+        
         super.init(controller:controller)
         self.controller = controller as? CCameraFilterBlenderOverlay
         
@@ -86,6 +89,7 @@ class VCameraFilterBlenderOverlay:VView
         
         let viewList:VCameraFilterBlenderOverlayList = VCameraFilterBlenderOverlayList(
             controller:self.controller)
+        self.viewList = viewList
         
         addSubview(spinner)
         addSubview(title)
@@ -254,5 +258,32 @@ class VCameraFilterBlenderOverlay:VView
         viewPlacer.isHidden = false
         viewBase.isHidden = false
         viewList.isHidden = false
+    }
+    
+    func addPiece(model:MCameraRecord)
+    {
+        let centerX:CGFloat = viewBase.frame.midX
+        let centerY:CGFloat = viewBase.frame.midY
+        let pieceX:CGFloat = centerX - pieceSize_2
+        let pieceY:CGFloat = centerY - pieceSize_2
+        
+        let viewPiece:VCameraFilterBlenderOverlayPiece = VCameraFilterBlenderOverlayPiece(
+            model:model)
+        viewPiece.layoutTop = NSLayoutConstraint.topToTop(
+            view:viewPiece,
+            toView:viewPlacer,
+            constant:pieceY)
+        viewPiece.layoutHeight = NSLayoutConstraint.height(
+            view:viewPiece,
+            constant:kPieceSize)
+        viewPiece.layoutLeft = NSLayoutConstraint.leftToLeft(
+            view:viewPiece,
+            toView:viewPlacer,
+            constant:pieceX)
+        viewPiece.layoutWidth = NSLayoutConstraint.width(
+            view:viewPiece,
+            constant:kPieceSize)
+        
+        a
     }
 }

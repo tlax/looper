@@ -3,9 +3,14 @@ import UIKit
 class VCameraFilterBlenderOverlayPiece:UIView
 {
     weak var model:MCameraRecord!
+    weak var layoutTop:NSLayoutConstraint!
+    weak var layoutLeft:NSLayoutConstraint!
+    weak var layoutWidth:NSLayoutConstraint!
+    weak var layoutHeight:NSLayoutConstraint!
     private weak var imageView:UIImageView!
     private let kCornerRadius:CGFloat = 10
     private let kImageMargin:CGFloat = 3
+    private let kAnimationDuration:TimeInterval = 1
     
     init(model:MCameraRecord)
     {
@@ -18,6 +23,7 @@ class VCameraFilterBlenderOverlayPiece:UIView
         self.model = model
         
         let imageView:UIImageView = UIImageView()
+        imageView.alpha = 0
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = UIViewContentMode.scaleAspectFill
@@ -55,5 +61,16 @@ class VCameraFilterBlenderOverlayPiece:UIView
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: public
+    
+    func animateShow()
+    {
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.imageView.alpha = 1
+        }
     }
 }

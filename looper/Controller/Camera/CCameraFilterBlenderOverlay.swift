@@ -2,9 +2,9 @@ import UIKit
 
 class CCameraFilterBlenderOverlay:CController
 {
-    private weak var viewOverlay:VCameraFilterBlenderOverlay!
-    private weak var model:MCameraFilterItemBlend!
+    weak var viewOverlay:VCameraFilterBlenderOverlay!
     weak var baseRecord:MCameraRecord?
+    private weak var model:MCameraFilterItemBlend!
     
     init(model:MCameraFilterItemBlend, baseRecord:MCameraRecord?)
     {
