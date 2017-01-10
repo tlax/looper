@@ -629,9 +629,9 @@
 				DA20F0B41E04449C00F8BAD4 /* Model */,
 				DA96FE961E03672F00FD5265 /* Controller */,
 				DA96FE9D1E03672F00FD5265 /* Extensions */,
-				DA96FEA41E03672F00FD5265 /* Info.plist */,
 				DA96FEA51E03672F00FD5265 /* Resource */,
 				DA96FEA91E03672F00FD5265 /* View */,
+				DA96FEA41E03672F00FD5265 /* Info.plist */,
 			);
 			path = looper;
 			sourceTree = "<group>";
