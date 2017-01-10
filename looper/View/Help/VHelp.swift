@@ -72,11 +72,11 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:visualEffect,
-            parent:self)
+            toView:self)
         
         let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:collectionView,
-            parent:self)
+            toView:self)
         
         let layoutButtonBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:button,

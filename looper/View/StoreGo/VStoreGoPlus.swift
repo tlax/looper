@@ -80,10 +80,10 @@ class VStoreGoPlus:VView
         
         let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:visualEffect,
-            parent:self)
+            toView:self)
         let constraintsBaseButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:baseButton,
-            parent:self)
+            toView:self)
         
         layoutBaseViewTop = NSLayoutConstraint.topToTop(
             view:baseView,

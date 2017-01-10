@@ -42,10 +42,10 @@ class VCameraFilterNone:VView, UICollectionViewDelegate, UICollectionViewDataSou
         
         let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:collectionView,
-            parent:self)
+            toView:self)
         let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:spinner,
-            parent:self)
+            toView:self)
         
         addConstraints(constraintsCollection)
         addConstraints(constraintsSpinner)

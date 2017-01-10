@@ -20,7 +20,7 @@ class VStoreCellNotAvailable:VStoreCell
         
         let constraintsLabel:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:label,
-            parent:self)
+            toView:self)
         
         addConstraints(constraintsLabel)
     }

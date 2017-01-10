@@ -142,20 +142,48 @@ extension NSLayoutConstraint
         return constraint
     }
     
-    class func equals(view:UIView, parent:UIView) -> [NSLayoutConstraint]
+    class func width(view:UIView, toView:UIView) -> NSLayoutConstraint
+    {
+        let constraint:NSLayoutConstraint = NSLayoutConstraint(
+            item:view,
+            attribute:NSLayoutAttribute.width,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:toView,
+            attribute:NSLayoutAttribute.width,
+            multiplier:1,
+            constant:0)
+        
+        return constraint
+    }
+    
+    class func height(view:UIView, toView:UIView) -> NSLayoutConstraint
+    {
+        let constraint:NSLayoutConstraint = NSLayoutConstraint(
+            item:view,
+            attribute:NSLayoutAttribute.height,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:toView,
+            attribute:NSLayoutAttribute.height,
+            multiplier:1,
+            constant:0)
+        
+        return constraint
+    }
+    
+    class func equals(view:UIView, toView:UIView) -> [NSLayoutConstraint]
     {
         let top:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:view,
-            toView:parent)
+            toView:toView)
         let bottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:view,
-            toView:parent)
+            toView:toView)
         let left:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:view,
-            toView:parent)
+            toView:toView)
         let right:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:view,
-            toView:parent)
+            toView:toView)
         
         let constraints:[NSLayoutConstraint] = [
             top,

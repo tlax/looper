@@ -60,7 +60,7 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         
         let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:spinner,
-            parent:self)
+            toView:self)
         
         addConstraints(constraintsSpinner)
         addConstraints([

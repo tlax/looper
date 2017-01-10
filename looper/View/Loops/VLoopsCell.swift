@@ -168,10 +168,10 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         
         let constraintsButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:button,
-            parent:imageView)
+            toView:imageView)
         let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:spinner,
-            parent:imageView)
+            toView:imageView)
         
         addConstraints(constraintsButton)
         addConstraints(constraintsSpinner)

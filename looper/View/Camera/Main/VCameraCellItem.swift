@@ -23,7 +23,7 @@ class VCameraCellItem:UICollectionViewCell
         
         let constraintsImage:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:imageView,
-            parent:self)
+            toView:self)
         
         addConstraints(constraintsImage)
     }

@@ -29,7 +29,7 @@ class VCameraPreviewDisplay:UIView
         
         let constraintsImage:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:imageView,
-            parent:self)
+            toView:self)
         
         let layoutBorderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:border,

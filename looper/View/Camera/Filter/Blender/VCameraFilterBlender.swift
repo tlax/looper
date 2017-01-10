@@ -75,7 +75,7 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
         
         let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:collectionView,
-            parent:self)
+            toView:self)
         
         let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:backButton,

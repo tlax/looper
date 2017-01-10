@@ -36,7 +36,7 @@ class VCameraFilterBlenderOverlayListAdd:UIButton
         
         let constraintsImage:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:image,
-            parent:self)
+            toView:self)
         
         addConstraints(constraintsImage)
     }

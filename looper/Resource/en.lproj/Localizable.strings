@@ -16,6 +16,7 @@
 "VStoreGoPlus_descr"="Go plus to get unlimited captures";
 "VStoreGoPlusButtons_buttonCancel"="No thanks";
 "VStoreGoPlusButtons_buttonStore"="Go Plus";
+"VCameraFilterBlenderOverlayList_done"="Done";
 
 "CCameraShoot_noAuth"="looper has no access to your camera";
 "CCameraShoot_errorCaptureDevice"="Error connecting to camera";

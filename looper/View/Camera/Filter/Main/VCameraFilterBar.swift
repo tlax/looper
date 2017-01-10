@@ -73,7 +73,7 @@ class VCameraFilterBar:UIView
         
         let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:visualEffect,
-            parent:self)
+            toView:self)
         
         let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:backButton,

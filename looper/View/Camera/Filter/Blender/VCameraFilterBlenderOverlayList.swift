@@ -1,12 +1,16 @@
 import UIKit
 
-class VCameraFilterBlenderOverlayList:UIView
+class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CCameraFilterBlenderOverlay!
+    private weak var collectionView:VCollection!
     private weak var buttonAdd:VCameraFilterBlenderOverlayListAdd!
+    private weak var layoutCollectionRight:NSLayoutConstraint!
     private let kAfterInit:TimeInterval = 0.3
     private let kButtonAddSize:CGFloat = 80
     private let kButtonAddTop:CGFloat = 10
+    private let kCellSize:CGFloat = 60
+    private let kInterline:CGFloat = 2
     
     convenience init(controller:CCameraFilterBlenderOverlay)
     {
@@ -23,7 +27,38 @@ class VCameraFilterBlenderOverlayList:UIView
             for:UIControlEvents.touchUpInside)
         self.buttonAdd = buttonAdd
         
+        let buttonDone:UIButton = UIButton()
+        buttonDone.translatesAutoresizingMaskIntoConstraints = false
+        buttonDone.setTitleColor(
+            UIColor.genericLight,
+            for:UIControlState.normal)
+        buttonDone.setTitleColor(
+            UIColor.genericDark,
+            for:UIControlState.highlighted)
+        buttonDone.setTitle(
+            NSLocalizedString("VCameraFilterBlenderOverlayList_done", comment:""),
+            for:UIControlState.normal)
+        
+        let collectionView:VCollection = VCollection()
+        collectionView.flow.itemSize = CGSize(width:kCellSize, height:kCellSize)
+        collectionView.flow.minimumLineSpacing = kInterline
+        collectionView.flow.minimumInteritemSpacing = kInterline
+        collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+        collectionView.flow.sectionInset = UIEdgeInsetsMake(
+            0,
+            kInterline,
+            0,
+            kInterline)
+        collectionView.alwaysBounceHorizontal = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(
+            cell:VCameraFilterBlenderOverlayListCell.self)
+        self.collectionView = collectionView
+        
         addSubview(buttonAdd)
+        addSubview(buttonDone)
+        addSubview(collectionView)
         
         let layoutAddTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:buttonAdd,
@@ -39,6 +74,16 @@ class VCameraFilterBlenderOverlayList:UIView
         let layoutAddWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:buttonAdd,
             constant:kButtonAddSize)
+        
+        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:collectionView,
+            constant:kCellSize)
+        layoutCollectionRight = NSLayoutConstraint.rightToLeft(
+            view:collectionView,
+            toView:self)
         
         addConstraints([
             layoutAddTop,

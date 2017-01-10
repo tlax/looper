@@ -50,7 +50,7 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
         
         let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:collectionView,
-            parent:self)
+            toView:self)
         
         addConstraints(constraintsCollection)
         

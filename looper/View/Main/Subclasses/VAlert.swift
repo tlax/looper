@@ -96,11 +96,11 @@ class VAlert:UIView
         
         let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:blur,
-            parent:self)
+            toView:self)
         
         let constraintsButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:blur,
-            parent:self)
+            toView:self)
         
         let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:label,
