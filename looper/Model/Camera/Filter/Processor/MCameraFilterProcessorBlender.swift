@@ -4,7 +4,8 @@ import MetalKit
 class MCameraFilterProcessorBlender:MCameraFilterProcessor
 {
     private var mtlFunction:MTLFunction!
-    private let kMetalFunctionName:String = "metalFilter_watermark"
+    private let kMetalFunctionName:String = "metalFilter_blender"
+    private let kBlenderMinLength:Int = 1
     
     override init?()
     {
@@ -24,111 +25,198 @@ class MCameraFilterProcessorBlender:MCameraFilterProcessor
     
     //MARK: public
     
-    func addWatermark(original:MCameraRecord) -> MCameraRecord
+    func blend(baseRecord:MCameraRecord?, overlays:[MCameraFilterItemBlendOverlay]) -> MCameraRecord
     {
-        let marked:MCameraRecord = MCameraRecord()
-        let imageWater:UIImage = #imageLiteral(resourceName: "assetGenericWaterMark")
-        let waterWidth:Int = Int(imageWater.size.width)
-        let waterHeight:Int = Int(imageWater.size.height)
+        let blended:MCameraRecord = MCameraRecord()
+        let length:Int
         
-        print("water width: \(waterWidth)  height:\(waterHeight)")
-        
-        for item:MCameraRecordItem in original.items
+        if let baseRecord:MCameraRecord = baseRecord
         {
-            let itemImage:UIImage = item.image
+            length = baseRecord.items.count
+        }
+        else
+        {
+            var minLength:Int?
             
-            guard
+            for overlay:MCameraFilterItemBlendOverlay in overlays
+            {
+                let overlayLength:Int = overlay.record.items.count
                 
-                let texture:MTLTexture = texturize(image:itemImage)
-                
+                if minLength == nil
+                {
+                    minLength = overlayLength
+                }
                 else
-            {
-                continue
+                {
+                    if overlayLength < minLength!
+                    {
+                        minLength = overlayLength
+                    }
+                }
             }
             
-            let mutableTexture:MTLTexture = createMutableTexture(texture:texture)
-            let textureWidth:Int = mutableTexture.width
-            let textureHeight:Int = mutableTexture.height
-            var mapMinX:Int = textureWidth - waterWidth
-            var mapMinY:Int = textureHeight - waterHeight
-            
-            if mapMinX < 0
+            if let minLength:Int = minLength
             {
-                mapMinX = 0
+                length = minLength
             }
-            
-            if mapMinY < 0
+            else
             {
-                mapMinY = 0
+                length = kBlenderMinLength
             }
-            
-            var mapMaxX:Int = mapMinX + waterWidth
-            
-            if mapMaxX > textureWidth
-            {
-                mapMaxX = textureWidth
-            }
-            
-            var mapMaxY:Int = mapMinY + waterHeight
-            
-            if mapMaxY > textureHeight
-            {
-                mapMaxY = textureHeight
-            }
-            
-            let mappingTexture:MTLTexture = createMappingTexture(
-                textureWidth:textureWidth,
-                textureHeight:textureHeight,
-                mapMinX:mapMinX,
-                mapMinY:mapMinY,
-                mapMaxX:mapMaxX,
-                mapMaxY:mapMaxY)
-            
-            guard
-                
-                let overlayTexture:MTLTexture = texturizeAt(
-                    image:imageWater,
-                    textureWidth:textureWidth,
-                    textureHeight:textureHeight,
-                    imageX:mapMinX,
-                    imageY:mapMinY,
-                    imageWidth:waterWidth,
-                    imageHeight:waterHeight)
-                
-                else
-            {
-                continue
-            }
-            /*
-            let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
-            
-            
-            
-            let metalFilter:MetalFilterWatermark = MetalFilterWatermark(device:device)
-            metalFilter.render(
-                mtlFunction:mtlFunction,
-                commandBuffer:commandBuffer,
-                overlayTexture:overlayTexture,
-                baseTexture:mutableTexture,
-                mapTexture:mappingTexture)
-            
-            commandBuffer.commit()
-            commandBuffer.waitUntilCompleted()
-            
-            guard
-                
-                let wateredImage:UIImage = mutableTexture.exportImage()
-                
-                else
-            {
-                continue
-            }
-            
-            let wateredItem:MCameraRecordItem = MCameraRecordItem(
-                image:wateredImage)
-            marked.items.append(wateredItem)*/
         }
         
-        return marked
+        for indexItem:Int in 0 ..< length
+        {
+            let baseTexture:MTLTexture
+            
+            if let baseRecord:MCameraRecord = baseRecord
+            {
+                let item:MCameraRecordItem = baseRecord.items[indexItem]
+                let itemImage:UIImage = item.image
+                
+                guard
+                
+                    let itemTexture:MTLTexture = texturize(image:itemImage)
+                
+                else
+                {
+                    continue
+                }
+                
+                baseTexture = createMutableTexture(texture:itemTexture)
+            }
+            else
+            {
+                baseTexture = createBlankTexure()
+            }
+            
+            let baseWidth:Int = baseTexture.width
+            let baseHeight:Int = baseTexture.height
+            let baseMax:Int = baseWidth - 1
+            let baseSize:CGFloat = CGFloat(baseWidth)
+            
+            for overlay:MCameraFilterItemBlendOverlay in overlays
+            {
+                let recordOverlay:MCameraRecord = overlay.record
+                let countItemsRecord:Int = recordOverlay.items.count
+                
+                if countItemsRecord >= indexItem
+                {
+                    continue
+                }
+                
+                let itemOverlay:MCameraRecordItem = recordOverlay.items[indexItem]
+                let imageOverlay:UIImage = itemOverlay.image
+                let overlaySize:Int = Int(overlay.percentSize * baseSize)
+                let overlayMinX:Int = Int(overlay.percentPosX * baseSize)
+                let overlayMinY:Int = Int(overlay.percentPosY * baseSize)
+                let mapMinX:Int
+                var mapMaxX:Int
+                let mapMinY:Int
+                var mapMaxY:Int
+                
+                if overlayMinX < 0
+                {
+                    mapMinX = 0
+                }
+                else if overlayMinX <= baseMax
+                {
+                    mapMinX = overlayMinX
+                }
+                else
+                {
+                    mapMinX = baseMax
+                }
+                
+                if overlayMinY < 0
+                {
+                    mapMinY = 0
+                }
+                else if overlayMinY <= baseMax
+                {
+                    mapMinY = overlayMinY
+                }
+                else
+                {
+                    mapMinY = baseMax
+                }
+                
+                mapMaxX = mapMinX + overlaySize
+                mapMaxY = mapMinY + overlaySize
+                
+                if mapMaxX > baseMax
+                {
+                    mapMaxX = baseMax
+                }
+                
+                if mapMaxY > baseMax
+                {
+                    mapMaxY = baseMax
+                }
+                
+                let mappingTexture:MTLTexture = createMappingTexture(
+                    textureWidth:baseWidth,
+                    textureHeight:baseHeight,
+                    mapMinX:mapMinX,
+                    mapMinY:mapMinY,
+                    mapMaxX:mapMaxX,
+                    mapMaxY:mapMaxY)
+                
+                guard
+                    
+                    let overlayTexture:MTLTexture = texturizeAt(
+                        image:imageOverlay,
+                        textureWidth:baseWidth,
+                        textureHeight:baseHeight,
+                        imageX:overlayMinX,
+                        imageY:overlayMinY,
+                        imageWidth:overlaySize,
+                        imageHeight:overlaySize)
+                    
+                else
+                {
+                    continue
+                }
+                
+                let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
+                
+                guard
+                    
+                    let metalFilter:MetalFilterBlender = MetalFilterBlender(
+                        device:device,
+                        mtlFunction:mtlFunction,
+                        commandBuffer:commandBuffer,
+                        width:baseWidth,
+                        height:baseHeight)
+                    
+                else
+                {
+                    continue
+                }
+                
+                metalFilter.render(
+                    overlayTexture:overlayTexture,
+                    baseTexture:baseTexture,
+                    mapTexture:mappingTexture)
+                
+                commandBuffer.commit()
+                commandBuffer.waitUntilCompleted()
+            }
+            
+            guard
+                
+                let blendedImage:UIImage = baseTexture.exportImage()
+                
+            else
+            {
+                continue
+            }
+            
+            let blendedItem:MCameraRecordItem = MCameraRecordItem(
+                image:blendedImage)
+            blended.items.append(blendedItem)
+        }
+        
+        return blended
     }
 }

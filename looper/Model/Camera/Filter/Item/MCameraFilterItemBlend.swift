@@ -41,7 +41,9 @@ class MCameraFilterItemBlend:MCameraFilterItem
             return filteredRecord
         }
         
-        markedRecord = waterMarker.addWatermark(original:original)
+        filteredRecord = blender.blend(
+            baseRecord:baseRecord,
+            overlays:overlays)
         
         return filteredRecord
     }

@@ -39,6 +39,20 @@ class MCameraFilterProcessor
     
     //MARK: public
     
+    func createBlankTexure() -> MTLTexture
+    {
+        let textureDescriptor:MTLTextureDescriptor = MTLTextureDescriptor.texture2DDescriptor(
+            pixelFormat:kTextureDefaultPixelFormat,
+            width:Int(MCamera.kImageMaxSize),
+            height:Int(MCamera.kImageMaxSize),
+            mipmapped:kTextureMipMapped)
+        
+        let newTexture:MTLTexture = device.makeTexture(
+            descriptor:textureDescriptor)
+        
+        return newTexture
+    }
+    
     func createBlankTexure(
         pixelFormat:MTLPixelFormat,
         width:Int,
@@ -58,16 +72,18 @@ class MCameraFilterProcessor
     
     func createMutableTexture(texture:MTLTexture) -> MTLTexture
     {
+        let width:Int = texture.width
+        let height:Int = texture.height
         let baseTexture:MTLTexture = createBlankTexure(
             pixelFormat:texture.pixelFormat,
-            width:texture.width,
-            height:texture.height)
+            width:width,
+            height:height)
         
         let originZero:MTLOrigin = MTLOriginMake(0, 0, 0)
         let textureBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
         let size:MTLSize = MTLSizeMake(
-            texture.width,
-            texture.height,
+            width,
+            height,
             kTextureDepth)
         let blitEncoder:MTLBlitCommandEncoder = textureBuffer.makeBlitCommandEncoder()
         
