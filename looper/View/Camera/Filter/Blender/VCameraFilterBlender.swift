@@ -145,12 +145,12 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
     
     func actionBack(sender button:UIButton)
     {
-        controller?.back()
+        controller.back()
     }
     
     func actionNext(sender button:UIButton)
     {
-        
+        controller.next()
     }
     
     //MARK: private

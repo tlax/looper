@@ -43,17 +43,7 @@ class CCameraFilterNone:CController
     
     private func filter(record:MCameraRecord)
     {
-        let filteredRecord:MCameraRecord = MCameraRecord()
-        
-        for item:MCameraRecordItem in record.items
-        {
-            if item.active
-            {
-                filteredRecord.items.append(item)
-            }
-        }
-        
-        let waterMarked:MCameraRecord = model.waterMark(original:filteredRecord)
+        let waterMarked:MCameraRecord = model.waterMark(original:record)
         
         DispatchQueue.main.async
         { [weak self] in

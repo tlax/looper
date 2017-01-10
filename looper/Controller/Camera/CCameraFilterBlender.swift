@@ -37,4 +37,25 @@ class CCameraFilterBlender:CController
     {
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
+    
+    func next()
+    {
+        let baseRecord:MCameraRecord?
+        
+        if currentSelected == 0
+        {
+             baseRecord = nil
+        }
+        else
+        {
+            baseRecord = MSession.sharedInstance.camera?.activeRecords?[currentSelected - 1]
+        }
+        
+        let controllerOverlay:CCameraFilterBlenderOverlay = CCameraFilterBlenderOverlay(
+            model:model,
+            baseRecord:baseRecord)
+        parentController.push(
+            controller:controllerOverlay,
+            horizontal:CParent.TransitionHorizontal.fromRight)
+    }
 }

@@ -2,6 +2,7 @@
 "VCameraShootConfig_titleBottom"="Frames/second";
 "VCameraFilterNoneHeader_label"="Select video";
 "VCameraFilterBlender_title"="Select base";
+"VCameraFilterBlenderOverlay_title"="Drag videos to overlay\n in desired position";
 "VCameraPreviewBar_cancelButton"="Cancel";
 "VCameraPreviewBar_saveButton"="Save";
 "VHelp_button"="Got it";
@@ -21,10 +22,10 @@
 "CCamera_alertTitle"="Delete video?";
 "CCamera_alertDelete"="Delete";
 "CCamera_alertCancel"="Cancel";
-"CCameraPreview_alertTitle"="Go back to beginning?";
-"CCameraPreview_alertMessage"="Progress will be lost";
+"CCameraPreview_alertTitle"="Stop editing?";
+"CCameraPreview_alertMessage"="You haven't save yet";
 "CCameraPreview_alertCancel"="Stay";
-"CCameraPreview_alertDelete"="Go back";
+"CCameraPreview_alertDelete"="Stop";
 "CLoops_alertTitle"="Delete loop?";
 "CLoops_alertCancel"="Cancel";
 "CLoops_alertDelete"="Delete";
