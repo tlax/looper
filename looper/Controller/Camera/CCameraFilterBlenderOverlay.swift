@@ -46,9 +46,50 @@ class CCameraFilterBlenderOverlay:CController
     
     private func filter()
     {
+        let frameBase:CGRect = viewOverlay.viewBase.frame
+        let basePosX:CGFloat = frameBase.origin.x
+        let basePosY:CGFloat = frameBase.origin.y
+        let baseWidth:CGFloat = frameBase.size.width
+        var overlays:[MCameraFilterItemBlendOverlay] = []
         
+        for placerSubview:UIView in viewOverlay.viewPlacer.subviews
+        {
+            guard
+            
+                let viewPiece:VCameraFilterBlenderOverlayPiece = placerSubview as? VCameraFilterBlenderOverlayPiece
+            else
+            {
+                continue
+            }
+            
+            if viewPiece.intersecting
+            {
+                let record:MCameraRecord = viewPiece.model
+                let framePiece:CGRect = viewPiece.frame
+                let piecePosX:CGFloat = framePiece.origin.x
+                let piecePosY:CGFloat = framePiece.origin.y
+                let pieceWidth:CGFloat = framePiece.size.width
+                let respectivePosX:CGFloat = basePosX - piecePosX
+                let respectivePosY:CGFloat = basePosY - piecePosY
+                let percentPosX:CGFloat = respectivePosX / baseWidth
+                let percentPosY:CGFloat = respectivePosY / baseWidth
+                let percentSize:CGFloat = pieceWidth / baseWidth
+                
+                let modelOverlay:MCameraFilterItemBlendOverlay = MCameraFilterItemBlendOverlay(
+                    record:record,
+                    percentPosX:percentPosX,
+                    percentPosY:percentPosY,
+                    percentSize:percentSize)
+                
+                overlays.append(modelOverlay)
+            }
+        }
         
-        let waterMarked:MCameraRecord = model.waterMark(original:record)
+        let filteredRecord:MCameraRecord = model.filter(
+            baseRecord:baseRecord,
+            overlays:overlays)
+        let waterMarked:MCameraRecord = model.waterMark(
+            original:filteredRecord)
         
         DispatchQueue.main.async
         { [weak self] in

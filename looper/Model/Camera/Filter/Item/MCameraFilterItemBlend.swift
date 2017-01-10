@@ -21,4 +21,13 @@ class MCameraFilterItemBlend:MCameraFilterItem
         
         return controller
     }
+    
+    //MARK: public
+    
+    func filter(
+        baseRecord:MCameraRecord?,
+        overlays:[MCameraFilterItemBlendOverlay]) -> MCameraRecord
+    {
+        
+    }
 }

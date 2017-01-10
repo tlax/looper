@@ -2,6 +2,7 @@ import UIKit
 
 class VCameraFilterBlenderOverlayPiece:UIView
 {
+    var intersecting:Bool
     weak var model:MCameraRecord!
     weak var layoutTop:NSLayoutConstraint!
     weak var layoutLeft:NSLayoutConstraint!
@@ -19,6 +20,7 @@ class VCameraFilterBlenderOverlayPiece:UIView
     
     init(model:MCameraRecord)
     {
+        intersecting = false
         draggingMargin2 = kDraggingMargin + kDraggingMargin
         
         super.init(frame:CGRect.zero)
@@ -88,11 +90,13 @@ class VCameraFilterBlenderOverlayPiece:UIView
     
     func insideBase()
     {
+        intersecting = true
         backgroundColor = UIColor.genericLight
     }
     
     func outsideBase()
     {
+        intersecting = false
         backgroundColor = UIColor(white:0, alpha:0.8)
     }
     

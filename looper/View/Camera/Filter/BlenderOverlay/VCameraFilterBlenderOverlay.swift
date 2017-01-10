@@ -3,9 +3,9 @@ import UIKit
 class VCameraFilterBlenderOverlay:VView
 {
     weak var viewBase:VCameraFilterBlenderOverlayBase!
+    weak var viewPlacer:VCameraFilterBlenderOverlayPlacer!
     private weak var controller:CCameraFilterBlenderOverlay!
     private weak var viewList:VCameraFilterBlenderOverlayList!
-    private weak var viewPlacer:VCameraFilterBlenderOverlayPlacer!
     private weak var spinner:VSpinner!
     private weak var nextButton:UIButton!
     private weak var backButton:UIButton!

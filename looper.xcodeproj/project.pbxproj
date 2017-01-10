@@ -1092,8 +1092,8 @@
 				DAD404D41E1F3180005EA836 /* MCameraFilter.swift */,
 				DAD404D51E1F3180005EA836 /* MCameraFilterItem.swift */,
 				DAD404D61E1F3180005EA836 /* MCameraFilterItemBlend.swift */,
-				DAD404D71E1F3180005EA836 /* MCameraFilterItemNone.swift */,
 				DA17E5671E258965004838D5 /* MCameraFilterItemBlendOverlay.swift */,
+				DAD404D71E1F3180005EA836 /* MCameraFilterItemNone.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
