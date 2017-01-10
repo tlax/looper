@@ -18,6 +18,12 @@ class CCameraFilterBlenderOverlay:CController
         fatalError()
     }
     
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        viewOverlay.stopLoading()
+    }
+    
     override func loadView()
     {
         let viewOverlay:VCameraFilterBlenderOverlay = VCameraFilterBlenderOverlay(
@@ -35,6 +41,6 @@ class CCameraFilterBlenderOverlay:CController
     
     func next()
     {
-        
+        viewOverlay.startLoading()
     }
 }

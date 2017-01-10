@@ -5,7 +5,7 @@ class VCameraFilterBlenderOverlay:VView
     private weak var controller:CCameraFilterBlenderOverlay!
     private weak var viewBase:VCameraFilterBlenderOverlayBase!
     private weak var viewList:VCameraFilterBlenderOverlayList!
-    private weak var viewPieces:UIView!
+    private weak var viewPlacer:VCameraFilterBlenderOverlayPlacer!
     private weak var spinner:VSpinner!
     private weak var nextButton:UIButton!
     private weak var backButton:UIButton!
@@ -29,6 +29,10 @@ class VCameraFilterBlenderOverlay:VView
         let spinner:VSpinner = VSpinner()
         spinner.stopAnimating()
         self.spinner = spinner
+        
+        let viewPlacer:VCameraFilterBlenderOverlayPlacer = VCameraFilterBlenderOverlayPlacer(
+            controller:self.controller)
+        self.viewPlacer = viewPlacer
         
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
@@ -83,15 +87,19 @@ class VCameraFilterBlenderOverlay:VView
         let viewList:VCameraFilterBlenderOverlayList = VCameraFilterBlenderOverlayList(
             controller:self.controller)
         
+        addSubview(spinner)
         addSubview(title)
-        addSubview(backButton)
-        addSubview(nextButton)
         addSubview(viewBase)
         addSubview(viewList)
-        addSubview(spinner)
+        addSubview(viewPlacer)
+        addSubview(backButton)
+        addSubview(nextButton)
         
         let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:spinner,
+            toView:self)
+        let constraintsPlacer:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:viewPlacer,
             toView:self)
         
         let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
@@ -164,6 +172,7 @@ class VCameraFilterBlenderOverlay:VView
             toView:self)
         
         addConstraints(constraintsSpinner)
+        addConstraints(constraintsPlacer)
         
         addConstraints([
             layoutBackTop,
@@ -226,6 +235,13 @@ class VCameraFilterBlenderOverlay:VView
     func startLoading()
     {
         spinner.startAnimating()
+        nextButton.isUserInteractionEnabled = false
+        backButton.isUserInteractionEnabled = false
+        nextButton.alpha = kButtonsNotActiveAlpha
+        backButton.alpha = kButtonsNotActiveAlpha
+        viewPlacer.isHidden = true
+        viewBase.isHidden = true
+        viewList.isHidden = true
     }
     
     func stopLoading()
@@ -235,5 +251,8 @@ class VCameraFilterBlenderOverlay:VView
         backButton.isUserInteractionEnabled = true
         nextButton.alpha = kButtonsActiveAlpha
         backButton.alpha = kButtonsActiveAlpha
+        viewPlacer.isHidden = false
+        viewBase.isHidden = false
+        viewList.isHidden = false
     }
 }
