@@ -2,55 +2,31 @@ import UIKit
 
 class VCameraCellControls:UIView
 {
-    weak var buttonTrash:UIButton!
-    weak var buttonCheckAll:UIButton!
-    weak var buttonUncheckAll:UIButton!
+    weak var buttonTrash:VCameraCellControlsButton!
+    weak var buttonCheckAll:VCameraCellControlsButton!
+    weak var buttonUncheckAll:VCameraCellControlsButton!
     private let kButtonsWidth:CGFloat = 50
     
     init()
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.genericLight
+        backgroundColor = UIColor.genericDark
         translatesAutoresizingMaskIntoConstraints = false
         
-        let buttonCheckAll:UIButton = UIButton()
-        buttonCheckAll.translatesAutoresizingMaskIntoConstraints = false
-        buttonCheckAll.setImage(
-            #imageLiteral(resourceName: "assetCameraCheckAll").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
-            for:UIControlState.normal)
-        buttonCheckAll.setImage(
-            #imageLiteral(resourceName: "assetCameraCheckAll").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
-            for:UIControlState.highlighted)
-        buttonCheckAll.imageView!.tintColor = UIColor(white:0, alpha:0.1)
-        buttonCheckAll.imageView!.clipsToBounds = true
-        buttonCheckAll.imageView!.contentMode = UIViewContentMode.center
+        let buttonCheckAll:VCameraCellControlsButton = VCameraCellControlsButton(
+            image:#imageLiteral(resourceName: "assetCameraCheckAll"),
+            backgroundColor:UIColor.clear)
         self.buttonCheckAll = buttonCheckAll
         
-        let buttonUncheckAll:UIButton = UIButton()
-        buttonUncheckAll.translatesAutoresizingMaskIntoConstraints = false
-        buttonUncheckAll.setImage(
-            #imageLiteral(resourceName: "assetCameraUncheckAll").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
-            for:UIControlState.normal)
-        buttonUncheckAll.setImage(
-            #imageLiteral(resourceName: "assetCameraUncheckAll").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
-            for:UIControlState.highlighted)
-        buttonUncheckAll.imageView!.tintColor = UIColor(white:0, alpha:0.1)
-        buttonUncheckAll.imageView!.clipsToBounds = true
-        buttonUncheckAll.imageView!.contentMode = UIViewContentMode.center
+        let buttonUncheckAll:VCameraCellControlsButton = VCameraCellControlsButton(
+            image:#imageLiteral(resourceName: "assetCameraUncheckAll"),
+            backgroundColor:UIColor.clear)
         self.buttonUncheckAll = buttonUncheckAll
         
-        let buttonTrash:UIButton = UIButton()
-        buttonTrash.translatesAutoresizingMaskIntoConstraints = false
-        buttonTrash.setImage(
-            #imageLiteral(resourceName: "assetCameraTrash").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
-            for:UIControlState.normal)
-        buttonTrash.setImage(
-            #imageLiteral(resourceName: "assetCameraTrash").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
-            for:UIControlState.highlighted)
-        buttonTrash.imageView!.tintColor = UIColor(white:0, alpha:0.1)
-        buttonTrash.imageView!.clipsToBounds = true
-        buttonTrash.imageView!.contentMode = UIViewContentMode.center
+        let buttonTrash:VCameraCellControlsButton = VCameraCellControlsButton(
+            image:#imageLiteral(resourceName: "assetCameraTrash"),
+            backgroundColor:UIColor.genericLight)
         self.buttonTrash = buttonTrash
         
         addSubview(buttonCheckAll)
