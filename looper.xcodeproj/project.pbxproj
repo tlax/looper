@@ -92,7 +92,6 @@
 		DA96FEE61E03672F00FD5265 /* ExtensionUICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEA11E03672F00FD5265 /* ExtensionUICollectionReusableView.swift */; };
 		DA96FEE71E03672F00FD5265 /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEA21E03672F00FD5265 /* ExtensionUIColor.swift */; };
 		DA96FEE81E03672F00FD5265 /* ExtensionUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FEA31E03672F00FD5265 /* ExtensionUIFont.swift */; };
-		DA96FEEA1E03672F00FD5265 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA96FEA61E03672F00FD5265 /* Localizable.strings */; };
 		DA9B83C51E12DCB8002B9810 /* CCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83C41E12DCB8002B9810 /* CCamera.swift */; };
 		DA9B83CD1E12E367002B9810 /* VCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83CA1E12E367002B9810 /* VCamera.swift */; };
 		DA9B83CF1E12E3B3002B9810 /* VCameraHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83CE1E12E3B3002B9810 /* VCameraHeader.swift */; };
@@ -113,6 +112,7 @@
 		DA9B83F81E132C3A002B9810 /* VCameraShootMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83F71E132C3A002B9810 /* VCameraShootMenu.swift */; };
 		DA9B83FA1E132C4D002B9810 /* VCameraShootMenuTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83F91E132C4D002B9810 /* VCameraShootMenuTrigger.swift */; };
 		DA9B83FE1E133329002B9810 /* VCameraShootPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83FD1E133329002B9810 /* VCameraShootPreview.swift */; };
+		DAA44F9C1E25B1BA009FB1B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DAA44F9A1E25B1BA009FB1B3 /* Localizable.strings */; };
 		DAC7D3FB1E12C37D00312D4E /* CLoops.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7D3FA1E12C37D00312D4E /* CLoops.swift */; };
 		DAC7D3FE1E12C3BC00312D4E /* VLoops.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7D3FD1E12C3BC00312D4E /* VLoops.swift */; };
 		DAD404DB1E1F3180005EA836 /* MCameraFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD404D41E1F3180005EA836 /* MCameraFilter.swift */; };
@@ -251,8 +251,6 @@
 		DA96FEA21E03672F00FD5265 /* ExtensionUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
 		DA96FEA31E03672F00FD5265 /* ExtensionUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIFont.swift; sourceTree = "<group>"; };
 		DA96FEA41E03672F00FD5265 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA96FEA71E03672F00FD5265 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DA96FEA81E03672F00FD5265 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA9B83C41E12DCB8002B9810 /* CCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCamera.swift; sourceTree = "<group>"; };
 		DA9B83CA1E12E367002B9810 /* VCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCamera.swift; sourceTree = "<group>"; };
 		DA9B83CE1E12E3B3002B9810 /* VCameraHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraHeader.swift; sourceTree = "<group>"; };
@@ -273,6 +271,7 @@
 		DA9B83F71E132C3A002B9810 /* VCameraShootMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraShootMenu.swift; sourceTree = "<group>"; };
 		DA9B83F91E132C4D002B9810 /* VCameraShootMenuTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraShootMenuTrigger.swift; sourceTree = "<group>"; };
 		DA9B83FD1E133329002B9810 /* VCameraShootPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraShootPreview.swift; sourceTree = "<group>"; };
+		DAA44F9B1E25B1BA009FB1B3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DAC7D3FA1E12C37D00312D4E /* CLoops.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLoops.swift; sourceTree = "<group>"; };
 		DAC7D3FD1E12C3BC00312D4E /* VLoops.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoops.swift; sourceTree = "<group>"; };
 		DAD404D41E1F3180005EA836 /* MCameraFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilter.swift; sourceTree = "<group>"; };
@@ -691,7 +690,7 @@
 		DA96FEA51E03672F00FD5265 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				DA96FEA61E03672F00FD5265 /* Localizable.strings */,
+				DAA44F9A1E25B1BA009FB1B3 /* Localizable.strings */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -931,7 +930,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				es,
 			);
 			mainGroup = DA96FE761E03653100FD5265;
 			productRefGroup = DA96FE801E03653100FD5265 /* Products */;
@@ -948,12 +946,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA96FEEA1E03672F00FD5265 /* Localizable.strings in Resources */,
 				DA9B83E31E12F8A6002B9810 /* camera.xcassets in Resources */,
 				DAD778ED1E11788D009B1A81 /* spinner.xcassets in Resources */,
 				DAD778E91E1174D7009B1A81 /* brand.xcassets in Resources */,
 				DAD778EB1E117667009B1A81 /* generic.xcassets in Resources */,
 				DA96FEDE1E03672F00FD5265 /* LaunchScreen.storyboard in Resources */,
+				DAA44F9C1E25B1BA009FB1B3 /* Localizable.strings in Resources */,
 				DA6FB24A1E1D88C40062EE13 /* loops.xcassets in Resources */,
 				DA4EBC591E2086E000F9AC3D /* help.xcassets in Resources */,
 			);
@@ -1118,11 +1116,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DA96FEA61E03672F00FD5265 /* Localizable.strings */ = {
+		DAA44F9A1E25B1BA009FB1B3 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DA96FEA71E03672F00FD5265 /* en */,
-				DA96FEA81E03672F00FD5265 /* es */,
+				DAA44F9B1E25B1BA009FB1B3 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
