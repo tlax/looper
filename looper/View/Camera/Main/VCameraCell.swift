@@ -14,7 +14,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private let kInterLine:CGFloat = 1
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 50
-    private let kControlsMaxWidth:CGFloat = 180
+    private let kControlsMaxWidth:CGFloat = 240
     private let kControlsMidWidth:CGFloat = 60
     private let kControlsMinWidth:CGFloat = 9
     private let kControlsMaxTreshold:CGFloat = 50
