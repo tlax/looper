@@ -37,4 +37,16 @@ extension UIColor
                 alpha:1)
         }
     }
+    
+    open class var genericAlternative:UIColor // #92CA2E
+    {
+        get
+        {
+            return UIColor(
+                red:0.572549019607843,
+                green:0.792156862745098,
+                blue:0.180392156862745,
+                alpha:1)
+        }
+    }
 }
