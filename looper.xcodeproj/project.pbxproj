@@ -132,6 +132,7 @@
 		DAD88CFF1E1AF47300EAB6B7 /* CCameraFilterNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD88CFE1E1AF47300EAB6B7 /* CCameraFilterNone.swift */; };
 		DAD88D071E1B2AD700EAB6B7 /* VCameraCompressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD88D061E1B2AD700EAB6B7 /* VCameraCompressBar.swift */; };
 		DAD88D091E1B2C5400EAB6B7 /* VCameraCompressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD88D081E1B2C5400EAB6B7 /* VCameraCompressCell.swift */; };
+		DAE179241E26F16000D39599 /* VCameraCellControlsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE179231E26F16000D39599 /* VCameraCellControlsButton.swift */; };
 		DAF604BC1E233E5F00A1259E /* VStoreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604BB1E233E5F00A1259E /* VStoreHeader.swift */; };
 		DAF604BE1E233FDD00A1259E /* VStoreFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604BD1E233FDD00A1259E /* VStoreFooter.swift */; };
 		DAF604C01E23406000A1259E /* VStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF604BF1E23406000A1259E /* VStoreCell.swift */; };
@@ -291,6 +292,7 @@
 		DAD88CFE1E1AF47300EAB6B7 /* CCameraFilterNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraFilterNone.swift; sourceTree = "<group>"; };
 		DAD88D061E1B2AD700EAB6B7 /* VCameraCompressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraCompressBar.swift; sourceTree = "<group>"; };
 		DAD88D081E1B2C5400EAB6B7 /* VCameraCompressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraCompressCell.swift; sourceTree = "<group>"; };
+		DAE179231E26F16000D39599 /* VCameraCellControlsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraCellControlsButton.swift; sourceTree = "<group>"; };
 		DAF604BB1E233E5F00A1259E /* VStoreHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreHeader.swift; sourceTree = "<group>"; };
 		DAF604BD1E233FDD00A1259E /* VStoreFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreFooter.swift; sourceTree = "<group>"; };
 		DAF604BF1E23406000A1259E /* VStoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCell.swift; sourceTree = "<group>"; };
@@ -753,6 +755,7 @@
 				DA9B83E61E130AF5002B9810 /* VCameraFooter.swift */,
 				DA9B83E01E12EBEF002B9810 /* VCameraCell.swift */,
 				DAF976191E171E1A00811D61 /* VCameraCellControls.swift */,
+				DAE179231E26F16000D39599 /* VCameraCellControlsButton.swift */,
 				DA5C52391E15723100D296C6 /* VCameraCellItem.swift */,
 			);
 			path = Main;
@@ -988,6 +991,7 @@
 				DAD404E21E1F445B005EA836 /* MetalFilterWatermark.swift in Sources */,
 				DAF604BC1E233E5F00A1259E /* VStoreHeader.swift in Sources */,
 				DA96FEE71E03672F00FD5265 /* ExtensionUIColor.swift in Sources */,
+				DAE179241E26F16000D39599 /* VCameraCellControlsButton.swift in Sources */,
 				DA11EF971E21ACE6002C10C4 /* VStore.swift in Sources */,
 				DA38AF061E1BF3CB008C86A8 /* VCameraPreview.swift in Sources */,
 				DA38AF121E1C3019008C86A8 /* VCameraPreviewPlayerTimer.swift in Sources */,

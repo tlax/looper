@@ -5,7 +5,7 @@ class VCameraCellControls:UIView
     weak var buttonTrash:UIButton!
     weak var buttonCheckAll:UIButton!
     weak var buttonUncheckAll:UIButton!
-    private let kButtonsWidth:CGFloat = 60
+    private let kButtonsWidth:CGFloat = 50
     
     init()
     {
