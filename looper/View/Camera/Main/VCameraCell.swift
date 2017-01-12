@@ -5,7 +5,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private enum Drag
     {
         case stand
-        case extra
         case restart
         case avoid
     }
@@ -23,9 +22,10 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 50
     private let kControlsMinThreshold:CGFloat = 7
-    private let kControlsExtraThreshold:CGFloat = 40
-    private let kControlsMenuThreshold:CGFloat = 90
+    private let kControlsExtraThreshold:CGFloat = 30
+    private let kControlsMenuThreshold:CGFloat = 60
     private let kControlsMaxThreshold:CGFloat = 200
+    private let kExtraSpeed:CGFloat = 3
     
     override init(frame:CGRect)
     {
@@ -122,14 +122,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     deinit
     {
         NotificationCenter.default.removeObserver(self)
-    }
-    
-    override func touchesMoved(_ touches:Set<UITouch>, with event:UIEvent?)
-    {
-        if drag == Drag.extra
-        {
-            
-        }
     }
     
     //MARK: notifications
@@ -278,22 +270,31 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         
             let offsetX:CGFloat = -scrollView.contentOffset.x
             let controlsWidth:CGFloat
+            let extraWidth:CGFloat
             
             if offsetX < 0
             {
                 controlsWidth = 0
+                extraWidth = 0
             }
             else
             {
-                controlsWidth = offsetX
+                let extraDelta:CGFloat = offsetX - kControlsExtraThreshold
+                
+                if extraDelta > 0
+                {
+                    extraWidth = kExtraSpeed * extraDelta
+                }
+                else
+                {
+                    extraWidth = 0
+                }
+                
+                controlsWidth = offsetX + extraWidth
             }
             
             layoutControlsWidth.constant = controlsWidth
-            
-            if controlsWidth > kControlsExtraThreshold
-            {
-                drag = Drag.extra
-            }
+//            layoutCollectionLeft.constant = extraWidth
             
             break
             
@@ -303,17 +304,30 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             
             break
             
-        case Drag.extra,
-             Drag.avoid:
+        case Drag.avoid:
             break
         }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView:UIScrollView)
     {
-        if drag == Drag.restart
+        switch drag
         {
+        case Drag.restart:
+         
             drag = Drag.stand
+            
+            break
+            
+        case Drag.avoid:
+            
+            drag = Drag.restart
+            
+            break
+            
+        default:
+            
+            break
         }
     }
     

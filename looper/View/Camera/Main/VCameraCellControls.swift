@@ -29,7 +29,7 @@ class VCameraCellControls:UIView
         
         let buttonMore:VCameraCellControlsButton = VCameraCellControlsButton(
             image:#imageLiteral(resourceName: "assetCameraMore"),
-            backgroundColor:UIColor.black)
+            backgroundColor:UIColor.genericDark)
         self.buttonMore = buttonMore
         
         addSubview(buttonCheckAll)
