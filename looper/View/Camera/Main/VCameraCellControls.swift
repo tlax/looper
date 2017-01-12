@@ -5,13 +5,13 @@ class VCameraCellControls:UIView
     weak var buttonTrash:VCameraCellControlsButton!
     weak var buttonCheckAll:VCameraCellControlsButton!
     weak var buttonUncheckAll:VCameraCellControlsButton!
-    private let kButtonsWidth:CGFloat = 50
+    private let kButtonsWidth:CGFloat = 60
     
     init()
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.genericDark
+        backgroundColor = UIColor.genericLight
         translatesAutoresizingMaskIntoConstraints = false
         
         let buttonCheckAll:VCameraCellControlsButton = VCameraCellControlsButton(
@@ -26,7 +26,7 @@ class VCameraCellControls:UIView
         
         let buttonTrash:VCameraCellControlsButton = VCameraCellControlsButton(
             image:#imageLiteral(resourceName: "assetCameraTrash"),
-            backgroundColor:UIColor.genericLight)
+            backgroundColor:UIColor(white:0.8, alpha:1))
         self.buttonTrash = buttonTrash
         
         addSubview(buttonCheckAll)
@@ -57,7 +57,7 @@ class VCameraCellControls:UIView
             constant:kButtonsWidth)
         let layoutCheckRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
             view:buttonCheckAll,
-            toView:buttonTrash)
+            toView:buttonUncheckAll)
         
         let layoutUncheckTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:buttonUncheckAll,
@@ -68,9 +68,10 @@ class VCameraCellControls:UIView
         let layoutUncheckWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:buttonUncheckAll,
             constant:kButtonsWidth)
-        let layoutUncheckRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+        let layoutUncheckLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
             view:buttonUncheckAll,
-            toView:buttonCheckAll)
+            toView:self,
+            multiplier:0.33)
         
         addConstraints([
             layoutTrashTop,
@@ -84,7 +85,7 @@ class VCameraCellControls:UIView
             layoutUncheckTop,
             layoutUncheckBottom,
             layoutUncheckWidth,
-            layoutUncheckRight])
+            layoutUncheckLeft])
     }
     
     required init?(coder:NSCoder)

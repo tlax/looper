@@ -72,7 +72,7 @@ extension NSLayoutConstraint
         return constraint
     }
     
-    class func leftToRight(view:UIView, toView:UIView, constant:CGFloat = 0) -> NSLayoutConstraint
+    class func leftToRight(view:UIView, toView:UIView, constant:CGFloat = 0, multiplier:CGFloat = 1) -> NSLayoutConstraint
     {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
             item:view,
@@ -80,7 +80,7 @@ extension NSLayoutConstraint
             relatedBy:NSLayoutRelation.equal,
             toItem:toView,
             attribute:NSLayoutAttribute.right,
-            multiplier:1,
+            multiplier:multiplier,
             constant:constant)
         
         return constraint
