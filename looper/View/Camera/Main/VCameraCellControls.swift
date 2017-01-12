@@ -71,9 +71,9 @@ class VCameraCellControls:UIView
         let layoutUncheckWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:buttonUncheckAll,
             constant:kButtonsWidth)
-        let layoutUncheckRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+        let layoutUncheckLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
             view:buttonUncheckAll,
-            toView:buttonmo,
+            toView:self,
             multiplier:0.33)
         
         addConstraints([
