@@ -2,6 +2,8 @@ import UIKit
 
 class VCameraCellControlsButton:UIButton
 {
+    private let kBorderWidth:CGFloat = 1
+    
     init(image:UIImage, border:Bool)
     {
         super.init(frame:CGRect.zero)
@@ -38,7 +40,7 @@ class VCameraCellControlsButton:UIButton
                 toView:self)
             let layoutBorderWidth:NSLayoutConstraint = NSLayoutConstraint.width(
                 view:viewBorder,
-                constant:1)
+                constant:kBorderWidth)
             
             addConstraints([
                 layoutBorderTop,

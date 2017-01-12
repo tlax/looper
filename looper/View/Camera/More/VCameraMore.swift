@@ -7,7 +7,7 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
     private weak var layoutCollectionBottom:NSLayoutConstraint!
     private var closeable:Bool
     private let kCollectionHeight:CGFloat = 400
-    private let kAnimationDuration:TimeInterval = 0.3
+    private let kAnimationDuration:TimeInterval = 1
     
     override init(controller:CController)
     {
@@ -32,6 +32,7 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
             for:UIControlEvents.touchUpInside)
         
         let collectionView:VCollection = VCollection()
+        collectionView.backgroundColor = UIColor.white
         collectionView.bounces = false
         collectionView.isScrollEnabled = false
         collectionView.delegate = self
@@ -135,6 +136,15 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let item:MCameraMoreItem = modelAtIndex(index:indexPath)
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:item.cellHeight)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
