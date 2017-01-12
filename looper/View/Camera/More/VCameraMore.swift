@@ -91,6 +91,15 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
         }
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MCameraMoreItem
+    {
+        let item:MCameraMoreItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
     //MARK: public
     
     func close()
@@ -141,6 +150,23 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let cell:Int
+        let item:MCameraMoreItem = modelAtIndex(index:indexPath)
+        let cell:VCameraMoreCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            item.reusableIdentifier,
+            for:indexPath) as! VCameraMoreCell
+        cell.config(controller:controller, model:item)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
     }
 }
