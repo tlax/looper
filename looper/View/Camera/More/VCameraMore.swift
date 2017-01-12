@@ -7,6 +7,7 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
     private weak var layoutCollectionBottom:NSLayoutConstraint!
     private var closeable:Bool
     private let kCollectionHeight:CGFloat = 400
+    private let kAnimationDuration:TimeInterval = 0.3
     
     override init(controller:CController)
     {
@@ -35,7 +36,7 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
         collectionView.isScrollEnabled = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView
+        collectionView.registerCell(cell: <#T##UICollectionViewCell.Type#>)
         self.collectionView = collectionView
         
         addSubview(visualEffect)
@@ -65,6 +66,12 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
         
         addConstraints(constraintsEffect)
         addConstraints(constraintsClose)
+        
+        addConstraints([
+            layoutCollectionBottom,
+            layoutCollectionHeight,
+            layoutCollectionLeft,
+            layoutCollectionRight])
     }
     
     required init?(coder:NSCoder)
@@ -78,8 +85,41 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
     {
         if closeable
         {
-            closeable = false
-            controller.close()
+            close()
+        }
+    }
+    
+    //MARK: public
+    
+    func close()
+    {
+        closeable = false
+        
+        layoutCollectionBottom.constant = kCollectionHeight
+        
+        UIView.animate(
+            withDuration:kAnimationDuration,
+            animations:
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+            
+        })
+        { [weak self] (done:Bool) in
+            
+            self?.controller.close()
+        }
+    }
+    
+    func open()
+    {
+        layoutCollectionBottom.constant = 0
+        
+        UIView.animate(
+            withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
         }
     }
 }

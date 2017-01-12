@@ -2,7 +2,7 @@ import UIKit
 
 class CCameraMore:CController
 {
-    private weak var viewMore:VCameraMore!
+    weak var viewMore:VCameraMore!
     private weak var model:MCameraRecord?
     
     init(model:MCameraRecord)
@@ -14,6 +14,12 @@ class CCameraMore:CController
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        viewMore.open()
     }
     
     override func loadView()
