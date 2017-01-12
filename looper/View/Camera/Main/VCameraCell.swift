@@ -24,7 +24,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private let kControlsMinThreshold:CGFloat = 7
     private let kControlsExtraThreshold:CGFloat = 30
     private let kControlsMenuThreshold:CGFloat = 60
-    private let kControlsMaxThreshold:CGFloat = 200
+    private let kControlsMaxThreshold:CGFloat = 230
     private let kExtraSpeed:CGFloat = 3
     
     override init(frame:CGRect)
@@ -142,6 +142,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             if drag == Drag.restart
             {
                 restartingScroll()
+                drag = Drag.stand
             }
         }
     }
@@ -270,16 +271,15 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         
             let offsetX:CGFloat = -scrollView.contentOffset.x
             let controlsWidth:CGFloat
-            let extraWidth:CGFloat
             
             if offsetX < 0
             {
                 controlsWidth = 0
-                extraWidth = 0
             }
             else
             {
                 let extraDelta:CGFloat = offsetX - kControlsExtraThreshold
+                let extraWidth:CGFloat
                 
                 if extraDelta > 0
                 {
@@ -294,7 +294,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             }
             
             layoutControlsWidth.constant = controlsWidth
-//            layoutCollectionLeft.constant = extraWidth
             
             break
             
