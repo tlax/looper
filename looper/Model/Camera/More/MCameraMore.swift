@@ -6,8 +6,10 @@ class MCameraMore
     
     init(record:MCameraRecord)
     {
+        let itemClose:MCameraMoreItemClose = MCameraMoreItemClose(record:record)
         
         items = [
+            itemClose
         ]
     }
 }
