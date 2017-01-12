@@ -8,13 +8,14 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private weak var model:MCameraRecord?
     private weak var controller:CCamera?
     private var listenDrag:Bool
+    private var extraDrag:Bool
     private var restartScroll:Bool
     private let kAnimationDuration:TimeInterval = 0.3
     private let kCellSize:CGFloat = 70
     private let kInterLine:CGFloat = 1
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 50
-    private let kControlsMaxWidth:CGFloat = 180
+    private let kControlsMaxWidth:CGFloat = 500
     private let kControlsMidWidth:CGFloat = 60
     private let kControlsMinWidth:CGFloat = 9
     private let kControlsMaxTreshold:CGFloat = 50
@@ -22,6 +23,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     override init(frame:CGRect)
     {
         listenDrag = true
+        extraDrag = false
         restartScroll = false
         super.init(frame:frame)
         clipsToBounds = true
@@ -116,6 +118,21 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         NotificationCenter.default.removeObserver(self)
     }
     
+    override func touchesMoved(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        
+    }
+    
+    override func touchesEnded(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        
+    }
+    
+    override func touchesCancelled(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        
+    }
+    
     //MARK: notifications
     
     func notifiedCameraControlsRestart(sender notification:Notification)
@@ -158,6 +175,14 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     }
     
     //MARK: private
+    
+    private func endExtraDrag()
+    {
+        if extraDrag
+        {
+            
+        }
+    }
     
     private func showMore()
     {
@@ -260,7 +285,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         {
             restartingScroll()
         }
-        else if listenDrag
+        else if listenDrag && !extraDrag
         {
             let offsetX:CGFloat = -scrollView.contentOffset.x
             let controlsWidth:CGFloat
@@ -275,6 +300,11 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             }
             
             layoutControlsWidth.constant = controlsWidth
+            
+            if controlsWidth > kControlsMidWidth
+            {
+                extraDrag = true
+            }
         }
     }
     
