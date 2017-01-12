@@ -3,7 +3,7 @@ import UIKit
 class VCameraCellItem:UICollectionViewCell
 {
     private weak var model:MCameraRecordItem?
-    private weak var effectView:UIView!
+    private weak var effect:UIVisualEffectView!
     private weak var imageView:UIImageView!
     
     override init(frame:CGRect)
@@ -24,11 +24,6 @@ class VCameraCellItem:UICollectionViewCell
         effect.isUserInteractionEnabled = false
         effect.translatesAutoresizingMaskIntoConstraints = false
         effect.clipsToBounds = true
-        
-        let effectView:UIView = UIView()
-        effectView.isUserInteractionEnabled = false
-        effectView.translatesAutoresizingMaskIntoConstraints = false
-        effectView.clipsToBounds = true
         self.effect = effect
         
         addSubview(imageView)
