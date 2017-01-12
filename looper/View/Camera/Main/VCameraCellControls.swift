@@ -19,17 +19,17 @@ class VCameraCellControls:UIView
         
         let buttonCheckAll:VCameraCellControlsButton = VCameraCellControlsButton(
             image:#imageLiteral(resourceName: "assetCameraCheckAll"),
-            backgroundColor:UIColor.clear)
+            border:false)
         self.buttonCheckAll = buttonCheckAll
         
         let buttonUncheckAll:VCameraCellControlsButton = VCameraCellControlsButton(
             image:#imageLiteral(resourceName: "assetCameraUncheckAll"),
-            backgroundColor:UIColor.clear)
+            border:false)
         self.buttonUncheckAll = buttonUncheckAll
         
         let buttonMore:VCameraCellControlsButton = VCameraCellControlsButton(
             image:#imageLiteral(resourceName: "assetCameraMore"),
-            backgroundColor:UIColor.genericDark)
+            border:true)
         self.buttonMore = buttonMore
         
         addSubview(buttonCheckAll)
