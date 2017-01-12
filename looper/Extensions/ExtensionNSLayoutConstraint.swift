@@ -2,7 +2,11 @@ import UIKit
 
 extension NSLayoutConstraint
 {
-    class func topToTop(view:UIView, toView:UIView, constant:CGFloat = 0) -> NSLayoutConstraint
+    class func topToTop(
+        view:UIView,
+        toView:UIView,
+        constant:CGFloat = 0,
+        multiplier:CGFloat = 1) -> NSLayoutConstraint
     {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
             item:view,
@@ -16,7 +20,11 @@ extension NSLayoutConstraint
         return constraint
     }
     
-    class func topToBottom(view:UIView, toView:UIView, constant:CGFloat = 0) -> NSLayoutConstraint
+    class func topToBottom(
+        view:UIView,
+        toView:UIView,
+        constant:CGFloat = 0,
+        multiplier:CGFloat = 1) -> NSLayoutConstraint
     {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
             item:view,
@@ -30,7 +38,11 @@ extension NSLayoutConstraint
         return constraint
     }
     
-    class func bottomToBottom(view:UIView, toView:UIView, constant:CGFloat = 0) -> NSLayoutConstraint
+    class func bottomToBottom(
+        view:UIView,
+        toView:UIView,
+        constant:CGFloat = 0,
+        multiplier:CGFloat = 1) -> NSLayoutConstraint
     {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
             item:view,
@@ -44,7 +56,11 @@ extension NSLayoutConstraint
         return constraint
     }
     
-    class func bottomToTop(view:UIView, toView:UIView, constant:CGFloat = 0) -> NSLayoutConstraint
+    class func bottomToTop(
+        view:UIView,
+        toView:UIView,
+        constant:CGFloat = 0,
+        multiplier:CGFloat = 1) -> NSLayoutConstraint
     {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
             item:view,
@@ -58,7 +74,11 @@ extension NSLayoutConstraint
         return constraint
     }
     
-    class func leftToLeft(view:UIView, toView:UIView, constant:CGFloat = 0) -> NSLayoutConstraint
+    class func leftToLeft(
+        view:UIView,
+        toView:UIView,
+        constant:CGFloat = 0,
+        multiplier:CGFloat = 1) -> NSLayoutConstraint
     {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
             item:view,
@@ -72,7 +92,11 @@ extension NSLayoutConstraint
         return constraint
     }
     
-    class func leftToRight(view:UIView, toView:UIView, constant:CGFloat = 0, multiplier:CGFloat = 1) -> NSLayoutConstraint
+    class func leftToRight(
+        view:UIView,
+        toView:UIView,
+        constant:CGFloat = 0,
+        multiplier:CGFloat = 1) -> NSLayoutConstraint
     {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
             item:view,
@@ -86,7 +110,11 @@ extension NSLayoutConstraint
         return constraint
     }
     
-    class func rightToRight(view:UIView, toView:UIView, constant:CGFloat = 0) -> NSLayoutConstraint
+    class func rightToRight(
+        view:UIView,
+        toView:UIView,
+        constant:CGFloat = 0,
+        multiplier:CGFloat = 1) -> NSLayoutConstraint
     {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
             item:view,
@@ -100,7 +128,11 @@ extension NSLayoutConstraint
         return constraint
     }
     
-    class func rightToLeft(view:UIView, toView:UIView, constant:CGFloat = 0) -> NSLayoutConstraint
+    class func rightToLeft(
+        view:UIView,
+        toView:UIView,
+        constant:CGFloat = 0,
+        multiplier:CGFloat = 1) -> NSLayoutConstraint
     {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
             item:view,
@@ -114,7 +146,10 @@ extension NSLayoutConstraint
         return constraint
     }
     
-    class func width(view:UIView, constant:CGFloat = 0) -> NSLayoutConstraint
+    class func width(
+        view:UIView,
+        constant:CGFloat = 0,
+        multiplier:CGFloat = 1) -> NSLayoutConstraint
     {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
             item:view,
@@ -128,7 +163,10 @@ extension NSLayoutConstraint
         return constraint
     }
     
-    class func height(view:UIView, constant:CGFloat = 0) -> NSLayoutConstraint
+    class func height(
+        view:UIView,
+        constant:CGFloat = 0,
+        multiplier:CGFloat = 1) -> NSLayoutConstraint
     {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
             item:view,
@@ -142,7 +180,10 @@ extension NSLayoutConstraint
         return constraint
     }
     
-    class func width(view:UIView, toView:UIView) -> NSLayoutConstraint
+    class func width(
+        view:UIView,
+        toView:UIView,
+        multiplier:CGFloat = 1) -> NSLayoutConstraint
     {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
             item:view,
@@ -156,7 +197,10 @@ extension NSLayoutConstraint
         return constraint
     }
     
-    class func height(view:UIView, toView:UIView) -> NSLayoutConstraint
+    class func height(
+        view:UIView,
+        toView:UIView,
+        multiplier:CGFloat = 1) -> NSLayoutConstraint
     {
         let constraint:NSLayoutConstraint = NSLayoutConstraint(
             item:view,
