@@ -1,9 +1,12 @@
 import UIKit
 
-class VCameraMore:VView
+class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CCameraMore!
+    private weak var collectionView:VCollection!
+    private weak var layoutCollectionBottom:NSLayoutConstraint!
     private var closeable:Bool
+    private let kCollectionHeight:CGFloat = 400
     
     override init(controller:CController)
     {
@@ -27,14 +30,37 @@ class VCameraMore:VView
             action:#selector(actionClose(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let collectionView:VCollection = VCollection()
+        collectionView.bounces = false
+        collectionView.isScrollEnabled = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView
+        self.collectionView = collectionView
+        
         addSubview(visualEffect)
         addSubview(closeButton)
+        addSubview(collectionView)
         
         let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:visualEffect,
             toView:self)
         let constraintsClose:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:closeButton,
+            toView:self)
+        
+        layoutCollectionBottom = NSLayoutConstraint.bottomToBottom(
+            view:collectionView,
+            toView:self,
+            constant:kCollectionHeight)
+        let layoutCollectionHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:collectionView,
+            constant:kCollectionHeight)
+        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:collectionView,
+            toView:self)
+        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:collectionView,
             toView:self)
         
         addConstraints(constraintsEffect)
