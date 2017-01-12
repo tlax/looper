@@ -9,8 +9,8 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     private let kHeaderHeight:CGFloat = 180
     private let kFooterHeight:CGFloat = 60
     private let kCollectionBottom:CGFloat = 20
-    private let kInterLine:CGFloat = 5
-    private let kCellHeight:CGFloat = 85
+    private let kInterLine:CGFloat = 1
+    private let kCellHeight:CGFloat = 72
     
     override init(controller:CController)
     {
@@ -25,7 +25,7 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             width:0,
             height:kHeaderHeight)
         collectionView.flow.sectionInset = UIEdgeInsets(
-            top:kInterLine,
+            top:0,
             left:0,
             bottom:kCollectionBottom,
             right:0)

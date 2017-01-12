@@ -3,14 +3,14 @@ import UIKit
 class VCameraCellItem:UICollectionViewCell
 {
     private weak var model:MCameraRecordItem?
+    private weak var effectView:UIView!
     private weak var imageView:UIImageView!
-    private let kAlphaActive:CGFloat = 1
-    private let kAlphaNotActive:CGFloat = 0.15
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
+        backgroundColor = UIColor.clear
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -19,13 +19,31 @@ class VCameraCellItem:UICollectionViewCell
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.imageView = imageView
         
+        let blur:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
+        let effect:UIVisualEffectView = UIVisualEffectView(effect:blur)
+        effect.isUserInteractionEnabled = false
+        effect.translatesAutoresizingMaskIntoConstraints = false
+        effect.clipsToBounds = true
+        
+        let effectView:UIView = UIView()
+        effectView.isUserInteractionEnabled = false
+        effectView.translatesAutoresizingMaskIntoConstraints = false
+        effectView.clipsToBounds = true
+        self.effect = effect
+        
         addSubview(imageView)
+        addSubview(effect)
         
         let constraintsImage:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:imageView,
             toView:self)
         
+        let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:effect,
+            toView:self)
+        
         addConstraints(constraintsImage)
+        addConstraints(constraintsEffect)
     }
     
     required init?(coder:NSCoder)
@@ -55,13 +73,11 @@ class VCameraCellItem:UICollectionViewCell
         
         if model.active
         {
-            imageView.alpha = kAlphaActive
-            backgroundColor = UIColor.genericLight
+            effect.isHidden = true
         }
         else
         {
-            imageView.alpha = kAlphaNotActive
-            backgroundColor = UIColor.clear
+            effect.isHidden = false
         }
     }
 }

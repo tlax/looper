@@ -10,7 +10,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private var listenDrag:Bool
     private var restartScroll:Bool
     private let kAnimationDuration:TimeInterval = 0.3
-    private let kCellSize:CGFloat = 85
+    private let kCellSize:CGFloat = 70
     private let kInterLine:CGFloat = 1
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 50
@@ -39,7 +39,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             bottom:0,
             right:kInterLine)
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
-        collectionView.backgroundColor = UIColor(white:0, alpha:0.05)
+        collectionView.backgroundColor = UIColor.black
         collectionView.alwaysBounceHorizontal = true
         collectionView.registerCell(
             cell:VCameraCellItem.self)
@@ -48,7 +48,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         self.collectionView = collectionView
         
         let viewControls:VCameraCellControls = VCameraCellControls()
-        viewControls.buttonTrash.addTarget(
+        viewControls.buttonMore.addTarget(
             self,
             action:#selector(actionTrash(sender:)),
             for:UIControlEvents.touchUpInside)

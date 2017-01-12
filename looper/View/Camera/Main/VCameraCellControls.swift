@@ -2,7 +2,7 @@ import UIKit
 
 class VCameraCellControls:UIView
 {
-    weak var buttonTrash:VCameraCellControlsButton!
+    weak var buttonMore:VCameraCellControlsButton!
     weak var buttonCheckAll:VCameraCellControlsButton!
     weak var buttonUncheckAll:VCameraCellControlsButton!
     private let kButtonsWidth:CGFloat = 60
@@ -24,26 +24,26 @@ class VCameraCellControls:UIView
             backgroundColor:UIColor.clear)
         self.buttonUncheckAll = buttonUncheckAll
         
-        let buttonTrash:VCameraCellControlsButton = VCameraCellControlsButton(
-            image:#imageLiteral(resourceName: "assetCameraTrash"),
-            backgroundColor:UIColor(white:0.8, alpha:1))
-        self.buttonTrash = buttonTrash
+        let buttonMore:VCameraCellControlsButton = VCameraCellControlsButton(
+            image:#imageLiteral(resourceName: "assetCameraMore"),
+            backgroundColor:UIColor.black)
+        self.buttonMore = buttonMore
         
         addSubview(buttonCheckAll)
         addSubview(buttonUncheckAll)
-        addSubview(buttonTrash)
+        addSubview(buttonMore)
         
-        let layoutTrashTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:buttonTrash,
+        let layoutMoreTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:buttonMore,
             toView:self)
-        let layoutTrashBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:buttonTrash,
+        let layoutMoreBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:buttonMore,
             toView:self)
-        let layoutTrashWidth:NSLayoutConstraint = NSLayoutConstraint.width(
-            view:buttonTrash,
+        let layoutMoreWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:buttonMore,
             constant:kButtonsWidth)
-        let layoutTrashRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:buttonTrash,
+        let layoutMoreRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:buttonMore,
             toView:self)
         
         let layoutCheckTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
@@ -74,10 +74,10 @@ class VCameraCellControls:UIView
             multiplier:0.33)
         
         addConstraints([
-            layoutTrashTop,
-            layoutTrashBottom,
-            layoutTrashWidth,
-            layoutTrashRight,
+            layoutMoreTop,
+            layoutMoreBottom,
+            layoutMoreWidth,
+            layoutMoreRight,
             layoutCheckTop,
             layoutCheckBottom,
             layoutCheckWidth,
