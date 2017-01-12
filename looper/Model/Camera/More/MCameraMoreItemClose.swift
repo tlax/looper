@@ -1,9 +1,20 @@
-//
-//  MCameraMoreItemClose.swift
-//  looper
-//
-//  Created by zero on 1/12/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MCameraMoreItemClose:MCameraMoreItem
+{
+    private let kCellHeight:CGFloat = 60
+    
+    override init(record:MCameraRecord)
+    {
+        let reusableIdentifier:String = VCameraMoreCellClose.reusableIdentifier
+        
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            cellHeight:kCellHeight)
+    }
+    
+    override init(reusableIdentifier:String, cellHeight:CGFloat)
+    {
+        fatalError()
+    }
+}

@@ -1,9 +1,20 @@
-//
-//  MCameraMoreItemActions.swift
-//  looper
-//
-//  Created by zero on 1/12/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MCameraMoreItemActions:MCameraMoreItem
+{
+    private let kCellHeight:CGFloat = 100
+    
+    override init(record:MCameraRecord)
+    {
+        let reusableIdentifier:String = VCameraMoreCellActions.reusableIdentifier
+        
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            cellHeight:kCellHeight)
+    }
+    
+    override init(reusableIdentifier:String, cellHeight:CGFloat)
+    {
+        fatalError()
+    }
+}
