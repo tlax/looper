@@ -2,7 +2,7 @@ import UIKit
 
 class VCameraMoreCellClose:VCameraMoreCell
 {
-    private let kBorderHeight:CGFloat = 1
+    private let kBorderHeight:CGFloat = 2
     
     override init(frame:CGRect)
     {
@@ -21,7 +21,7 @@ class VCameraMoreCellClose:VCameraMoreCell
         border.isUserInteractionEnabled = false
         border.translatesAutoresizingMaskIntoConstraints = false
         border.clipsToBounds = true
-        border.backgroundColor = UIColor.black
+        border.backgroundColor = UIColor(white:0, alpha:0.1)
         
         addSubview(border)
         addSubview(label)
