@@ -339,8 +339,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             if controlsWidth > kControlsMaxThreshold
             {
                 restartingScroll()
-                
-                print("work out")
+                showMore()
             }
             else
             {

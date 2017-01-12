@@ -10,6 +10,7 @@ class VCameraMore:VView
         closeable = true
         
         super.init(controller:controller)
+        backgroundColor = UIColor.clear
         self.controller = controller as? CCameraMore
         
         let blur:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
