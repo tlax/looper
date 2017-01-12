@@ -2,13 +2,16 @@ import UIKit
 
 class VCameraCellControls:UIView
 {
+    let kButtonsWidth:CGFloat = 60
+    let allButtonsWidth:CGFloat
     weak var buttonMore:VCameraCellControlsButton!
     weak var buttonCheckAll:VCameraCellControlsButton!
     weak var buttonUncheckAll:VCameraCellControlsButton!
-    private let kButtonsWidth:CGFloat = 60
     
     init()
     {
+        allButtonsWidth = kButtonsWidth * 3
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.genericLight
