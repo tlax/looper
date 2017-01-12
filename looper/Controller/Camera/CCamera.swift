@@ -155,7 +155,7 @@ class CCamera:CController
     
     func showMore(item:MCameraRecord)
     {
-        let controllerMore:CCameraMore = CCameraMore(model:item)
+        let controllerMore:CCameraMore = CCameraMore(record:item)
         parentController.animateOver(controller:controllerMore)
     }
     

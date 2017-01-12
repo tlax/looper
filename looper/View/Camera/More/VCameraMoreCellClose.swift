@@ -1,6 +1,6 @@
 import UIKit
 
-class VCameraMoreCellClose:UICollectionViewCell
+class VCameraMoreCellClose:VCameraMoreCell
 {
     
 }
