@@ -36,7 +36,9 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
         collectionView.isScrollEnabled = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.registerCell(cell: <#T##UICollectionViewCell.Type#>)
+        collectionView.registerCell(cell:VCameraMoreCellInfo.self)
+        collectionView.registerCell(cell:VCameraMoreCellClose.self)
+        collectionView.registerCell(cell:VCameraMoreCellActions.self)
         self.collectionView = collectionView
         
         addSubview(visualEffect)
@@ -122,4 +124,8 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
             self?.layoutIfNeeded()
         }
     }
+    
+    //MARK: collectionView delegate
+    
+    
 }
