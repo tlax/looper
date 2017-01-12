@@ -153,6 +153,11 @@ class CCamera:CController
         present(alert, animated:true, completion:nil)
     }
     
+    func showMore(item:MCameraRecord)
+    {
+        
+    }
+    
     func next()
     {
         MSession.sharedInstance.camera?.buildActiveRecords()

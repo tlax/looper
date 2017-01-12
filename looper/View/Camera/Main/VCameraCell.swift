@@ -50,7 +50,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         let viewControls:VCameraCellControls = VCameraCellControls()
         viewControls.buttonMore.addTarget(
             self,
-            action:#selector(actionTrash(sender:)),
+            action:#selector(actionMore(sender:)),
             for:UIControlEvents.touchUpInside)
         viewControls.buttonCheckAll.addTarget(
             self,
@@ -152,7 +152,14 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         changeAllItems(active:false)
     }
     
-    func actionTrash(sender button:UIButton)
+    func actionMore(sender button:UIButton)
+    {
+        showMore()
+    }
+    
+    //MARK: private
+    
+    private func showMore()
     {
         restartingScroll()
         
@@ -165,10 +172,8 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             return
         }
         
-        controller?.trash(item:model)
+        controller?.showMore(item:model)
     }
-    
-    //MARK: private
     
     private func changeAllItems(active:Bool)
     {
