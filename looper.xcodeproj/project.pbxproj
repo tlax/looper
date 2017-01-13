@@ -141,6 +141,7 @@
 		DAD404EC1E1F5169005EA836 /* MetalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD404EB1E1F5169005EA836 /* MetalFilter.swift */; };
 		DAD51D291E292C6300AB6E38 /* MCameraMoreItemInfoSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD51D281E292C6300AB6E38 /* MCameraMoreItemInfoSpeed.swift */; };
 		DAD51D2B1E2934CC00AB6E38 /* MCameraRecordEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD51D2A1E2934CC00AB6E38 /* MCameraRecordEditable.swift */; };
+		DAD51D2D1E29755800AB6E38 /* VCameraMoreCellActionsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD51D2C1E29755800AB6E38 /* VCameraMoreCellActionsOption.swift */; };
 		DAD778E91E1174D7009B1A81 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD778E81E1174D7009B1A81 /* brand.xcassets */; };
 		DAD778EB1E117667009B1A81 /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD778EA1E117667009B1A81 /* generic.xcassets */; };
 		DAD778ED1E11788D009B1A81 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD778EC1E11788D009B1A81 /* spinner.xcassets */; };
@@ -316,6 +317,7 @@
 		DAD404EB1E1F5169005EA836 /* MetalFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilter.swift; sourceTree = "<group>"; };
 		DAD51D281E292C6300AB6E38 /* MCameraMoreItemInfoSpeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraMoreItemInfoSpeed.swift; sourceTree = "<group>"; };
 		DAD51D2A1E2934CC00AB6E38 /* MCameraRecordEditable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraRecordEditable.swift; sourceTree = "<group>"; };
+		DAD51D2C1E29755800AB6E38 /* VCameraMoreCellActionsOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraMoreCellActionsOption.swift; sourceTree = "<group>"; };
 		DAD778E81E1174D7009B1A81 /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DAD778EA1E117667009B1A81 /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DAD778EC1E11788D009B1A81 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
@@ -600,6 +602,7 @@
 				DA7390061E2820EB00A82612 /* VCameraMoreCellInfo.swift */,
 				DA7390081E2820F800A82612 /* VCameraMoreCellClose.swift */,
 				DA73900A1E28210B00A82612 /* VCameraMoreCellActions.swift */,
+				DAD51D2C1E29755800AB6E38 /* VCameraMoreCellActionsOption.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -1071,6 +1074,7 @@
 				DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DA9B83DF1E12E81C002B9810 /* VCollection.swift in Sources */,
 				DA799CE81E1436D200AB45DD /* MCameraSpeed10.swift in Sources */,
+				DAD51D2D1E29755800AB6E38 /* VCameraMoreCellActionsOption.swift in Sources */,
 				DAFC40C21E1A044C0044B14B /* MCameraCompressItemMax.swift in Sources */,
 				DA4079201E243978002EED42 /* CCameraFilterBlenderOverlay.swift in Sources */,
 				DAD404EA1E1F50B7005EA836 /* MCameraFilterProcessorBlender.swift in Sources */,
