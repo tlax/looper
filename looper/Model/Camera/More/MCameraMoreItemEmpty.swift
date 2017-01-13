@@ -1,18 +1,14 @@
 import UIKit
 
-class MCameraMoreItemInfo:MCameraMoreItem
+class MCameraMoreItemEmpty:MCameraMoreItem
 {
-    let attributedString:NSAttributedString
-    private let kCellHeight:CGFloat = 34
-    
-    init(attributedString:NSAttributedString)
+    init(cellHeight:CGFloat)
     {
-        self.attributedString = attributedString
         let reusableIdentifier:String = VCameraMoreCellInfo.reusableIdentifier
         
         super.init(
             reusableIdentifier:reusableIdentifier,
-            cellHeight:kCellHeight)
+            cellHeight:cellHeight)
     }
     
     override init(reusableIdentifier:String, cellHeight:CGFloat)
