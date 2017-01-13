@@ -2,7 +2,7 @@ import UIKit
 
 class VCameraMoreCellClose:VCameraMoreCell
 {
-    private let kBorderHeight:CGFloat = 2
+    private let kBorderHeight:CGFloat = 1
     
     override init(frame:CGRect)
     {
@@ -14,7 +14,7 @@ class VCameraMoreCellClose:VCameraMoreCell
         label.backgroundColor = UIColor.clear
         label.textAlignment = NSTextAlignment.center
         label.font = UIFont.medium(size:14)
-        label.textColor = UIColor.black
+        label.textColor = UIColor(white:0, alpha:0.3)
         label.text = NSLocalizedString("VCameraMoreCellClose_label", comment:"")
         
         let border:UIView = UIView()

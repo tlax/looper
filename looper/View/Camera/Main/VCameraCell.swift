@@ -163,6 +163,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     func actionMore(sender button:UIButton)
     {
+        restartingScroll()
         showMore()
     }
     
@@ -170,8 +171,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     private func showMore()
     {
-        restartingScroll()
-        
         guard
             
             let model:MCameraRecord = self.model
