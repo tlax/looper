@@ -14,9 +14,9 @@ class MCameraRaw
     
     //MARK: public
     
-    func render() -> MCameraRecord
+    func render() -> MCameraRecordEditable
     {
-        let record:MCameraRecord = MCameraRecord(speed:speed)
+        let record:MCameraRecordEditable = MCameraRecordEditable(speed:speed)
         
         for item:MCameraRawItem in self.items
         {

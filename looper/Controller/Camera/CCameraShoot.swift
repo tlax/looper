@@ -337,7 +337,7 @@ class CCameraShoot:CController
             
             let modelSpeed:MCameraSpeed = model.currentSpeedModel()
             let speed:TimeInterval = modelSpeed.timeInterval
-            model.raw = MCameraRaw()
+            model.raw = MCameraRaw(speed:modelSpeed)
             
             timer = Timer.scheduledTimer(
                 timeInterval:speed,

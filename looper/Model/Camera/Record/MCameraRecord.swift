@@ -21,7 +21,7 @@ class MCameraRecord
             {
                 if active == nil
                 {
-                    active = MCameraRecord(speed:speed)
+                    active = MCameraRecord()
                 }
                 
                 active!.items.append(item)

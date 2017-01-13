@@ -5,7 +5,7 @@ class MCamera
     static let kImageMaxSize:CGFloat = 480
     static let kMaxShots:Int = 300
     let speeds:[MCameraSpeed]
-    var records:[MCameraRecord]
+    var records:[MCameraRecordEditable]
     var activeRecords:[MCameraRecord]?
     var raw:MCameraRaw?
     var currentSpeed:Int
@@ -26,7 +26,7 @@ class MCamera
             name:Notification.cameraLoading,
             object:nil)
         
-        let record:MCameraRecord = modelRaw.render()
+        let record:MCameraRecordEditable = modelRaw.render()
         records.insert(record, at:0)
         
         NotificationCenter.default.post(
