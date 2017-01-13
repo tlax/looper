@@ -15,24 +15,24 @@ class MCameraMoreItemInfoSize:MCameraMoreItemInfo
             NSFontAttributeName:UIFont.regular(size:kSubtitleSize),
             NSForegroundColorAttributeName:UIColor(white:0.4, alpha:1)]
         
-        let titleFrames:String = NSLocalizedString("MCameraMoreItemInfoFrames_titleFrames", comment:"")
-        let countFrames:Int = record.items.count
-        var countActive:Int = 0
+        let titleFrames:String = NSLocalizedString("MCameraMoreItemInfoSize_titleFrames", comment:"")
+        let itemSize:CGFloat
         
-        for item:MCameraRecordItem in record.items
+        if let itemWidth:CGFloat = record.items.first?.image.size.width
         {
-            if item.active
-            {
-                countActive += 1
-            }
+            itemSize = itemWidth
+        }
+        else
+        {
+            itemSize = 0
         }
         
-        let countString:String = "\(countActive)/\(countFrames)"
+        let sizeString:String = "\(itemSize)/\(itemSize)"
         let stringTitleFrames:NSAttributedString = NSAttributedString(
             string:titleFrames,
             attributes:attributesTitle)
         let stringFrames:NSAttributedString = NSAttributedString(
-            string:countString,
+            string:sizeString,
             attributes:attributesSubtitle)
         
         attributedString.append(stringTitleFrames)
