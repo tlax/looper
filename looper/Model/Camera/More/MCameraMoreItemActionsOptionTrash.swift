@@ -1,6 +1,14 @@
-import Foundation
+import UIKit
 
 class MCameraMoreItemActionsOptionTrash:MCameraMoreItemActionsOption
 {
+    override init()
+    {
+        super.init(image:#imageLiteral(resourceName: "assetCameraTrash"))
+    }
     
+    override init(image:UIImage)
+    {
+        fatalError()
+    }
 }

@@ -7,6 +7,16 @@ class MCameraMoreItemActions:MCameraMoreItem
     
     override init(record:MCameraRecordEditable)
     {
+        let optionRotate:MCameraMoreItemActionsOptionRotate = MCameraMoreItemActionsOptionRotate()
+        let optionScale:MCameraMoreItemActionsOptionScale = MCameraMoreItemActionsOptionScale()
+        let optionTrash:MCameraMoreItemActionsOptionTrash = MCameraMoreItemActionsOptionTrash()
+        
+        options = [
+            optionRotate,
+            optionScale,
+            optionTrash
+        ]
+        
         let reusableIdentifier:String = VCameraMoreCellActions.reusableIdentifier
         
         super.init(
