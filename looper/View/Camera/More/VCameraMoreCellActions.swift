@@ -28,6 +28,7 @@ class VCameraMoreCellActions:VCameraMoreCell, UICollectionViewDelegate, UICollec
         collectionView.bounces = false
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.registerCell(cell:VCameraMoreCellActionsOption.self)
         self.collectionView = collectionView
         
         addSubview(collectionView)
