@@ -3,6 +3,7 @@ import UIKit
 class VCameraMoreCellClose:VCameraMoreCell
 {
     private let kBorderHeight:CGFloat = 1
+    private let kButtonWidth:CGFloat = 60
     
     override init(frame:CGRect)
     {
@@ -23,8 +24,23 @@ class VCameraMoreCellClose:VCameraMoreCell
         border.clipsToBounds = true
         border.backgroundColor = UIColor(white:0, alpha:0.1)
         
+        let button:UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(
+            #imageLiteral(resourceName: "assetCameraMoreClose").withRenderingMode(
+                UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        button.setImage(
+            #imageLiteral(resourceName: "assetCameraMoreClose").withRenderingMode(
+                UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        button.imageView!.contentMode = UIViewContentMode.center
+        button.imageView!.clipsToBounds = true
+        button.imageView!.tintColor = UIColor(white:0, alpha:0.2)
+        
         addSubview(border)
         addSubview(label)
+        addSubview(button)
         
         let constraintsLabel:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:label,
@@ -42,6 +58,19 @@ class VCameraMoreCellClose:VCameraMoreCell
         let layoutBorderRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:border,
             toView:self)
+        
+        let layoutButtonTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:button,
+            toView:self)
+        let layoutButtonBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:button,
+            toView:self)
+        let layoutButtonLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:button,
+            toView:self)
+        let layoutButtonWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+            view:button,
+            constant:kButtonWidth)
  
         addConstraints(constraintsLabel)
         
@@ -49,7 +78,11 @@ class VCameraMoreCellClose:VCameraMoreCell
             layoutBorderTop,
             layoutBorderHeight,
             layoutBorderLeft,
-            layoutBorderRight])
+            layoutBorderRight,
+            layoutButtonTop,
+            layoutButtonBottom,
+            layoutButtonLeft,
+            layoutButtonWidth])
     }
     
     required init?(coder:NSCoder)
