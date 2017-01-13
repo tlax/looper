@@ -27,7 +27,7 @@ class MCameraFilterProcessorBlender:MCameraFilterProcessor
     
     func blend(baseRecord:MCameraRecord?, overlays:[MCameraFilterItemBlendOverlay]) -> MCameraRecord
     {
-        let blended:MCameraRecord = MCameraRecord()
+        let blended:MCameraRecord = MCameraRecord(speed:baseRecord?.speed)
         let length:Int
         
         if let baseRecord:MCameraRecord = baseRecord

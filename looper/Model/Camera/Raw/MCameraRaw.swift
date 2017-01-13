@@ -16,7 +16,7 @@ class MCameraRaw
     
     func render() -> MCameraRecord
     {
-        let record:MCameraRecord = MCameraRecord()
+        let record:MCameraRecord = MCameraRecord(speed:speed)
         
         for item:MCameraRawItem in self.items
         {
