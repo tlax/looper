@@ -11,6 +11,7 @@
 		DA11EF941E21AA83002C10C4 /* MHelpItemSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11EF931E21AA83002C10C4 /* MHelpItemSave.swift */; };
 		DA11EF971E21ACE6002C10C4 /* VStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11EF961E21ACE6002C10C4 /* VStore.swift */; };
 		DA1655351E298DE400DA6808 /* MCameraMoreItemEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1655341E298DE400DA6808 /* MCameraMoreItemEmpty.swift */; };
+		DA1655371E298E4800DA6808 /* VCameraMoreCellEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1655361E298E4800DA6808 /* VCameraMoreCellEmpty.swift */; };
 		DA1701B51E2037930049CE90 /* MLoopsItemImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1701B41E2037930049CE90 /* MLoopsItemImages.swift */; };
 		DA1701B91E2061AC0049CE90 /* VLoopsFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1701B81E2061AC0049CE90 /* VLoopsFooter.swift */; };
 		DA1701BC1E2069E40049CE90 /* CHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1701BB1E2069E40049CE90 /* CHelp.swift */; };
@@ -190,6 +191,7 @@
 		DA11EF931E21AA83002C10C4 /* MHelpItemSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpItemSave.swift; sourceTree = "<group>"; };
 		DA11EF961E21ACE6002C10C4 /* VStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStore.swift; sourceTree = "<group>"; };
 		DA1655341E298DE400DA6808 /* MCameraMoreItemEmpty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraMoreItemEmpty.swift; sourceTree = "<group>"; };
+		DA1655361E298E4800DA6808 /* VCameraMoreCellEmpty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraMoreCellEmpty.swift; sourceTree = "<group>"; };
 		DA1701B41E2037930049CE90 /* MLoopsItemImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoopsItemImages.swift; sourceTree = "<group>"; };
 		DA1701B81E2061AC0049CE90 /* VLoopsFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoopsFooter.swift; sourceTree = "<group>"; };
 		DA1701BB1E2069E40049CE90 /* CHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHelp.swift; sourceTree = "<group>"; };
@@ -609,6 +611,7 @@
 			children = (
 				DA7390021E280B8100A82612 /* VCameraMore.swift */,
 				DA7390171E2831B900A82612 /* VCameraMoreCell.swift */,
+				DA1655361E298E4800DA6808 /* VCameraMoreCellEmpty.swift */,
 				DA7390061E2820EB00A82612 /* VCameraMoreCellInfo.swift */,
 				DA7390081E2820F800A82612 /* VCameraMoreCellClose.swift */,
 				DA73900A1E28210B00A82612 /* VCameraMoreCellActions.swift */,
@@ -1134,6 +1137,7 @@
 				DA73900E1E282D6600A82612 /* MCameraMore.swift in Sources */,
 				DAD88CFF1E1AF47300EAB6B7 /* CCameraFilterNone.swift in Sources */,
 				DA38AF0E1E1BFF20008C86A8 /* VCameraPreviewPlayer.swift in Sources */,
+				DA1655371E298E4800DA6808 /* VCameraMoreCellEmpty.swift in Sources */,
 				DAF604E91E23E16B00A1259E /* MStoreItemStatusPurchased.swift in Sources */,
 				DA17E5631E256297004838D5 /* VCameraFilterBlenderOverlayListCell.swift in Sources */,
 				DA6FB2441E1D59FA0062EE13 /* MLoopsOptionsItem.swift in Sources */,
