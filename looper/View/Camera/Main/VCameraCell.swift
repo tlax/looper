@@ -163,7 +163,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     func actionMore(sender button:UIButton)
     {
-        restartingScroll()
         showMore()
     }
     
@@ -171,6 +170,8 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     private func showMore()
     {
+        restartingScroll()
+        
         guard
             
             let model:MCameraRecord = self.model
@@ -181,6 +182,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         }
         
         controller?.showMore(item:model)
+        drag = Drag.stand
     }
     
     private func changeAllItems(active:Bool)
@@ -337,7 +339,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         {
             if controlsWidth > kControlsMaxThreshold
             {
-                restartingScroll()
                 showMore()
             }
             else
