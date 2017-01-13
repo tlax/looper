@@ -5,7 +5,7 @@ class VCameraMoreCellActions:VCameraMoreCell, UICollectionViewDelegate, UICollec
     private weak var modelActions:MCameraMoreItemActions?
     private weak var collectionView:VCollection!
     private let kInterline:CGFloat = 1
-    private let kCellWidth:CGFloat = 65
+    private let kCellWidth:CGFloat = 70
     
     override init(frame:CGRect)
     {
