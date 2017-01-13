@@ -42,6 +42,8 @@
 "MHelpItemFilter_title"="Apply filters and other cool effects on the videos";
 "MHelpItemCompress_title"="Compress your loop to make it smaller and easier to share";
 "MHelpItemSave_title"="Save it, you will be able to play it anytime and share it";
+"MCameraMoreItemInfoFrames_titleFrames"="Frames ";
+"MCameraMoreItemInfoFrames_titleActive"=" Active ";
 
 "MStoreItemPlus_title"="Looper plus";
 "MStoreItemPlus_descr"="\nNo more restrictions for video recording when creating new loops";
