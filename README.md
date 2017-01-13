@@ -1,4 +1,4 @@
-# looper
+### looper
 Amazing gif architect
 
 [logo]:http://is5.mzstatic.com/image/thumb/Purple91/v4/0b/c4/31/0bc43194-c79d-60cf-c30e-d030816b6415/source/175x175bb.jpg "looper"
@@ -9,6 +9,5 @@ Amazing gif architect
 [brand5]:http://a4.mzstatic.com/us/r30/Purple111/v4/76/3a/87/763a87d7-9f56-a6e0-d054-1219c145e84d/screen696x696.jpeg "Share them anytime"
 
 ![alt text][logo]
-
 ![alt text][brand1] | ![alt text][brand2] | ![alt text][brand3] | ![alt text][brand4] | ![alt text][brand5]
 --- | --- | --- | --- | ---
