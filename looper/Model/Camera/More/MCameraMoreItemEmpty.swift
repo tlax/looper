@@ -4,7 +4,7 @@ class MCameraMoreItemEmpty:MCameraMoreItem
 {
     init(cellHeight:CGFloat)
     {
-        let reusableIdentifier:String = VCameraMoreCellInfo.reusableIdentifier
+        let reusableIdentifier:String = VCameraMoreCellEmpty.reusableIdentifier
         
         super.init(
             reusableIdentifier:reusableIdentifier,

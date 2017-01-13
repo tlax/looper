@@ -6,7 +6,7 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
     private weak var collectionView:VCollection!
     private weak var layoutCollectionBottom:NSLayoutConstraint!
     private var closeable:Bool
-    private let kCollectionHeight:CGFloat = 300
+    private let kCollectionHeight:CGFloat = 320
     private let kAnimationDuration:TimeInterval = 0.3
     
     override init(controller:CController)
@@ -40,6 +40,7 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
         collectionView.registerCell(cell:VCameraMoreCellInfo.self)
         collectionView.registerCell(cell:VCameraMoreCellClose.self)
         collectionView.registerCell(cell:VCameraMoreCellActions.self)
+        collectionView.registerCell(cell:VCameraMoreCellEmpty.self)
         self.collectionView = collectionView
         
         addSubview(visualEffect)
