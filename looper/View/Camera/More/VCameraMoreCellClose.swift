@@ -6,6 +6,7 @@ class VCameraMoreCellClose:VCameraMoreCell
     private let kButtonWidth:CGFloat = 60
     private let kButtonRight:CGFloat = 20
     private let kButtonBottom:CGFloat = 10
+    private let kTitleHeight:CGFloat = 35
     
     override init(frame:CGRect)
     {
@@ -49,7 +50,16 @@ class VCameraMoreCellClose:VCameraMoreCell
         addSubview(label)
         addSubview(button)
         
-        let constraintsLabel:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        let layoutTitleTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:label,
+            toView:self)
+        let layoutTitleHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:label,
+            constant:kTitleHeight)
+        let layoutTitleLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:label,
+            toView:self)
+        let layoutTitleRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:label,
             toView:self)
         
@@ -78,10 +88,12 @@ class VCameraMoreCellClose:VCameraMoreCell
         let layoutButtonWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:button,
             constant:kButtonWidth)
- 
-        addConstraints(constraintsLabel)
         
         addConstraints([
+            layoutTitleTop,
+            layoutTitleHeight,
+            layoutTitleLeft,
+            layoutTitleRight,
             layoutBorderTop,
             layoutBorderHeight,
             layoutBorderLeft,
