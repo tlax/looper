@@ -16,7 +16,7 @@ class MCameraMoreItemActionsOption
     
     //MARK: public
     
-    func selected(controller:CCameraMore?, record:MCameraRecordEditable?)
+    func selected(controller:CCameraMore?)
     {
     }
 }

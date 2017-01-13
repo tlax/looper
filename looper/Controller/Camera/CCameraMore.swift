@@ -3,11 +3,13 @@ import UIKit
 class CCameraMore:CController
 {
     let model:MCameraMore
+    weak var record:MCameraRecordEditable!
     weak var viewMore:VCameraMore!
     
     init(record:MCameraRecordEditable)
     {
         model = MCameraMore(record:record)
+        self.record = record
         super.init()
     }
     

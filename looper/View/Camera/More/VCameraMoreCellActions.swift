@@ -6,6 +6,7 @@ class VCameraMoreCellActions:VCameraMoreCell, UICollectionViewDelegate, UICollec
     private weak var collectionView:VCollection!
     private let kInterline:CGFloat = 1
     private let kCellWidth:CGFloat = 70
+    private let kDeselectTime:TimeInterval = 0.25
     
     override init(frame:CGRect)
     {
@@ -96,5 +97,21 @@ class VCameraMoreCellActions:VCameraMoreCell, UICollectionViewDelegate, UICollec
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MCameraMoreItemActionsOption = modelAtIndex(index:indexPath)
+        item.selected(controller:controller)
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:indexPath,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }
