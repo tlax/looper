@@ -6,7 +6,7 @@ class VCameraMoreCellClose:VCameraMoreCell
     private let kButtonWidth:CGFloat = 60
     private let kButtonRight:CGFloat = 20
     private let kButtonBottom:CGFloat = 10
-    private let kTitleHeight:CGFloat = 35
+    private let kTitleHeight:CGFloat = 50
     
     override init(frame:CGRect)
     {
