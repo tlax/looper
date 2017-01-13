@@ -9,5 +9,6 @@ Amazing gif architect
 [brand5]:http://a4.mzstatic.com/us/r30/Purple111/v4/76/3a/87/763a87d7-9f56-a6e0-d054-1219c145e84d/screen696x696.jpeg "Share them anytime"
 
 ![alt text][logo]
+
 ![alt text][brand1] | ![alt text][brand2] | ![alt text][brand3] | ![alt text][brand4] | ![alt text][brand5]
 --- | --- | --- | --- | ---
