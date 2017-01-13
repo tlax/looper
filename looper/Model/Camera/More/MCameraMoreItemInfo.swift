@@ -20,7 +20,7 @@ class MCameraMoreItemInfo:MCameraMoreItem
         fatalError()
     }
     
-    override init(record:MCameraRecord)
+    override init(record:MCameraRecordEditable)
     {
         fatalError()
     }

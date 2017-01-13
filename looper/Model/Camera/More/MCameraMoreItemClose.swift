@@ -4,7 +4,7 @@ class MCameraMoreItemClose:MCameraMoreItem
 {
     private let kCellHeight:CGFloat = 60
     
-    override init(record:MCameraRecord)
+    override init(record:MCameraRecordEditable)
     {
         let reusableIdentifier:String = VCameraMoreCellClose.reusableIdentifier
         

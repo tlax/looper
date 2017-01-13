@@ -11,7 +11,7 @@ class MCameraMoreItem
         self.cellHeight = cellHeight
     }
     
-    init(record:MCameraRecord)
+    init(record:MCameraRecordEditable)
     {
         fatalError()
     }

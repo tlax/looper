@@ -5,7 +5,7 @@ class MCameraMoreItemInfoFrames:MCameraMoreItemInfo
     private let kTitleSize:CGFloat = 12
     private let kSubtitleSize:CGFloat = 16
     
-    override init(record:MCameraRecord)
+    override init(record:MCameraRecordEditable)
     {
         let attributedString:NSMutableAttributedString = NSMutableAttributedString()
         let attributesTitle:[String:AnyObject] = [
@@ -15,7 +15,7 @@ class MCameraMoreItemInfoFrames:MCameraMoreItemInfo
             NSFontAttributeName:UIFont.medium(size:kSubtitleSize),
             NSForegroundColorAttributeName:UIColor.genericLight]
         
-        let titleFrames:String = NSLocalizedString("MCameraMoreItemInfoFrames_titleFrames", comment:"")
+        let title:String = NSLocalizedString("MCameraMoreItemInfoFrames_title", comment:"")
         let countFrames:Int = record.items.count
         var countActive:Int = 0
         
@@ -29,7 +29,7 @@ class MCameraMoreItemInfoFrames:MCameraMoreItemInfo
         
         let countString:String = "\(countActive)/\(countFrames)"
         let stringTitleFrames:NSAttributedString = NSAttributedString(
-            string:titleFrames,
+            string:title,
             attributes:attributesTitle)
         let stringFrames:NSAttributedString = NSAttributedString(
             string:countString,
