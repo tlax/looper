@@ -2,8 +2,8 @@ import UIKit
 
 class MCameraMoreItemInfoFrames:MCameraMoreItemInfo
 {
-    private let kTitleSize:CGFloat = 13
-    private let kSubtitleSize:CGFloat = 18
+    private let kTitleSize:CGFloat = 12
+    private let kSubtitleSize:CGFloat = 16
     
     override init(record:MCameraRecord)
     {
@@ -12,8 +12,8 @@ class MCameraMoreItemInfoFrames:MCameraMoreItemInfo
             NSFontAttributeName:UIFont.medium(size:kTitleSize),
             NSForegroundColorAttributeName:UIColor.black]
         let attributesSubtitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.regular(size:kSubtitleSize),
-            NSForegroundColorAttributeName:UIColor(white:0.4, alpha:1)]
+            NSFontAttributeName:UIFont.medium(size:kSubtitleSize),
+            NSForegroundColorAttributeName:UIColor.genericLight]
         
         let titleFrames:String = NSLocalizedString("MCameraMoreItemInfoFrames_titleFrames", comment:"")
         let countFrames:Int = record.items.count

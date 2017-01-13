@@ -2,8 +2,8 @@ import UIKit
 
 class MCameraMoreItemInfoSize:MCameraMoreItemInfo
 {
-    private let kTitleSize:CGFloat = 13
-    private let kSubtitleSize:CGFloat = 18
+    private let kTitleSize:CGFloat = 12
+    private let kSubtitleSize:CGFloat = 16
     
     override init(record:MCameraRecord)
     {
@@ -12,22 +12,22 @@ class MCameraMoreItemInfoSize:MCameraMoreItemInfo
             NSFontAttributeName:UIFont.medium(size:kTitleSize),
             NSForegroundColorAttributeName:UIColor.black]
         let attributesSubtitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.regular(size:kSubtitleSize),
-            NSForegroundColorAttributeName:UIColor(white:0.4, alpha:1)]
+            NSFontAttributeName:UIFont.medium(size:kSubtitleSize),
+            NSForegroundColorAttributeName:UIColor.genericLight]
         
         let titleFrames:String = NSLocalizedString("MCameraMoreItemInfoSize_titleFrames", comment:"")
-        let itemSize:CGFloat
+        let itemSize:Int
         
         if let itemWidth:CGFloat = record.items.first?.image.size.width
         {
-            itemSize = itemWidth
+            itemSize = Int(itemWidth)
         }
         else
         {
             itemSize = 0
         }
         
-        let sizeString:String = "\(itemSize)/\(itemSize)"
+        let sizeString:String = "\(itemSize)x\(itemSize)"
         let stringTitleFrames:NSAttributedString = NSAttributedString(
             string:titleFrames,
             attributes:attributesTitle)
