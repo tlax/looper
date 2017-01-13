@@ -142,7 +142,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             if drag == Drag.restart
             {
                 restartingScroll()
-                drag = Drag.stand
             }
         }
     }
@@ -182,7 +181,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         }
         
         controller?.showMore(item:model)
-        drag = Drag.stand
     }
     
     private func changeAllItems(active:Bool)
@@ -227,10 +225,16 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         layoutCollectionLeft.constant = 0
      
         UIView.animate(
-            withDuration:kAnimationDuration)
+            withDuration:kAnimationDuration,
+            animations:
         { [weak self] in
             
             self?.layoutIfNeeded()
+                
+        })
+        { [weak self] (done:Bool) in
+            
+            self?.drag = Drag.stand
         }
     }
     

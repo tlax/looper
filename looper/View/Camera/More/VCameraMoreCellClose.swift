@@ -45,6 +45,10 @@ class VCameraMoreCellClose:VCameraMoreCell
             left:0,
             bottom:kButtonBottom,
             right:kButtonRight)
+        button.addTarget(
+            self,
+            action:#selector(actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(border)
         addSubview(label)
@@ -107,5 +111,12 @@ class VCameraMoreCellClose:VCameraMoreCell
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: actions
+    
+    func actionButton(sender button:UIButton)
+    {
+        controller?.viewMore.close()
     }
 }
