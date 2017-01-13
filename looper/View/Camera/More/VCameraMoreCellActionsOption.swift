@@ -33,8 +33,8 @@ class VCameraMoreCellActionsOption:UICollectionViewCell
     
     //MARK: public
     
-    func config()
+    func config(model:MCameraMoreItemActionsOption)
     {
-        
+        imageView.image = model.image
     }
 }
