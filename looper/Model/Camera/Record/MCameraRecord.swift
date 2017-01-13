@@ -3,8 +3,9 @@ import Foundation
 class MCameraRecord
 {
     var items:[MCameraRecordItem]
+    var speed:MCameraSpeed
     
-    init()
+    init(speed:MCameraSpeed)
     {
         items = []
     }
