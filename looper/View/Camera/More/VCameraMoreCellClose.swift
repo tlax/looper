@@ -4,6 +4,8 @@ class VCameraMoreCellClose:VCameraMoreCell
 {
     private let kBorderHeight:CGFloat = 1
     private let kButtonWidth:CGFloat = 60
+    private let kButtonRight:CGFloat = 20
+    private let kButtonBottom:CGFloat = 10
     
     override init(frame:CGRect)
     {
@@ -37,6 +39,11 @@ class VCameraMoreCellClose:VCameraMoreCell
         button.imageView!.contentMode = UIViewContentMode.center
         button.imageView!.clipsToBounds = true
         button.imageView!.tintColor = UIColor(white:0, alpha:0.2)
+        button.imageEdgeInsets = UIEdgeInsets(
+            top:0,
+            left:0,
+            bottom:kButtonBottom,
+            right:kButtonRight)
         
         addSubview(border)
         addSubview(label)
