@@ -4,11 +4,9 @@ class CCameraMore:CController
 {
     let model:MCameraMore
     weak var viewMore:VCameraMore!
-    private weak var record:MCameraRecord?
     
-    init(record:MCameraRecord)
+    init(record:MCameraRecordEditable)
     {
-        self.record = record
         model = MCameraMore(record:record)
         super.init()
     }

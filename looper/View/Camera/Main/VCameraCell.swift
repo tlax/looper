@@ -13,7 +13,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private weak var viewControls:VCameraCellControls!
     private weak var layoutCollectionLeft:NSLayoutConstraint!
     private weak var layoutControlsWidth:NSLayoutConstraint!
-    private weak var model:MCameraRecord?
+    private weak var model:MCameraRecordEditable?
     private weak var controller:CCamera?
     private var drag:Drag
     private let kAnimationDuration:TimeInterval = 0.3
@@ -174,7 +174,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         
         guard
             
-            let model:MCameraRecord = self.model
+            let model:MCameraRecordEditable = self.model
             
         else
         {
@@ -243,7 +243,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     //MARK: public
     
-    func config(model:MCameraRecord, controller:CCamera)
+    func config(model:MCameraRecordEditable, controller:CCamera)
     {
         self.model = model
         self.controller = controller

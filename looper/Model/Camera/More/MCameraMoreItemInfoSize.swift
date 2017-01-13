@@ -9,11 +9,11 @@ class MCameraMoreItemInfoSize:MCameraMoreItemInfo
     {
         let attributedString:NSMutableAttributedString = NSMutableAttributedString()
         let attributesTitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.medium(size:kTitleSize),
-            NSForegroundColorAttributeName:UIColor.black]
+            NSFontAttributeName:UIFont.bold(size:kTitleSize),
+            NSForegroundColorAttributeName:UIColor.genericLight]
         let attributesSubtitle:[String:AnyObject] = [
             NSFontAttributeName:UIFont.medium(size:kSubtitleSize),
-            NSForegroundColorAttributeName:UIColor.genericLight]
+            NSForegroundColorAttributeName:UIColor.black]
         
         let title:String = NSLocalizedString("MCameraMoreItemInfoSize_title", comment:"")
         let itemSize:Int

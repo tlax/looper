@@ -153,7 +153,7 @@ class CCamera:CController
         present(alert, animated:true, completion:nil)
     }
     
-    func showMore(item:MCameraRecord)
+    func showMore(item:MCameraRecordEditable)
     {
         let controllerMore:CCameraMore = CCameraMore(record:item)
         parentController.animateOver(controller:controllerMore)
