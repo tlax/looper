@@ -20,22 +20,16 @@ class VParent:UIView
         
         addSubview(viewBar)
         
-        let constraintsBarHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:self)
         
         layoutBarTop = NSLayoutConstraint.topToTop(
             view:viewBar,
             toView:self)
-        let layoutBarHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:viewBar,
             constant:kBarHeight)
-        
-        addConstraints(constraintsBarHorizontal)
-        
-        addConstraints([
-            layoutBarTop,
-            layoutBarHeight])
     }
     
     //MARK: public
@@ -72,12 +66,6 @@ class VParent:UIView
         view.layoutRight = NSLayoutConstraint.rightToRight(
             view:view,
             toView:self)
-        
-        addConstraints([
-            view.layoutTop,
-            view.layoutBottom,
-            view.layoutLeft,
-            view.layoutRight])
     }
     
     func slide(
@@ -102,12 +90,6 @@ class VParent:UIView
             view:newView,
             toView:self,
             constant:-left)
-        
-        addConstraints([
-            newView.layoutTop,
-            newView.layoutBottom,
-            newView.layoutLeft,
-            newView.layoutRight])
         
         layoutIfNeeded()
         
@@ -153,12 +135,6 @@ class VParent:UIView
             view:newView,
             toView:self,
             constant:left)
-        
-        addConstraints([
-            newView.layoutTop,
-            newView.layoutBottom,
-            newView.layoutLeft,
-            newView.layoutRight])
         
         layoutIfNeeded()
         
@@ -215,12 +191,6 @@ class VParent:UIView
         newView.layoutRight = NSLayoutConstraint.rightToRight(
             view:newView,
             toView:self)
-        
-        addConstraints([
-            newView.layoutTop,
-            newView.layoutBottom,
-            newView.layoutLeft,
-            newView.layoutRight])
         
         UIView.animate(
             withDuration:kAnimationDuration,
