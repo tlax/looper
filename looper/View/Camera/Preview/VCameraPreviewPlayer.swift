@@ -29,6 +29,13 @@ class VCameraPreviewPlayer:UIView
         addSubview(buttonPlay)
         addSubview(viewTimer)
         
+        let constraintsPlayHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:buttonPlay,
+            toView:self)
+        let constraintsTimerHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:viewTimer,
+            toView:self)
+        
         let layoutPlayTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:buttonPlay,
             toView:self,
@@ -36,12 +43,6 @@ class VCameraPreviewPlayer:UIView
         let layoutPlayHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:buttonPlay,
             constant:kPlayHeight)
-        let layoutPlayLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:buttonPlay,
-            toView:self)
-        let layoutPlayRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:buttonPlay,
-            toView:self)
         
         let layoutTimerTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:viewTimer,
@@ -50,21 +51,14 @@ class VCameraPreviewPlayer:UIView
         let layoutTimerHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:viewTimer,
             constant:kTimerHeight)
-        let layoutTimerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewTimer,
-            toView:self)
-        let layoutTimerRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:viewTimer,
-            toView:self)
+        
+        addConstraints(constraintsPlayHorizontal)
+        addConstraints(constraintsTimerHorizontal)
         
         addConstraints([
             layoutPlayTop,
             layoutPlayHeight,
-            layoutPlayLeft,
-            layoutPlayRight,
             layoutTimerTop,
-            layoutTimerHeight,
-            layoutTimerLeft,
-            layoutTimerRight])
+            layoutTimerHeight])
     }
 }
