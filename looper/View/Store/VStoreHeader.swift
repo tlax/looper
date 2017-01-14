@@ -65,15 +65,12 @@ class VStoreHeader:UICollectionReusableView
         NSLayoutConstraint.topToTop(
             view:imageView,
             toView:self)
-        NSLayoutConstraint.height(
+        NSLayoutConstraint.size(
             view:imageView,
             constant:kImageSize)
         NSLayoutConstraint.leftToLeft(
             view:imageView,
             toView:self)
-        NSLayoutConstraint.width(
-            view:imageView,
-            constant:kImageSize)
     }
     
     required init?(coder:NSCoder)

@@ -33,7 +33,6 @@ class VStoreFooter:UICollectionReusableView
         NSLayoutConstraint.equalsHorizontal(
             view:button,
             toView:self)
-        
         NSLayoutConstraint.topToTop(
             view:button,
             toView:self)

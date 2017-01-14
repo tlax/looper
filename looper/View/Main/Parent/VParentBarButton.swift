@@ -34,7 +34,6 @@ class VParentBarButton:UIButton
         NSLayoutConstraint.equalsHorizontal(
             view:border,
             toView:self)
-        
         NSLayoutConstraint.height(
             view:border,
             constant:kBorderHeight)
