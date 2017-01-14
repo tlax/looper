@@ -2,7 +2,7 @@ import UIKit
 
 extension NSLayoutConstraint
 {
-    class func topToTop(
+    @discardableResult class func topToTop(
         view:UIView,
         toView:UIView,
         constant:CGFloat = 0,
@@ -16,6 +16,7 @@ extension NSLayoutConstraint
             attribute:NSLayoutAttribute.top,
             multiplier:1,
             constant:constant)
+        constraint.isActive = true
         
         return constraint
     }
