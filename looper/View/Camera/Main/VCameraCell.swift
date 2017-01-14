@@ -23,8 +23,8 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private let kButtonsHeight:CGFloat = 50
     private let kControlsMinThreshold:CGFloat = 7
     private let kControlsExtraThreshold:CGFloat = 30
-    private let kControlsMenuThreshold:CGFloat = 60
-    private let kControlsMaxThreshold:CGFloat = 230
+    private let kControlsMenuThreshold:CGFloat = 50
+    private let kControlsMaxThreshold:CGFloat = 180
     private let kExtraSpeed:CGFloat = 3
     
     override init(frame:CGRect)

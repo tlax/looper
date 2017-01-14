@@ -89,7 +89,7 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
     {
         if closeable
         {
-            close()
+            close(completion:nil)
         }
     }
     
@@ -104,10 +104,9 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
     
     //MARK: public
     
-    func close()
+    func close(completion:(() -> ())?)
     {
         closeable = false
-        
         layoutCollectionBottom.constant = kCollectionHeight
         
         UIView.animate(
@@ -120,7 +119,7 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
         })
         { [weak self] (done:Bool) in
             
-            self?.controller.close()
+            self?.controller.close(completion:completion)
         }
     }
     

@@ -101,7 +101,11 @@ class VCameraMoreCellActions:VCameraMoreCell, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let item:MCameraMoreItemActionsOption = modelAtIndex(index:indexPath)
-        item.selected(controller:controller)
-        controller?.viewMore.close()
+        
+        controller?.viewMore.close
+        { [weak controller] in
+            
+            item.selected(controller:controller)
+        }
     }
 }

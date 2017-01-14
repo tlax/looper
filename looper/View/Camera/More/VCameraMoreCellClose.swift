@@ -117,6 +117,6 @@ class VCameraMoreCellClose:VCameraMoreCell
     
     func actionButton(sender button:UIButton)
     {
-        controller?.viewMore.close()
+        controller?.viewMore.close(completion:nil)
     }
 }

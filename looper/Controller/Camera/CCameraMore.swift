@@ -35,8 +35,8 @@ class CCameraMore:CController
     
     //MARK: public
     
-    func close()
+    func close(completion:(() -> ())?)
     {
-        parentController.dismissAnimateOver(completion:nil)
+        parentController.dismissAnimateOver(completion:completion)
     }
 }
