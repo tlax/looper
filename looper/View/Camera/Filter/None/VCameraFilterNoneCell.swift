@@ -34,10 +34,10 @@ class VCameraFilterNoneCell:UICollectionViewCell
         addSubview(imageView)
         addSubview(selectedIcon)
         
-        let constraintsImageVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:imageView,
             toView:self)
-        let constraintsSelectedVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:selectedIcon,
             toView:self)
         
@@ -47,21 +47,12 @@ class VCameraFilterNoneCell:UICollectionViewCell
             view:imageView,
             toView:self)
         
-        let layoutSelectedRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+        NSLayoutConstraint.rightToLeft(
             view:selectedIcon,
             toView:imageView)
-        let layoutSelectedWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:selectedIcon,
             constant:kSelectedWidth)
-        
-        addConstraints(constraintsImageVertical)
-        addConstraints(constraintsSelectedVertical)
-        
-        addConstraints([
-            layoutImageWidth,
-            layoutImageLeft,
-            layoutSelectedRight,
-            layoutSelectedWidth])
     }
     
     required init?(coder:NSCoder)
