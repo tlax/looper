@@ -39,36 +39,27 @@ class VCameraPreviewPlayerTimer:UIView
         addSubview(label)
         addSubview(viewSlider)
         
-        let constraintsLabelHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:label,
             toView:self)
-        let constraintsSliderHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewSlider,
             toView:self)
         
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:label,
             toView:self)
-        let layoutLabelHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:label,
             constant:kLabelHeight)
         
-        let layoutSliderTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToBottom(
             view:viewSlider,
             toView:label,
             constant:kSliderTop)
-        let layoutSliderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:viewSlider,
             toView:self)
-        
-        addConstraints(constraintsLabelHorizontal)
-        addConstraints(constraintsSliderHorizontal)
-        
-        addConstraints([
-            layoutLabelTop,
-            layoutLabelHeight,
-            layoutSliderTop,
-            layoutSliderBottom])
     }
     
     required init?(coder:NSCoder)
