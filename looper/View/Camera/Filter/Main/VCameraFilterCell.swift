@@ -44,12 +44,16 @@ class VCameraFilterCell:UICollectionViewCell
         addSubview(imageView)
         addSubview(selectedIcon)
         
-        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let constraintsImageVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
             view:imageView,
             toView:self)
-        let layoutImageBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:imageView,
+        let constraintsSelectedVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+            view:selectedIcon,
             toView:self)
+        let constraintsLabelVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+            view:label,
+            toView:self)
+        
         let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:imageView,
             toView:self)
@@ -57,25 +61,13 @@ class VCameraFilterCell:UICollectionViewCell
             view:imageView,
             constant:kImageWidth)
         
-        let layoutSelectedTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:selectedIcon,
-            toView:self)
-        let layoutSelectedBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:selectedIcon,
-            toView:self)
         let layoutSelectedRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:selectedIcon,
             toView:self)
         let layoutSelectedWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:selectedIcon,
             constant:kSelectedWidth)
-        
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:label,
-            toView:self)
-        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:label,
-            toView:self)
+
         let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
             view:label,
             toView:imageView)
@@ -83,17 +75,15 @@ class VCameraFilterCell:UICollectionViewCell
             view:label,
             toView:selectedIcon)
         
+        addConstraints(constraintsImageVertical)
+        addConstraints(constraintsSelectedVertical)
+        addConstraints(constraintsLabelVertical)
+        
         addConstraints([
-            layoutImageTop,
-            layoutImageBottom,
             layoutImageWidth,
             layoutImageLeft,
-            layoutSelectedTop,
-            layoutSelectedBottom,
             layoutSelectedWidth,
             layoutSelectedRight,
-            layoutLabelTop,
-            layoutLabelBottom,
             layoutLabelLeft,
             layoutLabelRight])
     }
