@@ -30,6 +30,7 @@
 		DA17E5681E258965004838D5 /* MCameraFilterItemBlendOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17E5671E258965004838D5 /* MCameraFilterItemBlendOverlay.swift */; };
 		DA20F3881E0D78B400D9EBAC /* MetalFilterBlender.metal in Sources */ = {isa = PBXBuildFile; fileRef = DA20F3871E0D78B400D9EBAC /* MetalFilterBlender.metal */; };
 		DA20F38A1E0D7A9100D9EBAC /* ExtensionMTLTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA20F3891E0D7A9100D9EBAC /* ExtensionMTLTexture.swift */; };
+		DA224AF71E2A99C100EF8271 /* VBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA224AF61E2A99C100EF8271 /* VBlur.swift */; };
 		DA38AF031E1BE6C0008C86A8 /* CCameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF021E1BE6C0008C86A8 /* CCameraPreview.swift */; };
 		DA38AF061E1BF3CB008C86A8 /* VCameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF051E1BF3CB008C86A8 /* VCameraPreview.swift */; };
 		DA38AF081E1BF523008C86A8 /* VCameraPreviewBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF071E1BF523008C86A8 /* VCameraPreviewBar.swift */; };
@@ -214,6 +215,7 @@
 		DA17E5671E258965004838D5 /* MCameraFilterItemBlendOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilterItemBlendOverlay.swift; sourceTree = "<group>"; };
 		DA20F3871E0D78B400D9EBAC /* MetalFilterBlender.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MetalFilterBlender.metal; sourceTree = "<group>"; };
 		DA20F3891E0D7A9100D9EBAC /* ExtensionMTLTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLTexture.swift; sourceTree = "<group>"; };
+		DA224AF61E2A99C100EF8271 /* VBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBlur.swift; sourceTree = "<group>"; };
 		DA38AF021E1BE6C0008C86A8 /* CCameraPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraPreview.swift; sourceTree = "<group>"; };
 		DA38AF051E1BF3CB008C86A8 /* VCameraPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraPreview.swift; sourceTree = "<group>"; };
 		DA38AF071E1BF523008C86A8 /* VCameraPreviewBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraPreviewBar.swift; sourceTree = "<group>"; };
@@ -890,6 +892,7 @@
 				DA9B83D21E12E7E8002B9810 /* VSpinner.swift */,
 				DA9B83D31E12E7E8002B9810 /* VView.swift */,
 				DA9B83DE1E12E81C002B9810 /* VCollection.swift */,
+				DA224AF61E2A99C100EF8271 /* VBlur.swift */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -1164,6 +1167,7 @@
 				DA17E5601E256297004838D5 /* VCameraFilterBlenderOverlayBase.swift in Sources */,
 				DA4EBC621E208D8F00F9AC3D /* VHelpCell.swift in Sources */,
 				DA9B83DA1E12E7E8002B9810 /* VView.swift in Sources */,
+				DA224AF71E2A99C100EF8271 /* VBlur.swift in Sources */,
 				DA73900E1E282D6600A82612 /* MCameraMore.swift in Sources */,
 				DAD88CFF1E1AF47300EAB6B7 /* CCameraFilterNone.swift in Sources */,
 				DA38AF0E1E1BFF20008C86A8 /* VCameraPreviewPlayer.swift in Sources */,
