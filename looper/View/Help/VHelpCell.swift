@@ -36,37 +36,28 @@ class VHelpCell:UICollectionViewCell
         addSubview(imageView)
         addSubview(label)
         
-        let constraintsImageHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:imageView,
             toView:self)
-        let constraintsLabelHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:label,
             toView:self,
             margin:kLabelMargin)
         
-        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:imageView,
             toView:self,
             constant:kImageTop)
-        let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:imageView,
             constant:kImageHeight)
         
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToBottom(
             view:label,
             toView:imageView)
-        let layoutLabelHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:label,
             constant:kLabelHeight)
-        
-        addConstraints(constraintsImageHorizontal)
-        addConstraints(constraintsLabelHorizontal)
-        
-        addConstraints([
-            layoutImageTop,
-            layoutImageHeight,
-            layoutLabelTop,
-            layoutLabelHeight])
     }
     
     required init?(coder:NSCoder)
