@@ -29,36 +29,27 @@ class VCameraPreviewPlayer:UIView
         addSubview(buttonPlay)
         addSubview(viewTimer)
         
-        let constraintsPlayHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:buttonPlay,
             toView:self)
-        let constraintsTimerHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewTimer,
             toView:self)
         
-        let layoutPlayTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:buttonPlay,
             toView:self,
             constant:kPlayTop)
-        let layoutPlayHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:buttonPlay,
             constant:kPlayHeight)
         
-        let layoutTimerTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToBottom(
             view:viewTimer,
             toView:buttonPlay,
             constant:kTimerTop)
-        let layoutTimerHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:viewTimer,
             constant:kTimerHeight)
-        
-        addConstraints(constraintsPlayHorizontal)
-        addConstraints(constraintsTimerHorizontal)
-        
-        addConstraints([
-            layoutPlayTop,
-            layoutPlayHeight,
-            layoutTimerTop,
-            layoutTimerHeight])
     }
 }
