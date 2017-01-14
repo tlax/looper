@@ -66,12 +66,16 @@ class VCameraCompressCell:UICollectionViewCell
         addSubview(percent)
         addSubview(selectedIcon)
         
-        let layoutSelectedTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let constraintsSelectedVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
             view:selectedIcon,
             toView:self)
-        let layoutSelectedBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:selectedIcon,
+        let constraintsLabelVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+            view:label,
             toView:self)
+        let constraintsPercentVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+            view:percent,
+            toView:self)
+        
         let layoutSelectedRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:selectedIcon,
             toView:self)
@@ -79,12 +83,6 @@ class VCameraCompressCell:UICollectionViewCell
             view:selectedIcon,
             constant:kSelectedWidth)
         
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:label,
-            toView:self)
-        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:label,
-            toView:self)
         let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
             view:label,
             toView:percent,
@@ -93,12 +91,6 @@ class VCameraCompressCell:UICollectionViewCell
             view:label,
             constant:kLabelWidth)
         
-        let layoutPercentTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:percent,
-            toView:self)
-        let layoutPercentBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:percent,
-            toView:self)
         let layoutPercentLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:percent,
             toView:self)
@@ -106,17 +98,15 @@ class VCameraCompressCell:UICollectionViewCell
             view:percent,
             constant:kPercentWidth)
         
+        addConstraints(constraintsSelectedVertical)
+        addConstraints(constraintsLabelVertical)
+        addConstraints(constraintsPercentVertical)
+        
         addConstraints([
-            layoutSelectedTop,
-            layoutSelectedBottom,
             layoutSelectedWidth,
             layoutSelectedRight,
-            layoutLabelTop,
-            layoutLabelBottom,
             layoutLabelLeft,
             layoutLabelWidth,
-            layoutPercentTop,
-            layoutPercentBottom,
             layoutPercentLeft,
             layoutPercentWidth])
     }
