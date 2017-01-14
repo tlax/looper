@@ -20,11 +20,7 @@ class VStoreGoPlus:VView
         backgroundColor = UIColor.clear
         self.controller = controller as? CStoreGoPlus
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.dark)
-        let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
-        visualEffect.isUserInteractionEnabled = false
-        visualEffect.translatesAutoresizingMaskIntoConstraints = false
-        visualEffect.clipsToBounds = true
+        let blur:VBlur = VBlur.dark()
         
         let baseButton:UIButton = UIButton()
         baseButton.clipsToBounds = true
@@ -73,13 +69,13 @@ class VStoreGoPlus:VView
         baseView.addSubview(labelTitle)
         baseView.addSubview(labelDescr)
         baseView.addSubview(buttons)
-        addSubview(visualEffect)
+        addSubview(blur)
         addSubview(baseButton)
         addSubview(baseView)
         addSubview(imageView)
         
-        let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
-            view:visualEffect,
+        let constraintsBlur:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:blur,
             toView:self)
         let constraintsBaseButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:baseButton,
@@ -151,7 +147,7 @@ class VStoreGoPlus:VView
             view:buttons,
             toView:baseView)
         
-        addConstraints(constraintsEffect)
+        addConstraints(constraintsBlur)
         addConstraints(constraintsBaseButton)
         
         addConstraints([

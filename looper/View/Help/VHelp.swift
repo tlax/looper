@@ -60,7 +60,7 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         pageControl.pageIndicatorTintColor = UIColor(white:0, alpha:0.1)
         self.pageControl = pageControl
         
-        addSubview(visualEffect)
+        addSubview(blur)
         addSubview(collectionView)
         addSubview(pageControl)
         addSubview(button)
