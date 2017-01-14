@@ -73,67 +73,47 @@ class VCameraFilterBlender:VView, UICollectionViewDelegate, UICollectionViewData
         addSubview(backButton)
         addSubview(nextButton)
         
-        let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:collectionView,
             toView:self)
         
-        let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:backButton,
             toView:self,
             constant:kContentTop)
-        let layoutBackHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:backButton,
             constant:kButtonsHeight)
-        let layoutBackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:backButton,
             toView:self)
-        let layoutBackWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:backButton,
             constant:kButtonsWidth)
         
-        let layoutNextTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:nextButton,
             toView:self,
             constant:kContentTop)
-        let layoutNextHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:nextButton,
             constant:kButtonsHeight)
-        let layoutNextRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:nextButton,
             toView:self)
-        let layoutNextWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:nextButton,
             constant:kButtonsWidth)
         
-        let layoutTitleTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:title,
-            toView:self,
-            constant:kContentTop)
-        let layoutTitleHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            toView:self)
+        NSLayoutConstraint.height(
             view:title,
             constant:kButtonsHeight)
-        let layoutTitleLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.equalsHorizontal(
             view:title,
             toView:self)
-        let layoutTitleRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:title,
-            toView:self)
-        
-        addConstraints(constraintsCollection)
-        
-        addConstraints([
-            layoutBackTop,
-            layoutBackHeight,
-            layoutBackLeft,
-            layoutBackWidth,
-            layoutNextTop,
-            layoutNextHeight,
-            layoutNextRight,
-            layoutNextWidth,
-            layoutTitleTop,
-            layoutTitleHeight,
-            layoutTitleLeft,
-            layoutTitleRight])
     }
     
     required init?(coder:NSCoder)
