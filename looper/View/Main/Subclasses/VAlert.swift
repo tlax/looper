@@ -67,10 +67,7 @@ class VAlert:UIView
         layer.borderWidth = kBorderWidth
         layer.borderColor = UIColor(white:0, alpha:0.2).cgColor
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
-        let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
-        blur.isUserInteractionEnabled = false
-        blur.translatesAutoresizingMaskIntoConstraints = false
+        let blur:VBlur = VBlur.light()
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
@@ -94,7 +91,7 @@ class VAlert:UIView
         addSubview(label)
         addSubview(button)
         
-        let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        let constraintsBlur:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:blur,
             toView:self)
         let constraintsButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
@@ -108,7 +105,7 @@ class VAlert:UIView
             toView:self,
             margin:kLabelMargin)
         
-        addConstraints(constraintsEffect)
+        addConstraints(constraintsBlur)
         addConstraints(constraintsButton)
         addConstraints(constraintsLabelVertical)
         addConstraints(constraintsLabelHorizontal)
