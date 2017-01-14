@@ -78,25 +78,23 @@ class VCameraPreviewBar:UIView
         addSubview(cancelButton)
         addSubview(saveButton)
         
-        let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let constraintsBackVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
             view:backButton,
             toView:self)
-        let layoutBackBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:backButton,
+        let constraintsCancelVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+            view:cancelButton,
             toView:self)
+        let constraintsSaveVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+            view:saveButton,
+            toView:self)
+        
         let layoutBackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:backButton,
             toView:self)
         let layoutBackWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:backButton,
             constant:kBackWidth)
-        
-        let layoutCancelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:cancelButton,
-            toView:self)
-        let layoutCancelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:cancelButton,
-            toView:self)
+
         let layoutCancelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:cancelButton,
             toView:self)
@@ -104,12 +102,6 @@ class VCameraPreviewBar:UIView
             view:cancelButton,
             constant:kCancelWidth)
         
-        let layoutSaveTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:saveButton,
-            toView:self)
-        let layoutSaveBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:saveButton,
-            toView:self)
         layoutSaveLeft = NSLayoutConstraint.leftToLeft(
             view:saveButton,
             toView:self)
@@ -117,17 +109,15 @@ class VCameraPreviewBar:UIView
             view:saveButton,
             constant:kSaveWidth)
         
+        addConstraints(constraintsBackVertical)
+        addConstraints(constraintsCancelVertical)
+        addConstraints(constraintsSaveVertical)
+        
         addConstraints([
-            layoutBackTop,
-            layoutBackBottom,
             layoutBackLeft,
             layoutBackWidth,
-            layoutCancelTop,
-            layoutCancelBottom,
             layoutCancelRight,
             layoutCancelWidth,
-            layoutSaveTop,
-            layoutSaveBottom,
             layoutSaveLeft,
             layoutSaveWidth])
     }
