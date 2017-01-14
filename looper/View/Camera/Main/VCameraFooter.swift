@@ -23,16 +23,13 @@ class VCameraFooter:UICollectionReusableView
         
         addSubview(label)
         
-        let constraintsLabelVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:label,
             toView:self)
-        let constraintsLabelHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:label,
             toView:self,
             margin:-kLabelMargin)
-        
-        addConstraints(constraintsLabelVertical)
-        addConstraints(constraintsLabelHorizontal)
     }
     
     required init?(coder:NSCoder)
