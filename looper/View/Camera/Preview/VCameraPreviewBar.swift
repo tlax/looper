@@ -78,48 +78,36 @@ class VCameraPreviewBar:UIView
         addSubview(cancelButton)
         addSubview(saveButton)
         
-        let constraintsBackVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:backButton,
             toView:self)
-        let constraintsCancelVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:cancelButton,
             toView:self)
-        let constraintsSaveVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:saveButton,
             toView:self)
         
-        let layoutBackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:backButton,
             toView:self)
-        let layoutBackWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:backButton,
             constant:kBackWidth)
 
-        let layoutCancelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:cancelButton,
             toView:self)
-        let layoutCancelWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:cancelButton,
             constant:kCancelWidth)
         
         layoutSaveLeft = NSLayoutConstraint.leftToLeft(
             view:saveButton,
             toView:self)
-        let layoutSaveWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:saveButton,
             constant:kSaveWidth)
-        
-        addConstraints(constraintsBackVertical)
-        addConstraints(constraintsCancelVertical)
-        addConstraints(constraintsSaveVertical)
-        
-        addConstraints([
-            layoutBackLeft,
-            layoutBackWidth,
-            layoutCancelRight,
-            layoutCancelWidth,
-            layoutSaveLeft,
-            layoutSaveWidth])
     }
     
     override func layoutSubviews()
