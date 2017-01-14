@@ -66,49 +66,37 @@ class VCameraCompressCell:UICollectionViewCell
         addSubview(percent)
         addSubview(selectedIcon)
         
-        let constraintsSelectedVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:selectedIcon,
             toView:self)
-        let constraintsLabelVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:label,
             toView:self)
-        let constraintsPercentVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:percent,
             toView:self)
         
-        let layoutSelectedRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:selectedIcon,
             toView:self)
-        let layoutSelectedWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:selectedIcon,
             constant:kSelectedWidth)
         
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
+        NSLayoutConstraint.leftToRight(
             view:label,
             toView:percent,
             constant:kLabelLeft)
-        let layoutLabelWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:label,
             constant:kLabelWidth)
         
-        let layoutPercentLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:percent,
             toView:self)
-        let layoutPercentWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:percent,
             constant:kPercentWidth)
-        
-        addConstraints(constraintsSelectedVertical)
-        addConstraints(constraintsLabelVertical)
-        addConstraints(constraintsPercentVertical)
-        
-        addConstraints([
-            layoutSelectedWidth,
-            layoutSelectedRight,
-            layoutLabelLeft,
-            layoutLabelWidth,
-            layoutPercentLeft,
-            layoutPercentWidth])
     }
     
     required init?(coder:NSCoder)
