@@ -426,6 +426,20 @@
 			path = Filter;
 			sourceTree = "<group>";
 		};
+		DA1655381E29A69000DA6808 /* Rotate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Rotate;
+			sourceTree = "<group>";
+		};
+		DA1655391E29A69000DA6808 /* Scale */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scale;
+			sourceTree = "<group>";
+		};
 		DA1701BA1E2069D60049CE90 /* Help */ = {
 			isa = PBXGroup;
 			children = (
@@ -817,6 +831,8 @@
 		DA9B83C31E12DCAE002B9810 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				DA1655381E29A69000DA6808 /* Rotate */,
+				DA1655391E29A69000DA6808 /* Scale */,
 				DA7390011E280B7400A82612 /* More */,
 				DA38AF041E1BF3C2008C86A8 /* Preview */,
 				DA5C523D1E15CC7900D296C6 /* Compress */,

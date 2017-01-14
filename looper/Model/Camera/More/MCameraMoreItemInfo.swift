@@ -3,7 +3,7 @@ import UIKit
 class MCameraMoreItemInfo:MCameraMoreItem
 {
     let attributedString:NSAttributedString
-    private let kCellHeight:CGFloat = 30
+    private let kCellHeight:CGFloat = 40
     
     init(attributedString:NSAttributedString)
     {

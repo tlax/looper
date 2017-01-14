@@ -2,7 +2,7 @@ import UIKit
 
 class MCameraMoreItemInfoSpeed:MCameraMoreItemInfo
 {
-    private let kTitleSize:CGFloat = 13
+    private let kTitleSize:CGFloat = 16
     private let kSubtitleSize:CGFloat = 14
     
     override init(record:MCameraRecordEditable)

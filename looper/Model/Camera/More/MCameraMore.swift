@@ -3,13 +3,11 @@ import UIKit
 class MCameraMore
 {
     let items:[MCameraMoreItem]
-    private let kEmptyInfo:CGFloat = 10
-    private let kEmptyActions:CGFloat = 40
+    private let kEmptyActions:CGFloat = 30
     
     init(record:MCameraRecordEditable)
     {
         let itemClose:MCameraMoreItemClose = MCameraMoreItemClose(record:record)
-        let itemEmptyInfo:MCameraMoreItemEmpty = MCameraMoreItemEmpty(cellHeight:kEmptyInfo)
         let itemInfoFrames:MCameraMoreItemInfoFrames = MCameraMoreItemInfoFrames(record:record)
         let itemInfoSize:MCameraMoreItemInfoSize = MCameraMoreItemInfoSize(record:record)
         let itemInfoSpeed:MCameraMoreItemInfoSpeed = MCameraMoreItemInfoSpeed(record:record)
@@ -18,7 +16,6 @@ class MCameraMore
         
         items = [
             itemClose,
-            itemEmptyInfo,
             itemInfoFrames,
             itemInfoSize,
             itemInfoSpeed,
