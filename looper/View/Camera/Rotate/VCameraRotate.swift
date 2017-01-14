@@ -3,6 +3,8 @@ import UIKit
 class VCameraRotate:VView
 {
     private weak var controller:CCameraRotate!
+    private weak var imageView:UIImageView!
+    private weak var viewHandler:VCameraRotateHandler!
     private let kBarHeight:CGFloat = 64
     
     override init(controller:CController)
@@ -15,14 +17,20 @@ class VCameraRotate:VView
         
         let bar:VCameraRotateBar = VCameraRotateBar(controller:self.controller)
         
+        let viewHandler:VCameraRotateHandler = VCameraRotateHandler()
+        
         addSubview(blur)
         addSubview(bar)
+        addSubview(viewHandler)
         
         let constraintsBlur:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:blur,
             toView:self)
         let constraintsBarHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
             view:bar,
+            toView:self)
+        let constraintsHandlerHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:viewHandler,
             toView:self)
         
         let layoutBarTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
@@ -32,12 +40,22 @@ class VCameraRotate:VView
             view:bar,
             constant:kBarHeight)
         
+        let layoutHandlerTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+            view:viewHandler,
+            toView:bar)
+        let layoutHandlerBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:viewHandler,
+            toView:self)
+        
         addConstraints(constraintsBlur)
         addConstraints(constraintsBarHorizontal)
+        addConstraints(constraintsHandlerHorizontal)
         
         addConstraints([
             layoutBarTop,
-            layoutBarHeight])
+            layoutBarHeight,
+            layoutHandlerTop,
+            layoutHandlerBottom])
     }
     
     required init?(coder:NSCoder)
