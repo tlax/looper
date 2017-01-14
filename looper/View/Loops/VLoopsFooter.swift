@@ -38,15 +38,12 @@ class VLoopsFooter:UICollectionReusableView
             view:button,
             toView:self,
             constant:kButtonTop)
-        NSLayoutConstraint.height(
+        NSLayoutConstraint.size(
             view:button,
             constant:kButtonSize)
         layoutButtonLeft = NSLayoutConstraint.leftToLeft(
             view:button,
             toView:self)
-        NSLayoutConstraint.width(
-            view:button,
-            constant:kButtonSize)
     }
     
     required init?(coder:NSCoder)

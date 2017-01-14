@@ -65,30 +65,26 @@ class VParentBar:UIView
         NSLayoutConstraint.equalsVertical(
             view:buttonLoops,
             toView:self)
-        NSLayoutConstraint.equalsVertical(
-            view:buttonCamera,
-            toView:self)
-        NSLayoutConstraint.equalsVertical(
-            view:buttonStore,
-            toView:self)
-        NSLayoutConstraint.equalsHorizontal(
-            view:border,
-            toView:self)
-        
         layoutLoopsLeft = NSLayoutConstraint.leftToLeft(
             view:buttonLoops,
             toView:self)
         NSLayoutConstraint.width(
             view:buttonLoops,
             constant:kButtonsWidth)
-
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonCamera,
+            toView:self)
         NSLayoutConstraint.width(
             view:buttonCamera,
             constant:kButtonsWidth)
         NSLayoutConstraint.rightToRight(
             view:buttonCamera,
             toView:self)
-
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonStore,
+            toView:self)
         NSLayoutConstraint.width(
             view:buttonStore,
             constant:kButtonsWidth)
@@ -96,6 +92,9 @@ class VParentBar:UIView
             view:buttonStore,
             toView:self)
         
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
         NSLayoutConstraint.bottomToBottom(
             view:border,
             toView:self)
