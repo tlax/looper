@@ -50,58 +50,35 @@ class VCameraMoreCellClose:VCameraMoreCell
         addSubview(label)
         addSubview(button)
         
-        let layoutTitleTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:label,
             toView:self)
-        let layoutTitleHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:label,
             constant:kTitleHeight)
-        let layoutTitleLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:label,
-            toView:self)
-        let layoutTitleRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:label,
             toView:self)
         
-        let layoutBorderTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:border,
             toView:self)
-        let layoutBorderHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:border,
             constant:kBorderHeight)
-        let layoutBorderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:border,
-            toView:self)
-        let layoutBorderRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:border,
             toView:self)
         
-        let layoutButtonTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsVertical(
             view:button,
             toView:self)
-        let layoutButtonBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.leftToLeft(
             view:button,
             toView:self)
-        let layoutButtonLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:button,
-            toView:self)
-        let layoutButtonWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:button,
             constant:kButtonWidth)
-        
-        addConstraints([
-            layoutTitleTop,
-            layoutTitleHeight,
-            layoutTitleLeft,
-            layoutTitleRight,
-            layoutBorderTop,
-            layoutBorderHeight,
-            layoutBorderLeft,
-            layoutBorderRight,
-            layoutButtonTop,
-            layoutButtonBottom,
-            layoutButtonLeft,
-            layoutButtonWidth])
     }
     
     required init?(coder:NSCoder)
