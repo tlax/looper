@@ -21,12 +21,7 @@ class VCameraCellControlsButton:UIButton
         
         if border
         {
-            let viewBorder:UIView = UIView()
-            viewBorder.isUserInteractionEnabled = false
-            viewBorder.translatesAutoresizingMaskIntoConstraints = false
-            viewBorder.clipsToBounds = true
-            viewBorder.backgroundColor = UIColor.black
-            
+            let viewBorder:VBorder = VBorder(color:UIColor.black)
             addSubview(viewBorder)
             
             let constraintsBorderVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
