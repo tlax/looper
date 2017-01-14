@@ -99,6 +99,10 @@ class VCameraShootConfig:UIView
         addSubview(buttonAdd)
         addSubview(buttonRest)
         
+        let constraintsLabelVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+            view:label,
+            toView:self)
+        
         layoutAddTop = NSLayoutConstraint.topToTop(
             view:buttonAdd,
             toView:self)
@@ -124,13 +128,7 @@ class VCameraShootConfig:UIView
         let layoutRestWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:buttonRest,
             constant:kButtonsWidth)
-        
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:label,
-            toView:self)
-        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:label,
-            toView:self)
+
         let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
             view:label,
             toView:buttonAdd,
@@ -153,6 +151,8 @@ class VCameraShootConfig:UIView
             view:titleBottom,
             constant:kLabelWidth)
         
+        addConstraints(constraintsLabelVertical)
+        
         addConstraints([
             layoutAddTop,
             layoutAddHeight,
@@ -162,8 +162,6 @@ class VCameraShootConfig:UIView
             layoutRestHeight,
             layoutRestRight,
             layoutRestWidth,
-            layoutLabelTop,
-            layoutLabelBottom,
             layoutLabelRight,
             layoutLabelWidth,
             layoutTitleBottomTop,
