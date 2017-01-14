@@ -41,70 +41,40 @@ class VCameraShoot:VView
         
         layoutPreviewHeight = NSLayoutConstraint.height(
             view:viewPreview)
-        let layoutPreviewTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:viewPreview,
             toView:self)
-        let layoutPreviewLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewPreview,
-            toView:self)
-        let layoutPreviewRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewPreview,
             toView:self)
         
-        let layoutMenuHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:viewMenu,
             constant:kMenuHeight)
-        let layoutMenuBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:viewMenu,
             toView:self)
-        let layoutMenuLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewMenu,
-            toView:self)
-        let layoutMenuRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewMenu,
             toView:self)
         
-        let layoutConfigTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToBottom(
             view:viewConfig,
             toView:viewPreview)
         layoutConfigHeight = NSLayoutConstraint.height(
             view:viewConfig)
-        let layoutConfigLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewConfig,
-            toView:self)
-        let layoutConfigRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewConfig,
             toView:self)
         
-        let layoutProcessTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToBottom(
             view:viewProcess,
             toView:viewPreview)
         layoutProcessHeight = NSLayoutConstraint.height(
             view:viewProcess)
-        let layoutProcessLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewProcess,
             toView:self)
-        let layoutProcessRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:viewProcess,
-            toView:self)
-        
-        addConstraints([
-            layoutPreviewHeight,
-            layoutPreviewTop,
-            layoutPreviewLeft,
-            layoutPreviewRight,
-            layoutMenuHeight,
-            layoutMenuBottom,
-            layoutMenuLeft,
-            layoutMenuRight,
-            layoutConfigTop,
-            layoutConfigHeight,
-            layoutConfigLeft,
-            layoutConfigRight,
-            layoutProcessTop,
-            layoutProcessHeight,
-            layoutProcessLeft,
-            layoutProcessRight])
     }
     
     required init?(coder:NSCoder)
