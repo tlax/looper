@@ -7,8 +7,6 @@ class VCameraShoot:VView
     weak var viewConfig:VCameraShootConfig!
     weak var viewProcess:VCameraShootProcess!
     private weak var layoutPreviewHeight:NSLayoutConstraint!
-    private weak var layoutConfigHeight:NSLayoutConstraint!
-    private weak var layoutProcessHeight:NSLayoutConstraint!
     private weak var controller:CCameraShoot!
     private let kMenuHeight:CGFloat = 90
     
@@ -61,8 +59,9 @@ class VCameraShoot:VView
         NSLayoutConstraint.topToBottom(
             view:viewConfig,
             toView:viewPreview)
-        layoutConfigHeight = NSLayoutConstraint.height(
-            view:viewConfig)
+        NSLayoutConstraint.bottomToBottom(
+            view:viewConfig,
+            toView:self)
         NSLayoutConstraint.equalsHorizontal(
             view:viewConfig,
             toView:self)
@@ -70,8 +69,9 @@ class VCameraShoot:VView
         NSLayoutConstraint.topToBottom(
             view:viewProcess,
             toView:viewPreview)
-        layoutProcessHeight = NSLayoutConstraint.height(
-            view:viewProcess)
+        NSLayoutConstraint.bottomToBottom(
+            view:viewProcess,
+            toView:self)
         NSLayoutConstraint.equalsHorizontal(
             view:viewProcess,
             toView:self)
@@ -87,28 +87,19 @@ class VCameraShoot:VView
         let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
         let previewHeight:CGFloat
-        let configHeight:CGFloat
         
         if width < height
         {
             previewHeight = width
-            configHeight = height - (previewHeight + kMenuHeight)
         }
         else
         {
             previewHeight = height - kMenuHeight
-            configHeight = 0
         }
         
         if previewHeight >= 0
         {
             layoutPreviewHeight.constant = previewHeight
-        }
-        
-        if configHeight >= 0
-        {
-            layoutConfigHeight.constant = configHeight
-            layoutProcessHeight.constant = configHeight
         }
         
         super.layoutSubviews()
