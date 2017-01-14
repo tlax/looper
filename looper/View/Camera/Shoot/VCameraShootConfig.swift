@@ -106,68 +106,50 @@ class VCameraShootConfig:UIView
         layoutAddTop = NSLayoutConstraint.topToTop(
             view:buttonAdd,
             toView:self)
-        let layoutAddHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:buttonAdd,
             constant:kButtonsHeight)
-        let layoutAddRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:buttonAdd,
             toView:self)
-        let layoutAddWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonAdd,
             constant:kButtonsWidth)
         
-        let layoutRestTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToBottom(
             view:buttonRest,
             toView:buttonAdd)
-        let layoutRestHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:buttonRest,
             constant:kButtonsHeight)
-        let layoutRestRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:buttonRest,
             toView:self)
-        let layoutRestWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonRest,
             constant:kButtonsWidth)
 
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+        NSLayoutConstraint.rightToLeft(
             view:label,
             toView:buttonAdd,
             constant:kLabelRight)
-        let layoutLabelWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:label,
             constant:kLabelWidth)
         
-        let layoutTitleBottomTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:titleBottom,
             toView:buttonRest)
-        let layoutTitleBottomHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:titleBottom,
             constant:kTitlesHeight)
-        let layoutTitleBottomRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+        NSLayoutConstraint.rightToLeft(
             view:titleBottom,
             toView:buttonAdd,
             constant:kLabelRight)
-        let layoutTitleBottomWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:titleBottom,
             constant:kLabelWidth)
-        
-        addConstraints(constraintsLabelVertical)
-        
-        addConstraints([
-            layoutAddTop,
-            layoutAddHeight,
-            layoutAddRight,
-            layoutAddWidth,
-            layoutRestTop,
-            layoutRestHeight,
-            layoutRestRight,
-            layoutRestWidth,
-            layoutLabelRight,
-            layoutLabelWidth,
-            layoutTitleBottomTop,
-            layoutTitleBottomHeight,
-            layoutTitleBottomRight,
-            layoutTitleBottomWidth])
         
         print()
     }
