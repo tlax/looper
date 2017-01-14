@@ -36,6 +36,14 @@ class VHelpCell:UICollectionViewCell
         addSubview(imageView)
         addSubview(label)
         
+        let constraintsImageHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:imageView,
+            toView:self)
+        let constraintsLabelHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:label,
+            toView:self,
+            margin:kLabelMargin)
+        
         let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:imageView,
             toView:self,
@@ -43,12 +51,6 @@ class VHelpCell:UICollectionViewCell
         let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:imageView,
             constant:kImageHeight)
-        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:imageView,
-            toView:self)
-        let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:imageView,
-            toView:self)
         
         let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:label,
@@ -56,24 +58,15 @@ class VHelpCell:UICollectionViewCell
         let layoutLabelHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:label,
             constant:kLabelHeight)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:label,
-            toView:self,
-            constant:kLabelMargin)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:label,
-            toView:self,
-            constant:-kLabelMargin)
+        
+        addConstraints(constraintsImageHorizontal)
+        addConstraints(constraintsLabelHorizontal)
         
         addConstraints([
             layoutImageTop,
             layoutImageHeight,
-            layoutImageLeft,
-            layoutImageRight,
             layoutLabelTop,
-            layoutLabelHeight,
-            layoutLabelLeft,
-            layoutLabelRight])
+            layoutLabelHeight])
     }
     
     required init?(coder:NSCoder)
