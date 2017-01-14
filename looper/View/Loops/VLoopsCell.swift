@@ -110,20 +110,25 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         addSubview(button)
         addSubview(collectionView)
         
-        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let constraintsButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:button,
+            toView:imageView)
+        let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:spinner,
+            toView:imageView)
+        let constraintsImageVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
             view:imageView,
             toView:background,
-            constant:kBackgroundMargin)
-        let layoutImageBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:imageView,
-            toView:background,
-            constant:-kBackgroundMargin)
-        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            margin:kBackgroundMargin)
+        let constraintsImageHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
             view:imageView,
             toView:background)
-        let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:imageView,
-            toView:background)
+        let constraintsBackgroundHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:background,
+            toView:self)
+        let constraintsCollectionHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:collectionView,
+            toView:self)
         
         let layoutBackgroundTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:background,
@@ -131,23 +136,11 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         let layoutBackgroundHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:background,
             constant:backgroundHeight)
-        let layoutBackgroundLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:background,
-            toView:self)
-        let layoutBackgroundRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:background,
-            toView:self)
         
         let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:collectionView,
             toView:background)
         let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:collectionView,
-            toView:self)
-        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:collectionView,
-            toView:self)
-        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:collectionView,
             toView:self)
         
@@ -166,29 +159,18 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
             toView:self,
             constant:kLabelRight)
         
-        let constraintsButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
-            view:button,
-            toView:imageView)
-        let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
-            view:spinner,
-            toView:imageView)
-        
         addConstraints(constraintsButton)
         addConstraints(constraintsSpinner)
+        addConstraints(constraintsImageVertical)
+        addConstraints(constraintsImageHorizontal)
+        addConstraints(constraintsBackgroundHorizontal)
+        addConstraints(constraintsCollectionHorizontal)
         
         addConstraints([
-            layoutImageTop,
-            layoutImageBottom,
-            layoutImageLeft,
-            layoutImageRight,
             layoutBackgroundTop,
             layoutBackgroundHeight,
-            layoutBackgroundLeft,
-            layoutBackgroundRight,
             layoutCollectionTop,
             layoutCollectionBottom,
-            layoutCollectionLeft,
-            layoutCollectionRight,
             layoutLabelTop,
             layoutLabelBottom,
             layoutLabelLeft,
