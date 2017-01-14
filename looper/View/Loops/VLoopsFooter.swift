@@ -34,25 +34,19 @@ class VLoopsFooter:UICollectionReusableView
         
         addSubview(button)
         
-        let layoutButtonTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:button,
             toView:self,
             constant:kButtonTop)
-        let layoutButtonHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:button,
             constant:kButtonSize)
         layoutButtonLeft = NSLayoutConstraint.leftToLeft(
             view:button,
             toView:self)
-        let layoutButtonWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:button,
             constant:kButtonSize)
-        
-        addConstraints([
-            layoutButtonTop,
-            layoutButtonHeight,
-            layoutButtonLeft,
-            layoutButtonWidth])
     }
     
     required init?(coder:NSCoder)
