@@ -15,47 +15,37 @@ class VCameraRotate:VView
         
         let blur:VBlur = VBlur.extraLight()
         
-        let bar:VCameraRotateBar = VCameraRotateBar(controller:self.controller)
+        let viewBar:VCameraRotateBar = VCameraRotateBar(controller:self.controller)
         
         let viewHandler:VCameraRotateHandler = VCameraRotateHandler()
         
         addSubview(blur)
         addSubview(viewHandler)
-        addSubview(bar)
+        addSubview(viewBar)
         
-        let constraintsBlur:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:blur,
             toView:self)
-        let constraintsBarHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
-            view:bar,
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewBar,
             toView:self)
-        let constraintsHandlerHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewHandler,
             toView:self)
         
-        let layoutBarTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:bar,
+        NSLayoutConstraint.topToTop(
+            view:viewBar,
             toView:self)
-        let layoutBarHeight:NSLayoutConstraint = NSLayoutConstraint.height(
-            view:bar,
+        NSLayoutConstraint.height(
+            view:viewBar,
             constant:kBarHeight)
         
-        let layoutHandlerTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToBottom(
             view:viewHandler,
-            toView:bar)
-        let layoutHandlerBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            toView:viewBar)
+        NSLayoutConstraint.bottomToBottom(
             view:viewHandler,
             toView:self)
-        
-        addConstraints(constraintsBlur)
-        addConstraints(constraintsBarHorizontal)
-        addConstraints(constraintsHandlerHorizontal)
-        
-        addConstraints([
-            layoutBarTop,
-            layoutBarHeight,
-            layoutHandlerTop,
-            layoutHandlerBottom])
     }
     
     required init?(coder:NSCoder)
