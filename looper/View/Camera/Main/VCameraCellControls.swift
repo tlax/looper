@@ -36,49 +36,37 @@ class VCameraCellControls:UIView
         addSubview(buttonUncheckAll)
         addSubview(buttonMore)
         
-        let constraintsMoreVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:buttonMore,
             toView:self)
-        let constraintsCheckVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:buttonCheckAll,
             toView:self)
-        let constraintsUncheckVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:buttonUncheckAll,
             toView:self)
         
-        let layoutMoreWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonMore,
             constant:kButtonsWidth)
-        let layoutMoreRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:buttonMore,
             toView:self)
         
-        let layoutCheckWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonCheckAll,
             constant:kButtonsWidth)
-        let layoutCheckRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+        NSLayoutConstraint.rightToLeft(
             view:buttonCheckAll,
             toView:buttonUncheckAll)
      
-        let layoutUncheckWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonUncheckAll,
             constant:kButtonsWidth)
-        let layoutUncheckLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
+        NSLayoutConstraint.leftToRight(
             view:buttonUncheckAll,
             toView:self,
             multiplier:0.33)
-        
-        addConstraints(constraintsMoreVertical)
-        addConstraints(constraintsCheckVertical)
-        addConstraints(constraintsUncheckVertical)
-        
-        addConstraints([
-            layoutMoreWidth,
-            layoutMoreRight,
-            layoutCheckWidth,
-            layoutCheckRight,
-            layoutUncheckWidth,
-            layoutUncheckLeft])
     }
     
     required init?(coder:NSCoder)
