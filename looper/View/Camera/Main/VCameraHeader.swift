@@ -40,58 +40,44 @@ class VCameraHeader:UICollectionReusableView
         addSubview(buttonShoot)
         addSubview(buttonNext)
         
-        let constraintsBorderHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:border,
             toView:self)
         
-        let layoutShootTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:buttonShoot,
             toView:self,
             constant:kButtonsTop)
-        let layoutShootHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:buttonShoot,
             constant:kButtonsHeight)
         layoutShootLeft = NSLayoutConstraint.leftToLeft(
             view:buttonShoot,
             toView:self)
-        let layoutShootWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonShoot,
             constant:kButtonsWidth)
         
-        let layoutNextTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:buttonNext,
             toView:self,
             constant:kButtonsTop)
-        let layoutNextHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:buttonNext,
             constant:kButtonsHeight)
-        let layoutNextRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:buttonNext,
             toView:self)
-        let layoutNextWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonNext,
             constant:kButtonsWidth)
         
-        let layoutBorderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:border,
             toView:self)
-        let layoutBorderHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:border,
             constant:kBorderHeight)
-        
-        addConstraints(constraintsBorderHorizontal)
-        
-        addConstraints([
-            layoutShootTop,
-            layoutShootHeight,
-            layoutShootLeft,
-            layoutShootWidth,
-            layoutNextTop,
-            layoutNextHeight,
-            layoutNextRight,
-            layoutNextWidth,
-            layoutBorderBottom,
-            layoutBorderHeight])
     }
     
     required init?(coder:NSCoder)
