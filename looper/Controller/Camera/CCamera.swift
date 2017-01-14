@@ -158,7 +158,7 @@ class CCamera:CController
         let controllerRotate:CCameraRotate = CCameraRotate(record:item)
         parentController.push(
             controller:controllerRotate,
-            vertical:CParent.TransitionVertical.fromBottom)
+            vertical:CParent.TransitionVertical.fromTop)
     }
     
     func scale(item:MCameraRecordEditable)
