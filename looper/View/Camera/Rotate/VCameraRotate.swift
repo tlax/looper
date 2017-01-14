@@ -10,12 +10,9 @@ class VCameraRotate:VView
         backgroundColor = UIColor.clear
         self.controller = controller as? CCameraRotate
         
-        let blur:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
-        let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blur)
-        visualEffect.translatesAutoresizingMaskIntoConstraints = false
-        visualEffect.clipsToBounds
+        let blur:VBlur = VBlur.extraLight()
         
-        addSubview(visualEffect)
+        addSubview(blur)
     }
     
     required init?(coder:NSCoder)
