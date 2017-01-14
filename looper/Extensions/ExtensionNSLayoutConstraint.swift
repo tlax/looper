@@ -214,26 +214,67 @@ extension NSLayoutConstraint
         return constraint
     }
     
-    class func equals(view:UIView, toView:UIView) -> [NSLayoutConstraint]
+    class func equals(view:UIView, toView:UIView, margin:CGFloat = 0) -> [NSLayoutConstraint]
     {
         let top:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:view,
-            toView:toView)
+            toView:toView,
+            constant:margin)
         let bottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:view,
-            toView:toView)
+            toView:toView,
+            constant:-margin)
         let left:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:view,
-            toView:toView)
+            toView:toView,
+            constant:margin)
         let right:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
             view:view,
-            toView:toView)
+            toView:toView,
+            constant:-margin)
         
         let constraints:[NSLayoutConstraint] = [
             top,
             bottom,
             left,
             right
+        ]
+        
+        return constraints
+    }
+    
+    class func equalsHorizontal(view:UIView, toView:UIView, margin:CGFloat = 0) -> [NSLayoutConstraint]
+    {
+        let left:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            view:view,
+            toView:toView,
+            constant:margin)
+        let right:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            view:view,
+            toView:toView,
+            constant:-margin)
+        
+        let constraints:[NSLayoutConstraint] = [
+            left,
+            right
+        ]
+        
+        return constraints
+    }
+    class func equalsVertical(view:UIView, toView:UIView, margin:CGFloat = 0) -> [NSLayoutConstraint]
+    {
+        let top:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            view:view,
+            toView:toView,
+            constant:margin)
+        let bottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            view:view,
+            toView:toView,
+            constant:-margin)
+        
+        let constraints:[NSLayoutConstraint] = [
+            top,
+            bottom
         ]
         
         return constraints
