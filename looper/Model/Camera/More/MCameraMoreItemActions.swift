@@ -3,7 +3,7 @@ import UIKit
 class MCameraMoreItemActions:MCameraMoreItem
 {
     let options:[MCameraMoreItemActionsOption]
-    private let kCellHeight:CGFloat = 70
+    private let kCellHeight:CGFloat = 65
     
     override init(record:MCameraRecordEditable)
     {

@@ -2,8 +2,8 @@ import UIKit
 
 class MCameraMoreItemInfoSize:MCameraMoreItemInfo
 {
-    private let kTitleSize:CGFloat = 12
-    private let kSubtitleSize:CGFloat = 16
+    private let kTitleSize:CGFloat = 13
+    private let kSubtitleSize:CGFloat = 14
     
     override init(record:MCameraRecordEditable)
     {
