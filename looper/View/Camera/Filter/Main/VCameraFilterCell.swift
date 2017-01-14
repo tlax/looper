@@ -44,48 +44,36 @@ class VCameraFilterCell:UICollectionViewCell
         addSubview(imageView)
         addSubview(selectedIcon)
         
-        let constraintsImageVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:imageView,
             toView:self)
-        let constraintsSelectedVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:selectedIcon,
             toView:self)
-        let constraintsLabelVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:label,
             toView:self)
         
-        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:imageView,
             toView:self)
-        let layoutImageWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:imageView,
             constant:kImageWidth)
         
-        let layoutSelectedRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:selectedIcon,
             toView:self)
-        let layoutSelectedWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:selectedIcon,
             constant:kSelectedWidth)
 
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
+        NSLayoutConstraint.leftToRight(
             view:label,
             toView:imageView)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+        NSLayoutConstraint.rightToLeft(
             view:label,
             toView:selectedIcon)
-        
-        addConstraints(constraintsImageVertical)
-        addConstraints(constraintsSelectedVertical)
-        addConstraints(constraintsLabelVertical)
-        
-        addConstraints([
-            layoutImageWidth,
-            layoutImageLeft,
-            layoutSelectedWidth,
-            layoutSelectedRight,
-            layoutLabelLeft,
-            layoutLabelRight])
     }
     
     required init?(coder:NSCoder)
