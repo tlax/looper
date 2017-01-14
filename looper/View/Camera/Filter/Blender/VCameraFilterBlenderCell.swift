@@ -12,7 +12,7 @@ class VCameraFilterBlenderCell:UICollectionViewCell
     private let kSelectorHeight:CGFloat = 75
     private let kAlphaSelected:CGFloat = 1
     private let kAlphaNotSelected:CGFloat = 0.25
-    private let kBackgroundMargin:CGFloat = 3
+    private let kBackgroundMargin:CGFloat = -3
     
     override init(frame:CGRect)
     {
@@ -51,7 +51,7 @@ class VCameraFilterBlenderCell:UICollectionViewCell
         NSLayoutConstraint.equals(
             view:background,
             toView:imageView,
-            margin:-kBackgroundMargin)
+            margin:kBackgroundMargin)
         
         NSLayoutConstraint.equalsHorizontal(
             view:selector,
@@ -67,17 +67,12 @@ class VCameraFilterBlenderCell:UICollectionViewCell
             view:imageView,
             toView:self,
             constant:kImageTop)
-        NSLayoutConstraint.height(
-            view:imageView,
-            constant:kImageSize)
         layoutImageLeft = NSLayoutConstraint.leftToLeft(
             view:imageView,
             toView:self)
-        NSLayoutConstraint.width(
+        NSLayoutConstraint.size(
             view:imageView,
             constant:kImageSize)
-        
-        
     }
     
     required init?(coder:NSCoder)

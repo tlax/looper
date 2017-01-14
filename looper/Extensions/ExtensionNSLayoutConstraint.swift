@@ -190,6 +190,21 @@ extension NSLayoutConstraint
         return constraint
     }
     
+    class func size(
+        view:UIView,
+        constant:CGFloat,
+        multiplier:CGFloat = 1)
+    {
+        NSLayoutConstraint.width(
+            view:view,
+            constant:constant,
+            multiplier:multiplier)
+        NSLayoutConstraint.height(
+            view:view,
+            constant:constant,
+            multiplier:multiplier)
+    }
+    
     @discardableResult class func width(
         view:UIView,
         toView:UIView,
