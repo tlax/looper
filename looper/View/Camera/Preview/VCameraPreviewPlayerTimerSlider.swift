@@ -52,6 +52,13 @@ class VCameraPreviewPlayerTimerSlider:UIView
         addSubview(track)
         addSubview(viewThumb)
         
+        let constraintsThumbVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+            view:viewThumb,
+            toView:self)
+        let constraintsInsideTrackVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+            view:insideTrack,
+            toView:track)
+        
         layoutTrackTop = NSLayoutConstraint.topToTop(
             view:track,
             toView:self)
@@ -65,42 +72,29 @@ class VCameraPreviewPlayerTimerSlider:UIView
         layoutTrackWidth = NSLayoutConstraint.width(
             view:track)
         
-        let layoutThumbTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:viewThumb,
-            toView:self)
-        let layoutThumbBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:viewThumb,
-            toView:self)
         let layoutThumbWidth:NSLayoutConstraint = NSLayoutConstraint.width(
             view:viewThumb,
             constant:kThumbWidth)
         layoutThumbLeft = NSLayoutConstraint.leftToLeft(
             view:viewThumb,
             toView:self)
-        
-        let layoutInsideTrackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:insideTrack,
-            toView:track)
-        let layoutInsideTrackBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:insideTrack,
-            toView:track)
+
         let layoutInsideTrackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:insideTrack,
             toView:track)
         layoutInsideTrackWidth = NSLayoutConstraint.width(
             view:insideTrack)
         
+        addConstraints(constraintsThumbVertical)
+        addConstraints(constraintsInsideTrackVertical)
+        
         addConstraints([
             layoutTrackTop,
             layoutTrackHeight,
             layoutTrackLeft,
             layoutTrackWidth,
-            layoutThumbTop,
-            layoutThumbBottom,
             layoutThumbWidth,
             layoutThumbLeft,
-            layoutInsideTrackTop,
-            layoutInsideTrackBottom,
             layoutInsideTrackLeft,
             layoutInsideTrackWidth])
         
