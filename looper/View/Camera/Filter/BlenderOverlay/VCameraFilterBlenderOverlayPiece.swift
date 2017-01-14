@@ -42,12 +42,10 @@ class VCameraFilterBlenderOverlayPiece:UIView
         
         addSubview(imageView)
         
-        let constraintsImage:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:imageView,
             toView:self,
             margin:kImageMargin)
-        
-        addConstraints(constraintsImage)
     }
     
     required init?(coder:NSCoder)
