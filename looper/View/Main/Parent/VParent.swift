@@ -20,24 +20,22 @@ class VParent:UIView
         
         addSubview(viewBar)
         
+        let constraintsBarHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:viewBar,
+            toView:self)
+        
         layoutBarTop = NSLayoutConstraint.topToTop(
             view:viewBar,
             toView:self)
         let layoutBarHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:viewBar,
             constant:kBarHeight)
-        let layoutBarLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewBar,
-            toView:self)
-        let layoutBarRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:viewBar,
-            toView:self)
+        
+        addConstraints(constraintsBarHorizontal)
         
         addConstraints([
             layoutBarTop,
-            layoutBarHeight,
-            layoutBarLeft,
-            layoutBarRight])
+            layoutBarHeight])
     }
     
     //MARK: public
