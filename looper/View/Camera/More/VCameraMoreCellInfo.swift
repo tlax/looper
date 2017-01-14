@@ -18,26 +18,13 @@ class VCameraMoreCellInfo:VCameraMoreCell
         
         addSubview(label)
         
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsVertical(
             view:label,
             toView:self)
-        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:label,
-            toView:self)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.equalsHorizontal(
             view:label,
             toView:self,
-            constant:kMarginHorizontal)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:label,
-            toView:self,
-            constant:-kMarginHorizontal)
-        
-        addConstraints([
-            layoutLabelTop,
-            layoutLabelBottom,
-            layoutLabelLeft,
-            layoutLabelRight])
+            margin:kMarginHorizontal)
     }
     
     required init?(coder:NSCoder)
