@@ -152,10 +152,7 @@ class VCameraFilterBlenderOverlay:VView
         layoutBaseLeft = NSLayoutConstraint.leftToLeft(
             view:viewBase,
             toView:self)
-        NSLayoutConstraint.width(
-            view:viewBase,
-            constant:kBaseSize)
-        NSLayoutConstraint.height(
+        NSLayoutConstraint.size(
             view:viewBase,
             constant:kBaseSize)
         
@@ -239,6 +236,9 @@ class VCameraFilterBlenderOverlay:VView
         
         let viewPiece:VCameraFilterBlenderOverlayPiece = VCameraFilterBlenderOverlayPiece(
             model:model)
+        
+        viewPlacer.addPiece(viewPiece:viewPiece)
+        
         viewPiece.layoutTop = NSLayoutConstraint.topToTop(
             view:viewPiece,
             toView:viewPlacer,
@@ -253,7 +253,5 @@ class VCameraFilterBlenderOverlay:VView
         viewPiece.layoutWidth = NSLayoutConstraint.width(
             view:viewPiece,
             constant:kPieceSize)
-        
-        viewPlacer.addPiece(viewPiece:viewPiece)
     }
 }

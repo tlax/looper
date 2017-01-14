@@ -47,13 +47,6 @@ class VCameraFilterCell:UICollectionViewCell
         NSLayoutConstraint.equalsVertical(
             view:imageView,
             toView:self)
-        NSLayoutConstraint.equalsVertical(
-            view:selectedIcon,
-            toView:self)
-        NSLayoutConstraint.equalsVertical(
-            view:label,
-            toView:self)
-        
         NSLayoutConstraint.leftToLeft(
             view:imageView,
             toView:self)
@@ -61,13 +54,19 @@ class VCameraFilterCell:UICollectionViewCell
             view:imageView,
             constant:kImageWidth)
         
+        NSLayoutConstraint.equalsVertical(
+            view:selectedIcon,
+            toView:self)
         NSLayoutConstraint.rightToRight(
             view:selectedIcon,
             toView:self)
         NSLayoutConstraint.width(
             view:selectedIcon,
             constant:kSelectedWidth)
-
+        
+        NSLayoutConstraint.equalsVertical(
+            view:label,
+            toView:self)
         NSLayoutConstraint.leftToRight(
             view:label,
             toView:imageView)

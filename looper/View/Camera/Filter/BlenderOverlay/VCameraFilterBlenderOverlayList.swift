@@ -93,16 +93,13 @@ class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollec
             view:buttonAdd,
             toView:self,
             constant:kButtonAddTop)
-        NSLayoutConstraint.height(
+        NSLayoutConstraint.size(
             view:buttonAdd,
             constant:kButtonAddSize)
         buttonAdd.layoutLeft = NSLayoutConstraint.leftToLeft(
             view:buttonAdd,
             toView:self,
             constant:-kButtonAddSize)
-        NSLayoutConstraint.width(
-            view:buttonAdd,
-            constant:kButtonAddSize)
         
         NSLayoutConstraint.bottomToBottom(
             view:collectionView,
