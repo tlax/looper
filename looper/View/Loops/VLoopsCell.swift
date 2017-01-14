@@ -110,71 +110,54 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         addSubview(button)
         addSubview(collectionView)
         
-        let constraintsButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:button,
             toView:imageView)
-        let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:spinner,
             toView:imageView)
-        let constraintsImageVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:imageView,
             toView:background,
             margin:kBackgroundMargin)
-        let constraintsImageHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:imageView,
             toView:background)
-        let constraintsBackgroundHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:background,
             toView:self)
-        let constraintsCollectionHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:collectionView,
             toView:self)
         
-        let layoutBackgroundTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:background,
             toView:self)
-        let layoutBackgroundHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:background,
             constant:backgroundHeight)
         
-        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToBottom(
             view:collectionView,
             toView:background)
-        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:collectionView,
             toView:self)
         
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:label,
             toView:collectionView)
-        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:label,
             toView:collectionView,
             constant:kLabelBottom)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:label,
             toView:self)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:label,
             toView:self,
             constant:kLabelRight)
-        
-        addConstraints(constraintsButton)
-        addConstraints(constraintsSpinner)
-        addConstraints(constraintsImageVertical)
-        addConstraints(constraintsImageHorizontal)
-        addConstraints(constraintsBackgroundHorizontal)
-        addConstraints(constraintsCollectionHorizontal)
-        
-        addConstraints([
-            layoutBackgroundTop,
-            layoutBackgroundHeight,
-            layoutCollectionTop,
-            layoutCollectionBottom,
-            layoutLabelTop,
-            layoutLabelBottom,
-            layoutLabelLeft,
-            layoutLabelRight])
         
         buttonPlay()
         
