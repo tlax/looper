@@ -97,34 +97,21 @@ class VAlert:UIView
         let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:blur,
             toView:self)
-        
         let constraintsButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:blur,
             toView:self)
-        
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let constraintsLabelVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
             view:label,
             toView:self)
-        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:label,
-            toView:self)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        let constraintsLabelHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
             view:label,
             toView:self,
-            constant:kLabelMargin)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:label,
-            toView:self,
-            constant:-kLabelMargin)
+            margin:kLabelMargin)
         
         addConstraints(constraintsEffect)
         addConstraints(constraintsButton)
-        
-        addConstraints([
-            layoutLabelTop,
-            layoutLabelBottom,
-            layoutLabelLeft,
-            layoutLabelRight])
+        addConstraints(constraintsLabelVertical)
+        addConstraints(constraintsLabelHorizontal)
     }
     
     func alertTimeOut(sender timer:Timer?)
