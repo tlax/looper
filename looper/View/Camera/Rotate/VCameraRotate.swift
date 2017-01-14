@@ -20,8 +20,8 @@ class VCameraRotate:VView
         let viewHandler:VCameraRotateHandler = VCameraRotateHandler()
         
         addSubview(blur)
-        addSubview(bar)
         addSubview(viewHandler)
+        addSubview(bar)
         
         let constraintsBlur:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:blur,

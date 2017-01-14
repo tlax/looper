@@ -162,10 +162,27 @@ class VParent:UIView
         
         layoutIfNeeded()
         
-        newView.layoutTop.constant = 0
-        newView.layoutBottom.constant = 0
-        newView.layoutRight.constant = 0
-        newView.layoutLeft.constant = 0
+        if top >= 0
+        {
+            newView.layoutTop.constant = 0
+            newView.layoutBottom.constant = 0
+        }
+        else
+        {
+            newView.layoutBottom.constant = 0
+            newView.layoutTop.constant = 0
+        }
+        
+        if left >= 0
+        {
+            newView.layoutLeft.constant = 0
+            newView.layoutRight.constant = 0
+        }
+        else
+        {
+            newView.layoutRight.constant = 0
+            newView.layoutLeft.constant = 0
+        }
         
         UIView.animate(
             withDuration:kAnimationDuration,
