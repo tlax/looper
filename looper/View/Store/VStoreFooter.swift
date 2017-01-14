@@ -30,22 +30,16 @@ class VStoreFooter:UICollectionReusableView
         
         addSubview(button)
         
-        let constraintsButtonHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:button,
             toView:self)
         
-        let layoutButtonTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:button,
             toView:self)
-        let layoutButtonHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:button,
             constant:kButtonHeight)
-        
-        addConstraints(constraintsButtonHorizontal)
-        
-        addConstraints([
-            layoutButtonTop,
-            layoutButtonHeight])
     }
     
     required init?(coder:NSCoder)
