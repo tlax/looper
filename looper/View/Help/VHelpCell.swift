@@ -39,11 +39,6 @@ class VHelpCell:UICollectionViewCell
         NSLayoutConstraint.equalsHorizontal(
             view:imageView,
             toView:self)
-        NSLayoutConstraint.equalsHorizontal(
-            view:label,
-            toView:self,
-            margin:kLabelMargin)
-        
         NSLayoutConstraint.topToTop(
             view:imageView,
             toView:self,
@@ -52,6 +47,10 @@ class VHelpCell:UICollectionViewCell
             view:imageView,
             constant:kImageHeight)
         
+        NSLayoutConstraint.equalsHorizontal(
+            view:label,
+            toView:self,
+            margin:kLabelMargin)
         NSLayoutConstraint.topToBottom(
             view:label,
             toView:imageView)

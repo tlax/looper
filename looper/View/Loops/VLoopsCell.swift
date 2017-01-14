@@ -116,6 +116,7 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         NSLayoutConstraint.equals(
             view:spinner,
             toView:imageView)
+        
         NSLayoutConstraint.equalsVertical(
             view:imageView,
             toView:background,
@@ -123,13 +124,10 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
         NSLayoutConstraint.equalsHorizontal(
             view:imageView,
             toView:background)
+        
         NSLayoutConstraint.equalsHorizontal(
             view:background,
             toView:self)
-        NSLayoutConstraint.equalsHorizontal(
-            view:collectionView,
-            toView:self)
-        
         NSLayoutConstraint.topToTop(
             view:background,
             toView:self)
@@ -137,6 +135,9 @@ class VLoopsCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVie
             view:background,
             constant:backgroundHeight)
         
+        NSLayoutConstraint.equalsHorizontal(
+            view:collectionView,
+            toView:self)
         NSLayoutConstraint.topToBottom(
             view:collectionView,
             toView:background)
