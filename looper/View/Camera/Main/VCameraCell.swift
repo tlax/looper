@@ -72,34 +72,25 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         addSubview(collectionView)
         addSubview(viewControls)
         
-        let constraintsCollectionVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:collectionView,
             toView:self)
-        let constraintsControlsVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:viewControls,
             toView:self)
         
         layoutCollectionLeft = NSLayoutConstraint.leftToLeft(
             view:collectionView,
             toView:self)
-        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:collectionView,
             toView:self)
         
-        let layoutControlsLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:viewControls,
             toView:self)
         layoutControlsWidth = NSLayoutConstraint.width(
             view:viewControls)
-        
-        addConstraints(constraintsCollectionVertical)
-        addConstraints(constraintsControlsVertical)
-        
-        addConstraints([
-            layoutCollectionLeft,
-            layoutCollectionRight,
-            layoutControlsLeft,
-            layoutControlsWidth])
         
         NotificationCenter.default.addObserver(
             self,
