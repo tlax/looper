@@ -70,58 +70,44 @@ class VCameraShootMenu:UIView
         addSubview(buttonReverse)
         addSubview(buttonTrigger)
         
-        let layoutButtonBackHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:buttonBack,
             constant:kButtonsHeight)
-        let layoutButtonBackBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:buttonBack,
             toView:self)
-        let layoutButtonBackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:buttonBack,
             toView:self)
-        let layoutButtonBackWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonBack,
             constant:kButtonsWidth)
         
-        let layoutButtonReverseHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:buttonReverse,
             constant:kButtonsHeight)
-        let layoutButtonReverseBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:buttonReverse,
             toView:self)
-        let layoutButtonReverseRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:buttonReverse,
             toView:self)
-        let layoutButtonReverseWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonReverse,
             constant:kButtonsWidth)
         
-        let layoutButtonTriggerTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:buttonTrigger,
             toView:self)
-        let layoutButtonTriggerHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:buttonTrigger,
             constant:kButtonTriggerSize)
         layoutButtonTriggerLeft = NSLayoutConstraint.leftToLeft(
             view:buttonTrigger,
             toView:self)
-        let layoutButtonTriggerWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonTrigger,
             constant:kButtonTriggerSize)
-        
-        addConstraints([
-            layoutButtonBackHeight,
-            layoutButtonBackBottom,
-            layoutButtonBackLeft,
-            layoutButtonBackWidth,
-            layoutButtonReverseHeight,
-            layoutButtonReverseBottom,
-            layoutButtonReverseRight,
-            layoutButtonReverseWidth,
-            layoutButtonTriggerTop,
-            layoutButtonTriggerHeight,
-            layoutButtonTriggerLeft,
-            layoutButtonTriggerWidth])
     }
     
     override func layoutSubviews()
