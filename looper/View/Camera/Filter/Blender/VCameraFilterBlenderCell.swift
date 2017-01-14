@@ -48,45 +48,34 @@ class VCameraFilterBlenderCell:UICollectionViewCell
         addSubview(background)
         addSubview(imageView)
         
-        let constraintsBackground:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:background,
             toView:imageView,
             margin:kBackgroundMargin)
-        let constraintsSelectorHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:selector,
             toView:self)
         
-        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:imageView,
             toView:self,
             constant:kImageTop)
-        let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:imageView,
             constant:kImageSize)
         layoutImageLeft = NSLayoutConstraint.leftToLeft(
             view:imageView,
             toView:self)
-        let layoutImageWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:imageView,
             constant:kImageSize)
         
-        let layoutSelectorBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+        NSLayoutConstraint.bottomToTop(
             view:selector,
             toView:imageView)
-        let layoutSelectorHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:selector,
             constant:kSelectorHeight)
-        
-        addConstraints(constraintsBackground)
-        addConstraints(constraintsSelectorHorizontal)
-        
-        addConstraints([
-            layoutImageTop,
-            layoutImageHeight,
-            layoutImageLeft,
-            layoutImageWidth,
-            layoutSelectorBottom,
-            layoutSelectorHeight])
     }
     
     required init?(coder:NSCoder)
