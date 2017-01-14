@@ -102,6 +102,13 @@ class VCameraShootConfig:UIView
         NSLayoutConstraint.equalsVertical(
             view:label,
             toView:self)
+        NSLayoutConstraint.rightToLeft(
+            view:label,
+            toView:buttonAdd,
+            constant:kLabelRight)
+        NSLayoutConstraint.width(
+            view:label,
+            constant:kLabelWidth)
         
         layoutAddTop = NSLayoutConstraint.topToTop(
             view:buttonAdd,
@@ -128,14 +135,6 @@ class VCameraShootConfig:UIView
         NSLayoutConstraint.width(
             view:buttonRest,
             constant:kButtonsWidth)
-
-        NSLayoutConstraint.rightToLeft(
-            view:label,
-            toView:buttonAdd,
-            constant:kLabelRight)
-        NSLayoutConstraint.width(
-            view:label,
-            constant:kLabelWidth)
         
         NSLayoutConstraint.topToTop(
             view:titleBottom,

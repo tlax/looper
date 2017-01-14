@@ -26,13 +26,10 @@ class VCameraRotate:VView
         NSLayoutConstraint.equals(
             view:blur,
             toView:self)
+        
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:self)
-        NSLayoutConstraint.equalsHorizontal(
-            view:viewHandler,
-            toView:self)
-        
         NSLayoutConstraint.topToTop(
             view:viewBar,
             toView:self)
@@ -40,6 +37,9 @@ class VCameraRotate:VView
             view:viewBar,
             constant:kBarHeight)
         
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewHandler,
+            toView:self)
         NSLayoutConstraint.topToBottom(
             view:viewHandler,
             toView:viewBar)

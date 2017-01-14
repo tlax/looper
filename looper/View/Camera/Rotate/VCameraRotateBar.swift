@@ -41,7 +41,6 @@ class VCameraRotateBar:UIView
         NSLayoutConstraint.equalsHorizontal(
             view:border,
             toView:self)
-        
         NSLayoutConstraint.bottomToBottom(
             view:border,
             toView:self)

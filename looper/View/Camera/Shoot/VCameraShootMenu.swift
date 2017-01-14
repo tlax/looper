@@ -99,15 +99,12 @@ class VCameraShootMenu:UIView
         NSLayoutConstraint.topToTop(
             view:buttonTrigger,
             toView:self)
-        NSLayoutConstraint.height(
+        NSLayoutConstraint.size(
             view:buttonTrigger,
             constant:kButtonTriggerSize)
         layoutButtonTriggerLeft = NSLayoutConstraint.leftToLeft(
             view:buttonTrigger,
             toView:self)
-        NSLayoutConstraint.width(
-            view:buttonTrigger,
-            constant:kButtonTriggerSize)
     }
     
     override func layoutSubviews()
