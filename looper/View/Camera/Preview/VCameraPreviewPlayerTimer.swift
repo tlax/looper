@@ -39,18 +39,19 @@ class VCameraPreviewPlayerTimer:UIView
         addSubview(label)
         addSubview(viewSlider)
         
+        let constraintsLabelHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:label,
+            toView:self)
+        let constraintsSliderHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:viewSlider,
+            toView:self)
+        
         let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:label,
             toView:self)
         let layoutLabelHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:label,
             constant:kLabelHeight)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:label,
-            toView:self)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:label,
-            toView:self)
         
         let layoutSliderTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
             view:viewSlider,
@@ -59,22 +60,15 @@ class VCameraPreviewPlayerTimer:UIView
         let layoutSliderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:viewSlider,
             toView:self)
-        let layoutSliderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewSlider,
-            toView:self)
-        let layoutSliderRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:viewSlider,
-            toView:self)
+        
+        addConstraints(constraintsLabelHorizontal)
+        addConstraints(constraintsSliderHorizontal)
         
         addConstraints([
             layoutLabelTop,
             layoutLabelHeight,
-            layoutLabelRight,
-            layoutLabelLeft,
             layoutSliderTop,
-            layoutSliderBottom,
-            layoutSliderLeft,
-            layoutSliderRight])
+            layoutSliderBottom])
     }
     
     required init?(coder:NSCoder)
