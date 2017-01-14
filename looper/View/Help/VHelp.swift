@@ -19,12 +19,7 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         backgroundColor = UIColor.clear
         self.controller = controller as? CHelp
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
-        let visualEffect:UIVisualEffectView = UIVisualEffectView(
-            effect:blurEffect)
-        visualEffect.isUserInteractionEnabled = false
-        visualEffect.translatesAutoresizingMaskIntoConstraints = false
-        visualEffect.clipsToBounds = true
+        let blur:VBlur = VBlur.extraLight()
         
         let button:UIButton = UIButton()
         button.backgroundColor = UIColor.genericLight
@@ -70,8 +65,8 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         addSubview(pageControl)
         addSubview(button)
         
-        let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
-            view:visualEffect,
+        let constraintsBlur:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:blur,
             toView:self)
         
         let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
@@ -106,7 +101,7 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             view:pageControl,
             toView:self)
         
-        addConstraints(constraintsEffect)
+        addConstraints(constraintsBlur)
         addConstraints(constraintsCollection)
         
         addConstraints([
