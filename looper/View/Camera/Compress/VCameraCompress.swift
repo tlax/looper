@@ -41,35 +41,23 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
         addSubview(collectionView)
         addSubview(spinner)
         addSubview(viewBar)
-        
-        let layoutBarTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+
+        NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:self)
-        let layoutBarHeight:NSLayoutConstraint = NSLayoutConstraint.height(
-            view:viewBar,
-            constant:kBarHeight)
-        let layoutBarLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewBar,
-            toView:self)
-        let layoutBarRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:viewBar,
-            toView:self)
-        
-        let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:collectionView,
             toView:self)
-        let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:spinner,
             toView:self)
         
-        addConstraints(constraintsCollection)
-        addConstraints(constraintsSpinner)
-        
-        addConstraints([
-            layoutBarTop,
-            layoutBarHeight,
-            layoutBarLeft,
-            layoutBarRight])
+        NSLayoutConstraint.topToTop(
+            view:viewBar,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:viewBar,
+            constant:kBarHeight)
     }
     
     required init?(coder:NSCoder)
