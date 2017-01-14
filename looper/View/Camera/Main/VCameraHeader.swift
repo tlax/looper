@@ -34,15 +34,15 @@ class VCameraHeader:UICollectionReusableView
             for:UIControlEvents.touchUpInside)
         self.buttonNext = buttonNext
         
-        let border:UIView = UIView()
-        border.isUserInteractionEnabled = false
-        border.translatesAutoresizingMaskIntoConstraints = false
-        border.clipsToBounds = true
-        border.backgroundColor = UIColor(white:0, alpha:0.2)
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.2))
         
         addSubview(border)
         addSubview(buttonShoot)
         addSubview(buttonNext)
+        
+        let constraintsBorderHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
         
         let layoutShootTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:buttonShoot,
@@ -78,12 +78,8 @@ class VCameraHeader:UICollectionReusableView
         let layoutBorderHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:border,
             constant:kBorderHeight)
-        let layoutBorderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:border,
-            toView:self)
-        let layoutBorderRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:border,
-            toView:self)
+        
+        addConstraints(constraintsBorderHorizontal)
         
         addConstraints([
             layoutShootTop,
@@ -95,9 +91,7 @@ class VCameraHeader:UICollectionReusableView
             layoutNextRight,
             layoutNextWidth,
             layoutBorderBottom,
-            layoutBorderHeight,
-            layoutBorderLeft,
-            layoutBorderRight])
+            layoutBorderHeight])
     }
     
     required init?(coder:NSCoder)
