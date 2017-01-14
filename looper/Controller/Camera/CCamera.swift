@@ -153,6 +153,19 @@ class CCamera:CController
         present(alert, animated:true, completion:nil)
     }
     
+    func rotate(item:MCameraRecordEditable)
+    {
+        let controllerRotate:CCameraRotate = CCameraRotate(record:item)
+        parentController.push(
+            controller:controllerRotate,
+            vertical:CParent.TransitionVertical.fromBottom)
+    }
+    
+    func scale(item:MCameraRecordEditable)
+    {
+        
+    }
+    
     func showMore(item:MCameraRecordEditable)
     {
         let controllerMore:CCameraMore = CCameraMore(controller:self, record:item)
