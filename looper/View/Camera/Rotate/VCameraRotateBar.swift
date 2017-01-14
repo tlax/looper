@@ -21,10 +21,10 @@ class VCameraRotateBar:UIView
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(
-            UIColor.black,
+            UIColor.genericLight,
             for:UIControlState.normal)
         button.setTitleColor(
-            UIColor(white:0, alpha:0.2),
+            UIColor.genericLight.withAlphaComponent(0.2),
             for:UIControlState.highlighted)
         button.setTitle(
             NSLocalizedString("VCameraRotateBar_buttonClose", comment:""),
