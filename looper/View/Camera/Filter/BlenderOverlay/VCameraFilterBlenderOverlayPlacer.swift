@@ -140,13 +140,6 @@ class VCameraFilterBlenderOverlayPlacer:UIView
     func addPiece(viewPiece:VCameraFilterBlenderOverlayPiece)
     {
         addSubview(viewPiece)
-        
-        addConstraints([
-            viewPiece.layoutTop,
-            viewPiece.layoutHeight,
-            viewPiece.layoutLeft,
-            viewPiece.layoutWidth])
-        
         viewPiece.animateShow()
     }
     
