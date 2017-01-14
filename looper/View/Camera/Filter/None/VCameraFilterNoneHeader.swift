@@ -46,7 +46,6 @@ class VCameraFilterNoneHeader:UICollectionReusableView
             view:label,
             toView:self,
             margin:kLabelMarginHorizontal)
-        
         NSLayoutConstraint.topToTop(
             view:label,
             toView:self,

@@ -81,20 +81,16 @@ class VCameraPreviewBar:UIView
         NSLayoutConstraint.equalsVertical(
             view:backButton,
             toView:self)
-        NSLayoutConstraint.equalsVertical(
-            view:cancelButton,
-            toView:self)
-        NSLayoutConstraint.equalsVertical(
-            view:saveButton,
-            toView:self)
-        
         NSLayoutConstraint.leftToLeft(
             view:backButton,
             toView:self)
         NSLayoutConstraint.width(
             view:backButton,
             constant:kBackWidth)
-
+        
+        NSLayoutConstraint.equalsVertical(
+            view:cancelButton,
+            toView:self)
         NSLayoutConstraint.rightToRight(
             view:cancelButton,
             toView:self)
@@ -102,6 +98,9 @@ class VCameraPreviewBar:UIView
             view:cancelButton,
             constant:kCancelWidth)
         
+        NSLayoutConstraint.equalsVertical(
+            view:saveButton,
+            toView:self)
         layoutSaveLeft = NSLayoutConstraint.leftToLeft(
             view:saveButton,
             toView:self)

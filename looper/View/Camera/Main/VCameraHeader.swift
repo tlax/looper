@@ -43,6 +43,12 @@ class VCameraHeader:UICollectionReusableView
         NSLayoutConstraint.equalsHorizontal(
             view:border,
             toView:self)
+        NSLayoutConstraint.bottomToBottom(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
         
         NSLayoutConstraint.topToTop(
             view:buttonShoot,
@@ -71,13 +77,6 @@ class VCameraHeader:UICollectionReusableView
         NSLayoutConstraint.width(
             view:buttonNext,
             constant:kButtonsWidth)
-        
-        NSLayoutConstraint.bottomToBottom(
-            view:border,
-            toView:self)
-        NSLayoutConstraint.height(
-            view:border,
-            constant:kBorderHeight)
     }
     
     required init?(coder:NSCoder)

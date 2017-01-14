@@ -26,10 +26,10 @@ class VCameraPreviewDisplay:UIView
         NSLayoutConstraint.equals(
             view:imageView,
             toView:self)
+        
         NSLayoutConstraint.equalsHorizontal(
             view:border,
             toView:self)
-        
         NSLayoutConstraint.bottomToBottom(
             view:border,
             toView:self)
