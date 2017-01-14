@@ -38,40 +38,30 @@ class VCameraRotateBar:UIView
         addSubview(border)
         addSubview(button)
         
-        let constraintsBorderHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:border,
             toView:self)
         
-        let layoutBorderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:border,
             toView:self)
-        let layoutBorderHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:border,
             constant:kBorderHeight)
         
-        let layoutButtonTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:button,
             toView:self,
             constant:kButtonTop)
-        let layoutButtonBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:button,
             toView:self)
         layoutButtonLeft = NSLayoutConstraint.leftToLeft(
             view:button,
             toView:self)
-        let layoutButtonWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:button,
             constant:kButtonWidth)
-        
-        addConstraints(constraintsBorderHorizontal)
-        
-        addConstraints([
-            layoutBorderBottom,
-            layoutBorderHeight,
-            layoutButtonTop,
-            layoutButtonBottom,
-            layoutButtonLeft,
-            layoutButtonWidth])
     }
     
     override func layoutSubviews()
