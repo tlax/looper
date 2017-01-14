@@ -48,13 +48,20 @@ class VCameraFilterBlenderCell:UICollectionViewCell
         addSubview(background)
         addSubview(imageView)
         
-        NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equals(
             view:background,
             toView:imageView,
-            margin:kBackgroundMargin)
+            margin:-kBackgroundMargin)
+        
         NSLayoutConstraint.equalsHorizontal(
             view:selector,
             toView:self)
+        NSLayoutConstraint.bottomToTop(
+            view:selector,
+            toView:imageView)
+        NSLayoutConstraint.height(
+            view:selector,
+            constant:kSelectorHeight)
         
         NSLayoutConstraint.topToTop(
             view:imageView,
@@ -70,12 +77,7 @@ class VCameraFilterBlenderCell:UICollectionViewCell
             view:imageView,
             constant:kImageSize)
         
-        NSLayoutConstraint.bottomToTop(
-            view:selector,
-            toView:imageView)
-        NSLayoutConstraint.height(
-            view:selector,
-            constant:kSelectorHeight)
+        
     }
     
     required init?(coder:NSCoder)

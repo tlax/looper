@@ -45,19 +45,19 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:self)
-        NSLayoutConstraint.equals(
-            view:collectionView,
-            toView:self)
-        NSLayoutConstraint.equals(
-            view:spinner,
-            toView:self)
-        
         NSLayoutConstraint.topToTop(
             view:viewBar,
             toView:self)
         NSLayoutConstraint.height(
             view:viewBar,
             constant:kBarHeight)
+        
+        NSLayoutConstraint.equals(
+            view:collectionView,
+            toView:self)
+        NSLayoutConstraint.equals(
+            view:spinner,
+            toView:self)
     }
     
     required init?(coder:NSCoder)

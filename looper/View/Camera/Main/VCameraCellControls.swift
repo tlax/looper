@@ -7,6 +7,7 @@ class VCameraCellControls:UIView
     weak var buttonMore:VCameraCellControlsButton!
     weak var buttonCheckAll:VCameraCellControlsButton!
     weak var buttonUncheckAll:VCameraCellControlsButton!
+    private let kUncheckMultiplier:CGFloat = 0.33
     
     init()
     {
@@ -39,13 +40,6 @@ class VCameraCellControls:UIView
         NSLayoutConstraint.equalsVertical(
             view:buttonMore,
             toView:self)
-        NSLayoutConstraint.equalsVertical(
-            view:buttonCheckAll,
-            toView:self)
-        NSLayoutConstraint.equalsVertical(
-            view:buttonUncheckAll,
-            toView:self)
-        
         NSLayoutConstraint.width(
             view:buttonMore,
             constant:kButtonsWidth)
@@ -53,20 +47,26 @@ class VCameraCellControls:UIView
             view:buttonMore,
             toView:self)
         
+        NSLayoutConstraint.equalsVertical(
+            view:buttonCheckAll,
+            toView:self)
         NSLayoutConstraint.width(
             view:buttonCheckAll,
             constant:kButtonsWidth)
         NSLayoutConstraint.rightToLeft(
             view:buttonCheckAll,
             toView:buttonUncheckAll)
-     
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonUncheckAll,
+            toView:self)
         NSLayoutConstraint.width(
             view:buttonUncheckAll,
             constant:kButtonsWidth)
         NSLayoutConstraint.leftToRight(
             view:buttonUncheckAll,
             toView:self,
-            multiplier:0.33)
+            multiplier:kUncheckMultiplier)
     }
     
     required init?(coder:NSCoder)

@@ -38,16 +38,16 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:self)
-        NSLayoutConstraint.equals(
-            view:collectionView,
-            toView:self)
-        
         NSLayoutConstraint.topToTop(
             view:viewBar,
             toView:self)
         NSLayoutConstraint.height(
             view:viewBar,
             constant:kBarHeight)
+        
+        NSLayoutConstraint.equals(
+            view:collectionView,
+            toView:self)
         
         var indexSelected:Int?
         let countItems:Int = self.controller.modelFilter.items.count

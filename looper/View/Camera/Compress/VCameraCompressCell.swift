@@ -69,13 +69,6 @@ class VCameraCompressCell:UICollectionViewCell
         NSLayoutConstraint.equalsVertical(
             view:selectedIcon,
             toView:self)
-        NSLayoutConstraint.equalsVertical(
-            view:label,
-            toView:self)
-        NSLayoutConstraint.equalsVertical(
-            view:percent,
-            toView:self)
-        
         NSLayoutConstraint.rightToRight(
             view:selectedIcon,
             toView:self)
@@ -83,6 +76,9 @@ class VCameraCompressCell:UICollectionViewCell
             view:selectedIcon,
             constant:kSelectedWidth)
         
+        NSLayoutConstraint.equalsVertical(
+            view:label,
+            toView:self)
         NSLayoutConstraint.leftToRight(
             view:label,
             toView:percent,
@@ -91,6 +87,9 @@ class VCameraCompressCell:UICollectionViewCell
             view:label,
             constant:kLabelWidth)
         
+        NSLayoutConstraint.equalsVertical(
+            view:percent,
+            toView:self)
         NSLayoutConstraint.leftToLeft(
             view:percent,
             toView:self)

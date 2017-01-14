@@ -75,10 +75,6 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         NSLayoutConstraint.equalsVertical(
             view:collectionView,
             toView:self)
-        NSLayoutConstraint.equalsVertical(
-            view:viewControls,
-            toView:self)
-        
         layoutCollectionLeft = NSLayoutConstraint.leftToLeft(
             view:collectionView,
             toView:self)
@@ -86,6 +82,9 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             view:collectionView,
             toView:self)
         
+        NSLayoutConstraint.equalsVertical(
+            view:viewControls,
+            toView:self)
         NSLayoutConstraint.leftToLeft(
             view:viewControls,
             toView:self)
