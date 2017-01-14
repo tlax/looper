@@ -3,7 +3,7 @@ import UIKit
 class VCameraCellItem:UICollectionViewCell
 {
     private weak var model:MCameraRecordItem?
-    private weak var effect:UIVisualEffectView!
+    private weak var blur:VBlur!
     private weak var imageView:UIImageView!
     
     override init(frame:CGRect)
@@ -19,26 +19,22 @@ class VCameraCellItem:UICollectionViewCell
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.imageView = imageView
         
-        let blur:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
-        let effect:UIVisualEffectView = UIVisualEffectView(effect:blur)
-        effect.isUserInteractionEnabled = false
-        effect.translatesAutoresizingMaskIntoConstraints = false
-        effect.clipsToBounds = true
-        self.effect = effect
+        let blur:VBlur = VBlur.light()
+        self.blur = blur
         
         addSubview(imageView)
-        addSubview(effect)
+        addSubview(blur)
         
         let constraintsImage:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:imageView,
             toView:self)
         
-        let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
-            view:effect,
+        let constraintsBlur:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:blur,
             toView:self)
         
         addConstraints(constraintsImage)
-        addConstraints(constraintsEffect)
+        addConstraints(constraintsBlur)
     }
     
     required init?(coder:NSCoder)
@@ -68,11 +64,11 @@ class VCameraCellItem:UICollectionViewCell
         
         if model.active
         {
-            effect.isHidden = true
+            blur.isHidden = true
         }
         else
         {
-            effect.isHidden = false
+            blur.isHidden = false
         }
     }
 }
