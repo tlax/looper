@@ -65,54 +65,37 @@ class VHelp:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         addSubview(pageControl)
         addSubview(button)
         
-        let constraintsBlur:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:blur,
             toView:self)
-        
-        let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:collectionView,
             toView:self)
         
-        let layoutButtonBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:button,
             toView:self,
             constant:kButtonBottom)
-        let layoutButtonHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:button,
             constant:kButtonHeight)
         layoutButtonLeft = NSLayoutConstraint.leftToLeft(
             view:button,
             toView:self)
-        let layoutButtonWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:button,
             constant:kButtonWidth)
         
-        let layoutControlBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+        NSLayoutConstraint.bottomToTop(
             view:pageControl,
             toView:button,
             constant:kControlBottom)
-        let layoutControlHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:pageControl,
             constant:kControlHeight)
-        let layoutControlLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.equalsHorizontal(
             view:pageControl,
             toView:self)
-        let layoutControlRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:pageControl,
-            toView:self)
-        
-        addConstraints(constraintsBlur)
-        addConstraints(constraintsCollection)
-        
-        addConstraints([
-            layoutButtonBottom,
-            layoutButtonHeight,
-            layoutButtonLeft,
-            layoutButtonWidth,
-            layoutControlBottom,
-            layoutControlHeight,
-            layoutControlLeft,
-            layoutControlRight])
     }
     
     required init?(coder:NSCoder)
