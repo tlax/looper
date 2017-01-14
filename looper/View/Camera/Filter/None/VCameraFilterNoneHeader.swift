@@ -42,42 +42,32 @@ class VCameraFilterNoneHeader:UICollectionReusableView
         addSubview(label)
         addSubview(backButton)
         
-        let constraintsLabelHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:label,
             toView:self,
             margin:kLabelMarginHorizontal)
         
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:label,
             toView:self,
             constant:kContentTop)
-        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:label,
             toView:self)
         
-        let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:backButton,
             toView:self,
             constant:kContentTop)
-        let layoutBackBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:backButton,
             toView:self)
-        let layoutBackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:backButton,
             toView:self)
-        let layoutBackWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:backButton,
             constant:kBackWidth)
-        
-        addConstraints(constraintsLabelHorizontal)
-        
-        addConstraints([
-            layoutLabelTop,
-            layoutLabelBottom,
-            layoutBackTop,
-            layoutBackBottom,
-            layoutBackLeft,
-            layoutBackWidth])
     }
     
     required init?(coder:NSCoder)
