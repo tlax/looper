@@ -108,7 +108,7 @@ class CCamera:CController
     
     //MARK: private
     
-    private func confirmTrash(item:MCameraRecord)
+    private func confirmTrash(item:MCameraRecordEditable)
     {
         MSession.sharedInstance.camera?.trashRecord(record:item)
         viewCamera.refresh()
@@ -124,7 +124,7 @@ class CCamera:CController
             vertical:CParent.TransitionVertical.fromTop)
     }
     
-    func trash(item:MCameraRecord)
+    func trash(item:MCameraRecordEditable)
     {
         let alert:UIAlertController = UIAlertController(
             title:
@@ -155,7 +155,7 @@ class CCamera:CController
     
     func showMore(item:MCameraRecordEditable)
     {
-        let controllerMore:CCameraMore = CCameraMore(record:item)
+        let controllerMore:CCameraMore = CCameraMore(controller:self, record:item)
         parentController.animateOver(controller:controllerMore)
     }
     

@@ -11,4 +11,18 @@ class MCameraMoreItemActionsOptionTrash:MCameraMoreItemActionsOption
     {
         fatalError()
     }
+    
+    override func selected(controller:CCameraMore?)
+    {
+        guard
+            
+            let record:MCameraRecordEditable = controller?.record
+        
+        else
+        {
+            return
+        }
+        
+        controller?.controller.trash(item:record)
+    }
 }

@@ -52,14 +52,14 @@ class MCamera
         }
     }
     
-    func trashRecord(record:MCameraRecord)
+    func trashRecord(record:MCameraRecordEditable)
     {
         let countRecords:Int = records.count
         var recordToDelete:Int = 0
         
         for indexRecord:Int in 0 ..< countRecords
         {
-            let recordItem:MCameraRecord = records[indexRecord]
+            let recordItem:MCameraRecordEditable = records[indexRecord]
             
             if recordItem === record
             {
