@@ -32,10 +32,6 @@ class VCameraPreviewPlayer:UIView
         NSLayoutConstraint.equalsHorizontal(
             view:buttonPlay,
             toView:self)
-        NSLayoutConstraint.equalsHorizontal(
-            view:viewTimer,
-            toView:self)
-        
         NSLayoutConstraint.topToTop(
             view:buttonPlay,
             toView:self,
@@ -44,6 +40,9 @@ class VCameraPreviewPlayer:UIView
             view:buttonPlay,
             constant:kPlayHeight)
         
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewTimer,
+            toView:self)
         NSLayoutConstraint.topToBottom(
             view:viewTimer,
             toView:buttonPlay,

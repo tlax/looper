@@ -42,10 +42,6 @@ class VCameraPreviewPlayerTimer:UIView
         NSLayoutConstraint.equalsHorizontal(
             view:label,
             toView:self)
-        NSLayoutConstraint.equalsHorizontal(
-            view:viewSlider,
-            toView:self)
-        
         NSLayoutConstraint.topToTop(
             view:label,
             toView:self)
@@ -53,6 +49,9 @@ class VCameraPreviewPlayerTimer:UIView
             view:label,
             constant:kLabelHeight)
         
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewSlider,
+            toView:self)
         NSLayoutConstraint.topToBottom(
             view:viewSlider,
             toView:label,

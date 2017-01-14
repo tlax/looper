@@ -55,9 +55,21 @@ class VCameraPreviewPlayerTimerSlider:UIView
         NSLayoutConstraint.equalsVertical(
             view:viewThumb,
             toView:self)
+        NSLayoutConstraint.width(
+            view:viewThumb,
+            constant:kThumbWidth)
+        layoutThumbLeft = NSLayoutConstraint.leftToLeft(
+            view:viewThumb,
+            toView:self)
+        
         NSLayoutConstraint.equalsVertical(
             view:insideTrack,
             toView:track)
+        NSLayoutConstraint.leftToLeft(
+            view:insideTrack,
+            toView:track)
+        layoutInsideTrackWidth = NSLayoutConstraint.width(
+            view:insideTrack)
         
         layoutTrackTop = NSLayoutConstraint.topToTop(
             view:track,
@@ -71,20 +83,7 @@ class VCameraPreviewPlayerTimerSlider:UIView
             constant:thumbWidth_2)
         layoutTrackWidth = NSLayoutConstraint.width(
             view:track)
-        
-        NSLayoutConstraint.width(
-            view:viewThumb,
-            constant:kThumbWidth)
-        layoutThumbLeft = NSLayoutConstraint.leftToLeft(
-            view:viewThumb,
-            toView:self)
 
-        NSLayoutConstraint.leftToLeft(
-            view:insideTrack,
-            toView:track)
-        layoutInsideTrackWidth = NSLayoutConstraint.width(
-            view:insideTrack)
-        
         thumbNormal()
     }
     
