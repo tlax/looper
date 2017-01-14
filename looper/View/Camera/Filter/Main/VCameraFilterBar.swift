@@ -17,12 +17,7 @@ class VCameraFilterBar:UIView
         clipsToBounds = true
         self.controller = controller
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
-        let visualEffect:UIVisualEffectView = UIVisualEffectView(
-            effect:blurEffect)
-        visualEffect.translatesAutoresizingMaskIntoConstraints = false
-        visualEffect.clipsToBounds = true
-        visualEffect.isUserInteractionEnabled = false
+        let blur:VBlur = VBlur.light()
         
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
@@ -66,13 +61,13 @@ class VCameraFilterBar:UIView
         icon.contentMode = UIViewContentMode.center
         icon.image = #imageLiteral(resourceName: "assetCameraFilter")
         
-        addSubview(visualEffect)
+        addSubview(blur)
         addSubview(icon)
         addSubview(backButton)
         addSubview(nextButton)
         
-        let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
-            view:visualEffect,
+        let constraintsBlur:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:blur,
             toView:self)
         
         let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
@@ -117,7 +112,7 @@ class VCameraFilterBar:UIView
             view:nextButton,
             constant:kButtonsWidth)
         
-        addConstraints(constraintsEffect)
+        addConstraints(constraintsBlur)
         
         addConstraints([
             layoutBackTop,
