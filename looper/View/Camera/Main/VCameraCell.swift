@@ -72,12 +72,13 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         addSubview(collectionView)
         addSubview(viewControls)
         
-        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        let constraintsCollectionVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
             view:collectionView,
             toView:self)
-        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:collectionView,
+        let constraintsControlsVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+            view:viewControls,
             toView:self)
+        
         layoutCollectionLeft = NSLayoutConstraint.leftToLeft(
             view:collectionView,
             toView:self)
@@ -85,25 +86,18 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             view:collectionView,
             toView:self)
         
-        let layoutControlsTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:viewControls,
-            toView:self)
-        let layoutControlsBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:viewControls,
-            toView:self)
         let layoutControlsLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:viewControls,
             toView:self)
         layoutControlsWidth = NSLayoutConstraint.width(
             view:viewControls)
         
+        addConstraints(constraintsCollectionVertical)
+        addConstraints(constraintsControlsVertical)
+        
         addConstraints([
-            layoutCollectionTop,
-            layoutCollectionBottom,
             layoutCollectionLeft,
             layoutCollectionRight,
-            layoutControlsTop,
-            layoutControlsBottom,
             layoutControlsLeft,
             layoutControlsWidth])
         

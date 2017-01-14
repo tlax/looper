@@ -29,12 +29,10 @@ class VCameraCellControlsButton:UIButton
             
             addSubview(viewBorder)
             
-            let layoutBorderTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+            let constraintsBorderVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
                 view:viewBorder,
                 toView:self)
-            let layoutBorderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-                view:viewBorder,
-                toView:self)
+            
             let layoutBorderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
                 view:viewBorder,
                 toView:self)
@@ -42,9 +40,9 @@ class VCameraCellControlsButton:UIButton
                 view:viewBorder,
                 constant:kBorderWidth)
             
+            addConstraints(constraintsBorderVertical)
+            
             addConstraints([
-                layoutBorderTop,
-                layoutBorderBottom,
                 layoutBorderLeft,
                 layoutBorderWidth])
         }
