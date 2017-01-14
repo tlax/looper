@@ -55,45 +55,35 @@ class VStoreGoPlusButtons:UIView
         addSubview(buttonStore)
         addSubview(buttonCancel)
         
-        let layoutButtonCancelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:buttonCancel,
             toView:self,
             constant:kButtonMargin)
-        let layoutButtonCancelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:buttonCancel,
             toView:self)
-        let layoutButtonCancelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:buttonCancel,
             toView:self,
             constant:kButtonMargin)
-        let layoutButtonCancelWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonCancel,
             constant:kButtonWidth)
         
-        let layoutButtonStoreTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:buttonStore,
             toView:self,
             constant:kButtonMargin)
-        let layoutButtonStoreBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:buttonStore,
             toView:self)
-        let layoutButtonStoreRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:buttonStore,
             toView:self,
             constant:-kButtonMargin)
-        let layoutButtonStoreWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonStore,
             constant:kButtonWidth)
-        
-        addConstraints([
-            layoutButtonCancelTop,
-            layoutButtonCancelBottom,
-            layoutButtonCancelLeft,
-            layoutButtonCancelWidth,
-            layoutButtonStoreTop,
-            layoutButtonStoreBottom,
-            layoutButtonStoreRight,
-            layoutButtonStoreWidth])
     }
     
     //MARK: actions
