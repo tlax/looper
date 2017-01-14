@@ -33,11 +33,9 @@ class VCameraMoreCellActions:VCameraMoreCell, UICollectionViewDelegate, UICollec
         
         addSubview(collectionView)
         
-        let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:collectionView,
             toView:self)
-        
-        addConstraints(constraintsCollection)
     }
     
     required init?(coder:NSCoder)
