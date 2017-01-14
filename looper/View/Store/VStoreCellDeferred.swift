@@ -17,11 +17,9 @@ class VStoreCellDeferred:VStoreCell
         
         addSubview(label)
         
-        let constraintsLabel:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:label,
             toView:self)
-        
-        addConstraints(constraintsLabel)
     }
     
     required init?(coder:NSCoder)
