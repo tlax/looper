@@ -30,6 +30,10 @@ class VCameraRotateBar:UIView
             NSLocalizedString("VCameraRotateBar_buttonClose", comment:""),
             for:UIControlState.normal)
         button.titleLabel!.font = UIFont.bold(size:16)
+        button.addTarget(
+            self,
+            action:#selector(actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(border)
         addSubview(button)
@@ -78,5 +82,12 @@ class VCameraRotateBar:UIView
         layoutButtonLeft.constant = margin
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionButton(sender button:UIButton)
+    {
+        controller.save()
     }
 }

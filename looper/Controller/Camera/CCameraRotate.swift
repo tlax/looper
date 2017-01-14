@@ -27,6 +27,6 @@ class CCameraRotate:CController
     
     func save()
     {
-        
+        parentController.pop(vertical:CParent.TransitionVertical.fromTop)
     }
 }
