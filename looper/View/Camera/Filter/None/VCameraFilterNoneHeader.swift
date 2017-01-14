@@ -42,6 +42,11 @@ class VCameraFilterNoneHeader:UICollectionReusableView
         addSubview(label)
         addSubview(backButton)
         
+        let constraintsLabelHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:label,
+            toView:self,
+            margin:kLabelMarginHorizontal)
+        
         let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:label,
             toView:self,
@@ -49,14 +54,6 @@ class VCameraFilterNoneHeader:UICollectionReusableView
         let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
             view:label,
             toView:self)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:label,
-            toView:self,
-            constant:kLabelMarginHorizontal)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:label,
-            toView:self,
-            constant:-kLabelMarginHorizontal)
         
         let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:backButton,
@@ -72,11 +69,11 @@ class VCameraFilterNoneHeader:UICollectionReusableView
             view:backButton,
             constant:kBackWidth)
         
+        addConstraints(constraintsLabelHorizontal)
+        
         addConstraints([
             layoutLabelTop,
             layoutLabelBottom,
-            layoutLabelLeft,
-            layoutLabelRight,
             layoutBackTop,
             layoutBackBottom,
             layoutBackLeft,
