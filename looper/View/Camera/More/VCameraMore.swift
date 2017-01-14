@@ -43,35 +43,23 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
         addSubview(closeButton)
         addSubview(collectionView)
         
-        let constraintsBlur:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:blur,
             toView:self)
-        let constraintsClose:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:closeButton,
             toView:self)
         
-        layoutCollectionBottom = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:collectionView,
             toView:self,
             constant:kCollectionHeight)
-        let layoutCollectionHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:collectionView,
             constant:kCollectionHeight)
-        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.equalsHorizontal(
             view:collectionView,
             toView:self)
-        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:collectionView,
-            toView:self)
-        
-        addConstraints(constraintsBlur)
-        addConstraints(constraintsClose)
-        
-        addConstraints([
-            layoutCollectionBottom,
-            layoutCollectionHeight,
-            layoutCollectionLeft,
-            layoutCollectionRight])
     }
     
     required init?(coder:NSCoder)
