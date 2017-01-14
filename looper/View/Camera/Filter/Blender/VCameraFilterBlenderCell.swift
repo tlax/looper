@@ -48,6 +48,14 @@ class VCameraFilterBlenderCell:UICollectionViewCell
         addSubview(background)
         addSubview(imageView)
         
+        let constraintsBackground:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:background,
+            toView:imageView,
+            margin:kBackgroundMargin)
+        let constraintsSelectorHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:selector,
+            toView:self)
+        
         let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:imageView,
             toView:self,
@@ -62,49 +70,23 @@ class VCameraFilterBlenderCell:UICollectionViewCell
             view:imageView,
             constant:kImageSize)
         
-        let layoutBackgroundTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:background,
-            toView:imageView,
-            constant:-kBackgroundMargin)
-        let layoutBackgroundBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:background,
-            toView:imageView,
-            constant:kBackgroundMargin)
-        let layoutBackgroundLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:background,
-            toView:imageView,
-            constant:-kBackgroundMargin)
-        let layoutBackgroundRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:background,
-            toView:imageView,
-            constant:kBackgroundMargin)
-        
         let layoutSelectorBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
             view:selector,
             toView:imageView)
         let layoutSelectorHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:selector,
             constant:kSelectorHeight)
-        let layoutSelectorLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:selector,
-            toView:self)
-        let layoutSelectorRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:selector,
-            toView:self)
+        
+        addConstraints(constraintsBackground)
+        addConstraints(constraintsSelectorHorizontal)
         
         addConstraints([
             layoutImageTop,
             layoutImageHeight,
             layoutImageLeft,
             layoutImageWidth,
-            layoutBackgroundTop,
-            layoutBackgroundBottom,
-            layoutBackgroundLeft,
-            layoutBackgroundRight,
             layoutSelectorBottom,
-            layoutSelectorHeight,
-            layoutSelectorLeft,
-            layoutSelectorRight])
+            layoutSelectorHeight])
     }
     
     required init?(coder:NSCoder)
