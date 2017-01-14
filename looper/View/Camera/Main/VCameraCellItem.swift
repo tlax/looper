@@ -25,16 +25,12 @@ class VCameraCellItem:UICollectionViewCell
         addSubview(imageView)
         addSubview(blur)
         
-        let constraintsImage:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:imageView,
             toView:self)
-        
-        let constraintsBlur:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:blur,
             toView:self)
-        
-        addConstraints(constraintsImage)
-        addConstraints(constraintsBlur)
     }
     
     required init?(coder:NSCoder)
