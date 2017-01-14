@@ -99,7 +99,7 @@ class VCameraShootConfig:UIView
         addSubview(buttonAdd)
         addSubview(buttonRest)
         
-        let constraintsLabelVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:label,
             toView:self)
         
