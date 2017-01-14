@@ -18,17 +18,16 @@ class VCameraPreviewDisplay:UIView
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         self.imageView = imageView
         
-        let border:UIView = UIView()
-        border.isUserInteractionEnabled = false
-        border.translatesAutoresizingMaskIntoConstraints = false
-        border.clipsToBounds = true
-        border.backgroundColor = UIColor.black
+        let border:VBorder = VBorder(color:UIColor.black)
         
         addSubview(imageView)
         addSubview(border)
         
         let constraintsImage:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:imageView,
+            toView:self)
+        let constraintsBorderHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+            view:border,
             toView:self)
         
         let layoutBorderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
@@ -37,20 +36,13 @@ class VCameraPreviewDisplay:UIView
         let layoutBorderHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:border,
             constant:1)
-        let layoutBorderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:border,
-            toView:self)
-        let layoutBorderRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:border,
-            toView:self)
         
         addConstraints(constraintsImage)
+        addConstraints(constraintsBorderHorizontal)
         
         addConstraints([
             layoutBorderBottom,
-            layoutBorderHeight,
-            layoutBorderLeft,
-            layoutBorderRight])
+            layoutBorderHeight])
     }
     
     required init?(coder:NSCoder)
