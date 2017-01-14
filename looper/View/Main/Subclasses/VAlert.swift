@@ -24,34 +24,18 @@ class VAlert:UIView
             let rootView:UIView = UIApplication.shared.keyWindow!.rootViewController!.view
             rootView.addSubview(alert)
             
-            let views:[String:UIView] = [
-                "alert":alert]
-            
-            let metrics:[String:CGFloat] = [
-                "marginHorizontal":kMarginHorizontal,
-                "height":kHeight]
-            
-            rootView.addConstraints(NSLayoutConstraint.constraints(
-                withVisualFormat:"H:|-(marginHorizontal)-[alert]-(marginHorizontal)-|",
-                options:[],
-                metrics:metrics,
-                views:views))
-            rootView.addConstraints(NSLayoutConstraint.constraints(
-                withVisualFormat:"V:[alert(height)]",
-                options:[],
-                metrics:metrics,
-                views:views))
-            
-            alert.layoutTop = NSLayoutConstraint(
-                item:alert,
-                attribute:NSLayoutAttribute.top,
-                relatedBy:NSLayoutRelation.equal,
-                toItem:rootView,
-                attribute:NSLayoutAttribute.top,
-                multiplier:1,
+            alert.layoutTop = NSLayoutConstraint.topToTop(
+                view:alert,
+                toView:rootView,
                 constant:-kHeight)
+            NSLayoutConstraint.equalsHorizontal(
+                view:alert,
+                toView:rootView,
+                margin:kMarginHorizontal)
+            NSLayoutConstraint.height(
+                view:alert,
+                constant:kHeight)
             
-            rootView.addConstraint(alert.layoutTop)
             rootView.layoutIfNeeded()
             alert.animate(open:true)
         }
@@ -91,24 +75,19 @@ class VAlert:UIView
         addSubview(label)
         addSubview(button)
         
-        let constraintsBlur:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:blur,
             toView:self)
-        let constraintsButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:blur,
             toView:self)
-        let constraintsLabelVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:label,
             toView:self)
-        let constraintsLabelHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:label,
             toView:self,
             margin:kLabelMargin)
-        
-        addConstraints(constraintsBlur)
-        addConstraints(constraintsButton)
-        addConstraints(constraintsLabelVertical)
-        addConstraints(constraintsLabelHorizontal)
     }
     
     func alertTimeOut(sender timer:Timer?)
