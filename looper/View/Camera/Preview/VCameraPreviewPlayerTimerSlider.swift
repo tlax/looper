@@ -52,51 +52,38 @@ class VCameraPreviewPlayerTimerSlider:UIView
         addSubview(track)
         addSubview(viewThumb)
         
-        let constraintsThumbVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:viewThumb,
             toView:self)
-        let constraintsInsideTrackVertical:[NSLayoutConstraint] = NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equalsVertical(
             view:insideTrack,
             toView:track)
         
         layoutTrackTop = NSLayoutConstraint.topToTop(
             view:track,
             toView:self)
-        let layoutTrackHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:track,
             constant:kTrackHeight)
-        let layoutTrackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:track,
             toView:self,
             constant:thumbWidth_2)
         layoutTrackWidth = NSLayoutConstraint.width(
             view:track)
         
-        let layoutThumbWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:viewThumb,
             constant:kThumbWidth)
         layoutThumbLeft = NSLayoutConstraint.leftToLeft(
             view:viewThumb,
             toView:self)
 
-        let layoutInsideTrackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:insideTrack,
             toView:track)
         layoutInsideTrackWidth = NSLayoutConstraint.width(
             view:insideTrack)
-        
-        addConstraints(constraintsThumbVertical)
-        addConstraints(constraintsInsideTrackVertical)
-        
-        addConstraints([
-            layoutTrackTop,
-            layoutTrackHeight,
-            layoutTrackLeft,
-            layoutTrackWidth,
-            layoutThumbWidth,
-            layoutThumbLeft,
-            layoutInsideTrackLeft,
-            layoutInsideTrackWidth])
         
         thumbNormal()
     }
