@@ -17,11 +17,7 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
         backgroundColor = UIColor.clear
         self.controller = controller as? CCameraMore
         
-        let blur:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
-        let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blur)
-        visualEffect.translatesAutoresizingMaskIntoConstraints = false
-        visualEffect.isUserInteractionEnabled = false
-        visualEffect.clipsToBounds = true
+        let blur:VBlur = VBlur.light()
         
         let closeButton:UIButton = UIButton()
         closeButton.translatesAutoresizingMaskIntoConstraints = false
@@ -43,12 +39,12 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
         collectionView.registerCell(cell:VCameraMoreCellEmpty.self)
         self.collectionView = collectionView
         
-        addSubview(visualEffect)
+        addSubview(blur)
         addSubview(closeButton)
         addSubview(collectionView)
         
-        let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
-            view:visualEffect,
+        let constraintsBlur:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+            view:blur,
             toView:self)
         let constraintsClose:[NSLayoutConstraint] = NSLayoutConstraint.equals(
             view:closeButton,
@@ -68,7 +64,7 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
             view:collectionView,
             toView:self)
         
-        addConstraints(constraintsEffect)
+        addConstraints(constraintsBlur)
         addConstraints(constraintsClose)
         
         addConstraints([
