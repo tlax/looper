@@ -31,22 +31,16 @@ class VParentBarButton:UIButton
         
         addSubview(border)
         
-        let constraintsBorderHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:border,
             toView:self)
         
-        let layoutBorderHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:border,
             constant:kBorderHeight)
-        let layoutBorderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:border,
             toView:self)
-        
-        addConstraints(constraintsBorderHorizontal)
-        
-        addConstraints([
-            layoutBorderHeight,
-            layoutBorderBottom])
         
         notActive()
     }
