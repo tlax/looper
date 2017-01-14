@@ -41,42 +41,26 @@ class VStoreCellNew:VStoreCell
         addSubview(buttonPurchase)
         addSubview(labelPrice)
         
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsVertical(
             view:labelPrice,
             toView:self)
-        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:labelPrice,
-            toView:self)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
+        NSLayoutConstraint.rightToLeft(
             view:labelPrice,
             toView:buttonPurchase,
             constant:kLabelButtonSeparation)
-        let layoutLabelWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:labelPrice,
             constant:kLabelPriceWidth)
         
-        let layoutButtonTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsVertical(
             view:buttonPurchase,
             toView:self)
-        let layoutButtonBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.rightToRight(
             view:buttonPurchase,
             toView:self)
-        let layoutButtonRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:buttonPurchase,
-            toView:self)
-        let layoutButtonWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonPurchase,
             constant:kButtonPurchaseWidth)
-        
-        addConstraints([
-            layoutLabelTop,
-            layoutLabelBottom,
-            layoutLabelRight,
-            layoutLabelWidth,
-            layoutButtonTop,
-            layoutButtonBottom,
-            layoutButtonRight,
-            layoutButtonWidth])
     }
     
     required init?(coder:NSCoder)
