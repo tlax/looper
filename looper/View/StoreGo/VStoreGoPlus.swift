@@ -74,10 +74,10 @@ class VStoreGoPlus:VView
         addSubview(baseView)
         addSubview(imageView)
         
-        let constraintsBlur:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:blur,
             toView:self)
-        let constraintsBaseButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:baseButton,
             toView:self)
         
@@ -87,90 +87,53 @@ class VStoreGoPlus:VView
         layoutBaseViewLeft = NSLayoutConstraint.leftToLeft(
             view:baseView,
             toView:self)
-        let layoutBaseViewWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:baseView,
             constant:kBaseWidth)
-        let layoutBaseViewHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:baseView,
             constant:kBaseHeight)
         
-        let layoutTitleTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToBottom(
             view:labelTitle,
             toView:imageView)
-        let layoutTitleHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:labelTitle,
             constant:kLabelTitleHeight)
-        let layoutTitleLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:labelTitle,
-            toView:baseView)
-        let layoutTitleRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:labelTitle,
             toView:baseView)
         
-        let layoutDescrTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToBottom(
             view:labelDescr,
             toView:labelTitle)
-        let layoutDescrHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:labelDescr,
             constant:kLabelDescrHeight)
-        let layoutDescrLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:labelDescr,
-            toView:baseView)
-        let layoutDescrRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:labelDescr,
             toView:baseView)
         
-        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:imageView,
             toView:baseView,
             constant:kImageTop)
-        let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:imageView,
             constant:kImageHeight)
-        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:imageView,
-            toView:baseView)
-        let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:imageView,
             toView:baseView)
         
-        let layoutButtonsBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:buttons,
             toView:baseView)
-        let layoutButtonsHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:buttons,
             constant:kButtonHeight)
-        let layoutButtonsLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.equalsHorizontal(
             view:buttons,
             toView:baseView)
-        let layoutButtonsRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:buttons,
-            toView:baseView)
-        
-        addConstraints(constraintsBlur)
-        addConstraints(constraintsBaseButton)
-        
-        addConstraints([
-            layoutBaseViewTop,
-            layoutBaseViewLeft,
-            layoutBaseViewWidth,
-            layoutBaseViewHeight,
-            layoutTitleTop,
-            layoutTitleHeight,
-            layoutTitleLeft,
-            layoutTitleRight,
-            layoutDescrTop,
-            layoutDescrHeight,
-            layoutDescrLeft,
-            layoutDescrRight,
-            layoutImageTop,
-            layoutImageHeight,
-            layoutImageLeft,
-            layoutImageRight,
-            layoutButtonsHeight,
-            layoutButtonsBottom,
-            layoutButtonsLeft,
-            layoutButtonsRight])
     }
     
     required init?(coder:NSCoder)
