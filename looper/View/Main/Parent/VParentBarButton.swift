@@ -2,7 +2,7 @@ import UIKit
 
 class VParentBarButton:UIButton
 {
-    private weak var border:UIView!
+    private weak var border:VBorder!
     private let kBorderHeight:CGFloat = 1
     private let kAlphaNotHover:CGFloat = 1
     private let kAlphaHover:CGFloat = 0.3

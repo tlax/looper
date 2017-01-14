@@ -21,11 +21,7 @@ class VCameraMoreCellClose:VCameraMoreCell
         label.textColor = UIColor(white:0, alpha:0.3)
         label.text = NSLocalizedString("VCameraMoreCellClose_label", comment:"")
         
-        let border:UIView = UIView()
-        border.isUserInteractionEnabled = false
-        border.translatesAutoresizingMaskIntoConstraints = false
-        border.clipsToBounds = true
-        border.backgroundColor = UIColor(white:0, alpha:0.1)
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
