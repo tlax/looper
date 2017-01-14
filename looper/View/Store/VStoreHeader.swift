@@ -65,13 +65,13 @@ class VStoreHeader:UICollectionReusableView
         let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
             view:imageView,
             toView:self)
+        let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+            view:imageView,
+            constant:kImageSize)
         let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
             view:imageView,
             toView:self)
         let layoutImageWidth:NSLayoutConstraint = NSLayoutConstraint.width(
-            view:imageView,
-            constant:kImageSize)
-        let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint.height(
             view:imageView,
             constant:kImageSize)
         
@@ -81,9 +81,9 @@ class VStoreHeader:UICollectionReusableView
             layoutLabelLeft,
             layoutLabelRight,
             layoutImageTop,
+            layoutImageHeight,
             layoutImageLeft,
-            layoutImageWidth,
-            layoutImageHeight])
+            layoutImageWidth])
     }
     
     required init?(coder:NSCoder)
