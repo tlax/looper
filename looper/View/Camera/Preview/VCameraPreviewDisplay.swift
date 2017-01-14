@@ -23,26 +23,19 @@ class VCameraPreviewDisplay:UIView
         addSubview(imageView)
         addSubview(border)
         
-        let constraintsImage:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:imageView,
             toView:self)
-        let constraintsBorderHorizontal:[NSLayoutConstraint] = NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equalsHorizontal(
             view:border,
             toView:self)
         
-        let layoutBorderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:border,
             toView:self)
-        let layoutBorderHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:border,
             constant:1)
-        
-        addConstraints(constraintsImage)
-        addConstraints(constraintsBorderHorizontal)
-        
-        addConstraints([
-            layoutBorderBottom,
-            layoutBorderHeight])
     }
     
     required init?(coder:NSCoder)
