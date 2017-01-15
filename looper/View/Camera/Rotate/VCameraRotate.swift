@@ -5,6 +5,7 @@ class VCameraRotate:VView
     private weak var controller:CCameraRotate!
     private weak var imageView:UIImageView!
     private weak var viewHandler:VCameraRotateHandler!
+    private var initialPoint:CGPoint?
     private let kBarHeight:CGFloat = 64
     private let kImageMargin:CGFloat = 120
     
@@ -68,10 +69,58 @@ class VCameraRotate:VView
     
     override func touchesBegan(_ touches:Set<UITouch>, with event:UIEvent?)
     {
+        if initialPoint == nil
+        {
+            guard
+                
+                let touch:UITouch = touches.first,
+                let view:VCameraRotateHandler = touch.view as? VCameraRotateHandler
+                
+            else
+            {
+                return
+            }
+            
+            initialPoint = touch.location(in:view)
+        }
     }
     
     override func touchesMoved(_ touches:Set<UITouch>, with event:UIEvent?)
     {
+        guard
+        
+            let initialPoint:CGPoint = self.initialPoint,
+            let touch:UITouch = touches.first,
+            let view:VCameraRotateHandler = touch.view as? VCameraRotateHandler
+        
+        else
+        {
+            return
+        }
+        
+        let currentPoint:CGPoint = touch.location(in:view)
+        let deltaX:CGFloat = initialPoint.x - currentPoint.x
+        let deltaY:CGFloat = initialPoint.y - currentPoint.y
+        
+        if deltaX > 0
+        {
+            print("right")
+        }
+        else
+        {
+            print("left")
+        }
+        
+        if deltaY > 0
+        {
+            print("up")
+        }
+        else
+        {
+            print("down")
+        }
+        
+        print("-----------------")
     }
     
     override func touchesEnded(_ touches:Set<UITouch>, with event:UIEvent?)
