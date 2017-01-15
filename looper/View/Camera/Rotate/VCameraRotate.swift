@@ -6,11 +6,16 @@ class VCameraRotate:VView
     private weak var imageView:UIImageView!
     private weak var viewHandler:VCameraRotateHandler!
     private var initialPoint:CGPoint?
+    private var movingX:CGFloat?
+    private var movingY:CGFloat?
+    private var maxMove:CGFloat
     private let kBarHeight:CGFloat = 64
     private let kImageMargin:CGFloat = 120
     
     override init(controller:CController)
     {
+        maxMove = 0
+        
         super.init(controller:controller)
         backgroundColor = UIColor.clear
         self.controller = controller as? CCameraRotate
@@ -27,6 +32,7 @@ class VCameraRotate:VView
         imageView.image = self.controller.record.items.first?.image
         
         let viewHandler:VCameraRotateHandler = VCameraRotateHandler()
+        self.viewHandler = viewHandler
         
         addSubview(blur)
         addSubview(viewHandler)
@@ -67,6 +73,13 @@ class VCameraRotate:VView
         fatalError()
     }
     
+    override func layoutSubviews()
+    {
+        maxMove = bounds.maxX
+        
+        super.layoutSubviews()
+    }
+    
     override func touchesBegan(_ touches:Set<UITouch>, with event:UIEvent?)
     {
         if initialPoint == nil
@@ -88,46 +101,55 @@ class VCameraRotate:VView
     override func touchesMoved(_ touches:Set<UITouch>, with event:UIEvent?)
     {
         guard
-        
+            
             let initialPoint:CGPoint = self.initialPoint,
             let touch:UITouch = touches.first,
             let view:VCameraRotateHandler = touch.view as? VCameraRotateHandler
-        
+            
         else
         {
             return
         }
         
         let currentPoint:CGPoint = touch.location(in:view)
-        let deltaX:CGFloat = initialPoint.x - currentPoint.x
-        let deltaY:CGFloat = initialPoint.y - currentPoint.y
         
-        if deltaX > 0
+        if let movingX:CGFloat = self.movingX
         {
-            print("right")
+            
+        }
+        else if let movingY:CGFloat = self.movingY
+        {
+            
         }
         else
         {
-            print("left")
+            let initialX:CGFloat = initialPoint.x
+            let initialY:CGFloat = initialPoint.y
+            let deltaX:CGFloat = fabs(initialX - currentPoint.x)
+            let deltaY:CGFloat = fabs(initialY - currentPoint.y)
+            
+            if deltaX > deltaY
+            {
+                movingX = initialX
+            }
+            else
+            {
+                movingY = initialY
+            }
         }
-        
-        if deltaY > 0
-        {
-            print("up")
-        }
-        else
-        {
-            print("down")
-        }
-        
-        print("-----------------")
     }
     
     override func touchesEnded(_ touches:Set<UITouch>, with event:UIEvent?)
     {
+        initialPoint = nil
+        movingX = nil
+        movingY = nil
     }
     
     override func touchesCancelled(_ touches:Set<UITouch>, with event:UIEvent?)
     {
+        initialPoint = nil
+        movingX = nil
+        movingY = nil
     }
 }

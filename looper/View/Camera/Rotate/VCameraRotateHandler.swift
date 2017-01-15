@@ -10,7 +10,8 @@ class VCameraRotateHandler:UIView
     private var dispInit:CGFloat
     private var dispEnd:CGFloat
     private var deltaSpectrum:CGFloat
-    private let kDispRadMargin:CGFloat = 20
+    private var movingClockWise:Bool
+    private let kDispRadMargin:CGFloat = 14
     private let kMargin:CGFloat = 50
     private let kZeroRad:CGFloat = -CGFloat(M_PI_2)
     private let k360Rad:CGFloat = CGFloat(M_PI + M_PI_2)
@@ -29,6 +30,7 @@ class VCameraRotateHandler:UIView
         radius = 0
         dispRadius = 0
         centerArc = CGPoint.zero
+        movingClockWise = false
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -95,12 +97,22 @@ class VCameraRotateHandler:UIView
             radius:dispRadius,
             startAngle:dispInit,
             endAngle:dispEnd,
-            clockwise:false)
+            clockwise:movingClockWise)
         
         context.drawPath(using:CGPathDrawingMode.stroke)
     }
     
     //MARK: public
+    
+    func handRight(delta:CGFloat)
+    {
+        
+    }
+    
+    func handLeft(delta:CGFloat)
+    {
+        
+    }
     
     func handDelta(delta:CGFloat)
     {
@@ -111,7 +123,7 @@ class VCameraRotateHandler:UIView
             percent = 1
         }
         
-        dispEnd = percent * deltaSpectrum
+        dispEnd = (percent * deltaSpectrum) + dispInit
         setNeedsDisplay()
     }
 }
