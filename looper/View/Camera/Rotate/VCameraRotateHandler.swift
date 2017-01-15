@@ -9,20 +9,21 @@ class VCameraRotateHandler:UIView
     private var dispRadius:CGFloat
     private var dispInit:CGFloat
     private var dispEnd:CGFloat
+    private let kDispRadMargin:CGFloat = 20
     private let kMargin:CGFloat = 50
     private let kZeroRad:CGFloat = -CGFloat(M_PI_2)
     private let k360Rad:CGFloat = CGFloat(M_PI + M_PI_2)
     private let kDeltaRad:CGFloat = 0.05
     private let kRadSize:CGFloat = 0.01
     private let kRadLineWidth:CGFloat = 10
-    private let kDispLineWidth:CGFloat = 12
+    private let kDispLineWidth:CGFloat = 20
     
     init()
     {
         colorRad = UIColor(white:0, alpha:0.6)
         colorDisp = UIColor.genericLight
         dispInit = kZeroRad
-        dispEnd = 2
+        dispEnd = kZeroRad
         radius = 0
         dispRadius = 0
         centerArc = CGPoint.zero
@@ -45,7 +46,7 @@ class VCameraRotateHandler:UIView
         let centerY:CGFloat = bounds.midY
         let minSize:CGFloat = min(centerX, centerY)
         radius = minSize - kMargin
-        dispRadius = radius + kRadLineWidth
+        dispRadius = radius + kDispRadMargin
         centerArc = CGPoint(x:centerX, y:centerY)
         
         super.layoutSubviews()
@@ -62,7 +63,7 @@ class VCameraRotateHandler:UIView
             return
         }
         
-        context.setLineCap(CGLineCap.round)
+        context.setLineCap(CGLineCap.butt)
         context.setLineWidth(kRadLineWidth)
         context.setStrokeColor(colorRad.cgColor)
         
@@ -85,6 +86,7 @@ class VCameraRotateHandler:UIView
             context.drawPath(using:CGPathDrawingMode.stroke)
         }
         
+        context.setLineCap(CGLineCap.round)
         context.setLineWidth(kDispLineWidth)
         context.setStrokeColor(colorDisp.cgColor)
         context.addArc(
@@ -93,5 +95,7 @@ class VCameraRotateHandler:UIView
             startAngle:dispInit,
             endAngle:dispEnd,
             clockwise:false)
+        
+        context.drawPath(using:CGPathDrawingMode.stroke)
     }
 }
