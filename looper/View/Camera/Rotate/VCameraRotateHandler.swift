@@ -2,17 +2,19 @@ import UIKit
 
 class VCameraRotateHandler:UIView
 {
+    private var colorRad:UIColor
     private var radius:CGFloat
     private var centerArc:CGPoint
     private let kMargin:CGFloat = 20
     private let kZeroRad:CGFloat = 0
     private let k360Rad:CGFloat = 6.28319
-    private let kDeltaRad:CGFloat = 1
-    private let kRadSize:CGFloat = 0.1
-    private let kRadLineWidth:CGFloat = 4
+    private let kDeltaRad:CGFloat = 0.04
+    private let kRadSize:CGFloat = 0.01
+    private let kRadLineWidth:CGFloat = 10
     
     init()
     {
+        colorRad = UIColor(white:0, alpha:0.4)
         radius = 0
         centerArc = CGPoint.zero
         
@@ -51,7 +53,7 @@ class VCameraRotateHandler:UIView
         }
         
         context.setLineWidth(kRadLineWidth)
-        context.setStrokeColor(UIColor.black.cgColor)
+        context.setStrokeColor(colorRad.cgColor)
         
         var currentRad:CGFloat = kZeroRad
         

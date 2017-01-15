@@ -18,7 +18,7 @@ class VCameraMoreCellClose:VCameraMoreCell
         label.backgroundColor = UIColor.clear
         label.textAlignment = NSTextAlignment.center
         label.font = UIFont.medium(size:14)
-        label.textColor = UIColor(white:0, alpha:0.3)
+        label.textColor = UIColor(white:0, alpha:0.5)
         label.text = NSLocalizedString("VCameraMoreCellClose_label", comment:"")
         
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
