@@ -50,7 +50,7 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
             view:closeButton,
             toView:self)
         
-        NSLayoutConstraint.bottomToBottom(
+        layoutCollectionBottom = NSLayoutConstraint.bottomToBottom(
             view:collectionView,
             toView:self,
             constant:kCollectionHeight)
