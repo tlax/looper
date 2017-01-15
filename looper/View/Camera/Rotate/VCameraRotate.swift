@@ -16,7 +16,7 @@ class VCameraRotate:VView
     private var initialPoint:CGPoint?
     private var movingX:CGFloat?
     private var movingY:CGFloat?
-    private var quadrant:Quadrant
+    private var quadrant:Quadrant?
     private var maxMove:CGFloat
     private let kBarHeight:CGFloat = 64
     private let kImageMargin:CGFloat = 120
@@ -104,6 +104,32 @@ class VCameraRotate:VView
             }
             
             initialPoint = touch.location(in:view)
+            
+            let initialX:CGFloat = initialPoint!.x
+            let initialY:CGFloat = initialPoint!.y
+            
+            if initialX <= view.bounds.midX
+            {
+                if initialY <= view.bounds.midY
+                {
+                    quadrant = Quadrant.topLeft
+                }
+                else
+                {
+                    quadrant = Quadrant.bottomLeft
+                }
+            }
+            else
+            {
+                if initialY <= view.bounds.midY
+                {
+                    quadrant = Quadrant.topRight
+                }
+                else
+                {
+                    quadrant = Quadrant.bottomRight
+                }
+            }
         }
     }
     
@@ -113,7 +139,8 @@ class VCameraRotate:VView
             
             let initialPoint:CGPoint = self.initialPoint,
             let touch:UITouch = touches.first,
-            let view:VCameraRotateHandler = touch.view as? VCameraRotateHandler
+            let view:VCameraRotateHandler = touch.view as? VCameraRotateHandler,
+            let quadrant:Quadrant = self.quadrant
             
         else
         {
@@ -132,13 +159,59 @@ class VCameraRotate:VView
                 percentX = 1
             }
             
-            if deltaX >= 0
+            switch quadrant
             {
-                viewHandler.handRight(delta:percentX)
-            }
-            else
-            {
-                viewHandler.handLeft(delta:percentX)
+            case Quadrant.topLeft:
+                
+                if deltaX >= 0
+                {
+                    viewHandler.handLeft(delta:percentX)
+                }
+                else
+                {
+                    viewHandler.handRight(delta:percentX)
+                }
+                
+                break
+                
+            case Quadrant.topRight:
+                
+                if deltaX >= 0
+                {
+                    viewHandler.handLeft(delta:percentX)
+                }
+                else
+                {
+                    viewHandler.handRight(delta:percentX)
+                }
+                
+                break
+                
+            case Quadrant.bottomLeft:
+                
+                if deltaX >= 0
+                {
+                    viewHandler.handRight(delta:percentX)
+                }
+                else
+                {
+                    viewHandler.handLeft(delta:percentX)
+                }
+                
+                break
+                
+            case Quadrant.bottomRight:
+                
+                if deltaX >= 0
+                {
+                    viewHandler.handRight(delta:percentX)
+                }
+                else
+                {
+                    viewHandler.handLeft(delta:percentX)
+                }
+                
+                break
             }
         }
         else if let movingY:CGFloat = self.movingY
@@ -151,13 +224,59 @@ class VCameraRotate:VView
                 percentY = 1
             }
             
-            if deltaY >= 0
+            switch quadrant
             {
-                viewHandler.handRight(delta:percentY)
-            }
-            else
-            {
-                viewHandler.handLeft(delta:percentY)
+            case Quadrant.topLeft:
+                
+                if deltaY >= 0
+                {
+                    viewHandler.handRight(delta:percentY)
+                }
+                else
+                {
+                    viewHandler.handLeft(delta:percentY)
+                }
+                
+                break
+                
+            case Quadrant.topRight:
+                
+                if deltaY >= 0
+                {
+                    viewHandler.handLeft(delta:percentY)
+                }
+                else
+                {
+                    viewHandler.handRight(delta:percentY)
+                }
+                
+                break
+                
+            case Quadrant.bottomLeft:
+                
+                if deltaY >= 0
+                {
+                    viewHandler.handRight(delta:percentY)
+                }
+                else
+                {
+                    viewHandler.handLeft(delta:percentY)
+                }
+                
+                break
+                
+            case Quadrant.bottomRight:
+                
+                if deltaY >= 0
+                {
+                    viewHandler.handLeft(delta:percentY)
+                }
+                else
+                {
+                    viewHandler.handRight(delta:percentY)
+                }
+                
+                break
             }
         }
         else
