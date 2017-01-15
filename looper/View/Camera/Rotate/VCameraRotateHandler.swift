@@ -11,18 +11,18 @@ class VCameraRotateHandler:UIView
     private var dispEnd:CGFloat
     private var deltaSpectrum:CGFloat
     private var movingClockWise:Bool
-    private let kDispRadMargin:CGFloat = 14
+    private let kDispRadMargin:CGFloat = 16
     private let kMargin:CGFloat = 50
     private let kZeroRad:CGFloat = -CGFloat(M_PI_2)
     private let k360Rad:CGFloat = CGFloat(M_PI + M_PI_2)
-    private let kDeltaRad:CGFloat = 0.05
-    private let kRadSize:CGFloat = 0.01
+    private let kDeltaRad:CGFloat = 0.02
+    private let kRadSize:CGFloat = 0.015
     private let kRadLineWidth:CGFloat = 10
     private let kDispLineWidth:CGFloat = 20
     
     init()
     {
-        colorRad = UIColor(white:0, alpha:0.6)
+        colorRad = UIColor(white:0, alpha:0.2)
         colorDisp = UIColor.genericLight
         dispInit = kZeroRad
         dispEnd = kZeroRad
@@ -68,8 +68,8 @@ class VCameraRotateHandler:UIView
         
         context.setLineCap(CGLineCap.butt)
         context.setLineWidth(kRadLineWidth)
-        context.setStrokeColor(colorRad.cgColor)
         
+        let maxEndAntiClock:CGFloat = k360Rad + dispEnd - dispInit
         var currentRad:CGFloat = kZeroRad
         
         while currentRad < k360Rad
@@ -78,6 +78,29 @@ class VCameraRotateHandler:UIView
             currentRad += kRadSize
             let end:CGFloat = currentRad
             currentRad += kDeltaRad
+            
+            if movingClockWise
+            {
+                if end >= maxEndAntiClock
+                {
+                    context.setStrokeColor(colorDisp.cgColor)
+                }
+                else
+                {
+                    context.setStrokeColor(colorRad.cgColor)
+                }
+            }
+            else
+            {
+                if end <= dispEnd
+                {
+                    context.setStrokeColor(colorDisp.cgColor)
+                }
+                else
+                {
+                    context.setStrokeColor(colorRad.cgColor)
+                }
+            }
             
             context.addArc(
                 center:centerArc,
@@ -106,24 +129,20 @@ class VCameraRotateHandler:UIView
     
     func handRight(delta:CGFloat)
     {
-        
+        movingClockWise = false
+        dispEnd = (delta * deltaSpectrum) + dispInit
+        setNeedsDisplay()
     }
     
     func handLeft(delta:CGFloat)
     {
-        
+        movingClockWise = true
+        dispEnd = (delta * -deltaSpectrum) + dispInit
+        setNeedsDisplay()
     }
     
-    func handDelta(delta:CGFloat)
+    func handFinished()
     {
-        var percent:CGFloat = delta / dispRadius
         
-        if percent > 1
-        {
-            percent = 1
-        }
-        
-        dispEnd = (percent * deltaSpectrum) + dispInit
-        setNeedsDisplay()
     }
 }

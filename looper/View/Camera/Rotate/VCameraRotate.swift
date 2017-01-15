@@ -2,12 +2,21 @@ import UIKit
 
 class VCameraRotate:VView
 {
+    private enum Quadrant
+    {
+        case topLeft
+        case topRight
+        case bottomLeft
+        case bottomRight
+    }
+    
     private weak var controller:CCameraRotate!
     private weak var imageView:UIImageView!
     private weak var viewHandler:VCameraRotateHandler!
     private var initialPoint:CGPoint?
     private var movingX:CGFloat?
     private var movingY:CGFloat?
+    private var quadrant:Quadrant
     private var maxMove:CGFloat
     private let kBarHeight:CGFloat = 64
     private let kImageMargin:CGFloat = 120
@@ -115,11 +124,41 @@ class VCameraRotate:VView
         
         if let movingX:CGFloat = self.movingX
         {
+            let deltaX:CGFloat = movingX - currentPoint.x
+            var percentX:CGFloat = fabs(deltaX) / maxMove
             
+            if percentX > 1
+            {
+                percentX = 1
+            }
+            
+            if deltaX >= 0
+            {
+                viewHandler.handRight(delta:percentX)
+            }
+            else
+            {
+                viewHandler.handLeft(delta:percentX)
+            }
         }
         else if let movingY:CGFloat = self.movingY
         {
+            let deltaY:CGFloat = movingY - currentPoint.y
+            var percentY:CGFloat = fabs(deltaY) / maxMove
             
+            if percentY > 1
+            {
+                percentY = 1
+            }
+            
+            if deltaY >= 0
+            {
+                viewHandler.handRight(delta:percentY)
+            }
+            else
+            {
+                viewHandler.handLeft(delta:percentY)
+            }
         }
         else
         {
