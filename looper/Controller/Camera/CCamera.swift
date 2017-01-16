@@ -166,6 +166,11 @@ class CCamera:CController
         
     }
     
+    func crop(item:MCameraRecordEditable)
+    {
+        
+    }
+    
     func showMore(item:MCameraRecordEditable)
     {
         let controllerMore:CCameraMore = CCameraMore(controller:self, record:item)
