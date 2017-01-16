@@ -22,6 +22,7 @@ class VCameraRotate:VView
     private weak var viewHandler:VCameraRotateHandler!
     private var animateDeltaExpected:CGFloat
     private var animateDeltaCurrent:CGFloat
+    private var animation:Animation?
     private var initialPoint:CGPoint?
     private var movingX:CGFloat?
     private var movingY:CGFloat?
@@ -29,8 +30,13 @@ class VCameraRotate:VView
     private var currentDelta:CGFloat
     private var previousDelta:CGFloat
     private var maxMove:CGFloat
+    private let kAnimationDelta:CGFloat = 0.01
     private let kTimerDuration:TimeInterval = 1
     private let kTotalRotation:CGFloat = CGFloat(M_PI + M_PI)
+    private let kPercentThreeQuarters:CGFloat = 0.75
+    private let kPercentHalf:CGFloat = 0.5
+    private let kPercentQuarter:CGFloat = 0.25
+    private let kPercentThreshold:CGFloat = 0.125
     private let kBarHeight:CGFloat = 64
     
     override init(controller:CController)
@@ -237,14 +243,113 @@ class VCameraRotate:VView
     
     func tickAnimation(sender timer:Timer)
     {
+        guard
         
+            let animation:Animation = self.animation
+        
+        else
+        {
+            timer.invalidate()
+            
+            return
+        }
+        
+        switch animation
+        {
+        case Animation.increase:
+
+            animateDeltaCurrent += kAnimationDelta
+            
+            if animateDeltaCurrent > animateDeltaExpected
+            {
+                animateDeltaCurrent = animateDeltaExpected
+                
+                timer.invalidate()
+            }
+            
+            break
+        
+        case Animation.decrease:
+            
+            animateDeltaCurrent -= kAnimationDelta
+            
+            if animateDeltaCurrent < animateDeltaExpected
+            {
+                animateDeltaCurrent = animateDeltaExpected
+                
+                timer.invalidate()
+            }
+            
+            break
+        }
+        
+        rotate(delta:animateDeltaCurrent)
+        
+        if !timer.isValid
+        {
+            previousDelta = currentDelta
+        }
     }
     
     //MARK: private
     
     private func animateTo(delta:CGFloat)
     {
+        animateDeltaCurrent = delta
+        let percent:CGFloat = fabs(delta) / maxMove
+        let newPercent:CGFloat
         
+        if percent > kPercentThreeQuarters
+        {
+            if percent - kPercentThreeQuarters >= kPercentThreshold
+            {
+                newPercent = 1
+            }
+            else
+            {
+                newPercent = kPercentThreeQuarters
+            }
+        }
+        else if percent > kPercentHalf
+        {
+            if percent - kPercentHalf >= kPercentThreshold
+            {
+                newPercent = kPercentThreeQuarters
+            }
+            else
+            {
+                newPercent = kPercentHalf
+            }
+        }
+        else
+        {
+            if percent - kPercentQuarter >= kPercentThreshold
+            {
+                newPercent = kPercentQuarter
+            }
+            else
+            {
+                newPercent = 0
+            }
+        }
+        
+        if delta >= 0
+        {
+            animation = Animation.increase
+            animateDeltaExpected = newPercent * kTotalRotation
+        }
+        else
+        {
+            animation = Animation.decrease
+            animateDeltaExpected = -newPercent * kTotalRotation
+        }
+        
+        timer = Timer.scheduledTimer(
+            timeInterval:kTimerDuration,
+            target:self,
+            selector:#selector(tickAnimation(sender:)),
+            userInfo:nil,
+            repeats:true)
     }
     
     private func finishRotate()
@@ -253,6 +358,8 @@ class VCameraRotate:VView
         movingX = nil
         movingY = nil
         previousDelta = currentDelta
+        
+        animateTo(delta:previousDelta)
     }
     
     private func rotate(delta:CGFloat)
@@ -274,6 +381,11 @@ class VCameraRotate:VView
             }
         }
         
+        rotateCurrentDelta()
+    }
+    
+    func rotateCurrentDelta()
+    {
         let percent:CGFloat = fabs(currentDelta) / maxMove
         let radians:CGFloat = kTotalRotation * percent
         let transform:CGAffineTransform
