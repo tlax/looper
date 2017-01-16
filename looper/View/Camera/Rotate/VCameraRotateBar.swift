@@ -3,7 +3,8 @@ import UIKit
 class VCameraRotateBar:UIView
 {
     private weak var controller:CCameraRotate!
-    private weak var layoutButtonLeft:NSLayoutConstraint!
+    private weak var buttonSave:UIButton!
+    private weak var buttonReset:UIButton!
     private let kBorderHeight:CGFloat = 1
     private let kButtonTop:CGFloat = 20
     private let kButtonWidth:CGFloat = 120
@@ -18,25 +19,43 @@ class VCameraRotateBar:UIView
         
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
-        let button:UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(
+        let buttonSave:UIButton = UIButton()
+        buttonSave.translatesAutoresizingMaskIntoConstraints = false
+        buttonSave.setTitleColor(
             UIColor.genericLight,
             for:UIControlState.normal)
-        button.setTitleColor(
+        buttonSave.setTitleColor(
             UIColor.genericLight.withAlphaComponent(0.2),
             for:UIControlState.highlighted)
-        button.setTitle(
-            NSLocalizedString("VCameraRotateBar_buttonClose", comment:""),
+        buttonSave.setTitle(
+            NSLocalizedString("VCameraRotateBar_buttonSave", comment:""),
             for:UIControlState.normal)
-        button.titleLabel!.font = UIFont.bold(size:16)
-        button.addTarget(
+        buttonSave.titleLabel!.font = UIFont.bold(size:17)
+        buttonSave.addTarget(
             self,
-            action:#selector(actionButton(sender:)),
+            action:#selector(actionSave(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
+        let buttonReset:UIButton = UIButton()
+        buttonReset.translatesAutoresizingMaskIntoConstraints = false
+        buttonReset.setTitleColor(
+            UIColor(red:1, green:0.2, blue:0, alpha:1),
+            for:UIControlState.normal)
+        buttonReset.setTitleColor(
+            UIColor(red:1, green:0.2, blue:0, alpha:0.2),
+            for:UIControlState.highlighted)
+        buttonReset.setTitle(
+            NSLocalizedString("VCameraRotateBar_buttonReset", comment:""),
+            for:UIControlState.normal)
+        buttonReset.titleLabel!.font = UIFont.bold(size:17)
+        buttonReset.addTarget(
+            self,
+            action:#selector(actionReset(sender:)),
             for:UIControlEvents.touchUpInside)
         
         addSubview(border)
-        addSubview(button)
+        addSubview(buttonSave)
+        addSubview(buttonReset)
         
         NSLayoutConstraint.equalsHorizontal(
             view:border,
@@ -49,34 +68,43 @@ class VCameraRotateBar:UIView
             constant:kBorderHeight)
         
         NSLayoutConstraint.topToTop(
-            view:button,
+            view:buttonSave,
             toView:self,
             constant:kButtonTop)
         NSLayoutConstraint.bottomToBottom(
-            view:button,
+            view:buttonSave,
             toView:self)
-        layoutButtonLeft = NSLayoutConstraint.leftToLeft(
-            view:button,
+        NSLayoutConstraint.leftToLeft(
+            view:buttonSave,
             toView:self)
         NSLayoutConstraint.width(
-            view:button,
+            view:buttonSave,
+            constant:kButtonWidth)
+        
+        NSLayoutConstraint.topToTop(
+            view:buttonReset,
+            toView:self,
+            constant:kButtonTop)
+        NSLayoutConstraint.bottomToBottom(
+            view:buttonReset,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:buttonReset,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:buttonReset,
             constant:kButtonWidth)
     }
-    
-    override func layoutSubviews()
-    {
-        let width:CGFloat = bounds.maxX
-        let remain:CGFloat = width - kButtonWidth
-        let margin:CGFloat = remain / 2.0
-        layoutButtonLeft.constant = margin
-        
-        super.layoutSubviews()
-    }
-    
+
     //MARK: actions
     
-    func actionButton(sender button:UIButton)
+    func actionSave(sender button:UIButton)
     {
         controller.save()
+    }
+    
+    func actionReset(sender button:UIButton)
+    {
+        controller.viewRotate.reset()
     }
 }

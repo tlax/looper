@@ -2,7 +2,7 @@ import UIKit
 
 class CCameraRotate:CController
 {
-    private weak var viewRotate:VCameraRotate!
+    weak var viewRotate:VCameraRotate!
     weak var record:MCameraRecordEditable!
     
     init(record:MCameraRecordEditable)

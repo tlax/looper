@@ -18,7 +18,8 @@
 "VStoreGoPlusButtons_buttonStore"="Go Plus";
 "VCameraFilterBlenderOverlayList_done"="Done";
 "VCameraMoreCellClose_label"="Video options";
-"VCameraRotateBar_buttonClose"="Done";
+"VCameraRotateBar_buttonSave"="Done";
+"VCameraRotateBar_buttonReset"="Reset";
 
 "CCameraShoot_noAuth"="looper has no access to your camera";
 "CCameraShoot_errorCaptureDevice"="Error connecting to camera";

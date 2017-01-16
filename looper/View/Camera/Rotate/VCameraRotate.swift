@@ -419,4 +419,29 @@ class VCameraRotate:VView
         
         viewImage.transform = transform
     }
+    
+    //MARK: public
+    
+    func reset()
+    {
+        timer?.invalidate()
+        
+        animateDeltaExpected = 0
+        
+        if currentDelta >= 0
+        {
+            animation = Animation.decrease
+        }
+        else
+        {
+            animation = Animation.increase
+        }
+        
+        timer = Timer.scheduledTimer(
+            timeInterval:kTimerDuration,
+            target:self,
+            selector:#selector(tickAnimation(sender:)),
+            userInfo:nil,
+            repeats:true)
+    }
 }
