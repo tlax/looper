@@ -25,9 +25,9 @@ class CCameraScale:CController
         view = viewScale
     }
     
-    override func viewDidLoad()
+    override func viewDidAppear(_ animated:Bool)
     {
-        super.viewDidLoad()
+        super.viewDidAppear(animated)
         viewScale.updateSlider()
     }
     
