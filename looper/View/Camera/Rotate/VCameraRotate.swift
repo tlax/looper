@@ -12,6 +12,7 @@ class VCameraRotate:VView
     
     private weak var controller:CCameraRotate!
     private weak var imageView:UIImageView!
+    private weak var imageBorder:VBorder!
     private weak var viewHandler:VCameraRotateHandler!
     private var initialPoint:CGPoint?
     private var movingX:CGFloat?
@@ -20,8 +21,6 @@ class VCameraRotate:VView
     private var maxMove:CGFloat
     private let kTotalRotation:CGFloat = CGFloat(M_PI + M_PI)
     private let kBarHeight:CGFloat = 64
-    private let kImageMargin:CGFloat = 120
-    private let kImageBorder:CGFloat = 1
     
     override init(controller:CController)
     {
@@ -35,30 +34,22 @@ class VCameraRotate:VView
         
         let viewBar:VCameraRotateBar = VCameraRotateBar(controller:self.controller)
         
-        let imageView:UIImageView = UIImageView()
-        imageView.isUserInteractionEnabled = false
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
-        imageView.image = self.controller.record.items.first?.image
-        imageView.layer.borderColor = UIColor.black.cgColor
-        imageView.layer.borderWidth = kImageBorder
         
         let viewHandler:VCameraRotateHandler = VCameraRotateHandler()
         self.viewHandler = viewHandler
         
+        let imageBorder:VBorder = VBorder(color:UIColor.black)
+        self.imageBorder = imageBorder
+        
         addSubview(blur)
-        addSubview(viewHandler)
+        addSubview(imageBorder)
         addSubview(imageView)
+        addSubview(viewHandler)
         addSubview(viewBar)
         
         NSLayoutConstraint.equals(
             view:blur,
             toView:self)
-        NSLayoutConstraint.equals(
-            view:imageView,
-            toView:viewHandler,
-            margin:kImageMargin)
         
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
