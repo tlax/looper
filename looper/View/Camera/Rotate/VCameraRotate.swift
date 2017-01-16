@@ -20,6 +20,7 @@ class VCameraRotate:VView
     private var maxMove:CGFloat
     private let kBarHeight:CGFloat = 64
     private let kImageMargin:CGFloat = 120
+    private let kImageBorder:CGFloat = 1
     
     override init(controller:CController)
     {
@@ -39,6 +40,8 @@ class VCameraRotate:VView
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.image = self.controller.record.items.first?.image
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderWidth = kImageBorder
         
         let viewHandler:VCameraRotateHandler = VCameraRotateHandler()
         self.viewHandler = viewHandler
