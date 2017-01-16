@@ -91,7 +91,7 @@ class VCameraScale:VView
     
     override func layoutSubviews()
     {
-        totalHeight = bounds.size.height
+        totalHeight = bounds.maxY - (kSliderTop - kSliderBottom + kButtonHeight - kButtonBottom)
         let width:CGFloat = bounds.maxX
         let remain:CGFloat = width - kButtonWidth
         let margin:CGFloat = remain / 2.0

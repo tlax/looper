@@ -2,14 +2,10 @@ import UIKit
 
 class VCameraScaleSliderTrack:UIView
 {
-    private weak var selectedView:VBorder!
-    private weak var layoutSelectedHeight:NSLayoutConstraint!
-    var totalTrack:CGFloat
+    weak var selectedView:VBorder!
     
     init()
     {
-        totalTrack = 0
-        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         isUserInteractionEnabled = false
@@ -27,29 +23,10 @@ class VCameraScaleSliderTrack:UIView
         NSLayoutConstraint.bottomToBottom(
             view:selectedView,
             toView:self)
-        layoutSelectedHeight = NSLayoutConstraint.height(
-            view:selectedView)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
-    }
-    
-    override func layoutSubviews()
-    {
-        let width:CGFloat = bounds.maxX
-        layer.cornerRadius = width / 2.0
-        totalTrack = bounds.size.height
-        
-        super.layoutSubviews()
-    }
-    
-    //MARK: public
-    
-    func trackSelected(percent:CGFloat)
-    {
-        let height:CGFloat = percent * totalTrack
-        layoutSelectedHeight.constant = height
     }
 }

@@ -11,7 +11,6 @@ class VCameraScaleSlider:UIView
     private let thumbSize_2:CGFloat
     private let kTrackLeft:CGFloat = 80
     private let kTrackWidth:CGFloat = 3
-    private let kTrackVerticalMargin:CGFloat = 1
     private let kThumbSize:CGFloat = 40
     
     init()
@@ -28,6 +27,7 @@ class VCameraScaleSlider:UIView
         let thumbLeft:CGFloat = kTrackLeft - thumbSize_2 + trackWidth_2
         
         let viewTrack:VCameraScaleSliderTrack = VCameraScaleSliderTrack()
+        viewTrack.layer.cornerRadius = kTrackWidth / 2.0
         self.viewTrack = viewTrack
         
         let thumb:UIImageView = UIImageView()
@@ -36,15 +36,19 @@ class VCameraScaleSlider:UIView
         thumb.clipsToBounds = true
         thumb.contentMode = UIViewContentMode.center
         thumb.image = #imageLiteral(resourceName: "assetCameraScaleThumb")
+        thumb.alpha = 0.15
         self.thumb = thumb
         
         addSubview(viewTrack)
         addSubview(thumb)
         
-        NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.topToTop(
+            view:viewTrack,
+            toView:self)
+        NSLayoutConstraint.bottomToBottom(
             view:viewTrack,
             toView:self,
-            margin:kTrackVerticalMargin)
+            constant:-thumbSize_2)
         NSLayoutConstraint.leftToLeft(
             view:viewTrack,
             toView:self,
@@ -63,6 +67,15 @@ class VCameraScaleSlider:UIView
             view:thumb,
             toView:self,
             constant:thumbLeft)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewTrack.selectedView,
+            toView:thumb,
+            constant:thumbSize_2)
+        NSLayoutConstraint.bottomToBottom(
+            view:viewTrack.selectedView,
+            toView:self,
+            constant:-thumbSize_2)
     }
     
     required init?(coder:NSCoder)
@@ -84,6 +97,5 @@ class VCameraScaleSlider:UIView
     {
         let thumbBottom:CGFloat = percent * minThumbBottom
         layoutThumbBottom.constant = thumbBottom
-        viewTrack.trackSelected(percent:percent)
     }
 }
