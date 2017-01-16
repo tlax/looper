@@ -1,19 +1,14 @@
 import UIKit
 
-class VCameraScaleSlider:UIView
+class VCameraScaleSliderTrack:UIView
 {
-    private weak var labelPercent:UILabel!
-    private weak var labelSize:UILabel!
-    private weak var thumb:UIImageView!
-    
     init()
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
+        isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
-        
-        
+        backgroundColor = UIColor.clear
     }
     
     required init?(coder:NSCoder)

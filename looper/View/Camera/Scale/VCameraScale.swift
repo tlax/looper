@@ -8,7 +8,7 @@ class VCameraScale:VView
     private weak var layoutDoneLeft:NSLayoutConstraint!
     private let kButtonHeight:CGFloat = 35
     private let kButtonWidth:CGFloat = 120
-    private let kButtonBottom:CGFloat = 30
+    private let kButtonBottom:CGFloat = -20
     private let kSliderTop:CGFloat = 20
     
     override init(controller:CController)
@@ -33,6 +33,7 @@ class VCameraScale:VView
         buttonDone.setTitle(
             NSLocalizedString("VCameraScale_done", comment:""),
             for:UIControlState.normal)
+        buttonDone.titleLabel!.font = UIFont.bold(size:17)
         buttonDone.addTarget(
             self,
             action:#selector(actionDone(sender:)),
@@ -58,7 +59,7 @@ class VCameraScale:VView
             constant:kButtonHeight)
         NSLayoutConstraint.width(
             view:buttonDone,
-            constant:kButtonBottom)
+            constant:kButtonWidth)
         layoutDoneLeft = NSLayoutConstraint.leftToLeft(
             view:buttonDone,
             toView:self)
