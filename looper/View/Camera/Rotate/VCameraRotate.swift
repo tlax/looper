@@ -323,11 +323,11 @@ class VCameraRotate:VView
                 
                 if currentDelta >= 0
                 {
-                    orientation = UIImageOrientation.right
+                    orientation = UIImageOrientation.left
                 }
                 else
                 {
-                    orientation = UIImageOrientation.left
+                    orientation = UIImageOrientation.right
                 }
             }
         }
@@ -339,11 +339,11 @@ class VCameraRotate:VView
                 
                 if currentDelta >= 0
                 {
-                    orientation = UIImageOrientation.right
+                    orientation = UIImageOrientation.left
                 }
                 else
                 {
-                    orientation = UIImageOrientation.left
+                    orientation = UIImageOrientation.right
                 }
             }
             else
@@ -365,11 +365,11 @@ class VCameraRotate:VView
                 
                 if currentDelta >= 0
                 {
-                    orientation = UIImageOrientation.left
+                    orientation = UIImageOrientation.right
                 }
                 else
                 {
-                    orientation = UIImageOrientation.right
+                    orientation = UIImageOrientation.left
                 }
             }
         }
@@ -381,11 +381,11 @@ class VCameraRotate:VView
                 
                 if currentDelta >= 0
                 {
-                    orientation = UIImageOrientation.left
+                    orientation = UIImageOrientation.right
                 }
                 else
                 {
-                    orientation = UIImageOrientation.right
+                    orientation = UIImageOrientation.left
                 }
             }
             else
