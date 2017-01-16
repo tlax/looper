@@ -20,6 +20,7 @@
 "VCameraMoreCellClose_label"="Video options";
 "VCameraRotateBar_buttonSave"="Done";
 "VCameraRotateBar_buttonReset"="Reset";
+"VCameraScale_done"="Done";
 
 "CCameraShoot_noAuth"="looper has no access to your camera";
 "CCameraShoot_errorCaptureDevice"="Error connecting to camera";
