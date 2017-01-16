@@ -152,64 +152,20 @@ class VCameraRotate:VView
         if let movingX:CGFloat = self.movingX
         {
             let deltaX:CGFloat = movingX - currentPoint.x
-            var percentX:CGFloat = fabs(deltaX) / maxMove
-            
-            if percentX > 1
-            {
-                percentX = 1
-            }
             
             switch quadrant
             {
-            case Quadrant.topLeft:
+            case Quadrant.topLeft,
+                 Quadrant.topRight:
                 
-                if deltaX >= 0
-                {
-                    viewHandler.handLeft(delta:percentX)
-                }
-                else
-                {
-                    viewHandler.handRight(delta:percentX)
-                }
+                rotate(delta:-deltaX)
                 
                 break
                 
-            case Quadrant.topRight:
+            case Quadrant.bottomLeft,
+                 Quadrant.bottomRight:
                 
-                if deltaX >= 0
-                {
-                    viewHandler.handLeft(delta:percentX)
-                }
-                else
-                {
-                    viewHandler.handRight(delta:percentX)
-                }
-                
-                break
-                
-            case Quadrant.bottomLeft:
-                
-                if deltaX >= 0
-                {
-                    viewHandler.handRight(delta:percentX)
-                }
-                else
-                {
-                    viewHandler.handLeft(delta:percentX)
-                }
-                
-                break
-                
-            case Quadrant.bottomRight:
-                
-                if deltaX >= 0
-                {
-                    viewHandler.handRight(delta:percentX)
-                }
-                else
-                {
-                    viewHandler.handLeft(delta:percentX)
-                }
+                rotate(delta:deltaX)
                 
                 break
             }
@@ -217,64 +173,20 @@ class VCameraRotate:VView
         else if let movingY:CGFloat = self.movingY
         {
             let deltaY:CGFloat = movingY - currentPoint.y
-            var percentY:CGFloat = fabs(deltaY) / maxMove
-            
-            if percentY > 1
-            {
-                percentY = 1
-            }
-            
+
             switch quadrant
             {
-            case Quadrant.topLeft:
+            case Quadrant.topLeft,
+                 Quadrant.bottomLeft:
                 
-                if deltaY >= 0
-                {
-                    viewHandler.handRight(delta:percentY)
-                }
-                else
-                {
-                    viewHandler.handLeft(delta:percentY)
-                }
-                
+                rotate(delta:deltaY)
+
                 break
                 
-            case Quadrant.topRight:
+            case Quadrant.topRight,
+                 Quadrant.bottomRight:
                 
-                if deltaY >= 0
-                {
-                    viewHandler.handLeft(delta:percentY)
-                }
-                else
-                {
-                    viewHandler.handRight(delta:percentY)
-                }
-                
-                break
-                
-            case Quadrant.bottomLeft:
-                
-                if deltaY >= 0
-                {
-                    viewHandler.handRight(delta:percentY)
-                }
-                else
-                {
-                    viewHandler.handLeft(delta:percentY)
-                }
-                
-                break
-                
-            case Quadrant.bottomRight:
-                
-                if deltaY >= 0
-                {
-                    viewHandler.handLeft(delta:percentY)
-                }
-                else
-                {
-                    viewHandler.handRight(delta:percentY)
-                }
+                rotate(delta:-deltaY)
                 
                 break
             }
@@ -309,5 +221,26 @@ class VCameraRotate:VView
         initialPoint = nil
         movingX = nil
         movingY = nil
+    }
+    
+    //MARK: private
+    
+    private func rotate(delta:CGFloat)
+    {
+        var percent:CGFloat = fabs(delta) / maxMove
+        
+        if percent > 1
+        {
+            percent = 1
+        }
+        
+        if delta >= 0
+        {
+            viewHandler.handRight(delta:percent)
+        }
+        else
+        {
+            viewHandler.handLeft(delta:percent)
+        }
     }
 }
