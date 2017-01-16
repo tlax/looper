@@ -20,6 +20,8 @@ class VCameraRotate:VView
     private weak var controller:CCameraRotate!
     private weak var viewImage:VCameraRotateImage!
     private weak var viewHandler:VCameraRotateHandler!
+    private weak var viewBar:VCameraRotateBar!
+    private weak var spinner:VSpinner!
     private var animateDeltaExpected:CGFloat
     private var animation:Animation?
     private var initialPoint:CGPoint?
@@ -50,7 +52,9 @@ class VCameraRotate:VView
         self.controller = controller as? CCameraRotate
         
         let blur:VBlur = VBlur.extraLight()
+        
         let viewBar:VCameraRotateBar = VCameraRotateBar(controller:self.controller)
+        self.viewBar = viewBar
         
         let viewImage:VCameraRotateImage = VCameraRotateImage(controller:self.controller)
         self.viewImage = viewImage
@@ -58,14 +62,15 @@ class VCameraRotate:VView
         let viewHandler:VCameraRotateHandler = VCameraRotateHandler()
         self.viewHandler = viewHandler
         
+        let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
+        self.spinner = spinner
+        
         addSubview(blur)
         addSubview(viewImage)
+        addSubview(spinner)
         addSubview(viewHandler)
         addSubview(viewBar)
-        
-        NSLayoutConstraint.equals(
-            view:blur,
-            toView:self)
         
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
@@ -88,7 +93,13 @@ class VCameraRotate:VView
             toView:self)
         
         NSLayoutConstraint.equals(
+            view:blur,
+            toView:self)
+        NSLayoutConstraint.equals(
             view:viewImage,
+            toView:viewHandler)
+        NSLayoutConstraint.equals(
+            view:spinner,
             toView:viewHandler)
     }
     
@@ -443,5 +454,15 @@ class VCameraRotate:VView
             selector:#selector(tickAnimation(sender:)),
             userInfo:nil,
             repeats:true)
+    }
+    
+    func startLoading()
+    {
+        timer?.invalidate()
+        
+        spinner.startAnimating()
+        viewHandler.isHidden = true
+        viewImage.isHidden = true
+        viewBar.isHidden = true
     }
 }

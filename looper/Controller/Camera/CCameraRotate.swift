@@ -27,7 +27,7 @@ class CCameraRotate:CController
     
     func save()
     {
-        viewRotate.timer?.invalidate()
-        parentController.pop(vertical:CParent.TransitionVertical.fromTop)
+        viewRotate.startLoading()
+        //parentController.pop(vertical:CParent.TransitionVertical.fromTop)
     }
 }
