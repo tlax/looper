@@ -6,6 +6,7 @@ class VCameraScale:VView
     private weak var viewSlider:VCameraScaleSlider!
     private weak var buttonDone:UIButton!
     private weak var layoutDoneLeft:NSLayoutConstraint!
+    private var totalHeight:CGFloat
     private let kButtonHeight:CGFloat = 35
     private let kButtonWidth:CGFloat = 120
     private let kButtonBottom:CGFloat = -20
@@ -14,6 +15,8 @@ class VCameraScale:VView
     
     override init(controller:CController)
     {
+        totalHeight = 0
+        
         super.init(controller:controller)
         backgroundColor = UIColor.clear
         self.controller = controller as? CCameraScale
@@ -88,12 +91,53 @@ class VCameraScale:VView
     
     override func layoutSubviews()
     {
+        totalHeight = bounds.maxY
         let width:CGFloat = bounds.maxX
         let remain:CGFloat = width - kButtonWidth
         let margin:CGFloat = remain / 2.0
         layoutDoneLeft.constant = margin
         
         super.layoutSubviews()
+    }
+    
+    override func touchesBegan(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        guard
+        
+            let touch:UITouch = touches.first,
+            let view:VCameraScaleSliderTrack = touch.view as? VCameraScaleSliderTrack
+        
+        else
+        {
+            return
+        }
+        
+        let point:CGPoint = touch.location(in:view)
+        touchAtPoint(point:point)
+    }
+    
+    override func touchesMoved(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        guard
+            
+            let touch:UITouch = touches.first,
+            let view:VCameraScaleSliderTrack = touch.view as? VCameraScaleSliderTrack
+            
+        else
+        {
+            return
+        }
+        
+        let point:CGPoint = touch.location(in:view)
+        touchAtPoint(point:point)
+    }
+    
+    override func touchesCancelled(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+    }
+    
+    override func touchesEnded(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
     }
     
     //MARK: actions
@@ -103,6 +147,27 @@ class VCameraScale:VView
         button.isUserInteractionEnabled = false
         
         controller.save()
+    }
+    
+    //MARK: private
+    
+    private func touchAtPoint(point:CGPoint)
+    {
+        let pointY:CGFloat = point.y
+        let normalY:CGFloat = pointY - totalHeight
+        var percent:CGFloat = normalY / totalHeight
+        
+        if percent > 1
+        {
+            percent = 1
+        }
+        else if percent < 0
+        {
+            percent = 0
+        }
+        
+        controller.currentPercent = percent
+        updateSlider()
     }
     
     //MARK: public
