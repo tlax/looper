@@ -43,7 +43,7 @@ class VCameraScale:VView
             action:#selector(actionDone(sender:)),
             for:UIControlEvents.touchUpInside)
         
-        let viewSlider:VCameraScaleSlider = VCameraScaleSlider()
+        let viewSlider:VCameraScaleSlider = VCameraScaleSlider(controller:self.controller)
         self.viewSlider = viewSlider
         
         addSubview(blur)
