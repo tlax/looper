@@ -6,6 +6,8 @@ class VCameraScale:VView
     private weak var buttonDone:UIButton!
     private weak var layoutDoneLeft:NSLayoutConstraint!
     private let kButtonHeight:CGFloat = 35
+    private let kButtonWidth:CGFloat = 120
+    private let kButtonBottom:CGFloat = 30
     
     override init(controller:CController)
     {
@@ -36,11 +38,39 @@ class VCameraScale:VView
         
         addSubview(blur)
         addSubview(buttonDone)
+        
+        NSLayoutConstraint.equals(
+            view:blur,
+            toView:self)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:buttonDone,
+            toView:self,
+            constant:kButtonBottom)
+        NSLayoutConstraint.height(
+            view:buttonDone,
+            constant:kButtonHeight)
+        NSLayoutConstraint.width(
+            view:buttonDone,
+            constant:kButtonBottom)
+        layoutDoneLeft = NSLayoutConstraint.leftToLeft(
+            view:buttonDone,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let remain:CGFloat = width - kButtonWidth
+        let margin:CGFloat = remain / 2.0
+        layoutDoneLeft.constant = margin
+        
+        super.layoutSubviews()
     }
     
     //MARK: actions
