@@ -15,7 +15,7 @@ class VCameraRotateImage:UIView
     
     init(controller:CCameraRotate)
     {
-        borderMargin = (kImageMargin - kImageBorder) * 2
+        borderMargin = kImageMargin - kImageBorder
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -45,7 +45,7 @@ class VCameraRotateImage:UIView
         layoutBorderTop = NSLayoutConstraint.topToTop(
             view:border,
             toView:self)
-        layoutBorderBottom = NSLayoutConstraint.bottomToTop(
+        layoutBorderBottom = NSLayoutConstraint.bottomToBottom(
             view:border,
             toView:self)
         layoutBorderLeft = NSLayoutConstraint.leftToLeft(
@@ -73,16 +73,16 @@ class VCameraRotateImage:UIView
             let deltaHeightWidth:CGFloat = height - width
             let deltaHeightWidth_2:CGFloat = deltaHeightWidth / 2.0
             
-            hrMargin = width - borderMargin
-            vrMargin = hrMargin + deltaHeightWidth_2
+            hrMargin = borderMargin
+            vrMargin = borderMargin + deltaHeightWidth_2
         }
         else
         {
             let deltaWidthHeight:CGFloat = width - height
             let deltaWidthHeight_2:CGFloat = deltaWidthHeight / 2.0
             
-            vrMargin = height - borderMargin
-            hrMargin = vrMargin + deltaWidthHeight_2
+            vrMargin = borderMargin
+            hrMargin = borderMargin + deltaWidthHeight_2
         }
         
         layoutBorderTop.constant = vrMargin
