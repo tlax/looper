@@ -10,10 +10,18 @@ class VCameraRotate:VView
         case bottomRight
     }
     
+    private enum Animation
+    {
+        case increase
+        case decrease
+    }
+    
     weak var timer:Timer?
     private weak var controller:CCameraRotate!
     private weak var viewImage:VCameraRotateImage!
     private weak var viewHandler:VCameraRotateHandler!
+    private var animateDeltaExpected:CGFloat
+    private var animateDeltaCurrent:CGFloat
     private var initialPoint:CGPoint?
     private var movingX:CGFloat?
     private var movingY:CGFloat?
@@ -21,6 +29,7 @@ class VCameraRotate:VView
     private var currentDelta:CGFloat
     private var previousDelta:CGFloat
     private var maxMove:CGFloat
+    private let kTimerDuration:TimeInterval = 1
     private let kTotalRotation:CGFloat = CGFloat(M_PI + M_PI)
     private let kBarHeight:CGFloat = 64
     
@@ -29,13 +38,14 @@ class VCameraRotate:VView
         currentDelta = 0
         previousDelta = 0
         maxMove = 0
+        animateDeltaCurrent = 0
+        animateDeltaExpected = 0
         
         super.init(controller:controller)
         backgroundColor = UIColor.clear
         self.controller = controller as? CCameraRotate
         
         let blur:VBlur = VBlur.extraLight()
-        
         let viewBar:VCameraRotateBar = VCameraRotateBar(controller:self.controller)
         
         let viewImage:VCameraRotateImage = VCameraRotateImage(controller:self.controller)
@@ -223,6 +233,11 @@ class VCameraRotate:VView
     override func touchesCancelled(_ touches:Set<UITouch>, with event:UIEvent?)
     {
         finishRotate()
+    }
+    
+    func tickAnimation(sender timer:Timer)
+    {
+        
     }
     
     //MARK: private
