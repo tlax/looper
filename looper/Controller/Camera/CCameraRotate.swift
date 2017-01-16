@@ -23,11 +23,24 @@ class CCameraRotate:CController
         view = viewRotate
     }
     
+    //MARK: private
+    
+    private func asyncSave()
+    {
+        
+    }
+    
+    private func saveFinished()
+    {
+        parentController.pop(vertical:CParent.TransitionVertical.fromTop)
+    }
+    
     //MARK: public
     
     func save()
     {
         viewRotate.startLoading()
-        //parentController.pop(vertical:CParent.TransitionVertical.fromTop)
+        
+        
     }
 }

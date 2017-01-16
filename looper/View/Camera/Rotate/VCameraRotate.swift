@@ -17,6 +17,7 @@ class VCameraRotate:VView
     }
     
     weak var timer:Timer?
+    var orientation:UIImageOrientation
     private weak var controller:CCameraRotate!
     private weak var viewImage:VCameraRotateImage!
     private weak var viewHandler:VCameraRotateHandler!
@@ -42,6 +43,7 @@ class VCameraRotate:VView
     
     override init(controller:CController)
     {
+        orientation = UIImageOrientation.up
         currentDelta = 0
         previousDelta = 0
         maxMove = 0
@@ -313,10 +315,20 @@ class VCameraRotate:VView
             if percent - kPercentThreeQuarters >= kPercentThreshold
             {
                 newPercent = 1
+                orientation = UIImageOrientation.up
             }
             else
             {
                 newPercent = kPercentThreeQuarters
+                
+                if currentDelta >= 0
+                {
+                    orientation = UIImageOrientation.right
+                }
+                else
+                {
+                    orientation = UIImageOrientation.left
+                }
             }
         }
         else if percent >= kPercentHalf
@@ -324,10 +336,20 @@ class VCameraRotate:VView
             if percent - kPercentHalf >= kPercentThreshold
             {
                 newPercent = kPercentThreeQuarters
+                
+                if currentDelta >= 0
+                {
+                    orientation = UIImageOrientation.right
+                }
+                else
+                {
+                    orientation = UIImageOrientation.left
+                }
             }
             else
             {
                 newPercent = kPercentHalf
+                orientation = UIImageOrientation.down
             }
         }
         else if percent >= kPercentQuarter
@@ -335,10 +357,20 @@ class VCameraRotate:VView
             if percent - kPercentQuarter >= kPercentThreshold
             {
                 newPercent = kPercentHalf
+                orientation = UIImageOrientation.down
             }
             else
             {
                 newPercent = kPercentQuarter
+                
+                if currentDelta >= 0
+                {
+                    orientation = UIImageOrientation.left
+                }
+                else
+                {
+                    orientation = UIImageOrientation.right
+                }
             }
         }
         else
@@ -346,10 +378,20 @@ class VCameraRotate:VView
             if percent >= kPercentThreshold
             {
                 newPercent = kPercentQuarter
+                
+                if currentDelta >= 0
+                {
+                    orientation = UIImageOrientation.left
+                }
+                else
+                {
+                    orientation = UIImageOrientation.right
+                }
             }
             else
             {
                 newPercent = 0
+                orientation = UIImageOrientation.up
             }
         }
         
@@ -437,6 +479,7 @@ class VCameraRotate:VView
     {
         timer?.invalidate()
         
+        orientation = UIImageOrientation.up
         animateDeltaExpected = 0
         
         if currentDelta >= 0
