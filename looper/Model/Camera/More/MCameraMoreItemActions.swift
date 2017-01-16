@@ -8,11 +8,13 @@ class MCameraMoreItemActions:MCameraMoreItem
     override init(record:MCameraRecordEditable)
     {
         let optionRotate:MCameraMoreItemActionsOptionRotate = MCameraMoreItemActionsOptionRotate()
+        let optionCrop:MCameraMoreItemActionsOptionCrop = MCameraMoreItemActionsOptionCrop()
         let optionScale:MCameraMoreItemActionsOptionScale = MCameraMoreItemActionsOptionScale()
         let optionTrash:MCameraMoreItemActionsOptionTrash = MCameraMoreItemActionsOptionTrash()
         
         options = [
             optionRotate,
+            optionCrop,
             optionScale,
             optionTrash
         ]
