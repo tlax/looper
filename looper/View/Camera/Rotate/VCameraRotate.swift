@@ -18,6 +18,7 @@ class VCameraRotate:VView
     private var movingY:CGFloat?
     private var quadrant:Quadrant?
     private var maxMove:CGFloat
+    private let kTotalRotation:CGFloat = CGFloat(M_PI + M_PI)
     private let kBarHeight:CGFloat = 64
     private let kImageMargin:CGFloat = 120
     private let kImageBorder:CGFloat = 1
@@ -239,10 +240,18 @@ class VCameraRotate:VView
         
         if delta >= 0
         {
+            let radians:CGFloat = kTotalRotation * percent
+            let transform:CGAffineTransform = CGAffineTransform.init(rotationAngle:radians)
+            imageView.transform = transform
+            
             viewHandler.handRight(delta:percent)
         }
         else
         {
+            let radians:CGFloat = kTotalRotation * -percent
+            let transform:CGAffineTransform = CGAffineTransform.init(rotationAngle:radians)
+            imageView.transform = transform
+            
             viewHandler.handLeft(delta:percent)
         }
     }
