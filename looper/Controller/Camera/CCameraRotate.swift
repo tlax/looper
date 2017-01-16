@@ -25,9 +25,74 @@ class CCameraRotate:CController
     
     //MARK: private
     
-    private func asyncSave()
+    private func asyncSave(orientation:UIImageOrientation)
     {
+        var rotatedRecords:[MCameraRecordItem] = []
         
+        guard
+            
+            let firstImage:UIImage = record.items.first?.image
+        
+        else
+        {
+            return
+        }
+        
+        let size:CGFloat = firstImage.size.width
+        let imageSize:CGSize = CGSize(
+            width:size,
+            height:size)
+        let drawingRect:CGRect = CGRect(
+            x:0,
+            y:0,
+            width:size,
+            height:size)
+        
+        for rawItem:MCameraRecordItem in record.items
+        {
+            let originalImage:UIImage = rawItem.image
+            
+            guard
+                
+                let cgImage:CGImage = originalImage.cgImage
+                
+            else
+            {
+                continue
+            }
+            
+            let expectedImage:UIImage = UIImage(
+                cgImage:cgImage,
+                scale:originalImage.scale,
+                orientation:orientation)
+            
+            UIGraphicsBeginImageContext(imageSize)
+            expectedImage.draw(in:drawingRect)
+            
+            guard
+                
+                let rotatedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+                
+            else
+            {
+                UIGraphicsEndImageContext()
+                continue
+            }
+            
+            UIGraphicsEndImageContext()
+            
+            let rotatedItem:MCameraRecordItem = MCameraRecordItem(
+                image:rotatedImage)
+            rotatedRecords.append(rotatedItem)
+        }
+        
+        record.items = rotatedRecords
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.saveFinished()
+        }
     }
     
     private func saveFinished()
@@ -41,6 +106,19 @@ class CCameraRotate:CController
     {
         viewRotate.startLoading()
         
+        let orientation:UIImageOrientation = viewRotate.orientation
         
+        if orientation == UIImageOrientation.up
+        {
+            saveFinished()
+        }
+        else
+        {
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.asyncSave(orientation:orientation)
+            }
+        }
     }
 }
