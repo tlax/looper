@@ -22,7 +22,7 @@ class VCameraRotateHandler:UIView
     
     init()
     {
-        colorRad = UIColor(white:0, alpha:0.2)
+        colorRad = UIColor(white:0, alpha:0.15)
         colorDisp = UIColor.genericLight
         dispInit = kZeroRad
         dispEnd = kZeroRad
@@ -139,10 +139,5 @@ class VCameraRotateHandler:UIView
         movingClockWise = true
         dispEnd = (delta * -deltaSpectrum) + dispInit
         setNeedsDisplay()
-    }
-    
-    func handFinished()
-    {
-        
     }
 }

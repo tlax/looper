@@ -17,12 +17,16 @@ class VCameraRotate:VView
     private var movingX:CGFloat?
     private var movingY:CGFloat?
     private var quadrant:Quadrant?
+    private var currentDelta:CGFloat
+    private var previousDelta:CGFloat
     private var maxMove:CGFloat
     private let kTotalRotation:CGFloat = CGFloat(M_PI + M_PI)
     private let kBarHeight:CGFloat = 64
     
     override init(controller:CController)
     {
+        currentDelta = 0
+        previousDelta = 0
         maxMove = 0
         
         super.init(controller:controller)
@@ -207,23 +211,28 @@ class VCameraRotate:VView
     
     override func touchesEnded(_ touches:Set<UITouch>, with event:UIEvent?)
     {
-        initialPoint = nil
-        movingX = nil
-        movingY = nil
+        finishRotate()
     }
     
     override func touchesCancelled(_ touches:Set<UITouch>, with event:UIEvent?)
     {
-        initialPoint = nil
-        movingX = nil
-        movingY = nil
+        finishRotate()
     }
     
     //MARK: private
     
+    private func finishRotate()
+    {
+        initialPoint = nil
+        movingX = nil
+        movingY = nil
+        previousDelta = currentDelta
+    }
+    
     private func rotate(delta:CGFloat)
     {
-        var percent:CGFloat = fabs(delta) / maxMove
+        currentDelta = delta + previousDelta
+        var percent:CGFloat = fabs(currentDelta) / maxMove
         
         if percent > 1
         {
