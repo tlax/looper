@@ -14,6 +14,7 @@ class VCameraScaleSlider:UIView
     private let stringPercentSign:NSAttributedString
     private let stringTimesSign:NSAttributedString
     private let thumbSize_2:CGFloat
+    private let originalSize:CGFloat
     private let kPercentSign:String = "% \n"
     private let kTimesSign:String = " x "
     private let kPercentMultiplier:CGFloat = 100
@@ -28,6 +29,15 @@ class VCameraScaleSlider:UIView
     
     init(controller:CCameraScale)
     {
+        if let originalSize:CGFloat = controller.record.items.first?.image.size.width
+        {
+            self.originalSize = originalSize
+        }
+        else
+        {
+            self.originalSize = 0
+        }
+        
         minThumbBottom = 0
         thumbSize_2 = kThumbSize / 2.0
         numberFormatter = NumberFormatter()
@@ -36,8 +46,8 @@ class VCameraScaleSlider:UIView
         numberFormatter.minimumIntegerDigits = kMinIntegers
         
         let attributesSigns:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.regular(size:14),
-            NSForegroundColorAttributeName:UIColor.genericDark]
+            NSFontAttributeName:UIFont.bold(size:16),
+            NSForegroundColorAttributeName:UIColor.genericLight]
         attributesPercent = [
             NSFontAttributeName:UIFont.bold(size:34),
             NSForegroundColorAttributeName:UIColor.genericLight]
@@ -152,12 +162,15 @@ class VCameraScaleSlider:UIView
     
     private func print(percent:CGFloat)
     {
+        let sizeAmount:Int = Int(originalSize * percent)
         let percentAmount:CGFloat = percent * kPercentMultiplier
         let percentNumber:NSNumber = percentAmount as NSNumber
+        let sizeNumber:NSNumber = sizeAmount as NSNumber
         
         guard
             
-            let percentString:String = numberFormatter.string(from:percentNumber)
+            let percentString:String = numberFormatter.string(from:percentNumber),
+            let sizeString:String = numberFormatter.string(from:sizeNumber)
         
         else
         {
@@ -167,10 +180,16 @@ class VCameraScaleSlider:UIView
         let attributeStringPercent:NSAttributedString = NSAttributedString(
             string:percentString,
             attributes:attributesPercent)
+        let attributeStringSize:NSAttributedString = NSAttributedString(
+            string:sizeString,
+            attributes:attributesSize)
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
         mutableString.append(attributeStringPercent)
         mutableString.append(stringPercentSign)
+        mutableString.append(attributeStringSize)
+        mutableString.append(stringTimesSign)
+        mutableString.append(attributeStringSize)
         
         labelPercent.attributedText = mutableString
     }
