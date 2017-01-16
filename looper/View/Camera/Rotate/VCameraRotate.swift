@@ -11,8 +11,7 @@ class VCameraRotate:VView
     }
     
     private weak var controller:CCameraRotate!
-    private weak var imageView:UIImageView!
-    private weak var imageBorder:VBorder!
+    private weak var viewImage:VCameraRotateImage!
     private weak var viewHandler:VCameraRotateHandler!
     private var initialPoint:CGPoint?
     private var movingX:CGFloat?
@@ -34,16 +33,14 @@ class VCameraRotate:VView
         
         let viewBar:VCameraRotateBar = VCameraRotateBar(controller:self.controller)
         
+        let viewImage:VCameraRotateImage = VCameraRotateImage(controller:self.controller)
+        self.viewImage = viewImage
         
         let viewHandler:VCameraRotateHandler = VCameraRotateHandler()
         self.viewHandler = viewHandler
         
-        let imageBorder:VBorder = VBorder(color:UIColor.black)
-        self.imageBorder = imageBorder
-        
         addSubview(blur)
-        addSubview(imageBorder)
-        addSubview(imageView)
+        addSubview(viewImage)
         addSubview(viewHandler)
         addSubview(viewBar)
         
@@ -70,6 +67,10 @@ class VCameraRotate:VView
         NSLayoutConstraint.bottomToBottom(
             view:viewHandler,
             toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:viewImage,
+            toView:viewHandler)
     }
     
     required init?(coder:NSCoder)
@@ -233,7 +234,7 @@ class VCameraRotate:VView
         {
             let radians:CGFloat = kTotalRotation * percent
             let transform:CGAffineTransform = CGAffineTransform.init(rotationAngle:radians)
-            imageView.transform = transform
+            viewImage.transform = transform
             
             viewHandler.handRight(delta:percent)
         }
@@ -241,7 +242,7 @@ class VCameraRotate:VView
         {
             let radians:CGFloat = kTotalRotation * -percent
             let transform:CGAffineTransform = CGAffineTransform.init(rotationAngle:radians)
-            imageView.transform = transform
+            viewImage.transform = transform
             
             viewHandler.handLeft(delta:percent)
         }
