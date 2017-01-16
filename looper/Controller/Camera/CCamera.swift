@@ -163,7 +163,10 @@ class CCamera:CController
     
     func scale(item:MCameraRecordEditable)
     {
-        
+        let controllerScale:CCameraScale = CCameraScale(record:item)
+        parentController.push(
+            controller:controllerScale,
+            vertical:CParent.TransitionVertical.fromTop)
     }
     
     func crop(item:MCameraRecordEditable)

@@ -3,6 +3,18 @@ import UIKit
 class CCameraScale:CController
 {
     private weak var viewScale:VCameraScale!
+    weak var record:MCameraRecordEditable!
+    
+    init(record:MCameraRecordEditable)
+    {
+        self.record = record
+        super.init()
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
     
     override func loadView()
     {
@@ -16,6 +28,6 @@ class CCameraScale:CController
     func save()
     {
         parentController.pop(
-            vertical:CParent.TransitionVertical.fromBottom)
+            vertical:CParent.TransitionVertical.fromTop)
     }
 }

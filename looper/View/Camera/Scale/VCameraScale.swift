@@ -3,11 +3,13 @@ import UIKit
 class VCameraScale:VView
 {
     private weak var controller:CCameraScale!
+    private weak var viewSlider:VCameraScaleSlider!
     private weak var buttonDone:UIButton!
     private weak var layoutDoneLeft:NSLayoutConstraint!
     private let kButtonHeight:CGFloat = 35
     private let kButtonWidth:CGFloat = 120
     private let kButtonBottom:CGFloat = 30
+    private let kSliderTop:CGFloat = 20
     
     override init(controller:CController)
     {
@@ -36,7 +38,11 @@ class VCameraScale:VView
             action:#selector(actionDone(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let viewSlider:VCameraScaleSlider = VCameraScaleSlider()
+        self.viewSlider = viewSlider
+        
         addSubview(blur)
+        addSubview(viewSlider)
         addSubview(buttonDone)
         
         NSLayoutConstraint.equals(
@@ -56,6 +62,20 @@ class VCameraScale:VView
         layoutDoneLeft = NSLayoutConstraint.leftToLeft(
             view:buttonDone,
             toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewSlider,
+            toView:self,
+            constant:kSliderTop)
+        NSLayoutConstraint.leftToLeft(
+            view:viewSlider,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:viewSlider,
+            toView:self)
+        NSLayoutConstraint.bottomToTop(
+            view:viewSlider,
+            toView:buttonDone)
     }
     
     required init?(coder:NSCoder)
