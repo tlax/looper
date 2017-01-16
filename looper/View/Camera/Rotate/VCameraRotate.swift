@@ -29,8 +29,8 @@ class VCameraRotate:VView
     private var currentDelta:CGFloat
     private var previousDelta:CGFloat
     private var maxMove:CGFloat
-    private let kAnimationDelta:CGFloat = 1.2
-    private let kTimerDuration:TimeInterval = 0.015
+    private let kAnimationDelta:CGFloat = 3
+    private let kTimerDuration:TimeInterval = 0.02
     private let kTotalRotation:CGFloat = CGFloat(M_PI + M_PI)
     private let kPercentThreeQuarters:CGFloat = 0.75
     private let kPercentHalf:CGFloat = 0.5
@@ -294,8 +294,6 @@ class VCameraRotate:VView
     
     private func animateTo()
     {
-        print("animate current \(currentDelta)")
-        
         let percent:CGFloat = fabs(currentDelta) / maxMove
         let newPercent:CGFloat
         
@@ -303,12 +301,10 @@ class VCameraRotate:VView
         {
             if percent - kPercentThreeQuarters >= kPercentThreshold
             {
-                animation = Animation.increase
                 newPercent = 1
             }
             else
             {
-                animation = Animation.decrease
                 newPercent = kPercentThreeQuarters
             }
         }
@@ -316,12 +312,10 @@ class VCameraRotate:VView
         {
             if percent - kPercentHalf >= kPercentThreshold
             {
-                animation = Animation.increase
                 newPercent = kPercentThreeQuarters
             }
             else
             {
-                animation = Animation.decrease
                 newPercent = kPercentHalf
             }
         }
@@ -329,12 +323,10 @@ class VCameraRotate:VView
         {
             if percent - kPercentQuarter >= kPercentThreshold
             {
-                animation = Animation.increase
                 newPercent = kPercentHalf
             }
             else
             {
-                animation = Animation.decrease
                 newPercent = kPercentQuarter
             }
         }
@@ -342,12 +334,10 @@ class VCameraRotate:VView
         {
             if percent >= kPercentThreshold
             {
-                animation = Animation.increase
                 newPercent = kPercentQuarter
             }
             else
             {
-                animation = Animation.decrease
                 newPercent = 0
             }
         }
@@ -361,7 +351,14 @@ class VCameraRotate:VView
             animateDeltaExpected = -newPercent * maxMove
         }
         
-        print("delta expected \(animateDeltaExpected)")
+        if animateDeltaExpected >= currentDelta
+        {
+            animation = Animation.increase
+        }
+        else
+        {
+            animation = Animation.decrease
+        }
         
         timer = Timer.scheduledTimer(
             timeInterval:kTimerDuration,
