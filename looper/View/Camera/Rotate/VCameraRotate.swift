@@ -21,7 +21,6 @@ class VCameraRotate:VView
     private weak var viewImage:VCameraRotateImage!
     private weak var viewHandler:VCameraRotateHandler!
     private var animateDeltaExpected:CGFloat
-    private var animateDeltaCurrent:CGFloat
     private var animation:Animation?
     private var initialPoint:CGPoint?
     private var movingX:CGFloat?
@@ -30,8 +29,8 @@ class VCameraRotate:VView
     private var currentDelta:CGFloat
     private var previousDelta:CGFloat
     private var maxMove:CGFloat
-    private let kAnimationDelta:CGFloat = 0.01
-    private let kTimerDuration:TimeInterval = 1
+    private let kAnimationDelta:CGFloat = 1.2
+    private let kTimerDuration:TimeInterval = 0.015
     private let kTotalRotation:CGFloat = CGFloat(M_PI + M_PI)
     private let kPercentThreeQuarters:CGFloat = 0.75
     private let kPercentHalf:CGFloat = 0.5
@@ -44,7 +43,6 @@ class VCameraRotate:VView
         currentDelta = 0
         previousDelta = 0
         maxMove = 0
-        animateDeltaCurrent = 0
         animateDeltaExpected = 0
         
         super.init(controller:controller)
@@ -125,6 +123,7 @@ class VCameraRotate:VView
                 return
             }
             
+            timer?.invalidate()
             initialPoint = touch.location(in:view)
             
             let initialX:CGFloat = initialPoint!.x
@@ -258,11 +257,11 @@ class VCameraRotate:VView
         {
         case Animation.increase:
 
-            animateDeltaCurrent += kAnimationDelta
+            currentDelta += kAnimationDelta
             
-            if animateDeltaCurrent > animateDeltaExpected
+            if currentDelta > animateDeltaExpected
             {
-                animateDeltaCurrent = animateDeltaExpected
+                currentDelta = animateDeltaExpected
                 
                 timer.invalidate()
             }
@@ -271,11 +270,11 @@ class VCameraRotate:VView
         
         case Animation.decrease:
             
-            animateDeltaCurrent -= kAnimationDelta
+            currentDelta -= kAnimationDelta
             
-            if animateDeltaCurrent < animateDeltaExpected
+            if currentDelta < animateDeltaExpected
             {
-                animateDeltaCurrent = animateDeltaExpected
+                currentDelta = animateDeltaExpected
                 
                 timer.invalidate()
             }
@@ -283,7 +282,7 @@ class VCameraRotate:VView
             break
         }
         
-        rotate(delta:animateDeltaCurrent)
+        rotateCurrentDelta()
         
         if !timer.isValid
         {
@@ -293,56 +292,76 @@ class VCameraRotate:VView
     
     //MARK: private
     
-    private func animateTo(delta:CGFloat)
+    private func animateTo()
     {
-        animateDeltaCurrent = delta
-        let percent:CGFloat = fabs(delta) / maxMove
+        print("animate current \(currentDelta)")
+        
+        let percent:CGFloat = fabs(currentDelta) / maxMove
         let newPercent:CGFloat
         
-        if percent > kPercentThreeQuarters
+        if percent >= kPercentThreeQuarters
         {
             if percent - kPercentThreeQuarters >= kPercentThreshold
             {
+                animation = Animation.increase
                 newPercent = 1
             }
             else
             {
+                animation = Animation.decrease
                 newPercent = kPercentThreeQuarters
             }
         }
-        else if percent > kPercentHalf
+        else if percent >= kPercentHalf
         {
             if percent - kPercentHalf >= kPercentThreshold
             {
+                animation = Animation.increase
                 newPercent = kPercentThreeQuarters
             }
             else
             {
+                animation = Animation.decrease
                 newPercent = kPercentHalf
+            }
+        }
+        else if percent >= kPercentQuarter
+        {
+            if percent - kPercentQuarter >= kPercentThreshold
+            {
+                animation = Animation.increase
+                newPercent = kPercentHalf
+            }
+            else
+            {
+                animation = Animation.decrease
+                newPercent = kPercentQuarter
             }
         }
         else
         {
-            if percent - kPercentQuarter >= kPercentThreshold
+            if percent >= kPercentThreshold
             {
+                animation = Animation.increase
                 newPercent = kPercentQuarter
             }
             else
             {
+                animation = Animation.decrease
                 newPercent = 0
             }
         }
         
-        if delta >= 0
+        if currentDelta >= 0
         {
-            animation = Animation.increase
-            animateDeltaExpected = newPercent * kTotalRotation
+            animateDeltaExpected = newPercent * maxMove
         }
         else
         {
-            animation = Animation.decrease
-            animateDeltaExpected = -newPercent * kTotalRotation
+            animateDeltaExpected = -newPercent * maxMove
         }
+        
+        print("delta expected \(animateDeltaExpected)")
         
         timer = Timer.scheduledTimer(
             timeInterval:kTimerDuration,
@@ -359,7 +378,7 @@ class VCameraRotate:VView
         movingY = nil
         previousDelta = currentDelta
         
-        animateTo(delta:previousDelta)
+        animateTo()
     }
     
     private func rotate(delta:CGFloat)
