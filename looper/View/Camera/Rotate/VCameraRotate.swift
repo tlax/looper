@@ -232,28 +232,37 @@ class VCameraRotate:VView
     private func rotate(delta:CGFloat)
     {
         currentDelta = delta + previousDelta
-        var percent:CGFloat = fabs(currentDelta) / maxMove
         
-        if percent > 1
+        if currentDelta >= 0
         {
-            percent = 1
+            if currentDelta > maxMove
+            {
+                currentDelta = maxMove
+            }
+        }
+        else
+        {
+            if currentDelta < -maxMove
+            {
+                currentDelta = -maxMove
+            }
         }
         
-        if delta >= 0
+        let percent:CGFloat = fabs(currentDelta) / maxMove
+        let radians:CGFloat = kTotalRotation * percent
+        let transform:CGAffineTransform
+        
+        if currentDelta >= 0
         {
-            let radians:CGFloat = kTotalRotation * percent
-            let transform:CGAffineTransform = CGAffineTransform.init(rotationAngle:radians)
-            viewImage.transform = transform
-            
+            transform = CGAffineTransform.init(rotationAngle:radians)
             viewHandler.handRight(delta:percent)
         }
         else
         {
-            let radians:CGFloat = kTotalRotation * -percent
-            let transform:CGAffineTransform = CGAffineTransform.init(rotationAngle:radians)
-            viewImage.transform = transform
-            
+            transform = CGAffineTransform.init(rotationAngle:-radians)
             viewHandler.handLeft(delta:percent)
         }
+        
+        viewImage.transform = transform
     }
 }
