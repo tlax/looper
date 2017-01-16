@@ -10,6 +10,7 @@ class VCameraRotate:VView
         case bottomRight
     }
     
+    weak var timer:Timer?
     private weak var controller:CCameraRotate!
     private weak var viewImage:VCameraRotateImage!
     private weak var viewHandler:VCameraRotateHandler!
@@ -80,6 +81,11 @@ class VCameraRotate:VView
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    deinit
+    {
+        timer?.invalidate()
     }
     
     override func layoutSubviews()
@@ -220,6 +226,11 @@ class VCameraRotate:VView
     }
     
     //MARK: private
+    
+    private func animateTo(delta:CGFloat)
+    {
+        
+    }
     
     private func finishRotate()
     {
