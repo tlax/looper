@@ -91,7 +91,7 @@ class VCameraScale:VView
     
     override func layoutSubviews()
     {
-        totalHeight = bounds.maxY
+        totalHeight = bounds.size.height
         let width:CGFloat = bounds.maxX
         let remain:CGFloat = width - kButtonWidth
         let margin:CGFloat = remain / 2.0
@@ -105,7 +105,7 @@ class VCameraScale:VView
         guard
         
             let touch:UITouch = touches.first,
-            let view:VCameraScaleSliderTrack = touch.view as? VCameraScaleSliderTrack
+            let view:VCameraScaleSlider = touch.view as? VCameraScaleSlider
         
         else
         {
@@ -121,7 +121,7 @@ class VCameraScale:VView
         guard
             
             let touch:UITouch = touches.first,
-            let view:VCameraScaleSliderTrack = touch.view as? VCameraScaleSliderTrack
+            let view:VCameraScaleSlider = touch.view as? VCameraScaleSlider
             
         else
         {
@@ -154,7 +154,7 @@ class VCameraScale:VView
     private func touchAtPoint(point:CGPoint)
     {
         let pointY:CGFloat = point.y
-        let normalY:CGFloat = pointY - totalHeight
+        let normalY:CGFloat = totalHeight - pointY
         var percent:CGFloat = normalY / totalHeight
         
         if percent > 1

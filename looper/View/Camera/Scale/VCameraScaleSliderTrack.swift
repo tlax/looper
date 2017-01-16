@@ -40,7 +40,7 @@ class VCameraScaleSliderTrack:UIView
     {
         let width:CGFloat = bounds.maxX
         layer.cornerRadius = width / 2.0
-        totalTrack = bounds.maxY
+        totalTrack = bounds.size.height
         
         super.layoutSubviews()
     }
