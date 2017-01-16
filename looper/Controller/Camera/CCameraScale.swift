@@ -2,12 +2,14 @@ import UIKit
 
 class CCameraScale:CController
 {
+    var currentPercent:CGFloat
     private weak var viewScale:VCameraScale!
     weak var record:MCameraRecordEditable!
     
     init(record:MCameraRecordEditable)
     {
         self.record = record
+        currentPercent = 1
         super.init()
     }
     
@@ -21,6 +23,12 @@ class CCameraScale:CController
         let viewScale:VCameraScale = VCameraScale(controller:self)
         self.viewScale = viewScale
         view = viewScale
+    }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        viewScale.updateSlider()
     }
     
     //MARK: public

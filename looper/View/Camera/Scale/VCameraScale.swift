@@ -9,8 +9,8 @@ class VCameraScale:VView
     private let kButtonHeight:CGFloat = 35
     private let kButtonWidth:CGFloat = 120
     private let kButtonBottom:CGFloat = -20
-    private let kSliderTop:CGFloat = 60
-    private let kSliderBottom:CGFloat = -40
+    private let kSliderTop:CGFloat = 80
+    private let kSliderBottom:CGFloat = -60
     
     override init(controller:CController)
     {
@@ -103,5 +103,12 @@ class VCameraScale:VView
         button.isUserInteractionEnabled = false
         
         controller.save()
+    }
+    
+    //MARK: public
+    
+    func updateSlider()
+    {
+        viewSlider.sliderSelected(percent:controller.currentPercent)
     }
 }

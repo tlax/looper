@@ -6,8 +6,8 @@ class VCameraScaleSlider:UIView
     private weak var labelPercent:UILabel!
     private weak var labelSize:UILabel!
     private weak var thumb:UIImageView!
-    private let kTrackLeft:CGFloat = 50
-    private let kTrackWidth:CGFloat = 5
+    private let kTrackLeft:CGFloat = 80
+    private let kTrackWidth:CGFloat = 3
     private let kTrackVerticalMargin:CGFloat = 1
     
     init()
@@ -38,5 +38,12 @@ class VCameraScaleSlider:UIView
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: public
+    
+    func sliderSelected(percent:CGFloat)
+    {
+        viewTrack.trackSelected(percent:percent)
     }
 }
