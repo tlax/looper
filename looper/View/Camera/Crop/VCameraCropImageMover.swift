@@ -33,4 +33,12 @@ class VCameraCropImageMover:UIView
         self.deltaLeft = deltaLeft
         self.deltaRight = deltaRight
     }
+    
+    func clear()
+    {
+        deltaTop = nil
+        deltaBottom = nil
+        deltaLeft = nil
+        deltaRight = nil
+    }
 }

@@ -15,7 +15,7 @@ class VCameraCropImage:UIView
     private weak var layoutImageBottom:NSLayoutConstraint!
     private weak var layoutImageLeft:NSLayoutConstraint!
     private weak var layoutImageRight:NSLayoutConstraint!
-    private weak var viewMover:UIView!
+    private weak var viewMover:VCameraCropImageMover!
     private weak var draggingThumb:VCameraCropImageThumb?
     private let attributes:[String:AnyObject]
     private let stringTimes:NSAttributedString
@@ -87,8 +87,7 @@ class VCameraCropImage:UIView
         let thumbBottomRight:VCameraCropImageThumb = VCameraCropImageThumb.bottomRight()
         self.thumbBottomRight = thumbBottomRight
         
-        let viewMover:UIView = UIView()
-        viewMover.translatesAutoresizingMaskIntoConstraints = false
+        let viewMover:VCameraCropImageMover = VCameraCropImageMover()
         self.viewMover = viewMover
         
         let label:UILabel = UILabel()
@@ -264,6 +263,7 @@ class VCameraCropImage:UIView
     private func draggingEnded()
     {
         draggingThumb = nil
+        viewMover.clear()
     }
     
     private func movingTopLeft(point:CGPoint)
