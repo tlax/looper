@@ -8,7 +8,8 @@ class VCameraCropImage:UIView
     private weak var layoutImageBottom:NSLayoutConstraint!
     private weak var layoutImageLeft:NSLayoutConstraint!
     private weak var layoutImageRight:NSLayoutConstraint!
-    private let kMinMargin:CGFloat = 60
+    private let kMinMargin:CGFloat = 30
+    private let kBackgroundMargin:CGFloat = -2
     
     init(controller:CCameraCrop)
     {
@@ -26,6 +27,9 @@ class VCameraCropImage:UIView
         imageView.image = controller.record.items.first?.image
         self.imageView = imageView
         
+        let background:VBorder = VBorder(color:UIColor.black)
+        
+        addSubview(background)
         addSubview(imageView)
         
         layoutImageTop = NSLayoutConstraint.topToTop(
@@ -40,6 +44,11 @@ class VCameraCropImage:UIView
         layoutImageRight = NSLayoutConstraint.rightToRight(
             view:imageView,
             toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:background,
+            toView:imageView,
+            margin:kBackgroundMargin)
     }
     
     required init?(coder:NSCoder)
