@@ -4,7 +4,35 @@ class VCameraCropImageShade:UIView
 {
     private let kBorderSize:CGFloat = 2
     
-    init(
+    class func borderTop() -> VCameraCropImageShade
+    {
+        let shade:VCameraCropImageShade = VCameraCropImageShade(borderTop:true)
+        
+        return shade
+    }
+    
+    class func borderBottom() -> VCameraCropImageShade
+    {
+        let shade:VCameraCropImageShade = VCameraCropImageShade(borderBottom:true)
+        
+        return shade
+    }
+    
+    class func borderLeft() -> VCameraCropImageShade
+    {
+        let shade:VCameraCropImageShade = VCameraCropImageShade(borderLeft:true)
+        
+        return shade
+    }
+    
+    class func borderRight() -> VCameraCropImageShade
+    {
+        let shade:VCameraCropImageShade = VCameraCropImageShade(borderRight:true)
+        
+        return shade
+    }
+    
+    private init(
         borderTop:Bool = false,
         borderBottom:Bool = false,
         borderLeft:Bool = false,

@@ -15,6 +15,7 @@ class VCameraCropImage:UIView
     private let imageSize:CGFloat
     private var hadLayout:Bool
     private var minDistance:CGFloat
+    private let thumbSize_2:CGFloat
     private let kTopMargin:CGFloat = 60
     private let kMinMargin:CGFloat = 40
     private let kThumbSize:CGFloat = 80
@@ -24,6 +25,7 @@ class VCameraCropImage:UIView
     {
         hadLayout = false
         minDistance = 0
+        thumbSize_2 = kThumbSize / 2.0
         
         if let imageSize:CGFloat = controller.record.items.first?.image.size.width
         {
@@ -62,8 +64,11 @@ class VCameraCropImage:UIView
         let thumbBottomRight:VCameraCropImageThumb = VCameraCropImageThumb.bottomRight()
         self.thumbBottomRight = thumbBottomRight
         
+        let shadeTop:VCameraCropImageShade = VCameraCropImageShade.borderTop()
+        
         addSubview(background)
         addSubview(imageView)
+        addSubview(shadeTop)
         addSubview(thumbTopLeft)
         addSubview(thumbTopRight)
         addSubview(thumbBottomLeft)
