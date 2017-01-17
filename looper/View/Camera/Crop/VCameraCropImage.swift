@@ -429,9 +429,14 @@ class VCameraCropImage:UIView
                 view:shadeTop,
                 toView:thumbTopLeft,
                 constant:thumbSize_2)
-            NSLayoutConstraint.equalsHorizontal(
+            NSLayoutConstraint.leftToLeft(
                 view:shadeTop,
-                toView:imageView)
+                toView:thumbTopLeft,
+                constant:thumbSize_2)
+            NSLayoutConstraint.rightToRight(
+                view:shadeTop,
+                toView:thumbTopRight,
+                constant:-thumbSize_2)
         }
     }
 }
