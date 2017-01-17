@@ -6,6 +6,7 @@ class CCameraScale:CController
     weak var record:MCameraRecordEditable!
     private weak var viewScale:VCameraScale!
     private let kMaxPercent:CGFloat = 1
+    private let kAnimationDuration:TimeInterval = 0.3
     
     init(record:MCameraRecordEditable)
     {
@@ -63,5 +64,19 @@ class CCameraScale:CController
         {
             savingFinished()
         }
+    }
+    
+    func reset()
+    {
+        currentPercent = kMaxPercent
+        viewScale.updateSlider()
+        
+        UIView.animate(
+            withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.viewScale.layoutIfNeeded()
+        }
+        
     }
 }

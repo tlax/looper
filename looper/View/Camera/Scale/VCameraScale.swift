@@ -195,7 +195,7 @@ class VCameraScale:VView
     
     func actionReset(sender button:UIButton)
     {
-        
+        controller.reset()
     }
     
     //MARK: private
