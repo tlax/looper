@@ -3,7 +3,7 @@ import UIKit
 class VCameraCropImageShade:UIView
 {
     private let kBorderSize:CGFloat = 1
-    private let kAlpha:CGFloat = 0.9
+    private let kAlpha:CGFloat = 0.75
     
     class func noBorder() -> VCameraCropImageShade
     {

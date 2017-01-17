@@ -9,14 +9,19 @@ class VCameraCropImage:UIView
     private weak var thumbBottomRight:VCameraCropImageThumb!
     private weak var imageView:UIImageView!
     private weak var background:VBorder!
+    private weak var label:UILabel!
     private weak var layoutImageBottom:NSLayoutConstraint!
     private weak var layoutImageLeft:NSLayoutConstraint!
     private weak var layoutImageRight:NSLayoutConstraint!
     private weak var draggingThumb:VCameraCropImageThumb?
+    private let attributes:[String:AnyObject]
+    private let stringTimes:NSAttributedString
     private let imageSize:CGFloat
+    private var imageRatio:CGFloat
     private var minDistance:CGFloat
     private var hadLayout:Bool
     private var shadesCreated:Bool
+    private let kTimes:String = " x "
     private let thumbSize_2:CGFloat
     private let kTopMargin:CGFloat = 60
     private let kMinMargin:CGFloat = 40
@@ -27,6 +32,7 @@ class VCameraCropImage:UIView
     {
         hadLayout = false
         shadesCreated = false
+        imageRatio = 0
         minDistance = 0
         thumbSize_2 = kThumbSize / 2.0
         
@@ -38,6 +44,17 @@ class VCameraCropImage:UIView
         {
             self.imageSize = 0
         }
+        
+        let attributesTimes:[String:AnyObject] = [
+            NSFontAttributeName:UIFont.bold(size:17),
+            NSForegroundColorAttributeName:UIColor.blue]
+        attributes = [
+            NSFontAttributeName:UIFont.bold(size:30),
+            NSForegroundColorAttributeName:UIColor.genericLight]
+        
+        stringTimes = NSAttributedString(
+            string:kTimes,
+            attributes:attributesTimes)
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -68,6 +85,14 @@ class VCameraCropImage:UIView
         let thumbBottomRight:VCameraCropImageThumb = VCameraCropImageThumb.bottomRight()
         self.thumbBottomRight = thumbBottomRight
         
+        let label:UILabel = UILabel()
+        label.isUserInteractionEnabled = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.clear
+        label.textAlignment = NSTextAlignment.center
+        self.label = label
+        
+        addSubview(label)
         addSubview(background)
         addSubview(imageView)
         addSubview(thumbTopLeft)
@@ -98,6 +123,16 @@ class VCameraCropImage:UIView
         layoutImageRight = NSLayoutConstraint.rightToRight(
             view:imageView,
             toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:label,
+            toView:background)
+        NSLayoutConstraint.bottomToBottom(
+            view:label,
+            toView:self)
+        NSLayoutConstraint.equalsHorizontal(
+            view:label,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -120,7 +155,7 @@ class VCameraCropImage:UIView
                 let width_margin2:CGFloat = width_margin - kMinMargin
                 let imageMaxY:CGFloat = width_margin2 + kTopMargin
                 let marginBottom:CGFloat = height - imageMaxY
-                let imageRatio:CGFloat = width_margin2 / imageSize
+                imageRatio = width_margin2 / imageSize
                 minDistance = ceil(imageRatio * MCamera.kImageMinSize)
                 
                 layoutImageLeft.constant = kMinMargin
@@ -410,6 +445,24 @@ class VCameraCropImage:UIView
             positionY:topY)
     }
     
+    private func print()
+    {
+        let posRight:CGFloat = thumbTopRight.positionX
+        let posLeft:CGFloat = thumbTopLeft.positionX
+        let deltaPos:CGFloat = posRight - posLeft
+        let size:Int = Int(deltaPos * imageRatio)
+        let string:String = "\(size)"
+        let stringSize:NSAttributedString = NSAttributedString(
+            string:string,
+            attributes:attributes)
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        mutableString.append(stringSize)
+        mutableString.append(stringTimes)
+        mutableString.append(stringSize)
+        
+        label.attributedText = mutableString
+    }
+    
     //MARK: public
     
     func createShades()
@@ -551,6 +604,8 @@ class VCameraCropImage:UIView
             NSLayoutConstraint.rightToRight(
                 view:shadeCornerBottomRight,
                 toView:background)
+            
+            print()
         }
     }
 }
