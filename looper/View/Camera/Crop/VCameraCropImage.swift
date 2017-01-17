@@ -11,6 +11,7 @@ class VCameraCropImage:UIView
     private weak var layoutImageBottom:NSLayoutConstraint!
     private weak var layoutImageLeft:NSLayoutConstraint!
     private weak var layoutImageRight:NSLayoutConstraint!
+    private weak var draggingThumb:VCameraCropImageThumb?
     private let kTopMargin:CGFloat = 50
     private let kMinMargin:CGFloat = 30
     private let kThumbSize:CGFloat = 80
@@ -111,5 +112,60 @@ class VCameraCropImage:UIView
             positionY:imageMaxY)
         
         super.layoutSubviews()
+    }
+    
+    override func touchesBegan(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        if draggingThumb == nil
+        {
+            guard
+            
+                let touch:UITouch = touches.first,
+                let draggingThumb:VCameraCropImageThumb = touch.view as? VCameraCropImageThumb
+            
+            else
+            {
+                return
+            }
+            
+            self.draggingThumb = draggingThumb
+        }
+    }
+    
+    override func touchesMoved(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        guard
+        
+            let draggingThumb:VCameraCropImageThumb = self.draggingThumb,
+            let touch:UITouch = touches.first
+        
+        else
+        {
+            return
+        }
+        
+        let newLocation:CGPoint = touch.location(in:self)
+        let newLocationX:CGFloat = newLocation.x
+        let newLocationY:CGFloat = newLocation.y
+        draggingThumb.position(
+            positionX:newLocationX,
+            positionY:newLocationY)
+    }
+    
+    override func touchesCancelled(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        draggingEnded()
+    }
+    
+    override func touchesEnded(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        draggingEnded()
+    }
+    
+    //MARK: private
+    
+    private func draggingEnded()
+    {
+        draggingThumb = nil
     }
 }
