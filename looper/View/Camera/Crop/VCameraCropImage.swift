@@ -4,10 +4,10 @@ class VCameraCropImage:UIView
 {
     private weak var controller:CCameraCrop!
     private weak var imageView:UIImageView!
-    private weak var layoutImageTop:NSLayoutConstraint!
     private weak var layoutImageBottom:NSLayoutConstraint!
     private weak var layoutImageLeft:NSLayoutConstraint!
     private weak var layoutImageRight:NSLayoutConstraint!
+    private let kTopMargin:CGFloat = 50
     private let kMinMargin:CGFloat = 30
     private let kBackgroundMargin:CGFloat = -2
     
@@ -23,7 +23,7 @@ class VCameraCropImage:UIView
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.center
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.image = controller.record.items.first?.image
         self.imageView = imageView
         
@@ -32,9 +32,10 @@ class VCameraCropImage:UIView
         addSubview(background)
         addSubview(imageView)
         
-        layoutImageTop = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:imageView,
-            toView:self)
+            toView:self,
+            constant:kTopMargin)
         layoutImageBottom = NSLayoutConstraint.bottomToBottom(
             view:imageView,
             toView:self)
@@ -60,29 +61,12 @@ class VCameraCropImage:UIView
     {
         let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
+        let width_margin:CGFloat = width - (kMinMargin + kMinMargin)
+        let marginBottom:CGFloat = height - (width_margin + kTopMargin)
         
-        if width <= height
-        {
-            let deltaSize:CGFloat = height - width
-            let deltaSize_2:CGFloat = deltaSize / 2.0
-            let marginDelta:CGFloat = kMinMargin + deltaSize_2
-            
-            layoutImageLeft.constant = kMinMargin
-            layoutImageRight.constant = -kMinMargin
-            layoutImageTop.constant = marginDelta
-            layoutImageBottom.constant = -marginDelta
-        }
-        else
-        {
-            let deltaSize:CGFloat = width - height
-            let deltaSize_2:CGFloat = deltaSize / 2.0
-            let marginDelta:CGFloat = kMinMargin + deltaSize_2
-            
-            layoutImageTop.constant = kMinMargin
-            layoutImageBottom.constant = -kMinMargin
-            layoutImageLeft.constant = marginDelta
-            layoutImageRight.constant = -marginDelta
-        }
+        layoutImageLeft.constant = kMinMargin
+        layoutImageRight.constant = -kMinMargin
+        layoutImageBottom.constant = -marginBottom
         
         super.layoutSubviews()
     }
