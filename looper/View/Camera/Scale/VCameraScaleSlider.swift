@@ -23,10 +23,10 @@ class VCameraScaleSlider:UIView
     private let kTrackWidth:CGFloat = 3
     private let kThumbSize:CGFloat = 42
     private let kLabelPercentHeight:CGFloat = 44
-    private let kLabelSizeHeight:CGFloat = 40
+    private let kLabelSizeHeight:CGFloat = 36
     private let kLabelsWidth:CGFloat = 240
     private let kLabelsLeft:CGFloat = 5
-    private let kLabelSizeTop:CGFloat = -15
+    private let kLabelSizeTop:CGFloat = -14
     private let kMaxDecimals:Int = 0
     private let kMinIntegers:Int = 1
     
@@ -50,12 +50,12 @@ class VCameraScaleSlider:UIView
         
         let attributesSigns:[String:AnyObject] = [
             NSFontAttributeName:UIFont.bold(size:18),
-            NSForegroundColorAttributeName:UIColor(white:0, alpha:0.3)]
+            NSForegroundColorAttributeName:UIColor(white:0, alpha:0.5)]
         attributesPercent = [
             NSFontAttributeName:UIFont.bold(size:34),
             NSForegroundColorAttributeName:UIColor.genericLight]
         attributesSize = [
-            NSFontAttributeName:UIFont.bold(size:30),
+            NSFontAttributeName:UIFont.bold(size:26),
             NSForegroundColorAttributeName:UIColor.genericAlternative]
         
         stringPercentSign = NSAttributedString(

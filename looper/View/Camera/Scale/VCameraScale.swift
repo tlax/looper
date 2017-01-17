@@ -4,6 +4,7 @@ class VCameraScale:VView
 {
     private weak var controller:CCameraScale!
     private weak var viewSlider:VCameraScaleSlider!
+    private weak var spinner:VSpinner!
     private weak var buttonDone:UIButton!
     private weak var layoutDoneLeft:NSLayoutConstraint!
     private var totalHeight:CGFloat
@@ -54,9 +55,14 @@ class VCameraScale:VView
         let viewSlider:VCameraScaleSlider = VCameraScaleSlider(controller:self.controller)
         self.viewSlider = viewSlider
         
+        let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
+        self.spinner = spinner
+        
         addSubview(blur)
         addSubview(viewSlider)
         addSubview(buttonDone)
+        addSubview(spinner)
         
         NSLayoutConstraint.equals(
             view:blur,
@@ -183,5 +189,12 @@ class VCameraScale:VView
     func updateSlider()
     {
         viewSlider.sliderSelected(percent:controller.currentPercent)
+    }
+    
+    func startLoading()
+    {
+        spinner.startAnimating()
+        viewSlider.isHidden = true
+        buttonDone.isHidden = true
     }
 }

@@ -3,13 +3,14 @@ import UIKit
 class CCameraScale:CController
 {
     var currentPercent:CGFloat
-    private weak var viewScale:VCameraScale!
     weak var record:MCameraRecordEditable!
+    private weak var viewScale:VCameraScale!
+    private let kMaxPercent:CGFloat = 1
     
     init(record:MCameraRecordEditable)
     {
         self.record = record
-        currentPercent = 1
+        currentPercent = kMaxPercent
         super.init()
     }
     
@@ -31,11 +32,36 @@ class CCameraScale:CController
         viewScale.updateSlider()
     }
     
+    //MARK: private
+    
+    private func savingFinished()
+    {
+        parentController.pop(
+            vertical:CParent.TransitionVertical.fromTop)
+    }
+    
+    private func asyncSave()
+    {
+        
+    }
+    
     //MARK: public
     
     func save()
     {
-        parentController.pop(
-            vertical:CParent.TransitionVertical.fromTop)
+        viewScale.startLoading()
+        
+        if currentPercent < kMaxPercent
+        {
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.asyncSave()
+            }
+        }
+        else
+        {
+            savingFinished()
+        }
     }
 }
