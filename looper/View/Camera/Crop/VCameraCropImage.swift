@@ -12,7 +12,9 @@ class VCameraCropImage:UIView
     private weak var layoutImageLeft:NSLayoutConstraint!
     private weak var layoutImageRight:NSLayoutConstraint!
     private weak var draggingThumb:VCameraCropImageThumb?
+    private let imageSize:CGFloat
     private var hadLayout:Bool
+    private var minDistance:CGFloat
     private let kTopMargin:CGFloat = 50
     private let kMinMargin:CGFloat = 30
     private let kThumbSize:CGFloat = 80
@@ -21,6 +23,16 @@ class VCameraCropImage:UIView
     init(controller:CCameraCrop)
     {
         hadLayout = false
+        minDistance = 0
+        
+        if let imageSize:CGFloat = controller.record.items.first?.image.size.width
+        {
+            self.imageSize = imageSize
+        }
+        else
+        {
+            self.imageSize = 0
+        }
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -38,16 +50,16 @@ class VCameraCropImage:UIView
         imageView.image = controller.record.items.first?.image
         self.imageView = imageView
         
-        let thumbTopLeft:VCameraCropImageThumb = VCameraCropImageThumb()
+        let thumbTopLeft:VCameraCropImageThumb = VCameraCropImageThumb.topLeft()
         self.thumbTopLeft = thumbTopLeft
         
-        let thumbTopRight:VCameraCropImageThumb = VCameraCropImageThumb()
+        let thumbTopRight:VCameraCropImageThumb = VCameraCropImageThumb.topRight()
         self.thumbTopRight = thumbTopRight
         
-        let thumbBottomLeft:VCameraCropImageThumb = VCameraCropImageThumb()
+        let thumbBottomLeft:VCameraCropImageThumb = VCameraCropImageThumb.bottomLeft()
         self.thumbBottomLeft = thumbBottomLeft
         
-        let thumbBottomRight:VCameraCropImageThumb = VCameraCropImageThumb()
+        let thumbBottomRight:VCameraCropImageThumb = VCameraCropImageThumb.bottomRight()
         self.thumbBottomRight = thumbBottomRight
         
         addSubview(background)
@@ -102,6 +114,10 @@ class VCameraCropImage:UIView
                 let width_margin2:CGFloat = width_margin - kMinMargin
                 let imageMaxY:CGFloat = width_margin2 + kTopMargin
                 let marginBottom:CGFloat = height - imageMaxY
+                let imageRatio:CGFloat = width_margin2 / imageSize
+                minDistance = imageRatio * MCamera.kImageMinSize
+                
+                print("min distance \(minDistance)")
                 
                 layoutImageLeft.constant = kMinMargin
                 layoutImageRight.constant = -kMinMargin
@@ -159,6 +175,26 @@ class VCameraCropImage:UIView
         var newLocationX:CGFloat = newLocation.x
         var newLocationY:CGFloat = newLocation.y
     
+        switch draggingThumb.location
+        {
+        case VCameraCropImageThumb.Location.topLeft:
+            
+            
+            
+            break
+            
+        case VCameraCropImageThumb.Location.topRight:
+            
+            break
+            
+        case VCameraCropImageThumb.Location.bottomLeft:
+            
+            break
+            
+        case VCameraCropImageThumb.Location.bottomRight:
+            
+            break
+        }
         
         draggingThumb.position(
             positionX:newLocationX,
