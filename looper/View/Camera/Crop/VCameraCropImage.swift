@@ -25,7 +25,7 @@ class VCameraCropImage:UIView
     private let thumbSize_2:CGFloat
     private let kTopMargin:CGFloat = 60
     private let kMinMargin:CGFloat = 40
-    private let kThumbSize:CGFloat = 80
+    private let kThumbSize:CGFloat = 60
     private let kBackgroundMargin:CGFloat = -3
     private let kLabelHeight:CGFloat = 100
     
