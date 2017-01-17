@@ -46,6 +46,7 @@
 		DA38AF141E1C302D008C86A8 /* VCameraPreviewPlayerTimerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF131E1C302D008C86A8 /* VCameraPreviewPlayerTimerSlider.swift */; };
 		DA38AF161E1C4E5E008C86A8 /* ExtensionURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF151E1C4E5E008C86A8 /* ExtensionURL.swift */; };
 		DA38AF181E1C5F20008C86A8 /* VLoopsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38AF171E1C5F20008C86A8 /* VLoopsCell.swift */; };
+		DA3C1C201E2EDFA900C094DD /* VCameraCropImageMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3C1C1F1E2EDFA900C094DD /* VCameraCropImageMover.swift */; };
 		DA4079041E241FFE002EED42 /* CStoreGoPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079031E241FFE002EED42 /* CStoreGoPlus.swift */; };
 		DA4079071E242358002EED42 /* VStoreGoPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079061E242358002EED42 /* VStoreGoPlus.swift */; };
 		DA4079091E2424DA002EED42 /* VStoreGoPlusButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079081E2424DA002EED42 /* VStoreGoPlusButtons.swift */; };
@@ -242,6 +243,7 @@
 		DA38AF131E1C302D008C86A8 /* VCameraPreviewPlayerTimerSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraPreviewPlayerTimerSlider.swift; sourceTree = "<group>"; };
 		DA38AF151E1C4E5E008C86A8 /* ExtensionURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionURL.swift; sourceTree = "<group>"; };
 		DA38AF171E1C5F20008C86A8 /* VLoopsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoopsCell.swift; sourceTree = "<group>"; };
+		DA3C1C1F1E2EDFA900C094DD /* VCameraCropImageMover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraCropImageMover.swift; sourceTree = "<group>"; };
 		DA4079031E241FFE002EED42 /* CStoreGoPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStoreGoPlus.swift; sourceTree = "<group>"; };
 		DA4079061E242358002EED42 /* VStoreGoPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreGoPlus.swift; sourceTree = "<group>"; };
 		DA4079081E2424DA002EED42 /* VStoreGoPlusButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreGoPlusButtons.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 				DA1320BD1E2E831B00E2D63D /* VCameraCropImage.swift */,
 				DA1320BF1E2E95C000E2D63D /* VCameraCropImageShade.swift */,
 				DA1320C11E2E999000E2D63D /* VCameraCropImageThumb.swift */,
+				DA3C1C1F1E2EDFA900C094DD /* VCameraCropImageMover.swift */,
 			);
 			path = Crop;
 			sourceTree = "<group>";
@@ -1306,6 +1309,7 @@
 				DAA5E5E61E2D5A110074149D /* CCameraScale.swift in Sources */,
 				DA9B83F41E13255F002B9810 /* CCameraShoot.swift in Sources */,
 				DAF604E71E23E16B00A1259E /* MStoreItemStatusNew.swift in Sources */,
+				DA3C1C201E2EDFA900C094DD /* VCameraCropImageMover.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

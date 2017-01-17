@@ -15,6 +15,7 @@ class VCameraCropImage:UIView
     private weak var layoutImageBottom:NSLayoutConstraint!
     private weak var layoutImageLeft:NSLayoutConstraint!
     private weak var layoutImageRight:NSLayoutConstraint!
+    private weak var viewMover:UIView!
     private weak var draggingThumb:VCameraCropImageThumb?
     private let attributes:[String:AnyObject]
     private let stringTimes:NSAttributedString
@@ -86,6 +87,10 @@ class VCameraCropImage:UIView
         let thumbBottomRight:VCameraCropImageThumb = VCameraCropImageThumb.bottomRight()
         self.thumbBottomRight = thumbBottomRight
         
+        let viewMover:UIView = UIView()
+        viewMover.translatesAutoresizingMaskIntoConstraints = false
+        self.viewMover = viewMover
+        
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -96,6 +101,7 @@ class VCameraCropImage:UIView
         addSubview(label)
         addSubview(background)
         addSubview(imageView)
+        addSubview(viewMover)
         addSubview(thumbTopLeft)
         addSubview(thumbTopRight)
         addSubview(thumbBottomLeft)
@@ -607,6 +613,19 @@ class VCameraCropImage:UIView
             NSLayoutConstraint.rightToRight(
                 view:shadeCornerBottomRight,
                 toView:background)
+            
+            NSLayoutConstraint.topToBottom(
+                view:viewMover,
+                toView:shadeTop)
+            NSLayoutConstraint.bottomToTop(
+                view:viewMover,
+                toView:shadeBottom)
+            NSLayoutConstraint.leftToRight(
+                view:viewMover,
+                toView:shadeLeft)
+            NSLayoutConstraint.rightToLeft(
+                view:viewMover,
+                toView:shadeRight)
             
             print()
         }
