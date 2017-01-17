@@ -16,6 +16,7 @@ class VCameraScale:VView
     private let kSliderTop:CGFloat = 90
     private let kSliderBottom:CGFloat = -40
     private let kMinAcceptedSize:CGFloat = 50
+    private let kAlphaLoading:CGFloat = 0.3
     
     override init(controller:CController)
     {
@@ -52,6 +53,7 @@ class VCameraScale:VView
             self,
             action:#selector(actionDone(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.buttonDone = buttonDone
         
         let buttonReset:UIButton = UIButton()
         buttonReset.translatesAutoresizingMaskIntoConstraints = false
@@ -71,6 +73,7 @@ class VCameraScale:VView
             self,
             action:#selector(actionReset(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.buttonReset = buttonReset
         
         let viewSlider:VCameraScaleSlider = VCameraScaleSlider(controller:self.controller)
         self.viewSlider = viewSlider
@@ -87,6 +90,10 @@ class VCameraScale:VView
         
         NSLayoutConstraint.equals(
             view:blur,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:spinner,
             toView:self)
         
         NSLayoutConstraint.bottomToTop(
@@ -230,6 +237,9 @@ class VCameraScale:VView
     {
         spinner.startAnimating()
         viewSlider.isHidden = true
-        buttonDone.isHidden = true
+        buttonDone.isUserInteractionEnabled = false
+        buttonReset.isUserInteractionEnabled = false
+        buttonDone.alpha = kAlphaLoading
+        buttonReset.alpha = kAlphaLoading
     }
 }
