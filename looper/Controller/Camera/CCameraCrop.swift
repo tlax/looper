@@ -23,6 +23,13 @@ class CCameraCrop:CController
         view = viewCrop
     }
     
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        viewCrop.viewImage.createShades()
+    }
+    
     //MARK: public
     
     func save()

@@ -2,8 +2,8 @@ import UIKit
 
 class VCameraCrop:VView
 {
+    weak var viewImage:VCameraCropImage!
     private weak var controller:CCameraCrop!
-    private weak var viewImage:VCameraCropImage!
     private weak var buttonDone:UIButton!
     private weak var buttonReset:UIButton!
     private weak var layoutDoneLeft:NSLayoutConstraint!

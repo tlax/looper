@@ -8,13 +8,15 @@ class VCameraCropImage:UIView
     private weak var thumbBottomLeft:VCameraCropImageThumb!
     private weak var thumbBottomRight:VCameraCropImageThumb!
     private weak var imageView:UIImageView!
+    private weak var background:VBorder!
     private weak var layoutImageBottom:NSLayoutConstraint!
     private weak var layoutImageLeft:NSLayoutConstraint!
     private weak var layoutImageRight:NSLayoutConstraint!
     private weak var draggingThumb:VCameraCropImageThumb?
     private let imageSize:CGFloat
-    private var hadLayout:Bool
     private var minDistance:CGFloat
+    private var hadLayout:Bool
+    private var shadesCreated:Bool
     private let thumbSize_2:CGFloat
     private let kTopMargin:CGFloat = 60
     private let kMinMargin:CGFloat = 40
@@ -24,6 +26,7 @@ class VCameraCropImage:UIView
     init(controller:CCameraCrop)
     {
         hadLayout = false
+        shadesCreated = false
         minDistance = 0
         thumbSize_2 = kThumbSize / 2.0
         
@@ -43,6 +46,7 @@ class VCameraCropImage:UIView
         self.controller = controller
         
         let background:VBorder = VBorder(color:UIColor.black)
+        self.background = background
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -64,11 +68,8 @@ class VCameraCropImage:UIView
         let thumbBottomRight:VCameraCropImageThumb = VCameraCropImageThumb.bottomRight()
         self.thumbBottomRight = thumbBottomRight
         
-        let shadeTop:VCameraCropImageShade = VCameraCropImageShade.borderTop()
-        
         addSubview(background)
         addSubview(imageView)
-        addSubview(shadeTop)
         addSubview(thumbTopLeft)
         addSubview(thumbTopRight)
         addSubview(thumbBottomLeft)
@@ -97,17 +98,6 @@ class VCameraCropImage:UIView
         layoutImageRight = NSLayoutConstraint.rightToRight(
             view:imageView,
             toView:self)
-        
-        NSLayoutConstraint.topToTop(
-            view:shadeTop,
-            toView:self)
-        NSLayoutConstraint.bottomToTop(
-            view:shadeTop,
-            toView:thumbTopLeft,
-            constant:thumbSize_2)
-        NSLayoutConstraint.equalsHorizontal(
-            view:shadeTop,
-            toView:imageView)
     }
     
     required init?(coder:NSCoder)
@@ -418,5 +408,30 @@ class VCameraCropImage:UIView
         thumbTopRight.position(
             positionX:pointX,
             positionY:topY)
+    }
+    
+    //MARK: public
+    
+    func createShades()
+    {
+        if !shadesCreated
+        {
+            shadesCreated = true
+            
+            let shadeTop:VCameraCropImageShade = VCameraCropImageShade.borderBottom()
+            
+            insertSubview(shadeTop, aboveSubview:imageView)
+            
+            NSLayoutConstraint.topToTop(
+                view:shadeTop,
+                toView:background)
+            NSLayoutConstraint.bottomToTop(
+                view:shadeTop,
+                toView:thumbTopLeft,
+                constant:thumbSize_2)
+            NSLayoutConstraint.equalsHorizontal(
+                view:shadeTop,
+                toView:imageView)
+        }
     }
 }
