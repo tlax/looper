@@ -6,7 +6,7 @@ class CCameraScale:CController
     weak var record:MCameraRecordEditable!
     private weak var viewScale:VCameraScale!
     private let kMaxPercent:CGFloat = 1
-    private let kAnimationDuration:TimeInterval = 0.3
+    private let kAnimationDuration:TimeInterval = 0.4
     
     init(record:MCameraRecordEditable)
     {
