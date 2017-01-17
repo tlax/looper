@@ -21,6 +21,7 @@
 "VCameraRotateBar_buttonSave"="Done";
 "VCameraRotateBar_buttonReset"="Reset";
 "VCameraScale_done"="Done";
+"VCameraScale_reset"="Reset";
 
 "CCameraShoot_noAuth"="looper has no access to your camera";
 "CCameraShoot_errorCaptureDevice"="Error connecting to camera";

@@ -53,6 +53,25 @@ class VCameraScale:VView
             action:#selector(actionDone(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonReset:UIButton = UIButton()
+        buttonReset.translatesAutoresizingMaskIntoConstraints = false
+        buttonReset.clipsToBounds = true
+        buttonReset.backgroundColor = UIColor.clear
+        buttonReset.setTitleColor(
+            UIColor.black,
+            for:UIControlState.normal)
+        buttonReset.setTitleColor(
+            UIColor(white:0, alpha:0.2),
+            for:UIControlState.highlighted)
+        buttonReset.setTitle(
+            NSLocalizedString("VCameraScale_reset", comment:""),
+            for:UIControlState.normal)
+        buttonReset.titleLabel!.font = UIFont.medium(size:15)
+        buttonReset.addTarget(
+            self,
+            action:#selector(actionReset(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         let viewSlider:VCameraScaleSlider = VCameraScaleSlider(controller:self.controller)
         self.viewSlider = viewSlider
         
@@ -63,16 +82,16 @@ class VCameraScale:VView
         addSubview(blur)
         addSubview(viewSlider)
         addSubview(buttonDone)
+        addSubview(buttonReset)
         addSubview(spinner)
         
         NSLayoutConstraint.equals(
             view:blur,
             toView:self)
         
-        NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToTop(
             view:buttonDone,
-            toView:self,
-            constant:kButtonBottom)
+            toView:buttonReset)
         NSLayoutConstraint.height(
             view:buttonDone,
             constant:kButtonHeight)
@@ -82,6 +101,17 @@ class VCameraScale:VView
         layoutDoneLeft = NSLayoutConstraint.leftToLeft(
             view:buttonDone,
             toView:self)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:buttonReset,
+            toView:self,
+            constant:kButtonBottom)
+        NSLayoutConstraint.height(
+            view:buttonReset,
+            constant:kButtonWidth)
+        NSLayoutConstraint.equalsHorizontal(
+            view:buttonReset,
+            toView:buttonDone)
         
         NSLayoutConstraint.topToTop(
             view:viewSlider,
@@ -162,6 +192,11 @@ class VCameraScale:VView
         button.isUserInteractionEnabled = false
         
         controller.save()
+    }
+    
+    func actionReset(sender button:UIButton)
+    {
+        
     }
     
     //MARK: private
