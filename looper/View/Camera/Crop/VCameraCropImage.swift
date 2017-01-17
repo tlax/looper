@@ -421,10 +421,12 @@ class VCameraCropImage:UIView
             let shadeTop:VCameraCropImageShade = VCameraCropImageShade.borderBottom()
             let shadeBottom:VCameraCropImageShade = VCameraCropImageShade.borderTop()
             let shadeLeft:VCameraCropImageShade = VCameraCropImageShade.borderRight()
+            let shadeRight:VCameraCropImageShade = VCameraCropImageShade.borderLeft()
             
             insertSubview(shadeTop, aboveSubview:imageView)
             insertSubview(shadeBottom, aboveSubview:imageView)
             insertSubview(shadeLeft, aboveSubview:imageView)
+            insertSubview(shadeRight, aboveSubview:imageView)
             
             NSLayoutConstraint.topToTop(
                 view:shadeTop,
@@ -445,7 +447,7 @@ class VCameraCropImage:UIView
             NSLayoutConstraint.topToBottom(
                 view:shadeBottom,
                 toView:thumbBottomLeft,
-                constant:thumbSize_2)
+                constant:-thumbSize_2)
             NSLayoutConstraint.bottomToBottom(
                 view:shadeBottom,
                 toView:background)
@@ -473,6 +475,22 @@ class VCameraCropImage:UIView
                 view:shadeLeft,
                 toView:thumbTopLeft,
                 constant:thumbSize_2)
+            
+            NSLayoutConstraint.topToTop(
+                view:shadeRight,
+                toView:thumbTopRight,
+                constant:thumbSize_2)
+            NSLayoutConstraint.bottomToBottom(
+                view:shadeRight,
+                toView:thumbBottomRight,
+                constant:-thumbSize_2)
+            NSLayoutConstraint.leftToRight(
+                view:shadeRight,
+                toView:thumbTopLeft,
+                constant:-thumbSize_2)
+            NSLayoutConstraint.rightToRight(
+                view:shadeRight,
+                toView:background)
         }
     }
 }
