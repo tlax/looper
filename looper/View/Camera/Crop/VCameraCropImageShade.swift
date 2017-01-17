@@ -2,7 +2,14 @@ import UIKit
 
 class VCameraCropImageShade:UIView
 {
-    private let kBorderSize:CGFloat = 2
+    private let kBorderSize:CGFloat = 1
+    
+    class func noBorder() -> VCameraCropImageShade
+    {
+        let shade:VCameraCropImageShade = VCameraCropImageShade()
+        
+        return shade
+    }
     
     class func borderTop() -> VCameraCropImageShade
     {
