@@ -93,7 +93,7 @@ class VCameraScale:VView
         
         NSLayoutConstraint.equals(
             view:spinner,
-            toView:self)
+            toView:viewSlider)
         
         NSLayoutConstraint.bottomToTop(
             view:buttonDone,

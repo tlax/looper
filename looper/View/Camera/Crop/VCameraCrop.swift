@@ -6,11 +6,13 @@ class VCameraCrop:VView
     private weak var controller:CCameraCrop!
     private weak var buttonDone:UIButton!
     private weak var buttonReset:UIButton!
+    private weak var spinner:VSpinner!
     private weak var layoutDoneLeft:NSLayoutConstraint!
     private let kButtonDoneHeight:CGFloat = 35
     private let kButtonResetHeight:CGFloat = 50
     private let kButtonWidth:CGFloat = 120
     private let kAnimationDuration:TimeInterval = 0.3
+    private let kAlphaLoading:CGFloat = 0.3
     
     override init(controller:CController)
     {
@@ -64,7 +66,12 @@ class VCameraCrop:VView
         let viewImage:VCameraCropImage = VCameraCropImage(controller:self.controller)
         self.viewImage = viewImage
         
+        let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
+        self.spinner = spinner
+        
         addSubview(blur)
+        addSubview(spinner)
         addSubview(viewImage)
         addSubview(buttonDone)
         addSubview(buttonReset)
@@ -105,6 +112,10 @@ class VCameraCrop:VView
         NSLayoutConstraint.equalsHorizontal(
             view:viewImage,
             toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:spinner,
+            toView:viewImage)
     }
     
     required init?(coder:NSCoder)
@@ -148,5 +159,17 @@ class VCameraCrop:VView
             
             self?.viewImage.print()
         }
+    }
+    
+    //MARK: public
+    
+    func startLoading()
+    {
+        spinner.startAnimating()
+        viewImage.isHidden = true
+        buttonDone.isUserInteractionEnabled = false
+        buttonReset.isUserInteractionEnabled = false
+        buttonReset.alpha = kAlphaLoading
+        buttonDone.alpha = kAlphaLoading
     }
 }

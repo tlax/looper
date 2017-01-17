@@ -30,10 +30,28 @@ class CCameraCrop:CController
         viewCrop.viewImage.createShades()
     }
     
+    //MARK: private
+    
+    private func asyncSave()
+    {
+        
+    }
+    
+    private func savingFinished()
+    {
+        parentController.pop(vertical:CParent.TransitionVertical.fromTop)
+    }
+    
     //MARK: public
     
     func save()
     {
-        parentController.pop(vertical:CParent.TransitionVertical.fromTop)
+        viewCrop.startLoading()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+
+            self?.asyncSave()
+        }
     }
 }
