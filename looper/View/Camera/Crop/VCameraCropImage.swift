@@ -27,6 +27,7 @@ class VCameraCropImage:UIView
     private let kMinMargin:CGFloat = 40
     private let kThumbSize:CGFloat = 80
     private let kBackgroundMargin:CGFloat = -3
+    private let kLabelHeight:CGFloat = 100
     
     init(controller:CCameraCrop)
     {
@@ -124,9 +125,9 @@ class VCameraCropImage:UIView
             view:imageView,
             toView:self)
         
-        NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.height(
             view:label,
-            toView:background)
+            constant:kLabelHeight)
         NSLayoutConstraint.bottomToBottom(
             view:label,
             toView:self)
@@ -238,6 +239,8 @@ class VCameraCropImage:UIView
             
             break
         }
+        
+        print()
     }
     
     override func touchesCancelled(_ touches:Set<UITouch>, with event:UIEvent?)
