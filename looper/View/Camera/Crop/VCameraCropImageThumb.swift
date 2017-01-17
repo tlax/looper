@@ -122,4 +122,11 @@ class VCameraCropImageThumb:UIImageView
             image = #imageLiteral(resourceName: "assetCameraScaleThumb")
         }
     }
+    
+    func reset()
+    {
+        position(
+            positionX:originalX,
+            positionY:originalY)
+    }
 }

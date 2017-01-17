@@ -2,11 +2,12 @@ import UIKit
 
 class VCameraCropImage:UIView
 {
+    var imageRatio:CGFloat
+    weak var thumbTopLeft:VCameraCropImageThumb!
+    weak var thumbTopRight:VCameraCropImageThumb!
+    weak var thumbBottomLeft:VCameraCropImageThumb!
+    weak var thumbBottomRight:VCameraCropImageThumb!
     private weak var controller:CCameraCrop!
-    private weak var thumbTopLeft:VCameraCropImageThumb!
-    private weak var thumbTopRight:VCameraCropImageThumb!
-    private weak var thumbBottomLeft:VCameraCropImageThumb!
-    private weak var thumbBottomRight:VCameraCropImageThumb!
     private weak var imageView:UIImageView!
     private weak var background:VBorder!
     private weak var label:UILabel!
@@ -17,7 +18,6 @@ class VCameraCropImage:UIView
     private let attributes:[String:AnyObject]
     private let stringTimes:NSAttributedString
     private let imageSize:CGFloat
-    private var imageRatio:CGFloat
     private var minDistance:CGFloat
     private var hadLayout:Bool
     private var shadesCreated:Bool

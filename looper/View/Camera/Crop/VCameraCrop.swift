@@ -10,6 +10,7 @@ class VCameraCrop:VView
     private let kButtonDoneHeight:CGFloat = 35
     private let kButtonResetHeight:CGFloat = 50
     private let kButtonWidth:CGFloat = 120
+    private let kAnimationDuration:TimeInterval = 0.4
     
     override init(controller:CController)
     {
@@ -131,6 +132,16 @@ class VCameraCrop:VView
     
     func actionReset(sender button:UIButton)
     {
-//        controller.viewRotate.reset()
+        viewImage.thumbTopLeft.reset()
+        viewImage.thumbTopRight.reset()
+        viewImage.thumbBottomLeft.reset()
+        viewImage.thumbBottomRight.reset()
+        
+        UIView.animate(
+            withDuration:kAnimationDuration)
+        { [weak self] in
+
+            self?.viewImage.layoutIfNeeded()
+        }
     }
 }
