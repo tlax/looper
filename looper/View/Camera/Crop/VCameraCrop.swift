@@ -3,6 +3,7 @@ import UIKit
 class VCameraCrop:VView
 {
     private weak var controller:CCameraCrop!
+    private weak var viewImage:VCameraCropImage!
     private weak var buttonDone:UIButton!
     private weak var buttonReset:UIButton!
     private weak var layoutDoneLeft:NSLayoutConstraint!
@@ -59,7 +60,11 @@ class VCameraCrop:VView
             for:UIControlEvents.touchUpInside)
         self.buttonReset = buttonReset
         
+        let viewImage:VCameraCropImage = VCameraCropImage(controller:self.controller)
+        self.viewImage = viewImage
+        
         addSubview(blur)
+        addSubview(viewImage)
         addSubview(buttonDone)
         addSubview(buttonReset)
         
@@ -89,6 +94,16 @@ class VCameraCrop:VView
         NSLayoutConstraint.equalsHorizontal(
             view:buttonReset,
             toView:buttonDone)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewImage,
+            toView:self)
+        NSLayoutConstraint.bottomToTop(
+            view:viewImage,
+            toView:buttonDone)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewImage,
+            toView:self)
     }
     
     required init?(coder:NSCoder)

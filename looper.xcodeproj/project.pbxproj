@@ -12,6 +12,7 @@
 		DA11EF971E21ACE6002C10C4 /* VStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA11EF961E21ACE6002C10C4 /* VStore.swift */; };
 		DA1320B91E2E78DE00E2D63D /* CCameraCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1320B81E2E78DE00E2D63D /* CCameraCrop.swift */; };
 		DA1320BC1E2E799000E2D63D /* VCameraCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1320BB1E2E799000E2D63D /* VCameraCrop.swift */; };
+		DA1320BE1E2E831B00E2D63D /* VCameraCropImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1320BD1E2E831B00E2D63D /* VCameraCropImage.swift */; };
 		DA1655351E298DE400DA6808 /* MCameraMoreItemEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1655341E298DE400DA6808 /* MCameraMoreItemEmpty.swift */; };
 		DA1655371E298E4800DA6808 /* VCameraMoreCellEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1655361E298E4800DA6808 /* VCameraMoreCellEmpty.swift */; };
 		DA16553B1E29A9D600DA6808 /* CCameraRotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16553A1E29A9D600DA6808 /* CCameraRotate.swift */; };
@@ -205,6 +206,7 @@
 		DA11EF961E21ACE6002C10C4 /* VStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStore.swift; sourceTree = "<group>"; };
 		DA1320B81E2E78DE00E2D63D /* CCameraCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraCrop.swift; sourceTree = "<group>"; };
 		DA1320BB1E2E799000E2D63D /* VCameraCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraCrop.swift; sourceTree = "<group>"; };
+		DA1320BD1E2E831B00E2D63D /* VCameraCropImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraCropImage.swift; sourceTree = "<group>"; };
 		DA1655341E298DE400DA6808 /* MCameraMoreItemEmpty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraMoreItemEmpty.swift; sourceTree = "<group>"; };
 		DA1655361E298E4800DA6808 /* VCameraMoreCellEmpty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraMoreCellEmpty.swift; sourceTree = "<group>"; };
 		DA16553A1E29A9D600DA6808 /* CCameraRotate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraRotate.swift; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				DA1320BB1E2E799000E2D63D /* VCameraCrop.swift */,
+				DA1320BD1E2E831B00E2D63D /* VCameraCropImage.swift */,
 			);
 			path = Crop;
 			sourceTree = "<group>";
@@ -1220,6 +1223,7 @@
 				DAF604BE1E233FDD00A1259E /* VStoreFooter.swift in Sources */,
 				DA224AF91E2AA43400EF8271 /* VCameraRotateHandler.swift in Sources */,
 				DAD404DB1E1F3180005EA836 /* MCameraFilter.swift in Sources */,
+				DA1320BE1E2E831B00E2D63D /* VCameraCropImage.swift in Sources */,
 				DAF604EA1E23E16B00A1259E /* MStoreItemStatusPurchasing.swift in Sources */,
 				DA4EBC601E208A4300F9AC3D /* MHelpItemRecord.swift in Sources */,
 				DAFC40B81E1A02780044B14B /* CCameraCompress.swift in Sources */,

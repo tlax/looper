@@ -27,6 +27,6 @@ class CCameraCrop:CController
     
     func save()
     {
-        parentController.pop(vertical:CParent.TransitionVertical.fromBottom)
+        parentController.pop(vertical:CParent.TransitionVertical.fromTop)
     }
 }
