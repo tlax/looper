@@ -2,6 +2,7 @@ import UIKit
 
 class VCameraCropImage:UIView
 {
+    let imageSize:CGFloat
     var imageRatio:CGFloat
     weak var thumbTopLeft:VCameraCropImageThumb!
     weak var thumbTopRight:VCameraCropImageThumb!
@@ -17,7 +18,6 @@ class VCameraCropImage:UIView
     private weak var draggingThumb:VCameraCropImageThumb?
     private let attributes:[String:AnyObject]
     private let stringTimes:NSAttributedString
-    private let imageSize:CGFloat
     private var minDistance:CGFloat
     private var hadLayout:Bool
     private var shadesCreated:Bool
