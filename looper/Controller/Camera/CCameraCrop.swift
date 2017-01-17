@@ -2,7 +2,19 @@ import UIKit
 
 class CCameraCrop:CController
 {
+    weak var record:MCameraRecordEditable!
     private weak var viewCrop:VCameraCrop!
+    
+    init(record:MCameraRecordEditable)
+    {
+        self.record = record
+        super.init()
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
     
     override func loadView()
     {

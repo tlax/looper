@@ -171,7 +171,10 @@ class CCamera:CController
     
     func crop(item:MCameraRecordEditable)
     {
-        
+        let controllerCrop:CCameraCrop = CCameraCrop(record:item)
+        parentController.push(
+            controller:controllerCrop,
+            vertical:CParent.TransitionVertical.fromTop)
     }
     
     func showMore(item:MCameraRecordEditable)
