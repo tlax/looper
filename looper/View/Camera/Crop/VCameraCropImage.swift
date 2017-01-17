@@ -97,6 +97,17 @@ class VCameraCropImage:UIView
         layoutImageRight = NSLayoutConstraint.rightToRight(
             view:imageView,
             toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:shadeTop,
+            toView:self)
+        NSLayoutConstraint.bottomToTop(
+            view:shadeTop,
+            toView:thumbTopLeft,
+            constant:thumbSize_2)
+        NSLayoutConstraint.equalsHorizontal(
+            view:shadeTop,
+            toView:imageView)
     }
     
     required init?(coder:NSCoder)
