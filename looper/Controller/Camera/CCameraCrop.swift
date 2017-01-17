@@ -52,9 +52,9 @@ class CCameraCrop:CController
         {
             let originalSize:CGFloat = viewCrop.viewImage.imageSize
             let imageRatio:CGFloat = viewCrop.viewImage.imageRatio
-            let distanceLeft:CGFloat = deltaLeft * imageRatio
-            let distanceRight:CGFloat = deltaRight * imageRatio
-            let distanceTop:CGFloat = deltaTop * imageRatio
+            let distanceLeft:CGFloat = deltaLeft / imageRatio
+            let distanceRight:CGFloat = deltaRight / imageRatio
+            let distanceTop:CGFloat = deltaTop / imageRatio
             let newSize:CGFloat = originalSize - (distanceLeft + distanceRight)
             
             var croppedRecords:[MCameraRecordItem] = []
