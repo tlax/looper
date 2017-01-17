@@ -15,8 +15,8 @@ class VCameraCropImage:UIView
     private let imageSize:CGFloat
     private var hadLayout:Bool
     private var minDistance:CGFloat
-    private let kTopMargin:CGFloat = 50
-    private let kMinMargin:CGFloat = 30
+    private let kTopMargin:CGFloat = 60
+    private let kMinMargin:CGFloat = 40
     private let kThumbSize:CGFloat = 80
     private let kBackgroundMargin:CGFloat = -2
     
@@ -265,7 +265,49 @@ class VCameraCropImage:UIView
     
     private func movingTopRight(point:CGPoint)
     {
+        var pointX:CGFloat = point.x
+        var pointY:CGFloat = point.y
+        let originalX:CGFloat = thumbTopRight.originalX
+        let originalY:CGFloat = thumbTopRight.originalY
+        let leftX:CGFloat = thumbTopLeft.positionX
+        let bottomY:CGFloat = thumbBottomRight.positionY
         
+        if pointX > originalX
+        {
+            pointX = originalX
+        }
+        
+        if pointY < originalY
+        {
+            pointY = originalY
+        }
+        
+        var deltaX:CGFloat = pointX - leftX
+        var deltaY:CGFloat = bottomY - pointY
+        
+        if deltaX < minDistance
+        {
+            deltaX = minDistance
+        }
+        
+        if deltaY < minDistance
+        {
+            deltaY = minDistance
+        }
+        
+        let minDelta:CGFloat = min(deltaX, deltaY)
+        pointX = leftX + minDelta
+        pointY = bottomY - minDelta
+        
+        thumbTopRight.position(
+            positionX:pointX,
+            positionY:pointY)
+        thumbTopLeft.position(
+            positionX:leftX,
+            positionY:pointY)
+        thumbBottomRight.position(
+            positionX:pointX,
+            positionY:bottomY)
     }
     
     private func movingBottomLeft(point:CGPoint)
