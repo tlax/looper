@@ -448,7 +448,9 @@ class VCameraCropImage:UIView
             positionY:topY)
     }
     
-    private func print()
+    //MARK: public
+    
+    func print()
     {
         let posRight:CGFloat = thumbTopRight.positionX
         let posLeft:CGFloat = thumbTopLeft.positionX
@@ -465,8 +467,6 @@ class VCameraCropImage:UIView
         
         label.attributedText = mutableString
     }
-    
-    //MARK: public
     
     func createShades()
     {
