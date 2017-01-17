@@ -80,7 +80,6 @@ class VCameraCropImage:UIView
         layoutImageRight = NSLayoutConstraint.rightToRight(
             view:imageView,
             toView:self)
-
     }
     
     required init?(coder:NSCoder)
@@ -157,8 +156,9 @@ class VCameraCropImage:UIView
         }
         
         let newLocation:CGPoint = touch.location(in:self)
-        let newLocationX:CGFloat = newLocation.x
-        let newLocationY:CGFloat = newLocation.y
+        var newLocationX:CGFloat = newLocation.x
+        var newLocationY:CGFloat = newLocation.y
+    
         
         draggingThumb.position(
             positionX:newLocationX,

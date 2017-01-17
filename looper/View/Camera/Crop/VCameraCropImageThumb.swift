@@ -2,14 +2,24 @@ import UIKit
 
 class VCameraCropImageThumb:UIImageView
 {
+    enum Location
+    {
+        case topLeft
+        case topRight
+        case bottomLeft
+        case bottomRight
+    }
+    
     var positionX:CGFloat
     var positionY:CGFloat
+    let location:Location
     private weak var layoutTop:NSLayoutConstraint!
     private weak var layoutLeft:NSLayoutConstraint!
     private var size_2:CGFloat
     
-    init()
+    init(location:Location)
     {
+        self.location = location
         positionX = 0
         positionY = 0
         size_2 = 0
