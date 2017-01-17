@@ -7,19 +7,27 @@ class VCameraScale:VView
     private weak var buttonDone:UIButton!
     private weak var layoutDoneLeft:NSLayoutConstraint!
     private var totalHeight:CGFloat
+    private var minPercent:CGFloat
     private let kButtonHeight:CGFloat = 35
     private let kButtonWidth:CGFloat = 120
     private let kButtonBottom:CGFloat = -20
-    private let kSliderTop:CGFloat = 40
-    private let kSliderBottom:CGFloat = -40
+    private let kSliderTop:CGFloat = 80
+    private let kSliderBottom:CGFloat = -60
+    private let kMinAcceptedSize:CGFloat = 50
     
     override init(controller:CController)
     {
         totalHeight = 0
+        minPercent = 0
         
         super.init(controller:controller)
         backgroundColor = UIColor.clear
         self.controller = controller as? CCameraScale
+        
+        if let imageSize:CGFloat = self.controller.record.items.first?.image.size.width
+        {
+            minPercent = kMinAcceptedSize / imageSize
+        }
         
         let blur:VBlur = VBlur.extraLight()
         
@@ -161,9 +169,9 @@ class VCameraScale:VView
         {
             percent = 1
         }
-        else if percent < 0
+        else if percent < minPercent
         {
-            percent = 0
+            percent = minPercent
         }
         
         controller.currentPercent = percent

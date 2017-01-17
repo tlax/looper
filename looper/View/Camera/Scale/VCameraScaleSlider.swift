@@ -5,6 +5,7 @@ class VCameraScaleSlider:UIView
     private weak var controller:CCameraScale!
     private weak var viewTrack:VCameraScaleSliderTrack!
     private weak var labelPercent:UILabel!
+    private weak var labelSize:UILabel!
     private weak var thumb:UIImageView!
     private weak var layoutThumbBottom:NSLayoutConstraint!
     private var minThumbBottom:CGFloat
@@ -15,15 +16,17 @@ class VCameraScaleSlider:UIView
     private let stringTimesSign:NSAttributedString
     private let thumbSize_2:CGFloat
     private let originalSize:CGFloat
-    private let kPercentSign:String = "% \n"
+    private let kPercentSign:String = "%"
     private let kTimesSign:String = " x "
     private let kPercentMultiplier:CGFloat = 100
     private let kTrackLeft:CGFloat = 80
     private let kTrackWidth:CGFloat = 3
     private let kThumbSize:CGFloat = 42
-    private let kLabelPercentHeight:CGFloat = 38
+    private let kLabelPercentHeight:CGFloat = 44
+    private let kLabelSizeHeight:CGFloat = 40
     private let kLabelsWidth:CGFloat = 240
     private let kLabelsLeft:CGFloat = 5
+    private let kLabelSizeTop:CGFloat = -15
     private let kMaxDecimals:Int = 0
     private let kMinIntegers:Int = 1
     
@@ -46,13 +49,13 @@ class VCameraScaleSlider:UIView
         numberFormatter.minimumIntegerDigits = kMinIntegers
         
         let attributesSigns:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.bold(size:16),
-            NSForegroundColorAttributeName:UIColor.genericLight]
+            NSFontAttributeName:UIFont.bold(size:18),
+            NSForegroundColorAttributeName:UIColor(white:0, alpha:0.3)]
         attributesPercent = [
             NSFontAttributeName:UIFont.bold(size:34),
             NSForegroundColorAttributeName:UIColor.genericLight]
         attributesSize = [
-            NSFontAttributeName:UIFont.bold(size:25),
+            NSFontAttributeName:UIFont.bold(size:30),
             NSForegroundColorAttributeName:UIColor.genericAlternative]
         
         stringPercentSign = NSAttributedString(
@@ -87,13 +90,18 @@ class VCameraScaleSlider:UIView
         labelPercent.translatesAutoresizingMaskIntoConstraints = false
         labelPercent.backgroundColor = UIColor.clear
         labelPercent.isUserInteractionEnabled = false
-        labelPercent.font = UIFont.bold(size:34)
-        labelPercent.textColor = UIColor.genericLight
         self.labelPercent = labelPercent
         
+        let labelSize:UILabel = UILabel()
+        labelSize.translatesAutoresizingMaskIntoConstraints = false
+        labelSize.backgroundColor = UIColor.clear
+        labelSize.isUserInteractionEnabled = false
+        self.labelSize = labelSize
+        
         addSubview(viewTrack)
-        addSubview(thumb)
         addSubview(labelPercent)
+        addSubview(labelSize)
+        addSubview(thumb)
         
         NSLayoutConstraint.topToTop(
             view:viewTrack,
@@ -143,6 +151,21 @@ class VCameraScaleSlider:UIView
         NSLayoutConstraint.width(
             view:labelPercent,
             constant:kLabelsWidth)
+        
+        NSLayoutConstraint.topToBottom(
+            view:labelSize,
+            toView:labelPercent,
+            constant:kLabelSizeTop)
+        NSLayoutConstraint.height(
+            view:labelSize,
+            constant:kLabelSizeHeight)
+        NSLayoutConstraint.leftToRight(
+            view:labelSize,
+            toView:thumb,
+            constant:kLabelsLeft)
+        NSLayoutConstraint.width(
+            view:labelSize,
+            constant:kLabelsWidth)
     }
     
     required init?(coder:NSCoder)
@@ -184,14 +207,16 @@ class VCameraScaleSlider:UIView
             string:sizeString,
             attributes:attributesSize)
         
-        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
-        mutableString.append(attributeStringPercent)
-        mutableString.append(stringPercentSign)
-        mutableString.append(attributeStringSize)
-        mutableString.append(stringTimesSign)
-        mutableString.append(attributeStringSize)
+        let mutableStringPercent:NSMutableAttributedString = NSMutableAttributedString()
+        let mutableStringSize:NSMutableAttributedString = NSMutableAttributedString()
+        mutableStringPercent.append(attributeStringPercent)
+        mutableStringPercent.append(stringPercentSign)
+        mutableStringSize.append(attributeStringSize)
+        mutableStringSize.append(stringTimesSign)
+        mutableStringSize.append(attributeStringSize)
         
-        labelPercent.attributedText = mutableString
+        labelPercent.attributedText = mutableStringPercent
+        labelSize.attributedText = mutableStringSize
     }
     
     //MARK: public
