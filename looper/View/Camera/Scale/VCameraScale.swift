@@ -15,7 +15,6 @@ class VCameraScale:VView
     private let kButtonWidth:CGFloat = 120
     private let kSliderTop:CGFloat = 90
     private let kSliderBottom:CGFloat = -40
-    private let kMinAcceptedSize:CGFloat = 50
     private let kAlphaLoading:CGFloat = 0.3
     
     override init(controller:CController)
@@ -29,7 +28,7 @@ class VCameraScale:VView
         
         if let imageSize:CGFloat = self.controller.record.items.first?.image.size.width
         {
-            minPercent = kMinAcceptedSize / imageSize
+            minPercent = MCamera.kImageMinSize / imageSize
         }
         
         let blur:VBlur = VBlur.extraLight()

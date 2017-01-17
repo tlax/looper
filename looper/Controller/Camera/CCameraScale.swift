@@ -43,7 +43,59 @@ class CCameraScale:CController
     
     private func asyncSave()
     {
+        var scaledRecords:[MCameraRecordItem] = []
         
+        guard
+            
+            let firstImage:UIImage = record.items.first?.image
+            
+        else
+        {
+            return
+        }
+        
+        let originalSize:CGFloat = firstImage.size.width
+        let scaledSize:CGFloat = floor(originalSize * currentPercent)
+        let imageSize:CGSize = CGSize(
+            width:scaledSize,
+            height:scaledSize)
+        let drawingRect:CGRect = CGRect(
+            x:0,
+            y:0,
+            width:scaledSize,
+            height:scaledSize)
+        
+        for rawItem:MCameraRecordItem in record.items
+        {
+            let originalImage:UIImage = rawItem.image
+            
+            UIGraphicsBeginImageContext(imageSize)
+            originalImage.draw(in:drawingRect)
+            
+            guard
+                
+                let scaledImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+                
+            else
+            {
+                UIGraphicsEndImageContext()
+                continue
+            }
+            
+            UIGraphicsEndImageContext()
+            
+            let scaledItem:MCameraRecordItem = MCameraRecordItem(
+                image:scaledImage)
+            scaledRecords.append(scaledItem)
+        }
+        
+        record.items = scaledRecords
+        
+        DispatchQueue.main.async
+        { [weak self] in
+                
+            self?.savingFinished()
+        }
     }
     
     //MARK: public
