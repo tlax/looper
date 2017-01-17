@@ -10,11 +10,11 @@ class VCameraScale:VView
     private weak var layoutDoneLeft:NSLayoutConstraint!
     private var totalHeight:CGFloat
     private var minPercent:CGFloat
-    private let kButtonHeight:CGFloat = 35
+    private let kButtonDoneHeight:CGFloat = 35
+    private let kButtonResetHeight:CGFloat = 50
     private let kButtonWidth:CGFloat = 120
-    private let kButtonBottom:CGFloat = -20
-    private let kSliderTop:CGFloat = 80
-    private let kSliderBottom:CGFloat = -60
+    private let kSliderTop:CGFloat = 90
+    private let kSliderBottom:CGFloat = -40
     private let kMinAcceptedSize:CGFloat = 50
     
     override init(controller:CController)
@@ -37,7 +37,7 @@ class VCameraScale:VView
         buttonDone.translatesAutoresizingMaskIntoConstraints = false
         buttonDone.clipsToBounds = true
         buttonDone.backgroundColor = UIColor.genericLight
-        buttonDone.layer.cornerRadius = kButtonHeight / 2.0
+        buttonDone.layer.cornerRadius = kButtonDoneHeight / 2.0
         buttonDone.setTitleColor(
             UIColor.white,
             for:UIControlState.normal)
@@ -66,7 +66,7 @@ class VCameraScale:VView
         buttonReset.setTitle(
             NSLocalizedString("VCameraScale_reset", comment:""),
             for:UIControlState.normal)
-        buttonReset.titleLabel!.font = UIFont.medium(size:15)
+        buttonReset.titleLabel!.font = UIFont.medium(size:14)
         buttonReset.addTarget(
             self,
             action:#selector(actionReset(sender:)),
@@ -94,7 +94,7 @@ class VCameraScale:VView
             toView:buttonReset)
         NSLayoutConstraint.height(
             view:buttonDone,
-            constant:kButtonHeight)
+            constant:kButtonDoneHeight)
         NSLayoutConstraint.width(
             view:buttonDone,
             constant:kButtonWidth)
@@ -104,11 +104,10 @@ class VCameraScale:VView
         
         NSLayoutConstraint.bottomToBottom(
             view:buttonReset,
-            toView:self,
-            constant:kButtonBottom)
+            toView:self)
         NSLayoutConstraint.height(
             view:buttonReset,
-            constant:kButtonWidth)
+            constant:kButtonResetHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:buttonReset,
             toView:buttonDone)
@@ -136,7 +135,7 @@ class VCameraScale:VView
     
     override func layoutSubviews()
     {
-        totalHeight = bounds.maxY - (kSliderTop - kSliderBottom + kButtonHeight - kButtonBottom)
+        totalHeight = bounds.maxY - (kSliderTop - kSliderBottom + kButtonDoneHeight + kButtonResetHeight)
         let width:CGFloat = bounds.maxX
         let remain:CGFloat = width - kButtonWidth
         let margin:CGFloat = remain / 2.0
