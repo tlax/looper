@@ -579,7 +579,9 @@ class VCameraRotate:VView
         spinner.startAnimating()
         viewHandler.isHidden = true
         viewImage.isHidden = true
-        viewBar.isUserInteractionEnabled = false
-        viewBar.alpha = kAlphaLoading
+        buttonDone.isUserInteractionEnabled = false
+        buttonReset.isUserInteractionEnabled = false
+        buttonDone.alpha = kAlphaLoading
+        buttonReset.alpha = kAlphaLoading
     }
 }
