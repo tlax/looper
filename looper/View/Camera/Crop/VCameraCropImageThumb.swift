@@ -12,6 +12,8 @@ class VCameraCropImageThumb:UIImageView
     
     var positionX:CGFloat
     var positionY:CGFloat
+    var originalX:CGFloat!
+    var originalY:CGFloat!
     let location:Location
     private weak var layoutTop:NSLayoutConstraint!
     private weak var layoutLeft:NSLayoutConstraint!
@@ -78,6 +80,12 @@ class VCameraCropImageThumb:UIImageView
         self.positionY = positionY
         layoutTop.constant = positionY - size_2
         layoutLeft.constant = positionX - size_2
+        
+        if originalX == nil
+        {
+            originalX = positionX
+            originalY = positionY
+        }
     }
     
     func initConstraints(size:CGFloat)

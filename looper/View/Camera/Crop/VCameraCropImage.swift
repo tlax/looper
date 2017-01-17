@@ -220,8 +220,21 @@ class VCameraCropImage:UIView
     {
         var pointX:CGFloat = point.x
         var pointY:CGFloat = point.y
+        let originalX:CGFloat = thumbTopLeft.originalX
+        let originalY:CGFloat = thumbTopLeft.originalY
         let rightX:CGFloat = thumbTopRight.positionX
         let bottomY:CGFloat = thumbBottomLeft.positionY
+        
+        if pointX < originalX
+        {
+            pointX = originalX
+        }
+        
+        if pointY < originalY
+        {
+            pointY = originalY
+        }
+        
         var deltaX:CGFloat = rightX - pointX
         var deltaY:CGFloat = bottomY - pointY
         
