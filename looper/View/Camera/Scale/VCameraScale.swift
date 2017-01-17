@@ -6,6 +6,7 @@ class VCameraScale:VView
     private weak var viewSlider:VCameraScaleSlider!
     private weak var spinner:VSpinner!
     private weak var buttonDone:UIButton!
+    private weak var buttonReset:UIButton!
     private weak var layoutDoneLeft:NSLayoutConstraint!
     private var totalHeight:CGFloat
     private var minPercent:CGFloat
