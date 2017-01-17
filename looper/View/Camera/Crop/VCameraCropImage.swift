@@ -3,12 +3,17 @@ import UIKit
 class VCameraCropImage:UIView
 {
     private weak var controller:CCameraCrop!
+    private weak var thumbTopLeft:VCameraCropImageThumb!
+    private weak var thumbTopRight:VCameraCropImageThumb!
+    private weak var thumbBottomLeft:VCameraCropImageThumb!
+    private weak var thumbBottomRight:VCameraCropImageThumb!
     private weak var imageView:UIImageView!
     private weak var layoutImageBottom:NSLayoutConstraint!
     private weak var layoutImageLeft:NSLayoutConstraint!
     private weak var layoutImageRight:NSLayoutConstraint!
     private let kTopMargin:CGFloat = 50
     private let kMinMargin:CGFloat = 30
+    private let kThumbSize:CGFloat = 80
     private let kBackgroundMargin:CGFloat = -2
     
     init(controller:CCameraCrop)
@@ -19,6 +24,8 @@ class VCameraCropImage:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
+        let background:VBorder = VBorder(color:UIColor.black)
+        
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -27,10 +34,29 @@ class VCameraCropImage:UIView
         imageView.image = controller.record.items.first?.image
         self.imageView = imageView
         
-        let background:VBorder = VBorder(color:UIColor.black)
+        let thumbTopLeft:VCameraCropImageThumb = VCameraCropImageThumb()
+        self.thumbTopLeft = thumbTopLeft
+        
+        let thumbTopRight:VCameraCropImageThumb = VCameraCropImageThumb()
+        self.thumbTopRight = thumbTopRight
+        
+        let thumbBottomLeft:VCameraCropImageThumb = VCameraCropImageThumb()
+        self.thumbBottomLeft = thumbBottomLeft
+        
+        let thumbBottomRight:VCameraCropImageThumb = VCameraCropImageThumb()
+        self.thumbBottomRight = thumbBottomRight
         
         addSubview(background)
         addSubview(imageView)
+        addSubview(thumbTopLeft)
+        addSubview(thumbTopRight)
+        addSubview(thumbBottomLeft)
+        addSubview(thumbBottomRight)
+        
+        NSLayoutConstraint.equals(
+            view:background,
+            toView:imageView,
+            margin:kBackgroundMargin)
         
         NSLayoutConstraint.topToTop(
             view:imageView,
@@ -45,11 +71,7 @@ class VCameraCropImage:UIView
         layoutImageRight = NSLayoutConstraint.rightToRight(
             view:imageView,
             toView:self)
-        
-        NSLayoutConstraint.equals(
-            view:background,
-            toView:imageView,
-            margin:kBackgroundMargin)
+
     }
     
     required init?(coder:NSCoder)

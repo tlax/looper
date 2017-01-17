@@ -3,7 +3,7 @@ import UIKit
 class VCameraCropImageThumb:UIImageView
 {
     weak var layoutTop:NSLayoutConstraint!
-    weak var layoutBottom:NSLayoutConstraint!
+    weak var layoutLeft:NSLayoutConstraint!
     
     init()
     {
@@ -22,6 +22,28 @@ class VCameraCropImageThumb:UIImageView
     }
     
     //MARK: public
+    
+    func initConstraints(size:CGFloat)
+    {
+        guard
+            
+            let superview:UIView = self.superview
+        
+        else
+        {
+            return
+        }
+        
+        layoutTop = NSLayoutConstraint.topToTop(
+            view:self,
+            toView:superview)
+        layoutLeft = NSLayoutConstraint.leftToLeft(
+            view:self,
+            toView:superview)
+        NSLayoutConstraint.size(
+            view:self,
+            constant:size)
+    }
     
     func state(selected:Bool)
     {
