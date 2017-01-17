@@ -72,7 +72,13 @@ class MCameraCompressItem
             }
             
             let originalSize:CGFloat = originalImage.size.width
-            let scaledSize:CGFloat = originalSize * resize
+            var scaledSize:CGFloat = originalSize * resize
+            
+            if scaledSize < MCamera.kImageMinSize
+            {
+                scaledSize = MCamera.kImageMinSize
+            }
+            
             let imageSize:CGSize = CGSize(
                 width:scaledSize,
                 height:scaledSize)
