@@ -453,7 +453,7 @@ class VCameraCropImage:UIView
         let posRight:CGFloat = thumbTopRight.positionX
         let posLeft:CGFloat = thumbTopLeft.positionX
         let deltaPos:CGFloat = posRight - posLeft
-        let size:Int = Int(deltaPos * imageRatio)
+        let size:Int = Int(ceil(deltaPos / imageRatio))
         let string:String = "\(size)"
         let stringSize:NSAttributedString = NSAttributedString(
             string:string,
