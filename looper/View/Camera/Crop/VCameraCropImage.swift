@@ -499,6 +499,58 @@ class VCameraCropImage:UIView
             NSLayoutConstraint.rightToRight(
                 view:shadeRight,
                 toView:background)
+            
+            NSLayoutConstraint.topToTop(
+                view:shadeCornerTopLeft,
+                toView:background)
+            NSLayoutConstraint.bottomToTop(
+                view:shadeCornerTopLeft,
+                toView:shadeLeft)
+            NSLayoutConstraint.leftToLeft(
+                view:shadeCornerTopLeft,
+                toView:background)
+            NSLayoutConstraint.rightToLeft(
+                view:shadeCornerTopLeft,
+                toView:shadeTop)
+            
+            NSLayoutConstraint.topToTop(
+                view:shadeCornerTopRight,
+                toView:background)
+            NSLayoutConstraint.bottomToTop(
+                view:shadeCornerTopRight,
+                toView:shadeRight)
+            NSLayoutConstraint.leftToRight(
+                view:shadeCornerTopRight,
+                toView:shadeTop)
+            NSLayoutConstraint.rightToRight(
+                view:shadeCornerTopRight,
+                toView:background)
+            
+            NSLayoutConstraint.topToBottom(
+                view:shadeCornerBottomLeft,
+                toView:shadeLeft)
+            NSLayoutConstraint.bottomToBottom(
+                view:shadeCornerBottomLeft,
+                toView:background)
+            NSLayoutConstraint.leftToLeft(
+                view:shadeCornerBottomLeft,
+                toView:background)
+            NSLayoutConstraint.rightToLeft(
+                view:shadeCornerBottomLeft,
+                toView:shadeBottom)
+            
+            NSLayoutConstraint.topToBottom(
+                view:shadeCornerBottomRight,
+                toView:shadeRight)
+            NSLayoutConstraint.bottomToBottom(
+                view:shadeCornerBottomRight,
+                toView:background)
+            NSLayoutConstraint.leftToRight(
+                view:shadeCornerBottomRight,
+                toView:shadeBottom)
+            NSLayoutConstraint.rightToRight(
+                view:shadeCornerBottomRight,
+                toView:background)
         }
     }
 }
