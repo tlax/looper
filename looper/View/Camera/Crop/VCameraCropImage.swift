@@ -115,9 +115,7 @@ class VCameraCropImage:UIView
                 let imageMaxY:CGFloat = width_margin2 + kTopMargin
                 let marginBottom:CGFloat = height - imageMaxY
                 let imageRatio:CGFloat = width_margin2 / imageSize
-                minDistance = imageRatio * MCamera.kImageMinSize
-                
-                print("min distance \(minDistance)")
+                minDistance = ceil(imageRatio * MCamera.kImageMinSize)
                 
                 layoutImageLeft.constant = kMinMargin
                 layoutImageRight.constant = -kMinMargin
@@ -171,34 +169,34 @@ class VCameraCropImage:UIView
             return
         }
         
-        let newLocation:CGPoint = touch.location(in:self)
-        var newLocationX:CGFloat = newLocation.x
-        var newLocationY:CGFloat = newLocation.y
+        let point:CGPoint = touch.location(in:self)
     
         switch draggingThumb.location
         {
         case VCameraCropImageThumb.Location.topLeft:
             
-            
+            movingTopLeft(point:point)
             
             break
             
         case VCameraCropImageThumb.Location.topRight:
             
+            movingTopRight(point:point)
+            
             break
             
         case VCameraCropImageThumb.Location.bottomLeft:
+            
+            movingBottomLeft(point:point)
             
             break
             
         case VCameraCropImageThumb.Location.bottomRight:
             
+            movingBottomRight(point:point)
+            
             break
         }
-        
-        draggingThumb.position(
-            positionX:newLocationX,
-            positionY:newLocationY)
     }
     
     override func touchesCancelled(_ touches:Set<UITouch>, with event:UIEvent?)
@@ -216,5 +214,54 @@ class VCameraCropImage:UIView
     private func draggingEnded()
     {
         draggingThumb = nil
+    }
+    
+    private func movingTopLeft(point:CGPoint)
+    {
+        var pointX:CGFloat = point.x
+        var pointY:CGFloat = point.y
+        let rightX:CGFloat = thumbTopRight.positionX
+        let bottomY:CGFloat = thumbBottomLeft.positionY
+        var deltaX:CGFloat = rightX - pointX
+        var deltaY:CGFloat = bottomY - pointY
+        
+        if deltaX < minDistance
+        {
+            deltaX = minDistance
+        }
+        
+        if deltaY < minDistance
+        {
+            deltaY = minDistance
+        }
+        
+        let minDelta:CGFloat = min(deltaX, deltaY)
+        pointX = rightX - minDelta
+        pointY = bottomY - minDelta
+        
+        thumbTopLeft.position(
+            positionX:pointX,
+            positionY:pointY)
+        thumbTopRight.position(
+            positionX:rightX,
+            positionY:pointY)
+        thumbBottomLeft.position(
+            positionX:pointX,
+            positionY:bottomY)
+    }
+    
+    private func movingTopRight(point:CGPoint)
+    {
+        
+    }
+    
+    private func movingBottomLeft(point:CGPoint)
+    {
+        
+    }
+    
+    private func movingBottomRight(point:CGPoint)
+    {
+        
     }
 }
