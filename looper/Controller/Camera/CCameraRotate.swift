@@ -117,7 +117,7 @@ class CCameraRotate:CController
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             { [weak self] in
                 
-                self?.asyncSave(orientation:orientation)
+               // self?.asyncSave(orientation:orientation)
             }
         }
     }

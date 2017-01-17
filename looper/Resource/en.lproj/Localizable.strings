@@ -18,8 +18,8 @@
 "VStoreGoPlusButtons_buttonStore"="Go Plus";
 "VCameraFilterBlenderOverlayList_done"="Done";
 "VCameraMoreCellClose_label"="Video options";
-"VCameraRotateBar_buttonSave"="Done";
-"VCameraRotateBar_buttonReset"="Reset";
+"VCameraRotate_buttonSave"="Done";
+"VCameraRotate_buttonReset"="Reset";
 "VCameraScale_done"="Done";
 "VCameraScale_reset"="Reset";
 

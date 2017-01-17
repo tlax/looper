@@ -21,8 +21,10 @@ class VCameraRotate:VView
     private weak var controller:CCameraRotate!
     private weak var viewImage:VCameraRotateImage!
     private weak var viewHandler:VCameraRotateHandler!
-    private weak var viewBar:VCameraRotateBar!
+    private weak var buttonDone:UIButton!
+    private weak var buttonReset:UIButton!
     private weak var spinner:VSpinner!
+    private weak var layoutDoneLeft:NSLayoutConstraint!
     private var animateDeltaExpected:CGFloat
     private var animation:Animation?
     private var initialPoint:CGPoint?
@@ -39,7 +41,10 @@ class VCameraRotate:VView
     private let kPercentHalf:CGFloat = 0.5
     private let kPercentQuarter:CGFloat = 0.25
     private let kPercentThreshold:CGFloat = 0.125
-    private let kBarHeight:CGFloat = 64
+    private let kAlphaLoading:CGFloat = 0.3
+    private let kButtonDoneHeight:CGFloat = 35
+    private let kButtonResetHeight:CGFloat = 50
+    private let kButtonWidth:CGFloat = 120
     
     override init(controller:CController)
     {
@@ -55,8 +60,46 @@ class VCameraRotate:VView
         
         let blur:VBlur = VBlur.extraLight()
         
-        let viewBar:VCameraRotateBar = VCameraRotateBar(controller:self.controller)
-        self.viewBar = viewBar
+        let buttonDone:UIButton = UIButton()
+        buttonDone.translatesAutoresizingMaskIntoConstraints = false
+        buttonDone.clipsToBounds = true
+        buttonDone.backgroundColor = UIColor.genericLight
+        buttonDone.layer.cornerRadius = kButtonDoneHeight / 2.0
+        buttonDone.setTitleColor(
+            UIColor.white,
+            for:UIControlState.normal)
+        buttonDone.setTitleColor(
+            UIColor(white:1, alpha:0.1),
+            for:UIControlState.highlighted)
+        buttonDone.setTitle(
+            NSLocalizedString("VCameraScale_done", comment:""),
+            for:UIControlState.normal)
+        buttonDone.titleLabel!.font = UIFont.bold(size:17)
+        buttonDone.addTarget(
+            self,
+            action:#selector(actionDone(sender:)),
+            for:UIControlEvents.touchUpInside)
+        self.buttonDone = buttonDone
+        
+        let buttonReset:UIButton = UIButton()
+        buttonReset.translatesAutoresizingMaskIntoConstraints = false
+        buttonReset.clipsToBounds = true
+        buttonReset.backgroundColor = UIColor.clear
+        buttonReset.setTitleColor(
+            UIColor.black,
+            for:UIControlState.normal)
+        buttonReset.setTitleColor(
+            UIColor(white:0, alpha:0.2),
+            for:UIControlState.highlighted)
+        buttonReset.setTitle(
+            NSLocalizedString("VCameraScale_reset", comment:""),
+            for:UIControlState.normal)
+        buttonReset.titleLabel!.font = UIFont.medium(size:14)
+        buttonReset.addTarget(
+            self,
+            action:#selector(actionReset(sender:)),
+            for:UIControlEvents.touchUpInside)
+        self.buttonReset = buttonReset
         
         let viewImage:VCameraRotateImage = VCameraRotateImage(controller:self.controller)
         self.viewImage = viewImage
@@ -72,27 +115,41 @@ class VCameraRotate:VView
         addSubview(viewImage)
         addSubview(spinner)
         addSubview(viewHandler)
-        addSubview(viewBar)
+        addSubview(buttonDone)
+        addSubview(buttonReset)
         
-        NSLayoutConstraint.equalsHorizontal(
-            view:viewBar,
+        NSLayoutConstraint.bottomToTop(
+            view:buttonDone,
+            toView:buttonReset)
+        NSLayoutConstraint.height(
+            view:buttonDone,
+            constant:kButtonDoneHeight)
+        NSLayoutConstraint.width(
+            view:buttonDone,
+            constant:kButtonWidth)
+        layoutDoneLeft = NSLayoutConstraint.leftToLeft(
+            view:buttonDone,
             toView:self)
-        NSLayoutConstraint.topToTop(
-            view:viewBar,
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:buttonReset,
             toView:self)
         NSLayoutConstraint.height(
-            view:viewBar,
-            constant:kBarHeight)
+            view:buttonReset,
+            constant:kButtonResetHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:buttonReset,
+            toView:buttonDone)
         
         NSLayoutConstraint.equalsHorizontal(
             view:viewHandler,
             toView:self)
-        NSLayoutConstraint.topToBottom(
-            view:viewHandler,
-            toView:viewBar)
-        NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.topToTop(
             view:viewHandler,
             toView:self)
+        NSLayoutConstraint.bottomToTop(
+            view:viewHandler,
+            toView:buttonDone)
         
         NSLayoutConstraint.equals(
             view:blur,
@@ -118,6 +175,9 @@ class VCameraRotate:VView
     override func layoutSubviews()
     {
         maxMove = bounds.maxX
+        let remain:CGFloat = maxMove - kButtonWidth
+        let margin:CGFloat = remain / 2.0
+        layoutDoneLeft.constant = margin
         
         super.layoutSubviews()
     }
@@ -303,6 +363,19 @@ class VCameraRotate:VView
         }
     }
     
+    //MARK: actions
+    
+    func actionDone(sender button:UIButton)
+    {
+        button.isUserInteractionEnabled = false
+        controller.save()
+    }
+    
+    func actionReset(sender button:UIButton)
+    {
+        controller.viewRotate.reset()
+    }
+    
     //MARK: private
     
     private func animateTo()
@@ -453,7 +526,7 @@ class VCameraRotate:VView
         rotateCurrentDelta()
     }
     
-    func rotateCurrentDelta()
+    private func rotateCurrentDelta()
     {
         let percent:CGFloat = fabs(currentDelta) / maxMove
         let radians:CGFloat = kTotalRotation * percent
@@ -506,6 +579,7 @@ class VCameraRotate:VView
         spinner.startAnimating()
         viewHandler.isHidden = true
         viewImage.isHidden = true
-        viewBar.isHidden = true
+        viewBar.isUserInteractionEnabled = false
+        viewBar.alpha = kAlphaLoading
     }
 }
