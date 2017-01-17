@@ -3,6 +3,7 @@ import UIKit
 class VCameraCropImageShade:UIView
 {
     private let kBorderSize:CGFloat = 1
+    private let kAlpha:CGFloat = 0.9
     
     class func noBorder() -> VCameraCropImageShade
     {
@@ -49,10 +50,7 @@ class VCameraCropImageShade:UIView
         clipsToBounds = true
         isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
-        
-        let blur:VBlur = VBlur.dark()
-        
-        addSubview(blur)
+        backgroundColor = UIColor(white:0, alpha:kAlpha)
         
         if borderTop
         {
@@ -121,10 +119,6 @@ class VCameraCropImageShade:UIView
                 view:border,
                 constant:kBorderSize)
         }
-        
-        NSLayoutConstraint.equals(
-            view:blur,
-            toView:self)
     }
     
     required init?(coder:NSCoder)
