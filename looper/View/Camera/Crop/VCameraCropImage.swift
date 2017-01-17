@@ -53,6 +53,11 @@ class VCameraCropImage:UIView
         addSubview(thumbBottomLeft)
         addSubview(thumbBottomRight)
         
+        thumbTopLeft.initConstraints(size:kThumbSize)
+        thumbTopRight.initConstraints(size:kThumbSize)
+        thumbBottomLeft.initConstraints(size:kThumbSize)
+        thumbBottomRight.initConstraints(size:kThumbSize)
+        
         NSLayoutConstraint.equals(
             view:background,
             toView:imageView,

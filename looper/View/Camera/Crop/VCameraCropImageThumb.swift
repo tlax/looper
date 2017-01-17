@@ -2,11 +2,18 @@ import UIKit
 
 class VCameraCropImageThumb:UIImageView
 {
-    weak var layoutTop:NSLayoutConstraint!
-    weak var layoutLeft:NSLayoutConstraint!
+    var positionX:CGFloat
+    var positionY:CGFloat
+    private weak var layoutTop:NSLayoutConstraint!
+    private weak var layoutLeft:NSLayoutConstraint!
+    private var size_2:CGFloat
     
     init()
     {
+        positionX = 0
+        positionY = 0
+        size_2 = 0
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
@@ -22,6 +29,14 @@ class VCameraCropImageThumb:UIImageView
     }
     
     //MARK: public
+ 
+    func position(positionX:CGFloat, positionY:CGFloat)
+    {
+        self.positionX = positionX
+        self.positionY = positionY
+        layoutTop.constant = positionY - size_2
+        layoutLeft.constant = positionX - size_2
+    }
     
     func initConstraints(size:CGFloat)
     {
@@ -34,6 +49,7 @@ class VCameraCropImageThumb:UIImageView
             return
         }
         
+        size_2 = size / 2.0
         layoutTop = NSLayoutConstraint.topToTop(
             view:self,
             toView:superview)
