@@ -17,7 +17,39 @@ class VCameraCropImageThumb:UIImageView
     private weak var layoutLeft:NSLayoutConstraint!
     private var size_2:CGFloat
     
-    init(location:Location)
+    class func topLeft() -> VCameraCropImageThumb
+    {
+        let thumb:VCameraCropImageThumb = VCameraCropImageThumb(
+            location:Location.topLeft)
+        
+        return thumb
+    }
+    
+    class func topRight() -> VCameraCropImageThumb
+    {
+        let thumb:VCameraCropImageThumb = VCameraCropImageThumb(
+            location:Location.topRight)
+        
+        return thumb
+    }
+    
+    class func bottomLeft() -> VCameraCropImageThumb
+    {
+        let thumb:VCameraCropImageThumb = VCameraCropImageThumb(
+            location:Location.bottomLeft)
+        
+        return thumb
+    }
+    
+    class func bottomRight() -> VCameraCropImageThumb
+    {
+        let thumb:VCameraCropImageThumb = VCameraCropImageThumb(
+            location:Location.bottomRight)
+        
+        return thumb
+    }
+    
+    private init(location:Location)
     {
         self.location = location
         positionX = 0
