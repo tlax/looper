@@ -15,10 +15,10 @@ class VCameraCropImageThumb:UIImageView
         size_2 = 0
         
         super.init(frame:CGRect.zero)
+        isUserInteractionEnabled = true
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         contentMode = UIViewContentMode.center
-        isUserInteractionEnabled = false
         
         state(selected:false)
     }

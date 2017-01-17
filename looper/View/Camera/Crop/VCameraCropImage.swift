@@ -12,6 +12,7 @@ class VCameraCropImage:UIView
     private weak var layoutImageLeft:NSLayoutConstraint!
     private weak var layoutImageRight:NSLayoutConstraint!
     private weak var draggingThumb:VCameraCropImageThumb?
+    private var hadLayout:Bool
     private let kTopMargin:CGFloat = 50
     private let kMinMargin:CGFloat = 30
     private let kThumbSize:CGFloat = 80
@@ -19,6 +20,8 @@ class VCameraCropImage:UIView
     
     init(controller:CCameraCrop)
     {
+        hadLayout = false
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -87,29 +90,38 @@ class VCameraCropImage:UIView
     
     override func layoutSubviews()
     {
-        let width:CGFloat = bounds.maxX
-        let height:CGFloat = bounds.maxY
-        let width_margin:CGFloat = width - kMinMargin
-        let width_margin2:CGFloat = width_margin - kMinMargin
-        let imageMaxY:CGFloat = width_margin2 + kTopMargin
-        let marginBottom:CGFloat = height - imageMaxY
-        
-        layoutImageLeft.constant = kMinMargin
-        layoutImageRight.constant = -kMinMargin
-        layoutImageBottom.constant = -marginBottom
-        
-        thumbTopLeft.position(
-            positionX:kMinMargin,
-            positionY:kTopMargin)
-        thumbTopRight.position(
-            positionX:width_margin,
-            positionY:kTopMargin)
-        thumbBottomLeft.position(
-            positionX:kMinMargin,
-            positionY:imageMaxY)
-        thumbBottomRight.position(
-            positionX:width_margin,
-            positionY:imageMaxY)
+        if !hadLayout
+        {
+            let width:CGFloat = bounds.maxX
+            
+            if width > 0
+            {
+                hadLayout = true
+                
+                let height:CGFloat = bounds.maxY
+                let width_margin:CGFloat = width - kMinMargin
+                let width_margin2:CGFloat = width_margin - kMinMargin
+                let imageMaxY:CGFloat = width_margin2 + kTopMargin
+                let marginBottom:CGFloat = height - imageMaxY
+                
+                layoutImageLeft.constant = kMinMargin
+                layoutImageRight.constant = -kMinMargin
+                layoutImageBottom.constant = -marginBottom
+                
+                thumbTopLeft.position(
+                    positionX:kMinMargin,
+                    positionY:kTopMargin)
+                thumbTopRight.position(
+                    positionX:width_margin,
+                    positionY:kTopMargin)
+                thumbBottomLeft.position(
+                    positionX:kMinMargin,
+                    positionY:imageMaxY)
+                thumbBottomRight.position(
+                    positionX:width_margin,
+                    positionY:imageMaxY)
+            }
+        }
         
         super.layoutSubviews()
     }
@@ -147,6 +159,7 @@ class VCameraCropImage:UIView
         let newLocation:CGPoint = touch.location(in:self)
         let newLocationX:CGFloat = newLocation.x
         let newLocationY:CGFloat = newLocation.y
+        
         draggingThumb.position(
             positionX:newLocationX,
             positionY:newLocationY)
