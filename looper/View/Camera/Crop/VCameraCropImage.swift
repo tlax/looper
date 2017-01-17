@@ -88,12 +88,27 @@ class VCameraCropImage:UIView
     {
         let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
-        let width_margin:CGFloat = width - (kMinMargin + kMinMargin)
-        let marginBottom:CGFloat = height - (width_margin + kTopMargin)
+        let width_margin:CGFloat = width - kMinMargin
+        let width_margin2:CGFloat = width_margin - kMinMargin
+        let imageMaxY:CGFloat = width_margin2 + kTopMargin
+        let marginBottom:CGFloat = height - imageMaxY
         
         layoutImageLeft.constant = kMinMargin
         layoutImageRight.constant = -kMinMargin
         layoutImageBottom.constant = -marginBottom
+        
+        thumbTopLeft.position(
+            positionX:kMinMargin,
+            positionY:kTopMargin)
+        thumbTopRight.position(
+            positionX:width_margin,
+            positionY:kTopMargin)
+        thumbBottomLeft.position(
+            positionX:kMinMargin,
+            positionY:imageMaxY)
+        thumbBottomRight.position(
+            positionX:width_margin,
+            positionY:imageMaxY)
         
         super.layoutSubviews()
     }
