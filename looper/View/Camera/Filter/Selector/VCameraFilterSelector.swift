@@ -2,7 +2,7 @@ import UIKit
 
 class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    private weak var controller:CCameraFilterBlender!
+    private weak var controller:CCameraFilterSelector!
     private weak var collectionView:VCollection!
     private var trackScroll:Bool
     private let kContentTop:CGFloat = 20
@@ -15,7 +15,7 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
         trackScroll = true
         
         super.init(controller:controller)
-        self.controller = controller as? CCameraFilterBlender
+        self.controller = controller as? CCameraFilterSelector
         
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false

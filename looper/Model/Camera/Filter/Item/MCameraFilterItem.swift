@@ -3,17 +3,14 @@ import UIKit
 class MCameraFilterItem
 {
     let title:String
+    let viewTitle:String
     let image:UIImage
     
-    init(title:String, image:UIImage)
+    init(title:String, viewTitle:String, image:UIImage)
     {
         self.title = title
+        self.viewTitle = viewTitle
         self.image = image
-    }
-    
-    init()
-    {
-        fatalError()
     }
     
     //MARK: public
