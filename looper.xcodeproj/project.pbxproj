@@ -118,6 +118,7 @@
 		DA8B1CE31E2FE6E000BC896D /* MHelpCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1CE21E2FE6E000BC896D /* MHelpCamera.swift */; };
 		DA8B1CE51E2FEBD100BC896D /* MHelpItemCameraReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1CE41E2FEBD100BC896D /* MHelpItemCameraReady.swift */; };
 		DA8B1CE71E2FEE0600BC896D /* filter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8B1CE61E2FEE0600BC896D /* filter.xcassets */; };
+		DA8B1CE91E30049700BC896D /* MCameraFilterItemCoolBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B1CE81E30049700BC896D /* MCameraFilterItemCoolBlue.swift */; };
 		DA96FEDE1E03672F00FD5265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */; };
 		DA96FEE01E03672F00FD5265 /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FE9A1E03672F00FD5265 /* CAppDelegate.swift */; };
 		DA96FEE11E03672F00FD5265 /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96FE9B1E03672F00FD5265 /* CController.swift */; };
@@ -325,6 +326,7 @@
 		DA8B1CE21E2FE6E000BC896D /* MHelpCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpCamera.swift; sourceTree = "<group>"; };
 		DA8B1CE41E2FEBD100BC896D /* MHelpItemCameraReady.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHelpItemCameraReady.swift; sourceTree = "<group>"; };
 		DA8B1CE61E2FEE0600BC896D /* filter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = filter.xcassets; sourceTree = "<group>"; };
+		DA8B1CE81E30049700BC896D /* MCameraFilterItemCoolBlue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilterItemCoolBlue.swift; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FE951E03672F00FD5265 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA96FE9A1E03672F00FD5265 /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
@@ -1055,6 +1057,7 @@
 				DAD404D61E1F3180005EA836 /* MCameraFilterItemBlend.swift */,
 				DA17E5671E258965004838D5 /* MCameraFilterItemBlendOverlay.swift */,
 				DAD404D71E1F3180005EA836 /* MCameraFilterItemNone.swift */,
+				DA8B1CE81E30049700BC896D /* MCameraFilterItemCoolBlue.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -1193,6 +1196,7 @@
 				DA17E5641E256297004838D5 /* VCameraFilterBlenderOverlayPiece.swift in Sources */,
 				DA5190521E28401200905C83 /* MCameraMoreItemInfoFrames.swift in Sources */,
 				DA4079041E241FFE002EED42 /* CStoreGoPlus.swift in Sources */,
+				DA8B1CE91E30049700BC896D /* MCameraFilterItemCoolBlue.swift in Sources */,
 				DA7390071E2820EB00A82612 /* VCameraMoreCellInfo.swift in Sources */,
 				DA799CEE1E1436FD00AB45DD /* MCameraSpeed30.swift in Sources */,
 				DA96FEE01E03672F00FD5265 /* CAppDelegate.swift in Sources */,

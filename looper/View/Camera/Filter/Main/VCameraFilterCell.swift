@@ -9,7 +9,7 @@ class VCameraFilterCell:UICollectionViewCell
     private let kLabelHeight:CGFloat = 50
     private let kImagesBottom:CGFloat = -30
     private let kAlphaSelected:CGFloat = 1
-    private let kAlphaNotSelected:CGFloat = 0.4
+    private let kAlphaNotSelected:CGFloat = 0.15
     
     override init(frame:CGRect)
     {
