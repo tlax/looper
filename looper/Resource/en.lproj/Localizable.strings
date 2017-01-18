@@ -40,6 +40,7 @@
 
 "MCameraFilterItemNone_title"="Simple video";
 "MCameraFilterItemBlend_title"="Blending\nmultiple videos";
+"MCameraFilterItemCoolBlue_title"="Cool Blue";
 "MCameraCompressItemNone_title"="High quality\n";
 "MCameraCompressItemSlight_title"="Slight compression\n";
 "MCameraCompressItemMedium_title"="Medium size\n";
