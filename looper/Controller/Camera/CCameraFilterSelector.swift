@@ -2,13 +2,15 @@ import UIKit
 
 class CCameraFilterSelector:CController
 {
-    weak var filter:MCameraFilterItem!
     let model:MCameraFilterSelector
+    weak var filter:MCameraFilterItem!
     private weak var viewSelector:VCameraFilterSelector!
+    private var firstView:Bool
     
     init(filter:MCameraFilterItem)
     {
         self.filter = filter
+        firstView = true
         model = filter.selectorModel()
         super.init()
     }
@@ -28,7 +30,18 @@ class CCameraFilterSelector:CController
     override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
+        
         viewSelector.selectCurrent()
+        
+        if firstView
+        {
+            firstView = false
+            
+            if model.items.count == 1
+            {
+                next()
+            }
+        }
     }
     
     //MARK: public
@@ -39,7 +52,9 @@ class CCameraFilterSelector:CController
     }
     
     func next()
-    {/*
+    {
+        viewSelector.startLoading()
+        /*
         let baseRecord:MCameraRecord?
         
         if currentSelected == 0
