@@ -1,9 +1,14 @@
-//
-//  MCameraFilterSelectorItemRecord.swift
-//  looper
-//
-//  Created by zero on 1/18/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class MCameraFilterSelectorItemRecord:MCameraFilterSelectorItem
+{
+    weak var record:MCameraRecord!
+    
+    init(record:MCameraRecord)
+    {
+        let reusableIdentifier:String = VCameraFilterSelectorCellRecord.reusableIdentifier
+        self.record = record
+        
+        super.init(reusableIdentifier:reusableIdentifier)
+    }
+}

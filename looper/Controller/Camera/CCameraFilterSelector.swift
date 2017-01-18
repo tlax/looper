@@ -4,6 +4,7 @@ class CCameraFilterSelector:CController
 {
     var currentSelected:Int
     weak var filter:MCameraFilterItem!
+    let model:MCameraFilterSelector
     private weak var viewBlender:VCameraFilterBlender!
     
     init(filter:MCameraFilterItem)

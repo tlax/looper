@@ -5,7 +5,7 @@ class MCameraFilterSelector
     let items:[MCameraFilterSelectorItem]
     var selected:Int
     
-    init(items:[MCameraFilterItem])
+    init(items:[MCameraFilterSelectorItem])
     {
         selected = 0
         self.items = items

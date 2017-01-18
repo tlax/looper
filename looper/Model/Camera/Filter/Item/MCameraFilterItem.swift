@@ -15,6 +15,11 @@ class MCameraFilterItem
     
     //MARK: public
     
+    func selectorModel() -> MCameraFilterSelector
+    {
+        fatalError()
+    }
+    
     func waterMark(original:MCameraRecord) -> MCameraRecord
     {
         guard
