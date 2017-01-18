@@ -14,14 +14,4 @@ class MCameraMoreItemInfo:MCameraMoreItem
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight)
     }
-    
-    override init(reusableIdentifier:String, cellHeight:CGFloat)
-    {
-        fatalError()
-    }
-    
-    override init(record:MCameraRecordEditable)
-    {
-        fatalError()
-    }
 }

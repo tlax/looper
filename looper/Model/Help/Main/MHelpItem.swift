@@ -10,9 +10,4 @@ class MHelpItem
         self.image = image
         self.title = title
     }
-    
-    init()
-    {
-        fatalError()
-    }
 }

@@ -8,9 +8,4 @@ class MCameraSpeed30:MCameraSpeed
     {
         super.init(framesPerSecond:kFramesPerSecond)
     }
-    
-    override init(framesPerSecond:TimeInterval)
-    {
-        fatalError()
-    }
 }

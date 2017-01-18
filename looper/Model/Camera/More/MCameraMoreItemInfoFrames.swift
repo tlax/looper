@@ -40,14 +40,4 @@ class MCameraMoreItemInfoFrames:MCameraMoreItemInfo
         
         super.init(attributedString:attributedString)
     }
-    
-    override init(attributedString:NSAttributedString)
-    {
-        fatalError()
-    }
-    
-    override init(reusableIdentifier:String, cellHeight:CGFloat)
-    {
-        fatalError()
-    }
 }

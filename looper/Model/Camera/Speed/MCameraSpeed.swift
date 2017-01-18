@@ -45,9 +45,4 @@ class MCameraSpeed
             name = "\(framesPerSecond)"
         }
     }
-    
-    init()
-    {
-        fatalError()
-    }
 }
