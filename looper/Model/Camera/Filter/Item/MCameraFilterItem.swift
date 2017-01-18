@@ -32,6 +32,12 @@ class MCameraFilterItem
         return items
     }
     
+    func selected(
+        item:MCameraFilterSelectorItem,
+        controller:CCameraFilterSelector)
+    {
+    }
+    
     func selectorModel() -> MCameraFilterSelector
     {
         let items:[MCameraFilterSelectorItem] = recordItems()

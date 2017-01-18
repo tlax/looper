@@ -263,7 +263,7 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
         return insets
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int
+    func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
     }
