@@ -48,6 +48,12 @@
 "MHelpItemFilter_title"="Apply filters and cool effects on them";
 "MHelpItemCompress_title"="Compress your creation so it's easier to share";
 "MHelpItemSave_title"="Once saved\nplay it, share it";
+"MHelpItemCameraCapture_title"="Capture various videos";
+"MHelpItemCameraEdit_title"="Exclude the frames you don't like";
+"MHelpItemCameraOptions_title"="Swipe right to see the menu";
+"MHelpItemCameraActive_title"="Active all frames";
+"MHelpItemCameraDeactive_title"="Exclude all frames";
+"MHelpItemCameraMore_title"="Options like rotate, crop, scale or delete";
 "MCameraMoreItemInfoFrames_title"="Frames  ";
 "MCameraMoreItemInfoSize_title"="Size  ";
 "MCameraMoreItemInfoSpeed_title"="Speed  ";
