@@ -3,16 +3,10 @@ import UIKit
 class VCameraFilterSelectorCell:UICollectionViewCell
 {
     private weak var selector:UIImageView!
-    private weak var imageView:UIImageView!
-    private weak var background:UIView!
-    private weak var layoutImageLeft:NSLayoutConstraint!
-    private let kCornerRadius:CGFloat = 8
-    private let kImageTop:CGFloat = 250
-    private let kImageSize:CGFloat = 134
-    private let kSelectorHeight:CGFloat = 75
+    private weak var layoutSelectorBottom:NSLayoutConstraint!
+    private let kSelectorHeight:CGFloat = 180
     private let kAlphaSelected:CGFloat = 1
-    private let kAlphaNotSelected:CGFloat = 0.25
-    private let kBackgroundMargin:CGFloat = -3
+    private let kAlphaNotSelected:CGFloat = 0.2
     
     override init(frame:CGRect)
     {
@@ -28,51 +22,17 @@ class VCameraFilterSelectorCell:UICollectionViewCell
         selector.contentMode = UIViewContentMode.center
         self.selector = selector
         
-        let imageView:UIImageView = UIImageView()
-        imageView.isUserInteractionEnabled = false
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
-        imageView.backgroundColor = UIColor.black
-        imageView.layer.cornerRadius = kCornerRadius
-        self.imageView = imageView
-        
-        let background:UIView = UIView()
-        background.isUserInteractionEnabled = false
-        background.translatesAutoresizingMaskIntoConstraints = false
-        background.clipsToBounds = true
-        background.layer.cornerRadius = kCornerRadius + kBackgroundMargin
-        self.background = background
-        
         addSubview(selector)
-        addSubview(background)
-        addSubview(imageView)
-        
-        NSLayoutConstraint.equals(
-            view:background,
-            toView:imageView,
-            margin:kBackgroundMargin)
         
         NSLayoutConstraint.equalsHorizontal(
             view:selector,
             toView:self)
-        NSLayoutConstraint.bottomToTop(
+        layoutSelectorBottom = NSLayoutConstraint.bottomToBottom(
             view:selector,
-            toView:imageView)
+            toView:self)
         NSLayoutConstraint.height(
             view:selector,
             constant:kSelectorHeight)
-        
-        NSLayoutConstraint.topToTop(
-            view:imageView,
-            toView:self,
-            constant:kImageTop)
-        layoutImageLeft = NSLayoutConstraint.leftToLeft(
-            view:imageView,
-            toView:self)
-        NSLayoutConstraint.size(
-            view:imageView,
-            constant:kImageSize)
     }
     
     required init?(coder:NSCoder)
@@ -82,16 +42,15 @@ class VCameraFilterSelectorCell:UICollectionViewCell
     
     override func layoutSubviews()
     {
-        let width:CGFloat = bounds.maxX
-        let remainImage:CGFloat = width - kImageSize
-        let marginImage:CGFloat = remainImage / 2.0
+        let height:CGFloat = bounds.maxY
+        let height_2:CGFloat = height / 2.0
         
-        layoutImageLeft.constant = marginImage
+        layoutSelectorBottom.constant = -height_2
         super.layoutSubviews()
     }
     
     override var isSelected:Bool
-        {
+    {
         didSet
         {
             hover()
@@ -99,7 +58,7 @@ class VCameraFilterSelectorCell:UICollectionViewCell
     }
     
     override var isHighlighted:Bool
-        {
+    {
         didSet
         {
             hover()
@@ -114,21 +73,18 @@ class VCameraFilterSelectorCell:UICollectionViewCell
         {
             alpha = kAlphaSelected
             selector.isHidden = false
-            background.backgroundColor = UIColor.genericLight
         }
         else
         {
             alpha = kAlphaNotSelected
             selector.isHidden = true
-            background.backgroundColor = UIColor(white:0.96, alpha:1)
         }
     }
     
     //MARK: public
     
-    func config(model:MCameraRecord?)
+    func config(model:MCameraFilterSelectorItem)
     {
-        imageView.image = model?.items.first?.image
         hover()
     }
 }

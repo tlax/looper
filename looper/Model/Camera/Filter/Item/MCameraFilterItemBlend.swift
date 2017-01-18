@@ -25,7 +25,7 @@ class MCameraFilterItemBlend:MCameraFilterItem
         
         if let activeRecords:[MCameraRecord] = MSession.sharedInstance.camera?.activeRecords
         {
-            for activeRecord:[MCameraRecord] in activeRecords
+            for activeRecord:MCameraRecord in activeRecords
             {
                 let itemRecord:MCameraFilterSelectorItemRecord = MCameraFilterSelectorItemRecord(
                     record:activeRecord)

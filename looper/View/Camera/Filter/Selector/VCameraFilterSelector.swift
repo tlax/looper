@@ -8,7 +8,6 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 44
-    private let kCellWidth:CGFloat = 144
     
     override init(controller:CController)
     {
@@ -65,7 +64,8 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
         collectionView.alwaysBounceHorizontal = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.registerCell(cell:VCameraFilterBlenderCell.self)
+        collectionView.registerCell(cell:VCameraFilterSelectorCellRecord.self)
+        collectionView.registerCell(cell:VCameraFilterSelectorCellColor.self)
         self.collectionView = collectionView
         
         addSubview(title)
@@ -135,19 +135,9 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
     
     //MARK: private
     
-    private func modelAtIndex(index:IndexPath) -> MCameraRecord?
+    private func modelAtIndex(index:IndexPath) -> MCameraFilterSelectorItem
     {
-        let item:MCameraRecord?
-        let indexItem:Int = index.item - 1
-        
-        if indexItem < 0
-        {
-            item = nil
-        }
-        else
-        {
-            item = MSession.sharedInstance.camera!.activeRecords![indexItem]
-        }
+        let item:MCameraFilterSelectorItem = controller.model.items[index.item]
         
         return item
     }
@@ -157,7 +147,7 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
     func selectCurrent()
     {
         let indexPath:IndexPath = IndexPath(
-            item:controller.currentSelected,
+            item:controller.model.selected,
             section:0)
         
         collectionView.selectItem(
@@ -182,12 +172,12 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
                 
                 let indexPath:IndexPath = collectionView.indexPathForItem(at:point)
                 
-                else
+            else
             {
                 return
             }
             
-            controller.currentSelected = indexPath.item
+            controller.model.selected = indexPath.item
             collectionView.selectItem(
                 at:indexPath,
                 animated:true,
@@ -207,8 +197,9 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
+        let item:MCameraFilterSelectorItem = modelAtIndex(index:indexPath)
         let height:CGFloat = collectionView.bounds.maxY
-        let size:CGSize = CGSize(width:kCellWidth, height:height)
+        let size:CGSize = CGSize(width:item.cellWidth, height:height)
         
         return size
     }
@@ -216,13 +207,18 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
     {
         let width:CGFloat = collectionView.bounds.maxX
-        let remain:CGFloat = width - kCellWidth
-        let margin:CGFloat = remain / 2.0
+        let width_2:CGFloat = width / 2.0
+        let firstCellWidth:CGFloat = controller.model.items.first!.cellWidth
+        let lastCellWidth:CGFloat = controller.model.items.last!.cellWidth
+        let firstCellWidth_2:CGFloat = firstCellWidth / 2.0
+        let lastCellWidth_2:CGFloat = lastCellWidth / 2.0
+        let leftMargin:CGFloat = width_2 - firstCellWidth_2
+        let rightMargin:CGFloat = width_2 - lastCellWidth_2
         let insets:UIEdgeInsets = UIEdgeInsets(
             top:0,
-            left:margin,
+            left:leftMargin,
             bottom:0,
-            right:margin)
+            right:rightMargin)
         
         return insets
     }
@@ -250,11 +246,11 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MCameraRecord? = modelAtIndex(index:indexPath)
-        let cell:VCameraFilterBlenderCell = collectionView.dequeueReusableCell(
+        let item:MCameraFilterSelectorItem = modelAtIndex(index:indexPath)
+        let cell:VCameraFilterSelectorCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
-            VCameraFilterBlenderCell.reusableIdentifier,
-            for:indexPath) as! VCameraFilterBlenderCell
+            item.reusableIdentifier,
+            for:indexPath) as! VCameraFilterSelectorCell
         cell.config(model:item)
         
         return cell
@@ -263,7 +259,7 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         trackScroll = false
-        controller.currentSelected = indexPath.item
+        controller.model.selected = indexPath.item
         
         collectionView.scrollToItem(
             at:indexPath,

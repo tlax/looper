@@ -2,7 +2,6 @@ import UIKit
 
 class CCameraFilterSelector:CController
 {
-    var currentSelected:Int
     weak var filter:MCameraFilterItem!
     let model:MCameraFilterSelector
     private weak var viewBlender:VCameraFilterBlender!
@@ -10,7 +9,7 @@ class CCameraFilterSelector:CController
     init(filter:MCameraFilterItem)
     {
         self.filter = filter
-        currentSelected = 0
+        model = filter.selectorModel()
         super.init()
     }
     
