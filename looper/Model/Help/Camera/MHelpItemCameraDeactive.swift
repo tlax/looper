@@ -11,9 +11,4 @@ class MHelpItemCameraDeactive:MHelpItem
             image:image,
             title:title)
     }
-    
-    override init(image:UIImage, title:String)
-    {
-        fatalError()
-    }
 }
