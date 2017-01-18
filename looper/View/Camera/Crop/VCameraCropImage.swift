@@ -224,6 +224,7 @@ class VCameraCropImage:UIView
             }
             else if let draggingThumb:VCameraCropImageThumb = touch.view as? VCameraCropImageThumb
             {
+                draggingThumb.state(selected:true)
                 self.draggingThumb = draggingThumb
             }
         }
@@ -293,9 +294,10 @@ class VCameraCropImage:UIView
     
     private func draggingEnded()
     {
+        viewMover.clear()
+        draggingThumb?.state(selected:false)
         draggingThumb = nil
         draggingMover = nil
-        viewMover.clear()
     }
     
     private func movingMover(point:CGPoint)
