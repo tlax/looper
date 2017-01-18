@@ -314,10 +314,40 @@ class VCameraCropImage:UIView
         
         let newPointX:CGFloat = point.x
         let newPointY:CGFloat = point.y
-        let newTop:CGFloat = newPointY - deltaTop
-        let newBottom:CGFloat = newPointY + deltaBottom
-        let newLeft:CGFloat = newPointX - deltaLeft
-        let newRight:CGFloat = newPointX + deltaRight
+        let minTop:CGFloat = thumbTopLeft.originalY
+        let maxBottom:CGFloat = thumbBottomLeft.originalY
+        let minLeft:CGFloat = thumbTopLeft.originalX
+        let maxRight:CGFloat = thumbTopRight.originalX
+        var newTop:CGFloat = newPointY - deltaTop
+        var newBottom:CGFloat = newPointY + deltaBottom
+        var newLeft:CGFloat = newPointX - deltaLeft
+        var newRight:CGFloat = newPointX + deltaRight
+        
+        if newTop < minTop
+        {
+            let delta:CGFloat = minTop - newTop
+            newTop = minTop
+            newBottom += delta
+        }
+        else if newBottom > maxBottom
+        {
+            let delta:CGFloat = newBottom - maxBottom
+            newBottom = maxBottom
+            newTop -= delta
+        }
+        
+        if newLeft < minLeft
+        {
+            let delta:CGFloat = minLeft - newLeft
+            newLeft = minLeft
+            newRight += delta
+        }
+        else if newRight > maxRight
+        {
+            let delta:CGFloat = newRight - maxRight
+            newRight = maxRight
+            newLeft -= delta
+        }
         
         thumbTopLeft.position(
             positionX:newLeft,
