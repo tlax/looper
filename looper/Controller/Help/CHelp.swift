@@ -28,7 +28,6 @@ class CHelp:CController
     
     func back()
     {
-        parentController.pop(
-            vertical:CParent.TransitionVertical.fromBottom)
+        parentController.dismissAnimateOver(completion:nil)
     }
 }
