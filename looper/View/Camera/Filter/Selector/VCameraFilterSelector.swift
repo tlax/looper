@@ -4,10 +4,15 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
 {
     private weak var controller:CCameraFilterSelector!
     private weak var collectionView:VCollection!
+    private weak var spinner:VSpinner!
+    private weak var backButton:UIButton!
+    private weak var nextButton:UIButton!
     private var trackScroll:Bool
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 44
+    private let kAlphaActive:CGFloat = 1
+    private let kAlphaNotActive:CGFloat = 0.2
     
     override init(controller:CController)
     {
@@ -31,6 +36,7 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
             self,
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.backButton = backButton
         
         let nextButton:UIButton = UIButton()
         nextButton.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +55,7 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
             self,
             action:#selector(actionNext(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.nextButton = nextButton
         
         let title:UILabel = UILabel()
         title.isUserInteractionEnabled = false
@@ -68,13 +75,21 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
         collectionView.registerCell(cell:VCameraFilterSelectorCellColor.self)
         self.collectionView = collectionView
         
+        let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
+        self.spinner = spinner
+        
         addSubview(title)
         addSubview(collectionView)
+        addSubview(spinner)
         addSubview(backButton)
         addSubview(nextButton)
         
         NSLayoutConstraint.equals(
             view:collectionView,
+            toView:self)
+        NSLayoutConstraint.equals(
+            view:spinner,
             toView:self)
         
         NSLayoutConstraint.topToTop(
@@ -143,6 +158,16 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
         return item
     }
     
+    private func stopLoading()
+    {
+        spinner.stopAnimating()
+        collectionView.isHidden = false
+        backButton.alpha = kAlphaActive
+        nextButton.alpha = kAlphaActive
+        backButton.isUserInteractionEnabled = true
+        nextButton.isUserInteractionEnabled = true
+    }
+    
     //MARK: public
     
     func selectCurrent()
@@ -155,6 +180,16 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
             at:indexPath,
             animated:true,
             scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
+    }
+    
+    func startLoading()
+    {
+        spinner.startAnimating()
+        collectionView.isHidden = true
+        backButton.alpha = kAlphaNotActive
+        nextButton.alpha = kAlphaNotActive
+        backButton.isUserInteractionEnabled = false
+        nextButton.isUserInteractionEnabled = false
     }
     
     //MARK: collectionView delegate
