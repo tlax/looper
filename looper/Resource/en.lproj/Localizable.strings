@@ -46,8 +46,8 @@
 "MCameraCompressItemMax_title"="Max compression\n";
 "MHelpItemRecord_title"="Capture your videos";
 "MHelpItemFilter_title"="Apply filters and cool effects on them";
-"MHelpItemCompress_title"="Compress your loop to make it smaller and easier to share";
-"MHelpItemSave_title"="Save it, you will be able to play it anytime and share it";
+"MHelpItemCompress_title"="Compress your creation so it's easier to share";
+"MHelpItemSave_title"="Once saved\nplay it, share it";
 "MCameraMoreItemInfoFrames_title"="Frames  ";
 "MCameraMoreItemInfoSize_title"="Size  ";
 "MCameraMoreItemInfoSpeed_title"="Speed  ";

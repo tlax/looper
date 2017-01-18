@@ -7,7 +7,7 @@ class VHelpCell:UICollectionViewCell
     private let kImageTop:CGFloat = 100
     private let kImageHeight:CGFloat = 160
     private let kLabelHeight:CGFloat = 110
-    private let kLabelMargin:CGFloat = 10
+    private let kLabelMargin:CGFloat = 30
     
     override init(frame:CGRect)
     {
