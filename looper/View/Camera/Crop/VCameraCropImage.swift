@@ -224,6 +224,7 @@ class VCameraCropImage:UIView
             }
             else if let draggingThumb:VCameraCropImageThumb = touch.view as? VCameraCropImageThumb
             {
+                bringSubview(toFront:draggingThumb)
                 draggingThumb.state(selected:true)
                 self.draggingThumb = draggingThumb
             }
