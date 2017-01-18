@@ -4,16 +4,22 @@ class MHelpCamera:MHelp
 {
     init()
     {
-        let itemRecord:MHelpItemRecord = MHelpItemRecord()
-        let itemFilter:MHelpItemFilter = MHelpItemFilter()
-        let itemCompress:MHelpItemCompress = MHelpItemCompress()
-        let itemSave:MHelpItemSave = MHelpItemSave()
+        let itemCapture:MHelpItemCameraCapture = MHelpItemCameraCapture()
+        let itemEdit:MHelpItemCameraEdit = MHelpItemCameraEdit()
+        let itemOptions:MHelpItemCameraOptions = MHelpItemCameraOptions()
+        let itemActive:MHelpItemCameraActive = MHelpItemCameraActive()
+        let itemDeactive:MHelpItemCameraDeactive = MHelpItemCameraDeactive()
+        let itemMore:MHelpItemCameraMore = MHelpItemCameraMore()
+        let itemReady:MHelpItemCameraReady = MHelpItemCameraReady()
         
         let items:[MHelpItem] = [
-            itemRecord,
-            itemFilter,
-            itemCompress,
-            itemSave
+            itemCapture,
+            itemEdit,
+            itemOptions,
+            itemActive,
+            itemDeactive,
+            itemMore,
+            itemReady
         ]
         
         super.init(items:items)
