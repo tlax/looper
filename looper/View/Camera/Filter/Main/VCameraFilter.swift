@@ -6,7 +6,6 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
     private weak var controller:CCameraFilter!
     private weak var collectionView:VCollection!
     private let kBarHeight:CGFloat = 64
-    private let kCellHeight:CGFloat = 130
     private let kCollectionTop:CGFloat = 64
     private let kCollectionBottom:CGFloat = 20
     private let kAfterSelect:TimeInterval = 0.2
@@ -104,7 +103,8 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        let side:CGFloat = width / 2.0
+        let size:CGSize = CGSize(width:side, height:side)
         
         return size
     }

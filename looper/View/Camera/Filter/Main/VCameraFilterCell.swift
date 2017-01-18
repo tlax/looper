@@ -3,12 +3,10 @@ import UIKit
 class VCameraFilterCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
+    private weak var baseView:UIImageView!
     private weak var label:UILabel!
-    private weak var selectedIcon:UIImageView!
-    private let kImageWidth:CGFloat = 120
-    private let kSelectedWidth:CGFloat = 55
-    private let kAlphaSelected:CGFloat = 1
-    private let kAlphaNotSelected:CGFloat = 0.2
+    private let kLabelMargin:CGFloat = 10
+    private let kLabelHeight:CGFloat = 45
     
     override init(frame:CGRect)
     {
@@ -23,56 +21,44 @@ class VCameraFilterCell:UICollectionViewCell
         imageView.contentMode = UIViewContentMode.center
         self.imageView = imageView
         
+        let baseView:UIImageView = UIImageView()
+        baseView.isUserInteractionEnabled = false
+        baseView.translatesAutoresizingMaskIntoConstraints = false
+        baseView.clipsToBounds = true
+        baseView.contentMode = UIViewContentMode.center
+        self.baseView = baseView
+        
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:18)
+        label.font = UIFont.bold(size:14)
         label.textColor = UIColor.black
+        label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 0
         self.label = label
         
-        let selectedIcon:UIImageView = UIImageView()
-        selectedIcon.translatesAutoresizingMaskIntoConstraints = false
-        selectedIcon.clipsToBounds = true
-        selectedIcon.isUserInteractionEnabled = false
-        selectedIcon.contentMode = UIViewContentMode.center
-        selectedIcon.image = #imageLiteral(resourceName: "assetCameraFilterSelect")
-        self.selectedIcon = selectedIcon
-        
         addSubview(label)
+        addSubview(baseView)
         addSubview(imageView)
-        addSubview(selectedIcon)
         
-        NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.equals(
+            view:baseView,
+            toView:self)
+        NSLayoutConstraint.equals(
             view:imageView,
             toView:self)
-        NSLayoutConstraint.leftToLeft(
-            view:imageView,
-            toView:self)
-        NSLayoutConstraint.width(
-            view:imageView,
-            constant:kImageWidth)
         
-        NSLayoutConstraint.equalsVertical(
-            view:selectedIcon,
-            toView:self)
-        NSLayoutConstraint.rightToRight(
-            view:selectedIcon,
-            toView:self)
-        NSLayoutConstraint.width(
-            view:selectedIcon,
-            constant:kSelectedWidth)
-        
-        NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.bottomToBottom(
             view:label,
             toView:self)
-        NSLayoutConstraint.leftToRight(
+        NSLayoutConstraint.height(
             view:label,
-            toView:imageView)
-        NSLayoutConstraint.rightToLeft(
+            constant:kLabelHeight)
+        NSLayoutConstraint.equalsHorizontal(
             view:label,
-            toView:selectedIcon)
+            toView:self,
+            margin:kLabelMargin)
     }
     
     required init?(coder:NSCoder)
@@ -102,15 +88,11 @@ class VCameraFilterCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            selectedIcon.isHidden = false
-            label.alpha = kAlphaSelected
-            imageView.alpha = kAlphaSelected
+            baseView.image = #imageLiteral(resourceName: "assetFilterBaseSelected")
         }
         else
         {
-            selectedIcon.isHidden = true
-            label.alpha = kAlphaNotSelected
-            imageView.alpha = kAlphaNotSelected
+            baseView.image = #imageLiteral(resourceName: "assetFilterBase")
         }
     }
     
