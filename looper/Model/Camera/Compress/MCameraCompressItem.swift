@@ -18,11 +18,6 @@ class MCameraCompressItem
         size = kEmpty
     }
     
-    init()
-    {
-        fatalError()
-    }
-    
     //MARK: public
     
     func compress(record:MCameraRecord) -> MCameraRecord?

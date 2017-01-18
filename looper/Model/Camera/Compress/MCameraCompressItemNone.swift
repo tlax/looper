@@ -12,11 +12,6 @@ class MCameraCompressItemNone:MCameraCompressItem
         super.init(title:title, percent:kPercent, color:color)
     }
     
-    override init(title:String, percent:Int, color:UIColor)
-    {
-        fatalError()
-    }
-    
     override func compress(record:MCameraRecord) -> MCameraRecord?
     {
         return record

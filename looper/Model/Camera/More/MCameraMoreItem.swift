@@ -10,9 +10,4 @@ class MCameraMoreItem
         self.reusableIdentifier = reusableIdentifier
         self.cellHeight = cellHeight
     }
-    
-    init(record:MCameraRecordEditable)
-    {
-        fatalError()
-    }
 }

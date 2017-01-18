@@ -9,9 +9,4 @@ class MCameraFilterItemCoolBlue:MCameraFilterItem
         
         super.init(title:title, image:image)
     }
-    
-    override init(title:String, image:UIImage)
-    {
-        fatalError()
-    }
 }

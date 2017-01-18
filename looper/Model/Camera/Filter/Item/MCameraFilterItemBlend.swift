@@ -5,14 +5,10 @@ class MCameraFilterItemBlend:MCameraFilterItem
     override init()
     {
         let title:String = NSLocalizedString("MCameraFilterItemBlend_title", comment:"")
+        let viewTitle:String = NSLocalizedString("MCameraFilterItemBlend_viewTitle", comment:"")
         let image:UIImage = #imageLiteral(resourceName: "assetFilterBlender")
         
-        super.init(title:title, image:image)
-    }
-    
-    override init(title:String, image:UIImage)
-    {
-        fatalError()
+        super.init(title:title, viewTitle:viewTitle, image:image)
     }
     
     override func processController() -> CController?
