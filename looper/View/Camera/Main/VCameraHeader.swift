@@ -17,6 +17,18 @@ class VCameraHeader:UICollectionReusableView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         
+        let buttonHelp:UIButton = UIButton()
+        buttonHelp.translatesAutoresizingMaskIntoConstraints = false
+        buttonHelp.setImage(
+            #imageLiteral(resourceName: "assetLoopsHelp").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonHelp.setImage(
+            #imageLiteral(resourceName: "assetLoopsHelp").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonHelp.imageView!.contentMode = UIViewContentMode.center
+        buttonHelp.imageView!.clipsToBounds = true
+        buttonHelp.imageView!.tintColor = UIColor.genericAlternative
+        
         let buttonShoot:VCameraActiveButton = VCameraActiveButton(
             image:#imageLiteral(resourceName: "assetCameraShoot"))
         buttonShoot.addTarget(
@@ -37,6 +49,7 @@ class VCameraHeader:UICollectionReusableView
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.2))
         
         addSubview(border)
+        addSubview(buttonHelp)
         addSubview(buttonShoot)
         addSubview(buttonNext)
         
@@ -76,6 +89,20 @@ class VCameraHeader:UICollectionReusableView
             toView:self)
         NSLayoutConstraint.width(
             view:buttonNext,
+            constant:kButtonsWidth)
+        
+        NSLayoutConstraint.topToTop(
+            view:buttonHelp,
+            toView:self,
+            constant:kButtonsTop)
+        NSLayoutConstraint.height(
+            view:buttonHelp,
+            constant:kButtonsHeight)
+        NSLayoutConstraint.leftToLeft(
+            view:buttonHelp,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:buttonHelp,
             constant:kButtonsWidth)
     }
     
