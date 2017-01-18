@@ -57,7 +57,7 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
         title.font = UIFont.bold(size:16)
         title.textAlignment = NSTextAlignment.center
         title.textColor = UIColor.black
-        title.text = NSLocalizedString("VCameraFilterBlender_title", comment:"")
+        title.text = self.controller.filter.viewTitle
         
         let collectionView:VCollection = VCollection()
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
@@ -107,7 +107,8 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
         
         NSLayoutConstraint.topToTop(
             view:title,
-            toView:self)
+            toView:self,
+            constant:kContentTop)
         NSLayoutConstraint.height(
             view:title,
             constant:kButtonsHeight)

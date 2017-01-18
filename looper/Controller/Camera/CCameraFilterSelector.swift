@@ -4,7 +4,7 @@ class CCameraFilterSelector:CController
 {
     weak var filter:MCameraFilterItem!
     let model:MCameraFilterSelector
-    private weak var viewBlender:VCameraFilterBlender!
+    private weak var viewSelector:VCameraFilterSelector!
     
     init(filter:MCameraFilterItem)
     {
@@ -20,15 +20,15 @@ class CCameraFilterSelector:CController
     
     override func loadView()
     {
-        let viewBlender:VCameraFilterBlender = VCameraFilterBlender(controller:self)
-        self.viewBlender = viewBlender
-        view = viewBlender
+        let viewSelector:VCameraFilterSelector = VCameraFilterSelector(controller:self)
+        self.viewSelector = viewSelector
+        view = viewSelector
     }
     
     override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
-        viewBlender.selectCurrent()
+        viewSelector.selectCurrent()
     }
     
     //MARK: public
