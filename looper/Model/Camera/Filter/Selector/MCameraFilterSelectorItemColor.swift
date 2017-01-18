@@ -3,7 +3,7 @@ import UIKit
 class MCameraFilterSelectorItemColor:MCameraFilterSelectorItem
 {
     let color:UIColor
-    private let kCellWidth:CGFloat = 70
+    private let kCellWidth:CGFloat = 80
     
     init(color:UIColor)
     {

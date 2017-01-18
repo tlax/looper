@@ -3,8 +3,8 @@ import UIKit
 class VCameraFilterSelectorCell:UICollectionViewCell
 {
     private weak var selector:UIImageView!
-    private weak var layoutSelectorBottom:NSLayoutConstraint!
-    private let kSelectorHeight:CGFloat = 220
+    private let kSelectorTop:CGFloat = 180
+    private let kSelectorHeight:CGFloat = 80
     private let kAlphaSelected:CGFloat = 1
     private let kAlphaNotSelected:CGFloat = 0.2
     
@@ -27,9 +27,10 @@ class VCameraFilterSelectorCell:UICollectionViewCell
         NSLayoutConstraint.equalsHorizontal(
             view:selector,
             toView:self)
-        layoutSelectorBottom = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.topToTop(
             view:selector,
-            toView:self)
+            toView:self,
+            constant:kSelectorTop)
         NSLayoutConstraint.height(
             view:selector,
             constant:kSelectorHeight)
@@ -38,15 +39,6 @@ class VCameraFilterSelectorCell:UICollectionViewCell
     required init?(coder:NSCoder)
     {
         fatalError()
-    }
-    
-    override func layoutSubviews()
-    {
-        let height:CGFloat = bounds.maxY
-        let height_2:CGFloat = height / 2.0
-        
-        layoutSelectorBottom.constant = -height_2
-        super.layoutSubviews()
     }
     
     override var isSelected:Bool

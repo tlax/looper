@@ -3,7 +3,6 @@ import UIKit
 class VCameraFilterSelectorCellRecord:VCameraFilterSelectorCell
 {
     private weak var imageView:UIImageView!
-    private weak var background:UIView!
     private weak var layoutImageLeft:NSLayoutConstraint!
     private let kCornerRadius:CGFloat = 8
     private let kImageTop:CGFloat = 250
@@ -30,7 +29,7 @@ class VCameraFilterSelectorCellRecord:VCameraFilterSelectorCell
         background.translatesAutoresizingMaskIntoConstraints = false
         background.clipsToBounds = true
         background.layer.cornerRadius = kCornerRadius + kBackgroundMargin
-        self.background = background
+        background.backgroundColor = UIColor.genericLight
         
         addSubview(background)
         addSubview(imageView)
