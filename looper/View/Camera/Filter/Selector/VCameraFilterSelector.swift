@@ -7,6 +7,7 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
     private weak var spinner:VSpinner!
     private weak var backButton:UIButton!
     private weak var nextButton:UIButton!
+    private weak var title:UILabel!
     private var trackScroll:Bool
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
@@ -65,6 +66,7 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
         title.textAlignment = NSTextAlignment.center
         title.textColor = UIColor.black
         title.text = self.controller.filter.viewTitle
+        self.title = title
         
         let collectionView:VCollection = VCollection()
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
@@ -164,6 +166,7 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
         collectionView.isHidden = false
         backButton.alpha = kAlphaActive
         nextButton.alpha = kAlphaActive
+        title.alpha = kAlphaActive
         backButton.isUserInteractionEnabled = true
         nextButton.isUserInteractionEnabled = true
     }
@@ -188,6 +191,7 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
         collectionView.isHidden = true
         backButton.alpha = kAlphaNotActive
         nextButton.alpha = kAlphaNotActive
+        title.alpha = kAlphaNotActive
         backButton.isUserInteractionEnabled = false
         nextButton.isUserInteractionEnabled = false
     }
