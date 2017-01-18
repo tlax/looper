@@ -116,6 +116,11 @@ class CCamera:CController
     
     //MARK: public
     
+    func help()
+    {
+        
+    }
+    
     func shoot()
     {
         let controller:CCameraShoot = CCameraShoot()

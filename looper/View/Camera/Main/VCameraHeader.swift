@@ -28,6 +28,10 @@ class VCameraHeader:UICollectionReusableView
         buttonHelp.imageView!.contentMode = UIViewContentMode.center
         buttonHelp.imageView!.clipsToBounds = true
         buttonHelp.imageView!.tintColor = UIColor.genericAlternative
+        buttonHelp.addTarget(
+            self,
+            action:#selector(actionHelp(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let buttonShoot:VCameraActiveButton = VCameraActiveButton(
             image:#imageLiteral(resourceName: "assetCameraShoot"))
@@ -122,6 +126,11 @@ class VCameraHeader:UICollectionReusableView
     }
     
     //MARK: actions
+    
+    func actionHelp(sender button:UIButton)
+    {
+        controller?.help()
+    }
     
     func actionShoot(sender button:VCameraActiveButton)
     {
