@@ -66,4 +66,20 @@ class VCameraFilterSelectorCellRecord:VCameraFilterSelectorCell
         layoutImageLeft.constant = marginImage
         super.layoutSubviews()
     }
+    
+    override func config(model:MCameraFilterSelectorItem)
+    {
+        super.config(model:model)
+        
+        guard
+        
+            let model:MCameraFilterSelectorItemRecord = model as? MCameraFilterSelectorItemRecord
+        
+        else
+        {
+            return
+        }
+        
+        imageView.image = model.record.items.first?.image
+    }
 }

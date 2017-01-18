@@ -4,7 +4,7 @@ class VCameraFilterSelectorCell:UICollectionViewCell
 {
     private weak var selector:UIImageView!
     private weak var layoutSelectorBottom:NSLayoutConstraint!
-    private let kSelectorHeight:CGFloat = 180
+    private let kSelectorHeight:CGFloat = 220
     private let kAlphaSelected:CGFloat = 1
     private let kAlphaNotSelected:CGFloat = 0.2
     

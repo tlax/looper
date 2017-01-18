@@ -231,16 +231,7 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int
-        
-        if let activeRecords:[MCameraRecord] = MSession.sharedInstance.camera?.activeRecords
-        {
-            count = activeRecords.count + 1
-        }
-        else
-        {
-            count = 1
-        }
+        let count:Int = controller.model.items.count
         
         return count
     }
