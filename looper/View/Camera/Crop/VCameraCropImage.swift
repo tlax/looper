@@ -17,6 +17,7 @@ class VCameraCropImage:UIView
     private weak var layoutImageRight:NSLayoutConstraint!
     private weak var viewMover:VCameraCropImageMover!
     private weak var draggingThumb:VCameraCropImageThumb?
+    private weak var draggingMover:VCameraCropImageMover?
     private let attributes:[String:AnyObject]
     private let stringTimes:NSAttributedString
     private var minDistance:CGFloat
@@ -191,16 +192,40 @@ class VCameraCropImage:UIView
         if draggingThumb == nil
         {
             guard
-            
-                let touch:UITouch = touches.first,
-                let draggingThumb:VCameraCropImageThumb = touch.view as? VCameraCropImageThumb
-            
+                
+                let touch:UITouch = touches.first
+                
             else
             {
                 return
             }
             
-            self.draggingThumb = draggingThumb
+            if let draggingMover:VCameraCropImageMover = touch.view as? VCameraCropImageMover
+            {
+                self.draggingMover = draggingMover
+                
+                let point:CGPoint = touch.location(in:self)
+                let pointX:CGFloat = point.x
+                let pointY:CGFloat = point.y
+                let posTop:CGFloat = thumbTopLeft.positionY
+                let posBottom:CGFloat = thumbBottomLeft.positionY
+                let posLeft:CGFloat = thumbTopLeft.positionX
+                let posRight:CGFloat = thumbTopRight.positionX
+                let deltaTop:CGFloat = pointY - posTop
+                let deltaBottom:CGFloat = posBottom - pointY
+                let deltaLeft:CGFloat = pointX - posLeft
+                let deltaRight:CGFloat = posRight - pointX
+                
+                draggingMover.start(
+                    deltaTop:deltaTop,
+                    deltaBottom:deltaBottom,
+                    deltaLeft:deltaLeft,
+                    deltaRight:deltaRight)
+            }
+            else if let draggingThumb:VCameraCropImageThumb = touch.view as? VCameraCropImageThumb
+            {
+                self.draggingThumb = draggingThumb
+            }
         }
     }
     
@@ -208,7 +233,6 @@ class VCameraCropImage:UIView
     {
         guard
         
-            let draggingThumb:VCameraCropImageThumb = self.draggingThumb,
             let touch:UITouch = touches.first
         
         else
@@ -218,34 +242,41 @@ class VCameraCropImage:UIView
         
         let point:CGPoint = touch.location(in:self)
     
-        switch draggingThumb.location
+        if let _:VCameraCropImageMover = self.draggingMover
         {
-        case VCameraCropImageThumb.Location.topLeft:
-            
-            movingTopLeft(point:point)
-            
-            break
-            
-        case VCameraCropImageThumb.Location.topRight:
-            
-            movingTopRight(point:point)
-            
-            break
-            
-        case VCameraCropImageThumb.Location.bottomLeft:
-            
-            movingBottomLeft(point:point)
-            
-            break
-            
-        case VCameraCropImageThumb.Location.bottomRight:
-            
-            movingBottomRight(point:point)
-            
-            break
+            movingMover(point:point)
         }
-        
-        print()
+        else if let draggingThumb:VCameraCropImageThumb = self.draggingThumb
+        {
+            switch draggingThumb.location
+            {
+            case VCameraCropImageThumb.Location.topLeft:
+                
+                movingTopLeft(point:point)
+                
+                break
+                
+            case VCameraCropImageThumb.Location.topRight:
+                
+                movingTopRight(point:point)
+                
+                break
+                
+            case VCameraCropImageThumb.Location.bottomLeft:
+                
+                movingBottomLeft(point:point)
+                
+                break
+                
+            case VCameraCropImageThumb.Location.bottomRight:
+                
+                movingBottomRight(point:point)
+                
+                break
+            }
+            
+            print()
+        }
     }
     
     override func touchesCancelled(_ touches:Set<UITouch>, with event:UIEvent?)
@@ -263,7 +294,43 @@ class VCameraCropImage:UIView
     private func draggingEnded()
     {
         draggingThumb = nil
+        draggingMover = nil
         viewMover.clear()
+    }
+    
+    private func movingMover(point:CGPoint)
+    {
+        guard
+            
+            let deltaTop:CGFloat = viewMover.deltaTop,
+            let deltaBottom:CGFloat = viewMover.deltaBottom,
+            let deltaLeft:CGFloat = viewMover.deltaLeft,
+            let deltaRight:CGFloat = viewMover.deltaRight
+        
+        else
+        {
+            return
+        }
+        
+        let newPointX:CGFloat = point.x
+        let newPointY:CGFloat = point.y
+        let newTop:CGFloat = newPointY - deltaTop
+        let newBottom:CGFloat = newPointY + deltaBottom
+        let newLeft:CGFloat = newPointX - deltaLeft
+        let newRight:CGFloat = newPointX + deltaRight
+        
+        thumbTopLeft.position(
+            positionX:newLeft,
+            positionY:newTop)
+        thumbTopRight.position(
+            positionX:newRight,
+            positionY:newTop)
+        thumbBottomLeft.position(
+            positionX:newLeft,
+            positionY:newBottom)
+        thumbBottomRight.position(
+            positionX:newRight,
+            positionY:newBottom)
     }
     
     private func movingTopLeft(point:CGPoint)
