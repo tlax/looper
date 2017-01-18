@@ -7,11 +7,6 @@ class MCameraMoreItemActionsOptionCrop:MCameraMoreItemActionsOption
         super.init(image:#imageLiteral(resourceName: "assetCameraCrop"))
     }
     
-    override init(image:UIImage)
-    {
-        fatalError()
-    }
-    
     override func selected(controller:CCameraMore?)
     {
         guard

@@ -9,11 +9,6 @@ class MCameraMoreItemActionsOption
         self.image = image
     }
     
-    init()
-    {
-        fatalError()
-    }
-    
     //MARK: public
     
     func selected(controller:CCameraMore?)

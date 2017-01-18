@@ -25,9 +25,4 @@ class MCameraMoreItemActions:MCameraMoreItem
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight)
     }
-    
-    override init(reusableIdentifier:String, cellHeight:CGFloat)
-    {
-        fatalError()
-    }
 }

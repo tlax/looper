@@ -7,11 +7,6 @@ class MCameraMoreItemActionsOptionRotate:MCameraMoreItemActionsOption
         super.init(image:#imageLiteral(resourceName: "assetCameraRotate"))
     }
     
-    override init(image:UIImage)
-    {
-        fatalError()
-    }
-    
     override func selected(controller:CCameraMore?)
     {
         guard

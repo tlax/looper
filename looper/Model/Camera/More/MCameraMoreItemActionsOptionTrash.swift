@@ -7,11 +7,6 @@ class MCameraMoreItemActionsOptionTrash:MCameraMoreItemActionsOption
         super.init(image:#imageLiteral(resourceName: "assetCameraTrash"))
     }
     
-    override init(image:UIImage)
-    {
-        fatalError()
-    }
-    
     override func selected(controller:CCameraMore?)
     {
         guard

@@ -7,11 +7,6 @@ class MCameraMoreItemActionsOptionScale:MCameraMoreItemActionsOption
         super.init(image:#imageLiteral(resourceName: "assetCameraScale"))
     }
     
-    override init(image:UIImage)
-    {
-        fatalError()
-    }
-    
     override func selected(controller:CCameraMore?)
     {
         guard
