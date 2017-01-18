@@ -11,13 +11,6 @@ class MCameraFilterItemBlend:MCameraFilterItem
         super.init(title:title, viewTitle:viewTitle, image:image)
     }
     
-    override func processController() -> CController?
-    {
-        let controller:CCameraFilterBlender = CCameraFilterBlender(model:self)
-        
-        return controller
-    }
-    
     //MARK: public
     
     func filter(

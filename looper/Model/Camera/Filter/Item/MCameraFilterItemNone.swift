@@ -10,11 +10,4 @@ class MCameraFilterItemNone:MCameraFilterItem
         
         super.init(title:title, viewTitle:viewTitle, image:image)
     }
-    
-    override func processController() -> CController?
-    {
-        let controller:CCameraFilterNone = CCameraFilterNone(model:self)
-        
-        return controller
-    }
 }

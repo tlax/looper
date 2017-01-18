@@ -15,11 +15,6 @@ class MCameraFilterItem
     
     //MARK: public
     
-    func processController() -> CController?
-    {
-        return nil
-    }
-    
     func waterMark(original:MCameraRecord) -> MCameraRecord
     {
         guard
