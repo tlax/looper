@@ -38,8 +38,8 @@
 "CLoops_alertCancel"="Cancel";
 "CLoops_alertDelete"="Delete";
 
-"MCameraFilterItemNone_title"="No filtering";
-"MCameraFilterItemBlend_title"="Blending multiple videos";
+"MCameraFilterItemNone_title"="Simple video";
+"MCameraFilterItemBlend_title"="Blending\nmultiple videos";
 "MCameraCompressItemNone_title"="High quality\n";
 "MCameraCompressItemSlight_title"="Slight compression\n";
 "MCameraCompressItemMedium_title"="Medium size\n";

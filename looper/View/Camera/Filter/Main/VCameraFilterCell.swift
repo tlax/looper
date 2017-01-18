@@ -6,7 +6,10 @@ class VCameraFilterCell:UICollectionViewCell
     private weak var baseView:UIImageView!
     private weak var label:UILabel!
     private let kLabelMargin:CGFloat = 10
-    private let kLabelHeight:CGFloat = 45
+    private let kLabelHeight:CGFloat = 50
+    private let kImagesBottom:CGFloat = -30
+    private let kAlphaSelected:CGFloat = 1
+    private let kAlphaNotSelected:CGFloat = 0.4
     
     override init(frame:CGRect)
     {
@@ -32,8 +35,7 @@ class VCameraFilterCell:UICollectionViewCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:14)
-        label.textColor = UIColor.black
+        label.font = UIFont.bold(size:13)
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 0
         self.label = label
@@ -42,12 +44,20 @@ class VCameraFilterCell:UICollectionViewCell
         addSubview(baseView)
         addSubview(imageView)
         
-        NSLayoutConstraint.equals(
+        NSLayoutConstraint.equalsHorizontal(
             view:baseView,
             toView:self)
+        NSLayoutConstraint.topToTop(
+            view:baseView,
+            toView:self)
+        NSLayoutConstraint.bottomToBottom(
+            view:baseView,
+            toView:self,
+            constant:kImagesBottom)
+        
         NSLayoutConstraint.equals(
             view:imageView,
-            toView:self)
+            toView:baseView)
         
         NSLayoutConstraint.bottomToBottom(
             view:label,
@@ -89,10 +99,14 @@ class VCameraFilterCell:UICollectionViewCell
         if isSelected || isHighlighted
         {
             baseView.image = #imageLiteral(resourceName: "assetFilterBaseSelected")
+            label.textColor = UIColor.black
+            imageView.alpha = kAlphaSelected
         }
         else
         {
             baseView.image = #imageLiteral(resourceName: "assetFilterBase")
+            label.textColor = UIColor(white:0, alpha:0.5)
+            imageView.alpha = kAlphaNotSelected
         }
     }
     

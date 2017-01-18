@@ -5,7 +5,7 @@ class MCameraFilterItemBlend:MCameraFilterItem
     override init()
     {
         let title:String = NSLocalizedString("MCameraFilterItemBlend_title", comment:"")
-        let image:UIImage = #imageLiteral(resourceName: "assetHelpCameraActive")
+        let image:UIImage = #imageLiteral(resourceName: "assetFilterBlender")
         
         super.init(title:title, image:image)
     }
