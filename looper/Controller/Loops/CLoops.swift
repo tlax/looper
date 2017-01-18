@@ -200,6 +200,8 @@ class CLoops:CController
     func help()
     {
         let controllerHelp:CHelp = CHelp()
-        parentController.animateOver(controller:controllerHelp)
+        parentController.push(
+            controller:controllerHelp,
+            vertical:CParent.TransitionVertical.fromTop)
     }
 }
