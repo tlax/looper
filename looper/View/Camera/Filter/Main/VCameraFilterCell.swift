@@ -105,7 +105,7 @@ class VCameraFilterCell:UICollectionViewCell
         else
         {
             baseView.image = #imageLiteral(resourceName: "assetFilterBase")
-            label.textColor = UIColor(white:0, alpha:0.5)
+            label.textColor = UIColor(white:0, alpha:0.4)
             imageView.alpha = kAlphaNotSelected
         }
     }
