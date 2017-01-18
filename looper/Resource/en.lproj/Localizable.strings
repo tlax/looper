@@ -39,8 +39,11 @@
 "CLoops_alertDelete"="Delete";
 
 "MCameraFilterItemNone_title"="Simple video";
+"MCameraFilterItemNone_viewTitle"="Select video";
 "MCameraFilterItemBlend_title"="Blending\nmultiple videos";
+"MCameraFilterItemBlend_viewTitle"="Select base video or color";
 "MCameraFilterItemCoolBlue_title"="Cool Blue";
+"MCameraFilterItemCoolBlue_viewTitle"="Select video";
 "MCameraCompressItemNone_title"="High quality\n";
 "MCameraCompressItemSlight_title"="Slight compression\n";
 "MCameraCompressItemMedium_title"="Medium size\n";
