@@ -4,18 +4,8 @@ class MHelp
 {
     let items:[MHelpItem]
     
-    init()
+    init(items:[MHelpItem])
     {
-        let itemRecord:MHelpItemRecord = MHelpItemRecord()
-        let itemFilter:MHelpItemFilter = MHelpItemFilter()
-        let itemCompress:MHelpItemCompress = MHelpItemCompress()
-        let itemSave:MHelpItemSave = MHelpItemSave()
-        
-        items = [
-            itemRecord,
-            itemFilter,
-            itemCompress,
-            itemSave
-        ]
+        self.items = items
     }
 }
