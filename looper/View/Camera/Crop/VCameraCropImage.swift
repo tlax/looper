@@ -27,9 +27,9 @@ class VCameraCropImage:UIView
     private let thumbSize_2:CGFloat
     private let kTopMargin:CGFloat = 60
     private let kMinMargin:CGFloat = 40
-    private let kThumbSize:CGFloat = 60
+    private let kThumbSize:CGFloat = 48
     private let kBackgroundMargin:CGFloat = -3
-    private let kLabelHeight:CGFloat = 100
+    private let kLabelHeight:CGFloat = 70
     
     init(controller:CCameraCrop)
     {
@@ -49,10 +49,10 @@ class VCameraCropImage:UIView
         }
         
         let attributesTimes:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.bold(size:17),
-            NSForegroundColorAttributeName:UIColor.blue]
+            NSFontAttributeName:UIFont.bold(size:16),
+            NSForegroundColorAttributeName:UIColor.black]
         attributes = [
-            NSFontAttributeName:UIFont.bold(size:30),
+            NSFontAttributeName:UIFont.bold(size:28),
             NSForegroundColorAttributeName:UIColor.genericLight]
         
         stringTimes = NSAttributedString(
