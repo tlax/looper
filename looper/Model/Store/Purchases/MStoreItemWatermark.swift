@@ -17,15 +17,6 @@ class MStoreItemWatermark:MStoreItem
             image:image)
     }
     
-    override init(
-        purchaseId:MStore.PurchaseId,
-        title:String,
-        descr:String,
-        image:UIImage)
-    {
-        fatalError()
-    }
-    
     override func purchaseAction()
     {
         MSession.sharedInstance.settings?.watermark = true

@@ -9,11 +9,6 @@ class MLoopsOptionsItemShare:MLoopsOptionsItem
         super.init(image:image)
     }
     
-    override init(image:UIImage)
-    {
-        fatalError()
-    }
-    
     override func selected(controller:CLoops, model:MLoopsItem)
     {
         controller.share(model:model)

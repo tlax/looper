@@ -9,11 +9,6 @@ class MLoopsOptionsItemTrash:MLoopsOptionsItem
         super.init(image:image)
     }
     
-    override init(image:UIImage)
-    {
-        fatalError()
-    }
-    
     override func selected(controller:CLoops, model:MLoopsItem)
     {
         controller.delete(model:model)

@@ -9,11 +9,6 @@ class MLoopsOptionsItem
         self.image = image
     }
     
-    init()
-    {
-        fatalError()
-    }
-    
     //MARK: public
     
     func selected(controller:CLoops, model:MLoopsItem)
