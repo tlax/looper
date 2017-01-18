@@ -4,7 +4,7 @@ class MStoreItemWatermark:MStoreItem
 {
     private let kStorePurchaseId:MStore.PurchaseId = "iturbide.looper.watermark"
     
-    override init()
+    init()
     {
         let title:String = NSLocalizedString("MStoreItemWatermark_title", comment:"")
         let descr:String = NSLocalizedString("MStoreItemWatermark_descr", comment:"")

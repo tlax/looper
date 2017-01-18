@@ -4,7 +4,7 @@ class MCameraCompressItemNone:MCameraCompressItem
 {
     private let kPercent:Int = 100
     
-    override init()
+    init()
     {
         let title:String = NSLocalizedString("MCameraCompressItemNone_title", comment:"")
         let color:UIColor = UIColor.genericLight

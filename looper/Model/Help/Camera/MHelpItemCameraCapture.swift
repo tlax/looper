@@ -2,7 +2,7 @@ import UIKit
 
 class MHelpItemCameraCapture:MHelpItem
 {
-    override init()
+    init()
     {
         let image:UIImage = #imageLiteral(resourceName: "assetHelpCameraCapture")
         let title:String = NSLocalizedString("MHelpItemCameraCapture_title", comment:"")

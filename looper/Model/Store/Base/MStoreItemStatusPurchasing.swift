@@ -5,7 +5,7 @@ class MStoreItemStatusPurchasing:MStoreItemStatus
     private let kCellHeight:CGFloat = 30
     private let kRestorable:Bool = false
     
-    override init()
+    init()
     {
         let reusableIdentifier:String = VStoreCellPurchasing.reusableIdentifier
         super.init(

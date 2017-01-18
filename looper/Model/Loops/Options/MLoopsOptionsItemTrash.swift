@@ -2,7 +2,7 @@ import UIKit
 
 class MLoopsOptionsItemTrash:MLoopsOptionsItem
 {
-    override init()
+    init()
     {
         let image:UIImage = #imageLiteral(resourceName: "assetLoopsTrash")
         

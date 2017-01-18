@@ -2,7 +2,7 @@ import UIKit
 
 class MCameraMoreItemActionsOptionRotate:MCameraMoreItemActionsOption
 {
-    override init()
+    init()
     {
         super.init(image:#imageLiteral(resourceName: "assetCameraRotate"))
     }

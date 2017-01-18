@@ -5,7 +5,7 @@ class MStoreItemStatusDeferred:MStoreItemStatus
     private let kCellHeight:CGFloat = 50
     private let kRestorable:Bool = false
     
-    override init()
+    init()
     {
         let reusableIdentifier:String = VStoreCellDeferred.reusableIdentifier
         super.init(

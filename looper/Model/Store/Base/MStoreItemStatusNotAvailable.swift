@@ -5,7 +5,7 @@ class MStoreItemStatusNotAvailable:MStoreItemStatus
     private let kCellHeight:CGFloat = 50
     private let kRestorable:Bool = false
     
-    override init()
+    init()
     {
         let reusableIdentifier:String = VStoreCellNotAvailable.reusableIdentifier
         super.init(

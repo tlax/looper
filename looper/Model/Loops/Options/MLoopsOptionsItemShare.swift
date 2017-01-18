@@ -2,7 +2,7 @@ import UIKit
 
 class MLoopsOptionsItemShare:MLoopsOptionsItem
 {
-    override init()
+    init()
     {
         let image:UIImage = #imageLiteral(resourceName: "assetLoopsShare")
         

@@ -39,7 +39,7 @@ class CCameraFilterSelector:CController
     }
     
     func next()
-    {
+    {/*
         let baseRecord:MCameraRecord?
         
         if currentSelected == 0
@@ -56,6 +56,6 @@ class CCameraFilterSelector:CController
             baseRecord:baseRecord)
         parentController.push(
             controller:controllerOverlay,
-            horizontal:CParent.TransitionHorizontal.fromRight)
+            horizontal:CParent.TransitionHorizontal.fromRight)*/
     }
 }

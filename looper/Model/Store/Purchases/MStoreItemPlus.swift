@@ -4,7 +4,7 @@ class MStoreItemPlus:MStoreItem
 {
     private let kStorePurchaseId:MStore.PurchaseId = "iturbide.looper.plus"
     
-    override init()
+    init()
     {
         let title:String = NSLocalizedString("MStoreItemPlus_title", comment:"")
         let descr:String = NSLocalizedString("MStoreItemPlus_descr", comment:"")

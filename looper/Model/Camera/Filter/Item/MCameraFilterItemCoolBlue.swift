@@ -2,11 +2,12 @@ import UIKit
 
 class MCameraFilterItemCoolBlue:MCameraFilterItem
 {
-    override init()
+    init()
     {
         let title:String = NSLocalizedString("MCameraFilterItemCoolBlue_title", comment:"")
+        let viewTitle:String = NSLocalizedString("MCameraFilterItemCoolBlue_title", comment:"")
         let image:UIImage = #imageLiteral(resourceName: "assetFilterCoolBlue")
         
-        super.init(title:title, image:image)
+        super.init(title:title, viewTitle:viewTitle, image:image)
     }
 }

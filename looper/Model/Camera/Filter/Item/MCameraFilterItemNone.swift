@@ -2,12 +2,13 @@ import UIKit
 
 class MCameraFilterItemNone:MCameraFilterItem
 {
-    override init()
+    init()
     {
         let title:String = NSLocalizedString("MCameraFilterItemNone_title", comment:"")
+        let viewTitle:String = NSLocalizedString("MCameraFilterItemNone_viewTitle", comment:"")
         let image:UIImage = #imageLiteral(resourceName: "assetFilterSimple")
         
-        super.init(title:title, image:image)
+        super.init(title:title, viewTitle:viewTitle, image:image)
     }
     
     override func processController() -> CController?

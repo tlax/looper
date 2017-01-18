@@ -2,7 +2,7 @@ import UIKit
 
 class MHelpItemSave:MHelpItem
 {
-    override init()
+    init()
     {
         let image:UIImage = #imageLiteral(resourceName: "assetHelpSave")
         let title:String = NSLocalizedString("MHelpItemSave_title", comment:"")

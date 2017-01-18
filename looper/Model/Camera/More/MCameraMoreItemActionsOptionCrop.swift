@@ -2,7 +2,7 @@ import UIKit
 
 class MCameraMoreItemActionsOptionCrop:MCameraMoreItemActionsOption
 {
-    override init()
+    init()
     {
         super.init(image:#imageLiteral(resourceName: "assetCameraCrop"))
     }

@@ -4,7 +4,7 @@ class MCameraSpeed15:MCameraSpeed
 {
     private let kFramesPerSecond:TimeInterval = 15
     
-    override init()
+    init()
     {
         super.init(framesPerSecond:kFramesPerSecond)
     }

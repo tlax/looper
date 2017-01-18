@@ -2,7 +2,7 @@ import UIKit
 
 class MCameraMoreItemActionsOptionScale:MCameraMoreItemActionsOption
 {
-    override init()
+    init()
     {
         super.init(image:#imageLiteral(resourceName: "assetCameraScale"))
     }

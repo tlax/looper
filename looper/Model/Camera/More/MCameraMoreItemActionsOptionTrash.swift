@@ -2,7 +2,7 @@ import UIKit
 
 class MCameraMoreItemActionsOptionTrash:MCameraMoreItemActionsOption
 {
-    override init()
+    init()
     {
         super.init(image:#imageLiteral(resourceName: "assetCameraTrash"))
     }

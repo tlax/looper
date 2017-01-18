@@ -7,7 +7,7 @@ class MCameraCompressItemMax:MCameraCompressItem
     private let kPercent:Int = 10
     private let kRemoveInterval:Int = 3
     
-    override init()
+    init()
     {
         let title:String = NSLocalizedString("MCameraCompressItemMax_title", comment:"")
         let color:UIColor = UIColor(red:0.9, green:0, blue:0, alpha:1)

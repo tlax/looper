@@ -2,7 +2,7 @@ import UIKit
 
 class MCameraFilterItemBlend:MCameraFilterItem
 {
-    override init()
+    init()
     {
         let title:String = NSLocalizedString("MCameraFilterItemBlend_title", comment:"")
         let viewTitle:String = NSLocalizedString("MCameraFilterItemBlend_viewTitle", comment:"")

@@ -2,7 +2,7 @@ import UIKit
 
 class MHelpItemCompress:MHelpItem
 {
-    override init()
+    init()
     {
         let image:UIImage = #imageLiteral(resourceName: "assetHelpCompress")
         let title:String = NSLocalizedString("MHelpItemCompress_title", comment:"")

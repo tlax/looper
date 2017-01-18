@@ -5,7 +5,7 @@ class MCameraMoreItemActions:MCameraMoreItem
     let options:[MCameraMoreItemActionsOption]
     private let kCellHeight:CGFloat = 65
     
-    override init(record:MCameraRecordEditable)
+    init(record:MCameraRecordEditable)
     {
         let optionRotate:MCameraMoreItemActionsOptionRotate = MCameraMoreItemActionsOptionRotate()
         let optionCrop:MCameraMoreItemActionsOptionCrop = MCameraMoreItemActionsOptionCrop()

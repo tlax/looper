@@ -2,7 +2,7 @@ import UIKit
 
 class MHelpItemFilter:MHelpItem
 {
-    override init()
+    init()
     {
         let image:UIImage = #imageLiteral(resourceName: "assetHelpFilter")
         let title:String = NSLocalizedString("MHelpItemFilter_title", comment:"")
