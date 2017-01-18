@@ -1,9 +1,19 @@
-//
-//  MHelpItemCameraMore.swift
-//  looper
-//
-//  Created by zero on 1/18/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MHelpItemCameraMore:MHelpItem
+{
+    override init()
+    {
+        let image:UIImage = #imageLiteral(resourceName: "assetHelpCameraMore")
+        let title:String = NSLocalizedString("MHelpItemCameraMore_title", comment:"")
+        
+        super.init(
+            image:image,
+            title:title)
+    }
+    
+    override init(image:UIImage, title:String)
+    {
+        fatalError()
+    }
+}
