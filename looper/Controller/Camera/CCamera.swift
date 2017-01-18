@@ -118,7 +118,11 @@ class CCamera:CController
     
     func help()
     {
-        
+        let helpGeneral:MHelpGeneral = MHelpGeneral()
+        let controllerHelp:CHelp = CHelp(model:helpGeneral)
+        parentController.push(
+            controller:controllerHelp,
+            vertical:CParent.TransitionVertical.fromTop)
     }
     
     func shoot()
