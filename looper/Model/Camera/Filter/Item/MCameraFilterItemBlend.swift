@@ -13,6 +13,7 @@ class MCameraFilterItemBlend:MCameraFilterItem
     
     override func selectorModel() -> MCameraFilterSelector
     {
+        let records:[MCameraFilterSelectorItem] = recordItems()
         var items:[MCameraFilterSelectorItem] = []
         
         let itemBlack:MCameraFilterSelectorItemColor = MCameraFilterSelectorItemColor(
@@ -22,16 +23,7 @@ class MCameraFilterItemBlend:MCameraFilterItem
         
         items.append(itemBlack)
         items.append(itemWhite)
-        
-        if let activeRecords:[MCameraRecord] = MSession.sharedInstance.camera?.activeRecords
-        {
-            for activeRecord:MCameraRecord in activeRecords
-            {
-                let itemRecord:MCameraFilterSelectorItemRecord = MCameraFilterSelectorItemRecord(
-                    record:activeRecord)
-                items.append(itemRecord)
-            }
-        }
+        items.append(contentsOf:records)
         
         let model:MCameraFilterSelector = MCameraFilterSelector(items:items)
         

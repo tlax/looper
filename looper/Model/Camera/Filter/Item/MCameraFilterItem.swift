@@ -15,9 +15,29 @@ class MCameraFilterItem
     
     //MARK: public
     
+    func recordItems() -> [MCameraFilterSelectorItem]
+    {
+        var items:[MCameraFilterSelectorItem] = []
+        
+        if let activeRecords:[MCameraRecord] = MSession.sharedInstance.camera?.activeRecords
+        {
+            for activeRecord:MCameraRecord in activeRecords
+            {
+                let itemRecord:MCameraFilterSelectorItemRecord = MCameraFilterSelectorItemRecord(
+                    record:activeRecord)
+                items.append(itemRecord)
+            }
+        }
+        
+        return items
+    }
+    
     func selectorModel() -> MCameraFilterSelector
     {
-        fatalError()
+        let items:[MCameraFilterSelectorItem] = recordItems()
+        let model:MCameraFilterSelector = MCameraFilterSelector(items:items)
+        
+        return model
     }
     
     func waterMark(original:MCameraRecord) -> MCameraRecord
