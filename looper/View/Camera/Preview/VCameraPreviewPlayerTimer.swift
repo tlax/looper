@@ -10,8 +10,9 @@ class VCameraPreviewPlayerTimer:UIView
     private let stringSeconds:NSAttributedString
     private let kSeconds:String = "s"
     private let kLabelTop:CGFloat = 20
-    private let kLabelHeight:CGFloat = 32
-    private let kSliderTop:CGFloat = -38
+    private let kLabelHeight:CGFloat = 34
+    private let kLabelMarginHorizontal:CGFloat = 20
+    private let kSliderTop:CGFloat = -40
     private let kAlphaActive:CGFloat = 1
     private let kAlphaNotActive:CGFloat = 0.3
     
@@ -41,7 +42,6 @@ class VCameraPreviewPlayerTimer:UIView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.textAlignment = NSTextAlignment.center
         self.label = label
         
         let viewSlider:VCameraPreviewPlayerTimerSlider = VCameraPreviewPlayerTimerSlider(
@@ -53,7 +53,8 @@ class VCameraPreviewPlayerTimer:UIView
         
         NSLayoutConstraint.equalsHorizontal(
             view:label,
-            toView:self)
+            toView:self,
+            margin:kLabelMarginHorizontal)
         NSLayoutConstraint.topToTop(
             view:label,
             toView:self,
