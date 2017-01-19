@@ -7,6 +7,7 @@ class VCameraPreviewBar:UIView
     private weak var saveButton:UIButton!
     private weak var cancelButton:UIButton!
     private weak var layoutSaveLeft:NSLayoutConstraint!
+    private let kButtonsTop:CGFloat = 4
     private let kBackWidth:CGFloat = 55
     private let kSaveWidth:CGFloat = 140
     private let kCancelWidth:CGFloat = 90
@@ -50,7 +51,12 @@ class VCameraPreviewBar:UIView
         cancelButton.setTitleColor(
             UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
-        cancelButton.titleLabel!.font = UIFont.bold(size:16)
+        cancelButton.titleLabel!.font = UIFont.regular(size:15)
+        cancelButton.titleEdgeInsets = UIEdgeInsets(
+            top:kButtonsTop,
+            left:0,
+            bottom:0,
+            right:0)
         cancelButton.addTarget(
             self,
             action:#selector(actionCancel(sender:)),
@@ -68,14 +74,19 @@ class VCameraPreviewBar:UIView
         saveButton.setTitleColor(
             UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
-        saveButton.titleLabel!.font = UIFont.bold(size:16)
+        saveButton.titleLabel!.font = UIFont.bold(size:15)
+        saveButton.titleEdgeInsets = UIEdgeInsets(
+            top:kButtonsTop,
+            left:0,
+            bottom:0,
+            right:0)
         saveButton.addTarget(
             self,
             action:#selector(actionSave(sender:)),
             for:UIControlEvents.touchUpInside)
         self.saveButton = saveButton
         
-        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
+        let border:VBorder = VBorder(color:UIColor.black)
         
         addSubview(border)
         addSubview(backButton)

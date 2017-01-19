@@ -1,7 +1,7 @@
 "VCameraFooter_label"="Start by recording a video";
 "VCameraShootConfig_titleBottom"="Frames/second";
 "VCameraFilterBlenderOverlay_title"="Add videos and\ndrag them to position";
-"VCameraPreviewBar_cancelButton"="Reset";
+"VCameraPreviewBar_cancelButton"="Delete";
 "VCameraPreviewBar_saveButton"="Save";
 "VHelp_button"="Got it";
 "VStoreFooter_buttonRestore"="Restore purchase";
@@ -28,10 +28,10 @@
 "CCamera_alertTitle"="Delete video?";
 "CCamera_alertDelete"="Delete";
 "CCamera_alertCancel"="Cancel";
-"CCameraPreview_alertTitle"="Reset?";
+"CCameraPreview_alertTitle"="Delete?";
 "CCameraPreview_alertMessage"="Loop not saved yet";
-"CCameraPreview_alertCancel"="Stay here";
-"CCameraPreview_alertDelete"="Reset";
+"CCameraPreview_alertCancel"="It's cool, keep it";
+"CCameraPreview_alertDelete"="Delete";
 "CLoops_alertTitle"="Delete loop?";
 "CLoops_alertCancel"="Cancel";
 "CLoops_alertDelete"="Delete";

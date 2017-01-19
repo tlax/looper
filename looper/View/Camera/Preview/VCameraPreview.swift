@@ -8,7 +8,7 @@ class VCameraPreview:VView
     private weak var viewBar:VCameraPreviewBar!
     private weak var spinner:VSpinner!
     private weak var layoutDisplayHeight:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 44
+    private let kBarHeight:CGFloat = 50
     private let kPlayerHeight:CGFloat = 216
     
     override init(controller:CController)
