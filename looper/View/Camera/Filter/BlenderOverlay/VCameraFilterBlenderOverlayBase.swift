@@ -4,6 +4,7 @@ class VCameraFilterBlenderOverlayBase:UIView
 {
     private let kImageMargin:CGFloat = 2
     private let kImageAlpha:CGFloat = 0.7
+    private let kBorderWidth:CGFloat = 1
     
     init(model:MCameraFilterSelectorItem)
     {
@@ -11,6 +12,8 @@ class VCameraFilterBlenderOverlayBase:UIView
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
+        layer.borderWidth = kBorderWidth
+        layer.borderColor = UIColor.black.cgColor
         
         if let modelRecord:MCameraFilterSelectorItemRecord = model as? MCameraFilterSelectorItemRecord
         {

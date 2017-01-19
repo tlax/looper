@@ -161,8 +161,8 @@ class MCameraFilterProcessorBlender:MCameraFilterProcessor
                     mapMinY = baseMax
                 }
                 
-                mapMaxX = mapMinX + overlaySize
-                mapMaxY = mapMinY + overlaySize
+                mapMaxX = overlayMinX + overlaySize
+                mapMaxY = overlayMinY + overlaySize
                 
                 if mapMaxX > baseMax
                 {
