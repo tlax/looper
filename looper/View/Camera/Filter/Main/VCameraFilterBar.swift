@@ -17,12 +17,7 @@ class VCameraFilterBar:UIView
         clipsToBounds = true
         self.controller = controller
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
-        let visualEffect:UIVisualEffectView = UIVisualEffectView(
-            effect:blurEffect)
-        visualEffect.translatesAutoresizingMaskIntoConstraints = false
-        visualEffect.clipsToBounds = true
-        visualEffect.isUserInteractionEnabled = false
+        let blur:VBlur = VBlur.light()
         
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
@@ -66,72 +61,56 @@ class VCameraFilterBar:UIView
         icon.contentMode = UIViewContentMode.center
         icon.image = #imageLiteral(resourceName: "assetCameraFilter")
         
-        addSubview(visualEffect)
+        addSubview(blur)
         addSubview(icon)
         addSubview(backButton)
         addSubview(nextButton)
         
-        let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
-            view:visualEffect,
+        NSLayoutConstraint.equals(
+            view:blur,
             toView:self)
         
-        let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:backButton,
             toView:self,
             constant:kContentTop)
-        let layoutBackBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:backButton,
             toView:self)
-        let layoutBackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:backButton,
             toView:self)
-        let layoutBackWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:backButton,
             constant:kButtonsWidth)
         
-        let layoutIconTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:icon,
             toView:self,
             constant:kContentTop)
-        let layoutIconBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:icon,
             toView:self)
         layoutIconLeft = NSLayoutConstraint.leftToLeft(
             view:icon,
             toView:self)
-        let layoutIconWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:icon,
             constant:kIconWidth)
         
-        let layoutNextTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:nextButton,
             toView:self,
             constant:kContentTop)
-        let layoutNextBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:nextButton,
             toView:self)
-        let layoutNextRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:nextButton,
             toView:self)
-        let layoutNextWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:nextButton,
             constant:kButtonsWidth)
-        
-        addConstraints(constraintsEffect)
-        
-        addConstraints([
-            layoutBackTop,
-            layoutBackBottom,
-            layoutBackLeft,
-            layoutBackWidth,
-            layoutIconTop,
-            layoutIconBottom,
-            layoutIconLeft,
-            layoutIconWidth,
-            layoutNextTop,
-            layoutNextBottom,
-            layoutNextRight,
-            layoutNextWidth])
     }
     
     override func layoutSubviews()

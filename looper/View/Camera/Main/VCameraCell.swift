@@ -2,27 +2,34 @@ import UIKit
 
 class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    private enum Drag
+    {
+        case stand
+        case restart
+        case avoid
+    }
+    
     private weak var collectionView:VCollection!
+    private weak var viewControls:VCameraCellControls!
     private weak var layoutCollectionLeft:NSLayoutConstraint!
     private weak var layoutControlsWidth:NSLayoutConstraint!
-    private weak var model:MCameraRecord?
+    private weak var model:MCameraRecordEditable?
     private weak var controller:CCamera?
-    private var listenDrag:Bool
-    private var restartScroll:Bool
+    private var drag:Drag
     private let kAnimationDuration:TimeInterval = 0.3
     private let kCellSize:CGFloat = 70
     private let kInterLine:CGFloat = 1
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 50
-    private let kControlsMaxWidth:CGFloat = 180
-    private let kControlsMidWidth:CGFloat = 60
-    private let kControlsMinWidth:CGFloat = 9
-    private let kControlsMaxTreshold:CGFloat = 50
+    private let kControlsMinThreshold:CGFloat = 7
+    private let kControlsExtraThreshold:CGFloat = 30
+    private let kControlsMenuThreshold:CGFloat = 50
+    private let kControlsMaxThreshold:CGFloat = 180
+    private let kExtraSpeed:CGFloat = 3
     
     override init(frame:CGRect)
     {
-        listenDrag = true
-        restartScroll = false
+        drag = Drag.stand
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -50,7 +57,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         let viewControls:VCameraCellControls = VCameraCellControls()
         viewControls.buttonMore.addTarget(
             self,
-            action:#selector(actionTrash(sender:)),
+            action:#selector(actionMore(sender:)),
             for:UIControlEvents.touchUpInside)
         viewControls.buttonCheckAll.addTarget(
             self,
@@ -60,44 +67,29 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             self,
             action:#selector(actionUncheckAll(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.viewControls = viewControls
         
         addSubview(collectionView)
         addSubview(viewControls)
         
-        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:collectionView,
-            toView:self)
-        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.equalsVertical(
             view:collectionView,
             toView:self)
         layoutCollectionLeft = NSLayoutConstraint.leftToLeft(
             view:collectionView,
             toView:self)
-        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:collectionView,
             toView:self)
         
-        let layoutControlsTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsVertical(
             view:viewControls,
             toView:self)
-        let layoutControlsBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:viewControls,
-            toView:self)
-        let layoutControlsLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:viewControls,
             toView:self)
         layoutControlsWidth = NSLayoutConstraint.width(
             view:viewControls)
-        
-        addConstraints([
-            layoutCollectionTop,
-            layoutCollectionBottom,
-            layoutCollectionLeft,
-            layoutCollectionRight,
-            layoutControlsTop,
-            layoutControlsBottom,
-            layoutControlsLeft,
-            layoutControlsWidth])
         
         NotificationCenter.default.addObserver(
             self,
@@ -131,7 +123,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         
         if notificator !== self
         {
-            if restartScroll
+            if drag == Drag.restart
             {
                 restartingScroll()
             }
@@ -152,23 +144,28 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         changeAllItems(active:false)
     }
     
-    func actionTrash(sender button:UIButton)
+    func actionMore(sender button:UIButton)
+    {
+        showMore()
+    }
+    
+    //MARK: private
+    
+    private func showMore()
     {
         restartingScroll()
         
         guard
             
-            let model:MCameraRecord = self.model
+            let model:MCameraRecordEditable = self.model
             
         else
         {
             return
         }
         
-        controller?.trash(item:model)
+        controller?.showMore(item:model)
     }
-    
-    //MARK: private
     
     private func changeAllItems(active:Bool)
     {
@@ -207,15 +204,21 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     private func restartingScroll()
     {
-        restartScroll = false
+        drag = Drag.restart
         layoutControlsWidth.constant = 0
         layoutCollectionLeft.constant = 0
-        
+     
         UIView.animate(
-            withDuration:kAnimationDuration)
+            withDuration:kAnimationDuration,
+            animations:
         { [weak self] in
             
             self?.layoutIfNeeded()
+                
+        })
+        { [weak self] (done:Bool) in
+            
+            self?.drag = Drag.stand
         }
     }
     
@@ -228,7 +231,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     //MARK: public
     
-    func config(model:MCameraRecord, controller:CCamera)
+    func config(model:MCameraRecordEditable, controller:CCamera)
     {
         self.model = model
         self.controller = controller
@@ -251,12 +254,10 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     {
         notifyRestartScrolls()
         
-        if restartScroll
+        switch drag
         {
-            restartingScroll()
-        }
-        else if listenDrag
-        {
+        case Drag.stand:
+        
             let offsetX:CGFloat = -scrollView.contentOffset.x
             let controlsWidth:CGFloat
             
@@ -266,50 +267,97 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             }
             else
             {
-                controlsWidth = offsetX
+                let extraDelta:CGFloat = offsetX - kControlsExtraThreshold
+                let extraWidth:CGFloat
+                
+                if extraDelta > 0
+                {
+                    extraWidth = kExtraSpeed * extraDelta
+                }
+                else
+                {
+                    extraWidth = 0
+                }
+                
+                controlsWidth = offsetX + extraWidth
             }
             
             layoutControlsWidth.constant = controlsWidth
+            
+            break
+            
+        case Drag.restart:
+            
+            restartingScroll()
+            
+            break
+            
+        case Drag.avoid:
+            break
         }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView:UIScrollView)
     {
-        if !listenDrag
+        switch drag
         {
-            listenDrag = true
-            restartScroll = true
+        case Drag.restart:
+         
+            drag = Drag.stand
+            
+            break
+            
+        case Drag.avoid:
+            
+            drag = Drag.restart
+            
+            break
+            
+        default:
+            
+            break
         }
     }
     
     func scrollViewDidEndDragging(_ scrollView:UIScrollView, willDecelerate decelerate:Bool)
     {
-        let offsetX:CGFloat = -scrollView.contentOffset.x
+        let controlsWidth:CGFloat = layoutControlsWidth.constant
         
-        if offsetX > kControlsMinWidth
+        if controlsWidth > kControlsMinThreshold
         {
-            listenDrag = false
-            
-            let newControlsWidth:CGFloat
-            
-            if offsetX > kControlsMaxTreshold
+            if controlsWidth > kControlsMaxThreshold
             {
-                newControlsWidth = kControlsMaxWidth
+                showMore()
             }
             else
             {
-                newControlsWidth = kControlsMidWidth
-            }
-            
-            layoutControlsWidth.constant = newControlsWidth
-            layoutCollectionLeft.constant = newControlsWidth
-            
-            UIView.animate(
-                withDuration:kAnimationDuration)
-            { [weak self] in
+                drag = Drag.avoid
+                
+                let newControlsWidth:CGFloat
+                
+                if controlsWidth > kControlsMenuThreshold
+                {
+                    newControlsWidth = viewControls.allButtonsWidth
+                }
+                else
+                {
+                    newControlsWidth = viewControls.kButtonsWidth
+                }
+                
+                layoutControlsWidth.constant = newControlsWidth
+                layoutCollectionLeft.constant = newControlsWidth
+                
+                UIView.animate(
+                    withDuration:kAnimationDuration)
+                { [weak self] in
                     
-                self?.layoutIfNeeded()
+                    self?.layoutIfNeeded()
+                }
             }
+        }
+        else
+        {
+            drag = Drag.stand
         }
     }
     
@@ -355,7 +403,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
             animated:false,
             scrollPosition:UICollectionViewScrollPosition())
         
-        if restartScroll
+        if drag == Drag.restart
         {
             restartingScroll()
         }

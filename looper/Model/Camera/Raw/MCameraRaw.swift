@@ -4,17 +4,19 @@ import UIKit
 class MCameraRaw
 {
     var items:[MCameraRawItem]
+    let speed:MCameraSpeed
     
-    init()
+    init(speed:MCameraSpeed)
     {
         items = []
+        self.speed = speed
     }
     
     //MARK: public
     
-    func render() -> MCameraRecord
+    func render() -> MCameraRecordEditable
     {
-        let record:MCameraRecord = MCameraRecord()
+        let record:MCameraRecordEditable = MCameraRecordEditable(speed:speed)
         
         for item:MCameraRawItem in self.items
         {

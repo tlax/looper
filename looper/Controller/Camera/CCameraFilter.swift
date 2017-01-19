@@ -40,12 +40,14 @@ class CCameraFilter:CController
     {
         guard
             
-            let controller:CController = modelFilter.currentFilter?.processController()
+            let filter:MCameraFilterItem = modelFilter.currentFilter
         
         else
         {
             return
         }
+        
+        let controller:CCameraFilterSelector = CCameraFilterSelector(filter:filter)
         
         parentController.push(
             controller:controller,

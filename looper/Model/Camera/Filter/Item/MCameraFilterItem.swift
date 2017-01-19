@@ -3,24 +3,47 @@ import UIKit
 class MCameraFilterItem
 {
     let title:String
+    let viewTitle:String
     let image:UIImage
     
-    init(title:String, image:UIImage)
+    init(title:String, viewTitle:String, image:UIImage)
     {
         self.title = title
+        self.viewTitle = viewTitle
         self.image = image
-    }
-    
-    init()
-    {
-        fatalError()
     }
     
     //MARK: public
     
-    func processController() -> CController?
+    func recordItems() -> [MCameraFilterSelectorItem]
     {
-        return nil
+        var items:[MCameraFilterSelectorItem] = []
+        
+        if let activeRecords:[MCameraRecord] = MSession.sharedInstance.camera?.activeRecords
+        {
+            for activeRecord:MCameraRecord in activeRecords
+            {
+                let itemRecord:MCameraFilterSelectorItemRecord = MCameraFilterSelectorItemRecord(
+                    record:activeRecord)
+                items.append(itemRecord)
+            }
+        }
+        
+        return items
+    }
+    
+    func selected(
+        filterSelectedItem:MCameraFilterSelectorItem,
+        controller:CCameraFilterSelector)
+    {
+    }
+    
+    func selectorModel() -> MCameraFilterSelector
+    {
+        let items:[MCameraFilterSelectorItem] = recordItems()
+        let model:MCameraFilterSelector = MCameraFilterSelector(items:items)
+        
+        return model
     }
     
     func waterMark(original:MCameraRecord) -> MCameraRecord

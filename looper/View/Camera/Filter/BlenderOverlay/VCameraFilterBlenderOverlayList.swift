@@ -89,61 +89,44 @@ class VCameraFilterBlenderOverlayList:UIView, UICollectionViewDelegate, UICollec
         addSubview(buttonDone)
         addSubview(collectionView)
         
-        let layoutAddTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:buttonAdd,
             toView:self,
             constant:kButtonAddTop)
-        let layoutAddHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.size(
             view:buttonAdd,
             constant:kButtonAddSize)
         buttonAdd.layoutLeft = NSLayoutConstraint.leftToLeft(
             view:buttonAdd,
             toView:self,
             constant:-kButtonAddSize)
-        let layoutAddWidth:NSLayoutConstraint = NSLayoutConstraint.width(
-            view:buttonAdd,
-            constant:kButtonAddSize)
         
-        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:collectionView,
             toView:self)
-        let layoutCollectionHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:collectionView,
             constant:kCellSize)
         layoutCollectionRight = NSLayoutConstraint.rightToLeft(
             view:collectionView,
             toView:buttonAdd)
-        let layoutCollectionWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:collectionView,
             toView:self)
         
-        let layoutDoneHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:buttonDone,
             constant:kButtonDoneHeight)
-        let layoutDoneBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+        NSLayoutConstraint.bottomToTop(
             view:buttonDone,
             toView:collectionView,
             constant:kButtonDoneBottom)
-        let layoutDoneWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonDone,
             constant:kButtonDoneWidth)
         layoutDoneLeft = NSLayoutConstraint.leftToLeft(
             view:buttonDone,
             toView:collectionView)
-        
-        addConstraints([
-            layoutAddTop,
-            layoutAddHeight,
-            buttonAdd.layoutLeft,
-            layoutAddWidth,
-            layoutCollectionBottom,
-            layoutCollectionHeight,
-            layoutCollectionRight,
-            layoutCollectionWidth,
-            layoutDoneHeight,
-            layoutDoneBottom,
-            layoutDoneWidth,
-            layoutDoneLeft])
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kAfterInit)

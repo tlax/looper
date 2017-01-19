@@ -24,34 +24,18 @@ class VAlert:UIView
             let rootView:UIView = UIApplication.shared.keyWindow!.rootViewController!.view
             rootView.addSubview(alert)
             
-            let views:[String:UIView] = [
-                "alert":alert]
-            
-            let metrics:[String:CGFloat] = [
-                "marginHorizontal":kMarginHorizontal,
-                "height":kHeight]
-            
-            rootView.addConstraints(NSLayoutConstraint.constraints(
-                withVisualFormat:"H:|-(marginHorizontal)-[alert]-(marginHorizontal)-|",
-                options:[],
-                metrics:metrics,
-                views:views))
-            rootView.addConstraints(NSLayoutConstraint.constraints(
-                withVisualFormat:"V:[alert(height)]",
-                options:[],
-                metrics:metrics,
-                views:views))
-            
-            alert.layoutTop = NSLayoutConstraint(
-                item:alert,
-                attribute:NSLayoutAttribute.top,
-                relatedBy:NSLayoutRelation.equal,
-                toItem:rootView,
-                attribute:NSLayoutAttribute.top,
-                multiplier:1,
+            alert.layoutTop = NSLayoutConstraint.topToTop(
+                view:alert,
+                toView:rootView,
                 constant:-kHeight)
+            NSLayoutConstraint.equalsHorizontal(
+                view:alert,
+                toView:rootView,
+                margin:kMarginHorizontal)
+            NSLayoutConstraint.height(
+                view:alert,
+                constant:kHeight)
             
-            rootView.addConstraint(alert.layoutTop)
             rootView.layoutIfNeeded()
             alert.animate(open:true)
         }
@@ -67,10 +51,7 @@ class VAlert:UIView
         layer.borderWidth = kBorderWidth
         layer.borderColor = UIColor(white:0, alpha:0.2).cgColor
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
-        let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
-        blur.isUserInteractionEnabled = false
-        blur.translatesAutoresizingMaskIntoConstraints = false
+        let blur:VBlur = VBlur.light()
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
@@ -94,37 +75,19 @@ class VAlert:UIView
         addSubview(label)
         addSubview(button)
         
-        let constraintsEffect:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:blur,
             toView:self)
-        
-        let constraintsButton:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:blur,
             toView:self)
-        
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsVertical(
             view:label,
             toView:self)
-        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:label,
-            toView:self)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.equalsHorizontal(
             view:label,
             toView:self,
-            constant:kLabelMargin)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:label,
-            toView:self,
-            constant:-kLabelMargin)
-        
-        addConstraints(constraintsEffect)
-        addConstraints(constraintsButton)
-        
-        addConstraints([
-            layoutLabelTop,
-            layoutLabelBottom,
-            layoutLabelLeft,
-            layoutLabelRight])
+            margin:kLabelMargin)
     }
     
     func alertTimeOut(sender timer:Timer?)

@@ -44,30 +44,20 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         addSubview(collectionView)
         addSubview(spinner)
         
-        let layoutCollectionTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:collectionView,
             toView:self,
             constant:kCollectionTop)
-        let layoutCollectionLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.bottomToBottom(
             view:collectionView,
             toView:self)
-        let layoutCollectionRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:collectionView,
-            toView:self)
-        let layoutCollectionBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.equalsHorizontal(
             view:collectionView,
             toView:self)
         
-        let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:spinner,
             toView:self)
-        
-        addConstraints(constraintsSpinner)
-        addConstraints([
-            layoutCollectionTop,
-            layoutCollectionBottom,
-            layoutCollectionLeft,
-            layoutCollectionRight])
     }
     
     required init?(coder:NSCoder)

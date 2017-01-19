@@ -7,8 +7,6 @@ class VCameraShoot:VView
     weak var viewConfig:VCameraShootConfig!
     weak var viewProcess:VCameraShootProcess!
     private weak var layoutPreviewHeight:NSLayoutConstraint!
-    private weak var layoutConfigHeight:NSLayoutConstraint!
-    private weak var layoutProcessHeight:NSLayoutConstraint!
     private weak var controller:CCameraShoot!
     private let kMenuHeight:CGFloat = 90
     
@@ -41,70 +39,42 @@ class VCameraShoot:VView
         
         layoutPreviewHeight = NSLayoutConstraint.height(
             view:viewPreview)
-        let layoutPreviewTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:viewPreview,
             toView:self)
-        let layoutPreviewLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewPreview,
-            toView:self)
-        let layoutPreviewRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewPreview,
             toView:self)
         
-        let layoutMenuHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:viewMenu,
             constant:kMenuHeight)
-        let layoutMenuBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:viewMenu,
             toView:self)
-        let layoutMenuLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewMenu,
-            toView:self)
-        let layoutMenuRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewMenu,
             toView:self)
         
-        let layoutConfigTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToBottom(
             view:viewConfig,
             toView:viewPreview)
-        layoutConfigHeight = NSLayoutConstraint.height(
-            view:viewConfig)
-        let layoutConfigLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.bottomToBottom(
             view:viewConfig,
             toView:self)
-        let layoutConfigRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewConfig,
             toView:self)
         
-        let layoutProcessTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToBottom(
             view:viewProcess,
             toView:viewPreview)
-        layoutProcessHeight = NSLayoutConstraint.height(
-            view:viewProcess)
-        let layoutProcessLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.bottomToBottom(
             view:viewProcess,
             toView:self)
-        let layoutProcessRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewProcess,
             toView:self)
-        
-        addConstraints([
-            layoutPreviewHeight,
-            layoutPreviewTop,
-            layoutPreviewLeft,
-            layoutPreviewRight,
-            layoutMenuHeight,
-            layoutMenuBottom,
-            layoutMenuLeft,
-            layoutMenuRight,
-            layoutConfigTop,
-            layoutConfigHeight,
-            layoutConfigLeft,
-            layoutConfigRight,
-            layoutProcessTop,
-            layoutProcessHeight,
-            layoutProcessLeft,
-            layoutProcessRight])
     }
     
     required init?(coder:NSCoder)
@@ -117,28 +87,19 @@ class VCameraShoot:VView
         let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
         let previewHeight:CGFloat
-        let configHeight:CGFloat
         
         if width < height
         {
             previewHeight = width
-            configHeight = height - (previewHeight + kMenuHeight)
         }
         else
         {
             previewHeight = height - kMenuHeight
-            configHeight = 0
         }
         
         if previewHeight >= 0
         {
             layoutPreviewHeight.constant = previewHeight
-        }
-        
-        if configHeight >= 0
-        {
-            layoutConfigHeight.constant = configHeight
-            layoutProcessHeight.constant = configHeight
         }
         
         super.layoutSubviews()

@@ -3,9 +3,10 @@ import UIKit
 class MCamera
 {
     static let kImageMaxSize:CGFloat = 480
+    static let kImageMinSize:CGFloat = 50
     static let kMaxShots:Int = 300
     let speeds:[MCameraSpeed]
-    var records:[MCameraRecord]
+    var records:[MCameraRecordEditable]
     var activeRecords:[MCameraRecord]?
     var raw:MCameraRaw?
     var currentSpeed:Int
@@ -26,7 +27,7 @@ class MCamera
             name:Notification.cameraLoading,
             object:nil)
         
-        let record:MCameraRecord = modelRaw.render()
+        let record:MCameraRecordEditable = modelRaw.render()
         records.insert(record, at:0)
         
         NotificationCenter.default.post(
@@ -52,14 +53,14 @@ class MCamera
         }
     }
     
-    func trashRecord(record:MCameraRecord)
+    func trashRecord(record:MCameraRecordEditable)
     {
         let countRecords:Int = records.count
         var recordToDelete:Int = 0
         
         for indexRecord:Int in 0 ..< countRecords
         {
-            let recordItem:MCameraRecord = records[indexRecord]
+            let recordItem:MCameraRecordEditable = records[indexRecord]
             
             if recordItem === record
             {

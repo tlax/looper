@@ -12,8 +12,8 @@ class VCameraPreviewPlayerTimerSlider:UIView
     private let timeSpan:TimeInterval
     private let thumbWidth_2:CGFloat
     private let kMinTime:TimeInterval = 1
-    private let kMaxTime:TimeInterval = 15
-    private let kTrackHeight:CGFloat = 4
+    private let kMaxTime:TimeInterval = 30
+    private let kTrackHeight:CGFloat = 2
     private let kThumbWidth:CGFloat = 40
     
     init(controller:CCameraPreview)
@@ -52,58 +52,38 @@ class VCameraPreviewPlayerTimerSlider:UIView
         addSubview(track)
         addSubview(viewThumb)
         
-        layoutTrackTop = NSLayoutConstraint.topToTop(
-            view:track,
-            toView:self)
-        let layoutTrackHeight:NSLayoutConstraint = NSLayoutConstraint.height(
-            view:track,
-            constant:kTrackHeight)
-        let layoutTrackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:track,
-            toView:self,
-            constant:thumbWidth_2)
-        layoutTrackWidth = NSLayoutConstraint.width(
-            view:track)
-        
-        let layoutThumbTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsVertical(
             view:viewThumb,
             toView:self)
-        let layoutThumbBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:viewThumb,
-            toView:self)
-        let layoutThumbWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:viewThumb,
             constant:kThumbWidth)
         layoutThumbLeft = NSLayoutConstraint.leftToLeft(
             view:viewThumb,
             toView:self)
         
-        let layoutInsideTrackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsVertical(
             view:insideTrack,
             toView:track)
-        let layoutInsideTrackBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:insideTrack,
-            toView:track)
-        let layoutInsideTrackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:insideTrack,
             toView:track)
         layoutInsideTrackWidth = NSLayoutConstraint.width(
             view:insideTrack)
         
-        addConstraints([
-            layoutTrackTop,
-            layoutTrackHeight,
-            layoutTrackLeft,
-            layoutTrackWidth,
-            layoutThumbTop,
-            layoutThumbBottom,
-            layoutThumbWidth,
-            layoutThumbLeft,
-            layoutInsideTrackTop,
-            layoutInsideTrackBottom,
-            layoutInsideTrackLeft,
-            layoutInsideTrackWidth])
-        
+        layoutTrackTop = NSLayoutConstraint.topToTop(
+            view:track,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:track,
+            constant:kTrackHeight)
+        NSLayoutConstraint.leftToLeft(
+            view:track,
+            toView:self,
+            constant:thumbWidth_2)
+        layoutTrackWidth = NSLayoutConstraint.width(
+            view:track)
+
         thumbNormal()
     }
     

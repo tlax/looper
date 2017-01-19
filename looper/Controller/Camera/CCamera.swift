@@ -108,13 +108,22 @@ class CCamera:CController
     
     //MARK: private
     
-    private func confirmTrash(item:MCameraRecord)
+    private func confirmTrash(item:MCameraRecordEditable)
     {
         MSession.sharedInstance.camera?.trashRecord(record:item)
         viewCamera.refresh()
     }
     
     //MARK: public
+    
+    func help()
+    {
+        let helpCamera:MHelpCamera = MHelpCamera()
+        let controllerHelp:CHelp = CHelp(model:helpCamera)
+        parentController.push(
+            controller:controllerHelp,
+            vertical:CParent.TransitionVertical.fromTop)
+    }
     
     func shoot()
     {
@@ -124,7 +133,7 @@ class CCamera:CController
             vertical:CParent.TransitionVertical.fromTop)
     }
     
-    func trash(item:MCameraRecord)
+    func trash(item:MCameraRecordEditable)
     {
         let alert:UIAlertController = UIAlertController(
             title:
@@ -151,6 +160,36 @@ class CCamera:CController
         alert.addAction(actionDelete)
         alert.addAction(actionCancel)
         present(alert, animated:true, completion:nil)
+    }
+    
+    func rotate(item:MCameraRecordEditable)
+    {
+        let controllerRotate:CCameraRotate = CCameraRotate(record:item)
+        parentController.push(
+            controller:controllerRotate,
+            vertical:CParent.TransitionVertical.fromTop)
+    }
+    
+    func scale(item:MCameraRecordEditable)
+    {
+        let controllerScale:CCameraScale = CCameraScale(record:item)
+        parentController.push(
+            controller:controllerScale,
+            vertical:CParent.TransitionVertical.fromTop)
+    }
+    
+    func crop(item:MCameraRecordEditable)
+    {
+        let controllerCrop:CCameraCrop = CCameraCrop(record:item)
+        parentController.push(
+            controller:controllerCrop,
+            vertical:CParent.TransitionVertical.fromTop)
+    }
+    
+    func showMore(item:MCameraRecordEditable)
+    {
+        let controllerMore:CCameraMore = CCameraMore(controller:self, record:item)
+        parentController.animateOver(controller:controllerMore)
     }
     
     func next()

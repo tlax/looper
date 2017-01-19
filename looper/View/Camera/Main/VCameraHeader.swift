@@ -7,8 +7,7 @@ class VCameraHeader:UICollectionReusableView
     private weak var buttonNext:VCameraActiveButton!
     private weak var layoutShootLeft:NSLayoutConstraint!
     private let kButtonsTop:CGFloat = 90
-    private let kButtonsHeight:CGFloat = 60
-    private let kButtonsWidth:CGFloat = 60
+    private let kButtonsSize:CGFloat = 60
     private let kBorderHeight:CGFloat = 1
  
     override init(frame:CGRect)
@@ -16,6 +15,22 @@ class VCameraHeader:UICollectionReusableView
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
+        
+        let buttonHelp:UIButton = UIButton()
+        buttonHelp.translatesAutoresizingMaskIntoConstraints = false
+        buttonHelp.setImage(
+            #imageLiteral(resourceName: "assetLoopsHelp").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonHelp.setImage(
+            #imageLiteral(resourceName: "assetLoopsHelp").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonHelp.imageView!.contentMode = UIViewContentMode.center
+        buttonHelp.imageView!.clipsToBounds = true
+        buttonHelp.imageView!.tintColor = UIColor.genericAlternative
+        buttonHelp.addTarget(
+            self,
+            action:#selector(actionHelp(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let buttonShoot:VCameraActiveButton = VCameraActiveButton(
             image:#imageLiteral(resourceName: "assetCameraShoot"))
@@ -34,70 +49,55 @@ class VCameraHeader:UICollectionReusableView
             for:UIControlEvents.touchUpInside)
         self.buttonNext = buttonNext
         
-        let border:UIView = UIView()
-        border.isUserInteractionEnabled = false
-        border.translatesAutoresizingMaskIntoConstraints = false
-        border.clipsToBounds = true
-        border.backgroundColor = UIColor(white:0, alpha:0.2)
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.2))
         
         addSubview(border)
+        addSubview(buttonHelp)
         addSubview(buttonShoot)
         addSubview(buttonNext)
         
-        let layoutShootTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.bottomToBottom(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        
+        NSLayoutConstraint.topToTop(
             view:buttonShoot,
             toView:self,
             constant:kButtonsTop)
-        let layoutShootHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.size(
             view:buttonShoot,
-            constant:kButtonsHeight)
+            constant:kButtonsSize)
         layoutShootLeft = NSLayoutConstraint.leftToLeft(
             view:buttonShoot,
             toView:self)
-        let layoutShootWidth:NSLayoutConstraint = NSLayoutConstraint.width(
-            view:buttonShoot,
-            constant:kButtonsWidth)
         
-        let layoutNextTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:buttonNext,
             toView:self,
             constant:kButtonsTop)
-        let layoutNextHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.size(
             view:buttonNext,
-            constant:kButtonsHeight)
-        let layoutNextRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            constant:kButtonsSize)
+        NSLayoutConstraint.rightToRight(
             view:buttonNext,
-            toView:self)
-        let layoutNextWidth:NSLayoutConstraint = NSLayoutConstraint.width(
-            view:buttonNext,
-            constant:kButtonsWidth)
-        
-        let layoutBorderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:border,
-            toView:self)
-        let layoutBorderHeight:NSLayoutConstraint = NSLayoutConstraint.height(
-            view:border,
-            constant:kBorderHeight)
-        let layoutBorderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:border,
-            toView:self)
-        let layoutBorderRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:border,
             toView:self)
         
-        addConstraints([
-            layoutShootTop,
-            layoutShootHeight,
-            layoutShootLeft,
-            layoutShootWidth,
-            layoutNextTop,
-            layoutNextHeight,
-            layoutNextRight,
-            layoutNextWidth,
-            layoutBorderBottom,
-            layoutBorderHeight,
-            layoutBorderLeft,
-            layoutBorderRight])
+        NSLayoutConstraint.topToTop(
+            view:buttonHelp,
+            toView:self,
+            constant:kButtonsTop)
+        NSLayoutConstraint.size(
+            view:buttonHelp,
+            constant:kButtonsSize)
+        NSLayoutConstraint.leftToLeft(
+            view:buttonHelp,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -108,7 +108,7 @@ class VCameraHeader:UICollectionReusableView
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.maxX
-        let remainButton:CGFloat = width - kButtonsWidth
+        let remainButton:CGFloat = width - kButtonsSize
         let marginButton:CGFloat = remainButton / 2.0
         layoutShootLeft.constant = marginButton
         
@@ -116,6 +116,11 @@ class VCameraHeader:UICollectionReusableView
     }
     
     //MARK: actions
+    
+    func actionHelp(sender button:UIButton)
+    {
+        controller?.help()
+    }
     
     func actionShoot(sender button:VCameraActiveButton)
     {

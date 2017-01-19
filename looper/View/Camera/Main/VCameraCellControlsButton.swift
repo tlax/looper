@@ -2,9 +2,12 @@ import UIKit
 
 class VCameraCellControlsButton:UIButton
 {
-    init(image:UIImage, backgroundColor:UIColor)
+    private let kBorderWidth:CGFloat = 1
+    
+    init(image:UIImage, border:Bool)
     {
         super.init(frame:CGRect.zero)
+        backgroundColor = UIColor.genericLight
         translatesAutoresizingMaskIntoConstraints = false
         setImage(
             image.withRenderingMode(UIImageRenderingMode.alwaysOriginal),
@@ -15,7 +18,22 @@ class VCameraCellControlsButton:UIButton
         imageView!.tintColor = UIColor(white:0, alpha:0.1)
         imageView!.clipsToBounds = true
         imageView!.contentMode = UIViewContentMode.center
-        self.backgroundColor = backgroundColor
+        
+        if border
+        {
+            let viewBorder:VBorder = VBorder(color:UIColor.black)
+            addSubview(viewBorder)
+            
+            NSLayoutConstraint.equalsVertical(
+                view:viewBorder,
+                toView:self)
+            NSLayoutConstraint.leftToLeft(
+                view:viewBorder,
+                toView:self)
+            NSLayoutConstraint.width(
+                view:viewBorder,
+                constant:kBorderWidth)
+        }
     }
     
     required init?(coder:NSCoder)

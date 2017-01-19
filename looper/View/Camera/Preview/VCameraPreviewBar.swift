@@ -7,11 +7,13 @@ class VCameraPreviewBar:UIView
     private weak var saveButton:UIButton!
     private weak var cancelButton:UIButton!
     private weak var layoutSaveLeft:NSLayoutConstraint!
+    private let kButtonsTop:CGFloat = 4
     private let kBackWidth:CGFloat = 55
-    private let kSaveWidth:CGFloat = 120
-    private let kCancelWidth:CGFloat = 80
+    private let kSaveWidth:CGFloat = 140
+    private let kCancelWidth:CGFloat = 90
     private let kAlphaSaving:CGFloat = 0.3
     private let kAlphaNotSaving:CGFloat = 1
+    private let kBorderHeight:CGFloat = 1
     
     convenience init(controller:CCameraPreview)
     {
@@ -49,7 +51,12 @@ class VCameraPreviewBar:UIView
         cancelButton.setTitleColor(
             UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
-        cancelButton.titleLabel!.font = UIFont.bold(size:14)
+        cancelButton.titleLabel!.font = UIFont.regular(size:14)
+        cancelButton.titleEdgeInsets = UIEdgeInsets(
+            top:kButtonsTop,
+            left:0,
+            bottom:0,
+            right:0)
         cancelButton.addTarget(
             self,
             action:#selector(actionCancel(sender:)),
@@ -62,74 +69,69 @@ class VCameraPreviewBar:UIView
             NSLocalizedString("VCameraPreviewBar_saveButton", comment:""),
             for:UIControlState.normal)
         saveButton.setTitleColor(
-            UIColor.genericLight,
+            UIColor.black,
             for:UIControlState.normal)
         saveButton.setTitleColor(
             UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
-        saveButton.titleLabel!.font = UIFont.bold(size:19)
+        saveButton.titleLabel!.font = UIFont.bold(size:15)
+        saveButton.titleEdgeInsets = UIEdgeInsets(
+            top:kButtonsTop,
+            left:0,
+            bottom:0,
+            right:0)
         saveButton.addTarget(
             self,
             action:#selector(actionSave(sender:)),
             for:UIControlEvents.touchUpInside)
         self.saveButton = saveButton
         
+        let border:VBorder = VBorder(color:UIColor.black)
+        
+        addSubview(border)
         addSubview(backButton)
         addSubview(cancelButton)
         addSubview(saveButton)
         
-        let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.topToTop(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        
+        NSLayoutConstraint.equalsVertical(
             view:backButton,
             toView:self)
-        let layoutBackBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.leftToLeft(
             view:backButton,
             toView:self)
-        let layoutBackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:backButton,
-            toView:self)
-        let layoutBackWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:backButton,
             constant:kBackWidth)
         
-        let layoutCancelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsVertical(
             view:cancelButton,
             toView:self)
-        let layoutCancelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.rightToRight(
             view:cancelButton,
             toView:self)
-        let layoutCancelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:cancelButton,
-            toView:self)
-        let layoutCancelWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:cancelButton,
             constant:kCancelWidth)
         
-        let layoutSaveTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:saveButton,
-            toView:self)
-        let layoutSaveBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.equalsVertical(
             view:saveButton,
             toView:self)
         layoutSaveLeft = NSLayoutConstraint.leftToLeft(
             view:saveButton,
             toView:self)
-        let layoutSaveWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:saveButton,
             constant:kSaveWidth)
-        
-        addConstraints([
-            layoutBackTop,
-            layoutBackBottom,
-            layoutBackLeft,
-            layoutBackWidth,
-            layoutCancelTop,
-            layoutCancelBottom,
-            layoutCancelRight,
-            layoutCancelWidth,
-            layoutSaveTop,
-            layoutSaveBottom,
-            layoutSaveLeft,
-            layoutSaveWidth])
     }
     
     override func layoutSubviews()

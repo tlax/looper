@@ -5,10 +5,9 @@ class CHelp:CController
     let model:MHelp
     private weak var viewHelp:VHelp!
     
-    override init()
+    init(model:MHelp)
     {
-        model = MHelp()
-        
+        self.model = model
         super.init()
     }
     
@@ -29,6 +28,6 @@ class CHelp:CController
     func back()
     {
         parentController.pop(
-            vertical:CParent.TransitionVertical.fromBottom)
+            vertical:CParent.TransitionVertical.fromTop)
     }
 }

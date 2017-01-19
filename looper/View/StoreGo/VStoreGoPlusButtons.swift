@@ -55,81 +55,35 @@ class VStoreGoPlusButtons:UIView
         addSubview(buttonStore)
         addSubview(buttonCancel)
         
-        let layoutButtonCancelTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttonCancel,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
+        NSLayoutConstraint.topToTop(
+            view:buttonCancel,
+            toView:self,
             constant:kButtonMargin)
-        let layoutButtonCancelBottom:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttonCancel,
-            attribute:NSLayoutAttribute.bottom,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        let layoutButtonCancelLeft:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttonCancel,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
+        NSLayoutConstraint.bottomToBottom(
+            view:buttonCancel,
+            toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:buttonCancel,
+            toView:self,
             constant:kButtonMargin)
-        let layoutButtonCancelWidth:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttonCancel,
-            attribute:NSLayoutAttribute.width,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
+        NSLayoutConstraint.width(
+            view:buttonCancel,
             constant:kButtonWidth)
         
-        let layoutButtonStoreTop:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttonStore,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
+        NSLayoutConstraint.topToTop(
+            view:buttonStore,
+            toView:self,
             constant:kButtonMargin)
-        let layoutButtonStoreBottom:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttonStore,
-            attribute:NSLayoutAttribute.bottom,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:0)
-        let layoutButtonStoreRight:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttonStore,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
+        NSLayoutConstraint.bottomToBottom(
+            view:buttonStore,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:buttonStore,
+            toView:self,
             constant:-kButtonMargin)
-        let layoutButtonStoreWidth:NSLayoutConstraint = NSLayoutConstraint(
-            item:buttonStore,
-            attribute:NSLayoutAttribute.width,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
+        NSLayoutConstraint.width(
+            view:buttonStore,
             constant:kButtonWidth)
-        
-        addConstraints([
-            layoutButtonCancelTop,
-            layoutButtonCancelBottom,
-            layoutButtonCancelLeft,
-            layoutButtonCancelWidth,
-            layoutButtonStoreTop,
-            layoutButtonStoreBottom,
-            layoutButtonStoreRight,
-            layoutButtonStoreWidth])
     }
     
     //MARK: actions

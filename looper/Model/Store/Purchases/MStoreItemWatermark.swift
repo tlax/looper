@@ -4,7 +4,7 @@ class MStoreItemWatermark:MStoreItem
 {
     private let kStorePurchaseId:MStore.PurchaseId = "iturbide.looper.watermark"
     
-    override init()
+    init()
     {
         let title:String = NSLocalizedString("MStoreItemWatermark_title", comment:"")
         let descr:String = NSLocalizedString("MStoreItemWatermark_descr", comment:"")
@@ -15,15 +15,6 @@ class MStoreItemWatermark:MStoreItem
             title:title,
             descr:descr,
             image:image)
-    }
-    
-    override init(
-        purchaseId:MStore.PurchaseId,
-        title:String,
-        descr:String,
-        image:UIImage)
-    {
-        fatalError()
     }
     
     override func purchaseAction()

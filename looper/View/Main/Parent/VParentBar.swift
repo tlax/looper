@@ -10,6 +10,7 @@ class VParentBar:UIView
     private let kButtonsWidth:CGFloat = 70
     private let kStoreRight:CGFloat = 22
     private let kCameraLeft:CGFloat = 22
+    private let kBorderHeight:CGFloat = 1
     
     convenience init(controller:CParent)
     {
@@ -54,86 +55,52 @@ class VParentBar:UIView
             right:buttonStore.imageEdgeInsets.right + kStoreRight)
         self.buttonStore = buttonStore
         
-        let border:UIView = UIView()
-        border.isUserInteractionEnabled = false
-        border.translatesAutoresizingMaskIntoConstraints = false
-        border.backgroundColor = UIColor(white:0, alpha:0.1)
-        border.clipsToBounds = true
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         addSubview(border)
         addSubview(buttonCamera)
         addSubview(buttonStore)
         addSubview(buttonLoops)
         
-        let layoutLoopsTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:buttonLoops,
-            toView:self)
-        let layoutLoopsBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.equalsVertical(
             view:buttonLoops,
             toView:self)
         layoutLoopsLeft = NSLayoutConstraint.leftToLeft(
             view:buttonLoops,
             toView:self)
-        let layoutLoopsWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonLoops,
             constant:kButtonsWidth)
         
-        let layoutCameraTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsVertical(
             view:buttonCamera,
             toView:self)
-        let layoutCameraBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:buttonCamera,
-            toView:self)
-        let layoutCameraWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonCamera,
             constant:kButtonsWidth)
-        let layoutCameraRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:buttonCamera,
             toView:self)
         
-        let layoutStoreTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsVertical(
             view:buttonStore,
             toView:self)
-        let layoutStoreBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:buttonStore,
-            toView:self)
-        let layoutStoreWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:buttonStore,
             constant:kButtonsWidth)
-        let layoutStoreLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:buttonStore,
             toView:self)
         
-        let layoutBorderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.equalsHorizontal(
             view:border,
             toView:self)
-        let layoutBorderHeight:NSLayoutConstraint = NSLayoutConstraint.height(
-            view:border,
-            constant:1)
-        let layoutBorderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.bottomToBottom(
             view:border,
             toView:self)
-        let layoutBorderRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.height(
             view:border,
-            toView:self)
-        
-        addConstraints([
-            layoutLoopsTop,
-            layoutLoopsBottom,
-            layoutLoopsLeft,
-            layoutLoopsWidth,
-            layoutCameraTop,
-            layoutCameraBottom,
-            layoutCameraRight,
-            layoutCameraWidth,
-            layoutStoreTop,
-            layoutStoreBottom,
-            layoutStoreWidth,
-            layoutStoreLeft,
-            layoutBorderBottom,
-            layoutBorderHeight,
-            layoutBorderLeft,
-            layoutBorderRight])
+            constant:kBorderHeight)
     }
     
     override func layoutSubviews()

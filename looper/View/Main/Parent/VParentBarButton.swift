@@ -2,7 +2,7 @@ import UIKit
 
 class VParentBarButton:UIButton
 {
-    private weak var border:UIView!
+    private weak var border:VBorder!
     private let kBorderHeight:CGFloat = 1
     private let kAlphaNotHover:CGFloat = 1
     private let kAlphaHover:CGFloat = 0.3
@@ -26,33 +26,20 @@ class VParentBarButton:UIButton
             bottom:0,
             right:0)
         
-        let border:UIView = UIView()
-        border.translatesAutoresizingMaskIntoConstraints = false
-        border.backgroundColor = UIColor.black
-        border.isUserInteractionEnabled = false
-        border.clipsToBounds = true
+        let border:VBorder = VBorder(color:UIColor.black)
         self.border = border
         
         addSubview(border)
         
-        let layoutBorderHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
             view:border,
             constant:kBorderHeight)
-        let layoutBorderBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:border,
             toView:self)
-        let layoutBorderLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:border,
-            toView:self)
-        let layoutBorderRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:border,
-            toView:self)
-        
-        addConstraints([
-            layoutBorderHeight,
-            layoutBorderBottom,
-            layoutBorderLeft,
-            layoutBorderRight])
         
         notActive()
     }

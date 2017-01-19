@@ -7,7 +7,7 @@ class VHelpCell:UICollectionViewCell
     private let kImageTop:CGFloat = 100
     private let kImageHeight:CGFloat = 160
     private let kLabelHeight:CGFloat = 110
-    private let kLabelMargin:CGFloat = 10
+    private let kLabelMargin:CGFloat = 30
     
     override init(frame:CGRect)
     {
@@ -36,44 +36,27 @@ class VHelpCell:UICollectionViewCell
         addSubview(imageView)
         addSubview(label)
         
-        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsHorizontal(
+            view:imageView,
+            toView:self)
+        NSLayoutConstraint.topToTop(
             view:imageView,
             toView:self,
             constant:kImageTop)
-        let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:imageView,
             constant:kImageHeight)
-        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:imageView,
-            toView:self)
-        let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:imageView,
-            toView:self)
         
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.equalsHorizontal(
+            view:label,
+            toView:self,
+            margin:kLabelMargin)
+        NSLayoutConstraint.topToBottom(
             view:label,
             toView:imageView)
-        let layoutLabelHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:label,
             constant:kLabelHeight)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:label,
-            toView:self,
-            constant:kLabelMargin)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:label,
-            toView:self,
-            constant:-kLabelMargin)
-        
-        addConstraints([
-            layoutImageTop,
-            layoutImageHeight,
-            layoutImageLeft,
-            layoutImageRight,
-            layoutLabelTop,
-            layoutLabelHeight,
-            layoutLabelLeft,
-            layoutLabelRight])
     }
     
     required init?(coder:NSCoder)

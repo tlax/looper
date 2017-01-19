@@ -42,28 +42,10 @@ class VCameraFilterBlenderOverlayPiece:UIView
         
         addSubview(imageView)
         
-        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equals(
             view:imageView,
             toView:self,
-            constant:kImageMargin)
-        let layoutImageBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:imageView,
-            toView:self,
-            constant:-kImageMargin)
-        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:imageView,
-            toView:self,
-            constant:kImageMargin)
-        let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:imageView,
-            toView:self,
-            constant:-kImageMargin)
-        
-        addConstraints([
-            layoutImageTop,
-            layoutImageBottom,
-            layoutImageLeft,
-            layoutImageRight])
+            margin:kImageMargin)
     }
     
     required init?(coder:NSCoder)
@@ -75,6 +57,8 @@ class VCameraFilterBlenderOverlayPiece:UIView
     
     func animateShow()
     {
+        intersecting = true
+        
         UIView.animate(
             withDuration:kAnimationDuration,
             animations:

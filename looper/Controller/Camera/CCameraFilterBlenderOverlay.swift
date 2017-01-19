@@ -3,13 +3,13 @@ import UIKit
 class CCameraFilterBlenderOverlay:CController
 {
     weak var viewOverlay:VCameraFilterBlenderOverlay!
-    weak var baseRecord:MCameraRecord?
+    weak var filterSelectedItem:MCameraFilterSelectorItem!
     private weak var model:MCameraFilterItemBlend!
     
-    init(model:MCameraFilterItemBlend, baseRecord:MCameraRecord?)
+    init(model:MCameraFilterItemBlend, filterSelectedItem:MCameraFilterSelectorItem)
     {
         self.model = model
-        self.baseRecord = baseRecord
+        self.filterSelectedItem = filterSelectedItem
         super.init()
     }
     
@@ -86,7 +86,7 @@ class CCameraFilterBlenderOverlay:CController
         }
         
         let filteredRecord:MCameraRecord = model.filter(
-            baseRecord:baseRecord,
+            filterSelectedItem:filterSelectedItem,
             overlays:overlays)
         let waterMarked:MCameraRecord = model.waterMark(
             original:filteredRecord)
@@ -114,5 +114,14 @@ class CCameraFilterBlenderOverlay:CController
             
             self?.filter()
         }
+    }
+    
+    func help()
+    {
+        let helpBlender:MHelpBlender = MHelpBlender()
+        let controllerHelp:CHelp = CHelp(model:helpBlender)
+        parentController.push(
+            controller:controllerHelp,
+            vertical:CParent.TransitionVertical.fromTop)
     }
 }

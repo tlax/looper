@@ -2,23 +2,50 @@ import UIKit
 
 class MCameraFilterItemNone:MCameraFilterItem
 {
-    override init()
+    init()
     {
         let title:String = NSLocalizedString("MCameraFilterItemNone_title", comment:"")
-        let image:UIImage = #imageLiteral(resourceName: "assetCameraFilterNone")
+        let viewTitle:String = NSLocalizedString("MCameraFilterItemNone_viewTitle", comment:"")
+        let image:UIImage = #imageLiteral(resourceName: "assetFilterSimple")
         
-        super.init(title:title, image:image)
+        super.init(title:title, viewTitle:viewTitle, image:image)
     }
     
-    override init(title:String, image:UIImage)
+    override func selected(filterSelectedItem:MCameraFilterSelectorItem, controller:CCameraFilterSelector)
     {
-        fatalError()
+        guard
+        
+            let itemRecord:MCameraFilterSelectorItemRecord = filterSelectedItem as? MCameraFilterSelectorItemRecord
+        
+        else
+        {
+            return
+        }
+        
+        let record:MCameraRecord = itemRecord.record
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.filter(record:record, controller:controller)
+        }
     }
     
-    override func processController() -> CController?
+    //MARK: private
+    
+    private func filter(record:MCameraRecord, controller:CCameraFilterSelector)
     {
-        let controller:CCameraFilterNone = CCameraFilterNone(model:self)
+        let waterMarked:MCameraRecord = waterMark(original:record)
         
-        return controller
+        DispatchQueue.main.async
+        { [weak controller] in
+            
+            let controllerCompress:CCameraCompress = CCameraCompress(
+                model:waterMarked)
+            controller?.parentController.push(
+                controller:controllerCompress,
+                horizontal:
+                CParent.TransitionHorizontal.fromRight)
+        }
     }
 }

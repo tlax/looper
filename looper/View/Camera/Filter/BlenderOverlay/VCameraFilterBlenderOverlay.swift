@@ -14,13 +14,15 @@ class VCameraFilterBlenderOverlay:VView
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 44
-    private let kTitleHeight:CGFloat = 60
-    private let kBaseTop:CGFloat = 150
+    private let kTitleHeight:CGFloat = 44
+    private let kBaseTop:CGFloat = 160
     private let kBaseSize:CGFloat = 200
     private let kListHeight:CGFloat = 130
     private let kPieceSize:CGFloat = 100
     private let kButtonsNotActiveAlpha:CGFloat = 0.3
     private let kButtonsActiveAlpha:CGFloat = 1
+    private let kHelpSize:CGFloat = 40
+    private let kHelpMargin:CGFloat = 15
     
     override init(controller:CController)
     {
@@ -54,6 +56,22 @@ class VCameraFilterBlenderOverlay:VView
             for:UIControlEvents.touchUpInside)
         self.backButton = backButton
         
+        let buttonHelp:UIButton = UIButton()
+        buttonHelp.translatesAutoresizingMaskIntoConstraints = false
+        buttonHelp.setImage(
+            #imageLiteral(resourceName: "assetLoopsHelp").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonHelp.setImage(
+            #imageLiteral(resourceName: "assetLoopsHelp").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonHelp.imageView!.contentMode = UIViewContentMode.center
+        buttonHelp.imageView!.clipsToBounds = true
+        buttonHelp.imageView!.tintColor = UIColor.genericAlternative
+        buttonHelp.addTarget(
+            self,
+            action:#selector(actionHelp(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         let nextButton:UIButton = UIButton()
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.setImage(
@@ -84,7 +102,7 @@ class VCameraFilterBlenderOverlay:VView
         title.text = NSLocalizedString("VCameraFilterBlenderOverlay_title", comment:"")
         
         let viewBase:VCameraFilterBlenderOverlayBase = VCameraFilterBlenderOverlayBase(
-            model:self.controller.baseRecord)
+            model:self.controller.filterSelectedItem)
         self.viewBase = viewBase
         
         let viewList:VCameraFilterBlenderOverlayList = VCameraFilterBlenderOverlayList(
@@ -98,107 +116,86 @@ class VCameraFilterBlenderOverlay:VView
         addSubview(viewList)
         addSubview(backButton)
         addSubview(nextButton)
+        addSubview(buttonHelp)
         
-        let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:spinner,
             toView:self)
-        let constraintsPlacer:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:viewPlacer,
             toView:self)
         
-        let layoutBackTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:backButton,
             toView:self,
             constant:kContentTop)
-        let layoutBackHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:backButton,
             constant:kButtonsHeight)
-        let layoutBackLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:backButton,
             toView:self)
-        let layoutBackWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:backButton,
             constant:kButtonsWidth)
         
-        let layoutNextTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:nextButton,
             toView:self,
             constant:kContentTop)
-        let layoutNextHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:nextButton,
             constant:kButtonsHeight)
-        let layoutNextRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:nextButton,
             toView:self)
-        let layoutNextWidth:NSLayoutConstraint = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:nextButton,
             constant:kButtonsWidth)
         
-        let layoutTitleTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:title,
             toView:self,
             constant:kContentTop)
-        let layoutTitleHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:title,
             constant:kTitleHeight)
-        let layoutTitleLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:title,
-            toView:self)
-        let layoutTitleRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:title,
             toView:self)
         
-        let layoutBaseTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:viewBase,
             toView:self,
             constant:kBaseTop)
         layoutBaseLeft = NSLayoutConstraint.leftToLeft(
             view:viewBase,
             toView:self)
-        let layoutBaseWidth:NSLayoutConstraint = NSLayoutConstraint.width(
-            view:viewBase,
-            constant:kBaseSize)
-        let layoutBaseHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.size(
             view:viewBase,
             constant:kBaseSize)
         
-        let layoutListBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:viewList,
             toView:self)
-        let layoutListHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:viewList,
             constant:kListHeight)
-        let layoutListLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewList,
-            toView:self)
-        let layoutListRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewList,
             toView:self)
         
-        addConstraints(constraintsSpinner)
-        addConstraints(constraintsPlacer)
-        
-        addConstraints([
-            layoutBackTop,
-            layoutBackHeight,
-            layoutBackLeft,
-            layoutBackWidth,
-            layoutNextTop,
-            layoutNextHeight,
-            layoutNextRight,
-            layoutNextWidth,
-            layoutTitleTop,
-            layoutTitleHeight,
-            layoutTitleLeft,
-            layoutTitleRight,
-            layoutBaseTop,
-            layoutBaseHeight,
-            layoutBaseLeft,
-            layoutBaseWidth,
-            layoutListBottom,
-            layoutListHeight,
-            layoutListLeft,
-            layoutListRight])
+        NSLayoutConstraint.topToBottom(
+            view:buttonHelp,
+            toView:title,
+            constant:kHelpMargin)
+        NSLayoutConstraint.size(
+            view:buttonHelp,
+            constant:kHelpSize)
+        NSLayoutConstraint.leftToLeft(
+            view:buttonHelp,
+            toView:self,
+            constant:kHelpMargin)
     }
     
     required init?(coder:NSCoder)
@@ -232,6 +229,11 @@ class VCameraFilterBlenderOverlay:VView
     {
         button.isUserInteractionEnabled = false
         controller.next()
+    }
+    
+    func actionHelp(sender button:UIButton)
+    {
+        controller.help()
     }
     
     //MARK: public
@@ -270,6 +272,9 @@ class VCameraFilterBlenderOverlay:VView
         
         let viewPiece:VCameraFilterBlenderOverlayPiece = VCameraFilterBlenderOverlayPiece(
             model:model)
+        
+        viewPlacer.addPiece(viewPiece:viewPiece)
+        
         viewPiece.layoutTop = NSLayoutConstraint.topToTop(
             view:viewPiece,
             toView:viewPlacer,
@@ -284,7 +289,5 @@ class VCameraFilterBlenderOverlay:VView
         viewPiece.layoutWidth = NSLayoutConstraint.width(
             view:viewPiece,
             constant:kPieceSize)
-        
-        viewPlacer.addPiece(viewPiece:viewPiece)
     }
 }

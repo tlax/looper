@@ -47,43 +47,30 @@ class VStoreHeader:UICollectionReusableView
         addSubview(label)
         addSubview(imageView)
         
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:label,
             toView:self,
             constant:kLabelTop)
         layoutLabelHeight = NSLayoutConstraint.height(
             view:label)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
+        NSLayoutConstraint.leftToRight(
             view:label,
             toView:imageView,
             constant:kLabelLeft)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToRight(
             view:label,
             toView:self,
             constant:kLabelRight)
         
-        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:imageView,
             toView:self)
-        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.size(
+            view:imageView,
+            constant:kImageSize)
+        NSLayoutConstraint.leftToLeft(
             view:imageView,
             toView:self)
-        let layoutImageWidth:NSLayoutConstraint = NSLayoutConstraint.width(
-            view:imageView,
-            constant:kImageSize)
-        let layoutImageHeight:NSLayoutConstraint = NSLayoutConstraint.height(
-            view:imageView,
-            constant:kImageSize)
-        
-        addConstraints([
-            layoutLabelTop,
-            layoutLabelHeight,
-            layoutLabelLeft,
-            layoutLabelRight,
-            layoutImageTop,
-            layoutImageLeft,
-            layoutImageWidth,
-            layoutImageHeight])
     }
     
     required init?(coder:NSCoder)

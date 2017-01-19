@@ -2,51 +2,42 @@ import UIKit
 
 class VCameraFilterBlenderOverlayBase:UIView
 {
-    private weak var imageView:UIImageView!
     private let kImageMargin:CGFloat = 2
-    private let kImageAlpha:CGFloat = 0.4
+    private let kImageAlpha:CGFloat = 0.7
+    private let kBorderWidth:CGFloat = 1
     
-    init(model:MCameraRecord?)
+    init(model:MCameraFilterSelectorItem)
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
-        backgroundColor = UIColor.black
+        layer.borderWidth = kBorderWidth
+        layer.borderColor = UIColor.black.cgColor
         
-        let imageView:UIImageView = UIImageView()
-        imageView.isUserInteractionEnabled = false
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = model?.items.first?.image
-        imageView.alpha = kImageAlpha
-        self.imageView = imageView
-        
-        addSubview(imageView)
-        
-        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:imageView,
-            toView:self,
-            constant:kImageMargin)
-        let layoutImageBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:imageView,
-            toView:self,
-            constant:-kImageMargin)
-        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:imageView,
-            toView:self,
-            constant:kImageMargin)
-        let layoutImageRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:imageView,
-            toView:self,
-            constant:-kImageMargin)
-        
-        addConstraints([
-            layoutImageTop,
-            layoutImageBottom,
-            layoutImageLeft,
-            layoutImageRight])
+        if let modelRecord:MCameraFilterSelectorItemRecord = model as? MCameraFilterSelectorItemRecord
+        {
+            backgroundColor = UIColor.black
+            
+            let imageView:UIImageView = UIImageView()
+            imageView.isUserInteractionEnabled = false
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.contentMode = UIViewContentMode.scaleAspectFill
+            imageView.clipsToBounds = true
+            imageView.alpha = kImageAlpha
+            imageView.image = modelRecord.record.items.first?.image
+            
+            addSubview(imageView)
+            
+            NSLayoutConstraint.equals(
+                view:imageView,
+                toView:self,
+                margin:kImageMargin)
+        }
+        else if let modelColor:MCameraFilterSelectorItemColor = model as? MCameraFilterSelectorItemColor
+        {
+            backgroundColor = modelColor.color
+        }
     }
     
     required init?(coder:NSCoder)

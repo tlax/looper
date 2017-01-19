@@ -3,12 +3,13 @@ import UIKit
 class VCameraFilterCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
+    private weak var baseView:UIImageView!
     private weak var label:UILabel!
-    private weak var selectedIcon:UIImageView!
-    private let kImageWidth:CGFloat = 120
-    private let kSelectedWidth:CGFloat = 55
+    private let kLabelMargin:CGFloat = 10
+    private let kLabelHeight:CGFloat = 50
+    private let kImagesBottom:CGFloat = -30
     private let kAlphaSelected:CGFloat = 1
-    private let kAlphaNotSelected:CGFloat = 0.2
+    private let kAlphaNotSelected:CGFloat = 0.15
     
     override init(frame:CGRect)
     {
@@ -23,79 +24,51 @@ class VCameraFilterCell:UICollectionViewCell
         imageView.contentMode = UIViewContentMode.center
         self.imageView = imageView
         
+        let baseView:UIImageView = UIImageView()
+        baseView.isUserInteractionEnabled = false
+        baseView.translatesAutoresizingMaskIntoConstraints = false
+        baseView.clipsToBounds = true
+        baseView.contentMode = UIViewContentMode.center
+        self.baseView = baseView
+        
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:18)
-        label.textColor = UIColor.black
+        label.font = UIFont.bold(size:13)
+        label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 0
         self.label = label
         
-        let selectedIcon:UIImageView = UIImageView()
-        selectedIcon.translatesAutoresizingMaskIntoConstraints = false
-        selectedIcon.clipsToBounds = true
-        selectedIcon.isUserInteractionEnabled = false
-        selectedIcon.contentMode = UIViewContentMode.center
-        selectedIcon.image = #imageLiteral(resourceName: "assetCameraFilterSelect")
-        self.selectedIcon = selectedIcon
-        
         addSubview(label)
+        addSubview(baseView)
         addSubview(imageView)
-        addSubview(selectedIcon)
         
-        let layoutImageTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:imageView,
+        NSLayoutConstraint.equalsHorizontal(
+            view:baseView,
             toView:self)
-        let layoutImageBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:imageView,
+        NSLayoutConstraint.topToTop(
+            view:baseView,
             toView:self)
-        let layoutImageLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:imageView,
-            toView:self)
-        let layoutImageWidth:NSLayoutConstraint = NSLayoutConstraint.width(
-            view:imageView,
-            constant:kImageWidth)
+        NSLayoutConstraint.bottomToBottom(
+            view:baseView,
+            toView:self,
+            constant:kImagesBottom)
         
-        let layoutSelectedTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
-            view:selectedIcon,
-            toView:self)
-        let layoutSelectedBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
-            view:selectedIcon,
-            toView:self)
-        let layoutSelectedRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:selectedIcon,
-            toView:self)
-        let layoutSelectedWidth:NSLayoutConstraint = NSLayoutConstraint.width(
-            view:selectedIcon,
-            constant:kSelectedWidth)
+        NSLayoutConstraint.equals(
+            view:imageView,
+            toView:baseView)
         
-        let layoutLabelTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.bottomToBottom(
             view:label,
             toView:self)
-        let layoutLabelBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.height(
             view:label,
-            toView:self)
-        let layoutLabelLeft:NSLayoutConstraint = NSLayoutConstraint.leftToRight(
+            constant:kLabelHeight)
+        NSLayoutConstraint.equalsHorizontal(
             view:label,
-            toView:imageView)
-        let layoutLabelRight:NSLayoutConstraint = NSLayoutConstraint.rightToLeft(
-            view:label,
-            toView:selectedIcon)
-        
-        addConstraints([
-            layoutImageTop,
-            layoutImageBottom,
-            layoutImageWidth,
-            layoutImageLeft,
-            layoutSelectedTop,
-            layoutSelectedBottom,
-            layoutSelectedWidth,
-            layoutSelectedRight,
-            layoutLabelTop,
-            layoutLabelBottom,
-            layoutLabelLeft,
-            layoutLabelRight])
+            toView:self,
+            margin:kLabelMargin)
     }
     
     required init?(coder:NSCoder)
@@ -125,14 +98,14 @@ class VCameraFilterCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            selectedIcon.isHidden = false
-            label.alpha = kAlphaSelected
+            baseView.image = #imageLiteral(resourceName: "assetFilterBaseSelected")
+            label.textColor = UIColor.black
             imageView.alpha = kAlphaSelected
         }
         else
         {
-            selectedIcon.isHidden = true
-            label.alpha = kAlphaNotSelected
+            baseView.image = #imageLiteral(resourceName: "assetFilterBase")
+            label.textColor = UIColor(white:0, alpha:0.4)
             imageView.alpha = kAlphaNotSelected
         }
     }

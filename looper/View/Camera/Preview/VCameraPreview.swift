@@ -9,7 +9,7 @@ class VCameraPreview:VView
     private weak var spinner:VSpinner!
     private weak var layoutDisplayHeight:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 50
-    private let kPlayerHeight:CGFloat = 195
+    private let kPlayerHeight:CGFloat = 216
     
     override init(controller:CController)
     {
@@ -34,74 +34,44 @@ class VCameraPreview:VView
         addSubview(viewDisplay)
         addSubview(spinner)
         
-        let layoutBarBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToBottom(
             view:viewBar,
             toView:self)
-        let layoutBarHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:viewBar,
             constant:kBarHeight)
-        let layoutBarLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewBar,
-            toView:self)
-        let layoutBarRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:self)
         
-        let layoutDisplayTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:viewDisplay,
             toView:self)
         layoutDisplayHeight = NSLayoutConstraint.height(
             view:viewDisplay)
-        let layoutDisplayLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewDisplay,
-            toView:self)
-        let layoutDisplayRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewDisplay,
             toView:self)
         
-        let layoutPlayerTop:NSLayoutConstraint = NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToBottom(
             view:viewPlayer,
             toView:viewDisplay)
-        let layoutPlayerHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:viewPlayer,
             constant:kPlayerHeight)
-        let layoutPlayerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewPlayer,
-            toView:self)
-        let layoutPlayerRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewPlayer,
             toView:self)
         
-        let layoutSpinnerTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:spinner,
             toView:self)
-        let layoutSpinnerBottom:NSLayoutConstraint = NSLayoutConstraint.bottomToTop(
+        NSLayoutConstraint.bottomToTop(
             view:spinner,
             toView:viewBar)
-        let layoutSpinnerLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.equalsHorizontal(
             view:spinner,
             toView:self)
-        let layoutSpinnerRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:spinner,
-            toView:self)
-        
-        addConstraints([
-            layoutBarBottom,
-            layoutBarHeight,
-            layoutBarLeft,
-            layoutBarRight,
-            layoutDisplayTop,
-            layoutDisplayHeight,
-            layoutDisplayLeft,
-            layoutDisplayRight,
-            layoutPlayerTop,
-            layoutPlayerHeight,
-            layoutPlayerLeft,
-            layoutPlayerRight,
-            layoutSpinnerTop,
-            layoutSpinnerBottom,
-            layoutSpinnerLeft,
-            layoutSpinnerRight])
     }
     
     required init?(coder:NSCoder)

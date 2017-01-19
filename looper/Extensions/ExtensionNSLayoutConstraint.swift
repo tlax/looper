@@ -2,7 +2,7 @@ import UIKit
 
 extension NSLayoutConstraint
 {
-    class func topToTop(
+    @discardableResult class func topToTop(
         view:UIView,
         toView:UIView,
         constant:CGFloat = 0,
@@ -16,11 +16,12 @@ extension NSLayoutConstraint
             attribute:NSLayoutAttribute.top,
             multiplier:1,
             constant:constant)
+        constraint.isActive = true
         
         return constraint
     }
     
-    class func topToBottom(
+    @discardableResult class func topToBottom(
         view:UIView,
         toView:UIView,
         constant:CGFloat = 0,
@@ -34,11 +35,12 @@ extension NSLayoutConstraint
             attribute:NSLayoutAttribute.bottom,
             multiplier:1,
             constant:constant)
+        constraint.isActive = true
         
         return constraint
     }
     
-    class func bottomToBottom(
+    @discardableResult class func bottomToBottom(
         view:UIView,
         toView:UIView,
         constant:CGFloat = 0,
@@ -52,11 +54,12 @@ extension NSLayoutConstraint
             attribute:NSLayoutAttribute.bottom,
             multiplier:1,
             constant:constant)
+        constraint.isActive = true
         
         return constraint
     }
     
-    class func bottomToTop(
+    @discardableResult class func bottomToTop(
         view:UIView,
         toView:UIView,
         constant:CGFloat = 0,
@@ -70,11 +73,12 @@ extension NSLayoutConstraint
             attribute:NSLayoutAttribute.top,
             multiplier:1,
             constant:constant)
+        constraint.isActive = true
         
         return constraint
     }
     
-    class func leftToLeft(
+    @discardableResult class func leftToLeft(
         view:UIView,
         toView:UIView,
         constant:CGFloat = 0,
@@ -88,11 +92,12 @@ extension NSLayoutConstraint
             attribute:NSLayoutAttribute.left,
             multiplier:1,
             constant:constant)
+        constraint.isActive = true
         
         return constraint
     }
     
-    class func leftToRight(
+    @discardableResult class func leftToRight(
         view:UIView,
         toView:UIView,
         constant:CGFloat = 0,
@@ -106,11 +111,12 @@ extension NSLayoutConstraint
             attribute:NSLayoutAttribute.right,
             multiplier:multiplier,
             constant:constant)
+        constraint.isActive = true
         
         return constraint
     }
     
-    class func rightToRight(
+    @discardableResult class func rightToRight(
         view:UIView,
         toView:UIView,
         constant:CGFloat = 0,
@@ -124,11 +130,12 @@ extension NSLayoutConstraint
             attribute:NSLayoutAttribute.right,
             multiplier:1,
             constant:constant)
+        constraint.isActive = true
         
         return constraint
     }
     
-    class func rightToLeft(
+    @discardableResult class func rightToLeft(
         view:UIView,
         toView:UIView,
         constant:CGFloat = 0,
@@ -142,11 +149,12 @@ extension NSLayoutConstraint
             attribute:NSLayoutAttribute.left,
             multiplier:1,
             constant:constant)
+        constraint.isActive = true
         
         return constraint
     }
     
-    class func width(
+    @discardableResult class func width(
         view:UIView,
         constant:CGFloat = 0,
         multiplier:CGFloat = 1) -> NSLayoutConstraint
@@ -159,11 +167,12 @@ extension NSLayoutConstraint
             attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:constant)
+        constraint.isActive = true
         
         return constraint
     }
     
-    class func height(
+    @discardableResult class func height(
         view:UIView,
         constant:CGFloat = 0,
         multiplier:CGFloat = 1) -> NSLayoutConstraint
@@ -176,11 +185,27 @@ extension NSLayoutConstraint
             attribute:NSLayoutAttribute.notAnAttribute,
             multiplier:1,
             constant:constant)
+        constraint.isActive = true
         
         return constraint
     }
     
-    class func width(
+    class func size(
+        view:UIView,
+        constant:CGFloat,
+        multiplier:CGFloat = 1)
+    {
+        NSLayoutConstraint.width(
+            view:view,
+            constant:constant,
+            multiplier:multiplier)
+        NSLayoutConstraint.height(
+            view:view,
+            constant:constant,
+            multiplier:multiplier)
+    }
+    
+    @discardableResult class func width(
         view:UIView,
         toView:UIView,
         multiplier:CGFloat = 1) -> NSLayoutConstraint
@@ -193,11 +218,12 @@ extension NSLayoutConstraint
             attribute:NSLayoutAttribute.width,
             multiplier:1,
             constant:0)
+        constraint.isActive = true
         
         return constraint
     }
     
-    class func height(
+    @discardableResult class func height(
         view:UIView,
         toView:UIView,
         multiplier:CGFloat = 1) -> NSLayoutConstraint
@@ -210,32 +236,51 @@ extension NSLayoutConstraint
             attribute:NSLayoutAttribute.height,
             multiplier:1,
             constant:0)
+        constraint.isActive = true
         
         return constraint
     }
     
-    class func equals(view:UIView, toView:UIView) -> [NSLayoutConstraint]
+    class func equals(view:UIView, toView:UIView, margin:CGFloat = 0)
     {
-        let top:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:view,
-            toView:toView)
-        let bottom:NSLayoutConstraint = NSLayoutConstraint.bottomToBottom(
+            toView:toView,
+            constant:margin)
+        NSLayoutConstraint.bottomToBottom(
             view:view,
-            toView:toView)
-        let left:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
+            toView:toView,
+            constant:-margin)
+        NSLayoutConstraint.leftToLeft(
             view:view,
-            toView:toView)
-        let right:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
+            toView:toView,
+            constant:margin)
+        NSLayoutConstraint.rightToRight(
             view:view,
-            toView:toView)
-        
-        let constraints:[NSLayoutConstraint] = [
-            top,
-            bottom,
-            left,
-            right
-        ]
-        
-        return constraints
+            toView:toView,
+            constant:-margin)
+    }
+    
+    class func equalsHorizontal(view:UIView, toView:UIView, margin:CGFloat = 0)
+    {
+        NSLayoutConstraint.leftToLeft(
+            view:view,
+            toView:toView,
+            constant:margin)
+        NSLayoutConstraint.rightToRight(
+            view:view,
+            toView:toView,
+            constant:-margin)
+    }
+    class func equalsVertical(view:UIView, toView:UIView, margin:CGFloat = 0)
+    {
+        NSLayoutConstraint.topToTop(
+            view:view,
+            toView:toView,
+            constant:margin)
+        NSLayoutConstraint.bottomToBottom(
+            view:view,
+            toView:toView,
+            constant:-margin)
     }
 }

@@ -6,7 +6,6 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
     private weak var controller:CCameraFilter!
     private weak var collectionView:VCollection!
     private let kBarHeight:CGFloat = 64
-    private let kCellHeight:CGFloat = 130
     private let kCollectionTop:CGFloat = 64
     private let kCollectionBottom:CGFloat = 20
     private let kAfterSelect:TimeInterval = 0.2
@@ -35,30 +34,19 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
         addSubview(collectionView)
         addSubview(viewBar)
         
-        let layoutBarTop:NSLayoutConstraint = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:self)
-        let layoutBarHeight:NSLayoutConstraint = NSLayoutConstraint.height(
+        NSLayoutConstraint.topToTop(
+            view:viewBar,
+            toView:self)
+        NSLayoutConstraint.height(
             view:viewBar,
             constant:kBarHeight)
-        let layoutBarLeft:NSLayoutConstraint = NSLayoutConstraint.leftToLeft(
-            view:viewBar,
-            toView:self)
-        let layoutBarRight:NSLayoutConstraint = NSLayoutConstraint.rightToRight(
-            view:viewBar,
-            toView:self)
         
-        let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:collectionView,
             toView:self)
-        
-        addConstraints(constraintsCollection)
-        
-        addConstraints([
-            layoutBarTop,
-            layoutBarHeight,
-            layoutBarLeft,
-            layoutBarRight])
         
         var indexSelected:Int?
         let countItems:Int = self.controller.modelFilter.items.count
@@ -115,7 +103,8 @@ class VCameraFilter:VView, UICollectionViewDelegate, UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        let side:CGFloat = width / 2.0
+        let size:CGSize = CGSize(width:side, height:side)
         
         return size
     }

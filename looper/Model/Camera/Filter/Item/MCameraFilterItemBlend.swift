@@ -2,30 +2,50 @@ import UIKit
 
 class MCameraFilterItemBlend:MCameraFilterItem
 {
-    override init()
+    init()
     {
         let title:String = NSLocalizedString("MCameraFilterItemBlend_title", comment:"")
-        let image:UIImage = #imageLiteral(resourceName: "assetCameraFilterBlend")
+        let viewTitle:String = NSLocalizedString("MCameraFilterItemBlend_viewTitle", comment:"")
+        let image:UIImage = #imageLiteral(resourceName: "assetFilterBlender")
         
-        super.init(title:title, image:image)
+        super.init(title:title, viewTitle:viewTitle, image:image)
     }
     
-    override init(title:String, image:UIImage)
+    override func selectorModel() -> MCameraFilterSelector
     {
-        fatalError()
+        let records:[MCameraFilterSelectorItem] = recordItems()
+        var items:[MCameraFilterSelectorItem] = []
+        
+        let itemBlack:MCameraFilterSelectorItemColor = MCameraFilterSelectorItemColor(
+            color:UIColor.black)
+        let itemWhite:MCameraFilterSelectorItemColor = MCameraFilterSelectorItemColor(
+            color:UIColor.white)
+        
+        items.append(itemBlack)
+        items.append(itemWhite)
+        items.append(contentsOf:records)
+        
+        let model:MCameraFilterSelector = MCameraFilterSelector(items:items)
+        
+        return model
     }
     
-    override func processController() -> CController?
+    override func selected(
+        filterSelectedItem:MCameraFilterSelectorItem,
+        controller:CCameraFilterSelector)
     {
-        let controller:CCameraFilterBlender = CCameraFilterBlender(model:self)
-        
-        return controller
+        let controllerOverlay:CCameraFilterBlenderOverlay = CCameraFilterBlenderOverlay(
+            model:self,
+            filterSelectedItem:filterSelectedItem)
+        controller.parentController.push(
+            controller:controllerOverlay,
+            horizontal:CParent.TransitionHorizontal.fromRight)
     }
     
     //MARK: public
     
     func filter(
-        baseRecord:MCameraRecord?,
+        filterSelectedItem:MCameraFilterSelectorItem,
         overlays:[MCameraFilterItemBlendOverlay]) -> MCameraRecord
     {
         let filteredRecord:MCameraRecord
@@ -42,7 +62,7 @@ class MCameraFilterItemBlend:MCameraFilterItem
         }
         
         filteredRecord = blender.blend(
-            baseRecord:baseRecord,
+            filterSelectedItem:filterSelectedItem,
             overlays:overlays)
         
         return filteredRecord

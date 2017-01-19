@@ -199,9 +199,10 @@ class CLoops:CController
     
     func help()
     {
-        let controllerHelp:CHelp = CHelp()
+        let helpGeneral:MHelpGeneral = MHelpGeneral()
+        let controllerHelp:CHelp = CHelp(model:helpGeneral)
         parentController.push(
             controller:controllerHelp,
-            vertical:CParent.TransitionVertical.fromBottom)
+            vertical:CParent.TransitionVertical.fromTop)
     }
 }

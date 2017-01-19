@@ -44,16 +44,12 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         addSubview(spinner)
         addSubview(collectionView)
         
-        let constraintsCollection:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:collectionView,
             toView:self)
-        
-        let constraintsSpinner:[NSLayoutConstraint] = NSLayoutConstraint.equals(
+        NSLayoutConstraint.equals(
             view:spinner,
             toView:self)
-        
-        addConstraints(constraintsCollection)
-        addConstraints(constraintsSpinner)
     }
     
     required init?(coder:NSCoder)
@@ -68,9 +64,9 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     //MARK: private
     
-    private func modelAtIndex(index:IndexPath) -> MCameraRecord
+    private func modelAtIndex(index:IndexPath) -> MCameraRecordEditable
     {
-        let item:MCameraRecord = MSession.sharedInstance.camera!.records[index.item]
+        let item:MCameraRecordEditable = MSession.sharedInstance.camera!.records[index.item]
         
         return item
     }
@@ -177,7 +173,7 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MCameraRecord = modelAtIndex(index:indexPath)
+        let item:MCameraRecordEditable = modelAtIndex(index:indexPath)
         let cell:VCameraCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VCameraCell.reusableIdentifier,
