@@ -115,4 +115,9 @@ class CCameraFilterBlenderOverlay:CController
             self?.filter()
         }
     }
+    
+    func help()
+    {
+        
+    }
 }

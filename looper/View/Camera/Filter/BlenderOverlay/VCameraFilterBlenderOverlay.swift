@@ -10,17 +10,19 @@ class VCameraFilterBlenderOverlay:VView
     private weak var nextButton:UIButton!
     private weak var backButton:UIButton!
     private weak var layoutBaseLeft:NSLayoutConstraint!
+    private weak var layoutHelpLeft:NSLayoutConstraint!
     private let pieceSize_2:CGFloat
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 44
     private let kTitleHeight:CGFloat = 44
-    private let kBaseTop:CGFloat = 150
+    private let kBaseTop:CGFloat = 160
     private let kBaseSize:CGFloat = 200
     private let kListHeight:CGFloat = 130
     private let kPieceSize:CGFloat = 100
     private let kButtonsNotActiveAlpha:CGFloat = 0.3
     private let kButtonsActiveAlpha:CGFloat = 1
+    private let kHelpSize:CGFloat = 60
     
     override init(controller:CController)
     {
@@ -114,6 +116,7 @@ class VCameraFilterBlenderOverlay:VView
         addSubview(viewList)
         addSubview(backButton)
         addSubview(nextButton)
+        addSubview(buttonHelp)
         
         NSLayoutConstraint.equals(
             view:spinner,
@@ -181,6 +184,16 @@ class VCameraFilterBlenderOverlay:VView
         NSLayoutConstraint.equalsHorizontal(
             view:viewList,
             toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:buttonHelp,
+            toView:title)
+        NSLayoutConstraint.size(
+            view:buttonHelp,
+            constant:kHelpSize)
+        layoutHelpLeft = NSLayoutConstraint.leftToLeft(
+            view:buttonHelp,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -198,7 +211,10 @@ class VCameraFilterBlenderOverlay:VView
         let width:CGFloat = bounds.maxX
         let remainBase:CGFloat = width - kBaseSize
         let marginBase:CGFloat = remainBase / 2.0
+        let remainHelp:CGFloat = width - kHelpSize
+        let marginHelp:CGFloat = remainHelp / 2.0
         layoutBaseLeft.constant = marginBase
+        layoutHelpLeft.constant = marginHelp
         
         super.layoutSubviews()
     }
@@ -214,6 +230,11 @@ class VCameraFilterBlenderOverlay:VView
     {
         button.isUserInteractionEnabled = false
         controller.next()
+    }
+    
+    func actionHelp(sender button:UIButton)
+    {
+        controller.help()
     }
     
     //MARK: public

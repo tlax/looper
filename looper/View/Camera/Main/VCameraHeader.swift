@@ -7,8 +7,7 @@ class VCameraHeader:UICollectionReusableView
     private weak var buttonNext:VCameraActiveButton!
     private weak var layoutShootLeft:NSLayoutConstraint!
     private let kButtonsTop:CGFloat = 90
-    private let kButtonsHeight:CGFloat = 60
-    private let kButtonsWidth:CGFloat = 60
+    private let kButtonsSize:CGFloat = 60
     private let kBorderHeight:CGFloat = 1
  
     override init(frame:CGRect)
@@ -71,43 +70,34 @@ class VCameraHeader:UICollectionReusableView
             view:buttonShoot,
             toView:self,
             constant:kButtonsTop)
-        NSLayoutConstraint.height(
+        NSLayoutConstraint.size(
             view:buttonShoot,
-            constant:kButtonsHeight)
+            constant:kButtonsSize)
         layoutShootLeft = NSLayoutConstraint.leftToLeft(
             view:buttonShoot,
             toView:self)
-        NSLayoutConstraint.width(
-            view:buttonShoot,
-            constant:kButtonsWidth)
         
         NSLayoutConstraint.topToTop(
             view:buttonNext,
             toView:self,
             constant:kButtonsTop)
-        NSLayoutConstraint.height(
+        NSLayoutConstraint.size(
             view:buttonNext,
-            constant:kButtonsHeight)
+            constant:kButtonsSize)
         NSLayoutConstraint.rightToRight(
             view:buttonNext,
             toView:self)
-        NSLayoutConstraint.width(
-            view:buttonNext,
-            constant:kButtonsWidth)
         
         NSLayoutConstraint.topToTop(
             view:buttonHelp,
             toView:self,
             constant:kButtonsTop)
-        NSLayoutConstraint.height(
+        NSLayoutConstraint.size(
             view:buttonHelp,
-            constant:kButtonsHeight)
+            constant:kButtonsSize)
         NSLayoutConstraint.leftToLeft(
             view:buttonHelp,
             toView:self)
-        NSLayoutConstraint.width(
-            view:buttonHelp,
-            constant:kButtonsWidth)
     }
     
     required init?(coder:NSCoder)
