@@ -70,6 +70,63 @@ class MCameraFilterProcessor
         return newTexture
     }
     
+    func createColorTexture(
+        color:UIColor,
+        width:Int,
+        height:Int) -> MTLTexture?
+    {
+        let canvasSize:CGSize = CGSize(
+            width:width,
+            height:height)
+        let drawingRect:CGRect = CGRect(
+            x:0,
+            y:0,
+            width:width,
+            height:height)
+        
+        UIGraphicsBeginImageContext(canvasSize)
+        
+        guard
+        
+            let context:CGContext = UIGraphicsGetCurrentContext()
+        
+        else
+        {
+            UIGraphicsEndImageContext()
+            
+            return nil
+        }
+        
+        context.setFillColor(color.cgColor)
+        context.addRect(drawingRect)
+        context.drawPath(using:CGPathDrawingMode.fill)
+        
+        guard
+            
+            let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+            
+        else
+        {
+            UIGraphicsEndImageContext()
+            
+            return nil
+        }
+        
+        UIGraphicsEndImageContext()
+        
+        guard
+            
+            let colorTexture:MTLTexture = texturize(image:newImage)
+            
+        else
+        {
+            
+            return nil
+        }
+        
+        return colorTexture
+    }
+    
     func createMutableTexture(texture:MTLTexture) -> MTLTexture
     {
         let width:Int = texture.width

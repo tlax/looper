@@ -105,6 +105,24 @@ class MCameraFilterProcessorBlender:MCameraFilterProcessor
                 
                 baseTexture = createMutableTexture(texture:itemTexture)
             }
+            else if let color:UIColor = color
+            {
+                let textureSize:Int = Int(MCamera.kImageMaxSize)
+                
+                guard
+                
+                    let colorTexture:MTLTexture = createColorTexture(
+                        color:color,
+                        width:textureSize,
+                        height:textureSize)
+                
+                else
+                {
+                    continue
+                }
+                
+                baseTexture = createMutableTexture(texture:colorTexture)
+            }
             else
             {
                 baseTexture = createBlankTexure()
