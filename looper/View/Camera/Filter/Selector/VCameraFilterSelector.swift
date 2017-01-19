@@ -181,8 +181,10 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
         
         collectionView.selectItem(
             at:indexPath,
-            animated:true,
+            animated:false,
             scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
+        
+        stopLoading()
     }
     
     func startLoading()
