@@ -17,7 +17,7 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
         backgroundColor = UIColor.clear
         self.controller = controller as? CCameraMore
         
-        let blur:VBlur = VBlur.light()
+        let blur:VBlur = VBlur.dark()
         
         let closeButton:UIButton = UIButton()
         closeButton.translatesAutoresizingMaskIntoConstraints = false
