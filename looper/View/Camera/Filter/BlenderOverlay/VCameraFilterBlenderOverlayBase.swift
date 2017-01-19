@@ -3,7 +3,7 @@ import UIKit
 class VCameraFilterBlenderOverlayBase:UIView
 {
     private let kImageMargin:CGFloat = 2
-    private let kImageAlpha:CGFloat = 0.4
+    private let kImageAlpha:CGFloat = 0.7
     
     init(model:MCameraFilterSelectorItem)
     {
@@ -26,7 +26,7 @@ class VCameraFilterBlenderOverlayBase:UIView
             
             addSubview(imageView)
             
-            NSLayoutConstraint.equalsHorizontal(
+            NSLayoutConstraint.equals(
                 view:imageView,
                 toView:self,
                 margin:kImageMargin)
