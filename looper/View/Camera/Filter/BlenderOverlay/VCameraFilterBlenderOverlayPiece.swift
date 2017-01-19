@@ -57,6 +57,8 @@ class VCameraFilterBlenderOverlayPiece:UIView
     
     func animateShow()
     {
+        intersecting = true
+        
         UIView.animate(
             withDuration:kAnimationDuration,
             animations:
