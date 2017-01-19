@@ -10,7 +10,6 @@ class VCameraFilterBlenderOverlay:VView
     private weak var nextButton:UIButton!
     private weak var backButton:UIButton!
     private weak var layoutBaseLeft:NSLayoutConstraint!
-    private weak var layoutHelpLeft:NSLayoutConstraint!
     private let pieceSize_2:CGFloat
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
@@ -22,7 +21,8 @@ class VCameraFilterBlenderOverlay:VView
     private let kPieceSize:CGFloat = 100
     private let kButtonsNotActiveAlpha:CGFloat = 0.3
     private let kButtonsActiveAlpha:CGFloat = 1
-    private let kHelpSize:CGFloat = 60
+    private let kHelpSize:CGFloat = 40
+    private let kHelpMargin:CGFloat = 15
     
     override init(controller:CController)
     {
@@ -187,13 +187,15 @@ class VCameraFilterBlenderOverlay:VView
         
         NSLayoutConstraint.topToBottom(
             view:buttonHelp,
-            toView:title)
+            toView:title,
+            constant:kHelpMargin)
         NSLayoutConstraint.size(
             view:buttonHelp,
             constant:kHelpSize)
-        layoutHelpLeft = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToLeft(
             view:buttonHelp,
-            toView:self)
+            toView:self,
+            constant:kHelpMargin)
     }
     
     required init?(coder:NSCoder)
@@ -211,10 +213,7 @@ class VCameraFilterBlenderOverlay:VView
         let width:CGFloat = bounds.maxX
         let remainBase:CGFloat = width - kBaseSize
         let marginBase:CGFloat = remainBase / 2.0
-        let remainHelp:CGFloat = width - kHelpSize
-        let marginHelp:CGFloat = remainHelp / 2.0
         layoutBaseLeft.constant = marginBase
-        layoutHelpLeft.constant = marginHelp
         
         super.layoutSubviews()
     }

@@ -108,7 +108,7 @@ class VCameraHeader:UICollectionReusableView
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.maxX
-        let remainButton:CGFloat = width - kButtonsWidth
+        let remainButton:CGFloat = width - kButtonsSize
         let marginButton:CGFloat = remainButton / 2.0
         layoutShootLeft.constant = marginButton
         

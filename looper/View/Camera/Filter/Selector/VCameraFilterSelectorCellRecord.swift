@@ -35,7 +35,7 @@ class VCameraFilterSelectorCellRecord:VCameraFilterSelectorCell
         background.isUserInteractionEnabled = false
         background.translatesAutoresizingMaskIntoConstraints = false
         background.clipsToBounds = true
-        background.layer.cornerRadius = kCornerRadius + kBackgroundMargin
+        background.layer.cornerRadius = kCornerRadius - kBackgroundMargin
         background.backgroundColor = UIColor.genericLight
         
         let framesIcon:UIImageView = UIImageView()
