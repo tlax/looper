@@ -1,11 +1,11 @@
 import UIKit
 
-class MHelpItemBlenderAdd:MHelpItem
+class MHelpItemBlenderSelect:MHelpItem
 {
     init()
     {
         let image:UIImage = #imageLiteral(resourceName: "assetHelpCameraCapture")
-        let title:String = NSLocalizedString("MHelpItemBlenderAdd_title", comment:"")
+        let title:String = NSLocalizedString("MHelpItemBlenderSelect_title", comment:"")
         
         super.init(
             image:image,

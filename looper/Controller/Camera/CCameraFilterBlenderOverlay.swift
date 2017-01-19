@@ -118,6 +118,10 @@ class CCameraFilterBlenderOverlay:CController
     
     func help()
     {
-        
+        let helpBlender:MHelpBlender = MHelpBlender()
+        let controllerHelp:CHelp = CHelp(model:helpBlender)
+        parentController.push(
+            controller:controllerHelp,
+            vertical:CParent.TransitionVertical.fromTop)
     }
 }
