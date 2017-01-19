@@ -57,10 +57,9 @@
 "MHelpItemCameraDeactive_title"="Exclude all frames";
 "MHelpItemCameraMore_title"="Rotate, Crop, Scale and Delete";
 "MHelpItemCameraReady_title"="Hit the arrow when ready to create a loop";
-"MHelpItemBlenderAbout_title"="With blender you can create a remix of videos";
-"MHelpItemBlenderBase_title"="The base could be a video or a color";
+"MHelpItemBlenderAbout_title"="Blender creates a remix of videos";
+"MHelpItemBlenderBase_title"="Choose a video or color for the base";
 "MHelpItemBlenderAdd_title"="Add more videos to the remix";
-"MHelpItemBlenderSelect_title"="Select it from all your videos, you can repeat";
 "MHelpItemBlenderDrag_title"="Drag and drop them over the base";
 "MCameraMoreItemInfoFrames_title"="Frames  ";
 "MCameraMoreItemInfoSize_title"="Size  ";
