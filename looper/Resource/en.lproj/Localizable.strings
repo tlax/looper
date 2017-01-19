@@ -38,7 +38,7 @@
 
 "MCameraFilterItemNone_title"="Simple video";
 "MCameraFilterItemNone_viewTitle"="Select video";
-"MCameraFilterItemBlend_title"="Blending\nmultiple videos";
+"MCameraFilterItemBlend_title"="Video blender";
 "MCameraFilterItemBlend_viewTitle"="Select base";
 "MCameraFilterItemCoolBlue_title"="Cool Blue";
 "MCameraFilterItemCoolBlue_viewTitle"="Select video";
