@@ -12,8 +12,8 @@ class VCameraPreviewPlayerTimerSlider:UIView
     private let timeSpan:TimeInterval
     private let thumbWidth_2:CGFloat
     private let kMinTime:TimeInterval = 1
-    private let kMaxTime:TimeInterval = 15
-    private let kTrackHeight:CGFloat = 4
+    private let kMaxTime:TimeInterval = 30
+    private let kTrackHeight:CGFloat = 2
     private let kThumbWidth:CGFloat = 40
     
     init(controller:CCameraPreview)

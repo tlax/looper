@@ -5,9 +5,9 @@ class VCameraPreviewPlayer:UIView
     weak var buttonPlay:VCameraPreviewPlayerButton!
     weak var viewTimer:VCameraPreviewPlayerTimer!
     private weak var controller:CCameraPreview!
-    private let kPlayHeight:CGFloat = 70
-    private let kPlayTop:CGFloat = 25
-    private let kTimerHeight:CGFloat = 80
+    private let kPlayHeight:CGFloat = 85
+    private let kPlayTop:CGFloat = 15
+    private let kTimerHeight:CGFloat = 90
     private let kTimerTop:CGFloat = 20
     
     convenience init(controller:CCameraPreview)

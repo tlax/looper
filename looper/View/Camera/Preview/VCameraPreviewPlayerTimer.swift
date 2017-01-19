@@ -6,8 +6,12 @@ class VCameraPreviewPlayerTimer:UIView
     private weak var controller:CCameraPreview!
     private weak var label:UILabel!
     private let numberFormatter:NumberFormatter
-    private let kLabelHeight:CGFloat = 27
-    private let kSliderTop:CGFloat = -24
+    private let attributesLabel:[String:AnyObject]
+    private let stringSeconds:NSAttributedString
+    private let kSeconds:String = "s"
+    private let kLabelTop:CGFloat = 20
+    private let kLabelHeight:CGFloat = 32
+    private let kSliderTop:CGFloat = -38
     private let kAlphaActive:CGFloat = 1
     private let kAlphaNotActive:CGFloat = 0.3
     
@@ -16,6 +20,16 @@ class VCameraPreviewPlayerTimer:UIView
         numberFormatter = NumberFormatter()
         numberFormatter.maximumFractionDigits = 0
         numberFormatter.minimumFractionDigits = 0
+        
+        let attributesSeconds:[String:AnyObject] = [
+            NSFontAttributeName:UIFont.medium(size:13),
+            NSForegroundColorAttributeName:UIColor.genericLight]
+        attributesLabel = [
+            NSFontAttributeName:UIFont.medium(size:16),
+            NSForegroundColorAttributeName:UIColor.genericLight]
+        stringSeconds = NSAttributedString(
+            string:kSeconds,
+            attributes:attributesSeconds)
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -27,9 +41,7 @@ class VCameraPreviewPlayerTimer:UIView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.medium(size:20)
         label.textAlignment = NSTextAlignment.center
-        label.textColor = UIColor.genericLight
         self.label = label
         
         let viewSlider:VCameraPreviewPlayerTimerSlider = VCameraPreviewPlayerTimerSlider(
@@ -44,7 +56,8 @@ class VCameraPreviewPlayerTimer:UIView
             toView:self)
         NSLayoutConstraint.topToTop(
             view:label,
-            toView:self)
+            toView:self,
+            constant:kLabelTop)
         NSLayoutConstraint.height(
             view:label,
             constant:kLabelHeight)
@@ -82,9 +95,15 @@ class VCameraPreviewPlayerTimer:UIView
             return
         }
         
-        let timeComposite:String = "\(timeString)s"
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        let stringLabel:NSAttributedString = NSAttributedString(
+            string:timeString,
+            attributes:attributesLabel)
         
-        label.text = timeComposite
+        mutableString.append(stringLabel)
+        mutableString.append(stringSeconds)
+        
+        label.attributedText = mutableString
     }
     
     func blocked()
