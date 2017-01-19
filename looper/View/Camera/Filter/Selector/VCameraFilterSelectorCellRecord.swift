@@ -4,10 +4,15 @@ class VCameraFilterSelectorCellRecord:VCameraFilterSelectorCell
 {
     private weak var imageView:UIImageView!
     private weak var layoutImageLeft:NSLayoutConstraint!
+    private weak var framesIcon:UIImageView!
+    private weak var label:UILabel!
     private let kCornerRadius:CGFloat = 8
     private let kImageTop:CGFloat = 250
     private let kImageSize:CGFloat = 134
     private let kBackgroundMargin:CGFloat = -3
+    private let kFramesTop:CGFloat = 10
+    private let kFramesSize:CGFloat = 24
+    private let kLabelWidth:CGFloat = 100
     
     override init(frame:CGRect)
     {
@@ -31,8 +36,25 @@ class VCameraFilterSelectorCellRecord:VCameraFilterSelectorCell
         background.layer.cornerRadius = kCornerRadius + kBackgroundMargin
         background.backgroundColor = UIColor.genericLight
         
+        let framesIcon:UIImageView = UIImageView()
+        framesIcon.isUserInteractionEnabled = false
+        framesIcon.clipsToBounds = true
+        framesIcon.contentMode = UIViewContentMode.center
+        framesIcon.translatesAutoresizingMaskIntoConstraints = false
+        framesIcon.image = #imageLiteral(resourceName: "assetFilterFrames")
+        
+        let label:UILabel = UILabel()
+        label.backgroundColor = UIColor.clear
+        label.font = UIFont.regular(size:17)
+        label.isUserInteractionEnabled = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor(white:0.3, alpha:1)
+        self.label = label
+        
         addSubview(background)
         addSubview(imageView)
+        addSubview(label)
+        addSubview(framesIcon)
         
         NSLayoutConstraint.equals(
             view:background,
@@ -49,6 +71,27 @@ class VCameraFilterSelectorCellRecord:VCameraFilterSelectorCell
         NSLayoutConstraint.size(
             view:imageView,
             constant:kImageSize)
+        
+        NSLayoutConstraint.topToBottom(
+            view:framesIcon,
+            toView:imageView,
+            constant:kFramesTop)
+        NSLayoutConstraint.size(
+            view:framesIcon,
+            constant:kFramesSize)
+        NSLayoutConstraint.leftToLeft(
+            view:framesIcon,
+            toView:imageView)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:label,
+            toView:framesIcon)
+        NSLayoutConstraint.leftToRight(
+            view:label,
+            toView:framesIcon)
+        NSLayoutConstraint.width(
+            view:label,
+            constant:kLabelWidth)
     }
     
     required init?(coder:NSCoder)
@@ -79,6 +122,10 @@ class VCameraFilterSelectorCellRecord:VCameraFilterSelectorCell
             return
         }
         
+        let countFrames:Int = model.record.items.count
+        let countString:String = "\(countFrames)"
+        
         imageView.image = model.record.items.first?.image
+        label.text = countString
     }
 }

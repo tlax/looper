@@ -18,7 +18,7 @@ class VCameraFilterSelectorCell:UICollectionViewCell
         selector.isUserInteractionEnabled = false
         selector.translatesAutoresizingMaskIntoConstraints = false
         selector.clipsToBounds = true
-        selector.image = #imageLiteral(resourceName: "assetCameraFilterBlenderSelect")
+        selector.image = #imageLiteral(resourceName: "assetFilterSelector")
         selector.contentMode = UIViewContentMode.center
         self.selector = selector
         
