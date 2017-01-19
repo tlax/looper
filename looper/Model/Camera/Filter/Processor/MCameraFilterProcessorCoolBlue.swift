@@ -2,27 +2,7 @@ import Foundation
 import MetalKit
 
 class MCameraFilterProcessorCoolBlue:MCameraFilterProcessor
-{
-    private var mtlFunction:MTLFunction!
-    private let kMetalFunctionName:String = "metalFilter_coolBlue"
-    private let kBlenderMinLength:Int = 1
-    
-    override init?()
-    {
-        super.init()
-        
-        guard
-            
-            let mtlFunction:MTLFunction = mtlLibrary.makeFunction(name:kMetalFunctionName)
-            
-        else
-        {
-            return nil
-        }
-        
-        self.mtlFunction = mtlFunction
-    }
-    
+{    
     //MARK: public
     
     func cool(record:MCameraRecord) -> MCameraRecord
@@ -35,27 +15,33 @@ class MCameraFilterProcessorCoolBlue:MCameraFilterProcessor
             
             guard
                 
-                let itemTexture:MTLTexture = texturize(image:itemImage)
+                let sourceTexture:MTLTexture = texturize(image:itemImage)
             
             else
             {
                 continue
             }
             
-            let sourceTexture:MTLTexture = createMutableTexture(
-                texture:itemTexture)
+            let destinationTexture:MTLTexture = createBlankTexure(
+                pixelFormat:sourceTexture.pixelFormat,
+                width:sourceTexture.width,
+                height:sourceTexture.height)
             
             let commandBuffer:MTLCommandBuffer = commandQueue.makeCommandBuffer()
             let metalFilter:MetalFilterCoolBlue = MetalFilterCoolBlue(
                 device:device,
                 commandBuffer:commandBuffer)
-            metalFilter.render(sourceTexture:sourceTexture)
+            
+            metalFilter.render(
+                sourceTexture:sourceTexture,
+                destinationTexture:destinationTexture)
+            
             commandBuffer.commit()
             commandBuffer.waitUntilCompleted()
             
             guard
                 
-                let cooledImage:UIImage = sourceTexture.exportImage()
+                let cooledImage:UIImage = destinationTexture.exportImage()
                 
             else
             {

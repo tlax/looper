@@ -13,7 +13,9 @@ class MetalFilterCoolBlue:MetalFilter
     
     //MARK: public
     
-    func render(sourceTexture:MTLTexture)
+    func render(
+        sourceTexture:MTLTexture,
+        destinationTexture:MTLTexture)
     {
         guard
             
@@ -71,6 +73,6 @@ class MetalFilterCoolBlue:MetalFilter
         equalization.encode(
             commandBuffer:commandBuffer,
             sourceTexture:sourceTexture,
-            destinationTexture:sourceTexture)
+            destinationTexture:destinationTexture)
     }
 }
