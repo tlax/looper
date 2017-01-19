@@ -60,6 +60,7 @@
 		DA4079191E2437E1002EED42 /* VCameraFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079121E2437E1002EED42 /* VCameraFilterCell.swift */; };
 		DA4079201E243978002EED42 /* CCameraFilterBlenderOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40791F1E243978002EED42 /* CCameraFilterBlenderOverlay.swift */; };
 		DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */; };
+		DA4247861E3074C000BD12D0 /* MCameraFilterProcessorCoolBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4247851E3074C000BD12D0 /* MCameraFilterProcessorCoolBlue.swift */; };
 		DA4EBC591E2086E000F9AC3D /* help.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4EBC581E2086E000F9AC3D /* help.xcassets */; };
 		DA4EBC621E208D8F00F9AC3D /* VHelpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EBC611E208D8F00F9AC3D /* VHelpCell.swift */; };
 		DA5190521E28401200905C83 /* MCameraMoreItemInfoFrames.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5190511E28401200905C83 /* MCameraMoreItemInfoFrames.swift */; };
@@ -270,6 +271,7 @@
 		DA4079121E2437E1002EED42 /* VCameraFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterCell.swift; sourceTree = "<group>"; };
 		DA40791F1E243978002EED42 /* CCameraFilterBlenderOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraFilterBlenderOverlay.swift; sourceTree = "<group>"; };
 		DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
+		DA4247851E3074C000BD12D0 /* MCameraFilterProcessorCoolBlue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilterProcessorCoolBlue.swift; sourceTree = "<group>"; };
 		DA4EBC581E2086E000F9AC3D /* help.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = help.xcassets; sourceTree = "<group>"; };
 		DA4EBC611E208D8F00F9AC3D /* VHelpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHelpCell.swift; sourceTree = "<group>"; };
 		DA5190511E28401200905C83 /* MCameraMoreItemInfoFrames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraMoreItemInfoFrames.swift; sourceTree = "<group>"; };
@@ -1074,6 +1076,7 @@
 				DAD404D91E1F3180005EA836 /* MCameraFilterProcessor.swift */,
 				DAD404DA1E1F3180005EA836 /* MCameraFilterProcessorWatermark.swift */,
 				DAD404E91E1F50B7005EA836 /* MCameraFilterProcessorBlender.swift */,
+				DA4247851E3074C000BD12D0 /* MCameraFilterProcessorCoolBlue.swift */,
 			);
 			path = Processor;
 			sourceTree = "<group>";
@@ -1262,6 +1265,7 @@
 				DA6FB24D1E1DC0720062EE13 /* CStore.swift in Sources */,
 				DAD51D291E292C6300AB6E38 /* MCameraMoreItemInfoSpeed.swift in Sources */,
 				DA1655411E29B9CE00DA6808 /* VBorder.swift in Sources */,
+				DA4247861E3074C000BD12D0 /* MCameraFilterProcessorCoolBlue.swift in Sources */,
 				DA6FB2421E1D59EE0062EE13 /* MLoopsOptions.swift in Sources */,
 				DA3C1C301E2EF1E400C094DD /* MHelp.swift in Sources */,
 				DA7390001E280A2600A82612 /* CCameraMore.swift in Sources */,
