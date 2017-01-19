@@ -1,9 +1,14 @@
-//
-//  MHelpItemBlenderBase.swift
-//  looper
-//
-//  Created by zero on 1/19/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MHelpItemBlenderBase:MHelpItem
+{
+    init()
+    {
+        let image:UIImage = #imageLiteral(resourceName: "assetHelpCameraCapture")
+        let title:String = NSLocalizedString("MHelpItemBlenderBase_title", comment:"")
+        
+        super.init(
+            image:image,
+            title:title)
+    }
+}
