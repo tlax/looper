@@ -11,7 +11,9 @@ class VCameraFilterSelectorCellRecord:VCameraFilterSelectorCell
     private let kImageSize:CGFloat = 134
     private let kBackgroundMargin:CGFloat = -3
     private let kFramesTop:CGFloat = 10
-    private let kFramesSize:CGFloat = 24
+    private let kFramesLeft:CGFloat = 45
+    private let kFramesSize:CGFloat = 20
+    private let kLabelLeft:CGFloat = 5
     private let kLabelWidth:CGFloat = 100
     
     override init(frame:CGRect)
@@ -45,10 +47,10 @@ class VCameraFilterSelectorCellRecord:VCameraFilterSelectorCell
         
         let label:UILabel = UILabel()
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:17)
+        label.font = UIFont.regular(size:13)
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor(white:0.3, alpha:1)
+        label.textColor = UIColor(white:0.2, alpha:1)
         self.label = label
         
         addSubview(background)
@@ -81,14 +83,16 @@ class VCameraFilterSelectorCellRecord:VCameraFilterSelectorCell
             constant:kFramesSize)
         NSLayoutConstraint.leftToLeft(
             view:framesIcon,
-            toView:imageView)
+            toView:imageView,
+            constant:kFramesLeft)
         
         NSLayoutConstraint.equalsVertical(
             view:label,
             toView:framesIcon)
         NSLayoutConstraint.leftToRight(
             view:label,
-            toView:framesIcon)
+            toView:framesIcon,
+            constant:kLabelLeft)
         NSLayoutConstraint.width(
             view:label,
             constant:kLabelWidth)

@@ -1,6 +1,6 @@
 "VCameraFooter_label"="Start by recording a video";
 "VCameraShootConfig_titleBottom"="Frames/second";
-"VCameraFilterBlenderOverlay_title"="Add videos and\ndrag them to position";
+"VCameraFilterBlenderOverlay_title"="Blend your videos";
 "VCameraPreviewBar_cancelButton"="Delete";
 "VCameraPreviewBar_saveButton"="Save";
 "VHelp_button"="Got it";
@@ -39,7 +39,7 @@
 "MCameraFilterItemNone_title"="Simple video";
 "MCameraFilterItemNone_viewTitle"="Select video";
 "MCameraFilterItemBlend_title"="Blending\nmultiple videos";
-"MCameraFilterItemBlend_viewTitle"="Select base video or color";
+"MCameraFilterItemBlend_viewTitle"="Select base";
 "MCameraFilterItemCoolBlue_title"="Cool Blue";
 "MCameraFilterItemCoolBlue_viewTitle"="Select video";
 "MCameraCompressItemNone_title"="High quality\n";

@@ -14,7 +14,7 @@ class VCameraFilterBlenderOverlay:VView
     private let kContentTop:CGFloat = 20
     private let kButtonsWidth:CGFloat = 55
     private let kButtonsHeight:CGFloat = 44
-    private let kTitleHeight:CGFloat = 60
+    private let kTitleHeight:CGFloat = 44
     private let kBaseTop:CGFloat = 150
     private let kBaseSize:CGFloat = 200
     private let kListHeight:CGFloat = 130
@@ -53,6 +53,22 @@ class VCameraFilterBlenderOverlay:VView
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         self.backButton = backButton
+        
+        let buttonHelp:UIButton = UIButton()
+        buttonHelp.translatesAutoresizingMaskIntoConstraints = false
+        buttonHelp.setImage(
+            #imageLiteral(resourceName: "assetLoopsHelp").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonHelp.setImage(
+            #imageLiteral(resourceName: "assetLoopsHelp").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonHelp.imageView!.contentMode = UIViewContentMode.center
+        buttonHelp.imageView!.clipsToBounds = true
+        buttonHelp.imageView!.tintColor = UIColor.genericAlternative
+        buttonHelp.addTarget(
+            self,
+            action:#selector(actionHelp(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let nextButton:UIButton = UIButton()
         nextButton.translatesAutoresizingMaskIntoConstraints = false
