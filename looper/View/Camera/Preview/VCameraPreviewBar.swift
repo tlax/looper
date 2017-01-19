@@ -12,6 +12,7 @@ class VCameraPreviewBar:UIView
     private let kCancelWidth:CGFloat = 90
     private let kAlphaSaving:CGFloat = 0.3
     private let kAlphaNotSaving:CGFloat = 1
+    private let kBorderHeight:CGFloat = 1
     
     convenience init(controller:CCameraPreview)
     {
@@ -74,9 +75,22 @@ class VCameraPreviewBar:UIView
             for:UIControlEvents.touchUpInside)
         self.saveButton = saveButton
         
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
+        
+        addSubview(border)
         addSubview(backButton)
         addSubview(cancelButton)
         addSubview(saveButton)
+        
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.topToTop(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
         
         NSLayoutConstraint.equalsVertical(
             view:backButton,
