@@ -2,8 +2,6 @@ import MetalPerformanceShaders
 
 class MetalFilterCoolBlue:MetalFilter
 {
-    private let calculation:MPSImageHistogram
-    private let equalization:MPSImageHistogramEqualization
     private let kHistogramEntries:Int = 256
     private let kAlphaChannel:ObjCBool = false
     private let kMinPixelValue:Float = 0
@@ -15,9 +13,7 @@ class MetalFilterCoolBlue:MetalFilter
     
     //MARK: public
     
-    func render(
-        sourceTexture:MTLTexture,
-        destinationTexture:MTLTexture)
+    func render(sourceTexture:MTLTexture)
     {
         guard
             
@@ -75,6 +71,6 @@ class MetalFilterCoolBlue:MetalFilter
         equalization.encode(
             commandBuffer:commandBuffer,
             sourceTexture:sourceTexture,
-            destinationTexture:destinationTexture)
+            destinationTexture:sourceTexture)
     }
 }
