@@ -54,23 +54,11 @@ class CCameraFilterSelector:CController
     func next()
     {
         viewSelector.startLoading()
-        /*
-        let baseRecord:MCameraRecord?
         
-        if currentSelected == 0
-        {
-            baseRecord = nil
-        }
-        else
-        {
-            baseRecord = MSession.sharedInstance.camera?.activeRecords?[currentSelected - 1]
-        }
+        let selectedModel:MCameraFilterSelectorItem = model.selectedModel()
         
-        let controllerOverlay:CCameraFilterBlenderOverlay = CCameraFilterBlenderOverlay(
-            model:model,
-            baseRecord:baseRecord)
-        parentController.push(
-            controller:controllerOverlay,
-            horizontal:CParent.TransitionHorizontal.fromRight)*/
+        filter.selected(
+            item:selectedModel,
+            controller:self)
     }
 }
