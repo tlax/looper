@@ -35,7 +35,18 @@ class MCameraFilterItemCoolBlue:MCameraFilterItem
     
     private func filter(record:MCameraRecord, controller:CCameraFilterSelector)
     {
-        let waterMarked:MCameraRecord = waterMark(original:record)
+        let filteredRecord:MCameraRecord
+        
+        if let coolBlue:MCameraFilterProcessorCoolBlue = MCameraFilterProcessorCoolBlue()
+        {
+            filteredRecord = coolBlue.cool(record:record)
+        }
+        else
+        {
+            filteredRecord = record
+        }
+        
+        let waterMarked:MCameraRecord = waterMark(original:filteredRecord)
         
         DispatchQueue.main.async
         { [weak controller] in

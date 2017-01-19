@@ -15,7 +15,7 @@ class MCameraFilterProcessorCoolBlue:MCameraFilterProcessor
             
             let mtlFunction:MTLFunction = mtlLibrary.makeFunction(name:kMetalFunctionName)
             
-            else
+        else
         {
             return nil
         }
@@ -25,9 +25,7 @@ class MCameraFilterProcessorCoolBlue:MCameraFilterProcessor
     
     //MARK: public
     
-    func blend(
-        filterSelectedItem:MCameraFilterSelectorItem,
-        overlays:[MCameraFilterItemBlendOverlay]) -> MCameraRecord
+    func cool(record:MCameraRecord) -> MCameraRecord
     {
         let blended:MCameraRecord = MCameraRecord()
         let baseRecord:MCameraRecord?
