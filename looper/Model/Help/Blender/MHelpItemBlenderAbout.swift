@@ -4,7 +4,7 @@ class MHelpItemBlenderAbout:MHelpItem
 {
     init()
     {
-        let image:UIImage = #imageLiteral(resourceName: "assetHelpCameraCapture")
+        let image:UIImage = #imageLiteral(resourceName: "assetHelpHelpBlenderAbout")
         let title:String = NSLocalizedString("MHelpItemBlenderAbout_title", comment:"")
         
         super.init(
