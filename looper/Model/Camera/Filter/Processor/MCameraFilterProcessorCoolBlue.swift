@@ -4,7 +4,7 @@ import MetalKit
 class MCameraFilterProcessorCoolBlue:MCameraFilterProcessor
 {
     private var mtlFunction:MTLFunction!
-    private let kMetalFunctionName:String = "metalFilter_blender"
+    private let kMetalFunctionName:String = "metalFilter_coolBlue"
     private let kBlenderMinLength:Int = 1
     
     override init?()
