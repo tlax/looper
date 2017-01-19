@@ -58,9 +58,6 @@
 		DA4079171E2437E1002EED42 /* VCameraFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079101E2437E1002EED42 /* VCameraFilter.swift */; };
 		DA4079181E2437E1002EED42 /* VCameraFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079111E2437E1002EED42 /* VCameraFilterBar.swift */; };
 		DA4079191E2437E1002EED42 /* VCameraFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079121E2437E1002EED42 /* VCameraFilterCell.swift */; };
-		DA40791A1E2437E1002EED42 /* VCameraFilterNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079141E2437E1002EED42 /* VCameraFilterNone.swift */; };
-		DA40791B1E2437E1002EED42 /* VCameraFilterNoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079151E2437E1002EED42 /* VCameraFilterNoneCell.swift */; };
-		DA40791C1E2437E1002EED42 /* VCameraFilterNoneHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079161E2437E1002EED42 /* VCameraFilterNoneHeader.swift */; };
 		DA4079201E243978002EED42 /* CCameraFilterBlenderOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40791F1E243978002EED42 /* CCameraFilterBlenderOverlay.swift */; };
 		DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */; };
 		DA4EBC591E2086E000F9AC3D /* help.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4EBC581E2086E000F9AC3D /* help.xcassets */; };
@@ -185,7 +182,6 @@
 		DAD778E91E1174D7009B1A81 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD778E81E1174D7009B1A81 /* brand.xcassets */; };
 		DAD778EB1E117667009B1A81 /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD778EA1E117667009B1A81 /* generic.xcassets */; };
 		DAD778ED1E11788D009B1A81 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD778EC1E11788D009B1A81 /* spinner.xcassets */; };
-		DAD88CFF1E1AF47300EAB6B7 /* CCameraFilterNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD88CFE1E1AF47300EAB6B7 /* CCameraFilterNone.swift */; };
 		DAD88D071E1B2AD700EAB6B7 /* VCameraCompressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD88D061E1B2AD700EAB6B7 /* VCameraCompressBar.swift */; };
 		DAD88D091E1B2C5400EAB6B7 /* VCameraCompressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD88D081E1B2C5400EAB6B7 /* VCameraCompressCell.swift */; };
 		DAE179241E26F16000D39599 /* VCameraCellControlsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE179231E26F16000D39599 /* VCameraCellControlsButton.swift */; };
@@ -272,9 +268,6 @@
 		DA4079101E2437E1002EED42 /* VCameraFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilter.swift; sourceTree = "<group>"; };
 		DA4079111E2437E1002EED42 /* VCameraFilterBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterBar.swift; sourceTree = "<group>"; };
 		DA4079121E2437E1002EED42 /* VCameraFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterCell.swift; sourceTree = "<group>"; };
-		DA4079141E2437E1002EED42 /* VCameraFilterNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterNone.swift; sourceTree = "<group>"; };
-		DA4079151E2437E1002EED42 /* VCameraFilterNoneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterNoneCell.swift; sourceTree = "<group>"; };
-		DA4079161E2437E1002EED42 /* VCameraFilterNoneHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterNoneHeader.swift; sourceTree = "<group>"; };
 		DA40791F1E243978002EED42 /* CCameraFilterBlenderOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraFilterBlenderOverlay.swift; sourceTree = "<group>"; };
 		DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
 		DA4EBC581E2086E000F9AC3D /* help.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = help.xcassets; sourceTree = "<group>"; };
@@ -401,7 +394,6 @@
 		DAD778E81E1174D7009B1A81 /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DAD778EA1E117667009B1A81 /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DAD778EC1E11788D009B1A81 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
-		DAD88CFE1E1AF47300EAB6B7 /* CCameraFilterNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraFilterNone.swift; sourceTree = "<group>"; };
 		DAD88D061E1B2AD700EAB6B7 /* VCameraCompressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraCompressBar.swift; sourceTree = "<group>"; };
 		DAD88D081E1B2C5400EAB6B7 /* VCameraCompressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraCompressCell.swift; sourceTree = "<group>"; };
 		DAE179231E26F16000D39599 /* VCameraCellControlsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraCellControlsButton.swift; sourceTree = "<group>"; };
@@ -660,16 +652,6 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		DA4079131E2437E1002EED42 /* None */ = {
-			isa = PBXGroup;
-			children = (
-				DA4079141E2437E1002EED42 /* VCameraFilterNone.swift */,
-				DA4079151E2437E1002EED42 /* VCameraFilterNoneCell.swift */,
-				DA4079161E2437E1002EED42 /* VCameraFilterNoneHeader.swift */,
-			);
-			path = None;
-			sourceTree = "<group>";
-		};
 		DA4EBC5A1E2089FF00F9AC3D /* Help */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,7 +678,6 @@
 				DA8B1CEC1E300D2200BC896D /* Selector */,
 				DA17E5581E256297004838D5 /* BlenderOverlay */,
 				DA40790F1E2437E1002EED42 /* Main */,
-				DA4079131E2437E1002EED42 /* None */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -954,7 +935,6 @@
 				DA9B83F31E13255F002B9810 /* CCameraShoot.swift */,
 				DA5C523B1E15CC3000D296C6 /* CCameraFilter.swift */,
 				DA8B1CEA1E300AE200BC896D /* CCameraFilterSelector.swift */,
-				DAD88CFE1E1AF47300EAB6B7 /* CCameraFilterNone.swift */,
 				DA40791F1E243978002EED42 /* CCameraFilterBlenderOverlay.swift */,
 				DAFC40B71E1A02780044B14B /* CCameraCompress.swift */,
 				DA38AF021E1BE6C0008C86A8 /* CCameraPreview.swift */,
@@ -1279,7 +1259,6 @@
 				DA9B83E71E130AF5002B9810 /* VCameraFooter.swift in Sources */,
 				DAF604E51E23E16B00A1259E /* MStoreItemStatus.swift in Sources */,
 				DAD404DE1E1F3180005EA836 /* MCameraFilterItemNone.swift in Sources */,
-				DA40791B1E2437E1002EED42 /* VCameraFilterNoneCell.swift in Sources */,
 				DA6FB24D1E1DC0720062EE13 /* CStore.swift in Sources */,
 				DAD51D291E292C6300AB6E38 /* MCameraMoreItemInfoSpeed.swift in Sources */,
 				DA1655411E29B9CE00DA6808 /* VBorder.swift in Sources */,
@@ -1312,7 +1291,6 @@
 				DA9B83DA1E12E7E8002B9810 /* VView.swift in Sources */,
 				DA224AF71E2A99C100EF8271 /* VBlur.swift in Sources */,
 				DA73900E1E282D6600A82612 /* MCameraMore.swift in Sources */,
-				DAD88CFF1E1AF47300EAB6B7 /* CCameraFilterNone.swift in Sources */,
 				DA38AF0E1E1BFF20008C86A8 /* VCameraPreviewPlayer.swift in Sources */,
 				DA1655371E298E4800DA6808 /* VCameraMoreCellEmpty.swift in Sources */,
 				DAF604E91E23E16B00A1259E /* MStoreItemStatusPurchased.swift in Sources */,
@@ -1335,7 +1313,6 @@
 				DA3C1C2D1E2EF1E400C094DD /* MHelpItemFilter.swift in Sources */,
 				DA4079191E2437E1002EED42 /* VCameraFilterCell.swift in Sources */,
 				DA3C1C2E1E2EF1E400C094DD /* MHelpItemRecord.swift in Sources */,
-				DA40791A1E2437E1002EED42 /* VCameraFilterNone.swift in Sources */,
 				DA9B83FE1E133329002B9810 /* VCameraShootPreview.swift in Sources */,
 				DAC7D3FB1E12C37D00312D4E /* CLoops.swift in Sources */,
 				DAF604CA1E23DC1800A1259E /* VStoreCellNotAvailable.swift in Sources */,
@@ -1345,7 +1322,6 @@
 				DA38AF0A1E1BF7AA008C86A8 /* VCameraPreviewDisplay.swift in Sources */,
 				DA9B83CD1E12E367002B9810 /* VCamera.swift in Sources */,
 				DA38AF141E1C302D008C86A8 /* VCameraPreviewPlayerTimerSlider.swift in Sources */,
-				DA40791C1E2437E1002EED42 /* VCameraFilterNoneHeader.swift in Sources */,
 				DAFC40C01E1A03FA0044B14B /* MCameraCompressItemNone.swift in Sources */,
 				DA799CDE1E1436B000AB45DD /* MCameraSpeed1.swift in Sources */,
 				DAF604E61E23E16B00A1259E /* MStoreItemStatusDeferred.swift in Sources */,
