@@ -33,7 +33,7 @@ class MCameraFilterItem
     }
     
     func selected(
-        item:MCameraFilterSelectorItem,
+        filterSelectedItem:MCameraFilterSelectorItem,
         controller:CCameraFilterSelector)
     {
     }

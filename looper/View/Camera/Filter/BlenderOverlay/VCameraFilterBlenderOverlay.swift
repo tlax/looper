@@ -84,7 +84,7 @@ class VCameraFilterBlenderOverlay:VView
         title.text = NSLocalizedString("VCameraFilterBlenderOverlay_title", comment:"")
         
         let viewBase:VCameraFilterBlenderOverlayBase = VCameraFilterBlenderOverlayBase(
-            model:self.controller.baseRecord)
+            model:self.controller.filterSelectedItem)
         self.viewBase = viewBase
         
         let viewList:VCameraFilterBlenderOverlayList = VCameraFilterBlenderOverlayList(

@@ -2,33 +2,39 @@ import UIKit
 
 class VCameraFilterBlenderOverlayBase:UIView
 {
-    private weak var imageView:UIImageView!
     private let kImageMargin:CGFloat = 2
     private let kImageAlpha:CGFloat = 0.4
     
-    init(model:MCameraRecord?)
+    init(model:MCameraFilterSelectorItem)
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
-        backgroundColor = UIColor.black
         
-        let imageView:UIImageView = UIImageView()
-        imageView.isUserInteractionEnabled = false
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = model?.items.first?.image
-        imageView.alpha = kImageAlpha
-        self.imageView = imageView
-        
-        addSubview(imageView)
-        
-        NSLayoutConstraint.equalsHorizontal(
-            view:imageView,
-            toView:self,
-            margin:kImageMargin)
+        if let modelRecord:MCameraFilterSelectorItemRecord = model as? MCameraFilterSelectorItemRecord
+        {
+            backgroundColor = UIColor.black
+            
+            let imageView:UIImageView = UIImageView()
+            imageView.isUserInteractionEnabled = false
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.contentMode = UIViewContentMode.scaleAspectFill
+            imageView.clipsToBounds = true
+            imageView.alpha = kImageAlpha
+            imageView.image = modelRecord.record.items.first?.image
+            
+            addSubview(imageView)
+            
+            NSLayoutConstraint.equalsHorizontal(
+                view:imageView,
+                toView:self,
+                margin:kImageMargin)
+        }
+        else if let modelColor:MCameraFilterSelectorItemColor = model as? MCameraFilterSelectorItemColor
+        {
+            backgroundColor = modelColor.color
+        }
     }
     
     required init?(coder:NSCoder)

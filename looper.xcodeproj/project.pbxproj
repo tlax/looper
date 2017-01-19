@@ -55,16 +55,13 @@
 		DA4079041E241FFE002EED42 /* CStoreGoPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079031E241FFE002EED42 /* CStoreGoPlus.swift */; };
 		DA4079071E242358002EED42 /* VStoreGoPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079061E242358002EED42 /* VStoreGoPlus.swift */; };
 		DA4079091E2424DA002EED42 /* VStoreGoPlusButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079081E2424DA002EED42 /* VStoreGoPlusButtons.swift */; };
-		DA40790D1E2435F3002EED42 /* CCameraFilterBlender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40790C1E2435F3002EED42 /* CCameraFilterBlender.swift */; };
 		DA4079171E2437E1002EED42 /* VCameraFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079101E2437E1002EED42 /* VCameraFilter.swift */; };
 		DA4079181E2437E1002EED42 /* VCameraFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079111E2437E1002EED42 /* VCameraFilterBar.swift */; };
 		DA4079191E2437E1002EED42 /* VCameraFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079121E2437E1002EED42 /* VCameraFilterCell.swift */; };
 		DA40791A1E2437E1002EED42 /* VCameraFilterNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079141E2437E1002EED42 /* VCameraFilterNone.swift */; };
 		DA40791B1E2437E1002EED42 /* VCameraFilterNoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079151E2437E1002EED42 /* VCameraFilterNoneCell.swift */; };
 		DA40791C1E2437E1002EED42 /* VCameraFilterNoneHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079161E2437E1002EED42 /* VCameraFilterNoneHeader.swift */; };
-		DA40791E1E2437F9002EED42 /* VCameraFilterBlender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40791D1E2437F9002EED42 /* VCameraFilterBlender.swift */; };
 		DA4079201E243978002EED42 /* CCameraFilterBlenderOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40791F1E243978002EED42 /* CCameraFilterBlenderOverlay.swift */; };
-		DA4079221E243AE8002EED42 /* VCameraFilterBlenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4079211E243AE8002EED42 /* VCameraFilterBlenderCell.swift */; };
 		DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */; };
 		DA4EBC591E2086E000F9AC3D /* help.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4EBC581E2086E000F9AC3D /* help.xcassets */; };
 		DA4EBC621E208D8F00F9AC3D /* VHelpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EBC611E208D8F00F9AC3D /* VHelpCell.swift */; };
@@ -272,16 +269,13 @@
 		DA4079031E241FFE002EED42 /* CStoreGoPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStoreGoPlus.swift; sourceTree = "<group>"; };
 		DA4079061E242358002EED42 /* VStoreGoPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreGoPlus.swift; sourceTree = "<group>"; };
 		DA4079081E2424DA002EED42 /* VStoreGoPlusButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreGoPlusButtons.swift; sourceTree = "<group>"; };
-		DA40790C1E2435F3002EED42 /* CCameraFilterBlender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraFilterBlender.swift; sourceTree = "<group>"; };
 		DA4079101E2437E1002EED42 /* VCameraFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilter.swift; sourceTree = "<group>"; };
 		DA4079111E2437E1002EED42 /* VCameraFilterBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterBar.swift; sourceTree = "<group>"; };
 		DA4079121E2437E1002EED42 /* VCameraFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterCell.swift; sourceTree = "<group>"; };
 		DA4079141E2437E1002EED42 /* VCameraFilterNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterNone.swift; sourceTree = "<group>"; };
 		DA4079151E2437E1002EED42 /* VCameraFilterNoneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterNoneCell.swift; sourceTree = "<group>"; };
 		DA4079161E2437E1002EED42 /* VCameraFilterNoneHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterNoneHeader.swift; sourceTree = "<group>"; };
-		DA40791D1E2437F9002EED42 /* VCameraFilterBlender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterBlender.swift; sourceTree = "<group>"; };
 		DA40791F1E243978002EED42 /* CCameraFilterBlenderOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraFilterBlenderOverlay.swift; sourceTree = "<group>"; };
-		DA4079211E243AE8002EED42 /* VCameraFilterBlenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFilterBlenderCell.swift; sourceTree = "<group>"; };
 		DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
 		DA4EBC581E2086E000F9AC3D /* help.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = help.xcassets; sourceTree = "<group>"; };
 		DA4EBC611E208D8F00F9AC3D /* VHelpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHelpCell.swift; sourceTree = "<group>"; };
@@ -656,15 +650,6 @@
 			path = StoreGo;
 			sourceTree = "<group>";
 		};
-		DA40790E1E2437E1002EED42 /* Blender */ = {
-			isa = PBXGroup;
-			children = (
-				DA40791D1E2437F9002EED42 /* VCameraFilterBlender.swift */,
-				DA4079211E243AE8002EED42 /* VCameraFilterBlenderCell.swift */,
-			);
-			path = Blender;
-			sourceTree = "<group>";
-		};
 		DA40790F1E2437E1002EED42 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,7 +695,6 @@
 			children = (
 				DA8B1CEC1E300D2200BC896D /* Selector */,
 				DA17E5581E256297004838D5 /* BlenderOverlay */,
-				DA40790E1E2437E1002EED42 /* Blender */,
 				DA40790F1E2437E1002EED42 /* Main */,
 				DA4079131E2437E1002EED42 /* None */,
 			);
@@ -971,7 +955,6 @@
 				DA5C523B1E15CC3000D296C6 /* CCameraFilter.swift */,
 				DA8B1CEA1E300AE200BC896D /* CCameraFilterSelector.swift */,
 				DAD88CFE1E1AF47300EAB6B7 /* CCameraFilterNone.swift */,
-				DA40790C1E2435F3002EED42 /* CCameraFilterBlender.swift */,
 				DA40791F1E243978002EED42 /* CCameraFilterBlenderOverlay.swift */,
 				DAFC40B71E1A02780044B14B /* CCameraCompress.swift */,
 				DA38AF021E1BE6C0008C86A8 /* CCameraPreview.swift */,
@@ -1231,7 +1214,6 @@
 				DAF604C61E23DBB100A1259E /* VStoreCellPurchasing.swift in Sources */,
 				DA96FEE31E03672F00FD5265 /* ExtensionFileManager.swift in Sources */,
 				DA20F38A1E0D7A9100D9EBAC /* ExtensionMTLTexture.swift in Sources */,
-				DA40791E1E2437F9002EED42 /* VCameraFilterBlender.swift in Sources */,
 				DA8B1CFB1E30188100BC896D /* MCameraFilterSelectorItemRecord.swift in Sources */,
 				DA799CEC1E1436F400AB45DD /* MCameraSpeed20.swift in Sources */,
 				DA8B1CF91E3016F800BC896D /* MCameraFilterSelectorItem.swift in Sources */,
@@ -1302,7 +1284,6 @@
 				DAD51D291E292C6300AB6E38 /* MCameraMoreItemInfoSpeed.swift in Sources */,
 				DA1655411E29B9CE00DA6808 /* VBorder.swift in Sources */,
 				DA6FB2421E1D59EE0062EE13 /* MLoopsOptions.swift in Sources */,
-				DA4079221E243AE8002EED42 /* VCameraFilterBlenderCell.swift in Sources */,
 				DA3C1C301E2EF1E400C094DD /* MHelp.swift in Sources */,
 				DA7390001E280A2600A82612 /* CCameraMore.swift in Sources */,
 				DA9B83D81E12E7E8002B9810 /* VAlert.swift in Sources */,
@@ -1405,7 +1386,6 @@
 				DA9B83DD1E12E7E8002B9810 /* VParentBarButton.swift in Sources */,
 				DA9B83C51E12DCB8002B9810 /* CCamera.swift in Sources */,
 				DA9B83DC1E12E7E8002B9810 /* VParentBar.swift in Sources */,
-				DA40790D1E2435F3002EED42 /* CCameraFilterBlender.swift in Sources */,
 				DA1701BC1E2069E40049CE90 /* CHelp.swift in Sources */,
 				DA9B83E11E12EBEF002B9810 /* VCameraCell.swift in Sources */,
 				DAD404DF1E1F3180005EA836 /* MCameraFilterProcessor.swift in Sources */,

@@ -25,10 +25,30 @@ class MCameraFilterProcessorBlender:MCameraFilterProcessor
     
     //MARK: public
     
-    func blend(baseRecord:MCameraRecord?, overlays:[MCameraFilterItemBlendOverlay]) -> MCameraRecord
+    func blend(
+        filterSelectedItem:MCameraFilterSelectorItem,
+        overlays:[MCameraFilterItemBlendOverlay]) -> MCameraRecord
     {
         let blended:MCameraRecord = MCameraRecord()
+        let baseRecord:MCameraRecord?
+        let color:UIColor?
         let length:Int
+        
+        if let selectedRecord:MCameraFilterSelectorItemRecord = filterSelectedItem as? MCameraFilterSelectorItemRecord
+        {
+            baseRecord = selectedRecord.record
+            color = nil
+        }
+        else if let selectedColor:MCameraFilterSelectorItemColor = filterSelectedItem as? MCameraFilterSelectorItemColor
+        {
+            baseRecord = nil
+            color = selectedColor.color
+        }
+        else
+        {
+            baseRecord = nil
+            color = nil
+        }
         
         if let baseRecord:MCameraRecord = baseRecord
         {

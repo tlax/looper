@@ -48,7 +48,8 @@ class CCameraFilterSelector:CController
     
     func back()
     {
-        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+        parentController.pop(
+            horizontal:CParent.TransitionHorizontal.fromRight)
     }
     
     func next()
@@ -58,7 +59,7 @@ class CCameraFilterSelector:CController
         let selectedModel:MCameraFilterSelectorItem = model.selectedModel()
         
         filter.selected(
-            item:selectedModel,
+            filterSelectedItem:selectedModel,
             controller:self)
     }
 }

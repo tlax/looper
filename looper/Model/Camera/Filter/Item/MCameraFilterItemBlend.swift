@@ -30,10 +30,22 @@ class MCameraFilterItemBlend:MCameraFilterItem
         return model
     }
     
+    override func selected(
+        filterSelectedItem:MCameraFilterSelectorItem,
+        controller:CCameraFilterSelector)
+    {
+        let controllerOverlay:CCameraFilterBlenderOverlay = CCameraFilterBlenderOverlay(
+            model:self,
+            filterSelectedItem:filterSelectedItem)
+        controller.parentController.push(
+            controller:controllerOverlay,
+            horizontal:CParent.TransitionHorizontal.fromRight)
+    }
+    
     //MARK: public
     
     func filter(
-        baseRecord:MCameraRecord?,
+        filterSelectedItem:MCameraFilterSelectorItem,
         overlays:[MCameraFilterItemBlendOverlay]) -> MCameraRecord
     {
         let filteredRecord:MCameraRecord
@@ -50,7 +62,7 @@ class MCameraFilterItemBlend:MCameraFilterItem
         }
         
         filteredRecord = blender.blend(
-            baseRecord:baseRecord,
+            filterSelectedItem:filterSelectedItem,
             overlays:overlays)
         
         return filteredRecord
