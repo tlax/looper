@@ -51,7 +51,7 @@ class VCameraPreviewBar:UIView
         cancelButton.setTitleColor(
             UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
-        cancelButton.titleLabel!.font = UIFont.regular(size:15)
+        cancelButton.titleLabel!.font = UIFont.regular(size:14)
         cancelButton.titleEdgeInsets = UIEdgeInsets(
             top:kButtonsTop,
             left:0,
