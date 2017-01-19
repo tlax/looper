@@ -14,6 +14,18 @@ class MetalFilterBlender:MetalFilter
         baseTexture:MTLTexture,
         mapTexture:MTLTexture)
     {
+        guard
+            
+            let commandEncoder:MTLComputeCommandEncoder = self.commandEncoder,
+            let pipeline:MTLComputePipelineState = self.pipeline,
+            let threadgroupCounts:MTLSize = self.threadgroupCounts,
+            let threadgroups:MTLSize = self.threadgroups
+        
+        else
+        {
+            return
+        }
+        
         commandEncoder.setComputePipelineState(pipeline)
         commandEncoder.setTexture(baseTexture, at:kIndexBaseTexture)
         commandEncoder.setTexture(overlayTexture, at:kIndexOverTexture)

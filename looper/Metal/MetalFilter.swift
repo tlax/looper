@@ -2,10 +2,11 @@ import MetalPerformanceShaders
 
 class MetalFilter:MPSUnaryImageKernel
 {
-    let pipeline:MTLComputePipelineState
-    let commandEncoder:MTLComputeCommandEncoder
-    let threadgroupCounts:MTLSize
-    let threadgroups:MTLSize
+    let pipeline:MTLComputePipelineState?
+    let commandEncoder:MTLComputeCommandEncoder?
+    let threadgroupCounts:MTLSize?
+    let threadgroups:MTLSize?
+    weak var commandBuffer:MTLCommandBuffer?
     private let kThreadgroupWidth:Int = 8
     private let kThreadgroupHeight:Int = 8
     private let kThreadgroupDeep:Int = 1
@@ -40,7 +41,20 @@ class MetalFilter:MPSUnaryImageKernel
             threadgroupsVertical,
             kThreadgroupDeep)
         
+        self.commandBuffer = commandBuffer
         self.pipeline = pipeline
+        super.init(device:device)
+    }
+    
+    init(
+        device:MTLDevice,
+        commandBuffer:MTLCommandBuffer)
+    {
+        self.commandBuffer = commandBuffer
+        commandEncoder = nil
+        pipeline = nil
+        threadgroupCounts = nil
+        threadgroups = nil
         super.init(device:device)
     }
 }
