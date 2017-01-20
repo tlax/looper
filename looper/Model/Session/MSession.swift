@@ -2,24 +2,14 @@ import Foundation
 
 class MSession
 {
-    enum State
-    {
-        case standBy
-        case rendering
-        case frame
-        case playing
-    }
-    
     static let sharedInstance:MSession = MSession()
     static let kFroobMaxRecords:Int = 3
     private(set) var settings:DSettings?
     var camera:MCamera?
-    var state:State
     private let kTtlDelta:Int16 = 1
     
     private init()
     {
-        state = State.standBy
     }
     
     //MARK: private
