@@ -174,25 +174,17 @@ class CCameraShoot:CController
             return
         }
         
-        let tryCaptureDeviceInput:AVCaptureDeviceInput?
+        let captureDeviceInput:AVCaptureDeviceInput
         
         do
         {
-            try tryCaptureDeviceInput = AVCaptureDeviceInput(
+            try captureDeviceInput = AVCaptureDeviceInput(
                 device:foundCaptureDevice)
         }
         catch let error
         {
-            tryCaptureDeviceInput = nil
             VAlert.message(message:error.localizedDescription)
-        }
-        
-        guard
             
-            let captureDeviceInput:AVCaptureDeviceInput = tryCaptureDeviceInput
-            
-        else
-        {
             return
         }
         
