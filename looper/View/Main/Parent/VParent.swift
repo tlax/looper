@@ -20,11 +20,10 @@ class VParent:UIView
         
         addSubview(viewBar)
         
-        NSLayoutConstraint.equalsHorizontal(
+        layoutBarTop = NSLayoutConstraint.topToTop(
             view:viewBar,
             toView:self)
-        
-        layoutBarTop = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:self)
         NSLayoutConstraint.height(
