@@ -32,10 +32,8 @@ class MSession
                 return
             }
             
-            settings.ttl += self.kTtlDelta
-            DManager.sharedInstance.save()
-            
             self.settingsReady(settings:settings)
+            self.addTtl()
         }
     }
     
@@ -77,5 +75,20 @@ class MSession
                 self.asyncLoadSettings()
             }
         }
+    }
+    
+    func addTtl()
+    {
+        guard
+            
+            let settings:DSettings = self.settings
+            
+        else
+        {
+            return
+        }
+        
+        settings.ttl += kTtlDelta
+        DManager.sharedInstance.save()
     }
 }
