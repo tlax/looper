@@ -8,5 +8,5 @@
 # looper ![alt text][logo]
 Amazing gif architect
 
-![alt text][brand1] | ![alt text][brand2] | ![alt text][brand3] | ![alt text][brand4] | ![alt text][brand5]
---- | --- | --- | --- | ---
+![alt text][brand1]|![alt text][brand2]|![alt text][brand3]|![alt text][brand4]|![alt text][brand5]
+---|---|---|---|---
