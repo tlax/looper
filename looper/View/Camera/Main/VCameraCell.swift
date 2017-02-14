@@ -30,6 +30,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     override init(frame:CGRect)
     {
         drag = Drag.stand
+        
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -204,7 +205,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     private func restartingScroll()
     {
-        drag = Drag.restart
+        drag = Drag.avoid
         layoutControlsWidth.constant = 0
         layoutCollectionLeft.constant = 0
      
