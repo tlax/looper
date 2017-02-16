@@ -49,8 +49,6 @@ class MSession
                 
             else
             {
-                self.createSettings()
-                
                 return
             }
             
