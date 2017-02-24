@@ -15,7 +15,7 @@ class MCameraFilterProcessorBlender:MCameraFilterProcessor
             
             let mtlFunction:MTLFunction = mtlLibrary.makeFunction(name:kMetalFunctionName)
             
-            else
+        else
         {
             return nil
         }
