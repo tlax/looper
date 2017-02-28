@@ -115,11 +115,11 @@ class VCameraCropImageThumb:UIImageView
     {
         if selected
         {
-            image = #imageLiteral(resourceName: "assetGenericThumbSelected")
+            image = #imageLiteral(resourceName: "assetCameraCropThumbSelected")
         }
         else
         {
-            image = #imageLiteral(resourceName: "assetGenericThumb")
+            image = #imageLiteral(resourceName: "assetCameraCropThumb")
         }
     }
     
