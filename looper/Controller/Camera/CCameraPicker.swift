@@ -3,19 +3,56 @@ import UIKit
 class CCameraPicker:UIImagePickerController, UINavigationControllerDelegate, UIImagePickerControllerDelegate
 {
     private weak var camera:CCamera!
+    private weak var model:MCameraRaw?
     
-    init(controller:CCamera)
+    init(camera:CCamera, model:MCameraRaw?)
     {
         super.init(nibName:nil, bundle:nil)
         sourceType = UIImagePickerControllerSourceType.photoLibrary
         delegate = self
         allowsEditing = false
-        self.controller = controller
+        self.camera = camera
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: private
+    
+    private func renderNew(image:UIImage)
+    {
+        let item:MCameraRawItem = MCameraRawItem(image:image)
+        let modelSpeed:MCameraSpeed1 = MCameraSpeed1()
+        let model:MCameraRaw = MCameraRaw(speed:modelSpeed)
+        
+        model.items.append(item)
+        
+        MSession.sharedInstance.camera?.renderRecording(modelRaw:model)
+    }
+    
+    private func render(image:UIImage?)
+    {
+        guard
+        
+            let image:UIImage = image
+        
+        else
+        {
+            return
+        }
+        
+        guard
+        
+            let model:MCameraRaw = self.model
+        
+        else
+        {
+            renderNew(image:image)
+            
+            return
+        }
     }
     
     //MARK: imagePicker delegate
@@ -24,7 +61,7 @@ class CCameraPicker:UIImagePickerController, UINavigationControllerDelegate, UII
     {
         let image:UIImage? = info[UIImagePickerControllerOriginalImage] as? UIImage
         
-        camera.imageSelected(image:image)
+        render(image:image)
         camera.dismiss(animated:true)
     }
 }
