@@ -7,12 +7,14 @@ class MCameraMoreItemActions:MCameraMoreItem
     
     init(record:MCameraRecordEditable)
     {
+        let optionAdd:MCameraMoreItemActionsOptionAdd = MCameraMoreItemActionsOptionAdd()
         let optionRotate:MCameraMoreItemActionsOptionRotate = MCameraMoreItemActionsOptionRotate()
         let optionCrop:MCameraMoreItemActionsOptionCrop = MCameraMoreItemActionsOptionCrop()
         let optionScale:MCameraMoreItemActionsOptionScale = MCameraMoreItemActionsOptionScale()
         let optionTrash:MCameraMoreItemActionsOptionTrash = MCameraMoreItemActionsOptionTrash()
         
         options = [
+            optionAdd,
             optionRotate,
             optionCrop,
             optionScale,

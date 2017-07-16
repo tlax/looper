@@ -4,8 +4,7 @@ class VCameraMoreCellActions:VCameraMoreCell, UICollectionViewDelegate, UICollec
 {
     private weak var modelActions:MCameraMoreItemActions?
     private weak var collectionView:VCollection!
-    private let kInterline:CGFloat = 1
-    private let kCellWidth:CGFloat = 65
+    private let kCellWidth:CGFloat = 62
     
     override init(frame:CGRect)
     {
@@ -14,16 +13,12 @@ class VCameraMoreCellActions:VCameraMoreCell, UICollectionViewDelegate, UICollec
         let height:CGFloat = frame.size.height
         let collectionView:VCollection = VCollection()
         collectionView.flow.scrollDirection = UICollectionViewScrollDirection.horizontal
-        collectionView.flow.minimumLineSpacing = kInterline
-        collectionView.flow.minimumInteritemSpacing = kInterline
+        collectionView.flow.minimumLineSpacing = 0
+        collectionView.flow.minimumInteritemSpacing = 0
         collectionView.flow.itemSize = CGSize(
             width:kCellWidth,
             height:height)
-        collectionView.flow.sectionInset = UIEdgeInsets(
-            top:0,
-            left:kInterline,
-            bottom:0,
-            right:0)
+        collectionView.flow.sectionInset = UIEdgeInsets.zero
         collectionView.isScrollEnabled = false
         collectionView.bounces = false
         collectionView.delegate = self
