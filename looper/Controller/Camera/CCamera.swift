@@ -133,6 +133,12 @@ class CCamera:CController
             vertical:CParent.TransitionVertical.fromTop)
     }
     
+    func picker(model:MCameraRaw?)
+    {
+        let controller:CCameraPicker = CCameraPicker(camera:self, model:model)
+        present(controller, animated:true, completion:nil)
+    }
+    
     func trash(item:MCameraRecordEditable)
     {
         let alert:UIAlertController = UIAlertController(

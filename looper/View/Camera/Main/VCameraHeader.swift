@@ -197,7 +197,7 @@ class VCameraHeader:UICollectionReusableView
         }
         else
         {
-            controller?.shoot()
+            controller?.picker(model:nil)
         }
     }
     
