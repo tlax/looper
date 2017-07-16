@@ -5,18 +5,14 @@ class CCameraPicker:UIImagePickerController, UINavigationControllerDelegate, UII
     private weak var camera:CCamera!
     private weak var model:MCameraRaw?
     
-    init(camera:CCamera, model:MCameraRaw?)
+    convenience init(camera:CCamera, model:MCameraRaw?)
     {
-        super.init(nibName:nil, bundle:nil)
+        self.init()
         sourceType = UIImagePickerControllerSourceType.photoLibrary
         delegate = self
         allowsEditing = false
         self.camera = camera
-    }
-    
-    required init?(coder:NSCoder)
-    {
-        return nil
+        self.model = model
     }
     
     //MARK: private
