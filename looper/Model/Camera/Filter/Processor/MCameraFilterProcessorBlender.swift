@@ -209,6 +209,7 @@ class MCameraFilterProcessorBlender:MCameraFilterProcessor
                         imageX:overlayMinX,
                         imageY:overlayMinY,
                         imageWidth:overlaySize,
+                        
                         imageHeight:overlaySize)
                     
                 else

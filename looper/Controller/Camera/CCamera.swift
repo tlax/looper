@@ -159,6 +159,14 @@ class CCamera:CController
         
         alert.addAction(actionDelete)
         alert.addAction(actionCancel)
+        
+        if let popover:UIPopoverPresentationController = alert.popoverPresentationController
+        {
+            popover.sourceView = viewCamera
+            popover.sourceRect = CGRect.zero
+            popover.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
         present(alert, animated:true, completion:nil)
     }
     
