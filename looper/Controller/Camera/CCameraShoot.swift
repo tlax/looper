@@ -33,7 +33,7 @@ class CCameraShoot:CController
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     deinit
