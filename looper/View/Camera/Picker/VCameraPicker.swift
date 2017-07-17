@@ -3,11 +3,13 @@ import UIKit
 class VCameraPicker:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CCameraPicker!
+    private weak var viewBar:VCameraPickerBar!
     private weak var collectionView:VCollection!
     private weak var spinner:VSpinner!
     private var imageSize:CGSize!
     private let kCollectionBottom:CGFloat = 20
     private let kInterLine:CGFloat = 1
+    private let kBarHeight:CGFloat = 70
     
     override init(controller:CController)
     {
@@ -16,6 +18,10 @@ class VCameraPicker:VView, UICollectionViewDelegate, UICollectionViewDataSource,
         
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
+        
+        let viewBar:VCameraPickerBar = VCameraPickerBar(
+            controller:self.controller)
+        self.viewBar = viewBar
         
         let collectionView:VCollection = VCollection()
         collectionView.isHidden = true
@@ -42,6 +48,7 @@ class VCameraPicker:VView, UICollectionViewDelegate, UICollectionViewDataSource,
         self.collectionView = collectionView
         
         addSubview(spinner)
+        addSubview(viewBar)
         addSubview(collectionView)
     }
     
