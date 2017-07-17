@@ -101,7 +101,7 @@ class CCameraPicker:CController
         items.sort
         { (itemA, itemB) -> Bool in
             
-            return itemA.creationDate < itemB.creationDate
+            return itemA.selectedAt < itemB.selectedAt
         }
         
         return items

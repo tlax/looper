@@ -155,6 +155,9 @@ class VCameraPicker:VView, UICollectionViewDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        let item:MCameraPickerItem = modelAtIndex(index:indexPath)
+        item.selected()
+        
         updateBar()
     }
     

@@ -7,8 +7,8 @@ class MCameraPickerItem
     var data:Data?
     let pixelWidth:Int
     let pixelHeight:Int
-    let creationDate:TimeInterval
     let asset:PHAsset
+    private(set) var selectedAt:TimeInterval
     private var requestId:PHImageRequestID?
     
     init(asset:PHAsset)
@@ -16,19 +16,11 @@ class MCameraPickerItem
         self.asset = asset
         pixelWidth = asset.pixelWidth
         pixelHeight = asset.pixelHeight
+        selectedAt = 0
         
         let imageSize:CGSize = CGSize(
             width:MCameraPicker.kThumbnailSize,
             height:MCameraPicker.kThumbnailSize)
-        
-        if let creationDate:TimeInterval = asset.creationDate?.timeIntervalSince1970
-        {
-            self.creationDate = creationDate
-        }
-        else
-        {
-            self.creationDate = 0
-        }
         
         let requestOptions:PHImageRequestOptions = PHImageRequestOptions()
         requestOptions.resizeMode = PHImageRequestOptionsResizeMode.fast
@@ -96,6 +88,11 @@ class MCameraPickerItem
     }
     
     //MARK: public
+    
+    func selected()
+    {
+        selectedAt = NSDate().timeIntervalSince1970
+    }
     
     func render() -> MCameraRecordItem?
     {
