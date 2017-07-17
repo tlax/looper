@@ -1,16 +1,12 @@
 import UIKit
 
-class VCameraViewLoaderFrames:UIView
+class VCameraVideoLoaderFrames:UIView
 {
     private weak var controller:CCameraVideoLoader!
-    private let kCornerRadius:CGFloat = 14
     
     init(controller:CCameraVideoLoader)
     {
         super.init(frame:CGRect.zero)
-        clipsToBounds = true
-        backgroundColor = UIColor.white
-        translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
     }
     
@@ -18,4 +14,6 @@ class VCameraViewLoaderFrames:UIView
     {
         return nil
     }
+    
+    
 }
