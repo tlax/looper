@@ -12,7 +12,7 @@ class CCameraShoot:CController
     private var devicePosition:AVCaptureDevicePosition
     private let queue:DispatchQueue
     private let kMediaType:String = AVMediaTypeVideo
-    private let kSessionPreset:String = AVCaptureSessionPreset640x480
+    private let kSessionPreset:String = AVCaptureSessionPreset1280x720
     private let kVideoGravity:String = AVLayerVideoGravityResizeAspect
     private let kVideoCodec:String = AVVideoCodecJPEG
     private let kQueueLabel:String = "cameraQueue"
