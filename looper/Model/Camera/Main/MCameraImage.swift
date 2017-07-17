@@ -20,9 +20,9 @@ class MCameraImage
         let minSize:CGFloat = min(minRawSize, MCamera.kImageMaxSize)
         let deltaWidth:CGFloat = width / minSize
         let deltaHeight:CGFloat = height / minSize
-        let minDelta:CGFloat = min(deltaWidth, deltaHeight)
-        let width_delta:CGFloat = width / minDelta
-        let height_delta:CGFloat = height / minDelta
+        let maxDelta:CGFloat = max(deltaWidth, deltaHeight)
+        let width_delta:CGFloat = width / maxDelta
+        let height_delta:CGFloat = height / maxDelta
         let remainLeft:CGFloat = width_delta - minSize
         let remainTop:CGFloat = height_delta - minSize
         let marginLeft:CGFloat = remainLeft / -2.0
