@@ -115,6 +115,12 @@ class CCamera:CController
             vertical:CParent.TransitionVertical.fromTop)
     }
     
+    func video()
+    {
+        let controller:CCameraVideo = CCameraVideo(camera:self)
+        present(controller, animated:true, completion:nil)
+    }
+    
     func trash(item:MCameraRecord)
     {
         let alert:UIAlertController = UIAlertController(

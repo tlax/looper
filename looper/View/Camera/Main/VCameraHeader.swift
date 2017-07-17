@@ -218,7 +218,7 @@ class VCameraHeader:UICollectionReusableView
             let plus:Bool = MSession.sharedInstance.settings?.plus,
             let currentRecords:Int = MSession.sharedInstance.camera?.records.count
             
-            else
+        else
         {
             button.active()
             
@@ -232,7 +232,7 @@ class VCameraHeader:UICollectionReusableView
         }
         else
         {
-            controller?.picker(record:nil)
+            controller?.video()
         }
     }
     
