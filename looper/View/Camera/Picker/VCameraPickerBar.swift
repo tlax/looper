@@ -40,6 +40,10 @@ class VCameraPickerBar:UIView
             UIColor.genericDark.withAlphaComponent(0.2),
             for:UIControlState.highlighted)
         buttonCommit.titleLabel!.font = UIFont.bold(size:14)
+        buttonCommit.addTarget(
+            self,
+            action:#selector(actionCommit(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonCommit = buttonCommit
         
         let buttonCancel:UIButton = UIButton()
@@ -54,6 +58,10 @@ class VCameraPickerBar:UIView
             UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
         buttonCancel.titleLabel!.font = UIFont.bold(size:14)
+        buttonCancel.addTarget(
+            self,
+            action:#selector(actionCancel(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(border)
         addSubview(title)
@@ -119,7 +127,7 @@ class VCameraPickerBar:UIView
     
     //MARK: actions
     
-    func actionCancel()
+    func actionCancel(sender button:UIButton)
     {
         controller.cancel()
     }

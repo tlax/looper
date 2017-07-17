@@ -38,6 +38,8 @@
 "CLoops_alertTitle"="¿Borrar loop?";
 "CLoops_alertCancel"="Cancelar";
 "CLoops_alertDelete"="Borrar";
+"CCameraPicker_noCameraRoll"="Error al abrir librería";
+"CCameraPicker_authDenied"="Sin autorización";
 
 "MCameraFilterItemNone_title"="Video simple";
 "MCameraFilterItemNone_viewTitle"="Selecciona video";

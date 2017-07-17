@@ -35,15 +35,24 @@ class MCamera
             object:nil)
     }
 
-    private func recordRenderImage(record:MCameraRecord, modelImage:MCameraImage)
+    private func recordRenderImages(record:MCameraRecord, modelImages:[MCameraPickerItem])
     {
         NotificationCenter.default.post(
             name:Notification.cameraLoading,
             object:nil)
         
-        if let items:MCameraRecordItem = modelImage.render()
+        for item:MCameraPickerItem in modelImages
         {
-            record.items.append(items)
+            guard
+                
+                let recordItem:MCameraRecordItem = item.render()
+            
+            else
+            {
+                continue
+            }
+            
+            record.items.append(recordItem)
         }
         
         NotificationCenter.default.post(
@@ -59,12 +68,12 @@ class MCamera
         recordRenderRecording(record:record, modelRaw:modelRaw)
     }
     
-    private func asyncRederImage(modelImage:MCameraImage)
+    private func asyncRederImages(modelImages:[MCameraPickerItem])
     {
         let record:MCameraRecord = MCameraRecord()
         records.insert(record, at:0)
         
-        recordRenderImage(record:record, modelImage:modelImage)
+        recordRenderImages(record:record, modelImages:modelImages)
     }
     
     //MARK: public
@@ -85,21 +94,21 @@ class MCamera
         }
     }
     
-    func renderImage(record:MCameraRecord, modelImage:MCameraImage)
+    func renderImages(record:MCameraRecord, modelImages:[MCameraPickerItem])
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.recordRenderImage(record:record, modelImage:modelImage)
+            self?.recordRenderImages(record:record, modelImages:modelImages)
         }
     }
     
-    func renderImage(modelImage:MCameraImage)
+    func renderImages(modelImages:[MCameraPickerItem])
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.asyncRederImage(modelImage:modelImage)
+            self?.asyncRederImages(modelImages:modelImages)
         }
     }
     

@@ -2,9 +2,9 @@ import UIKit
 
 class VCameraPicker:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    private(set) weak var collectionView:VCollection!
     private weak var viewBar:VCameraPickerBar!
     private weak var controller:CCameraPicker!
-    private weak var collectionView:VCollection!
     private weak var spinner:VSpinner!
     private var imageSize:CGSize!
     private let kCollectionBottom:CGFloat = 20
@@ -111,6 +111,15 @@ class VCameraPicker:VView, UICollectionViewDelegate, UICollectionViewDataSource,
         }
         
         viewBar.config(amount:amount)
+    }
+    
+    //MARK: public
+    
+    func imagesLoaded()
+    {
+        spinner.stopAnimating()
+        collectionView.reloadData()
+        collectionView.isHidden = false
     }
     
     //MARK: collectionView delegate

@@ -38,6 +38,8 @@
 "CLoops_alertTitle"="Delete loop?";
 "CLoops_alertCancel"="Cancel";
 "CLoops_alertDelete"="Delete";
+"CCameraPicker_noCameraRoll"="Error loading camera roll";
+"CCameraPicker_authDenied"="Not authorized to library";
 
 "MCameraFilterItemNone_title"="Simple video";
 "MCameraFilterItemNone_viewTitle"="Select video";
