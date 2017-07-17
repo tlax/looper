@@ -55,7 +55,7 @@ class VParentBar:UIView
             right:buttonStore.imageEdgeInsets.right + kStoreRight)
         self.buttonStore = buttonStore
         
-        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
+        let border:VBorder = VBorder(color:UIColor.black)
         
         addSubview(border)
         addSubview(buttonCamera)

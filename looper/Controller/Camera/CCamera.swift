@@ -7,7 +7,7 @@ class CCamera:CController
     
     override init()
     {
-        refreshCamera = false
+        refreshCamera = true
         super.init()
     }
     
@@ -41,18 +41,6 @@ class CCamera:CController
             selector:#selector(notifiedCameraLoadFinished(sender:)),
             name:Notification.cameraLoadFinished,
             object:nil)
-        
-        guard
-            
-            let model:MCamera = MSession.sharedInstance.camera
-            
-        else
-        {
-            return
-        }
-        
-        refreshCamera = true
-        viewCamera.refresh()
     }
     
     override func viewDidAppear(_ animated:Bool)

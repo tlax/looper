@@ -5,7 +5,7 @@ class VLoops:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     private weak var controller:CLoops!
     private weak var collectionView:VCollection!
     private weak var spinner:VSpinner!
-    private let kCollectionTop:CGFloat = 63
+    private let kCollectionTop:CGFloat = 70
     private let kCollectionBottom:CGFloat = 20
     private let kInterline:CGFloat = 20
     private let kAddCellHeight:CGFloat = 50
