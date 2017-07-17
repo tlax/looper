@@ -4,13 +4,16 @@ import Photos
 class MCameraPickerItem
 {
     var image:UIImage?
+    var data:Data?
     let pixelWidth:Int
     let pixelHeight:Int
     let creationDate:TimeInterval
+    let asset:PHAsset
     private var requestId:PHImageRequestID?
     
     init(asset:PHAsset)
     {
+        self.asset = asset
         pixelWidth = asset.pixelWidth
         pixelHeight = asset.pixelHeight
         
@@ -41,8 +44,8 @@ class MCameraPickerItem
             image:UIImage?,
             info:[AnyHashable:Any]?) in
             
-            self?.requestId = nil
             self?.image = image
+            self?.loadData()
         }
     }
     
@@ -54,13 +57,51 @@ class MCameraPickerItem
         }
     }
     
+    //MARK: private
+    
+    private func loadData()
+    {
+        let requestOptions:PHImageRequestOptions = PHImageRequestOptions()
+        requestOptions.resizeMode = PHImageRequestOptionsResizeMode.none
+        requestOptions.isSynchronous = false
+        requestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.highQualityFormat
+        
+        requestId = PHImageManager.default().requestImageData(
+            for:asset,
+            options:requestOptions)
+        { [weak self] (
+            data:Data?,
+            dataUTI:String?,
+            orientation:UIImageOrientation,
+            info:[AnyHashable:Any]?) in
+            
+            self?.data = data
+            self?.requestId = nil
+        }
+    }
+    
+    private func parseData() -> UIImage?
+    {
+        guard
+            
+            let data:Data = self.data,
+            let image:UIImage = UIImage(data:data)
+        
+        else
+        {
+            return nil
+        }
+        
+        return image
+    }
+    
     //MARK: public
     
     func render() -> MCameraRecordItem?
     {
         guard
             
-            let image:UIImage = self.image
+            let image:UIImage = parseData()
         
         else
         {
