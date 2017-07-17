@@ -5,7 +5,6 @@ class CCameraPicker:CController
 {
     private weak var camera:CCamera!
     private weak var record:MCameraRecord?
-    let kThumbnailSize:CGFloat = 100
     
     init(camera:CCamera, record:MCameraRecord?)
     {
