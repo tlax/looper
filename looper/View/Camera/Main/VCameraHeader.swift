@@ -254,6 +254,7 @@ class VCameraHeader:UICollectionReusableView
     {
         buttonShoot.active()
         buttonPicture.active()
+        buttonVideo.active()
         
         guard
         

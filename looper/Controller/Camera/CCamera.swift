@@ -88,6 +88,23 @@ class CCamera:CController
         viewCamera.refresh()
     }
     
+    private func parseVideo(url:URL?)
+    {
+        guard
+        
+            let url:URL = url
+        
+        else
+        {
+            return
+        }
+        
+        let controller:CCameraVideoLoader = CCameraVideoLoader(url:url)
+        parentController.push(
+            controller:controller,
+            vertical:CParent.TransitionVertical.fromTop)
+    }
+    
     //MARK: public
     
     func help()
@@ -119,6 +136,15 @@ class CCamera:CController
     {
         let controller:CCameraVideo = CCameraVideo(camera:self)
         present(controller, animated:true, completion:nil)
+    }
+    
+    func loadVideo(url:URL?)
+    {
+        dismiss(animated:true)
+        { [weak self] in
+            
+            self?.parseVideo(url:url)
+        }
     }
     
     func trash(item:MCameraRecord)
