@@ -109,7 +109,7 @@ class CCamera:CController
     
     func picker(record:MCameraRecord?)
     {
-        let controller:CCameraPicker = CCameraPicker(camera:self, record:record)
+        let controller:CCameraPicker = CCameraPicker(record:record)
         parentController.push(
             controller:controller,
             vertical:CParent.TransitionVertical.fromTop)
