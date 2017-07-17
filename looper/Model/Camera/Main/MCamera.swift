@@ -10,7 +10,7 @@ class MCamera
     var activeRecords:[MCameraRecord]?
     var raw:MCameraRaw?
     var currentSpeed:Int
-    private let kDefaultSpeed:Int = 4
+    private let kDefaultSpeed:Int = 3
     
     init()
     {
