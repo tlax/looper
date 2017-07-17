@@ -36,7 +36,7 @@ class VCameraRotate:VView
     private var maxMove:CGFloat
     private let kAnimationDelta:CGFloat = 3
     private let kTimerDuration:TimeInterval = 0.02
-    private let kTotalRotation:CGFloat = CGFloat(M_PI + M_PI)
+    private let kTotalRotation:CGFloat = CGFloat.pi + CGFloat.pi
     private let kPercentThreeQuarters:CGFloat = 0.75
     private let kPercentHalf:CGFloat = 0.5
     private let kPercentQuarter:CGFloat = 0.25
@@ -164,7 +164,7 @@ class VCameraRotate:VView
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     deinit

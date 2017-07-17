@@ -12,7 +12,7 @@ class CCameraShoot:CController
     private var devicePosition:AVCaptureDevicePosition
     private let queue:DispatchQueue
     private let kMediaType:String = AVMediaTypeVideo
-    private let kSessionPreset:String = AVCaptureSessionPreset640x480
+    private let kSessionPreset:String = AVCaptureSessionPreset1280x720
     private let kVideoGravity:String = AVLayerVideoGravityResizeAspect
     private let kVideoCodec:String = AVVideoCodecJPEG
     private let kQueueLabel:String = "cameraQueue"
@@ -33,7 +33,7 @@ class CCameraShoot:CController
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     deinit
@@ -174,25 +174,17 @@ class CCameraShoot:CController
             return
         }
         
-        let tryCaptureDeviceInput:AVCaptureDeviceInput?
+        let captureDeviceInput:AVCaptureDeviceInput
         
         do
         {
-            try tryCaptureDeviceInput = AVCaptureDeviceInput(
+            try captureDeviceInput = AVCaptureDeviceInput(
                 device:foundCaptureDevice)
         }
         catch let error
         {
-            tryCaptureDeviceInput = nil
             VAlert.message(message:error.localizedDescription)
-        }
-        
-        guard
             
-            let captureDeviceInput:AVCaptureDeviceInput = tryCaptureDeviceInput
-            
-        else
-        {
             return
         }
         

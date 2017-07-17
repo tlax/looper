@@ -83,7 +83,7 @@ class VCameraMoreCellClose:VCameraMoreCell
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     //MARK: actions

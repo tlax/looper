@@ -17,7 +17,7 @@ class CLoops:CController
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     override func viewDidAppear(_ animated:Bool)
@@ -183,6 +183,14 @@ class CLoops:CController
         
         alert.addAction(actionDelete)
         alert.addAction(actionCancel)
+        
+        if let popover:UIPopoverPresentationController = alert.popoverPresentationController
+        {
+            popover.sourceView = viewLoops
+            popover.sourceRect = CGRect.zero
+            popover.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
         present(alert, animated:true, completion:nil)
     }
     

@@ -5,20 +5,18 @@ class MCameraMore
     let items:[MCameraMoreItem]
     private let kEmptyActions:CGFloat = 30
     
-    init(record:MCameraRecordEditable)
+    init(record:MCameraRecord)
     {
-        let itemClose:MCameraMoreItemClose = MCameraMoreItemClose(record:record)
+        let itemClose:MCameraMoreItemClose = MCameraMoreItemClose()
         let itemInfoFrames:MCameraMoreItemInfoFrames = MCameraMoreItemInfoFrames(record:record)
         let itemInfoSize:MCameraMoreItemInfoSize = MCameraMoreItemInfoSize(record:record)
-        let itemInfoSpeed:MCameraMoreItemInfoSpeed = MCameraMoreItemInfoSpeed(record:record)
         let itemEmptyActions:MCameraMoreItemEmpty = MCameraMoreItemEmpty(cellHeight:kEmptyActions)
-        let itemActions:MCameraMoreItemActions = MCameraMoreItemActions(record:record)
+        let itemActions:MCameraMoreItemActions = MCameraMoreItemActions()
         
         items = [
             itemClose,
             itemInfoFrames,
             itemInfoSize,
-            itemInfoSpeed,
             itemEmptyActions,
             itemActions
         ]

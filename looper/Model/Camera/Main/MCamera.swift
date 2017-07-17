@@ -2,11 +2,11 @@ import UIKit
 
 class MCamera
 {
-    static let kImageMaxSize:CGFloat = 480
+    static let kImageMaxSize:CGFloat = 1000
     static let kImageMinSize:CGFloat = 50
     static let kMaxShots:Int = 300
     let speeds:[MCameraSpeed]
-    var records:[MCameraRecordEditable]
+    var records:[MCameraRecord]
     var activeRecords:[MCameraRecord]?
     var raw:MCameraRaw?
     var currentSpeed:Int
@@ -21,18 +21,50 @@ class MCamera
     
     //MARK: private
     
-    private func asyncRenderRecording(modelRaw:MCameraRaw)
+    private func recordRenderRecording(record:MCameraRecord, modelRaw:MCameraRaw)
     {
         NotificationCenter.default.post(
             name:Notification.cameraLoading,
             object:nil)
         
-        let record:MCameraRecordEditable = modelRaw.render()
-        records.insert(record, at:0)
+        let items:[MCameraRecordItem] = modelRaw.render()
+        record.items.append(contentsOf:items)
         
         NotificationCenter.default.post(
             name:Notification.cameraLoadFinished,
             object:nil)
+    }
+
+    private func recordRenderImage(record:MCameraRecord, modelImage:MCameraImage)
+    {
+        NotificationCenter.default.post(
+            name:Notification.cameraLoading,
+            object:nil)
+        
+        if let items:MCameraRecordItem = modelImage.render()
+        {
+            record.items.append(items)
+        }
+        
+        NotificationCenter.default.post(
+            name:Notification.cameraLoadFinished,
+            object:nil)
+    }
+    
+    private func asyncRederRecording(modelRaw:MCameraRaw)
+    {
+        let record:MCameraRecord = MCameraRecord()
+        records.insert(record, at:0)
+        
+        recordRenderRecording(record:record, modelRaw:modelRaw)
+    }
+    
+    private func asyncRederImage(modelImage:MCameraImage)
+    {
+        let record:MCameraRecord = MCameraRecord()
+        records.insert(record, at:0)
+        
+        recordRenderImage(record:record, modelImage:modelImage)
     }
     
     //MARK: public
@@ -49,18 +81,36 @@ class MCamera
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.asyncRenderRecording(modelRaw:modelRaw)
+            self?.asyncRederRecording(modelRaw:modelRaw)
         }
     }
     
-    func trashRecord(record:MCameraRecordEditable)
+    func renderImage(record:MCameraRecord, modelImage:MCameraImage)
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.recordRenderImage(record:record, modelImage:modelImage)
+        }
+    }
+    
+    func renderImage(modelImage:MCameraImage)
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncRederImage(modelImage:modelImage)
+        }
+    }
+    
+    func trashRecord(record:MCameraRecord)
     {
         let countRecords:Int = records.count
         var recordToDelete:Int = 0
         
         for indexRecord:Int in 0 ..< countRecords
         {
-            let recordItem:MCameraRecordEditable = records[indexRecord]
+            let recordItem:MCameraRecord = records[indexRecord]
             
             if recordItem === record
             {

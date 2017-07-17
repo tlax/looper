@@ -13,7 +13,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     private weak var viewControls:VCameraCellControls!
     private weak var layoutCollectionLeft:NSLayoutConstraint!
     private weak var layoutControlsWidth:NSLayoutConstraint!
-    private weak var model:MCameraRecordEditable?
+    private weak var model:MCameraRecord?
     private weak var controller:CCamera?
     private var drag:Drag
     private let kAnimationDuration:TimeInterval = 0.3
@@ -30,6 +30,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     override init(frame:CGRect)
     {
         drag = Drag.stand
+        
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -100,7 +101,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     deinit
@@ -157,7 +158,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
         
         guard
             
-            let model:MCameraRecordEditable = self.model
+            let model:MCameraRecord = self.model
             
         else
         {
@@ -204,7 +205,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     private func restartingScroll()
     {
-        drag = Drag.restart
+        drag = Drag.avoid
         layoutControlsWidth.constant = 0
         layoutCollectionLeft.constant = 0
      
@@ -231,7 +232,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     //MARK: public
     
-    func config(model:MCameraRecordEditable, controller:CCamera)
+    func config(model:MCameraRecord, controller:CCamera)
     {
         self.model = model
         self.controller = controller

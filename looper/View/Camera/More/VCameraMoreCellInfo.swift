@@ -29,7 +29,7 @@ class VCameraMoreCellInfo:VCameraMoreCell
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     override func config(controller:CCameraMore, model:MCameraMoreItem)

@@ -3,7 +3,7 @@ import UIKit
 class VCameraShootPreview:UIView
 {
     private weak var previewLayer:CALayer?
-    private let kDeltaHeight:CGFloat = 0.75
+    private let kDeltaHeight:CGFloat = 0.5625
     
     init()
     {
@@ -21,7 +21,7 @@ class VCameraShootPreview:UIView
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     override func layoutSubviews()

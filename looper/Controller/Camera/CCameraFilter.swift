@@ -13,7 +13,7 @@ class CCameraFilter:CController
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     override func loadView()

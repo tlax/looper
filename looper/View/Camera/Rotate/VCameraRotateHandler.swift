@@ -13,8 +13,8 @@ class VCameraRotateHandler:UIView
     private var movingClockWise:Bool
     private let kDispRadMargin:CGFloat = 16
     private let kMargin:CGFloat = 50
-    private let kZeroRad:CGFloat = -CGFloat(M_PI_2)
-    private let k360Rad:CGFloat = CGFloat(M_PI + M_PI_2)
+    private let kZeroRad:CGFloat = -CGFloat.pi / -2
+    private let k360Rad:CGFloat = CGFloat.pi + (CGFloat.pi / 2)
     private let kDeltaRad:CGFloat = 0.02
     private let kRadSize:CGFloat = 0.015
     private let kRadLineWidth:CGFloat = 10
@@ -40,7 +40,7 @@ class VCameraRotateHandler:UIView
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     override func layoutSubviews()

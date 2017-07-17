@@ -27,7 +27,7 @@ class VLoopsCellOption:UICollectionViewCell
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     override var isSelected:Bool

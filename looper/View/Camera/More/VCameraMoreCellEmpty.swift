@@ -10,6 +10,6 @@ class VCameraMoreCellEmpty:VCameraMoreCell
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
 }

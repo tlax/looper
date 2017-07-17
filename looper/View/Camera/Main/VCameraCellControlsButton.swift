@@ -38,6 +38,6 @@ class VCameraCellControlsButton:UIButton
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
 }

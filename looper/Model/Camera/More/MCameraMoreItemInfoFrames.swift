@@ -5,7 +5,7 @@ class MCameraMoreItemInfoFrames:MCameraMoreItemInfo
     private let kTitleSize:CGFloat = 16
     private let kSubtitleSize:CGFloat = 14
     
-    init(record:MCameraRecordEditable)
+    init(record:MCameraRecord)
     {
         let attributedString:NSMutableAttributedString = NSMutableAttributedString()
         let attributesTitle:[String:AnyObject] = [

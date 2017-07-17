@@ -200,7 +200,7 @@ class VCameraFilterBlenderOverlay:VView
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     deinit

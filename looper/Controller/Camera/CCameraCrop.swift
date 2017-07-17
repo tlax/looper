@@ -2,11 +2,11 @@ import UIKit
 
 class CCameraCrop:CController
 {
-    weak var record:MCameraRecordEditable!
+    weak var record:MCameraRecord!
     private weak var viewCrop:VCameraCrop!
     private let kMinThreshold:CGFloat = 2
     
-    init(record:MCameraRecordEditable)
+    init(record:MCameraRecord)
     {
         self.record = record
         super.init()
@@ -14,7 +14,7 @@ class CCameraCrop:CController
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     override func loadView()

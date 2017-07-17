@@ -5,7 +5,7 @@ class MCameraRawItem
 {
     private let image:UIImage
     private let devicePosition:AVCaptureDevicePosition
-    
+
     init(image:UIImage, devicePosition:AVCaptureDevicePosition)
     {
         self.image = image

@@ -11,7 +11,7 @@ class MCameraMoreItemActionsOptionCrop:MCameraMoreItemActionsOption
     {
         guard
             
-            let record:MCameraRecordEditable = controller?.record
+            let record:MCameraRecord = controller?.record
             
         else
         {

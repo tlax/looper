@@ -14,7 +14,7 @@ class CCamera:CController
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     deinit
@@ -108,7 +108,7 @@ class CCamera:CController
     
     //MARK: private
     
-    private func confirmTrash(item:MCameraRecordEditable)
+    private func confirmTrash(item:MCameraRecord)
     {
         MSession.sharedInstance.camera?.trashRecord(record:item)
         viewCamera.refresh()
@@ -133,7 +133,13 @@ class CCamera:CController
             vertical:CParent.TransitionVertical.fromTop)
     }
     
-    func trash(item:MCameraRecordEditable)
+    func picker(record:MCameraRecord?)
+    {
+        let controller:CCameraPicker = CCameraPicker(camera:self, record:record)
+        present(controller, animated:true, completion:nil)
+    }
+    
+    func trash(item:MCameraRecord)
     {
         let alert:UIAlertController = UIAlertController(
             title:
@@ -159,10 +165,18 @@ class CCamera:CController
         
         alert.addAction(actionDelete)
         alert.addAction(actionCancel)
+        
+        if let popover:UIPopoverPresentationController = alert.popoverPresentationController
+        {
+            popover.sourceView = viewCamera
+            popover.sourceRect = CGRect.zero
+            popover.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
         present(alert, animated:true, completion:nil)
     }
     
-    func rotate(item:MCameraRecordEditable)
+    func rotate(item:MCameraRecord)
     {
         let controllerRotate:CCameraRotate = CCameraRotate(record:item)
         parentController.push(
@@ -170,7 +184,7 @@ class CCamera:CController
             vertical:CParent.TransitionVertical.fromTop)
     }
     
-    func scale(item:MCameraRecordEditable)
+    func scale(item:MCameraRecord)
     {
         let controllerScale:CCameraScale = CCameraScale(record:item)
         parentController.push(
@@ -178,7 +192,7 @@ class CCamera:CController
             vertical:CParent.TransitionVertical.fromTop)
     }
     
-    func crop(item:MCameraRecordEditable)
+    func crop(item:MCameraRecord)
     {
         let controllerCrop:CCameraCrop = CCameraCrop(record:item)
         parentController.push(
@@ -186,7 +200,7 @@ class CCamera:CController
             vertical:CParent.TransitionVertical.fromTop)
     }
     
-    func showMore(item:MCameraRecordEditable)
+    func showMore(item:MCameraRecord)
     {
         let controllerMore:CCameraMore = CCameraMore(controller:self, record:item)
         parentController.animateOver(controller:controllerMore)

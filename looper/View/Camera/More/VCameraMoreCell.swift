@@ -14,7 +14,7 @@ class VCameraMoreCell:UICollectionViewCell
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     //MARK: public
