@@ -5,13 +5,11 @@ class VCameraHeader:UICollectionReusableView
     private weak var controller:CCamera?
     private weak var buttonShoot:VCameraActiveButton!
     private weak var buttonPicture:VCameraActiveButton!
+    private weak var buttonVideo:VCameraActiveButton!
     private weak var buttonNext:VCameraActiveButton!
-    private weak var layoutShootLeft:NSLayoutConstraint!
     private let kButtonsTop:CGFloat = 90
-    private let kButtonsSize:CGFloat = 60
+    private let kButtonsSize:CGFloat = 62
     private let kBorderHeight:CGFloat = 1
-    private let kShootLeft:CGFloat = -34
-    private let kShootRight:CGFloat = 10
  
     override init(frame:CGRect)
     {
@@ -53,8 +51,17 @@ class VCameraHeader:UICollectionReusableView
         buttonPicture.active()
         self.buttonPicture = buttonPicture
         
+        let buttonVideo:VCameraActiveButton = VCameraActiveButton(
+            image:#imageLiteral(resourceName: "assetCameraVideo"))
+        buttonVideo.addTarget(
+            self,
+            action:#selector(actionVideo(sender:)),
+            for:UIControlEvents.touchUpInside)
+        buttonVideo.active()
+        self.buttonPicture = buttonPicture
+        
         let buttonNext:VCameraActiveButton = VCameraActiveButton(
-            image:#imageLiteral(resourceName: "assetGenericNext"))
+            image:#imageLiteral(resourceName: "assetCameraNext"))
         buttonNext.addTarget(
             self,
             action:#selector(actionProcess(sender:)),
@@ -67,6 +74,7 @@ class VCameraHeader:UICollectionReusableView
         addSubview(buttonHelp)
         addSubview(buttonShoot)
         addSubview(buttonPicture)
+        addSubview(buttonVideo)
         addSubview(buttonNext)
         
         NSLayoutConstraint.equalsHorizontal(
@@ -80,15 +88,26 @@ class VCameraHeader:UICollectionReusableView
             constant:kBorderHeight)
         
         NSLayoutConstraint.topToTop(
+            view:buttonHelp,
+            toView:self,
+            constant:kButtonsTop)
+        NSLayoutConstraint.size(
+            view:buttonHelp,
+            constant:kButtonsSize)
+        NSLayoutConstraint.leftToLeft(
+            view:buttonHelp,
+            toView:self)
+        
+        NSLayoutConstraint.topToTop(
             view:buttonShoot,
             toView:self,
             constant:kButtonsTop)
         NSLayoutConstraint.size(
             view:buttonShoot,
             constant:kButtonsSize)
-        layoutShootLeft = NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToRight(
             view:buttonShoot,
-            toView:self)
+            toView:buttonHelp)
         
         NSLayoutConstraint.topToTop(
             view:buttonPicture,
@@ -99,8 +118,18 @@ class VCameraHeader:UICollectionReusableView
             constant:kButtonsSize)
         NSLayoutConstraint.leftToRight(
             view:buttonPicture,
-            toView:buttonShoot,
-            constant:kShootRight)
+            toView:buttonShoot)
+        
+        NSLayoutConstraint.topToTop(
+            view:buttonVideo,
+            toView:self,
+            constant:kButtonsTop)
+        NSLayoutConstraint.size(
+            view:buttonPicture,
+            constant:kButtonsSize)
+        NSLayoutConstraint.leftToRight(
+            view:buttonVideo,
+            toView:buttonPicture)
         
         NSLayoutConstraint.topToTop(
             view:buttonNext,
@@ -109,35 +138,14 @@ class VCameraHeader:UICollectionReusableView
         NSLayoutConstraint.size(
             view:buttonNext,
             constant:kButtonsSize)
-        NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.leftToRight(
             view:buttonNext,
-            toView:self)
-        
-        NSLayoutConstraint.topToTop(
-            view:buttonHelp,
-            toView:self,
-            constant:kButtonsTop)
-        NSLayoutConstraint.size(
-            view:buttonHelp,
-            constant:kButtonsSize)
-        NSLayoutConstraint.leftToLeft(
-            view:buttonHelp,
-            toView:self)
+            toView:buttonVideo)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
-    }
-    
-    override func layoutSubviews()
-    {
-        let width:CGFloat = bounds.maxX
-        let remainButton:CGFloat = width - kButtonsSize
-        let marginButton:CGFloat = remainButton / 2.0
-        layoutShootLeft.constant = marginButton + kShootLeft
-        
-        super.layoutSubviews()
     }
     
     //MARK: actions
@@ -184,6 +192,33 @@ class VCameraHeader:UICollectionReusableView
             let currentRecords:Int = MSession.sharedInstance.camera?.records.count
             
         else
+        {
+            button.active()
+            
+            return
+        }
+        
+        if !plus && currentRecords >= MSession.kFroobMaxRecords
+        {
+            button.active()
+            controller?.goPlus()
+        }
+        else
+        {
+            controller?.picker(record:nil)
+        }
+    }
+    
+    func actionVideo(sender button:VCameraActiveButton)
+    {
+        button.notActive()
+        
+        guard
+            
+            let plus:Bool = MSession.sharedInstance.settings?.plus,
+            let currentRecords:Int = MSession.sharedInstance.camera?.records.count
+            
+            else
         {
             button.active()
             
