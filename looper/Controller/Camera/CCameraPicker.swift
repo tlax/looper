@@ -17,17 +17,6 @@ class CCameraPicker:UIImagePickerController, UINavigationControllerDelegate, UII
     
     //MARK: private
     
-    private func renderModel(image:UIImage) -> MCameraRaw
-    {
-        let item:MCameraRawItem = MCameraRawItem(image:image)
-        let modelSpeed:MCameraSpeed1 = MCameraSpeed1()
-        let model:MCameraRaw = MCameraRaw(speed:modelSpeed)
-        
-        model.items.append(item)
-        
-        return model
-    }
-    
     private func render(image:UIImage?)
     {
         guard
@@ -40,7 +29,7 @@ class CCameraPicker:UIImagePickerController, UINavigationControllerDelegate, UII
             return
         }
         
-        let model:MCameraRaw = renderModel(image:image)
+        let model:MCameraImage = MCameraImage(image:image)
         
         guard
         
@@ -48,15 +37,12 @@ class CCameraPicker:UIImagePickerController, UINavigationControllerDelegate, UII
         
         else
         {
-            camera.renderRecording(
-                modelRaw:model)
+            camera.renderImage(modelImage:model)
             
             return
         }
         
-        camera.appendRenderRecording(
-            record:record,
-            modelRaw:model)
+        camera.renderImage(record:record, modelImage:model)
     }
     
     //MARK: imagePicker delegate

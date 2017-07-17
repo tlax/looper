@@ -21,7 +21,7 @@ class MCamera
     
     //MARK: private
     
-    private func editableRenderRecording(record:MCameraRecord, modelRaw:MCameraRaw)
+    private func recordRenderRecording(record:MCameraRecord, modelRaw:MCameraRaw)
     {
         NotificationCenter.default.post(
             name:Notification.cameraLoading,
@@ -34,13 +34,37 @@ class MCamera
             name:Notification.cameraLoadFinished,
             object:nil)
     }
+
+    private func recordRenderImage(record:MCameraRecord, modelImage:MCameraImage)
+    {
+        NotificationCenter.default.post(
+            name:Notification.cameraLoading,
+            object:nil)
+        
+        if let items:MCameraRecordItem = modelImage.render()
+        {
+            record.items.append(items)
+        }
+        
+        NotificationCenter.default.post(
+            name:Notification.cameraLoadFinished,
+            object:nil)
+    }
     
     private func asyncRederRecording(modelRaw:MCameraRaw)
     {
         let record:MCameraRecord = MCameraRecord()
         records.insert(record, at:0)
         
-        editableRenderRecording(record:record, modelRaw:modelRaw)
+        recordRenderRecording(record:record, modelRaw:modelRaw)
+    }
+    
+    private func asyncRederImage(modelImage:MCameraImage)
+    {
+        let record:MCameraRecord = MCameraRecord()
+        records.insert(record, at:0)
+        
+        recordRenderImage(record:record, modelImage:modelImage)
     }
     
     //MARK: public
@@ -61,12 +85,21 @@ class MCamera
         }
     }
     
-    func appendRenderRecording(record:MCameraRecord, modelRaw:MCameraRaw)
+    func renderImage(record:MCameraRecord, modelImage:MCameraImage)
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.editableRenderRecording(record:record, modelRaw:modelRaw)
+            self?.recordRenderImage(record:record, modelImage:modelImage)
+        }
+    }
+    
+    func renderImage(modelImage:MCameraImage)
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncRederImage(modelImage:modelImage)
         }
     }
     
