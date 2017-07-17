@@ -2,8 +2,8 @@ import UIKit
 
 class VCameraPicker:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    private weak var controller:CCameraPicker!
     private weak var viewBar:VCameraPickerBar!
+    private weak var controller:CCameraPicker!
     private weak var collectionView:VCollection!
     private weak var spinner:VSpinner!
     private var imageSize:CGSize!
@@ -29,14 +29,7 @@ class VCameraPicker:VView, UICollectionViewDelegate, UICollectionViewDataSource,
         collectionView.allowsMultipleSelection = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(
-            VHomeUploadCellActive.self,
-            forCellWithReuseIdentifier:
-            VHomeUploadCellActive.reusableIdentifier)
-        collectionView.register(
-            VHomeUploadCellClouded.self,
-            forCellWithReuseIdentifier:
-            VHomeUploadCellClouded.reusableIdentifier)
+        collectionView.registerCell(cell:VCameraPickerCell.self)
         
         collectionView.flow.minimumLineSpacing = kInterLine
         collectionView.flow.sectionInset = UIEdgeInsets(
@@ -70,16 +63,30 @@ class VCameraPicker:VView, UICollectionViewDelegate, UICollectionViewDataSource,
     private func computeImageSize()
     {
         let width:CGFloat = bounds.maxX - kInterLine
-        let proximate:CGFloat = floor(width / controller.kThumbnailSize)
+        let proximate:CGFloat = floor(width / MCameraPicker.kThumbnailSize)
         let size:CGFloat = (width / proximate) - kInterLine
         imageSize = CGSize(width:size, height:size)
     }
     
-    private func modelAtIndex(index:IndexPath) -> MHomeUploadItem
+    private func modelAtIndex(index:IndexPath) -> MCameraPickerItem
     {
-        let item:MHomeUploadItem = controller.model.items[index.item]
+        let item:MCameraPickerItem = controller.model.items[index.item]
         
         return item
+    }
+    
+    private func updateBar()
+    {
+        guard
+            
+            let amount:Int = collectionView.indexPathsForSelectedItems?.count
+            
+        else
+        {
+            return
+        }
+        
+        viewBar.config(amount:amount)
     }
     
     //MARK: collectionView delegate
@@ -101,68 +108,25 @@ class VCameraPicker:VView, UICollectionViewDelegate, UICollectionViewDataSource,
         return count
     }
     
-    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
-    {
-        header = collectionView.dequeueReusableSupplementaryView(
-            ofKind:kind,
-            withReuseIdentifier:
-            VHomeUploadHeader.reusableIdentifier,
-            for:indexPath) as? VHomeUploadHeader
-        header!.config(controller:controller)
-        
-        return header!
-    }
-    
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MHomeUploadItem = modelAtIndex(index:indexPath)
-        let cell:VHomeUploadCell = collectionView.dequeueReusableCell(
+        let item:MCameraPickerItem = modelAtIndex(index:indexPath)
+        let cell:VCameraPickerCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
-            item.status.reusableIdentifier,
-            for:indexPath) as! VHomeUploadCell
+            VCameraPickerCell.reusableIdentifier,
+            for:indexPath) as! VCameraPickerCell
         cell.config(model:item)
         
         return cell
     }
     
-    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
-    {
-        let item:MHomeUploadItem = modelAtIndex(index:indexPath)
-        
-        return item.status.selectable
-    }
-    
-    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
-    {
-        let item:MHomeUploadItem = modelAtIndex(index:indexPath)
-        
-        return item.status.selectable
-    }
-    
-    func collectionView(_ collectionView:UICollectionView, shouldDeselectItemAt indexPath:IndexPath) -> Bool
-    {
-        let item:MHomeUploadItem = modelAtIndex(index:indexPath)
-        
-        return item.status.selectable
-    }
-    
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        let item:MHomeUploadItem = modelAtIndex(index:indexPath)
-        item.statusWaiting()
-        
         updateBar()
     }
     
     func collectionView(_ collectionView:UICollectionView, didDeselectItemAt indexPath:IndexPath)
     {
-        let item:MHomeUploadItem = modelAtIndex(index:indexPath)
-        
-        if !item.status.finished
-        {
-            item.statusClear()
-        }
-        
         updateBar()
     }
 }

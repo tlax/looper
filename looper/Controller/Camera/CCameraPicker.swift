@@ -3,11 +3,15 @@ import Photos
 
 class CCameraPicker:CController
 {
+    let model:MCameraPicker
     private weak var camera:CCamera!
     private weak var record:MCameraRecord?
+    private weak var viewPicker:VCameraPicker!
     
     init(camera:CCamera, record:MCameraRecord?)
     {
+        model = MCameraPicker()
+        
         super.init()
         self.camera = camera
         self.record = record
@@ -16,6 +20,13 @@ class CCameraPicker:CController
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func loadView()
+    {
+        let viewPicker:VCameraPicker = VCameraPicker(controller:self)
+        self.viewPicker = viewPicker
+        view = viewPicker
     }
     
     //MARK: private
@@ -46,6 +57,18 @@ class CCameraPicker:CController
         }
         
         camera.renderImage(record:record, modelImage:model)
+    }
+    
+    //MARK: public
+    
+    func commit()
+    {
+        
+    }
+    
+    func cancel()
+    {
+        
     }
     
     /*

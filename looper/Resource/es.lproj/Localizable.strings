@@ -23,6 +23,8 @@
 "VCameraCrop_done"="Listo";
 "VCameraCrop_reset"="Reiniciar";
 "VCameraPickerBar_title"="Selecciona imágenes";
+"VCameraPickerBar_buttonCancel"="Cancelar";
+"VCameraPickerBar_buttonCommit"="Listo";
 
 "CCameraShoot_noAuth"="looper no tiene acceso a tu camara";
 "CCameraShoot_errorCaptureDevice"="Error conectandose a la camara";
