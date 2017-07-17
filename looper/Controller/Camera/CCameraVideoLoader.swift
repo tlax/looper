@@ -4,6 +4,7 @@ import AVFoundation
 class CCameraVideoLoader:CController
 {
     private let url:URL
+    private weak var viewLoader:VCameraVideoLoader!
     private weak var generator:AVAssetImageGenerator?
     
     init(url:URL)
@@ -20,6 +21,13 @@ class CCameraVideoLoader:CController
     deinit
     {
         generator?.cancelAllCGImageGeneration()
+    }
+    
+    override func loadView()
+    {
+        let viewLoader:VCameraVideoLoader = VCameraVideoLoader(controller:self)
+        self.viewLoader = viewLoader
+        view = viewLoader
     }
     
     //MARK: private

@@ -58,7 +58,7 @@ class VCameraHeader:UICollectionReusableView
             action:#selector(actionVideo(sender:)),
             for:UIControlEvents.touchUpInside)
         buttonVideo.active()
-        self.buttonPicture = buttonPicture
+        self.buttonVideo = buttonVideo
         
         let buttonNext:VCameraActiveButton = VCameraActiveButton(
             image:#imageLiteral(resourceName: "assetCameraNext"))

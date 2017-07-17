@@ -100,9 +100,7 @@ class CCamera:CController
         }
         
         let controller:CCameraVideoLoader = CCameraVideoLoader(url:url)
-        parentController.push(
-            controller:controller,
-            vertical:CParent.TransitionVertical.fromTop)
+        parentController.animateOver(controller:controller)
     }
     
     //MARK: public
