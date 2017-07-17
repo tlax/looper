@@ -136,7 +136,9 @@ class CCamera:CController
     func picker(record:MCameraRecord?)
     {
         let controller:CCameraPicker = CCameraPicker(camera:self, record:record)
-        present(controller, animated:true, completion:nil)
+        parentController.push(
+            controller:controller,
+            vertical:CParent.TransitionVertical.fromBottom)
     }
     
     func trash(item:MCameraRecord)

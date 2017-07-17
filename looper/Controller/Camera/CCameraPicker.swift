@@ -59,6 +59,11 @@ class CCameraPicker:CController
         camera.renderImage(record:record, modelImage:model)
     }
     
+    private func close()
+    {
+        parentController.pop(vertical:CParent.TransitionVertical.fromBottom)
+    }
+    
     //MARK: public
     
     func commit()
@@ -68,7 +73,7 @@ class CCameraPicker:CController
     
     func cancel()
     {
-        
+        close()
     }
     
     /*

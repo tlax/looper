@@ -43,6 +43,30 @@ class VCameraPicker:VView, UICollectionViewDelegate, UICollectionViewDataSource,
         addSubview(spinner)
         addSubview(viewBar)
         addSubview(collectionView)
+        
+        NSLayoutConstraint.equals(
+            view:spinner,
+            toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewBar,
+            toView:self)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewBar,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:viewBar,
+            constant:kBarHeight)
+        
+        NSLayoutConstraint.topToBottom(
+            view:collectionView,
+            toView:viewBar)
+        NSLayoutConstraint.bottomToBottom(
+            view:collectionView,
+            toView:self)
+        NSLayoutConstraint.equalsHorizontal(
+            view:collectionView,
+            toView:self)
     }
     
     required init?(coder:NSCoder)

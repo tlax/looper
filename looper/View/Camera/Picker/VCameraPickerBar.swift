@@ -6,13 +6,14 @@ class VCameraPickerBar:UIView
     private weak var buttonCommit:UIButton!
     private let kContentTop:CGFloat = 20
     private let kButtonWidth:CGFloat = 90
-    private let kAlphaEmpty:CGFloat = 0.2
+    private let kAlphaEmpty:CGFloat = 0.3
+    private let kBorderHeight:CGFloat = 1
     
     init(controller:CCameraPicker)
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.white
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -20,11 +21,15 @@ class VCameraPickerBar:UIView
         title.isUserInteractionEnabled = false
         title.translatesAutoresizingMaskIntoConstraints = false
         title.backgroundColor = UIColor.clear
-        title.font = UIFont.bold(size:14)
+        title.font = UIFont.regular(size:16)
         title.textAlignment = NSTextAlignment.center
+        title.textColor = UIColor.black
         title.text = NSLocalizedString("VCameraPickerBar_title", comment:"")
         
+        let border:VBorder = VBorder(color:UIColor.black)
+        
         let buttonCommit:UIButton = UIButton()
+        buttonCommit.translatesAutoresizingMaskIntoConstraints = false
         buttonCommit.setTitle(
             NSLocalizedString("VCameraPickerBar_buttonCommit", comment:""),
             for:UIControlState.normal)
@@ -38,17 +43,19 @@ class VCameraPickerBar:UIView
         self.buttonCommit = buttonCommit
         
         let buttonCancel:UIButton = UIButton()
+        buttonCancel.translatesAutoresizingMaskIntoConstraints = false
         buttonCancel.setTitle(
             NSLocalizedString("VCameraPickerBar_buttonCancel", comment:""),
             for:UIControlState.normal)
         buttonCancel.setTitleColor(
-            UIColor.genericAlternative,
+            UIColor.black,
             for:UIControlState.normal)
         buttonCancel.setTitleColor(
-            UIColor.genericAlternative.withAlphaComponent(0.2),
+            UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
         buttonCancel.titleLabel!.font = UIFont.bold(size:14)
         
+        addSubview(border)
         addSubview(title)
         addSubview(buttonCommit)
         addSubview(buttonCancel)
@@ -91,6 +98,16 @@ class VCameraPickerBar:UIView
         NSLayoutConstraint.width(
             view:buttonCommit,
             constant:kButtonWidth)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
         
         config(amount:0)
     }
