@@ -7,7 +7,6 @@ class MCameraSpeed
     
     class func all() -> [MCameraSpeed]
     {
-        let item30:MCameraSpeed30 = MCameraSpeed30()
         let item20:MCameraSpeed20 = MCameraSpeed20()
         let item15:MCameraSpeed15 = MCameraSpeed15()
         let item10:MCameraSpeed10 = MCameraSpeed10()
@@ -18,7 +17,6 @@ class MCameraSpeed
         let itemHalf:MCameraSpeedHalf = MCameraSpeedHalf()
         
         let model:[MCameraSpeed] = [
-            item30,
             item20,
             item15,
             item10,

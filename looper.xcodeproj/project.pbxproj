@@ -106,7 +106,6 @@
 		DA799CE81E1436D200AB45DD /* MCameraSpeed10.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CE71E1436D200AB45DD /* MCameraSpeed10.swift */; };
 		DA799CEA1E1436D900AB45DD /* MCameraSpeed15.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CE91E1436D900AB45DD /* MCameraSpeed15.swift */; };
 		DA799CEC1E1436F400AB45DD /* MCameraSpeed20.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CEB1E1436F400AB45DD /* MCameraSpeed20.swift */; };
-		DA799CEE1E1436FD00AB45DD /* MCameraSpeed30.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CED1E1436FD00AB45DD /* MCameraSpeed30.swift */; };
 		DA799CF01E14403B00AB45DD /* MCameraRecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CEF1E14403B00AB45DD /* MCameraRecordItem.swift */; };
 		DA799CF31E1440F500AB45DD /* MCameraRaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CF21E1440F500AB45DD /* MCameraRaw.swift */; };
 		DA799CF51E14488000AB45DD /* MCameraRawItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA799CF41E14488000AB45DD /* MCameraRawItem.swift */; };
@@ -329,7 +328,6 @@
 		DA799CE71E1436D200AB45DD /* MCameraSpeed10.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraSpeed10.swift; sourceTree = "<group>"; };
 		DA799CE91E1436D900AB45DD /* MCameraSpeed15.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraSpeed15.swift; sourceTree = "<group>"; };
 		DA799CEB1E1436F400AB45DD /* MCameraSpeed20.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraSpeed20.swift; sourceTree = "<group>"; };
-		DA799CED1E1436FD00AB45DD /* MCameraSpeed30.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraSpeed30.swift; sourceTree = "<group>"; };
 		DA799CEF1E14403B00AB45DD /* MCameraRecordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraRecordItem.swift; sourceTree = "<group>"; };
 		DA799CF21E1440F500AB45DD /* MCameraRaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraRaw.swift; sourceTree = "<group>"; };
 		DA799CF41E14488000AB45DD /* MCameraRawItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraRawItem.swift; sourceTree = "<group>"; };
@@ -815,7 +813,6 @@
 				DA799CE71E1436D200AB45DD /* MCameraSpeed10.swift */,
 				DA799CE91E1436D900AB45DD /* MCameraSpeed15.swift */,
 				DA799CEB1E1436F400AB45DD /* MCameraSpeed20.swift */,
-				DA799CED1E1436FD00AB45DD /* MCameraSpeed30.swift */,
 			);
 			path = Speed;
 			sourceTree = "<group>";
@@ -1268,7 +1265,6 @@
 				DA4079041E241FFE002EED42 /* CStoreGoPlus.swift in Sources */,
 				DA8B1CE91E30049700BC896D /* MCameraFilterItemCoolBlue.swift in Sources */,
 				DA7390071E2820EB00A82612 /* VCameraMoreCellInfo.swift in Sources */,
-				DA799CEE1E1436FD00AB45DD /* MCameraSpeed30.swift in Sources */,
 				DA96FEE01E03672F00FD5265 /* CAppDelegate.swift in Sources */,
 				DA17E5681E258965004838D5 /* MCameraFilterItemBlendOverlay.swift in Sources */,
 				DA96FEE41E03672F00FD5265 /* ExtensionNotification.swift in Sources */,
