@@ -5,9 +5,9 @@ class CCameraMore:CController
     let model:MCameraMore
     weak var controller:CCamera!
     weak var viewMore:VCameraMore!
-    weak var record:MCameraRecordEditable?
+    weak var record:MCameraRecord?
     
-    init(controller:CCamera, record:MCameraRecordEditable)
+    init(controller:CCamera, record:MCameraRecord)
     {
         model = MCameraMore(record:record)
         self.controller = controller
@@ -17,7 +17,7 @@ class CCameraMore:CController
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     override func viewDidAppear(_ animated:Bool)

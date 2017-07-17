@@ -6,7 +6,7 @@ class MCamera
     static let kImageMinSize:CGFloat = 50
     static let kMaxShots:Int = 300
     let speeds:[MCameraSpeed]
-    var records:[MCameraRecordEditable]
+    var records:[MCameraRecord]
     var activeRecords:[MCameraRecord]?
     var raw:MCameraRaw?
     var currentSpeed:Int
@@ -21,14 +21,14 @@ class MCamera
     
     //MARK: private
     
-    private func editableRenderRecording(editable:MCameraRecordEditable, modelRaw:MCameraRaw)
+    private func editableRenderRecording(record:MCameraRecord, modelRaw:MCameraRaw)
     {
         NotificationCenter.default.post(
             name:Notification.cameraLoading,
             object:nil)
         
         let items:[MCameraRecordItem] = modelRaw.render()
-        editable.items.append(contentsOf:items)
+        record.items.append(contentsOf:items)
         
         NotificationCenter.default.post(
             name:Notification.cameraLoadFinished,
@@ -37,11 +37,10 @@ class MCamera
     
     private func asyncRederRecording(modelRaw:MCameraRaw)
     {
-        let editable:MCameraRecordEditable = MCameraRecordEditable(
-            speed:modelRaw.speed)
-        records.insert(editable, at:0)
+        let record:MCameraRecord = MCameraRecord()
+        records.insert(record, at:0)
         
-        editableRenderRecording(editable:editable, modelRaw:modelRaw)
+        editableRenderRecording(record:record, modelRaw:modelRaw)
     }
     
     //MARK: public
@@ -62,23 +61,23 @@ class MCamera
         }
     }
     
-    func appendRenderRecording(editable:MCameraRecordEditable, modelRaw:MCameraRaw)
+    func appendRenderRecording(record:MCameraRecord, modelRaw:MCameraRaw)
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.editableRenderRecording(editable:editable, modelRaw:modelRaw)
+            self?.editableRenderRecording(record:record, modelRaw:modelRaw)
         }
     }
     
-    func trashRecord(record:MCameraRecordEditable)
+    func trashRecord(record:MCameraRecord)
     {
         let countRecords:Int = records.count
         var recordToDelete:Int = 0
         
         for indexRecord:Int in 0 ..< countRecords
         {
-            let recordItem:MCameraRecordEditable = records[indexRecord]
+            let recordItem:MCameraRecord = records[indexRecord]
             
             if recordItem === record
             {

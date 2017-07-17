@@ -3,16 +3,16 @@ import UIKit
 class CCameraPicker:UIImagePickerController, UINavigationControllerDelegate, UIImagePickerControllerDelegate
 {
     private weak var camera:CCamera!
-    private weak var editable:MCameraRecordEditable?
+    private weak var record:MCameraRecord?
     
-    convenience init(camera:CCamera, editable:MCameraRecordEditable?)
+    convenience init(camera:CCamera, record:MCameraRecord?)
     {
         self.init()
         sourceType = UIImagePickerControllerSourceType.photoLibrary
         delegate = self
         allowsEditing = false
         self.camera = camera
-        self.editable = editable
+        self.record = record
     }
     
     //MARK: private
@@ -44,7 +44,7 @@ class CCameraPicker:UIImagePickerController, UINavigationControllerDelegate, UII
         
         guard
         
-            let editable:MCameraRecordEditable = self.editable
+            let record:MCameraRecord = self.record
         
         else
         {
@@ -55,7 +55,7 @@ class CCameraPicker:UIImagePickerController, UINavigationControllerDelegate, UII
         }
         
         camera.appendRenderRecording(
-            editable:editable,
+            record:record,
             modelRaw:model)
     }
     

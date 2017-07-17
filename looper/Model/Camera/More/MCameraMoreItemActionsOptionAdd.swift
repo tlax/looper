@@ -11,13 +11,13 @@ class MCameraMoreItemActionsOptionAdd:MCameraMoreItemActionsOption
     {
         guard
             
-            let editable:MCameraRecordEditable = controller?.record
+            let record:MCameraRecord = controller?.record
             
         else
         {
             return
         }
         
-        controller?.controller.picker(editable:editable)
+        controller?.controller.picker(record:record)
     }
 }

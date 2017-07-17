@@ -197,7 +197,7 @@ class VCameraHeader:UICollectionReusableView
         }
         else
         {
-            controller?.picker(editable:nil)
+            controller?.picker(record:nil)
         }
     }
     

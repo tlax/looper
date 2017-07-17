@@ -3,12 +3,12 @@ import UIKit
 class CCameraScale:CController
 {
     var currentPercent:CGFloat
-    weak var record:MCameraRecordEditable!
+    weak var record:MCameraRecord!
     private weak var viewScale:VCameraScale!
     private let kMaxPercent:CGFloat = 1
     private let kAnimationDuration:TimeInterval = 0.4
     
-    init(record:MCameraRecordEditable)
+    init(record:MCameraRecord)
     {
         self.record = record
         currentPercent = kMaxPercent
