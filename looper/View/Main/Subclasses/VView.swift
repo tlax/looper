@@ -17,6 +17,6 @@ class VView:UIView
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
 }
