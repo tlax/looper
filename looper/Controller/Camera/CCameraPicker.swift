@@ -3,21 +3,21 @@ import UIKit
 class CCameraPicker:UIImagePickerController, UINavigationControllerDelegate, UIImagePickerControllerDelegate
 {
     private weak var camera:CCamera!
-    private weak var model:MCameraRaw?
+    private weak var editable:MCameraRecordEditable?
     
-    convenience init(camera:CCamera, model:MCameraRaw?)
+    convenience init(camera:CCamera, editable:MCameraRecordEditable?)
     {
         self.init()
         sourceType = UIImagePickerControllerSourceType.photoLibrary
         delegate = self
         allowsEditing = false
         self.camera = camera
-        self.model = model
+        self.editable = editable
     }
     
     //MARK: private
     
-    private func renderNew(image:UIImage)
+    private func renderModel(image:UIImage) -> MCameraRaw
     {
         let item:MCameraRawItem = MCameraRawItem(image:image)
         let modelSpeed:MCameraSpeed1 = MCameraSpeed1()
@@ -25,13 +25,14 @@ class CCameraPicker:UIImagePickerController, UINavigationControllerDelegate, UII
         
         model.items.append(item)
         
-        MSession.sharedInstance.camera?.renderRecording(modelRaw:model)
+        return model
     }
     
     private func render(image:UIImage?)
     {
         guard
         
+            let camera:MCamera = MSession.sharedInstance.camera,
             let image:UIImage = image
         
         else
@@ -39,16 +40,23 @@ class CCameraPicker:UIImagePickerController, UINavigationControllerDelegate, UII
             return
         }
         
+        let model:MCameraRaw = renderModel(image:image)
+        
         guard
         
-            let model:MCameraRaw = self.model
+            let editable:MCameraRecordEditable = self.editable
         
         else
         {
-            renderNew(image:image)
+            camera.renderRecording(
+                modelRaw:model)
             
             return
         }
+        
+        camera.appendRenderRecording(
+            editable:editable,
+            modelRaw:model)
     }
     
     //MARK: imagePicker delegate

@@ -133,9 +133,9 @@ class CCamera:CController
             vertical:CParent.TransitionVertical.fromTop)
     }
     
-    func picker(model:MCameraRaw?)
+    func picker(editable:MCameraRecordEditable?)
     {
-        let controller:CCameraPicker = CCameraPicker(camera:self, model:model)
+        let controller:CCameraPicker = CCameraPicker(camera:self, editable:editable)
         present(controller, animated:true, completion:nil)
     }
     

@@ -21,18 +21,27 @@ class MCamera
     
     //MARK: private
     
-    private func asyncRenderRecording(modelRaw:MCameraRaw)
+    private func editableRenderRecording(editable:MCameraRecordEditable, modelRaw:MCameraRaw)
     {
         NotificationCenter.default.post(
             name:Notification.cameraLoading,
             object:nil)
         
-        let record:MCameraRecordEditable = modelRaw.render()
-        records.insert(record, at:0)
+        let items:[MCameraRecordItem] = modelRaw.render()
+        editable.items.append(contentsOf:items)
         
         NotificationCenter.default.post(
             name:Notification.cameraLoadFinished,
             object:nil)
+    }
+    
+    private func asyncRederRecording(modelRaw:MCameraRaw)
+    {
+        let editable:MCameraRecordEditable = MCameraRecordEditable(
+            speed:modelRaw.speed)
+        records.insert(editable, at:0)
+        
+        editableRenderRecording(editable:editable, modelRaw:modelRaw)
     }
     
     //MARK: public
@@ -49,7 +58,16 @@ class MCamera
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.asyncRenderRecording(modelRaw:modelRaw)
+            self?.asyncRederRecording(modelRaw:modelRaw)
+        }
+    }
+    
+    func appendRenderRecording(editable:MCameraRecordEditable, modelRaw:MCameraRaw)
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.editableRenderRecording(editable:editable, modelRaw:modelRaw)
         }
     }
     
