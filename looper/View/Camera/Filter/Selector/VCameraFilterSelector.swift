@@ -136,7 +136,7 @@ class VCameraFilterSelector:VView, UICollectionViewDelegate, UICollectionViewDat
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     //MARK: actions

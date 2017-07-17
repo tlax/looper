@@ -64,7 +64,7 @@ class VCameraMore:VView, UICollectionViewDelegate, UICollectionViewDataSource, U
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     //MARK: actions
