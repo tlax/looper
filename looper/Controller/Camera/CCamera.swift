@@ -4,7 +4,6 @@ class CCamera:CController
 {
     weak var viewCamera:VCamera!
     private var refreshCamera:Bool
-    private let kAfterShoot:TimeInterval = 0.6
     
     override init()
     {
@@ -52,21 +51,8 @@ class CCamera:CController
             return
         }
         
-        if model.records.isEmpty
-        {
-            DispatchQueue.main.asyncAfter(
-                deadline:DispatchTime.now() + kAfterShoot)
-            { [weak self] in
-                
-                self?.refreshCamera = true
-                self?.shoot()
-            }
-        }
-        else
-        {
-            refreshCamera = true
-            viewCamera.refresh()
-        }
+        refreshCamera = true
+        viewCamera.refresh()
     }
     
     override func viewDidAppear(_ animated:Bool)
