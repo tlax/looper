@@ -7,6 +7,9 @@ class VCameraVideoLoaderFrames:UIView
     init(controller:CCameraVideoLoader)
     {
         super.init(frame:CGRect.zero)
+        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = UIColor.clear
+        clipsToBounds = true
         self.controller = controller
     }
     

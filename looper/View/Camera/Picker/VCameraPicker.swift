@@ -74,6 +74,11 @@ class VCameraPicker:VView, UICollectionViewDelegate, UICollectionViewDataSource,
         return nil
     }
     
+    deinit
+    {
+        spinner.stopAnimating()
+    }
+    
     override func layoutSubviews()
     {
         computeImageSize()

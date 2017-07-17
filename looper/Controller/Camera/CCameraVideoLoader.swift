@@ -30,6 +30,18 @@ class CCameraVideoLoader:CController
         view = viewLoader
     }
     
+    //MARK: public
+    
+    func back()
+    {
+        parentController.dismissAnimateOver(completion:nil)
+    }
+    
+    func next()
+    {
+        
+    }
+    
     //MARK: private
     /*
     private func timesFor(asset:AVAsset) -> [NSValue]
