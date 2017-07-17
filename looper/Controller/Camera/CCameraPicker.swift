@@ -1,18 +1,22 @@
 import UIKit
+import Photos
 
-class CCameraPicker:UIImagePickerController, UINavigationControllerDelegate, UIImagePickerControllerDelegate
+class CCameraPicker:CController
 {
     private weak var camera:CCamera!
     private weak var record:MCameraRecord?
+    let kThumbnailSize:CGFloat = 100
     
-    convenience init(camera:CCamera, record:MCameraRecord?)
+    init(camera:CCamera, record:MCameraRecord?)
     {
-        self.init()
-        sourceType = UIImagePickerControllerSourceType.photoLibrary
-        delegate = self
-        allowsEditing = false
+        super.init()
         self.camera = camera
         self.record = record
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        return nil
     }
     
     //MARK: private
@@ -45,13 +49,15 @@ class CCameraPicker:UIImagePickerController, UINavigationControllerDelegate, UII
         camera.renderImage(record:record, modelImage:model)
     }
     
-    //MARK: imagePicker delegate
-    
-    func imagePickerController(_ picker:UIImagePickerController, didFinishPickingMediaWithInfo info:[String:Any])
-    {
-        let image:UIImage? = info[UIImagePickerControllerOriginalImage] as? UIImage
-        
-        render(image:image)
-        camera.dismiss(animated:true)
-    }
+    /*
+ 
+ func imagePickerController(_ picker:UIImagePickerController, didFinishPickingMediaWithInfo info:[String:Any])
+ {
+ let image:UIImage? = info[UIImagePickerControllerOriginalImage] as? UIImage
+ 
+ render(image:image)
+ camera.dismiss(animated:true)
+ }
+ 
+ */
 }
