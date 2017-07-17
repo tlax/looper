@@ -61,6 +61,7 @@
 		DA4079201E243978002EED42 /* CCameraFilterBlenderOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40791F1E243978002EED42 /* CCameraFilterBlenderOverlay.swift */; };
 		DA41E6831E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */; };
 		DA4247861E3074C000BD12D0 /* MCameraFilterProcessorCoolBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4247851E3074C000BD12D0 /* MCameraFilterProcessorCoolBlue.swift */; };
+		DA4E73431F1D4C5F006339AE /* CCameraVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E73421F1D4C5F006339AE /* CCameraVideo.swift */; };
 		DA4EBC591E2086E000F9AC3D /* help.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4EBC581E2086E000F9AC3D /* help.xcassets */; };
 		DA4EBC621E208D8F00F9AC3D /* VHelpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EBC611E208D8F00F9AC3D /* VHelpCell.swift */; };
 		DA5190521E28401200905C83 /* MCameraMoreItemInfoFrames.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5190511E28401200905C83 /* MCameraMoreItemInfoFrames.swift */; };
@@ -282,6 +283,7 @@
 		DA40791F1E243978002EED42 /* CCameraFilterBlenderOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraFilterBlenderOverlay.swift; sourceTree = "<group>"; };
 		DA41E6821E0373F600B1BE84 /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
 		DA4247851E3074C000BD12D0 /* MCameraFilterProcessorCoolBlue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilterProcessorCoolBlue.swift; sourceTree = "<group>"; };
+		DA4E73421F1D4C5F006339AE /* CCameraVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraVideo.swift; sourceTree = "<group>"; };
 		DA4EBC581E2086E000F9AC3D /* help.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = help.xcassets; sourceTree = "<group>"; };
 		DA4EBC611E208D8F00F9AC3D /* VHelpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHelpCell.swift; sourceTree = "<group>"; };
 		DA5190511E28401200905C83 /* MCameraMoreItemInfoFrames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraMoreItemInfoFrames.swift; sourceTree = "<group>"; };
@@ -978,6 +980,7 @@
 				DAA5E5E51E2D5A110074149D /* CCameraScale.swift */,
 				DA1320B81E2E78DE00E2D63D /* CCameraCrop.swift */,
 				DAA1E0BF1F1C2DEC009F2C90 /* CCameraPicker.swift */,
+				DA4E73421F1D4C5F006339AE /* CCameraVideo.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -1443,6 +1446,7 @@
 				DA9B83EF1E1316AC002B9810 /* DManager.swift in Sources */,
 				DA6FB2401E1D59CF0062EE13 /* MLoopsItem.swift in Sources */,
 				DAA5E5E81E2D5A630074149D /* VCameraScale.swift in Sources */,
+				DA4E73431F1D4C5F006339AE /* CCameraVideo.swift in Sources */,
 				DA5190541E28661D00905C83 /* MCameraMoreItemInfoSize.swift in Sources */,
 				DAA5E5EC1E2D72500074149D /* VCameraScaleSliderTrack.swift in Sources */,
 				DA799CDC1E1436A400AB45DD /* MCameraSpeedHalf.swift in Sources */,
