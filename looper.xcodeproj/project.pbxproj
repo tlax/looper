@@ -63,7 +63,7 @@
 		DA4247861E3074C000BD12D0 /* MCameraFilterProcessorCoolBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4247851E3074C000BD12D0 /* MCameraFilterProcessorCoolBlue.swift */; };
 		DA4E73431F1D4C5F006339AE /* CCameraVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E73421F1D4C5F006339AE /* CCameraVideo.swift */; };
 		DA4E73451F1D56C3006339AE /* CCameraVideoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E73441F1D56C3006339AE /* CCameraVideoLoader.swift */; };
-		DA4E73481F1D5ABE006339AE /* VCameraVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E73471F1D5ABE006339AE /* VCameraVideo.swift */; };
+		DA4E734A1F1D5AE8006339AE /* VCameraVideoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E73491F1D5AE8006339AE /* VCameraVideoLoader.swift */; };
 		DA4EBC591E2086E000F9AC3D /* help.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4EBC581E2086E000F9AC3D /* help.xcassets */; };
 		DA4EBC621E208D8F00F9AC3D /* VHelpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EBC611E208D8F00F9AC3D /* VHelpCell.swift */; };
 		DA5190521E28401200905C83 /* MCameraMoreItemInfoFrames.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5190511E28401200905C83 /* MCameraMoreItemInfoFrames.swift */; };
@@ -287,7 +287,7 @@
 		DA4247851E3074C000BD12D0 /* MCameraFilterProcessorCoolBlue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilterProcessorCoolBlue.swift; sourceTree = "<group>"; };
 		DA4E73421F1D4C5F006339AE /* CCameraVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraVideo.swift; sourceTree = "<group>"; };
 		DA4E73441F1D56C3006339AE /* CCameraVideoLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraVideoLoader.swift; sourceTree = "<group>"; };
-		DA4E73471F1D5ABE006339AE /* VCameraVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraVideo.swift; sourceTree = "<group>"; };
+		DA4E73491F1D5AE8006339AE /* VCameraVideoLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraVideoLoader.swift; sourceTree = "<group>"; };
 		DA4EBC581E2086E000F9AC3D /* help.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = help.xcassets; sourceTree = "<group>"; };
 		DA4EBC611E208D8F00F9AC3D /* VHelpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHelpCell.swift; sourceTree = "<group>"; };
 		DA5190511E28401200905C83 /* MCameraMoreItemInfoFrames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraMoreItemInfoFrames.swift; sourceTree = "<group>"; };
@@ -685,7 +685,7 @@
 		DA4E73461F1D5AB3006339AE /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				DA4E73471F1D5ABE006339AE /* VCameraVideo.swift */,
+				DA4E73491F1D5AE8006339AE /* VCameraVideoLoader.swift */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -1383,7 +1383,6 @@
 				DA54E2561E315AE4005AB7C0 /* MHelpItemBlenderBase.swift in Sources */,
 				DAF604C21E23408400A1259E /* VStoreCellDeferred.swift in Sources */,
 				DA8B1CDD1E2FE6BB00BC896D /* MHelpItemCameraActive.swift in Sources */,
-				DA4E73481F1D5ABE006339AE /* VCameraVideo.swift in Sources */,
 				DA4079071E242358002EED42 /* VStoreGoPlus.swift in Sources */,
 				DA9B83DB1E12E7E8002B9810 /* VParent.swift in Sources */,
 				DAD404E61E1F44A1005EA836 /* MetalFilterWatermark.metal in Sources */,
@@ -1451,6 +1450,7 @@
 				DA9B83C51E12DCB8002B9810 /* CCamera.swift in Sources */,
 				DA9B83DC1E12E7E8002B9810 /* VParentBar.swift in Sources */,
 				DA1701BC1E2069E40049CE90 /* CHelp.swift in Sources */,
+				DA4E734A1F1D5AE8006339AE /* VCameraVideoLoader.swift in Sources */,
 				DA9B83E11E12EBEF002B9810 /* VCameraCell.swift in Sources */,
 				DAD404DF1E1F3180005EA836 /* MCameraFilterProcessor.swift in Sources */,
 				DA8B1CFD1E30188C00BC896D /* MCameraFilterSelectorItemColor.swift in Sources */,
