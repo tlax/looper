@@ -2,7 +2,7 @@ import UIKit
 
 class MCamera
 {
-    static let kImageMaxSize:CGFloat = 720
+    static let kImageMaxSize:CGFloat = 1000
     static let kImageMinSize:CGFloat = 50
     static let kMaxShots:Int = 300
     let speeds:[MCameraSpeed]
