@@ -54,7 +54,7 @@ class VCamera:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     deinit

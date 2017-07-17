@@ -101,7 +101,7 @@ class VCameraCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionVi
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     deinit
