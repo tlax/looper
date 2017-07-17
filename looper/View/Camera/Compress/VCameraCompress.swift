@@ -62,7 +62,7 @@ class VCameraCompress:VView, UICollectionViewDelegate, UICollectionViewDataSourc
     
     required init?(coder:NSCoder)
     {
-        fatalError()
+        return nil
     }
     
     deinit
