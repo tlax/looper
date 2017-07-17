@@ -25,6 +25,8 @@
 "VCameraPickerBar_title"="Selecciona imágenes";
 "VCameraPickerBar_buttonCancel"="Cancelar";
 "VCameraPickerBar_buttonCommit"="Listo";
+"VCameraVideoLoader_buttonCancel"="Cancelar";
+"VCameraVideoLoader_buttonNext"="Siguente";
 
 "CCameraShoot_noAuth"="looper no tiene acceso a tu camara";
 "CCameraShoot_errorCaptureDevice"="Error conectandose a la camara";

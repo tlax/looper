@@ -7,8 +7,7 @@ class VCameraVideoLoader:VView
     private weak var buttonNext:UIButton!
     private weak var spinner:VSpinner!
     private let kButtonHeight:CGFloat = 50
-    private let kButtonsBottom:CGFloat = -50
-    private let kFramesHeight:CGFloat = 200
+    private let kFramesHeight:CGFloat = 250
     
     override init(controller:CController)
     {
@@ -17,6 +16,10 @@ class VCameraVideoLoader:VView
         self.controller = controller as? CCameraVideoLoader
         
         let blur:VBlur = VBlur.dark()
+        
+        let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
+        self.spinner = spinner
         
         let buttonCancel:UIButton = UIButton()
         buttonCancel.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +33,7 @@ class VCameraVideoLoader:VView
         buttonCancel.setTitle(
             NSLocalizedString("VCameraVideoLoader_buttonCancel", comment:""),
             for:UIControlState.normal)
+        buttonCancel.titleLabel!.font = UIFont.bold(size:15)
         buttonCancel.addTarget(
             self,
             action:#selector(actionCancel(sender:)),
@@ -47,6 +51,7 @@ class VCameraVideoLoader:VView
         buttonNext.setTitle(
             NSLocalizedString("VCameraVideoLoader_buttonNext", comment:""),
             for:UIControlState.normal)
+        buttonNext.titleLabel!.font = UIFont.bold(size:15)
         buttonNext.addTarget(
             self,
             action:#selector(actionNext(sender:)),
@@ -58,6 +63,7 @@ class VCameraVideoLoader:VView
         self.viewFrames = viewFrames
         
         addSubview(blur)
+        addSubview(spinner)
         addSubview(buttonCancel)
         addSubview(buttonNext)
         addSubview(viewFrames)
@@ -66,10 +72,13 @@ class VCameraVideoLoader:VView
             view:blur,
             toView:self)
         
+        NSLayoutConstraint.equals(
+            view:spinner,
+            toView:self)
+        
         NSLayoutConstraint.bottomToBottom(
             view:buttonCancel,
-            toView:self,
-            constant:kButtonsBottom)
+            toView:self)
         NSLayoutConstraint.height(
             view:buttonCancel,
             constant:kButtonHeight)
@@ -126,5 +135,6 @@ class VCameraVideoLoader:VView
     {
         viewFrames.isHidden = true
         buttonNext.isHidden = true
+        spinner.startAnimating()
     }
 }
