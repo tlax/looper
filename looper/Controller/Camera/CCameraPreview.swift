@@ -148,10 +148,10 @@ class CCameraPreview:CController
             let timestamp:TimeInterval = Date().timeIntervalSince1970
             
             loop.folder = projectFolderName
-            loop.kiloBytes = Int16(size)
+            loop.kiloBytes = Int32(size)
             loop.created = timestamp
             loop.duration = duration
-            loop.items = Int16(countItems)
+            loop.items = Int32(countItems)
             
             DManager.sharedInstance.save()
             

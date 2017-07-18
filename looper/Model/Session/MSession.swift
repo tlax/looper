@@ -6,7 +6,7 @@ class MSession
     static let kFroobMaxRecords:Int = 3
     private(set) var settings:DSettings?
     var camera:MCamera?
-    private let kTtlDelta:Int16 = 1
+    private let kTtlDelta:Int32 = 1
     
     private init()
     {

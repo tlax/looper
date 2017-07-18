@@ -18,26 +18,14 @@ class MCameraVideo
     {
         var items:[MCameraRecordItem] = []
         
+        
+        
         for image:UIImage in images
         {
-            UIGraphicsBeginImageContext(imageSize)
-            image.draw(in:drawingRect)
             
-            guard
-                
-                let normalizedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
-                
-            else
-            {
-                UIGraphicsEndImageContext()
-                
-                continue
-            }
-            
-            UIGraphicsEndImageContext()
             
             let renderedItem:MCameraRecordItem = MCameraRecordItem(
-                image:normalizedImage)
+                image:image)
             items.append(renderedItem)
         }
         
