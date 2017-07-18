@@ -292,6 +292,7 @@
 		DA4E73491F1D5AE8006339AE /* VCameraVideoLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraVideoLoader.swift; sourceTree = "<group>"; };
 		DA4E734D1F1D6F21006339AE /* VCameraVideoLoaderFrames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraVideoLoaderFrames.swift; sourceTree = "<group>"; };
 		DA4E73501F1D924D006339AE /* MCameraVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraVideo.swift; sourceTree = "<group>"; };
+		DA4E73521F1D9D58006339AE /* DLooper32Bits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DLooper32Bits.xcdatamodel; sourceTree = "<group>"; };
 		DA4EBC581E2086E000F9AC3D /* help.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = help.xcassets; sourceTree = "<group>"; };
 		DA4EBC611E208D8F00F9AC3D /* VHelpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHelpCell.swift; sourceTree = "<group>"; };
 		DA5190511E28401200905C83 /* MCameraMoreItemInfoFrames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraMoreItemInfoFrames.swift; sourceTree = "<group>"; };
@@ -1662,9 +1663,10 @@
 		DA9B83F01E131B01002B9810 /* DLooper.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				DA4E73521F1D9D58006339AE /* DLooper32Bits.xcdatamodel */,
 				DA9B83F11E131B01002B9810 /* DLooper.xcdatamodel */,
 			);
-			currentVersion = DA9B83F11E131B01002B9810 /* DLooper.xcdatamodel */;
+			currentVersion = DA4E73521F1D9D58006339AE /* DLooper32Bits.xcdatamodel */;
 			path = DLooper.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
