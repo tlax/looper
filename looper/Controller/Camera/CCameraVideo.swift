@@ -11,7 +11,7 @@ class CCameraVideo:UIImagePickerController, UINavigationControllerDelegate, UIIm
         sourceType = UIImagePickerControllerSourceType.photoLibrary
         mediaTypes = [kUTTypeMovie as String]
         delegate = self
-        allowsEditing = false
+        allowsEditing = true
         self.camera = camera
     }
     
