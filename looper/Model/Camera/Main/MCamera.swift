@@ -60,6 +60,20 @@ class MCamera
             object:nil)
     }
     
+    private func recordRenderVideo(record:MCameraRecord, modelVideo:MCameraVideo)
+    {
+        NotificationCenter.default.post(
+            name:Notification.cameraLoading,
+            object:nil)
+        
+        let items:[MCameraRecordItem] = modelVideo.render()
+        record.items.append(contentsOf:items)
+        
+        NotificationCenter.default.post(
+            name:Notification.cameraLoadFinished,
+            object:nil)
+    }
+    
     private func asyncRederRecording(modelRaw:MCameraRaw)
     {
         let record:MCameraRecord = MCameraRecord()
@@ -74,6 +88,14 @@ class MCamera
         records.insert(record, at:0)
         
         recordRenderImages(record:record, modelImages:modelImages)
+    }
+    
+    private func asyncRenderVideo(modelVideo:MCameraVideo)
+    {
+        let record:MCameraRecord = MCameraRecord()
+        records.insert(record, at:0)
+        
+        recordRenderVideo(record:record, modelVideo:modelVideo)
     }
     
     //MARK: public
@@ -109,6 +131,15 @@ class MCamera
         { [weak self] in
             
             self?.asyncRederImages(modelImages:modelImages)
+        }
+    }
+    
+    func renderVideo(modelVideo:MCameraVideo)
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncRenderVideo(modelVideo:modelVideo)
         }
     }
     

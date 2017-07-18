@@ -56,7 +56,7 @@ class CCameraVideoLoader:CController
         return times
     }
     
-    private func asyncRender(frames:Int)
+    private func asyncGenerate(frames:Int)
     {
         let asset:AVAsset = AVAsset(url:url)
         let times:[NSValue] = timesFor(asset:asset, frames:frames)
@@ -113,7 +113,14 @@ class CCameraVideoLoader:CController
         { [weak self] in
             
             self?.back()
+            self?.renderImages()
         }
+    }
+    
+    private func renderImages()
+    {
+        let model:MCameraVideo = MCameraVideo(images:generatedImages)
+        MSession.sharedInstance.camera?.renderVideo(modelVideo:model)
     }
     
     //MARK: public
@@ -132,7 +139,7 @@ class CCameraVideoLoader:CController
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.asyncRender(frames:frames)
+            self?.asyncGenerate(frames:frames)
         }
     }
 }
