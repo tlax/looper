@@ -4,7 +4,7 @@ import AVFoundation
 class CCameraVideoLoader:CController
 {
     private let url:URL
-    private var generatedImages:[UIImage]
+    private var generatedImages:[CGImage]
     private weak var viewLoader:VCameraVideoLoader!
     private weak var generator:AVAssetImageGenerator?
     
@@ -88,7 +88,7 @@ class CCameraVideoLoader:CController
                         return
                     }
                     
-                    self?.receivedImage(cgImage:cgImage)
+                    self?.generatedImages.append(cgImage)
                 }
             }
             
@@ -99,12 +99,6 @@ class CCameraVideoLoader:CController
                 self?.allImagesReceived()
             }
         }
-    }
-    
-    private func receivedImage(cgImage:CGImage)
-    {
-        let image:UIImage = UIImage(cgImage:cgImage)
-        generatedImages.append(image)
     }
     
     private func allImagesReceived()

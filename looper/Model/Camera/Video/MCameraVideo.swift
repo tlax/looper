@@ -2,9 +2,9 @@ import UIKit
 
 class MCameraVideo
 {
-    let images:[UIImage]
+    let images:[CGImage]
     
-    init(images:[UIImage])
+    init(images:[CGImage])
     {
         self.images = images
     }
@@ -12,20 +12,52 @@ class MCameraVideo
     //MARK: private
     
     private func itemsFrom(
-        images:[UIImage],
+        images:[CGImage],
         imageSize:CGSize,
         drawingRect:CGRect) -> [MCameraRecordItem]
     {
         var items:[MCameraRecordItem] = []
         
-        
-        
-        for image:UIImage in images
+        for image:CGImage in images
         {
             
+            UIGraphicsBeginImageContext(imageSize)
+            
+            guard
+                
+                let context:CGContext = UIGraphicsGetCurrentContext()
+            
+            else
+            {
+                UIGraphicsEndImageContext()
+                
+                continue
+            }
+            
+            context.translateBy(x:0, y:imageSize.height)
+            context.scaleBy(x:1, y:-1)
+            context.draw(image, in:drawingRect)
+            
+            guard
+                
+                let newCGImage:CGImage = context.makeImage()
+            
+            else
+            {
+                UIGraphicsEndImageContext()
+                
+                continue
+            }
+            
+            UIGraphicsEndImageContext()
+            
+            let newImage:UIImage = UIImage(
+                cgImage:newCGImage,
+                scale:1,
+                orientation:UIImageOrientation.up)
             
             let renderedItem:MCameraRecordItem = MCameraRecordItem(
-                image:image)
+                image:newImage)
             items.append(renderedItem)
         }
         
@@ -38,15 +70,15 @@ class MCameraVideo
     {
         guard
         
-            let firstImage:UIImage = images.first
+            let firstImage:CGImage = images.first
         
         else
         {
             return []
         }
         
-        let width:CGFloat = firstImage.size.width
-        let height:CGFloat = firstImage.size.height
+        let width:CGFloat = CGFloat(firstImage.width)
+        let height:CGFloat = CGFloat(firstImage.height)
         let minRawSize:CGFloat = min(width, height)
         let minSize:CGFloat = min(minRawSize, MCamera.kImageMaxSize)
         let deltaWidth:CGFloat = width / minSize
