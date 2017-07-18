@@ -157,7 +157,6 @@
 		DA9B83E31E12F8A6002B9810 /* camera.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9B83E21E12F8A6002B9810 /* camera.xcassets */; };
 		DA9B83E71E130AF5002B9810 /* VCameraFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83E61E130AF5002B9810 /* VCameraFooter.swift */; };
 		DA9B83EF1E1316AC002B9810 /* DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83EE1E1316AC002B9810 /* DManager.swift */; };
-		DA9B83F21E131B01002B9810 /* DLooper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83F01E131B01002B9810 /* DLooper.xcdatamodeld */; };
 		DA9B83F41E13255F002B9810 /* CCameraShoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83F31E13255F002B9810 /* CCameraShoot.swift */; };
 		DA9B83F61E132586002B9810 /* VCameraShoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83F51E132586002B9810 /* VCameraShoot.swift */; };
 		DA9B83F81E132C3A002B9810 /* VCameraShootMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B83F71E132C3A002B9810 /* VCameraShootMenu.swift */; };
@@ -179,6 +178,7 @@
 		DAB458201F1D1612007EFBA7 /* MCameraPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4581E1F1D1612007EFBA7 /* MCameraPickerItem.swift */; };
 		DAC7D3FB1E12C37D00312D4E /* CLoops.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7D3FA1E12C37D00312D4E /* CLoops.swift */; };
 		DAC7D3FE1E12C3BC00312D4E /* VLoops.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7D3FD1E12C3BC00312D4E /* VLoops.swift */; };
+		DAD146C31F1D9F2E00E401AF /* DLooper32.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAD146C11F1D9F2E00E401AF /* DLooper32.xcdatamodeld */; };
 		DAD404DB1E1F3180005EA836 /* MCameraFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD404D41E1F3180005EA836 /* MCameraFilter.swift */; };
 		DAD404DC1E1F3180005EA836 /* MCameraFilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD404D51E1F3180005EA836 /* MCameraFilterItem.swift */; };
 		DAD404DD1E1F3180005EA836 /* MCameraFilterItemBlend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD404D61E1F3180005EA836 /* MCameraFilterItemBlend.swift */; };
@@ -292,7 +292,6 @@
 		DA4E73491F1D5AE8006339AE /* VCameraVideoLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraVideoLoader.swift; sourceTree = "<group>"; };
 		DA4E734D1F1D6F21006339AE /* VCameraVideoLoaderFrames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraVideoLoaderFrames.swift; sourceTree = "<group>"; };
 		DA4E73501F1D924D006339AE /* MCameraVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraVideo.swift; sourceTree = "<group>"; };
-		DA4E73521F1D9D58006339AE /* DLooper32Bits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DLooper32Bits.xcdatamodel; sourceTree = "<group>"; };
 		DA4EBC581E2086E000F9AC3D /* help.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = help.xcassets; sourceTree = "<group>"; };
 		DA4EBC611E208D8F00F9AC3D /* VHelpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHelpCell.swift; sourceTree = "<group>"; };
 		DA5190511E28401200905C83 /* MCameraMoreItemInfoFrames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraMoreItemInfoFrames.swift; sourceTree = "<group>"; };
@@ -387,7 +386,6 @@
 		DA9B83E21E12F8A6002B9810 /* camera.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = camera.xcassets; sourceTree = "<group>"; };
 		DA9B83E61E130AF5002B9810 /* VCameraFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraFooter.swift; sourceTree = "<group>"; };
 		DA9B83EE1E1316AC002B9810 /* DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManager.swift; sourceTree = "<group>"; };
-		DA9B83F11E131B01002B9810 /* DLooper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DLooper.xcdatamodel; sourceTree = "<group>"; };
 		DA9B83F31E13255F002B9810 /* CCameraShoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraShoot.swift; sourceTree = "<group>"; };
 		DA9B83F51E132586002B9810 /* VCameraShoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraShoot.swift; sourceTree = "<group>"; };
 		DA9B83F71E132C3A002B9810 /* VCameraShootMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraShootMenu.swift; sourceTree = "<group>"; };
@@ -409,6 +407,7 @@
 		DAB4581E1F1D1612007EFBA7 /* MCameraPickerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraPickerItem.swift; sourceTree = "<group>"; };
 		DAC7D3FA1E12C37D00312D4E /* CLoops.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLoops.swift; sourceTree = "<group>"; };
 		DAC7D3FD1E12C3BC00312D4E /* VLoops.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoops.swift; sourceTree = "<group>"; };
+		DAD146C21F1D9F2E00E401AF /* DLooper32.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DLooper32.xcdatamodel; sourceTree = "<group>"; };
 		DAD404D41E1F3180005EA836 /* MCameraFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilter.swift; sourceTree = "<group>"; };
 		DAD404D51E1F3180005EA836 /* MCameraFilterItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilterItem.swift; sourceTree = "<group>"; };
 		DAD404D61E1F3180005EA836 /* MCameraFilterItemBlend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraFilterItemBlend.swift; sourceTree = "<group>"; };
@@ -1101,7 +1100,7 @@
 			isa = PBXGroup;
 			children = (
 				DA9B83EE1E1316AC002B9810 /* DManager.swift */,
-				DA9B83F01E131B01002B9810 /* DLooper.xcdatamodeld */,
+				DAD146C11F1D9F2E00E401AF /* DLooper32.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1370,7 +1369,6 @@
 				DA96FEE51E03672F00FD5265 /* ExtensionNSManagedObject.swift in Sources */,
 				DA16553D1E29AA0200DA6808 /* VCameraRotate.swift in Sources */,
 				DAD404EC1E1F5169005EA836 /* MetalFilter.swift in Sources */,
-				DA9B83F21E131B01002B9810 /* DLooper.xcdatamodeld in Sources */,
 				DA4079171E2437E1002EED42 /* VCameraFilter.swift in Sources */,
 				DA8B1CEE1E300D3500BC896D /* VCameraFilterSelector.swift in Sources */,
 				DA96FEE81E03672F00FD5265 /* ExtensionUIFont.swift in Sources */,
@@ -1386,6 +1384,7 @@
 				DA54E2541E315AD9005AB7C0 /* MHelpItemBlenderAbout.swift in Sources */,
 				DA17E5601E256297004838D5 /* VCameraFilterBlenderOverlayBase.swift in Sources */,
 				DA4EBC621E208D8F00F9AC3D /* VHelpCell.swift in Sources */,
+				DAD146C31F1D9F2E00E401AF /* DLooper32.xcdatamodeld in Sources */,
 				DA9B83DA1E12E7E8002B9810 /* VView.swift in Sources */,
 				DA224AF71E2A99C100EF8271 /* VBlur.swift in Sources */,
 				DA73900E1E282D6600A82612 /* MCameraMore.swift in Sources */,
@@ -1660,14 +1659,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		DA9B83F01E131B01002B9810 /* DLooper.xcdatamodeld */ = {
+		DAD146C11F1D9F2E00E401AF /* DLooper32.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DA4E73521F1D9D58006339AE /* DLooper32Bits.xcdatamodel */,
-				DA9B83F11E131B01002B9810 /* DLooper.xcdatamodel */,
+				DAD146C21F1D9F2E00E401AF /* DLooper32.xcdatamodel */,
 			);
-			currentVersion = DA4E73521F1D9D58006339AE /* DLooper32Bits.xcdatamodel */;
-			path = DLooper.xcdatamodeld;
+			currentVersion = DAD146C21F1D9F2E00E401AF /* DLooper32.xcdatamodel */;
+			path = DLooper32.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
