@@ -4,12 +4,14 @@ import AVFoundation
 class CCameraVideoLoader:CController
 {
     private let url:URL
+    private var generatedImages:[UIImage]
     private weak var viewLoader:VCameraVideoLoader!
     private weak var generator:AVAssetImageGenerator?
     
     init(url:URL)
     {
         self.url = url
+        generatedImages = []
         super.init()
     }
     
@@ -58,24 +60,59 @@ class CCameraVideoLoader:CController
     {
         let asset:AVAsset = AVAsset(url:url)
         let times:[NSValue] = timesFor(asset:asset, frames:frames)
+        let countTimes:Int = times.count
         let generator:AVAssetImageGenerator = AVAssetImageGenerator.init(asset:asset)
         self.generator = generator
         
+        var received:Int = 0
+        generatedImages = []
+        
         generator.generateCGImagesAsynchronously(forTimes:times)
-        { (
+        { [weak self] (
             requestTime:CMTime,
-            image:CGImage?,
+            cgImage:CGImage?,
             actualTime:CMTime,
             result:AVAssetImageGeneratorResult,
             error:Error?) in
 
-            if let error:Error = error
+            if error == nil
             {
-                print(error)
-                return
+                if result == AVAssetImageGeneratorResult.succeeded
+                {
+                    guard
+                        
+                        let cgImage:CGImage = cgImage
+                        
+                    else
+                    {
+                        return
+                    }
+                    
+                    self?.receivedImage(cgImage:cgImage)
+                }
             }
             
-            print("image")
+            received += 1
+            
+            if received == countTimes
+            {
+                self?.allImagesReceived()
+            }
+        }
+    }
+    
+    private func receivedImage(cgImage:CGImage)
+    {
+        let image:UIImage = UIImage(cgImage:cgImage)
+        generatedImages.append(image)
+    }
+    
+    private func allImagesReceived()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.back()
         }
     }
     

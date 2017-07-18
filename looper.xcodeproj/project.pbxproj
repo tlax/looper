@@ -65,6 +65,7 @@
 		DA4E73451F1D56C3006339AE /* CCameraVideoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E73441F1D56C3006339AE /* CCameraVideoLoader.swift */; };
 		DA4E734A1F1D5AE8006339AE /* VCameraVideoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E73491F1D5AE8006339AE /* VCameraVideoLoader.swift */; };
 		DA4E734E1F1D6F21006339AE /* VCameraVideoLoaderFrames.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E734D1F1D6F21006339AE /* VCameraVideoLoaderFrames.swift */; };
+		DA4E73511F1D924D006339AE /* MCameraVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E73501F1D924D006339AE /* MCameraVideo.swift */; };
 		DA4EBC591E2086E000F9AC3D /* help.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4EBC581E2086E000F9AC3D /* help.xcassets */; };
 		DA4EBC621E208D8F00F9AC3D /* VHelpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EBC611E208D8F00F9AC3D /* VHelpCell.swift */; };
 		DA5190521E28401200905C83 /* MCameraMoreItemInfoFrames.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5190511E28401200905C83 /* MCameraMoreItemInfoFrames.swift */; };
@@ -290,6 +291,7 @@
 		DA4E73441F1D56C3006339AE /* CCameraVideoLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCameraVideoLoader.swift; sourceTree = "<group>"; };
 		DA4E73491F1D5AE8006339AE /* VCameraVideoLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraVideoLoader.swift; sourceTree = "<group>"; };
 		DA4E734D1F1D6F21006339AE /* VCameraVideoLoaderFrames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCameraVideoLoaderFrames.swift; sourceTree = "<group>"; };
+		DA4E73501F1D924D006339AE /* MCameraVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraVideo.swift; sourceTree = "<group>"; };
 		DA4EBC581E2086E000F9AC3D /* help.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = help.xcassets; sourceTree = "<group>"; };
 		DA4EBC611E208D8F00F9AC3D /* VHelpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHelpCell.swift; sourceTree = "<group>"; };
 		DA5190511E28401200905C83 /* MCameraMoreItemInfoFrames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCameraMoreItemInfoFrames.swift; sourceTree = "<group>"; };
@@ -693,6 +695,14 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		DA4E734F1F1D9242006339AE /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				DA4E73501F1D924D006339AE /* MCameraVideo.swift */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 		DA4EBC5A1E2089FF00F9AC3D /* Help */ = {
 			isa = PBXGroup;
 			children = (
@@ -1073,6 +1083,7 @@
 		DA9B83E81E1310AC002B9810 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				DA4E734F1F1D9242006339AE /* Video */,
 				DAB4581C1F1D1612007EFBA7 /* Picker */,
 				DA73900C1E282D5800A82612 /* More */,
 				DA14D1141E1879B3000753B3 /* Compress */,
@@ -1417,6 +1428,7 @@
 				DAFC40BA1E1A02A00044B14B /* VCameraCompress.swift in Sources */,
 				DAF604C81E23DBF000A1259E /* VStoreCellPurchased.swift in Sources */,
 				DAB457A51F1D0E8F007EFBA7 /* VCameraPickerBar.swift in Sources */,
+				DA4E73511F1D924D006339AE /* MCameraVideo.swift in Sources */,
 				DA54E25A1E315AFB005AB7C0 /* MHelpItemBlenderDrag.swift in Sources */,
 				DA17E5621E256297004838D5 /* VCameraFilterBlenderOverlayListAdd.swift in Sources */,
 				DA38AF181E1C5F20008C86A8 /* VLoopsCell.swift in Sources */,
