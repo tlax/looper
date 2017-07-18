@@ -30,6 +30,55 @@ class CCameraVideoLoader:CController
         view = viewLoader
     }
     
+    //MARK: private
+    
+    private func timesFor(asset:AVAsset, frames:Int) -> [NSValue]
+    {
+        var times:[NSValue] = []
+        let duration:CMTime = asset.duration
+        let seconds:Int = Int(ceil(CMTimeGetSeconds(duration)))
+        let secondsFrames:Int = seconds * frames
+        let timeScale:CMTimeScale = CMTimeScale(frames)
+        
+        for secondsFrame:Int in 0 ..< secondsFrames
+        {
+            let secondsFrameDouble:Double = Double(secondsFrame)
+            let time:CMTime = CMTime(
+                seconds:secondsFrameDouble,
+                preferredTimescale:timeScale)
+            let value:NSValue = NSValue(time:time)
+            
+            times.append(value)
+        }
+        
+        return times
+    }
+    
+    private func asyncRender(frames:Int)
+    {
+        let asset:AVAsset = AVAsset(url:url)
+        let times:[NSValue] = timesFor(asset:asset, frames:frames)
+        let generator:AVAssetImageGenerator = AVAssetImageGenerator.init(asset:asset)
+        self.generator = generator
+        
+        generator.generateCGImagesAsynchronously(forTimes:times)
+        { (
+            requestTime:CMTime,
+            image:CGImage?,
+            actualTime:CMTime,
+            result:AVAssetImageGeneratorResult,
+            error:Error?) in
+
+            if let error:Error = error
+            {
+                print(error)
+                return
+            }
+            
+            print("image")
+        }
+    }
+    
     //MARK: public
     
     func back()
@@ -39,46 +88,14 @@ class CCameraVideoLoader:CController
     
     func next()
     {
+        viewLoader.block()
         
-    }
-    
-    //MARK: private
-    /*
-    private func timesFor(asset:AVAsset) -> [NSValue]
-    {
-        let duration:CMTime = asset.duration
-        let seconds:Float64 = CMTimeGetSeconds(duration)
-        
-        return generator
-    }
-    
-    private func asyncRender(url:URL)
-    {
-        let asset:AVAsset = AVAsset(url:url)
-        let generator:AVAssetImageGenerator = AVAssetImageGenerator.init(asset:asset)
-        self.generator = generator
-        
-        generator.generateCGImagesAsynchronously(forTimes: [])
-        { (<#CMTime#>, <#CGImage?#>, <#CMTime#>, <#AVAssetImageGeneratorResult#>, <#Error?#>) in
-            
-        }
-    }
-    
-    private func render(url:URL?)
-    {
-        guard
-            
-            let url:URL = url
-            
-        else
-        {
-            return
-        }
+        let frames:Int = viewLoader.viewFrames.frames()
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            { [weak self] in
-                
-                self?.asyncRender(url:url)
+        { [weak self] in
+            
+            self?.asyncRender(frames:frames)
         }
-    }*/
+    }
 }

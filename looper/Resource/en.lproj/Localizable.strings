@@ -26,7 +26,7 @@
 "VCameraPickerBar_buttonCancel"="Cancel";
 "VCameraPickerBar_buttonCommit"="Done";
 "VCameraVideoLoader_buttonCancel"="Cancel";
-"VCameraVideoLoader_buttonNext"="Next";
+"VCameraVideoLoaderFrames_labelTitle"="Frames per second";
 
 "CCameraShoot_noAuth"="looper has no access to your camera";
 "CCameraShoot_errorCaptureDevice"="Error connecting to camera";

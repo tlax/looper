@@ -2,12 +2,12 @@ import UIKit
 
 class VCameraVideoLoader:VView
 {
+    private(set) weak var viewFrames:VCameraVideoLoaderFrames!
     private weak var controller:CCameraVideoLoader!
-    private weak var viewFrames:VCameraVideoLoaderFrames!
     private weak var buttonNext:UIButton!
     private weak var spinner:VSpinner!
-    private let kButtonHeight:CGFloat = 50
-    private let kFramesHeight:CGFloat = 250
+    private let kButtonHeight:CGFloat = 60
+    private let kFramesHeight:CGFloat = 160
     
     override init(controller:CController)
     {
@@ -15,7 +15,7 @@ class VCameraVideoLoader:VView
         backgroundColor = UIColor.clear
         self.controller = controller as? CCameraVideoLoader
         
-        let blur:VBlur = VBlur.dark()
+        let blur:VBlur = VBlur.extraLight()
         
         let spinner:VSpinner = VSpinner()
         spinner.stopAnimating()
@@ -25,10 +25,10 @@ class VCameraVideoLoader:VView
         buttonCancel.translatesAutoresizingMaskIntoConstraints = false
         buttonCancel.backgroundColor = UIColor.clear
         buttonCancel.setTitleColor(
-            UIColor.white,
+            UIColor.black,
             for:UIControlState.normal)
         buttonCancel.setTitleColor(
-            UIColor(white:1, alpha:0.2),
+            UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
         buttonCancel.setTitle(
             NSLocalizedString("VCameraVideoLoader_buttonCancel", comment:""),
@@ -41,17 +41,11 @@ class VCameraVideoLoader:VView
         
         let buttonNext:UIButton = UIButton()
         buttonNext.translatesAutoresizingMaskIntoConstraints = false
-        buttonNext.backgroundColor = UIColor.clear
-        buttonNext.setTitleColor(
-            UIColor.white,
+        buttonNext.setImage(
+            #imageLiteral(resourceName: "assetGenericNext"),
             for:UIControlState.normal)
-        buttonNext.setTitleColor(
-            UIColor(white:1, alpha:0.2),
-            for:UIControlState.highlighted)
-        buttonNext.setTitle(
-            NSLocalizedString("VCameraVideoLoader_buttonNext", comment:""),
-            for:UIControlState.normal)
-        buttonNext.titleLabel!.font = UIFont.bold(size:15)
+        buttonNext.imageView!.clipsToBounds = true
+        buttonNext.imageView!.contentMode = UIViewContentMode.center
         buttonNext.addTarget(
             self,
             action:#selector(actionNext(sender:)),
@@ -126,7 +120,7 @@ class VCameraVideoLoader:VView
     
     func actionNext(sender button:UIButton)
     {
-        
+        controller.next()
     }
     
     //MARK: public
