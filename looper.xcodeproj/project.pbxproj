@@ -46,13 +46,13 @@
 		DA3B22611F201F3300F85DFD /* VToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22331F201F3300F85DFD /* VToast.swift */; };
 		DA3B22621F201F3300F85DFD /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22351F201F3300F85DFD /* VHome.swift */; };
 		DA3B22651F201FB900F85DFD /* DLooperRefactor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22631F201FB900F85DFD /* DLooperRefactor.xcdatamodeld */; };
-		DA3B22771F2024A400F85DFD /* MPerkWhistlesVsZombies.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B226F1F2024A400F85DFD /* MPerkWhistlesVsZombies.swift */; };
 		DA3B22781F2024A400F85DFD /* MSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22711F2024A400F85DFD /* MSession.swift */; };
 		DA3B22791F2024A400F85DFD /* MSessionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22721F2024A400F85DFD /* MSessionSettings.swift */; };
 		DA3B227B1F20256800F85DFD /* MSessionFactoryPerk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B227A1F20256800F85DFD /* MSessionFactoryPerk.swift */; };
 		DA3B227D1F20260B00F85DFD /* MPerkThumbnailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B227C1F20260B00F85DFD /* MPerkThumbnailProtocol.swift */; };
 		DA3B227F1F20261500F85DFD /* MPerkThumbnailFreeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B227E1F20261500F85DFD /* MPerkThumbnailFreeProtocol.swift */; };
 		DA3B22811F20261E00F85DFD /* MPerkThumbnailPurchaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22801F20261E00F85DFD /* MPerkThumbnailPurchaseProtocol.swift */; };
+		DA3B22831F20268C00F85DFD /* MPerkDomainProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22821F20268C00F85DFD /* MPerkDomainProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,13 +95,13 @@
 		DA3B22331F201F3300F85DFD /* VToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VToast.swift; sourceTree = "<group>"; };
 		DA3B22351F201F3300F85DFD /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DA3B22641F201FB900F85DFD /* DLooperRefactor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DLooperRefactor.xcdatamodel; sourceTree = "<group>"; };
-		DA3B226F1F2024A400F85DFD /* MPerkWhistlesVsZombies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkWhistlesVsZombies.swift; sourceTree = "<group>"; };
 		DA3B22711F2024A400F85DFD /* MSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSession.swift; sourceTree = "<group>"; };
 		DA3B22721F2024A400F85DFD /* MSessionSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionSettings.swift; sourceTree = "<group>"; };
 		DA3B227A1F20256800F85DFD /* MSessionFactoryPerk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionFactoryPerk.swift; sourceTree = "<group>"; };
 		DA3B227C1F20260B00F85DFD /* MPerkThumbnailProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkThumbnailProtocol.swift; sourceTree = "<group>"; };
 		DA3B227E1F20261500F85DFD /* MPerkThumbnailFreeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkThumbnailFreeProtocol.swift; sourceTree = "<group>"; };
 		DA3B22801F20261E00F85DFD /* MPerkThumbnailPurchaseProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkThumbnailPurchaseProtocol.swift; sourceTree = "<group>"; };
+		DA3B22821F20268C00F85DFD /* MPerkDomainProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkDomainProtocol.swift; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FEA41E03672F00FD5265 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -306,6 +306,7 @@
 				DA3B227C1F20260B00F85DFD /* MPerkThumbnailProtocol.swift */,
 				DA3B227E1F20261500F85DFD /* MPerkThumbnailFreeProtocol.swift */,
 				DA3B22801F20261E00F85DFD /* MPerkThumbnailPurchaseProtocol.swift */,
+				DA3B22821F20268C00F85DFD /* MPerkDomainProtocol.swift */,
 			);
 			path = Abstract;
 			sourceTree = "<group>";
@@ -320,7 +321,6 @@
 		DA3B226E1F2024A400F85DFD /* Thumbnail */ = {
 			isa = PBXGroup;
 			children = (
-				DA3B226F1F2024A400F85DFD /* MPerkWhistlesVsZombies.swift */,
 			);
 			path = Thumbnail;
 			sourceTree = "<group>";
@@ -459,8 +459,8 @@
 				DA3B22651F201FB900F85DFD /* DLooperRefactor.xcdatamodeld in Sources */,
 				DA3B227F1F20261500F85DFD /* MPerkThumbnailFreeProtocol.swift in Sources */,
 				DA3B225A1F201F3300F85DFD /* VCollection.swift in Sources */,
+				DA3B22831F20268C00F85DFD /* MPerkDomainProtocol.swift in Sources */,
 				DA3B223A1F201F3300F85DFD /* CHome.swift in Sources */,
-				DA3B22771F2024A400F85DFD /* MPerkWhistlesVsZombies.swift in Sources */,
 				DA3B225F1F201F3300F85DFD /* VSliderBar.swift in Sources */,
 				DA3B22621F201F3300F85DFD /* VHome.swift in Sources */,
 				DA3B224D1F201F3300F85DFD /* ExtensionUIFont.swift in Sources */,
