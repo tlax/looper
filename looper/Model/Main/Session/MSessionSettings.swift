@@ -55,7 +55,7 @@ extension MSession
         
         guard
             
-            let options:[DOption] = settings.options?.array as? [DOption]
+            let perks:[DPerk] = settings.perks?.array as? [DPerk]
         
         else
         {
@@ -64,11 +64,11 @@ extension MSession
         
         settingsLoaded(settings:settings)
         
-        let perks:[MPerkProtocol] = MPerkFactory.factoryPerks()
+        let thumbnails:[MPerkThumbnailProtocol] = MSession.factoryPerks()
      
-        for perk:MPerkProtocol in perks
+        for thumbnail:MPerkThumbnailProtocol in thumbnails
         {
-            let shouldAdd:Bool = shouldAddPerk(perk:perk, options:options)
+            let shouldAdd:Bool = shouldAddThumbnail(perk:perk, options:options)
             
             if shouldAdd
             {
@@ -85,7 +85,9 @@ extension MSession
         }
     }
     
-    private func shouldAddPerk(perk:MPerkProtocol, options:[DOption]) -> Bool
+    private func shouldAddThumbnail(
+        thumbnail:MPerkThumbnailProtocol,
+        options:[DPerk]) -> Bool
     {
         let gameId:String = perk.gameId
         

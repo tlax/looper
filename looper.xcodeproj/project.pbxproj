@@ -53,6 +53,7 @@
 		DA3B227F1F20261500F85DFD /* MPerkThumbnailFreeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B227E1F20261500F85DFD /* MPerkThumbnailFreeProtocol.swift */; };
 		DA3B22811F20261E00F85DFD /* MPerkThumbnailPurchaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22801F20261E00F85DFD /* MPerkThumbnailPurchaseProtocol.swift */; };
 		DA3B22831F20268C00F85DFD /* MPerkDomainProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22821F20268C00F85DFD /* MPerkDomainProtocol.swift */; };
+		DA3B22851F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22841F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		DA3B227E1F20261500F85DFD /* MPerkThumbnailFreeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkThumbnailFreeProtocol.swift; sourceTree = "<group>"; };
 		DA3B22801F20261E00F85DFD /* MPerkThumbnailPurchaseProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkThumbnailPurchaseProtocol.swift; sourceTree = "<group>"; };
 		DA3B22821F20268C00F85DFD /* MPerkDomainProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkDomainProtocol.swift; sourceTree = "<group>"; };
+		DA3B22841F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkThumbnailProtocolExtension.swift; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FEA41E03672F00FD5265 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				DA3B227C1F20260B00F85DFD /* MPerkThumbnailProtocol.swift */,
+				DA3B22841F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift */,
 				DA3B227E1F20261500F85DFD /* MPerkThumbnailFreeProtocol.swift */,
 				DA3B22801F20261E00F85DFD /* MPerkThumbnailPurchaseProtocol.swift */,
 				DA3B22821F20268C00F85DFD /* MPerkDomainProtocol.swift */,
@@ -468,6 +471,7 @@
 				DA3B22481F201F3300F85DFD /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DA3B225C1F201F3300F85DFD /* VGradient.swift in Sources */,
 				DA3B22471F201F3300F85DFD /* ExtensionNotification.swift in Sources */,
+				DA3B22851F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift in Sources */,
 				DA3B22561F201F3300F85DFD /* ViewProtocol.swift in Sources */,
 				DA3B22461F201F3300F85DFD /* ExtensionFileManager.swift in Sources */,
 				DA3B22431F201F3300F85DFD /* DManager.swift in Sources */,
@@ -612,7 +616,6 @@
 		DA96FE921E03653100FD5265 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = looper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -626,7 +629,6 @@
 		DA96FE931E03653100FD5265 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = looper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
