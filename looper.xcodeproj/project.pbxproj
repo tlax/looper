@@ -6,7 +6,100 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F61F201F3300F85DFD /* AppDelegate.swift */; };
+		DA3B22371F201F3300F85DFD /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F71F201F3300F85DFD /* Controller.swift */; };
+		DA3B22381F201F3300F85DFD /* ControllerParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F81F201F3300F85DFD /* ControllerParent.swift */; };
+		DA3B22391F201F3300F85DFD /* ControllerParentTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F91F201F3300F85DFD /* ControllerParentTransitions.swift */; };
+		DA3B223A1F201F3300F85DFD /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21FB1F201F3300F85DFD /* CHome.swift */; };
+		DA3B223B1F201F3300F85DFD /* MPerkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22001F201F3300F85DFD /* MPerkFactory.swift */; };
+		DA3B223C1F201F3300F85DFD /* MPerkFreeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22011F201F3300F85DFD /* MPerkFreeProtocol.swift */; };
+		DA3B223D1F201F3300F85DFD /* MPerkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22021F201F3300F85DFD /* MPerkProtocol.swift */; };
+		DA3B223E1F201F3300F85DFD /* MPerkPurchaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22031F201F3300F85DFD /* MPerkPurchaseProtocol.swift */; };
+		DA3B223F1F201F3300F85DFD /* MSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22041F201F3300F85DFD /* MSession.swift */; };
+		DA3B22401F201F3300F85DFD /* MSessionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22051F201F3300F85DFD /* MSessionSettings.swift */; };
+		DA3B22411F201F3300F85DFD /* MPerkWhistlesVsZombies.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22071F201F3300F85DFD /* MPerkWhistlesVsZombies.swift */; };
+		DA3B22421F201F3300F85DFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA3B220A1F201F3300F85DFD /* LaunchScreen.storyboard */; };
+		DA3B22431F201F3300F85DFD /* DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B220C1F201F3300F85DFD /* DManager.swift */; };
+		DA3B22441F201F3300F85DFD /* DSettingsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B220D1F201F3300F85DFD /* DSettingsExtension.swift */; };
+		DA3B22451F201F3300F85DFD /* ExtensionDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B220F1F201F3300F85DFD /* ExtensionDictionary.swift */; };
+		DA3B22461F201F3300F85DFD /* ExtensionFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22101F201F3300F85DFD /* ExtensionFileManager.swift */; };
+		DA3B22471F201F3300F85DFD /* ExtensionNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22111F201F3300F85DFD /* ExtensionNotification.swift */; };
+		DA3B22481F201F3300F85DFD /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22121F201F3300F85DFD /* ExtensionNSLayoutConstraint.swift */; };
+		DA3B22491F201F3300F85DFD /* ExtensionNSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22131F201F3300F85DFD /* ExtensionNSManagedObject.swift */; };
+		DA3B224A1F201F3300F85DFD /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22141F201F3300F85DFD /* ExtensionString.swift */; };
+		DA3B224B1F201F3300F85DFD /* ExtensionUICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22151F201F3300F85DFD /* ExtensionUICollectionReusableView.swift */; };
+		DA3B224C1F201F3300F85DFD /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22161F201F3300F85DFD /* ExtensionUIColor.swift */; };
+		DA3B224D1F201F3300F85DFD /* ExtensionUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22171F201F3300F85DFD /* ExtensionUIFont.swift */; };
+		DA3B224E1F201F3300F85DFD /* ExtensionURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22181F201F3300F85DFD /* ExtensionURL.swift */; };
+		DA3B224F1F201F3300F85DFD /* LocalizableController.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3B221A1F201F3300F85DFD /* LocalizableController.strings */; };
+		DA3B22501F201F3300F85DFD /* LocalizableModel.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3B221C1F201F3300F85DFD /* LocalizableModel.strings */; };
+		DA3B22511F201F3300F85DFD /* LocalizableView.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3B221E1F201F3300F85DFD /* LocalizableView.strings */; };
+		DA3B22521F201F3300F85DFD /* ResourceURL.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3B22201F201F3300F85DFD /* ResourceURL.plist */; };
+		DA3B22531F201F3300F85DFD /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22241F201F3300F85DFD /* View.swift */; };
+		DA3B22541F201F3300F85DFD /* ViewParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22251F201F3300F85DFD /* ViewParent.swift */; };
+		DA3B22551F201F3300F85DFD /* ViewParentTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22261F201F3300F85DFD /* ViewParentTransitions.swift */; };
+		DA3B22561F201F3300F85DFD /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22271F201F3300F85DFD /* ViewProtocol.swift */; };
+		DA3B22571F201F3300F85DFD /* VAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22291F201F3300F85DFD /* VAlert.swift */; };
+		DA3B22581F201F3300F85DFD /* VBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B222A1F201F3300F85DFD /* VBlur.swift */; };
+		DA3B22591F201F3300F85DFD /* VBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B222B1F201F3300F85DFD /* VBorder.swift */; };
+		DA3B225A1F201F3300F85DFD /* VCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B222C1F201F3300F85DFD /* VCollection.swift */; };
+		DA3B225B1F201F3300F85DFD /* VCollectionFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B222D1F201F3300F85DFD /* VCollectionFlow.swift */; };
+		DA3B225C1F201F3300F85DFD /* VGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B222E1F201F3300F85DFD /* VGradient.swift */; };
+		DA3B225D1F201F3300F85DFD /* VPushBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B222F1F201F3300F85DFD /* VPushBackground.swift */; };
+		DA3B225E1F201F3300F85DFD /* VSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22301F201F3300F85DFD /* VSlider.swift */; };
+		DA3B225F1F201F3300F85DFD /* VSliderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22311F201F3300F85DFD /* VSliderBar.swift */; };
+		DA3B22601F201F3300F85DFD /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22321F201F3300F85DFD /* VSpinner.swift */; };
+		DA3B22611F201F3300F85DFD /* VToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22331F201F3300F85DFD /* VToast.swift */; };
+		DA3B22621F201F3300F85DFD /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22351F201F3300F85DFD /* VHome.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		DA3B21F61F201F3300F85DFD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DA3B21F71F201F3300F85DFD /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		DA3B21F81F201F3300F85DFD /* ControllerParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParent.swift; sourceTree = "<group>"; };
+		DA3B21F91F201F3300F85DFD /* ControllerParentTransitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParentTransitions.swift; sourceTree = "<group>"; };
+		DA3B21FB1F201F3300F85DFD /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
+		DA3B22001F201F3300F85DFD /* MPerkFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkFactory.swift; sourceTree = "<group>"; };
+		DA3B22011F201F3300F85DFD /* MPerkFreeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkFreeProtocol.swift; sourceTree = "<group>"; };
+		DA3B22021F201F3300F85DFD /* MPerkProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkProtocol.swift; sourceTree = "<group>"; };
+		DA3B22031F201F3300F85DFD /* MPerkPurchaseProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkPurchaseProtocol.swift; sourceTree = "<group>"; };
+		DA3B22041F201F3300F85DFD /* MSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSession.swift; sourceTree = "<group>"; };
+		DA3B22051F201F3300F85DFD /* MSessionSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionSettings.swift; sourceTree = "<group>"; };
+		DA3B22071F201F3300F85DFD /* MPerkWhistlesVsZombies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkWhistlesVsZombies.swift; sourceTree = "<group>"; };
+		DA3B220A1F201F3300F85DFD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA3B220C1F201F3300F85DFD /* DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManager.swift; sourceTree = "<group>"; };
+		DA3B220D1F201F3300F85DFD /* DSettingsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSettingsExtension.swift; sourceTree = "<group>"; };
+		DA3B220F1F201F3300F85DFD /* ExtensionDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionDictionary.swift; sourceTree = "<group>"; };
+		DA3B22101F201F3300F85DFD /* ExtensionFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionFileManager.swift; sourceTree = "<group>"; };
+		DA3B22111F201F3300F85DFD /* ExtensionNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNotification.swift; sourceTree = "<group>"; };
+		DA3B22121F201F3300F85DFD /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
+		DA3B22131F201F3300F85DFD /* ExtensionNSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSManagedObject.swift; sourceTree = "<group>"; };
+		DA3B22141F201F3300F85DFD /* ExtensionString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
+		DA3B22151F201F3300F85DFD /* ExtensionUICollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionReusableView.swift; sourceTree = "<group>"; };
+		DA3B22161F201F3300F85DFD /* ExtensionUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
+		DA3B22171F201F3300F85DFD /* ExtensionUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIFont.swift; sourceTree = "<group>"; };
+		DA3B22181F201F3300F85DFD /* ExtensionURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionURL.swift; sourceTree = "<group>"; };
+		DA3B221B1F201F3300F85DFD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableController.strings; sourceTree = "<group>"; };
+		DA3B221D1F201F3300F85DFD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableModel.strings; sourceTree = "<group>"; };
+		DA3B221F1F201F3300F85DFD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableView.strings; sourceTree = "<group>"; };
+		DA3B22201F201F3300F85DFD /* ResourceURL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ResourceURL.plist; sourceTree = "<group>"; };
+		DA3B22241F201F3300F85DFD /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		DA3B22251F201F3300F85DFD /* ViewParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewParent.swift; sourceTree = "<group>"; };
+		DA3B22261F201F3300F85DFD /* ViewParentTransitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewParentTransitions.swift; sourceTree = "<group>"; };
+		DA3B22271F201F3300F85DFD /* ViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
+		DA3B22291F201F3300F85DFD /* VAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAlert.swift; sourceTree = "<group>"; };
+		DA3B222A1F201F3300F85DFD /* VBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBlur.swift; sourceTree = "<group>"; };
+		DA3B222B1F201F3300F85DFD /* VBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBorder.swift; sourceTree = "<group>"; };
+		DA3B222C1F201F3300F85DFD /* VCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCollection.swift; sourceTree = "<group>"; };
+		DA3B222D1F201F3300F85DFD /* VCollectionFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCollectionFlow.swift; sourceTree = "<group>"; };
+		DA3B222E1F201F3300F85DFD /* VGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGradient.swift; sourceTree = "<group>"; };
+		DA3B222F1F201F3300F85DFD /* VPushBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPushBackground.swift; sourceTree = "<group>"; };
+		DA3B22301F201F3300F85DFD /* VSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSlider.swift; sourceTree = "<group>"; };
+		DA3B22311F201F3300F85DFD /* VSliderBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSliderBar.swift; sourceTree = "<group>"; };
+		DA3B22321F201F3300F85DFD /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
+		DA3B22331F201F3300F85DFD /* VToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VToast.swift; sourceTree = "<group>"; };
+		DA3B22351F201F3300F85DFD /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FEA41E03672F00FD5265 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -22,6 +115,191 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA3B21F41F201F3300F85DFD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B21F51F201F3300F85DFD /* Abstract */,
+				DA3B21FA1F201F3300F85DFD /* Home */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DA3B21F51F201F3300F85DFD /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B21F61F201F3300F85DFD /* AppDelegate.swift */,
+				DA3B21F71F201F3300F85DFD /* Controller.swift */,
+				DA3B21F81F201F3300F85DFD /* ControllerParent.swift */,
+				DA3B21F91F201F3300F85DFD /* ControllerParentTransitions.swift */,
+			);
+			path = Abstract;
+			sourceTree = "<group>";
+		};
+		DA3B21FA1F201F3300F85DFD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B21FB1F201F3300F85DFD /* CHome.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DA3B21FC1F201F3300F85DFD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B21FD1F201F3300F85DFD /* Home */,
+				DA3B21FE1F201F3300F85DFD /* Main */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA3B21FD1F201F3300F85DFD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DA3B21FE1F201F3300F85DFD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B21FF1F201F3300F85DFD /* Abstract */,
+				DA3B22061F201F3300F85DFD /* Perk */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DA3B21FF1F201F3300F85DFD /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B22001F201F3300F85DFD /* MPerkFactory.swift */,
+				DA3B22011F201F3300F85DFD /* MPerkFreeProtocol.swift */,
+				DA3B22021F201F3300F85DFD /* MPerkProtocol.swift */,
+				DA3B22031F201F3300F85DFD /* MPerkPurchaseProtocol.swift */,
+				DA3B22041F201F3300F85DFD /* MSession.swift */,
+				DA3B22051F201F3300F85DFD /* MSessionSettings.swift */,
+			);
+			path = Abstract;
+			sourceTree = "<group>";
+		};
+		DA3B22061F201F3300F85DFD /* Perk */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B22071F201F3300F85DFD /* MPerkWhistlesVsZombies.swift */,
+			);
+			path = Perk;
+			sourceTree = "<group>";
+		};
+		DA3B22081F201F3300F85DFD /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B22091F201F3300F85DFD /* Assets */,
+				DA3B220B1F201F3300F85DFD /* Data */,
+				DA3B220E1F201F3300F85DFD /* Extensions */,
+				DA3B22191F201F3300F85DFD /* Resource */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		DA3B22091F201F3300F85DFD /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B220A1F201F3300F85DFD /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		DA3B220B1F201F3300F85DFD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B220C1F201F3300F85DFD /* DManager.swift */,
+				DA3B220D1F201F3300F85DFD /* DSettingsExtension.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DA3B220E1F201F3300F85DFD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B220F1F201F3300F85DFD /* ExtensionDictionary.swift */,
+				DA3B22101F201F3300F85DFD /* ExtensionFileManager.swift */,
+				DA3B22111F201F3300F85DFD /* ExtensionNotification.swift */,
+				DA3B22121F201F3300F85DFD /* ExtensionNSLayoutConstraint.swift */,
+				DA3B22131F201F3300F85DFD /* ExtensionNSManagedObject.swift */,
+				DA3B22141F201F3300F85DFD /* ExtensionString.swift */,
+				DA3B22151F201F3300F85DFD /* ExtensionUICollectionReusableView.swift */,
+				DA3B22161F201F3300F85DFD /* ExtensionUIColor.swift */,
+				DA3B22171F201F3300F85DFD /* ExtensionUIFont.swift */,
+				DA3B22181F201F3300F85DFD /* ExtensionURL.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DA3B22191F201F3300F85DFD /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B221A1F201F3300F85DFD /* LocalizableController.strings */,
+				DA3B221C1F201F3300F85DFD /* LocalizableModel.strings */,
+				DA3B221E1F201F3300F85DFD /* LocalizableView.strings */,
+				DA3B22201F201F3300F85DFD /* ResourceURL.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DA3B22211F201F3300F85DFD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B22221F201F3300F85DFD /* Abstract */,
+				DA3B22281F201F3300F85DFD /* Basic */,
+				DA3B22341F201F3300F85DFD /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA3B22221F201F3300F85DFD /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B22231F201F3300F85DFD /* Basic */,
+			);
+			path = Abstract;
+			sourceTree = "<group>";
+		};
+		DA3B22231F201F3300F85DFD /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B22241F201F3300F85DFD /* View.swift */,
+				DA3B22251F201F3300F85DFD /* ViewParent.swift */,
+				DA3B22261F201F3300F85DFD /* ViewParentTransitions.swift */,
+				DA3B22271F201F3300F85DFD /* ViewProtocol.swift */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		DA3B22281F201F3300F85DFD /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B22291F201F3300F85DFD /* VAlert.swift */,
+				DA3B222A1F201F3300F85DFD /* VBlur.swift */,
+				DA3B222B1F201F3300F85DFD /* VBorder.swift */,
+				DA3B222C1F201F3300F85DFD /* VCollection.swift */,
+				DA3B222D1F201F3300F85DFD /* VCollectionFlow.swift */,
+				DA3B222E1F201F3300F85DFD /* VGradient.swift */,
+				DA3B222F1F201F3300F85DFD /* VPushBackground.swift */,
+				DA3B22301F201F3300F85DFD /* VSlider.swift */,
+				DA3B22311F201F3300F85DFD /* VSliderBar.swift */,
+				DA3B22321F201F3300F85DFD /* VSpinner.swift */,
+				DA3B22331F201F3300F85DFD /* VToast.swift */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		DA3B22341F201F3300F85DFD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DA3B22351F201F3300F85DFD /* VHome.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		DA96FE761E03653100FD5265 = {
 			isa = PBXGroup;
 			children = (
@@ -41,6 +319,10 @@
 		DA96FE811E03653100FD5265 /* looper */ = {
 			isa = PBXGroup;
 			children = (
+				DA3B21F41F201F3300F85DFD /* Controller */,
+				DA3B21FC1F201F3300F85DFD /* Model */,
+				DA3B22081F201F3300F85DFD /* Support */,
+				DA3B22211F201F3300F85DFD /* View */,
 				DA96FEA41E03672F00FD5265 /* Info.plist */,
 			);
 			path = looper;
@@ -106,6 +388,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA3B22511F201F3300F85DFD /* LocalizableView.strings in Resources */,
+				DA3B22421F201F3300F85DFD /* LaunchScreen.storyboard in Resources */,
+				DA3B224F1F201F3300F85DFD /* LocalizableController.strings in Resources */,
+				DA3B22521F201F3300F85DFD /* ResourceURL.plist in Resources */,
+				DA3B22501F201F3300F85DFD /* LocalizableModel.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,10 +403,77 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA3B224A1F201F3300F85DFD /* ExtensionString.swift in Sources */,
+				DA3B22391F201F3300F85DFD /* ControllerParentTransitions.swift in Sources */,
+				DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */,
+				DA3B223B1F201F3300F85DFD /* MPerkFactory.swift in Sources */,
+				DA3B22541F201F3300F85DFD /* ViewParent.swift in Sources */,
+				DA3B22611F201F3300F85DFD /* VToast.swift in Sources */,
+				DA3B22441F201F3300F85DFD /* DSettingsExtension.swift in Sources */,
+				DA3B22601F201F3300F85DFD /* VSpinner.swift in Sources */,
+				DA3B225D1F201F3300F85DFD /* VPushBackground.swift in Sources */,
+				DA3B22411F201F3300F85DFD /* MPerkWhistlesVsZombies.swift in Sources */,
+				DA3B22451F201F3300F85DFD /* ExtensionDictionary.swift in Sources */,
+				DA3B225E1F201F3300F85DFD /* VSlider.swift in Sources */,
+				DA3B22381F201F3300F85DFD /* ControllerParent.swift in Sources */,
+				DA3B22581F201F3300F85DFD /* VBlur.swift in Sources */,
+				DA3B223C1F201F3300F85DFD /* MPerkFreeProtocol.swift in Sources */,
+				DA3B22491F201F3300F85DFD /* ExtensionNSManagedObject.swift in Sources */,
+				DA3B22371F201F3300F85DFD /* Controller.swift in Sources */,
+				DA3B22571F201F3300F85DFD /* VAlert.swift in Sources */,
+				DA3B225A1F201F3300F85DFD /* VCollection.swift in Sources */,
+				DA3B223A1F201F3300F85DFD /* CHome.swift in Sources */,
+				DA3B225F1F201F3300F85DFD /* VSliderBar.swift in Sources */,
+				DA3B22621F201F3300F85DFD /* VHome.swift in Sources */,
+				DA3B224D1F201F3300F85DFD /* ExtensionUIFont.swift in Sources */,
+				DA3B224E1F201F3300F85DFD /* ExtensionURL.swift in Sources */,
+				DA3B223D1F201F3300F85DFD /* MPerkProtocol.swift in Sources */,
+				DA3B22481F201F3300F85DFD /* ExtensionNSLayoutConstraint.swift in Sources */,
+				DA3B225C1F201F3300F85DFD /* VGradient.swift in Sources */,
+				DA3B22471F201F3300F85DFD /* ExtensionNotification.swift in Sources */,
+				DA3B22561F201F3300F85DFD /* ViewProtocol.swift in Sources */,
+				DA3B22401F201F3300F85DFD /* MSessionSettings.swift in Sources */,
+				DA3B223F1F201F3300F85DFD /* MSession.swift in Sources */,
+				DA3B22461F201F3300F85DFD /* ExtensionFileManager.swift in Sources */,
+				DA3B22431F201F3300F85DFD /* DManager.swift in Sources */,
+				DA3B223E1F201F3300F85DFD /* MPerkPurchaseProtocol.swift in Sources */,
+				DA3B22531F201F3300F85DFD /* View.swift in Sources */,
+				DA3B22591F201F3300F85DFD /* VBorder.swift in Sources */,
+				DA3B22551F201F3300F85DFD /* ViewParentTransitions.swift in Sources */,
+				DA3B225B1F201F3300F85DFD /* VCollectionFlow.swift in Sources */,
+				DA3B224B1F201F3300F85DFD /* ExtensionUICollectionReusableView.swift in Sources */,
+				DA3B224C1F201F3300F85DFD /* ExtensionUIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DA3B221A1F201F3300F85DFD /* LocalizableController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA3B221B1F201F3300F85DFD /* en */,
+			);
+			name = LocalizableController.strings;
+			sourceTree = "<group>";
+		};
+		DA3B221C1F201F3300F85DFD /* LocalizableModel.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA3B221D1F201F3300F85DFD /* en */,
+			);
+			name = LocalizableModel.strings;
+			sourceTree = "<group>";
+		};
+		DA3B221E1F201F3300F85DFD /* LocalizableView.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA3B221F1F201F3300F85DFD /* en */,
+			);
+			name = LocalizableView.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DA96FE8F1E03653100FD5265 /* Debug */ = {
