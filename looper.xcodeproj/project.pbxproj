@@ -53,6 +53,7 @@
 		DA3B22771F2024A400F85DFD /* MPerkWhistlesVsZombies.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B226F1F2024A400F85DFD /* MPerkWhistlesVsZombies.swift */; };
 		DA3B22781F2024A400F85DFD /* MSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22711F2024A400F85DFD /* MSession.swift */; };
 		DA3B22791F2024A400F85DFD /* MSessionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22721F2024A400F85DFD /* MSessionSettings.swift */; };
+		DA3B227B1F20256800F85DFD /* MSessionFactoryPerk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B227A1F20256800F85DFD /* MSessionFactoryPerk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		DA3B226F1F2024A400F85DFD /* MPerkWhistlesVsZombies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkWhistlesVsZombies.swift; sourceTree = "<group>"; };
 		DA3B22711F2024A400F85DFD /* MSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSession.swift; sourceTree = "<group>"; };
 		DA3B22721F2024A400F85DFD /* MSessionSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionSettings.swift; sourceTree = "<group>"; };
+		DA3B227A1F20256800F85DFD /* MSessionFactoryPerk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionFactoryPerk.swift; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FEA41E03672F00FD5265 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -331,6 +333,7 @@
 			children = (
 				DA3B22711F2024A400F85DFD /* MSession.swift */,
 				DA3B22721F2024A400F85DFD /* MSessionSettings.swift */,
+				DA3B227A1F20256800F85DFD /* MSessionFactoryPerk.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA3B224A1F201F3300F85DFD /* ExtensionString.swift in Sources */,
+				DA3B227B1F20256800F85DFD /* MSessionFactoryPerk.swift in Sources */,
 				DA3B22391F201F3300F85DFD /* ControllerParentTransitions.swift in Sources */,
 				DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */,
 				DA3B22731F2024A400F85DFD /* MPerkFactory.swift in Sources */,
