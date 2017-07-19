@@ -2,9 +2,9 @@ import Foundation
 
 extension MSession
 {
-    class func factoryPerks() -> [MPerkProtocol]
+    class func factoryPerks() -> [MPerkThumbnailProtocol]
     {
-        let perks:[MPerkProtocol] = []
+        let perks:[MPerkThumbnailProtocol] = []
         
         return perks
     }
