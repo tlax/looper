@@ -46,7 +46,6 @@
 		DA3B22611F201F3300F85DFD /* VToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22331F201F3300F85DFD /* VToast.swift */; };
 		DA3B22621F201F3300F85DFD /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22351F201F3300F85DFD /* VHome.swift */; };
 		DA3B22651F201FB900F85DFD /* DLooperRefactor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22631F201FB900F85DFD /* DLooperRefactor.xcdatamodeld */; };
-		DA3B22731F2024A400F85DFD /* MPerkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22691F2024A400F85DFD /* MPerkFactory.swift */; };
 		DA3B22741F2024A400F85DFD /* MPerkFreeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B226A1F2024A400F85DFD /* MPerkFreeProtocol.swift */; };
 		DA3B22751F2024A400F85DFD /* MPerkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B226B1F2024A400F85DFD /* MPerkProtocol.swift */; };
 		DA3B22761F2024A400F85DFD /* MPerkPurchaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B226C1F2024A400F85DFD /* MPerkPurchaseProtocol.swift */; };
@@ -96,7 +95,6 @@
 		DA3B22331F201F3300F85DFD /* VToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VToast.swift; sourceTree = "<group>"; };
 		DA3B22351F201F3300F85DFD /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DA3B22641F201FB900F85DFD /* DLooperRefactor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DLooperRefactor.xcdatamodel; sourceTree = "<group>"; };
-		DA3B22691F2024A400F85DFD /* MPerkFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkFactory.swift; sourceTree = "<group>"; };
 		DA3B226A1F2024A400F85DFD /* MPerkFreeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkFreeProtocol.swift; sourceTree = "<group>"; };
 		DA3B226B1F2024A400F85DFD /* MPerkProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkProtocol.swift; sourceTree = "<group>"; };
 		DA3B226C1F2024A400F85DFD /* MPerkPurchaseProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkPurchaseProtocol.swift; sourceTree = "<group>"; };
@@ -305,7 +303,6 @@
 		DA3B22681F2024A400F85DFD /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
-				DA3B22691F2024A400F85DFD /* MPerkFactory.swift */,
 				DA3B226A1F2024A400F85DFD /* MPerkFreeProtocol.swift */,
 				DA3B226B1F2024A400F85DFD /* MPerkProtocol.swift */,
 				DA3B226C1F2024A400F85DFD /* MPerkPurchaseProtocol.swift */,
@@ -445,7 +442,6 @@
 				DA3B227B1F20256800F85DFD /* MSessionFactoryPerk.swift in Sources */,
 				DA3B22391F201F3300F85DFD /* ControllerParentTransitions.swift in Sources */,
 				DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */,
-				DA3B22731F2024A400F85DFD /* MPerkFactory.swift in Sources */,
 				DA3B22541F201F3300F85DFD /* ViewParent.swift in Sources */,
 				DA3B22611F201F3300F85DFD /* VToast.swift in Sources */,
 				DA3B22441F201F3300F85DFD /* DSettingsExtension.swift in Sources */,
