@@ -5,7 +5,7 @@ class DManager
 {
     static let sharedInstance:DManager? = DManager()
     private let managedObjectContext:NSManagedObjectContext
-    private let kModelName:String = "DMiniMancera"
+    private let kModelName:String = "DLooperRefactor"
     private let kModelExtension:String = "momd"
     private let kSQLiteExtension:String = ".sqlite"
     
@@ -43,7 +43,7 @@ class DManager
         {
             #if DEBUG
                 
-                print("coredata: \(error.localizedDescription)")
+                print("CoreData: \(error.localizedDescription)")
                 
             #endif
         }
