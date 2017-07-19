@@ -52,6 +52,7 @@
 		DA3B22601F201F3300F85DFD /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22321F201F3300F85DFD /* VSpinner.swift */; };
 		DA3B22611F201F3300F85DFD /* VToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22331F201F3300F85DFD /* VToast.swift */; };
 		DA3B22621F201F3300F85DFD /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22351F201F3300F85DFD /* VHome.swift */; };
+		DA3B22651F201FB900F85DFD /* DLooperRefactor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22631F201FB900F85DFD /* DLooperRefactor.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		DA3B22321F201F3300F85DFD /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
 		DA3B22331F201F3300F85DFD /* VToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VToast.swift; sourceTree = "<group>"; };
 		DA3B22351F201F3300F85DFD /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
+		DA3B22641F201FB900F85DFD /* DLooperRefactor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DLooperRefactor.xcdatamodel; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FEA41E03672F00FD5265 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,6 +215,7 @@
 			children = (
 				DA3B220C1F201F3300F85DFD /* DManager.swift */,
 				DA3B220D1F201F3300F85DFD /* DSettingsExtension.swift */,
+				DA3B22631F201FB900F85DFD /* DLooperRefactor.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				DA3B22491F201F3300F85DFD /* ExtensionNSManagedObject.swift in Sources */,
 				DA3B22371F201F3300F85DFD /* Controller.swift in Sources */,
 				DA3B22571F201F3300F85DFD /* VAlert.swift in Sources */,
+				DA3B22651F201FB900F85DFD /* DLooperRefactor.xcdatamodeld in Sources */,
 				DA3B225A1F201F3300F85DFD /* VCollection.swift in Sources */,
 				DA3B223A1F201F3300F85DFD /* CHome.swift in Sources */,
 				DA3B225F1F201F3300F85DFD /* VSliderBar.swift in Sources */,
@@ -623,6 +627,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DA3B22631F201FB900F85DFD /* DLooperRefactor.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DA3B22641F201FB900F85DFD /* DLooperRefactor.xcdatamodel */,
+			);
+			currentVersion = DA3B22641F201FB900F85DFD /* DLooperRefactor.xcdatamodel */;
+			path = DLooperRefactor.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DA96FE771E03653100FD5265 /* Project object */;
 }
