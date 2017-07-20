@@ -9,7 +9,7 @@ class ControllerParent:UIViewController
     
     init()
     {
-        barHidden = true
+        barHidden = false
         statusBarStyle = UIStatusBarStyle.lightContent
         orientation = UIInterfaceOrientationMask.portrait
         super.init(nibName:nil, bundle:nil)

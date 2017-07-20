@@ -2,6 +2,7 @@ import UIKit
 
 class VHome:ViewMain
 {
+    private let kGradientHeight:CGFloat = 250
     private let kMenuHeight:CGFloat = 80
     
     required init(controller:UIViewController)
@@ -29,9 +30,24 @@ class VHome:ViewMain
     
     private func factoryViews(controller:CHome)
     {
+        let viewGradient:VGradient = VGradient.vertical(
+            colorTop:UIColor.colourGradientDark,
+            colorBottom:UIColor.colourGradientLight)
+        
         let viewMenu:VHomeMenu = VHomeMenu(controller:controller)
         
+        addSubview(viewGradient)
         addSubview(viewMenu)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewGradient,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:viewGradient,
+            constant:kGradientHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewGradient,
+            toView:self)
         
         NSLayoutConstraint.bottomToBottom(
             view:viewMenu,
