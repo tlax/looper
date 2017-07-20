@@ -21,6 +21,10 @@ class VHomeMenu:View<VHome, MHome, CHome>
             for:UIControlState.highlighted)
         buttonNew.imageView!.clipsToBounds = true
         buttonNew.imageView!.contentMode = UIViewContentMode.center
+        buttonNew.addTarget(
+            self,
+            action:#selector(actionNew(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(buttonNew)
         
@@ -52,5 +56,12 @@ class VHomeMenu:View<VHome, MHome, CHome>
         layoutNewTop.constant = sizeMarginTop
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionNew(sender button:UIButton)
+    {
+        controller.openCreate()
     }
 }
