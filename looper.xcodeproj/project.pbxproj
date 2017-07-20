@@ -11,6 +11,7 @@
 		DA2C08EC1F2100EC00E1381A /* ContinuumLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */; };
 		DA2C08ED1F2100ED00E1381A /* ContinuumMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */; };
 		DA2C08EF1F2108FC00E1381A /* VHomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C08EE1F2108FC00E1381A /* VHomeMenu.swift */; };
+		DA2C08F21F2109AE00E1381A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C08F11F2109AE00E1381A /* Model.swift */; };
 		DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F61F201F3300F85DFD /* AppDelegate.swift */; };
 		DA3B22371F201F3300F85DFD /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F71F201F3300F85DFD /* Controller.swift */; };
 		DA3B22381F201F3300F85DFD /* ControllerParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F81F201F3300F85DFD /* ControllerParent.swift */; };
@@ -66,6 +67,7 @@
 		DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumLight.ttf; sourceTree = "<group>"; };
 		DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumMedium.ttf; sourceTree = "<group>"; };
 		DA2C08EE1F2108FC00E1381A /* VHomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeMenu.swift; sourceTree = "<group>"; };
+		DA2C08F11F2109AE00E1381A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DA3B21F61F201F3300F85DFD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA3B21F71F201F3300F85DFD /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		DA3B21F81F201F3300F85DFD /* ControllerParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParent.swift; sourceTree = "<group>"; };
@@ -139,6 +141,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		DA2C08F01F2109A100E1381A /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				DA2C08F11F2109AE00E1381A /* Model.swift */,
+			);
+			path = Abstract;
+			sourceTree = "<group>";
+		};
 		DA3B21F41F201F3300F85DFD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +180,7 @@
 		DA3B21FC1F201F3300F85DFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA2C08F01F2109A100E1381A /* Abstract */,
 				DA3B21FE1F201F3300F85DFD /* Main */,
 				DA3B21FD1F201F3300F85DFD /* Home */,
 			);
@@ -487,6 +498,7 @@
 				DA3B22781F2024A400F85DFD /* MSession.swift in Sources */,
 				DA3B22651F201FB900F85DFD /* DLooperRefactor.xcdatamodeld in Sources */,
 				DA3B227F1F20261500F85DFD /* MPerkThumbnailFreeProtocol.swift in Sources */,
+				DA2C08F21F2109AE00E1381A /* Model.swift in Sources */,
 				DA3B225A1F201F3300F85DFD /* VCollection.swift in Sources */,
 				DA3B22831F20268C00F85DFD /* MPerkDomainProtocol.swift in Sources */,
 				DA3B223A1F201F3300F85DFD /* CHome.swift in Sources */,
