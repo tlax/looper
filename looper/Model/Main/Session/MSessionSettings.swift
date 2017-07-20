@@ -89,7 +89,7 @@ extension MSession
         thumbnail:MPerkThumbnailProtocol,
         options:[DPerk]) -> Bool
     {
-        let gameId:String = perk.gameId
+        let thumbnailName:String = thumbnail.className()
         
         for option:DOption in options
         {
