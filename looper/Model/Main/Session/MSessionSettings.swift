@@ -87,13 +87,13 @@ extension MSession
     
     private func shouldAddThumbnail(
         thumbnail:MPerkThumbnailProtocol,
-        options:[DPerk]) -> Bool
+        perks:[DPerk]) -> Bool
     {
-        let thumbnailName:String = thumbnail.className()
+        let identifier:String = thumbnail.identifier()
         
-        for option:DOption in options
+        for perk:DPerk in perks
         {
-            if option.gameId == gameId
+            if perk.identifier == identifier
             {
                 return false
             }
