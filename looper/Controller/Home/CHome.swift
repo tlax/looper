@@ -1,5 +1,5 @@
 import UIKit
 
-class CHome:Controller<VHome>
+class CHome:Controller<VHome, MHome>
 {
 }
