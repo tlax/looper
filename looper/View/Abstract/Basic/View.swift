@@ -1,15 +1,10 @@
 import UIKit
 
-class View:UIView, ViewProtocol
+class View<T:ViewMain, S:Model>:UIView
 {
-    private(set) weak var controller:UIViewController!
-    weak var layoutLeft:NSLayoutConstraint!
-    weak var layoutRight:NSLayoutConstraint!
-    weak var layoutTop:NSLayoutConstraint!
-    weak var layoutBottom:NSLayoutConstraint!
-    weak var pushBackground:VPushBackground?
+    private(set) weak var controller:Controller<T, S>!
     
-    required init(controller:UIViewController)
+    required init(controller:Controller<T, S>)
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true

@@ -69,7 +69,7 @@ class ViewParent:UIView
                     
                     guard
                         
-                        let topView:View = subviews.last as? View
+                        let topView:ViewMain = subviews.last as? ViewMain
                         
                     else
                     {

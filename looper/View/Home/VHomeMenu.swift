@@ -1,6 +1,9 @@
 import UIKit
 
-class VHomeMenu:UIView
+class VHomeMenu:View<VHome, MHome>
 {
-    
+    class func asd()
+    {
+        let view:VHomeMenu = VHomeMenu(controller:CHome())
+    }
 }

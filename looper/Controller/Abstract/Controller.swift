@@ -1,6 +1,6 @@
 import UIKit
 
-class Controller<T:View, S:Model>:UIViewController
+class Controller<T:ViewMain, S:Model>:UIViewController
 {
     let model:S
     
@@ -26,7 +26,7 @@ class Controller<T:View, S:Model>:UIViewController
     
     override func loadView()
     {
-        let view:View = T(controller:self)
+        let view:T = T(controller:self)
         self.view = view
     }
     
