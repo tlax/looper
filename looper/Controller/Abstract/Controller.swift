@@ -1,9 +1,13 @@
 import UIKit
 
-class Controller<T:View>:UIViewController
+class Controller<T:View, S:Model>:UIViewController
 {
+    let model:S
+    
     init()
     {
+        model = S()
+        
         super.init(nibName:nil, bundle:nil)
     }
     
