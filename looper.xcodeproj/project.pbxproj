@@ -25,6 +25,7 @@
 		DA2C09131F21727300E1381A /* VCreateMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C09121F21727300E1381A /* VCreateMenuCell.swift */; };
 		DA2C09151F2174D700E1381A /* MSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C09141F2174D700E1381A /* MSourceProtocol.swift */; };
 		DA2C09171F2174F600E1381A /* MSourceVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C09161F2174F600E1381A /* MSourceVideo.swift */; };
+		DA2C09191F21754900E1381A /* MCreateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C09181F21754900E1381A /* MCreateFactory.swift */; };
 		DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F61F201F3300F85DFD /* AppDelegate.swift */; };
 		DA3B22371F201F3300F85DFD /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F71F201F3300F85DFD /* Controller.swift */; };
 		DA3B22381F201F3300F85DFD /* ControllerParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F81F201F3300F85DFD /* ControllerParent.swift */; };
@@ -94,6 +95,7 @@
 		DA2C09121F21727300E1381A /* VCreateMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateMenuCell.swift; sourceTree = "<group>"; };
 		DA2C09141F2174D700E1381A /* MSourceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceProtocol.swift; sourceTree = "<group>"; };
 		DA2C09161F2174F600E1381A /* MSourceVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideo.swift; sourceTree = "<group>"; };
+		DA2C09181F21754900E1381A /* MCreateFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateFactory.swift; sourceTree = "<group>"; };
 		DA3B21F61F201F3300F85DFD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA3B21F71F201F3300F85DFD /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		DA3B21F81F201F3300F85DFD /* ControllerParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParent.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				DA2C09041F2164E600E1381A /* MCreate.swift */,
+				DA2C09181F21754900E1381A /* MCreateFactory.swift */,
 				DA2C09061F2164F600E1381A /* MCreateItem.swift */,
 				DA2C09081F21650F00E1381A /* MCreateItemFrame.swift */,
 			);
@@ -607,6 +610,7 @@
 				DA3B22621F201F3300F85DFD /* VHome.swift in Sources */,
 				DA3B224D1F201F3300F85DFD /* ExtensionUIFont.swift in Sources */,
 				DA2C09071F2164F600E1381A /* MCreateItem.swift in Sources */,
+				DA2C09191F21754900E1381A /* MCreateFactory.swift in Sources */,
 				DA3B22871F202DC100F85DFD /* MSessionPerks.swift in Sources */,
 				DA2C08EF1F2108FC00E1381A /* VHomeMenu.swift in Sources */,
 				DA2C090B1F21653C00E1381A /* VCreate.swift in Sources */,
