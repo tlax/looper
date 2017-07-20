@@ -2,34 +2,23 @@ import Foundation
 
 extension String
 {
-    private static let tableReformaCrossing:String = "ReformaCrossing"
-    private static let tablePollutedGarden:String = "PollutedGarden"
-    private static let tableWhistlesVsZombies:String = "WhistlesVsZombies"
-    private static let tableTalamesOaxaquenos:String = "TamalesOaxaquenos"
+    private static let kTableController:String = "LocalizableController"
+    private static let kTableModel:String = "LocalizableModel"
+    private static let kTableView:String = "LocalizableView"
     
-    static func localized(key:String) -> String
+    static func localizedController(key:String) -> String
     {
-        return NSLocalizedString(key, comment:"")
+        return NSLocalizedString(key, tableName:kTableController, comment:"")
     }
     
-    static func localizedReformaCrossing(key:String) -> String
+    static func localizedModel(key:String) -> String
     {
-        return NSLocalizedString(key, tableName:tableReformaCrossing, comment:"")
+        return NSLocalizedString(key, tableName:kTableModel, comment:"")
     }
     
-    static func localizedPollutedGarden(key:String) -> String
+    static func localizedView(key:String) -> String
     {
-        return NSLocalizedString(key, tableName:tablePollutedGarden, comment:"")
-    }
-    
-    static func localizedWhistlesVsZombies(key:String) -> String
-    {
-        return NSLocalizedString(key, tableName:tableWhistlesVsZombies, comment:"")
-    }
-    
-    static func localizedTamalesOaxaquenos(key:String) -> String
-    {
-        return NSLocalizedString(key, tableName:tableTalamesOaxaquenos, comment:"")
+        return NSLocalizedString(key, tableName:kTableView, comment:"")
     }
     
     func capitalizedFirstLetter() -> String

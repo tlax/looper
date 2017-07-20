@@ -14,11 +14,6 @@ extension URL
         }
         catch let error
         {
-            #if DEBUG
-            
-                print(error.localizedDescription)
-                
-            #endif
         }
         
         return url
