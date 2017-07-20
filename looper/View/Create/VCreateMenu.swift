@@ -7,8 +7,8 @@ class VCreateMenu:
     UICollectionViewDelegateFlowLayout
 {
     private let margin2:CGFloat
-    private let kCellWidth:CGFloat = 80
-    private let kCellMargin:CGFloat = 2
+    private let kCellWidth:CGFloat = 90
+    private let kCellMargin:CGFloat = 5
     private let kDeselectTime:TimeInterval = 0.3
     
     required init(controller:CCreate)

@@ -5,9 +5,11 @@ extension MCreate
     class func factorySource() -> [MSourceProtocol]
     {
         let sourceVideo:MSourceVideo = MSourceVideo()
+        let sourceImage:MSourceImage = MSourceImage()
         
         let items:[MSourceProtocol] = [
-            sourceVideo]
+            sourceVideo,
+            sourceImage]
         
         return items
     }
