@@ -1,6 +1,6 @@
 import UIKit
 
-class VCreate:View
+class VCreate:ViewMain
 {
     
 }
