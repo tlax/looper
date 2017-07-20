@@ -58,7 +58,9 @@ extension MSession
         }
     }
     
-    private func addThumbnail(thumbnail:MPerkThumbnailProtocol, dispatchGroup:DispatchGroup)
+    private func addThumbnail(
+        thumbnail:MPerkThumbnailProtocol,
+        dispatchGroup:DispatchGroup)
     {
         if let thumbnailFree:MPerkThumbnailFreeProtocol = thumbnail as? MPerkThumbnailFreeProtocol
         {
@@ -70,11 +72,13 @@ extension MSession
         }
     }
     
-    private func addThumbnailFree(thumbnail:MPerkThumbnailFreeProtocol, dispatchGroup:DispatchGroup)
+    private func addThumbnailFree(
+        thumbnail:MPerkThumbnailFreeProtocol,
+        dispatchGroup:DispatchGroup)
     {
         dispatchGroup.enter()
         
-        let optionsClass:String = optionsClassFor(perk:perk)
+        let domainIdentifier:String = thumbnail.domainIdentifier()
         
         DManager.sharedInstance?.createData(
             entityName:DOptionFree.entityName)

@@ -88,13 +88,13 @@ class DManager
     }
     
     func createData(
-        entityName:String,
+        entity:NSManagedObject.Type,
         completion:@escaping((NSManagedObject?) -> ()))
     {
         managedObjectContext.perform
         {
             if let entityDescription:NSEntityDescription = NSEntityDescription.entity(
-                forEntityName:entityName,
+                forEntityName:entity.entityName,
                 in:self.managedObjectContext)
             {
                 let managedObject:NSManagedObject = NSManagedObject(
@@ -110,14 +110,14 @@ class DManager
         }
     }
     
-    func createDataAndWait(entityName:String) -> NSManagedObject?
+    func createDataAndWait(entity:NSManagedObject.Type) -> NSManagedObject?
     {
         var managedObject:NSManagedObject?
         
         managedObjectContext.performAndWait
         {
             if let entityDescription:NSEntityDescription = NSEntityDescription.entity(
-                forEntityName:entityName,
+                forEntityName:entity.entityName,
                 in:self.managedObjectContext)
             {
                 managedObject = NSManagedObject(
@@ -130,7 +130,7 @@ class DManager
     }
     
     func fetchData(
-        entityName:String,
+        entity:NSManagedObject.Type,
         limit:Int = 0,
         predicate:NSPredicate? = nil,
         sorters:[NSSortDescriptor]? = nil,
@@ -139,7 +139,7 @@ class DManager
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
             let fetchRequest:NSFetchRequest<NSManagedObject> = NSFetchRequest(
-                entityName:entityName)
+                entityName:entity.entityName)
             fetchRequest.predicate = predicate
             fetchRequest.sortDescriptors = sorters
             fetchRequest.fetchLimit = limit
