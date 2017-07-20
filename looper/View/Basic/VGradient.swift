@@ -45,6 +45,26 @@ class VGradient:UIView
         return gradient
     }
     
+    class func vertical(colorTop:UIColor, colorBottom:UIColor) -> VGradient
+    {
+        let colors:[CGColor] = [
+            colorTop.cgColor,
+            colorBottom.cgColor]
+        let locations:[NSNumber] = [
+            kLocationStart,
+            kLocationEnd]
+        let startPoint:CGPoint = CGPoint(x:0.5, y:0)
+        let endPoint:CGPoint = CGPoint(x:0.5, y:1)
+        
+        let gradient:VGradient = VGradient(
+            colors:colors,
+            locations:locations,
+            startPoint:startPoint,
+            endPoint:endPoint)
+        
+        return gradient
+    }
+    
     private init(
         colors:[CGColor],
         locations:[NSNumber],
