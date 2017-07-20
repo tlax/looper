@@ -2,7 +2,7 @@ import UIKit
 
 class VCreateMenuCell:UICollectionViewCell
 {
-    private let kCornerRadius:CGFloat = 4
+    private let kCornerRadius:CGFloat = 6
     
     override init(frame:CGRect)
     {
