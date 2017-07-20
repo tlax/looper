@@ -3,13 +3,6 @@ import CoreData
 
 extension MSession
 {
-    private class func factoryPerks() -> [MPerkThumbnailProtocol]
-    {
-        let perks:[MPerkThumbnailProtocol] = []
-        
-        return perks
-    }
-    
     func loadPerks(settings:DSettings)
     {
         let perksMap:[String:DPerk] = settings.perksMap()
@@ -26,6 +19,13 @@ extension MSession
     }
     
     //MARK: private
+    
+    private class func factoryPerks() -> [MPerkThumbnailProtocol]
+    {
+        let perks:[MPerkThumbnailProtocol] = []
+        
+        return perks
+    }
     
     private func loadPerks(
         perksMap:[String:DPerk],
@@ -55,7 +55,7 @@ extension MSession
                 qos:DispatchQoS.QoSClass.background))
         { [weak self] in
             
-            self?.finishLoadingSession()
+            self?.finishedLoadingSession()
         }
     }
     
@@ -65,11 +65,15 @@ extension MSession
     {
         if let thumbnailFree:MPerkThumbnailFreeProtocol = thumbnail as? MPerkThumbnailFreeProtocol
         {
-            addPerkFree(perk:perkFree, dispatchGroup:dispatchGroup)
+            addThumbnailFree(
+                thumbnail:thumbnailFree,
+                dispatchGroup:dispatchGroup)
         }
         else if let thumbnailPurchase:MPerkThumbnailPurchaseProtocol = thumbnail as? MPerkThumbnailPurchaseProtocol
         {
-            addPerkPurchase(perk:perkPurchase, dispatchGroup:dispatchGroup)
+            addThumbnailPurchase(
+                thumbnail:thumbnailPurchase,
+                dispatchGroup:dispatchGroup)
         }
     }
     
