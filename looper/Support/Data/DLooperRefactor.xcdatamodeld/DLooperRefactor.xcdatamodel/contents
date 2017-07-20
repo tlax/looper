@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DPerk" representedClassName="DPerk" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="domainIdentifier" attributeType="String" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <relationship name="settings" maxCount="1" deletionRule="Nullify" destinationEntity="DSettings" inverseName="perks" inverseEntity="DSettings" syncable="YES"/>
     </entity>
@@ -13,7 +14,7 @@
     </entity>
     <elements>
         <element name="DSettings" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="DPerk" positionX="-54" positionY="9" width="128" height="75"/>
+        <element name="DPerk" positionX="-54" positionY="9" width="128" height="90"/>
         <element name="DPerkFree" positionX="-36" positionY="18" width="128" height="45"/>
         <element name="DPerkPurchase" positionX="-18" positionY="27" width="128" height="45"/>
     </elements>
