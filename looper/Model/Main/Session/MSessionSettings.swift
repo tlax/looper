@@ -23,7 +23,7 @@ extension MSession
             
             settings.addTtl()
             
-            self.loadPerks(settings:settings)
+            self.settingsLoaded(settings:settings)
         }
     }
     
@@ -42,48 +42,11 @@ extension MSession
                 return
             }
             
-            self.loadPerks(settings:settings)
+            self.settingsLoaded(settings:settings)
         }
     }
     
-    private func loadPerks(settings:DSettings)
-    {
-        let dispatchGroup:DispatchGroup = DispatchGroup()
-        dispatchGroup.setTarget(
-            queue:DispatchQueue.global(
-                qos:DispatchQoS.QoSClass.background))
-        
-        guard
-            
-            let perks:[DPerk] = settings.perks?.array as? [DPerk]
-        
-        else
-        {
-            return
-        }
-        
-        settingsLoaded(settings:settings)
-        
-        let thumbnails:[MPerkThumbnailProtocol] = MSession.factoryPerks()
-     
-        for thumbnail:MPerkThumbnailProtocol in thumbnails
-        {
-            let shouldAdd:Bool = shouldAddThumbnail(perk:perk, options:options)
-            
-            if shouldAdd
-            {
-                addPerk(perk:perk, dispatchGroup:dispatchGroup)
-            }
-        }
-        
-        dispatchGroup.notify(
-            queue:DispatchQueue.global(
-                qos:DispatchQoS.QoSClass.background))
-        { [weak self] in
-            
-            self?.finishLoadingSession()
-        }
-    }
+    
     
     private func shouldAddThumbnail(
         thumbnail:MPerkThumbnailProtocol,

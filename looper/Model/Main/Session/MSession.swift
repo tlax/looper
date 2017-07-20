@@ -14,5 +14,6 @@ class MSession
     func settingsLoaded(settings:DSettings)
     {
         self.settings = settings
+        loadPerks()
     }
 }
