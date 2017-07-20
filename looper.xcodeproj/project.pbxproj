@@ -22,6 +22,7 @@
 		DA2C090D1F21656D00E1381A /* CCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C090C1F21656D00E1381A /* CCreate.swift */; };
 		DA2C090F1F2166DD00E1381A /* VCreateBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C090E1F2166DD00E1381A /* VCreateBar.swift */; };
 		DA2C09111F216EFE00E1381A /* VCreateMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C09101F216EFE00E1381A /* VCreateMenu.swift */; };
+		DA2C09131F21727300E1381A /* VCreateMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C09121F21727300E1381A /* VCreateMenuCell.swift */; };
 		DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F61F201F3300F85DFD /* AppDelegate.swift */; };
 		DA3B22371F201F3300F85DFD /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F71F201F3300F85DFD /* Controller.swift */; };
 		DA3B22381F201F3300F85DFD /* ControllerParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F81F201F3300F85DFD /* ControllerParent.swift */; };
@@ -88,6 +89,7 @@
 		DA2C090C1F21656D00E1381A /* CCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCreate.swift; sourceTree = "<group>"; };
 		DA2C090E1F2166DD00E1381A /* VCreateBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateBar.swift; sourceTree = "<group>"; };
 		DA2C09101F216EFE00E1381A /* VCreateMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateMenu.swift; sourceTree = "<group>"; };
+		DA2C09121F21727300E1381A /* VCreateMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateMenuCell.swift; sourceTree = "<group>"; };
 		DA3B21F61F201F3300F85DFD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA3B21F71F201F3300F85DFD /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		DA3B21F81F201F3300F85DFD /* ControllerParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParent.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				DA2C090A1F21653C00E1381A /* VCreate.swift */,
 				DA2C090E1F2166DD00E1381A /* VCreateBar.swift */,
 				DA2C09101F216EFE00E1381A /* VCreateMenu.swift */,
+				DA2C09121F21727300E1381A /* VCreateMenuCell.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				DA3B22791F2024A400F85DFD /* MSessionSettings.swift in Sources */,
 				DA2C09111F216EFE00E1381A /* VCreateMenu.swift in Sources */,
 				DA2C09051F2164E600E1381A /* MCreate.swift in Sources */,
+				DA2C09131F21727300E1381A /* VCreateMenuCell.swift in Sources */,
 				DA3B227D1F20260B00F85DFD /* MPerkThumbnailProtocol.swift in Sources */,
 				DA3B224B1F201F3300F85DFD /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA3B224C1F201F3300F85DFD /* ExtensionUIColor.swift in Sources */,
