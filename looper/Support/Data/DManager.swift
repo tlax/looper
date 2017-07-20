@@ -87,7 +87,7 @@ class DManager
         }
     }
     
-    func createData(
+    func create(
         entity:NSManagedObject.Type,
         completion:@escaping((NSManagedObject?) -> ()))
     {
@@ -110,7 +110,7 @@ class DManager
         }
     }
     
-    func createDataAndWait(entity:NSManagedObject.Type) -> NSManagedObject?
+    func createAndWait(entity:NSManagedObject.Type) -> NSManagedObject?
     {
         var managedObject:NSManagedObject?
         
@@ -129,7 +129,7 @@ class DManager
         return managedObject
     }
     
-    func fetchData(
+    func fetch(
         entity:NSManagedObject.Type,
         limit:Int = 0,
         predicate:NSPredicate? = nil,
