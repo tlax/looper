@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA2C08EB1F2100EC00E1381A /* ContinuumBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */; };
+		DA2C08EC1F2100EC00E1381A /* ContinuumLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */; };
+		DA2C08ED1F2100ED00E1381A /* ContinuumMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */; };
 		DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F61F201F3300F85DFD /* AppDelegate.swift */; };
 		DA3B22371F201F3300F85DFD /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F71F201F3300F85DFD /* Controller.swift */; };
 		DA3B22381F201F3300F85DFD /* ControllerParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F81F201F3300F85DFD /* ControllerParent.swift */; };
@@ -58,6 +61,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumBold.ttf; sourceTree = "<group>"; };
+		DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumLight.ttf; sourceTree = "<group>"; };
+		DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumMedium.ttf; sourceTree = "<group>"; };
 		DA3B21F61F201F3300F85DFD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA3B21F71F201F3300F85DFD /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		DA3B21F81F201F3300F85DFD /* ControllerParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParent.swift; sourceTree = "<group>"; };
@@ -121,6 +127,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA2C08E71F2100EC00E1381A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */,
+				DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */,
+				DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		DA3B21F41F201F3300F85DFD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +241,7 @@
 		DA3B22191F201F3300F85DFD /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				DA2C08E71F2100EC00E1381A /* Fonts */,
 				DA3B221A1F201F3300F85DFD /* LocalizableController.strings */,
 				DA3B221C1F201F3300F85DFD /* LocalizableModel.strings */,
 				DA3B221E1F201F3300F85DFD /* LocalizableView.strings */,
@@ -429,10 +446,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA2C08EC1F2100EC00E1381A /* ContinuumLight.ttf in Resources */,
 				DA3B22511F201F3300F85DFD /* LocalizableView.strings in Resources */,
 				DA3B22421F201F3300F85DFD /* LaunchScreen.storyboard in Resources */,
 				DA3B224F1F201F3300F85DFD /* LocalizableController.strings in Resources */,
+				DA2C08ED1F2100ED00E1381A /* ContinuumMedium.ttf in Resources */,
 				DA3B22521F201F3300F85DFD /* ResourceURL.plist in Resources */,
+				DA2C08EB1F2100EC00E1381A /* ContinuumBold.ttf in Resources */,
 				DA3B22501F201F3300F85DFD /* LocalizableModel.strings in Resources */,
 				DA6BA5F61F20418D00A6381A /* brand.xcassets in Resources */,
 			);
