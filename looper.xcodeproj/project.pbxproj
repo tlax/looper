@@ -168,8 +168,8 @@
 		DA3B21FC1F201F3300F85DFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DA3B21FD1F201F3300F85DFD /* Home */,
 				DA3B21FE1F201F3300F85DFD /* Main */,
+				DA3B21FD1F201F3300F85DFD /* Home */,
 			);
 			path = Model;
 			sourceTree = "<group>";

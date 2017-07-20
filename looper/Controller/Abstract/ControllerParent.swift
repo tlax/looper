@@ -2,13 +2,15 @@ import UIKit
 
 class ControllerParent:UIViewController
 {
-    private var barHidden:Bool = true
-    private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.lightContent
+    private var barHidden:Bool
+    private var statusBarStyle:UIStatusBarStyle
     private var orientation:UIInterfaceOrientationMask
     private let kOrientationKey:String = "orientation"
     
     init()
     {
+        barHidden = true
+        statusBarStyle = UIStatusBarStyle.lightContent
         orientation = UIInterfaceOrientationMask.portrait
         super.init(nibName:nil, bundle:nil)
     }
