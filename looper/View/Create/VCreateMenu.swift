@@ -9,6 +9,7 @@ class VCreateMenu:
     private let margin2:CGFloat
     private let kCellWidth:CGFloat = 80
     private let kCellMargin:CGFloat = 2
+    private let kDeselectTime:TimeInterval = 0.3
     
     required init(controller:CCreate)
     {
@@ -47,6 +48,15 @@ class VCreateMenu:
         return nil
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MSourceProtocol
+    {
+        let item:MSourceProtocol = controller.model.source[index.item]
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
     
     func collectionView(
@@ -71,18 +81,40 @@ class VCreateMenu:
         _ collectionView:UICollectionView,
         numberOfItemsInSection section:Int) -> Int
     {
-        return 0
+        let count:Int = controller.model.source.count
+        
+        return count
     }
     
     func collectionView(
         _ collectionView:UICollectionView,
         cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MSourceProtocol = modelAtIndex(index:indexPath)
         let cell:VCreateMenuCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VCreateMenuCell.reusableIdentifier,
             for:indexPath) as! VCreateMenuCell
+        cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(
+        _ collectionView:UICollectionView,
+        didSelectItemAt indexPath:IndexPath)
+    {
+        collectionView.isUserInteractionEnabled = false
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+            collectionView?.isUserInteractionEnabled = true
+        }
     }
 }

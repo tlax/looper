@@ -16,4 +16,10 @@ class VCreateMenuCell:UICollectionViewCell
     {
         return nil
     }
+    
+    //MARK: public
+    
+    func config(model:MSourceProtocol)
+    {
+    }
 }
