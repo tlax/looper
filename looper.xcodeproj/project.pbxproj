@@ -20,6 +20,7 @@
 		DA2C09091F21650F00E1381A /* MCreateItemFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C09081F21650F00E1381A /* MCreateItemFrame.swift */; };
 		DA2C090B1F21653C00E1381A /* VCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C090A1F21653C00E1381A /* VCreate.swift */; };
 		DA2C090D1F21656D00E1381A /* CCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C090C1F21656D00E1381A /* CCreate.swift */; };
+		DA2C090F1F2166DD00E1381A /* VCreateBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C090E1F2166DD00E1381A /* VCreateBar.swift */; };
 		DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F61F201F3300F85DFD /* AppDelegate.swift */; };
 		DA3B22371F201F3300F85DFD /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F71F201F3300F85DFD /* Controller.swift */; };
 		DA3B22381F201F3300F85DFD /* ControllerParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F81F201F3300F85DFD /* ControllerParent.swift */; };
@@ -84,6 +85,7 @@
 		DA2C09081F21650F00E1381A /* MCreateItemFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemFrame.swift; sourceTree = "<group>"; };
 		DA2C090A1F21653C00E1381A /* VCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreate.swift; sourceTree = "<group>"; };
 		DA2C090C1F21656D00E1381A /* CCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCreate.swift; sourceTree = "<group>"; };
+		DA2C090E1F2166DD00E1381A /* VCreateBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateBar.swift; sourceTree = "<group>"; };
 		DA3B21F61F201F3300F85DFD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA3B21F71F201F3300F85DFD /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		DA3B21F81F201F3300F85DFD /* ControllerParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParent.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				DA2C090A1F21653C00E1381A /* VCreate.swift */,
+				DA2C090E1F2166DD00E1381A /* VCreateBar.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				DA3B225C1F201F3300F85DFD /* VGradient.swift in Sources */,
 				DA3B22471F201F3300F85DFD /* ExtensionNotification.swift in Sources */,
 				DA3B22851F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift in Sources */,
+				DA2C090F1F2166DD00E1381A /* VCreateBar.swift in Sources */,
 				DA3B22561F201F3300F85DFD /* ViewProtocol.swift in Sources */,
 				DA3B22461F201F3300F85DFD /* ExtensionFileManager.swift in Sources */,
 				DA3B22431F201F3300F85DFD /* DManager.swift in Sources */,
