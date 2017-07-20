@@ -8,8 +8,9 @@ extension NSManagedObject
         get
         {
             let classType:AnyClass = object_getClass(self)
+            let stringName:String = NSStringFromClass(classType)
             
-            return NSStringFromClass(classType)
+            return stringName
         }
     }
 }
