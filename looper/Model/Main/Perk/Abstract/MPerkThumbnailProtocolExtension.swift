@@ -9,4 +9,12 @@ extension MPerkThumbnailProtocol
         
         return nameString
     }
+    
+    func domainIdentifier() -> String
+    {
+        let classType:AnyClass = object_getClass(domainType)
+        let nameString:String = NSStringFromClass(classType)
+        
+        return nameString
+    }
 }
