@@ -24,6 +24,7 @@
 		DA2C09111F216EFE00E1381A /* VCreateMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C09101F216EFE00E1381A /* VCreateMenu.swift */; };
 		DA2C09131F21727300E1381A /* VCreateMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C09121F21727300E1381A /* VCreateMenuCell.swift */; };
 		DA2C09151F2174D700E1381A /* MSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C09141F2174D700E1381A /* MSourceProtocol.swift */; };
+		DA2C09171F2174F600E1381A /* MSourceVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C09161F2174F600E1381A /* MSourceVideo.swift */; };
 		DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F61F201F3300F85DFD /* AppDelegate.swift */; };
 		DA3B22371F201F3300F85DFD /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F71F201F3300F85DFD /* Controller.swift */; };
 		DA3B22381F201F3300F85DFD /* ControllerParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F81F201F3300F85DFD /* ControllerParent.swift */; };
@@ -92,6 +93,7 @@
 		DA2C09101F216EFE00E1381A /* VCreateMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateMenu.swift; sourceTree = "<group>"; };
 		DA2C09121F21727300E1381A /* VCreateMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateMenuCell.swift; sourceTree = "<group>"; };
 		DA2C09141F2174D700E1381A /* MSourceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceProtocol.swift; sourceTree = "<group>"; };
+		DA2C09161F2174F600E1381A /* MSourceVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideo.swift; sourceTree = "<group>"; };
 		DA3B21F61F201F3300F85DFD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA3B21F71F201F3300F85DFD /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		DA3B21F81F201F3300F85DFD /* ControllerParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParent.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				DA2C09141F2174D700E1381A /* MSourceProtocol.swift */,
+				DA2C09161F2174F600E1381A /* MSourceVideo.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 			files = (
 				DA3B224A1F201F3300F85DFD /* ExtensionString.swift in Sources */,
 				DA3B22391F201F3300F85DFD /* ControllerParentTransitions.swift in Sources */,
+				DA2C09171F2174F600E1381A /* MSourceVideo.swift in Sources */,
 				DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */,
 				DA3B22541F201F3300F85DFD /* ViewParent.swift in Sources */,
 				DA3B22611F201F3300F85DFD /* VToast.swift in Sources */,

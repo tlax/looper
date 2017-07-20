@@ -1,5 +1,5 @@
 import Foundation
 
-protocol MSource
+protocol MSourceProtocol
 {
 }
