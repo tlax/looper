@@ -1,4 +1,5 @@
 import Foundation
+import CoreData
 
 extension MSession
 {
@@ -78,52 +79,53 @@ extension MSession
     {
         dispatchGroup.enter()
         
+        let identifier:String = thumbnail.identifier()
         let domainIdentifier:String = thumbnail.domainIdentifier()
         
-        DManager.sharedInstance?.createData(
-            entityName:DOptionFree.entityName)
-        { (data) in
+        DManager.sharedInstance?.create(entity:DPerkFree.self)
+        { (data:NSManagedObject?) in
             
             guard
                 
-                let option:DOptionFree = data as? DOptionFree
+                let perk:DPerkFree = data as? DPerkFree
                 
-                else
+            else
             {
                 return
             }
             
-            option.gameId = perk.gameId
-            option.optionsClass = optionsClass
-            option.settings = self.settings
+            perk.identifier = identifier
+            perk.domainIdentifier = domainIdentifier
+            perk.settings = self.settings
             
             dispatchGroup.leave()
         }
     }
     
-    private func addPerkPurchase(perk:MPerkPurchaseProtocol, dispatchGroup:DispatchGroup)
+    private func addThumbnailPurchase(
+        thumbnail:MPerkThumbnailPurchaseProtocol,
+        dispatchGroup:DispatchGroup)
     {
         dispatchGroup.enter()
         
-        let optionsClass:String = optionsClassFor(perk:perk)
+        let identifier:String = thumbnail.identifier()
+        let domainIdentifier:String = thumbnail.domainIdentifier()
         
-        DManager.sharedInstance?.createData(
-            entityName:DOptionPurchase.entityName)
-        { (data) in
+        DManager.sharedInstance?.create(entity:DPerkPurchase.self)
+        { (data:NSManagedObject?) in
             
             guard
                 
-                let option:DOptionPurchase = data as? DOptionPurchase
+                let perk:DPerkPurchase = data as? DPerkPurchase
                 
-                else
+            else
             {
                 return
             }
             
-            option.gameId = perk.gameId
-            option.optionsClass = optionsClass
-            option.purchaseId = perk.purchaseId
-            option.settings = self.settings
+            perk.identifier = identifier
+            perk.domainIdentifier = domainIdentifier
+            perk.settings = self.settings
             
             dispatchGroup.leave()
         }

@@ -1,4 +1,5 @@
 import Foundation
+import CoreData
 
 extension MSession
 {
@@ -6,9 +7,8 @@ extension MSession
     
     private func asyncLoadSession()
     {
-        DManager.sharedInstance?.fetchData(
-            entityName:DSettings.entityName)
-        { (data) in
+        DManager.sharedInstance?.fetch(entity:DSettings.self)
+        { (data:[NSManagedObject]?) in
             
             guard
             
@@ -29,9 +29,8 @@ extension MSession
     
     private func createSession()
     {
-        DManager.sharedInstance?.createData(
-            entityName:DSettings.entityName)
-        { (data) in
+        DManager.sharedInstance?.create(entity:DSettings.self)
+        { (data:NSManagedObject?) in
             
             guard
             
@@ -83,8 +82,7 @@ extension MSession
         
         let optionsClass:String = optionsClassFor(perk:perk)
         
-        DManager.sharedInstance?.createData(
-            entityName:DOptionFree.entityName)
+        DManager.sharedInstance?.create(entity:DPerkFree.self)
         { (data) in
             
             guard
