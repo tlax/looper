@@ -13,6 +13,7 @@
 		DA2C08EF1F2108FC00E1381A /* VHomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C08EE1F2108FC00E1381A /* VHomeMenu.swift */; };
 		DA2C08F21F2109AE00E1381A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C08F11F2109AE00E1381A /* Model.swift */; };
 		DA2C08F41F210A9C00E1381A /* MHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C08F31F210A9C00E1381A /* MHome.swift */; };
+		DA2C08F61F210BA100E1381A /* ViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C08F51F210BA100E1381A /* ViewMain.swift */; };
 		DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F61F201F3300F85DFD /* AppDelegate.swift */; };
 		DA3B22371F201F3300F85DFD /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F71F201F3300F85DFD /* Controller.swift */; };
 		DA3B22381F201F3300F85DFD /* ControllerParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F81F201F3300F85DFD /* ControllerParent.swift */; };
@@ -70,6 +71,7 @@
 		DA2C08EE1F2108FC00E1381A /* VHomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeMenu.swift; sourceTree = "<group>"; };
 		DA2C08F11F2109AE00E1381A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DA2C08F31F210A9C00E1381A /* MHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHome.swift; sourceTree = "<group>"; };
+		DA2C08F51F210BA100E1381A /* ViewMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMain.swift; sourceTree = "<group>"; };
 		DA3B21F61F201F3300F85DFD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA3B21F71F201F3300F85DFD /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		DA3B21F81F201F3300F85DFD /* ControllerParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParent.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				DA3B22241F201F3300F85DFD /* View.swift */,
+				DA2C08F51F210BA100E1381A /* ViewMain.swift */,
 				DA3B22251F201F3300F85DFD /* ViewParent.swift */,
 				DA3B22261F201F3300F85DFD /* ViewParentTransitions.swift */,
 				DA3B22271F201F3300F85DFD /* ViewProtocol.swift */,
@@ -503,6 +506,7 @@
 				DA3B22651F201FB900F85DFD /* DLooperRefactor.xcdatamodeld in Sources */,
 				DA3B227F1F20261500F85DFD /* MPerkThumbnailFreeProtocol.swift in Sources */,
 				DA2C08F21F2109AE00E1381A /* Model.swift in Sources */,
+				DA2C08F61F210BA100E1381A /* ViewMain.swift in Sources */,
 				DA3B225A1F201F3300F85DFD /* VCollection.swift in Sources */,
 				DA3B22831F20268C00F85DFD /* MPerkDomainProtocol.swift in Sources */,
 				DA3B223A1F201F3300F85DFD /* CHome.swift in Sources */,
