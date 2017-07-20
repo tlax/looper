@@ -39,13 +39,25 @@ extension UIColor
     }
     
     open class var colourGradientDark:UIColor
-        {
+    {
         get
         {
             return UIColor(
                 red:0.16078431372549015,
                 green:0.4235294117647058,
                 blue:0.7254901960784313,
+                alpha:1)
+        }
+    }
+    
+    open class var colourBackgroundGray:UIColor
+    {
+        get
+        {
+            return UIColor(
+                red:0.95,
+                green:0.96,
+                blue:0.97,
                 alpha:1)
         }
     }

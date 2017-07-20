@@ -3,6 +3,7 @@ import UIKit
 class VCreate:ViewMain
 {
     private let kBarMaxHeight:CGFloat = 150
+    private let kMenuHeight:CGFloat = 100
     
     required init(controller:UIViewController)
     {
@@ -31,7 +32,10 @@ class VCreate:ViewMain
     {
         let viewBar:VCreateBar = VCreateBar(controller:controller)
         
+        let viewMenu:VCreateMenu = VCreateMenu(controller:controller)
+        
         addSubview(viewBar)
+        addSubview(viewMenu)
         
         NSLayoutConstraint.topToTop(
             view:viewBar,
@@ -41,6 +45,16 @@ class VCreate:ViewMain
             constant:kBarMaxHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
+            toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:viewMenu,
+            toView:viewBar)
+        NSLayoutConstraint.height(
+            view:viewMenu,
+            constant:kMenuHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewMenu,
             toView:self)
     }
 }

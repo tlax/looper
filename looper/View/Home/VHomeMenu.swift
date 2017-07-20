@@ -9,7 +9,7 @@ class VHomeMenu:View<VHome, MHome, CHome>
     required init(controller:CHome)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor(red:0.95, green:0.96, blue:0.97, alpha:1)
+        backgroundColor = UIColor.colourBackgroundGray
         
         let buttonNew:UIButton = UIButton()
         buttonNew.translatesAutoresizingMaskIntoConstraints = false
