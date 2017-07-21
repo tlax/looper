@@ -8,7 +8,7 @@ class VCreateMenu:
 {
     private let margin2:CGFloat
     private let kCellWidth:CGFloat = 120
-    private let kCellMargin:CGFloat = 5
+    private let kCellMargin:CGFloat = 3
     private let kDeselectTime:TimeInterval = 0.3
     
     required init(controller:CCreate)
