@@ -83,4 +83,12 @@ class MSourceVideo:Model
         
         loadVideos(fetchResults:fetchResults)
     }
+    
+    func requestAsset(item:MSourceVideoItem)
+    {
+//        cachingManager?.requestAVAsset(
+//            forVideo:item.asset,
+//            options: <#T##PHVideoRequestOptions?#>,
+//            resultHandler: <#T##(AVAsset?, AVAudioMix?, [AnyHashable : Any]?) -> Void#>)
+    }
 }

@@ -8,11 +8,13 @@ class VSourceVideo:
 {
     private weak var spinner:VSpinner!
     private weak var collectionView:VCollection!
+    private weak var layoutBarHeight:NSLayoutConstraint!
     private var cellSize:CGSize?
     private let kBarMinHeight:CGFloat = 64
     private let kCollectionMargin:CGFloat = 1
     private let kCollectionBottom:CGFloat = 20
     private let kCellsPerRow:CGFloat = 3
+    private let kAnimationDuration:TimeInterval = 0.3
     private let kPanBack:Bool = true
     
     required init(controller:UIViewController)
@@ -92,7 +94,7 @@ class VSourceVideo:
         NSLayoutConstraint.topToTop(
             view:viewBar,
             toView:self)
-        NSLayoutConstraint.height(
+        layoutBarHeight = NSLayoutConstraint.height(
             view:viewBar,
             constant:kBarMinHeight)
         NSLayoutConstraint.equalsHorizontal(
@@ -108,6 +110,18 @@ class VSourceVideo:
         return item
     }
     
+    private func animateBar()
+    {
+        let height:CGFloat = bounds.height
+        layoutBarHeight.constant = height
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
+    }
+    
     //MARK: public
     
     func refresh()
@@ -116,10 +130,11 @@ class VSourceVideo:
         collectionView.reloadData()
     }
     
-    func loading()
+    func loading(item:MSourceVideoItem)
     {
         collectionView.isHidden = true
         spinner.startAnimating()
+        animateBar()
     }
     
     //MARK: collectionView delegate

@@ -55,6 +55,6 @@ class CSourceVideo:Controller<VSourceVideo, MSourceVideo>
             return
         }
         
-        view.loading()
+        view.loading(item:item)
     }
 }
