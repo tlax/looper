@@ -1,2 +1,5 @@
 "VCreateBar_labelTitle"="Create loop";
 "VSourceVideoBar_labelTitle"="Add video";
+"VSourceVideoBarInfo_titleWidth"="Width";
+"VSourceVideoBarInfo_titleHeight"="Height";
+"VSourceVideoBarInfo_titleDuration"="Duration";
