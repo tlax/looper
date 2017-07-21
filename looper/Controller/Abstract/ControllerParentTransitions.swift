@@ -222,7 +222,6 @@ extension ControllerParent
             
             guard
                 
-                let view:ViewParent = self.view as? ViewParent,
                 let removeView:ViewProtocol = removeController.view as? ViewProtocol
                 
             else

@@ -12,7 +12,7 @@ extension URL
         {
             try url.setResourceValues(resourceValues)
         }
-        catch let error
+        catch
         {
         }
         
