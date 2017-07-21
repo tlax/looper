@@ -25,9 +25,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>loop a video</string>
+	<string>Video</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Store your loops</string>
+	<string>Photo/Video library</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ContinuumBold.ttf</string>

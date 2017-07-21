@@ -1,7 +1,15 @@
 import Foundation
+import Photos
 
 class CSourceVideo:Controller<VSourceVideo, MSourceVideo>
 {
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        model.checkAuth()
+    }
+    
     //MARK: public
     
     func back()
