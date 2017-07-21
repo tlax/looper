@@ -1,6 +1,6 @@
 import Foundation
 
-protocol ModelDelegate
+protocol ModelDelegate:class
 {
-    func modelUpated()
+    func modelRefresh()
 }

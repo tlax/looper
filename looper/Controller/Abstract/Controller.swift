@@ -1,6 +1,6 @@
 import UIKit
 
-class Controller<T:ViewMain, S:Model>:UIViewController
+class Controller<T:ViewMain, S:Model>:UIViewController, ModelDelegate
 {
     let model:S
     
@@ -9,6 +9,7 @@ class Controller<T:ViewMain, S:Model>:UIViewController
         model = S()
         
         super.init(nibName:nil, bundle:nil)
+        model.delegate = self
     }
     
     required init?(coder:NSCoder)
@@ -46,5 +47,11 @@ class Controller<T:ViewMain, S:Model>:UIViewController
     override var prefersStatusBarHidden:Bool
     {
         return true
+    }
+    
+    //MARK: model delegate
+    
+    func modelRefresh()
+    {
     }
 }
