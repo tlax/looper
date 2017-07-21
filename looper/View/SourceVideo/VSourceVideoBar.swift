@@ -26,6 +26,15 @@ class VSourceVideoBar:View<VSourceVideo, MSourceVideo, CSourceVideo>
             colourTop:colourTop,
             colourBottom:colourBottom)
         
+        let labelTitle:UILabel = UILabel()
+        labelTitle.isUserInteractionEnabled = false
+        labelTitle.translatesAutoresizingMaskIntoConstraints = false
+        labelTitle.backgroundColor = UIColor.clear
+        labelTitle.textAlignment = NSTextAlignment.center
+        labelTitle.font = UIFont.regular(size:18)
+        labelTitle.textColor = UIColor.white
+        labelTitle.text = String.localizedView(key:"VSourceVideoBar_labelTitle")
+        
         let buttonBack:UIButton = UIButton()
         buttonBack.translatesAutoresizingMaskIntoConstraints = false
         buttonBack.setImage(
@@ -44,10 +53,22 @@ class VSourceVideoBar:View<VSourceVideo, MSourceVideo, CSourceVideo>
             for:UIControlEvents.touchUpInside)
         
         addSubview(viewGradient)
+        addSubview(labelTitle)
         addSubview(buttonBack)
         
         NSLayoutConstraint.equals(
             view:viewGradient,
+            toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:labelTitle,
+            toView:self,
+            constant:kContentTop)
+        NSLayoutConstraint.height(
+            view:labelTitle,
+            constant:kContentHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:labelTitle,
             toView:self)
         
         NSLayoutConstraint.topToTop(
