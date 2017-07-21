@@ -14,10 +14,17 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         backgroundImage.image = controller.model.item.image
         
+        let blur:VBlur = VBlur.light()
+        
         addSubview(backgroundImage)
+        addSubview(blur)
         
         NSLayoutConstraint.equals(
             view:backgroundImage,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:blur,
             toView:self)
     }
     

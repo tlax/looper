@@ -3,7 +3,7 @@ import UIKit
 class VSourceVideoTime:ViewMain
 {
     private weak var layoutBarHeight:NSLayoutConstraint!
-    private let kBarMaxHeight:CGFloat = 200
+    private let kBarMaxHeight:CGFloat = 300
     
     required init(controller:UIViewController)
     {
