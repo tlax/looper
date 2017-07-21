@@ -5,6 +5,7 @@ class MSourceVideo:Model
 {
     private(set) var items:[MSourceVideoItem]
     private weak var cachingManager:PHCachingImageManager?
+    private var requestOptions:PHImageRequestOptions?
     private let previewSize:CGSize
     private let kPreviewSize:CGFloat = 128
     
@@ -26,6 +27,7 @@ class MSourceVideo:Model
     
     private func loadVideos(fetchResults:PHFetchResult<PHAsset>)
     {
+        requestOptions = MSourceVideo.factoryRequestOptions()
         let cachingManager:PHCachingImageManager = PHCachingImageManager()
         self.cachingManager = cachingManager
         
@@ -35,7 +37,11 @@ class MSourceVideo:Model
         for indexResult:Int in 0 ..< countResults
         {
             let asset:PHAsset = fetchResults[indexResult]
-            let item:MSourceVideoItem = MSourceVideoItem(asset:asset)
+            let item:MSourceVideoItem = MSourceVideoItem(
+                asset:asset,
+                cachingManager:cachingManager,
+                requestOptions:requestOptions,
+                previewSize:previewSize)
             
             items.append(item)
             assets.append(asset)
@@ -46,8 +52,6 @@ class MSourceVideo:Model
     
     private func cacheAssets(assets:[PHAsset])
     {
-        let requestOptions:PHImageRequestOptions = MSourceVideo.factoryRequestOptions()
-        
         cachingManager?.startCachingImages(
             for:assets,
             targetSize:previewSize,
