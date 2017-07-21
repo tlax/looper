@@ -57,4 +57,22 @@ class CCreate:Controller<VCreate, MCreate>
     {
         alertClose()
     }
+    
+    func selected(item:MSourceProtocol)
+    {
+        guard
+            
+            let parent:ControllerParent = self.parent as? ControllerParent
+        
+        else
+        {
+            return
+        }
+        
+        let controllerType:UIViewController.Type = item.controller
+        let controller:UIViewController = controllerType.init()
+        parent.push(
+            controller:controller,
+            horizontal:ControllerParent.Horizontal.right)
+    }
 }

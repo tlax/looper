@@ -106,6 +106,9 @@ class VCreateMenu:
     {
         collectionView.isUserInteractionEnabled = false
         
+        let item:MSourceProtocol = modelAtIndex(index:indexPath)
+        controller.selected(item:item)
+        
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)
         { [weak collectionView] in
