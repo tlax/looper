@@ -1,6 +1,6 @@
 import UIKit
 
-class MSourceVideo:MSourceProtocol
+class MSourceItemVideo:MSourceProtocol
 {
     var icon:UIImage
     {

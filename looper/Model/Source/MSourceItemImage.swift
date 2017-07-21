@@ -1,6 +1,6 @@
 import UIKit
 
-class MSourceImage:MSourceProtocol
+class MSourceItemImage:MSourceProtocol
 {
     var icon:UIImage
     {

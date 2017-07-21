@@ -4,8 +4,8 @@ extension MCreate
 {
     class func factorySource() -> [MSourceProtocol]
     {
-        let sourceVideo:MSourceVideo = MSourceVideo()
-        let sourceImage:MSourceImage = MSourceImage()
+        let sourceVideo:MSourceItemVideo = MSourceItemVideo()
+        let sourceImage:MSourceItemImage = MSourceItemImage()
         
         let items:[MSourceProtocol] = [
             sourceVideo,
