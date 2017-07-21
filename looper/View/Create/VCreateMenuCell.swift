@@ -4,7 +4,8 @@ class VCreateMenuCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var labelTitle:UILabel!
-    private let kCornerRadius:CGFloat = 6
+    private let kCornerRadius:CGFloat = 3
+    private let kBorderWidth:CGFloat = 1
     private let kTitleHeight:CGFloat = 20
     
     override init(frame:CGRect)
@@ -13,6 +14,8 @@ class VCreateMenuCell:UICollectionViewCell
         clipsToBounds = true
         backgroundColor = UIColor.white
         layer.cornerRadius = kCornerRadius
+        layer.borderWidth = kBorderWidth
+        layer.borderColor = UIColor(white:0, alpha:0.2).cgColor
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -26,7 +29,7 @@ class VCreateMenuCell:UICollectionViewCell
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.center
-        labelTitle.font = UIFont.regular(size:11)
+        labelTitle.font = UIFont.regular(size:12)
         labelTitle.textColor = UIColor.black
         self.labelTitle = labelTitle
         
@@ -58,5 +61,6 @@ class VCreateMenuCell:UICollectionViewCell
     func config(model:MSourceProtocol)
     {
         imageView.image = model.icon
+        labelTitle.text = model.title
     }
 }
