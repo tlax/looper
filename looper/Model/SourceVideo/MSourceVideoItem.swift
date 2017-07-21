@@ -38,7 +38,7 @@ class MSourceVideoItem
     
     //MARK: public
     
-    func requestImage(completion:@escaping((UIImage?) -> ()))
+    func requestImage(completion:@escaping(() -> ()))
     {
         requestId = cachingManager?.requestImage(
             for:asset,
@@ -52,7 +52,7 @@ class MSourceVideoItem
             self?.image = image
             self?.requestId = nil
             
-            completion(image)
+            completion()
         }
     }
 }

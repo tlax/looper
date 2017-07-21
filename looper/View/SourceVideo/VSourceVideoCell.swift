@@ -2,6 +2,7 @@ import UIKit
 
 class VSourceVideoCell:UICollectionViewCell
 {
+    private weak var model:MSourceVideoItem?
     private weak var imageView:UIImageView!
     
     override init(frame:CGRect)
@@ -29,25 +30,27 @@ class VSourceVideoCell:UICollectionViewCell
         return nil
     }
     
+    //MARK: private
+    
+    private func refresh()
+    {
+        imageView.image = model?.image
+    }
+    
     //MARK: public
     
     func config(model:MSourceVideoItem)
     {
-        guard
+        self.model = model
+        refresh()
         
-            let image:UIImage = model.image
-        
-        else
+        if model.image == nil
         {
             model.requestImage
-            { [weak self] (image:UIImage?) in
+            { [weak self] in
                 
-                self?.imageView.image = image
+                self?.refresh()
             }
-            
-            return
         }
-        
-        imageView.image = image
     }
 }

@@ -4,7 +4,7 @@ import Photos
 class MSourceVideo:Model
 {
     private(set) var items:[MSourceVideoItem]
-    private weak var cachingManager:PHCachingImageManager?
+    private var cachingManager:PHCachingImageManager?
     private var requestOptions:PHImageRequestOptions?
     private let previewSize:CGSize
     private let kPreviewSize:CGFloat = 128
@@ -15,6 +15,11 @@ class MSourceVideo:Model
         previewSize = CGSize(width:kPreviewSize, height:kPreviewSize)
         
         super.init()
+    }
+    
+    deinit
+    {
+        cachingManager?.stopCachingImagesForAllAssets()
     }
     
     //MARK: private
