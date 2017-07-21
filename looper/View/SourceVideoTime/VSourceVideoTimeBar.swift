@@ -28,7 +28,7 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
             toView:self)
     }
     
-    required init?(coder: NSCoder)
+    required init?(coder:NSCoder)
     {
         return nil
     }
