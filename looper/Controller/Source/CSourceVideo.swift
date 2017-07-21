@@ -46,15 +46,6 @@ class CSourceVideo:Controller<VSourceVideo, MSourceVideo>
     
     func selected(item:MSourceVideoItem)
     {
-        guard
-            
-            let view:VSourceVideo = self.view as? VSourceVideo
-            
-        else
-        {
-            return
-        }
         
-        view.loading(item:item)
     }
 }

@@ -1,28 +1,19 @@
 import UIKit
 
 class VCreateMenu:
-    View<VCreate, MCreate, CCreate>,
-    UICollectionViewDelegate,
-    UICollectionViewDataSource,
-    UICollectionViewDelegateFlowLayout
+    VCollection<VCreate, MCreate, CCreate, VCreateMenuCell>
 {
     private let margin2:CGFloat
     private let kCellWidth:CGFloat = 120
     private let kCellMargin:CGFloat = 2
-    private let kDeselectTime:TimeInterval = 0.3
     
     required init(controller:CCreate)
     {
         margin2 = kCellMargin + kCellMargin
         
         super.init(controller:controller)
-        backgroundColor = UIColor.colourBackgroundGray
-        
-        let collectionView:VCollection = VCollection()
-        collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.alwaysBounceHorizontal = true
-        collectionView.registerCell(cell:VCreateMenuCell.self)
+        backgroundColor = UIColor.colourBackgroundGray
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
@@ -35,12 +26,6 @@ class VCreateMenu:
                 bottom:kCellMargin,
                 right:kCellMargin)
         }
-        
-        addSubview(collectionView)
-        
-        NSLayoutConstraint.equals(
-            view:collectionView,
-            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -71,13 +56,7 @@ class VCreateMenu:
         return size
     }
     
-    func numberOfSections(
-        in collectionView:UICollectionView) -> Int
-    {
-        return 1
-    }
-    
-    func collectionView(
+    override func collectionView(
         _ collectionView:UICollectionView,
         numberOfItemsInSection section:Int) -> Int
     {
@@ -86,38 +65,26 @@ class VCreateMenu:
         return count
     }
     
-    func collectionView(
+    override func collectionView(
         _ collectionView:UICollectionView,
         cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
         let item:MSourceProtocol = modelAtIndex(index:indexPath)
-        let cell:VCreateMenuCell = collectionView.dequeueReusableCell(
-            withReuseIdentifier:
-            VCreateMenuCell.reusableIdentifier,
-            for:indexPath) as! VCreateMenuCell
+        let cell:VCreateMenuCell = cellAtIndex(indexPath:indexPath)
         cell.config(model:item)
         
         return cell
     }
     
-    func collectionView(
+    override func collectionView(
         _ collectionView:UICollectionView,
         didSelectItemAt indexPath:IndexPath)
     {
-        collectionView.isUserInteractionEnabled = false
+        super.collectionView(
+            collectionView,
+            didSelectItemAt:indexPath)
         
         let item:MSourceProtocol = modelAtIndex(index:indexPath)
         controller.selected(item:item)
-        
-        DispatchQueue.main.asyncAfter(
-            deadline:DispatchTime.now() + kDeselectTime)
-        { [weak collectionView] in
-            
-            collectionView?.selectItem(
-                at:nil,
-                animated:true,
-                scrollPosition:UICollectionViewScrollPosition())
-            collectionView?.isUserInteractionEnabled = true
-        }
     }
 }
