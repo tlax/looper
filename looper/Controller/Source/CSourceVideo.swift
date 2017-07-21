@@ -43,4 +43,18 @@ class CSourceVideo:Controller<VSourceVideo, MSourceVideo>
         
         parent.pop(horizontal:ControllerParent.Horizontal.right)
     }
+    
+    func selected(item:MSourceVideoItem)
+    {
+        guard
+            
+            let view:VSourceVideo = self.view as? VSourceVideo
+            
+        else
+        {
+            return
+        }
+        
+        view.loading()
+    }
 }

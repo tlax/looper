@@ -116,6 +116,12 @@ class VSourceVideo:
         collectionView.reloadData()
     }
     
+    func loading()
+    {
+        collectionView.isHidden = true
+        spinner.startAnimating()
+    }
+    
     //MARK: collectionView delegate
     
     func collectionView(
@@ -170,5 +176,17 @@ class VSourceVideo:
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(
+        _ collectionView:UICollectionView,
+        didSelectItemAt indexPath:IndexPath)
+    {
+        collectionView.isUserInteractionEnabled = false
+        
+        let item:MSourceVideoItem = modelAtIndex(index:indexPath)
+        
+        let controller:CSourceVideo = self.controller as! CSourceVideo
+        controller.selected(item:item)
     }
 }
