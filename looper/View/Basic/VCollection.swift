@@ -8,17 +8,13 @@ class VCollection
     UICollectionViewDelegateFlowLayout
 {
     private(set) weak var collectionView:UICollectionView!
+    private let kDeselectTime:TimeInterval = 0.3
     
-    required convenience init(controller:R)
-    {
-        let flow:VCollectionFlow = VCollectionFlow()
-        
-        self.init(controller:controller, flow:flow)
-    }
-    
-    init(controller:R, flow:UICollectionViewFlowLayout)
+    required init(controller:R)
     {
         super.init(controller:controller)
+        
+        let flow:VCollectionFlow = VCollectionFlow()
         
         let collectionView:UICollectionView = UICollectionView(
             frame:CGRect.zero,
@@ -28,6 +24,8 @@ class VCollection
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
         self.collectionView = collectionView
         
         addSubview(collectionView)
@@ -35,6 +33,8 @@ class VCollection
         NSLayoutConstraint.equals(
             view:collectionView,
             toView:self)
+        
+        registerCell(cell:Q.self)
     }
     
     required init?(coder:NSCoder)
@@ -65,6 +65,15 @@ class VCollection
             header,
             forSupplementaryViewOfKind:UICollectionElementKindSectionHeader,
             withReuseIdentifier:header.reusableIdentifier)
+    }
+    
+    func cellAtIndex(indexPath:IndexPath) -> Q
+    {
+        let cell:Q = cellAtIndex(
+            reusableIdentifier:Q.reusableIdentifier,
+            indexPath:indexPath)
+        
+        return cell
     }
     
     func cellAtIndex(reusableIdentifier:String, indexPath:IndexPath) -> Q
@@ -100,5 +109,23 @@ class VCollection
             indexPath:indexPath)
         
         return cell
+    }
+    
+    func collectionView(
+        _ collectionView:UICollectionView,
+        didSelectItemAt indexPath:IndexPath)
+    {
+        collectionView.isUserInteractionEnabled = false
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.isUserInteractionEnabled = true
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }
