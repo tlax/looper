@@ -25,6 +25,16 @@ extension MSourceVideo
         return assetsResult
     }
     
+    class func factoryRequestOptions() -> PHImageRequestOptions
+    {
+        let requestOptions:PHImageRequestOptions = PHImageRequestOptions()
+        requestOptions.resizeMode = PHImageRequestOptionsResizeMode.fast
+        requestOptions.isSynchronous = false
+        requestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.fastFormat
+        
+        return requestOptions
+    }
+    
     //MARK: private
     
     private class func factoryCameraRoll() -> PHAssetCollection?
