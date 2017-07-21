@@ -94,7 +94,6 @@
 		DA81CBC81F21FD5D0031EAF6 /* MSourceVideoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC71F21FD5D0031EAF6 /* MSourceVideoFactory.swift */; };
 		DA81CBCA1F2201020031EAF6 /* ModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC91F2201020031EAF6 /* ModelDelegate.swift */; };
 		DA81CBCC1F2207790031EAF6 /* MSourceVideoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBCB1F2207790031EAF6 /* MSourceVideoAuth.swift */; };
-		DA81CBCE1F2212550031EAF6 /* VSourceVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBCD1F2212550031EAF6 /* VSourceVideoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -185,7 +184,6 @@
 		DA81CBC71F21FD5D0031EAF6 /* MSourceVideoFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoFactory.swift; sourceTree = "<group>"; };
 		DA81CBC91F2201020031EAF6 /* ModelDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelDelegate.swift; sourceTree = "<group>"; };
 		DA81CBCB1F2207790031EAF6 /* MSourceVideoAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoAuth.swift; sourceTree = "<group>"; };
-		DA81CBCD1F2212550031EAF6 /* VSourceVideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoCell.swift; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FEA41E03672F00FD5265 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,7 +214,6 @@
 				DA81CBC31F21E5710031EAF6 /* VSourceVideoBar.swift */,
 				DA6EA7AC1F2295D5003A0EA8 /* VSourceVideoBarInfo.swift */,
 				DA6EA7AE1F22978D003A0EA8 /* VSourceVideoBarInfoCell.swift */,
-				DA81CBCD1F2212550031EAF6 /* VSourceVideoCell.swift */,
 				DA6EA7C01F22B975003A0EA8 /* VSourceVideoList.swift */,
 				DA6EA7C21F22B97B003A0EA8 /* VSourceVideoListCell.swift */,
 			);
@@ -716,7 +713,6 @@
 				DA3B225F1F201F3300F85DFD /* VSliderBar.swift in Sources */,
 				DA3B22621F201F3300F85DFD /* VHome.swift in Sources */,
 				DA6EA7AF1F22978D003A0EA8 /* VSourceVideoBarInfoCell.swift in Sources */,
-				DA81CBCE1F2212550031EAF6 /* VSourceVideoCell.swift in Sources */,
 				DA3B224D1F201F3300F85DFD /* ExtensionUIFont.swift in Sources */,
 				DA2C09071F2164F600E1381A /* MCreateItem.swift in Sources */,
 				DA6EA7AD1F2295D5003A0EA8 /* VSourceVideoBarInfo.swift in Sources */,
