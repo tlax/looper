@@ -1,9 +1,15 @@
-//
-//  VSourceVideoTimeBar.swift
-//  looper
-//
-//  Created by zero on 7/21/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VSourceVideoTimeBar:
+View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
+{
+    required init(controller:CSourceVideoTime)
+    {
+        super.init(controller:controler)
+    }
+    
+    required init?(coder: NSCoder)
+    {
+        return nil
+    }
+}
