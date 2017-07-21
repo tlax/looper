@@ -17,4 +17,12 @@ class MSourceItemImage:MSourceProtocol
             return String.localizedModel(key:"MSourceImage_title")
         }
     }
+    
+    var controller:UIViewController.Type
+    {
+        get
+        {
+            return CSourceImage.self
+        }
+    }
 }
