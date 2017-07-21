@@ -13,7 +13,7 @@
 		DA1AFBDD1F21CB42000ADDFA /* MSourceItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBDC1F21CB42000ADDFA /* MSourceItemImage.swift */; };
 		DA1AFBE31F21CBE8000ADDFA /* VSourceVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBE21F21CBE8000ADDFA /* VSourceVideo.swift */; };
 		DA1AFBE51F21CC09000ADDFA /* VSourceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBE41F21CC09000ADDFA /* VSourceImage.swift */; };
-		DA1AFBE81F21CC59000ADDFA /* VSourceVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBE71F21CC59000ADDFA /* VSourceVideo.swift */; };
+		DA1AFBEA1F21CC80000ADDFA /* CSourceVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBE91F21CC80000ADDFA /* CSourceVideo.swift */; };
 		DA2C08EB1F2100EC00E1381A /* ContinuumBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */; };
 		DA2C08EC1F2100EC00E1381A /* ContinuumLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */; };
 		DA2C08ED1F2100ED00E1381A /* ContinuumMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */; };
@@ -90,7 +90,7 @@
 		DA1AFBDC1F21CB42000ADDFA /* MSourceItemImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceItemImage.swift; sourceTree = "<group>"; };
 		DA1AFBE21F21CBE8000ADDFA /* VSourceVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideo.swift; sourceTree = "<group>"; };
 		DA1AFBE41F21CC09000ADDFA /* VSourceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceImage.swift; sourceTree = "<group>"; };
-		DA1AFBE71F21CC59000ADDFA /* VSourceVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideo.swift; sourceTree = "<group>"; };
+		DA1AFBE91F21CC80000ADDFA /* CSourceVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSourceVideo.swift; sourceTree = "<group>"; };
 		DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumBold.ttf; sourceTree = "<group>"; };
 		DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumLight.ttf; sourceTree = "<group>"; };
 		DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumMedium.ttf; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 		DA1AFBE61F21CC4E000ADDFA /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				DA1AFBE71F21CC59000ADDFA /* VSourceVideo.swift */,
+				DA1AFBE91F21CC80000ADDFA /* CSourceVideo.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -642,12 +642,12 @@
 				DA3B22491F201F3300F85DFD /* ExtensionNSManagedObject.swift in Sources */,
 				DA1AFBE31F21CBE8000ADDFA /* VSourceVideo.swift in Sources */,
 				DA2C08F41F210A9C00E1381A /* MHome.swift in Sources */,
-				DA1AFBE81F21CC59000ADDFA /* VSourceVideo.swift in Sources */,
 				DA1AFBDD1F21CB42000ADDFA /* MSourceItemImage.swift in Sources */,
 				DA3B22371F201F3300F85DFD /* Controller.swift in Sources */,
 				DA3B22571F201F3300F85DFD /* VAlert.swift in Sources */,
 				DA3B22781F2024A400F85DFD /* MSession.swift in Sources */,
 				DA3B22651F201FB900F85DFD /* DLooperRefactor.xcdatamodeld in Sources */,
+				DA1AFBEA1F21CC80000ADDFA /* CSourceVideo.swift in Sources */,
 				DA3B227F1F20261500F85DFD /* MPerkThumbnailFreeProtocol.swift in Sources */,
 				DA2C08F21F2109AE00E1381A /* Model.swift in Sources */,
 				DA2C08F61F210BA100E1381A /* ViewMain.swift in Sources */,
