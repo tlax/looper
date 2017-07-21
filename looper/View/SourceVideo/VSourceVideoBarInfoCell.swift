@@ -68,4 +68,16 @@ class VSourceVideoBarInfoCell:View<VSourceVideo, MSourceVideo, CSourceVideo>
         
         super.layoutSubviews()
     }
+    
+    //MARK: public
+    
+    func changeTitle(title:String)
+    {
+        labelTitle.text = title
+    }
+    
+    func changeValue(value:String)
+    {
+        labelValue.text = value
+    }
 }
