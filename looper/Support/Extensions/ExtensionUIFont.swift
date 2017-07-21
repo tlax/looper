@@ -2,9 +2,9 @@ import UIKit
 
 extension UIFont
 {
-    static let kFontRegular:String = "ContinuumMedium"
-    static let kFontLight:String = "ContinuumLight"
-    static let kFontBold:String = "ContinuumBold"
+    static let kFontRegular:String = "AppleSDGothicNeo-Regular"
+    static let kFontLight:String = "AppleSDGothicNeo-UltraLight"
+    static let kFontBold:String = "AppleSDGothicNeo-Bold"
     
     class func regular(size:CGFloat) -> UIFont
     {

@@ -16,9 +16,6 @@
 		DA1AFBEA1F21CC80000ADDFA /* CSourceVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBE91F21CC80000ADDFA /* CSourceVideo.swift */; };
 		DA1AFBEC1F21CC9B000ADDFA /* CSourceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBEB1F21CC9B000ADDFA /* CSourceImage.swift */; };
 		DA1AFBEE1F21DE68000ADDFA /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1AFBED1F21DE68000ADDFA /* spinner.xcassets */; };
-		DA2C08EB1F2100EC00E1381A /* ContinuumBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */; };
-		DA2C08EC1F2100EC00E1381A /* ContinuumLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */; };
-		DA2C08ED1F2100ED00E1381A /* ContinuumMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */; };
 		DA2C08EF1F2108FC00E1381A /* VHomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C08EE1F2108FC00E1381A /* VHomeMenu.swift */; };
 		DA2C08F21F2109AE00E1381A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C08F11F2109AE00E1381A /* Model.swift */; };
 		DA2C08F41F210A9C00E1381A /* MHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C08F31F210A9C00E1381A /* MHome.swift */; };
@@ -103,9 +100,6 @@
 		DA1AFBE91F21CC80000ADDFA /* CSourceVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSourceVideo.swift; sourceTree = "<group>"; };
 		DA1AFBEB1F21CC9B000ADDFA /* CSourceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSourceImage.swift; sourceTree = "<group>"; };
 		DA1AFBED1F21DE68000ADDFA /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
-		DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumBold.ttf; sourceTree = "<group>"; };
-		DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumLight.ttf; sourceTree = "<group>"; };
-		DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumMedium.ttf; sourceTree = "<group>"; };
 		DA2C08EE1F2108FC00E1381A /* VHomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeMenu.swift; sourceTree = "<group>"; };
 		DA2C08F11F2109AE00E1381A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DA2C08F31F210A9C00E1381A /* MHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHome.swift; sourceTree = "<group>"; };
@@ -220,16 +214,6 @@
 				DA1AFBEB1F21CC9B000ADDFA /* CSourceImage.swift */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		DA2C08E71F2100EC00E1381A /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */,
-				DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */,
-				DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		DA2C08F01F2109A100E1381A /* Abstract */ = {
@@ -423,7 +407,6 @@
 		DA3B22191F201F3300F85DFD /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				DA2C08E71F2100EC00E1381A /* Fonts */,
 				DA3B221A1F201F3300F85DFD /* LocalizableController.strings */,
 				DA3B221C1F201F3300F85DFD /* LocalizableModel.strings */,
 				DA3B221E1F201F3300F85DFD /* LocalizableView.strings */,
@@ -633,15 +616,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA2C08EC1F2100EC00E1381A /* ContinuumLight.ttf in Resources */,
 				DA3B22511F201F3300F85DFD /* LocalizableView.strings in Resources */,
 				DA3B22421F201F3300F85DFD /* LaunchScreen.storyboard in Resources */,
 				DA2C08F81F211F5300E1381A /* generic.xcassets in Resources */,
 				DA3B224F1F201F3300F85DFD /* LocalizableController.strings in Resources */,
-				DA2C08ED1F2100ED00E1381A /* ContinuumMedium.ttf in Resources */,
 				DA3B22521F201F3300F85DFD /* ResourceURL.plist in Resources */,
 				DA1AFBEE1F21DE68000ADDFA /* spinner.xcassets in Resources */,
-				DA2C08EB1F2100EC00E1381A /* ContinuumBold.ttf in Resources */,
 				DA3B22501F201F3300F85DFD /* LocalizableModel.strings in Resources */,
 				DA2C091D1F21792600E1381A /* create.xcassets in Resources */,
 				DA6BA5F61F20418D00A6381A /* brand.xcassets in Resources */,
