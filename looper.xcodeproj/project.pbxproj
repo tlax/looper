@@ -82,6 +82,9 @@
 		DA6BA5F61F20418D00A6381A /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA5F51F20418D00A6381A /* brand.xcassets */; };
 		DA6EA7AD1F2295D5003A0EA8 /* VSourceVideoBarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7AC1F2295D5003A0EA8 /* VSourceVideoBarInfo.swift */; };
 		DA6EA7AF1F22978D003A0EA8 /* VSourceVideoBarInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7AE1F22978D003A0EA8 /* VSourceVideoBarInfoCell.swift */; };
+		DA6EA7B11F22A779003A0EA8 /* CSourceVideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7B01F22A779003A0EA8 /* CSourceVideoTime.swift */; };
+		DA6EA7B41F22A7DB003A0EA8 /* VSourceVideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7B31F22A7DB003A0EA8 /* VSourceVideoTime.swift */; };
+		DA6EA7B71F22A840003A0EA8 /* MSourceVideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7B61F22A840003A0EA8 /* MSourceVideoTime.swift */; };
 		DA81CBC41F21E5710031EAF6 /* VSourceVideoBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC31F21E5710031EAF6 /* VSourceVideoBar.swift */; };
 		DA81CBC61F21FC2D0031EAF6 /* MSourceVideoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC51F21FC2D0031EAF6 /* MSourceVideoItem.swift */; };
 		DA81CBC81F21FD5D0031EAF6 /* MSourceVideoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC71F21FD5D0031EAF6 /* MSourceVideoFactory.swift */; };
@@ -166,6 +169,9 @@
 		DA6BA5F51F20418D00A6381A /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DA6EA7AC1F2295D5003A0EA8 /* VSourceVideoBarInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoBarInfo.swift; sourceTree = "<group>"; };
 		DA6EA7AE1F22978D003A0EA8 /* VSourceVideoBarInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoBarInfoCell.swift; sourceTree = "<group>"; };
+		DA6EA7B01F22A779003A0EA8 /* CSourceVideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSourceVideoTime.swift; sourceTree = "<group>"; };
+		DA6EA7B31F22A7DB003A0EA8 /* VSourceVideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTime.swift; sourceTree = "<group>"; };
+		DA6EA7B61F22A840003A0EA8 /* MSourceVideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoTime.swift; sourceTree = "<group>"; };
 		DA81CBC31F21E5710031EAF6 /* VSourceVideoBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoBar.swift; sourceTree = "<group>"; };
 		DA81CBC51F21FC2D0031EAF6 /* MSourceVideoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoItem.swift; sourceTree = "<group>"; };
 		DA81CBC71F21FD5D0031EAF6 /* MSourceVideoFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoFactory.swift; sourceTree = "<group>"; };
@@ -211,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				DA1AFBE91F21CC80000ADDFA /* CSourceVideo.swift */,
+				DA6EA7B01F22A779003A0EA8 /* CSourceVideoTime.swift */,
 				DA1AFBEB1F21CC9B000ADDFA /* CSourceImage.swift */,
 			);
 			path = Source;
@@ -329,6 +336,7 @@
 				DA2C08FE1F2164C100E1381A /* Source */,
 				DA2C09011F2164C100E1381A /* SourceImage */,
 				DA2C09021F2164C100E1381A /* SourceRecord */,
+				DA6EA7B51F22A834003A0EA8 /* SourceVideoTime */,
 				DA2C09031F2164C100E1381A /* SourceVideo */,
 				DA2C08FD1F2162DF00E1381A /* Create */,
 				DA3B21FD1F201F3300F85DFD /* Home */,
@@ -421,6 +429,7 @@
 				DA3B22221F201F3300F85DFD /* Abstract */,
 				DA3B22281F201F3300F85DFD /* Basic */,
 				DA1AFBDE1F21CBCC000ADDFA /* SourceImage */,
+				DA6EA7B21F22A7CC003A0EA8 /* SourceVideoTime */,
 				DA1AFBDF1F21CBCC000ADDFA /* SourceVideo */,
 				DA2C08FC1F2162D600E1381A /* Create */,
 				DA3B22341F201F3300F85DFD /* Home */,
@@ -526,6 +535,22 @@
 				DA3B22861F202DC100F85DFD /* MSessionPerks.swift */,
 			);
 			path = Session;
+			sourceTree = "<group>";
+		};
+		DA6EA7B21F22A7CC003A0EA8 /* SourceVideoTime */ = {
+			isa = PBXGroup;
+			children = (
+				DA6EA7B31F22A7DB003A0EA8 /* VSourceVideoTime.swift */,
+			);
+			path = SourceVideoTime;
+			sourceTree = "<group>";
+		};
+		DA6EA7B51F22A834003A0EA8 /* SourceVideoTime */ = {
+			isa = PBXGroup;
+			children = (
+				DA6EA7B61F22A840003A0EA8 /* MSourceVideoTime.swift */,
+			);
+			path = SourceVideoTime;
 			sourceTree = "<group>";
 		};
 		DA96FE761E03653100FD5265 = {
@@ -669,6 +694,7 @@
 				DA2C09091F21650F00E1381A /* MCreateItemFrame.swift in Sources */,
 				DA2C09151F2174D700E1381A /* MSourceProtocol.swift in Sources */,
 				DA3B22831F20268C00F85DFD /* MPerkDomainProtocol.swift in Sources */,
+				DA6EA7B41F22A7DB003A0EA8 /* VSourceVideoTime.swift in Sources */,
 				DA1AFBDB1F21CB39000ADDFA /* MSourceItemVideo.swift in Sources */,
 				DA81CBC81F21FD5D0031EAF6 /* MSourceVideoFactory.swift in Sources */,
 				DA3B223A1F201F3300F85DFD /* CHome.swift in Sources */,
@@ -683,6 +709,7 @@
 				DA3B22871F202DC100F85DFD /* MSessionPerks.swift in Sources */,
 				DA2C08EF1F2108FC00E1381A /* VHomeMenu.swift in Sources */,
 				DA2C090B1F21653C00E1381A /* VCreate.swift in Sources */,
+				DA6EA7B71F22A840003A0EA8 /* MSourceVideoTime.swift in Sources */,
 				DA3B224E1F201F3300F85DFD /* ExtensionURL.swift in Sources */,
 				DA3B22481F201F3300F85DFD /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DA3B225C1F201F3300F85DFD /* VGradient.swift in Sources */,
@@ -699,6 +726,7 @@
 				DA3B225B1F201F3300F85DFD /* VCollectionFlow.swift in Sources */,
 				DA3B22791F2024A400F85DFD /* MSessionSettings.swift in Sources */,
 				DA2C09111F216EFE00E1381A /* VCreateMenu.swift in Sources */,
+				DA6EA7B11F22A779003A0EA8 /* CSourceVideoTime.swift in Sources */,
 				DA2C09051F2164E600E1381A /* MCreate.swift in Sources */,
 				DA1AFBD71F21C9F6000ADDFA /* MSourceVideo.swift in Sources */,
 				DA2C09131F21727300E1381A /* VCreateMenuCell.swift in Sources */,
