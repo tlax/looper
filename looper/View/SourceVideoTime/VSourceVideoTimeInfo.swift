@@ -1,7 +1,10 @@
 import UIKit
 
-class VSourceVideoTimeInfo:
-    View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
+class VSourceVideoTimeInfo:VCollection<
+    VSourceVideoTime,
+    MSourceVideoTime,
+    CSourceVideoTime,
+    VSourceVideoTimeInfoCell>
 {
     
 }

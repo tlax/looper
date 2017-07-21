@@ -1,7 +1,10 @@
 import UIKit
 
-class VSourceVideoList:
-    VCollection<VSourceVideo, MSourceVideo, CSourceVideo, VSourceVideoListCell>
+class VSourceVideoList:VCollection<
+    VSourceVideo,
+    MSourceVideo,
+    CSourceVideo,
+    VSourceVideoListCell>
 {
     private var cellSize:CGSize?
     private let kCellsPerRow:CGFloat = 3

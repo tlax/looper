@@ -1,7 +1,10 @@
 import UIKit
 
-class VCreateMenu:
-    VCollection<VCreate, MCreate, CCreate, VCreateMenuCell>
+class VCreateMenu:VCollection<
+    VCreate,
+    MCreate,
+    CCreate,
+    VCreateMenuCell>
 {
     private let margin2:CGFloat
     private let kCellWidth:CGFloat = 120
