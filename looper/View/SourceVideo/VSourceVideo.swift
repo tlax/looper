@@ -1,9 +1,18 @@
 import UIKit
 
-class VSourceVideo:ViewMain
+class VSourceVideo:
+    ViewMain,
+    UICollectionViewDelegate,
+    UICollectionViewDataSource,
+    UICollectionViewDelegateFlowLayout
 {
-    private weak var spinner:VSpinner?
+    private weak var spinner:VSpinner!
+    private weak var collectionView:VCollection!
+    private var cellSize:CGSize?
     private let kBarMinHeight:CGFloat = 64
+    private let kCollectionMargin:CGFloat = 1
+    private let kCollectionBottom:CGFloat = 20
+    private let kCellsPerRow:CGFloat = 3
     private let kPanBack:Bool = true
     
     required init(controller:UIViewController)
@@ -29,7 +38,7 @@ class VSourceVideo:ViewMain
     
     deinit
     {
-        spinner?.stopAnimating()
+        spinner.stopAnimating()
     }
     
     override var panBack:Bool
@@ -49,11 +58,35 @@ class VSourceVideo:ViewMain
         
         let viewBar:VSourceVideoBar = VSourceVideoBar(controller:controller)
         
+        let collectionView:VCollection = VCollection()
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(cell:VSourceVideoCell.self)
+
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            let topMargin:CGFloat = kBarMinHeight + kCollectionMargin
+            
+            flow.sectionInset = UIEdgeInsets(
+                top:topMargin,
+                left:kCollectionMargin,
+                bottom:kCollectionBottom,
+                right:kCollectionMargin)
+        }
+        
+        self.collectionView = collectionView
+        
         addSubview(spinner)
+        addSubview(collectionView)
         addSubview(viewBar)
         
         NSLayoutConstraint.equals(
             view:spinner,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:collectionView,
             toView:self)
         
         NSLayoutConstraint.topToTop(
@@ -65,5 +98,77 @@ class VSourceVideo:ViewMain
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:self)
+    }
+    
+    private func modelAtIndex(index:IndexPath) -> MSourceVideoItem
+    {
+        let controller:CSourceVideo = self.controller as! CSourceVideo
+        let item:MSourceVideoItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        spinner.stopAnimating()
+        collectionView.reloadData()
+    }
+    
+    //MARK: collectionView delegate
+    
+    func collectionView(
+        _ collectionView:UICollectionView,
+        layout collectionViewLayout:UICollectionViewLayout,
+        sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        guard
+        
+            let cellSize:CGSize = self.cellSize
+        
+        else
+        {
+            let width:CGFloat = collectionView.bounds.width
+            let subtractWidth:CGFloat = kCellsPerRow * kCollectionMargin
+            let usableWidth:CGFloat = width - subtractWidth
+            let cellWidth:CGFloat = usableWidth / kCellsPerRow
+            let cellSize:CGSize = CGSize(width:cellWidth, height:cellWidth)
+            self.cellSize = cellSize
+            
+            return cellSize
+        }
+        
+        return cellSize
+    }
+    
+    func numberOfSections(
+        in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(
+        _ collectionView:UICollectionView,
+        numberOfItemsInSection section:Int) -> Int
+    {
+        let controller:CSourceVideo = self.controller as! CSourceVideo
+        let count:Int = controller.model.items.count
+        
+        return count
+    }
+    
+    func collectionView(
+        _ collectionView:UICollectionView,
+        cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MSourceVideoItem = modelAtIndex(index:indexPath)
+        let cell:VSourceVideoCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VSourceVideoCell.reusableIdentifier,
+            for:indexPath) as! VSourceVideoCell
+        cell.config(model:item)
+        
+        return cell
     }
 }
