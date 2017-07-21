@@ -30,7 +30,7 @@ extension MSourceVideo
         let requestOptions:PHImageRequestOptions = PHImageRequestOptions()
         requestOptions.resizeMode = PHImageRequestOptionsResizeMode.fast
         requestOptions.isSynchronous = false
-        requestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.fastFormat
+        requestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.highQualityFormat
         
         return requestOptions
     }
@@ -56,7 +56,7 @@ extension MSourceVideo
             ascending:false)
         let predicateImages:NSPredicate = NSPredicate(
             format:kMediaType,
-            PHAssetMediaType.image.rawValue)
+            PHAssetMediaType.video.rawValue)
         fetchOptions.sortDescriptors = [sortNewest]
         fetchOptions.predicate = predicateImages
         

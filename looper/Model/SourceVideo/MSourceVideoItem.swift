@@ -40,6 +40,11 @@ class MSourceVideoItem
     
     func requestImage(completion:@escaping(() -> ()))
     {
+        if let requestId:PHImageRequestID = requestId
+        {
+            cachingManager?.cancelImageRequest(requestId)
+        }
+        
         requestId = cachingManager?.requestImage(
             for:asset,
             targetSize:previewSize,
