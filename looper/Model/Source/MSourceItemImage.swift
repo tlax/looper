@@ -14,7 +14,7 @@ class MSourceItemImage:MSourceProtocol
     {
         get
         {
-            return String.localizedModel(key:"MSourceImage_title")
+            return String.localizedModel(key:"MSourceItemImage_title")
         }
     }
     

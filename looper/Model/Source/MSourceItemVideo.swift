@@ -14,7 +14,7 @@ class MSourceItemVideo:MSourceProtocol
     {
         get
         {
-            return String.localizedModel(key:"MSourceVideo_title")
+            return String.localizedModel(key:"MSourceItemVideo_title")
         }
     }
     
