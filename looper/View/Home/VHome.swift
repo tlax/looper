@@ -31,8 +31,8 @@ class VHome:ViewMain
     private func factoryViews(controller:CHome)
     {
         let viewGradient:VGradient = VGradient.vertical(
-            colorTop:UIColor.colourGradientDark,
-            colorBottom:UIColor.colourGradientLight)
+            colourTop:UIColor.colourGradientDark,
+            colourBottom:UIColor.colourGradientLight)
         
         let viewMenu:VHomeMenu = VHomeMenu(controller:controller)
         

@@ -21,8 +21,8 @@ class VSliderBar:UIView
         let colorEnd:UIColor = UIColor.white
         
         let viewGradient:VGradient = VGradient.horizontal(
-            colorLeft:colorStart,
-            colorRight:colorEnd)
+            colourLeft:colorStart,
+            colourRight:colorEnd)
         
         addSubview(viewGradient)
         addSubview(blur)

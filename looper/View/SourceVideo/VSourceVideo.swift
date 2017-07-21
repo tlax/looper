@@ -3,6 +3,7 @@ import UIKit
 class VSourceVideo:ViewMain
 {
     private weak var spinner:VSpinner?
+    private let kBarMinHeight:CGFloat = 64
     private let kPanBack:Bool = true
     
     required init(controller:UIViewController)
@@ -46,10 +47,23 @@ class VSourceVideo:ViewMain
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
         
+        let viewBar:VSourceVideoBar = VSourceVideoBar(controller:controller)
+        
         addSubview(spinner)
+        addSubview(viewBar)
         
         NSLayoutConstraint.equals(
             view:spinner,
+            toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewBar,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:viewBar,
+            constant:kBarMinHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewBar,
             toView:self)
     }
 }
