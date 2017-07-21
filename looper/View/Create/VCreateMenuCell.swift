@@ -6,7 +6,8 @@ class VCreateMenuCell:UICollectionViewCell
     private weak var labelTitle:UILabel!
     private let kCornerRadius:CGFloat = 3
     private let kBorderWidth:CGFloat = 1
-    private let kTitleHeight:CGFloat = 20
+    private let kImageHeight:CGFloat = 50
+    private let kTitleHeight:CGFloat = 25
     
     override init(frame:CGRect)
     {
@@ -36,7 +37,13 @@ class VCreateMenuCell:UICollectionViewCell
         addSubview(imageView)
         addSubview(labelTitle)
         
-        NSLayoutConstraint.equals(
+        NSLayoutConstraint.topToTop(
+            view:imageView,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:imageView,
+            constant:kImageHeight)
+        NSLayoutConstraint.equalsHorizontal(
             view:imageView,
             toView:self)
         
