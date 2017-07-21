@@ -14,50 +14,14 @@ class MSourceVideo:Model
     
     //MARK: private
     
-    private func requestAuth()
+    private func libraryError()
     {
-        PHPhotoLibrary.requestAuthorization()
-        { [weak self] (status:PHAuthorizationStatus) in
-            
-            if status == PHAuthorizationStatus.authorized
-            {
-                self?.authorized()
-            }
-            else
-            {
-                self?.authDenied()
-            }
-        }
-    }
-    
-    private func authDenied()
-    {
-        let message:String = String.localizedModel(key:"MSourceVideo_authDenied")
+        let message:String = String.localizedModel(key:"MSourceVideo_libraryError")
         VAlert.messageFail(message:message)
     }
     
-    private func authorized()
+    private func loadVideos(fetchResults:PHFetchResult<PHAsset>)
     {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.loadVideos()
-        }
-    }
-    
-    private func loadVideos()
-    {
-        guard
-            
-            let fetchResults:PHFetchResult<PHAsset> = MSourceVideo.factoryFetch()
-        
-        else
-        {
-            libraryError()
-            
-            return
-        }
-        
         let countResults:Int = fetchResults.count
         
         for indexResult:Int in 0 ..< countResults
@@ -66,48 +30,24 @@ class MSourceVideo:Model
             
         }
         
-        imagesLoaded()
-    }
-    
-    private func libraryError()
-    {
-        let message:String = String.localizedModel(key:"MSourceVideo_libraryError")
-        VAlert.messageFail(message:message)
-    }
-    
-    private func imagesLoaded()
-    {
-        DispatchQueue.main.async
-        { [weak self] in
-            
-            self?.viewPicker.imagesLoaded()
-        }
+        delegate?.modelRefresh()
     }
     
     //MARK: public
-    
-    func checkAuth()
+
+    private func loadVideos()
     {
-        switch PHPhotoLibrary.authorizationStatus()
+        guard
+            
+            let fetchResults:PHFetchResult<PHAsset> = MSourceVideo.factoryFetch()
+            
+        else
         {
-        case PHAuthorizationStatus.denied,
-             PHAuthorizationStatus.restricted:
+            libraryError()
             
-            authDenied()
-            
-            break
-            
-        case PHAuthorizationStatus.notDetermined:
-            
-            requestAuth()
-            
-            break
-            
-        case PHAuthorizationStatus.authorized:
-            
-            authorized()
-            
-            break
+            return
         }
+        
+        loadVideos(fetchResults:fetchResults)
     }
 }

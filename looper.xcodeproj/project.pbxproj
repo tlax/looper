@@ -87,6 +87,7 @@
 		DA81CBC61F21FC2D0031EAF6 /* MSourceVideoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC51F21FC2D0031EAF6 /* MSourceVideoItem.swift */; };
 		DA81CBC81F21FD5D0031EAF6 /* MSourceVideoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC71F21FD5D0031EAF6 /* MSourceVideoFactory.swift */; };
 		DA81CBCA1F2201020031EAF6 /* ModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC91F2201020031EAF6 /* ModelDelegate.swift */; };
+		DA81CBCC1F2207790031EAF6 /* MSourceVideoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBCB1F2207790031EAF6 /* MSourceVideoAuth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +171,7 @@
 		DA81CBC51F21FC2D0031EAF6 /* MSourceVideoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoItem.swift; sourceTree = "<group>"; };
 		DA81CBC71F21FD5D0031EAF6 /* MSourceVideoFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoFactory.swift; sourceTree = "<group>"; };
 		DA81CBC91F2201020031EAF6 /* ModelDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelDelegate.swift; sourceTree = "<group>"; };
+		DA81CBCB1F2207790031EAF6 /* MSourceVideoAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoAuth.swift; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FEA41E03672F00FD5265 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -290,6 +292,7 @@
 			children = (
 				DA1AFBD61F21C9F6000ADDFA /* MSourceVideo.swift */,
 				DA81CBC71F21FD5D0031EAF6 /* MSourceVideoFactory.swift */,
+				DA81CBCB1F2207790031EAF6 /* MSourceVideoAuth.swift */,
 				DA81CBC51F21FC2D0031EAF6 /* MSourceVideoItem.swift */,
 			);
 			path = SourceVideo;
@@ -691,6 +694,7 @@
 				DA3B224E1F201F3300F85DFD /* ExtensionURL.swift in Sources */,
 				DA3B22481F201F3300F85DFD /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DA3B225C1F201F3300F85DFD /* VGradient.swift in Sources */,
+				DA81CBCC1F2207790031EAF6 /* MSourceVideoAuth.swift in Sources */,
 				DA3B22471F201F3300F85DFD /* ExtensionNotification.swift in Sources */,
 				DA3B22851F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift in Sources */,
 				DA2C090F1F2166DD00E1381A /* VCreateBar.swift in Sources */,
