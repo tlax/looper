@@ -15,6 +15,7 @@
 		DA1AFBE51F21CC09000ADDFA /* VSourceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBE41F21CC09000ADDFA /* VSourceImage.swift */; };
 		DA1AFBEA1F21CC80000ADDFA /* CSourceVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBE91F21CC80000ADDFA /* CSourceVideo.swift */; };
 		DA1AFBEC1F21CC9B000ADDFA /* CSourceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBEB1F21CC9B000ADDFA /* CSourceImage.swift */; };
+		DA1AFBEE1F21DE68000ADDFA /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1AFBED1F21DE68000ADDFA /* spinner.xcassets */; };
 		DA2C08EB1F2100EC00E1381A /* ContinuumBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */; };
 		DA2C08EC1F2100EC00E1381A /* ContinuumLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */; };
 		DA2C08ED1F2100ED00E1381A /* ContinuumMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */; };
@@ -93,6 +94,7 @@
 		DA1AFBE41F21CC09000ADDFA /* VSourceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceImage.swift; sourceTree = "<group>"; };
 		DA1AFBE91F21CC80000ADDFA /* CSourceVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSourceVideo.swift; sourceTree = "<group>"; };
 		DA1AFBEB1F21CC9B000ADDFA /* CSourceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSourceImage.swift; sourceTree = "<group>"; };
+		DA1AFBED1F21DE68000ADDFA /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
 		DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumBold.ttf; sourceTree = "<group>"; };
 		DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumLight.ttf; sourceTree = "<group>"; };
 		DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumMedium.ttf; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				DA6BA5F51F20418D00A6381A /* brand.xcassets */,
 				DA2C08F71F211F5300E1381A /* generic.xcassets */,
 				DA2C091C1F21792600E1381A /* create.xcassets */,
+				DA1AFBED1F21DE68000ADDFA /* spinner.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				DA3B224F1F201F3300F85DFD /* LocalizableController.strings in Resources */,
 				DA2C08ED1F2100ED00E1381A /* ContinuumMedium.ttf in Resources */,
 				DA3B22521F201F3300F85DFD /* ResourceURL.plist in Resources */,
+				DA1AFBEE1F21DE68000ADDFA /* spinner.xcassets in Resources */,
 				DA2C08EB1F2100EC00E1381A /* ContinuumBold.ttf in Resources */,
 				DA3B22501F201F3300F85DFD /* LocalizableModel.strings in Resources */,
 				DA2C091D1F21792600E1381A /* create.xcassets in Resources */,
