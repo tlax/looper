@@ -1,22 +1,40 @@
 import UIKit
 
-class VCollection:UICollectionView
+class VCollection
+    <T:ViewMain, S:Model, R:Controller<T, S>, Q:UICollectionViewCell>:
+    View<T, S, R>,
+    UICollectionViewDelegate,
+    UICollectionViewDataSource,
+    UICollectionViewDelegateFlowLayout
 {
-    convenience init()
+    private(set) weak var collectionView:UICollectionView!
+    
+    required convenience init(controller:R)
     {
         let flow:VCollectionFlow = VCollectionFlow()
-
-        self.init(flow:flow)
+        
+        self.init(controller:controller, flow:flow)
     }
     
-    init(flow:UICollectionViewLayout)
+    init(controller:R, flow:UICollectionViewFlowLayout)
     {
-        super.init(frame:CGRect.zero, collectionViewLayout:flow)
-        clipsToBounds = true
-        backgroundColor = UIColor.clear
-        translatesAutoresizingMaskIntoConstraints = false
-        showsVerticalScrollIndicator = false
-        showsHorizontalScrollIndicator = false
+        super.init(controller:controller)
+        
+        let collectionView:UICollectionView = UICollectionView(
+            frame:CGRect.zero,
+            collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        self.collectionView = collectionView
+        
+        addSubview(collectionView)
+        
+        NSLayoutConstraint.equals(
+            view:collectionView,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -26,16 +44,16 @@ class VCollection:UICollectionView
     
     //MARK: public
     
-    func registerCell(cell:UICollectionViewCell.Type)
+    func registerCell(cell:Q.Type)
     {
-        register(
+        collectionView.register(
             cell,
             forCellWithReuseIdentifier:cell.reusableIdentifier)
     }
     
     func registerFooter(footer:UICollectionReusableView.Type)
     {
-        register(
+        collectionView.register(
             footer,
             forSupplementaryViewOfKind:UICollectionElementKindSectionFooter,
             withReuseIdentifier:footer.reusableIdentifier)
@@ -43,9 +61,44 @@ class VCollection:UICollectionView
     
     func registerHeader(header:UICollectionReusableView.Type)
     {
-        register(
+        collectionView.register(
             header,
             forSupplementaryViewOfKind:UICollectionElementKindSectionHeader,
             withReuseIdentifier:header.reusableIdentifier)
+    }
+    
+    func cellAtIndex(reusableIdentifier:String, indexPath:IndexPath) -> Q
+    {
+        let cell:Q = collectionView.dequeueReusableCell(
+            withReuseIdentifier:reusableIdentifier,
+            for:indexPath) as! Q
+        
+        return cell
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(
+        in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(
+        _ collectionView:UICollectionView,
+        numberOfItemsInSection section:Int) -> Int
+    {
+        return 0
+    }
+    
+    func collectionView(
+        _ collectionView:UICollectionView,
+        cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let cell:Q = cellAtIndex(
+            reusableIdentifier:Q.reusableIdentifier,
+            indexPath:indexPath)
+        
+        return cell
     }
 }

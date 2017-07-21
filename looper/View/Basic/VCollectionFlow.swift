@@ -18,7 +18,8 @@ class VCollectionFlow:UICollectionViewFlowLayout
         return nil
     }
     
-    override func shouldInvalidateLayout(forBoundsChange newBounds:CGRect) -> Bool
+    override func shouldInvalidateLayout(
+        forBoundsChange newBounds:CGRect) -> Bool
     {
         return false
     }
