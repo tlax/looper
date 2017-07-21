@@ -12,6 +12,7 @@
 		DA1AFBD91F21CA2A000ADDFA /* MSourceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBD81F21CA2A000ADDFA /* MSourceImage.swift */; };
 		DA1AFBDB1F21CB39000ADDFA /* MSourceItemVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBDA1F21CB39000ADDFA /* MSourceItemVideo.swift */; };
 		DA1AFBDD1F21CB42000ADDFA /* MSourceItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBDC1F21CB42000ADDFA /* MSourceItemImage.swift */; };
+		DA1AFBE31F21CBE8000ADDFA /* VSourceVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBE21F21CBE8000ADDFA /* VSourceVideo.swift */; };
 		DA2C08EB1F2100EC00E1381A /* ContinuumBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */; };
 		DA2C08EC1F2100EC00E1381A /* ContinuumLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */; };
 		DA2C08ED1F2100ED00E1381A /* ContinuumMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */; };
@@ -87,6 +88,7 @@
 		DA1AFBD81F21CA2A000ADDFA /* MSourceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceImage.swift; sourceTree = "<group>"; };
 		DA1AFBDA1F21CB39000ADDFA /* MSourceItemVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceItemVideo.swift; sourceTree = "<group>"; };
 		DA1AFBDC1F21CB42000ADDFA /* MSourceItemImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceItemImage.swift; sourceTree = "<group>"; };
+		DA1AFBE21F21CBE8000ADDFA /* VSourceVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideo.swift; sourceTree = "<group>"; };
 		DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumBold.ttf; sourceTree = "<group>"; };
 		DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumLight.ttf; sourceTree = "<group>"; };
 		DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumMedium.ttf; sourceTree = "<group>"; };
@@ -169,6 +171,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA1AFBDE1F21CBCC000ADDFA /* SourceImage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SourceImage;
+			sourceTree = "<group>";
+		};
+		DA1AFBDF1F21CBCC000ADDFA /* SourceVideo */ = {
+			isa = PBXGroup;
+			children = (
+				DA1AFBE21F21CBE8000ADDFA /* VSourceVideo.swift */,
+			);
+			path = SourceVideo;
+			sourceTree = "<group>";
+		};
 		DA2C08E71F2100EC00E1381A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +396,8 @@
 			children = (
 				DA3B22221F201F3300F85DFD /* Abstract */,
 				DA3B22281F201F3300F85DFD /* Basic */,
+				DA1AFBDE1F21CBCC000ADDFA /* SourceImage */,
+				DA1AFBDF1F21CBCC000ADDFA /* SourceVideo */,
 				DA2C08FC1F2162D600E1381A /* Create */,
 				DA3B22341F201F3300F85DFD /* Home */,
 			);
@@ -609,6 +628,7 @@
 				DA3B22381F201F3300F85DFD /* ControllerParent.swift in Sources */,
 				DA3B22581F201F3300F85DFD /* VBlur.swift in Sources */,
 				DA3B22491F201F3300F85DFD /* ExtensionNSManagedObject.swift in Sources */,
+				DA1AFBE31F21CBE8000ADDFA /* VSourceVideo.swift in Sources */,
 				DA2C08F41F210A9C00E1381A /* MHome.swift in Sources */,
 				DA1AFBDD1F21CB42000ADDFA /* MSourceItemImage.swift in Sources */,
 				DA3B22371F201F3300F85DFD /* Controller.swift in Sources */,
