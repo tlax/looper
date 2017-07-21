@@ -8,7 +8,7 @@ class ViewMain:UIView, ViewProtocol
     weak var layoutTop:NSLayoutConstraint!
     weak var layoutBottom:NSLayoutConstraint!
     weak var pushBackground:VPushBackground?
-    private let kPanBack:Bool = true
+    private let kPanBack:Bool = false
     
     required init(controller:UIViewController)
     {

@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewParent:UIView
+class ViewParent:UIView, UIGestureRecognizerDelegate
 {
     weak var panRecognizer:UIPanGestureRecognizer!
     let kAnimationDuration:TimeInterval = 0.25
@@ -20,7 +20,7 @@ class ViewParent:UIView
         let panRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(
             target:self,
             action:#selector(actionPanRecognized(sender:)))
-        panRecognizer.isEnabled = false
+        panRecognizer.delegate = self
         self.panRecognizer = panRecognizer
         
         addGestureRecognizer(panRecognizer)
@@ -110,11 +110,14 @@ class ViewParent:UIView
     
     private func gesturePop()
     {
+        panRecognizer.isEnabled = true
         controller.pop(horizontal:ControllerParent.Horizontal.right)
     }
     
     private func gestureRestore()
     {
+        panRecognizer.isEnabled = true
+        
         guard
             
             let topView:ViewProtocol = subviews.last as? ViewProtocol
@@ -130,5 +133,24 @@ class ViewParent:UIView
         {
             self.layoutIfNeeded()
         }
+    }
+    
+    //MARK: gestureRecognizer delegate
+    
+    override func gestureRecognizerShouldBegin(
+        _ gestureRecognizer:UIGestureRecognizer) -> Bool
+    {
+        guard
+        
+            let view:ViewProtocol = subviews.last as? ViewProtocol
+        
+        else
+        {
+            return false
+        }
+        
+        let panBack:Bool = view.panBack
+        
+        return panBack
     }
 }

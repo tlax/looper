@@ -99,7 +99,6 @@ extension ControllerParent
         addChildViewController(controller)
         controller.beginAppearanceTransition(true, animated:true)
         currentController.beginAppearanceTransition(false, animated:true)
-        view.panRecognizer.isEnabled = true
         
         view.push(
             newView:newView,
@@ -209,15 +208,6 @@ extension ControllerParent
                 currentController.removeFromParentViewController()
                 
                 completion?()
-                
-                if self.childViewControllers.count > 1
-                {
-                    view.panRecognizer.isEnabled = true
-                }
-                else
-                {
-                    view.panRecognizer.isEnabled = false
-                }
             }
         }
     }
@@ -243,11 +233,6 @@ extension ControllerParent
             removeView.pushBackground?.removeFromSuperview()
             removeController.view.removeFromSuperview()
             removeController.removeFromParentViewController()
-            
-            if childViewControllers.count < 2
-            {
-                view.panRecognizer.isEnabled = false
-            }
         }
     }
     
