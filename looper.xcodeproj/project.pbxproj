@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA1AFBD51F21C57B000ADDFA /* CCreateVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBD41F21C57B000ADDFA /* CCreateVideo.swift */; };
 		DA1AFBD71F21C9F6000ADDFA /* MSourceVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBD61F21C9F6000ADDFA /* MSourceVideo.swift */; };
+		DA1AFBD91F21CA2A000ADDFA /* MSourceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBD81F21CA2A000ADDFA /* MSourceImage.swift */; };
 		DA2C08EB1F2100EC00E1381A /* ContinuumBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */; };
 		DA2C08EC1F2100EC00E1381A /* ContinuumLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */; };
 		DA2C08ED1F2100ED00E1381A /* ContinuumMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */; };
@@ -83,6 +84,7 @@
 /* Begin PBXFileReference section */
 		DA1AFBD41F21C57B000ADDFA /* CCreateVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCreateVideo.swift; sourceTree = "<group>"; };
 		DA1AFBD61F21C9F6000ADDFA /* MSourceVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideo.swift; sourceTree = "<group>"; };
+		DA1AFBD81F21CA2A000ADDFA /* MSourceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceImage.swift; sourceTree = "<group>"; };
 		DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumBold.ttf; sourceTree = "<group>"; };
 		DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumLight.ttf; sourceTree = "<group>"; };
 		DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumMedium.ttf; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		DA2C09011F2164C100E1381A /* SourceImage */ = {
 			isa = PBXGroup;
 			children = (
+				DA1AFBD81F21CA2A000ADDFA /* MSourceImage.swift */,
 			);
 			path = SourceImage;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				DA3B224A1F201F3300F85DFD /* ExtensionString.swift in Sources */,
 				DA3B22391F201F3300F85DFD /* ControllerParentTransitions.swift in Sources */,
 				DA2C09171F2174F600E1381A /* MSourceVideo.swift in Sources */,
+				DA1AFBD91F21CA2A000ADDFA /* MSourceImage.swift in Sources */,
 				DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */,
 				DA3B22541F201F3300F85DFD /* ViewParent.swift in Sources */,
 				DA3B22611F201F3300F85DFD /* VToast.swift in Sources */,
