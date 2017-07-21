@@ -9,4 +9,12 @@ class MSourceImage:MSourceProtocol
             return #imageLiteral(resourceName: "assetCreateImage")
         }
     }
+    
+    var title:String
+    {
+        get
+        {
+            return String.localizedModel(key:"MSourceImage_title")
+        }
+    }
 }

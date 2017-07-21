@@ -9,4 +9,12 @@ class MSourceVideo:MSourceProtocol
             return #imageLiteral(resourceName: "assetCreateVideo")
         }
     }
+    
+    var title:String
+    {
+        get
+        {
+            return String.localizedModel(key:"MSourceVideo_title")
+        }
+    }
 }
