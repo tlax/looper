@@ -5,8 +5,9 @@ class VSourceVideoBarInfo:View<VSourceVideo, MSourceVideo, CSourceVideo>
     private weak var viewCellWidth:VSourceVideoBarInfoCell!
     private weak var viewCellHeight:VSourceVideoBarInfoCell!
     private weak var viewCellDuration:VSourceVideoBarInfoCell!
-    private let kCellHeight:CGFloat = 40
-    private let kCellTop:CGFloat = 120
+    private let kCellHeight:CGFloat = 38
+    private let kCellTop:CGFloat = 100
+    private let kSecondsInMinute:TimeInterval = 60
     
     required init(controller:CSourceVideo)
     {
@@ -65,10 +66,45 @@ class VSourceVideoBarInfo:View<VSourceVideo, MSourceVideo, CSourceVideo>
         return nil
     }
     
+    //MARK: private
+    
+    private func durationFrom(duration:TimeInterval) -> String
+    {
+        let minutes:Int = Int(duration / kSecondsInMinute)
+        let seconds:Int = Int(duration.truncatingRemainder(dividingBy:kSecondsInMinute))
+        var string:String
+        
+        if minutes > 9
+        {
+            string = "\(minutes)"
+        }
+        else
+        {
+            string = "0\(minutes)"
+        }
+        
+        string = "\(string):"
+        
+        if seconds < 10
+        {
+            string = "\(string)0"
+        }
+        
+        string = "\(string)\(seconds)"
+        
+        return string
+    }
+    
     //MARK: public
     
     func config(model:MSourceVideoItem)
     {
+        let width:String = "\(model.asset.pixelWidth) px"
+        let height:String = "\(model.asset.pixelHeight) px"
+        let duration:String = durationFrom(duration:model.asset.duration)
         
+        viewCellWidth.changeValue(value:width)
+        viewCellHeight.changeValue(value:height)
+        viewCellDuration.changeValue(value:duration)
     }
 }

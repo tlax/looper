@@ -18,8 +18,8 @@ class VSourceVideoBarInfoCell:View<VSourceVideo, MSourceVideo, CSourceVideo>
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.right
-        labelTitle.textColor = UIColor.white
-        labelTitle.font = UIFont.bold(size:14)
+        labelTitle.textColor = UIColor.black
+        labelTitle.font = UIFont.regular(size:20)
         self.labelTitle = labelTitle
         
         let labelValue:UILabel = UILabel()

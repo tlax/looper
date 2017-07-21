@@ -8,6 +8,7 @@ class VSourceVideo:
 {
     private weak var spinner:VSpinner!
     private weak var collectionView:VCollection!
+    private weak var viewBar:VSourceVideoBar!
     private weak var layoutBarHeight:NSLayoutConstraint!
     private var cellSize:CGSize?
     private let kBarMinHeight:CGFloat = 64
@@ -59,6 +60,7 @@ class VSourceVideo:
         self.spinner = spinner
         
         let viewBar:VSourceVideoBar = VSourceVideoBar(controller:controller)
+        self.viewBar = viewBar
         
         let collectionView:VCollection = VCollection()
         collectionView.alwaysBounceVertical = true
@@ -135,6 +137,7 @@ class VSourceVideo:
         collectionView.isHidden = true
         spinner.startAnimating()
         animateBar()
+        viewBar.viewInfo.config(model:item)
     }
     
     //MARK: collectionView delegate
