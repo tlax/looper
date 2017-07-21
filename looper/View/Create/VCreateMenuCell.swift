@@ -4,25 +4,26 @@ class VCreateMenuCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var labelTitle:UILabel!
+    private var image:UIImage?
     private let kCornerRadius:CGFloat = 3
     private let kBorderWidth:CGFloat = 1
-    private let kImageHeight:CGFloat = 50
+    private let kImageHeight:CGFloat = 60
     private let kTitleHeight:CGFloat = 25
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.white
         layer.cornerRadius = kCornerRadius
         layer.borderWidth = kBorderWidth
-        layer.borderColor = UIColor(white:0, alpha:0.2).cgColor
+        layer.borderColor = UIColor(white:0, alpha:0.1).cgColor
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.center
+        imageView.tintColor = UIColor.white
         self.imageView = imageView
         
         let labelTitle:UILabel = UILabel()
@@ -31,7 +32,6 @@ class VCreateMenuCell:UICollectionViewCell
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.font = UIFont.regular(size:12)
-        labelTitle.textColor = UIColor.black
         self.labelTitle = labelTitle
         
         addSubview(imageView)
@@ -63,11 +63,49 @@ class VCreateMenuCell:UICollectionViewCell
         return nil
     }
     
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            backgroundColor = UIColor.colourSuccess
+            labelTitle.textColor = UIColor.white
+            imageView.image = image?.withRenderingMode(
+                UIImageRenderingMode.alwaysTemplate)
+        }
+        else
+        {
+            backgroundColor = UIColor.white
+            labelTitle.textColor = UIColor.black
+            imageView.image = image?.withRenderingMode(
+                UIImageRenderingMode.alwaysOriginal)
+        }
+    }
+    
     //MARK: public
     
     func config(model:MSourceProtocol)
     {
-        imageView.image = model.icon
+        image = model.icon
         labelTitle.text = model.title
+        
+        hover()
     }
 }

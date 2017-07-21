@@ -3,7 +3,7 @@ import UIKit
 class VCreate:ViewMain
 {
     private let kBarMaxHeight:CGFloat = 64
-    private let kMenuHeight:CGFloat = 100
+    private let kMenuHeight:CGFloat = 80
     
     required init(controller:UIViewController)
     {
