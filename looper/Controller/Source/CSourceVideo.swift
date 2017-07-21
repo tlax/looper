@@ -10,6 +10,24 @@ class CSourceVideo:Controller<VSourceVideo, MSourceVideo>
         model.checkAuth()
     }
     
+    override func modelRefresh()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            guard
+            
+                let view:VSourceVideo = self?.view as? VSourceVideo
+            
+            else
+            {
+                return
+            }
+            
+            view.refresh()
+        }
+    }
+    
     //MARK: public
     
     func back()
