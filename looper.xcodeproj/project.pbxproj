@@ -13,6 +13,7 @@
 		DA1AFBDB1F21CB39000ADDFA /* MSourceItemVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBDA1F21CB39000ADDFA /* MSourceItemVideo.swift */; };
 		DA1AFBDD1F21CB42000ADDFA /* MSourceItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBDC1F21CB42000ADDFA /* MSourceItemImage.swift */; };
 		DA1AFBE31F21CBE8000ADDFA /* VSourceVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBE21F21CBE8000ADDFA /* VSourceVideo.swift */; };
+		DA1AFBE51F21CC09000ADDFA /* VSourceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBE41F21CC09000ADDFA /* VSourceImage.swift */; };
 		DA2C08EB1F2100EC00E1381A /* ContinuumBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */; };
 		DA2C08EC1F2100EC00E1381A /* ContinuumLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */; };
 		DA2C08ED1F2100ED00E1381A /* ContinuumMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */; };
@@ -89,6 +90,7 @@
 		DA1AFBDA1F21CB39000ADDFA /* MSourceItemVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceItemVideo.swift; sourceTree = "<group>"; };
 		DA1AFBDC1F21CB42000ADDFA /* MSourceItemImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceItemImage.swift; sourceTree = "<group>"; };
 		DA1AFBE21F21CBE8000ADDFA /* VSourceVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideo.swift; sourceTree = "<group>"; };
+		DA1AFBE41F21CC09000ADDFA /* VSourceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceImage.swift; sourceTree = "<group>"; };
 		DA2C08E81F2100EC00E1381A /* ContinuumBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumBold.ttf; sourceTree = "<group>"; };
 		DA2C08E91F2100EC00E1381A /* ContinuumLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumLight.ttf; sourceTree = "<group>"; };
 		DA2C08EA1F2100EC00E1381A /* ContinuumMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContinuumMedium.ttf; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		DA1AFBDE1F21CBCC000ADDFA /* SourceImage */ = {
 			isa = PBXGroup;
 			children = (
+				DA1AFBE41F21CC09000ADDFA /* VSourceImage.swift */,
 			);
 			path = SourceImage;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				DA3B22611F201F3300F85DFD /* VToast.swift in Sources */,
 				DA3B22441F201F3300F85DFD /* DSettingsExtension.swift in Sources */,
 				DA3B22601F201F3300F85DFD /* VSpinner.swift in Sources */,
+				DA1AFBE51F21CC09000ADDFA /* VSourceImage.swift in Sources */,
 				DA3B225D1F201F3300F85DFD /* VPushBackground.swift in Sources */,
 				DA3B22451F201F3300F85DFD /* ExtensionDictionary.swift in Sources */,
 				DA3B22811F20261E00F85DFD /* MPerkThumbnailPurchaseProtocol.swift in Sources */,
