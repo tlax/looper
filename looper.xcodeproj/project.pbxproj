@@ -86,6 +86,7 @@
 		DA81CBC41F21E5710031EAF6 /* VSourceVideoBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC31F21E5710031EAF6 /* VSourceVideoBar.swift */; };
 		DA81CBC61F21FC2D0031EAF6 /* MSourceVideoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC51F21FC2D0031EAF6 /* MSourceVideoItem.swift */; };
 		DA81CBC81F21FD5D0031EAF6 /* MSourceVideoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC71F21FD5D0031EAF6 /* MSourceVideoFactory.swift */; };
+		DA81CBCA1F2201020031EAF6 /* ModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC91F2201020031EAF6 /* ModelDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,6 +169,7 @@
 		DA81CBC31F21E5710031EAF6 /* VSourceVideoBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoBar.swift; sourceTree = "<group>"; };
 		DA81CBC51F21FC2D0031EAF6 /* MSourceVideoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoItem.swift; sourceTree = "<group>"; };
 		DA81CBC71F21FD5D0031EAF6 /* MSourceVideoFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoFactory.swift; sourceTree = "<group>"; };
+		DA81CBC91F2201020031EAF6 /* ModelDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelDelegate.swift; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FEA41E03672F00FD5265 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				DA2C08F11F2109AE00E1381A /* Model.swift */,
+				DA81CBC91F2201020031EAF6 /* ModelDelegate.swift */,
 			);
 			path = Abstract;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				DA3B227D1F20260B00F85DFD /* MPerkThumbnailProtocol.swift in Sources */,
 				DA3B224B1F201F3300F85DFD /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA3B224C1F201F3300F85DFD /* ExtensionUIColor.swift in Sources */,
+				DA81CBCA1F2201020031EAF6 /* ModelDelegate.swift in Sources */,
 				DA2C090D1F21656D00E1381A /* CCreate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
