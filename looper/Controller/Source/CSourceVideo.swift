@@ -46,6 +46,16 @@ class CSourceVideo:Controller<VSourceVideo, MSourceVideo>
     
     func selected(item:MSourceVideoItem)
     {
+        guard
+            
+            let parent:ControllerParent = parent as? ControllerParent
+            
+        else
+        {
+            return
+        }
         
+        let controller:CSourceVideoTime = CSourceVideoTime(item:item)
+        parent.animateOver(controller:controller)
     }
 }
