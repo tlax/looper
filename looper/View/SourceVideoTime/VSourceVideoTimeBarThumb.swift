@@ -9,6 +9,7 @@ class VSourceVideoTimeBarThumb:
     required init(controller:CSourceVideoTime)
     {
         super.init(controller:controller)
+        isUserInteractionEnabled = false
         layer.borderWidth = kBorderWidth
         layer.borderColor = UIColor.black.cgColor
         

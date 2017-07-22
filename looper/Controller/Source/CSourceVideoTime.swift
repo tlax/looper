@@ -12,4 +12,20 @@ class CSourceVideoTime:Controller<VSourceVideoTime, MSourceVideoTime>
     {
         return nil
     }
+    
+    //MARK: public
+    
+    func close()
+    {
+        guard
+        
+            let parent:ControllerParent = self.parent as? ControllerParent
+        
+        else
+        {
+            return
+        }
+        
+        parent.dismissAnimateOver(completion:nil)
+    }
 }
