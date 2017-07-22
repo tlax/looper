@@ -33,17 +33,6 @@ class VSourceVideoList:VCollection<
         return nil
     }
     
-    //MARK: private
-    
-    private func modelAtIndex(index:IndexPath) -> MSourceVideoItem
-    {
-        let item:MSourceVideoItem = controller.model.items[index.item]
-        
-        return item
-    }
-    
-    //MARK: collectionView delegate
-    
     override func collectionView(
         _ collectionView:UICollectionView,
         layout collectionViewLayout:UICollectionViewLayout,
@@ -98,5 +87,14 @@ class VSourceVideoList:VCollection<
         
         let item:MSourceVideoItem = modelAtIndex(index:indexPath)
         controller.selected(item:item)
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MSourceVideoItem
+    {
+        let item:MSourceVideoItem = controller.model.items[index.item]
+        
+        return item
     }
 }

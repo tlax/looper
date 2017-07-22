@@ -7,6 +7,7 @@ class VSourceVideoTimeInfo:VCollection<
     VSourceVideoTimeInfoCell>
 {
     private let kInterItem:CGFloat = 2
+    private let kCellHeight:CGFloat = 30
     
     required init(controller:CSourceVideoTime)
     {
@@ -27,5 +28,46 @@ class VSourceVideoTimeInfo:VCollection<
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        layout collectionViewLayout:UICollectionViewLayout,
+        sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.width
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model.items.count
+        
+        return count
+    }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MSourceVideoTimeItemProtocol = modelAtIndex(index:indexPath)
+        let cell:VSourceVideoTimeInfoCell = cellAtIndex(
+            indexPath:indexPath)
+        cell.config(model:item)
+        
+        return cell
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MSourceVideoTimeItemProtocol
+    {
+        let item:MSourceVideoTimeItemProtocol = controller.model.items[index.item]
+        
+        return item
     }
 }

@@ -36,17 +36,6 @@ class VCreateMenu:VCollection<
         return nil
     }
     
-    //MARK: private
-    
-    private func modelAtIndex(index:IndexPath) -> MSourceProtocol
-    {
-        let item:MSourceProtocol = controller.model.source[index.item]
-        
-        return item
-    }
-    
-    //MARK: collectionView delegate
-    
     override func collectionView(
         _ collectionView:UICollectionView,
         layout collectionViewLayout:UICollectionViewLayout,
@@ -89,5 +78,14 @@ class VCreateMenu:VCollection<
         
         let item:MSourceProtocol = modelAtIndex(index:indexPath)
         controller.selected(item:item)
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MSourceProtocol
+    {
+        let item:MSourceProtocol = controller.model.source[index.item]
+        
+        return item
     }
 }
