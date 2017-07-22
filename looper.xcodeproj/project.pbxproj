@@ -80,6 +80,8 @@
 		DA3B22851F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22841F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift */; };
 		DA3B22871F202DC100F85DFD /* MSessionPerks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22861F202DC100F85DFD /* MSessionPerks.swift */; };
 		DA65CDAD1F240CCA00C0615E /* VSourceVideoTimeBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDAC1F240CCA00C0615E /* VSourceVideoTimeBottomBar.swift */; };
+		DA65CDAF1F2416A900C0615E /* MSourceVideoTimeItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDAE1F2416A900C0615E /* MSourceVideoTimeItemProtocol.swift */; };
+		DA65CDB11F2416B300C0615E /* MSourceVideoTimeItemDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDB01F2416B300C0615E /* MSourceVideoTimeItemDuration.swift */; };
 		DA6BA5F61F20418D00A6381A /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA5F51F20418D00A6381A /* brand.xcassets */; };
 		DA6EA7AD1F2295D5003A0EA8 /* VSourceVideoBarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7AC1F2295D5003A0EA8 /* VSourceVideoBarInfo.swift */; };
 		DA6EA7AF1F22978D003A0EA8 /* VSourceVideoBarInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7AE1F22978D003A0EA8 /* VSourceVideoBarInfoCell.swift */; };
@@ -173,6 +175,8 @@
 		DA3B22841F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkThumbnailProtocolExtension.swift; sourceTree = "<group>"; };
 		DA3B22861F202DC100F85DFD /* MSessionPerks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionPerks.swift; sourceTree = "<group>"; };
 		DA65CDAC1F240CCA00C0615E /* VSourceVideoTimeBottomBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeBottomBar.swift; sourceTree = "<group>"; };
+		DA65CDAE1F2416A900C0615E /* MSourceVideoTimeItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoTimeItemProtocol.swift; sourceTree = "<group>"; };
+		DA65CDB01F2416B300C0615E /* MSourceVideoTimeItemDuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoTimeItemDuration.swift; sourceTree = "<group>"; };
 		DA6BA5F51F20418D00A6381A /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DA6EA7AC1F2295D5003A0EA8 /* VSourceVideoBarInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoBarInfo.swift; sourceTree = "<group>"; };
 		DA6EA7AE1F22978D003A0EA8 /* VSourceVideoBarInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoBarInfoCell.swift; sourceTree = "<group>"; };
@@ -567,6 +571,8 @@
 			isa = PBXGroup;
 			children = (
 				DA6EA7B61F22A840003A0EA8 /* MSourceVideoTime.swift */,
+				DA65CDAE1F2416A900C0615E /* MSourceVideoTimeItemProtocol.swift */,
+				DA65CDB01F2416B300C0615E /* MSourceVideoTimeItemDuration.swift */,
 			);
 			path = SourceVideoTime;
 			sourceTree = "<group>";
@@ -726,6 +732,7 @@
 				DA2C09071F2164F600E1381A /* MCreateItem.swift in Sources */,
 				DA6EA7AD1F2295D5003A0EA8 /* VSourceVideoBarInfo.swift in Sources */,
 				DA2C09191F21754900E1381A /* MCreateFactory.swift in Sources */,
+				DA65CDAF1F2416A900C0615E /* MSourceVideoTimeItemProtocol.swift in Sources */,
 				DA3B22871F202DC100F85DFD /* MSessionPerks.swift in Sources */,
 				DA2C08EF1F2108FC00E1381A /* VHomeMenu.swift in Sources */,
 				DA2C090B1F21653C00E1381A /* VCreate.swift in Sources */,
@@ -737,6 +744,7 @@
 				DA81CBCC1F2207790031EAF6 /* MSourceVideoAuth.swift in Sources */,
 				DA65CDAD1F240CCA00C0615E /* VSourceVideoTimeBottomBar.swift in Sources */,
 				DA3B22471F201F3300F85DFD /* ExtensionNotification.swift in Sources */,
+				DA65CDB11F2416B300C0615E /* MSourceVideoTimeItemDuration.swift in Sources */,
 				DA3B22851F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift in Sources */,
 				DA2C090F1F2166DD00E1381A /* VCreateBar.swift in Sources */,
 				DA3B22561F201F3300F85DFD /* ViewProtocol.swift in Sources */,

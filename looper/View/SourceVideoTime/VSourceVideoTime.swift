@@ -2,9 +2,10 @@ import UIKit
 
 class VSourceVideoTime:ViewMain
 {
-    private weak var layoutBarHeight:NSLayoutConstraint!
-    private let kBarMaxHeight:CGFloat = 300
-    private let kBottomBarHeight:CGFloat = 60
+    static let kBarMaxHeight:CGFloat = 300
+    static let kBottomBarHeight:CGFloat = 60
+    
+    private(set) weak var layoutBarHeight:NSLayoutConstraint!
     
     required init(controller:UIViewController)
     {
@@ -37,7 +38,11 @@ class VSourceVideoTime:ViewMain
         let viewBottomBar:VSourceVideoTimeBottomBar = VSourceVideoTimeBottomBar(
             controller:controller)
         
+        let viewInfo:VSourceVideoTimeInfo = VSourceVideoTimeInfo(
+            controller:controller)
+        
         addSubview(viewBar)
+        addSubview(viewInfo)
         addSubview(viewBottomBar)
         
         NSLayoutConstraint.topToTop(
@@ -45,9 +50,13 @@ class VSourceVideoTime:ViewMain
             toView:self)
         layoutBarHeight = NSLayoutConstraint.height(
             view:viewBar,
-            constant:kBarMaxHeight)
+            constant:VSourceVideoTime.kBarMaxHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:viewInfo,
             toView:self)
         
         NSLayoutConstraint.bottomToBottom(
@@ -55,7 +64,7 @@ class VSourceVideoTime:ViewMain
             toView:self)
         NSLayoutConstraint.height(
             view:viewBottomBar,
-            constant:kBottomBarHeight)
+            constant:VSourceVideoTime.kBottomBarHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:viewBottomBar,
             toView:self)
