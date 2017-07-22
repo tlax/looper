@@ -16,6 +16,7 @@ class MSourceVideoTime:Model
     
     func config(item:MSourceVideoItem)
     {
+        self.item = item
         let itemDuration:MSourceVideoTimeItemDuration = MSourceVideoTimeItemDuration(
             item:item)
         
