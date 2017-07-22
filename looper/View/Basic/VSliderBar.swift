@@ -12,7 +12,7 @@ class VSliderBar:UIView
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
         
-        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.2))
+        let border:VBorder = VBorder(colour:UIColor(white:0, alpha:0.2))
         
         let blur:VBlur = VBlur.light()
         blur.alpha = 1

@@ -2,13 +2,13 @@ import UIKit
 
 class VBorder:UIView
 {
-    init(color:UIColor)
+    init(colour:UIColor)
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = color
+        backgroundColor = colour
     }
     
     required init?(coder:NSCoder)
