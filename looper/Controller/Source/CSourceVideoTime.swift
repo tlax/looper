@@ -5,7 +5,7 @@ class CSourceVideoTime:Controller<VSourceVideoTime, MSourceVideoTime>
     init(item:MSourceVideoItem)
     {
         super.init()
-        model.item = item
+        model.config(item:item)
     }
     
     required init?(coder:NSCoder)
