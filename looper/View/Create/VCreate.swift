@@ -5,6 +5,8 @@ class VCreate:ViewMain
     static let kBarHeight:CGFloat = 64
     static let kMenuHeight:CGFloat = 80
     
+    private(set) weak var viewItems:VCreateItems!
+    
     required init(controller:UIViewController)
     {
         super.init(controller:controller)
@@ -34,6 +36,10 @@ class VCreate:ViewMain
         
         let viewMenu:VCreateMenu = VCreateMenu(controller:controller)
         
+        let viewItems:VCreateItems = VCreateItems(controller:controller)
+        self.viewItems = viewItems
+        
+        addSubview(viewItems)
         addSubview(viewBar)
         addSubview(viewMenu)
         
@@ -55,6 +61,10 @@ class VCreate:ViewMain
             constant:VCreate.kMenuHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:viewMenu,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:viewItems,
             toView:self)
     }
 }
