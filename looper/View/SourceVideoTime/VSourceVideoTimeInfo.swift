@@ -8,8 +8,7 @@ class VSourceVideoTimeInfo:VCollection<
 {
     private let kMarginTop:CGFloat = 10
     private let kInterItem:CGFloat = 3
-    private let kCellHeight:CGFloat = 35
-    private let kBarMinHeight:CGFloat = 80
+    private let kCellHeight:CGFloat = 32
     
     required init(controller:CSourceVideoTime)
     {
@@ -47,9 +46,9 @@ class VSourceVideoTimeInfo:VCollection<
         let offsetY:CGFloat = scrollView.contentOffset.y
         var newHeight:CGFloat = VSourceVideoTime.kBarMaxHeight - offsetY
         
-        if newHeight < kBarMinHeight
+        if newHeight < 0
         {
-            newHeight = kBarMinHeight
+            newHeight = 0
         }
         
         view.layoutBarHeight.constant = newHeight

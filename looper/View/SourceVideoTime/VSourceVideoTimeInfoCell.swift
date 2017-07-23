@@ -46,7 +46,7 @@ class VSourceVideoTimeInfoCell:UICollectionViewCell
         labelValue.backgroundColor = UIColor.clear
         labelValue.textAlignment = NSTextAlignment.center
         labelValue.textColor = UIColor.black
-        labelValue.font = UIFont.regular(size:14)
+        labelValue.font = UIFont.regular(size:13)
         self.labelValue = labelValue
         
         viewBase.addSubview(viewBackground)
