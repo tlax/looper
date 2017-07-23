@@ -5,3 +5,4 @@
 "MSourceVideoTimeItemDuration_title"="Duration";
 "MSourceVideoTimeItemWidth_title"="Width";
 "MSourceVideoTimeItemHeight_title"="Height";
+"MSourceVideoImport_error"="Error importing video";

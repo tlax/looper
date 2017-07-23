@@ -17,7 +17,7 @@ class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
     {
         super.viewDidLoad()
         
-        model.importVideo()
+        model.importVideo(controller:self)
     }
     
     //MARK: public

@@ -3,8 +3,9 @@ import AVFoundation
 
 class MSourceVideoImport:Model
 {
-    private(set) weak var item:MSourceVideoItem!
-    private(set) var framesPerSecond:Int
+    private weak var controller:CSourceVideoImport?
+    private weak var item:MSourceVideoItem!
+    private var framesPerSecond:Int
     
     required init()
     {
@@ -16,7 +17,40 @@ class MSourceVideoImport:Model
     
     private func asyncImportVideo()
     {
+        item.requestAvAsset
+        { [weak self] (avAsset:AVAsset?) in
+            
+            guard
+            
+                let avAsset:AVAsset = avAsset
+            
+            else
+            {
+                self?.errorLoading()
+                
+                return
+            }
+            
+            self?.errorLoading()
+            //self?.assetGot(avAsset:avAsset)
+        }
+    }
+    
+    private func assetGot(avAsset:AVAsset)
+    {
         
+    }
+    
+    private func errorLoading()
+    {
+        let error:String = String.localizedModel(key:"MSourceVideoImport_error")
+        VAlert.messageFail(message:error)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.controller?.cancel()
+        }
     }
     
     private func timesArray(duration:CMTime, frames:Int) -> [NSValue]
@@ -49,8 +83,10 @@ class MSourceVideoImport:Model
         self.framesPerSecond = framesPerSecond
     }
     
-    func importVideo()
+    func importVideo(controller:CSourceVideoImport)
     {
+        self.controller = controller
+        
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             

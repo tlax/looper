@@ -2,12 +2,13 @@ import UIKit
 
 class VAlert:UIView
 {
-    private static let kHeight:CGFloat = 95
+    private static let kHeight:CGFloat = 80
     private weak var layoutTop:NSLayoutConstraint!
     private weak var timer:Timer?
     private let kAnimationDuration:TimeInterval = 0.35
     private let kTimeOut:TimeInterval = 5
-    private let kFontSize:CGFloat = 18
+    private let kFontSize:CGFloat = 16
+    private let kLabelTop:CGFloat = 20
     private let kLabelMargin:CGFloat = 9
     
     class func messageFail(message:String)
@@ -57,7 +58,7 @@ class VAlert:UIView
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.regular(size:kFontSize)
+        label.font = UIFont.bold(size:kFontSize)
         label.textColor = UIColor.white
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 0
@@ -75,7 +76,11 @@ class VAlert:UIView
         addSubview(label)
         addSubview(button)
         
-        NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.topToTop(
+            view:label,
+            toView:self,
+            constant:kLabelTop)
+        NSLayoutConstraint.bottomToBottom(
             view:label,
             toView:self)
         NSLayoutConstraint.equalsHorizontal(
