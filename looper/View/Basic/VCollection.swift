@@ -44,14 +44,14 @@ class VCollection
     
     //MARK: public
     
-    func registerCell(cell:Q.Type)
+    final func registerCell(cell:Q.Type)
     {
         collectionView.register(
             cell,
             forCellWithReuseIdentifier:cell.reusableIdentifier)
     }
     
-    func registerFooter(footer:UICollectionReusableView.Type)
+    final func registerFooter(footer:UICollectionReusableView.Type)
     {
         collectionView.register(
             footer,
@@ -59,7 +59,7 @@ class VCollection
             withReuseIdentifier:footer.reusableIdentifier)
     }
     
-    func registerHeader(header:UICollectionReusableView.Type)
+    final func registerHeader(header:UICollectionReusableView.Type)
     {
         collectionView.register(
             header,
@@ -67,7 +67,7 @@ class VCollection
             withReuseIdentifier:header.reusableIdentifier)
     }
     
-    func cellAtIndex(indexPath:IndexPath) -> Q
+    final func cellAtIndex(indexPath:IndexPath) -> Q
     {
         let cell:Q = cellAtIndex(
             reusableIdentifier:Q.reusableIdentifier,
@@ -76,7 +76,7 @@ class VCollection
         return cell
     }
     
-    func cellAtIndex(reusableIdentifier:String, indexPath:IndexPath) -> Q
+    final func cellAtIndex(reusableIdentifier:String, indexPath:IndexPath) -> Q
     {
         let cell:Q = collectionView.dequeueReusableCell(
             withReuseIdentifier:reusableIdentifier,
@@ -85,7 +85,7 @@ class VCollection
         return cell
     }
     
-    func reusableAtIndex<P:UICollectionReusableView>(
+    final func reusableAtIndex<P:UICollectionReusableView>(
         kind:String,
         type:P.Type,
         indexPath:IndexPath) -> P
