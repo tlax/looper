@@ -104,6 +104,8 @@
 		DA81CBCA1F2201020031EAF6 /* ModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC91F2201020031EAF6 /* ModelDelegate.swift */; };
 		DA81CBCC1F2207790031EAF6 /* MSourceVideoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBCB1F2207790031EAF6 /* MSourceVideoAuth.swift */; };
 		DAFD73E81F2477C100DC67EA /* MCreateItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73E71F2477C100DC67EA /* MCreateItemFactory.swift */; };
+		DAFD73EA1F24848000DC67EA /* MSourceVideoImportFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73E91F24848000DC67EA /* MSourceVideoImportFactory.swift */; };
+		DAFD73EC1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73EB1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -206,6 +208,8 @@
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FEA41E03672F00FD5265 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAFD73E71F2477C100DC67EA /* MCreateItemFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemFactory.swift; sourceTree = "<group>"; };
+		DAFD73E91F24848000DC67EA /* MSourceVideoImportFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoImportFactory.swift; sourceTree = "<group>"; };
+		DAFD73EB1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoImportFactoryDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -570,6 +574,8 @@
 			isa = PBXGroup;
 			children = (
 				DA65CDBB1F24388E00C0615E /* MSourceVideoImport.swift */,
+				DAFD73E91F24848000DC67EA /* MSourceVideoImportFactory.swift */,
+				DAFD73EB1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift */,
 			);
 			path = SourceVideoImport;
 			sourceTree = "<group>";
@@ -734,6 +740,7 @@
 				DA3B22381F201F3300F85DFD /* ControllerParent.swift in Sources */,
 				DA3B22581F201F3300F85DFD /* VBlur.swift in Sources */,
 				DA3B22491F201F3300F85DFD /* ExtensionNSManagedObject.swift in Sources */,
+				DAFD73EC1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift in Sources */,
 				DAFD73E81F2477C100DC67EA /* MCreateItemFactory.swift in Sources */,
 				DA1AFBE31F21CBE8000ADDFA /* VSourceVideo.swift in Sources */,
 				DA2C08F41F210A9C00E1381A /* MHome.swift in Sources */,
@@ -753,6 +760,7 @@
 				DA3B225A1F201F3300F85DFD /* VCollection.swift in Sources */,
 				DA2C09091F21650F00E1381A /* MCreateItemFrame.swift in Sources */,
 				DA2C09151F2174D700E1381A /* MSourceProtocol.swift in Sources */,
+				DAFD73EA1F24848000DC67EA /* MSourceVideoImportFactory.swift in Sources */,
 				DA3B22831F20268C00F85DFD /* MPerkDomainProtocol.swift in Sources */,
 				DA6EA7B41F22A7DB003A0EA8 /* VSourceVideoTime.swift in Sources */,
 				DA1AFBDB1F21CB39000ADDFA /* MSourceItemVideo.swift in Sources */,
