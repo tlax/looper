@@ -89,7 +89,7 @@ class MSourceVideoImport:Model
         let createItem:MCreateItem = MCreateItem(images:images)
         createItem.changeDuration(duration:duration)
         
-        
+        controller?.videoImported(createItem:createItem)
     }
     
     private func errorLoading()

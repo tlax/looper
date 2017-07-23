@@ -27,6 +27,24 @@ class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
         model.importVideo(controller:self)
     }
     
+    //MARK: private
+    
+    private func backToCreate()
+    {
+        guard
+            
+            let parent:ControllerParent = self.parent as? ControllerParent
+            
+        else
+        {
+            return
+        }
+        
+        parent.popSilent(removeIndex:3)
+        parent.popSilent(removeIndex:2)
+        parent.pop(horizontal:ControllerParent.Horizontal.right)
+    }
+    
     //MARK: public
     
     func cancel()
@@ -41,5 +59,17 @@ class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
         }
         
         parent.dismissAnimateOver(completion:nil)
+    }
+    
+    func videoImported(createItem:MCreateItem)
+    {
+        controllerTime.controllerVideo.controllerCreate.model.addItem(
+            item:createItem)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.backToCreate()
+        }
     }
 }
