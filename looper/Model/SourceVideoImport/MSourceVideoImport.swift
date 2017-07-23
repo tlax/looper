@@ -65,4 +65,8 @@ class MSourceVideoImport:Model, MSourceVideoImportFactoryDelegate
             self?.controller?.cancel()
         }
     }
+    
+    func importProgress(percent:CGFloat)
+    {
+    }
 }

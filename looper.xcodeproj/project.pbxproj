@@ -106,6 +106,7 @@
 		DAFD73E81F2477C100DC67EA /* MCreateItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73E71F2477C100DC67EA /* MCreateItemFactory.swift */; };
 		DAFD73EA1F24848000DC67EA /* MSourceVideoImportFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73E91F24848000DC67EA /* MSourceVideoImportFactory.swift */; };
 		DAFD73EC1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73EB1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift */; };
+		DAFD73EE1F24930400DC67EA /* VSourceVideoImportProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73ED1F24930400DC67EA /* VSourceVideoImportProgress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -210,6 +211,7 @@
 		DAFD73E71F2477C100DC67EA /* MCreateItemFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemFactory.swift; sourceTree = "<group>"; };
 		DAFD73E91F24848000DC67EA /* MSourceVideoImportFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoImportFactory.swift; sourceTree = "<group>"; };
 		DAFD73EB1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoImportFactoryDelegate.swift; sourceTree = "<group>"; };
+		DAFD73ED1F24930400DC67EA /* VSourceVideoImportProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoImportProgress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -584,6 +586,7 @@
 			isa = PBXGroup;
 			children = (
 				DA65CDBE1F2438BD00C0615E /* VSourceVideoImport.swift */,
+				DAFD73ED1F24930400DC67EA /* VSourceVideoImportProgress.swift */,
 			);
 			path = SourceVideoImport;
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				DA3B22371F201F3300F85DFD /* Controller.swift in Sources */,
 				DA81CBC61F21FC2D0031EAF6 /* MSourceVideoItem.swift in Sources */,
 				DA3B22571F201F3300F85DFD /* VAlert.swift in Sources */,
+				DAFD73EE1F24930400DC67EA /* VSourceVideoImportProgress.swift in Sources */,
 				DA3B22781F2024A400F85DFD /* MSession.swift in Sources */,
 				DA3B22651F201FB900F85DFD /* DLooperRefactor.xcdatamodeld in Sources */,
 				DA1AFBEA1F21CC80000ADDFA /* CSourceVideo.swift in Sources */,

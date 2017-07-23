@@ -9,8 +9,10 @@ class MSourceVideoImportFactory
     private var images:[CGImage]
     private var times:[[NSValue]]
     private var timesIndex:Int
+    private var totalTimes:Int
     private let framesPerSecond:Int
     private let kDelay:TimeInterval = 1
+    private let kInitialTimesIndex:Int = -1
     
     init(
         item:MSourceVideoItem,
@@ -22,7 +24,8 @@ class MSourceVideoImportFactory
         self.delegate = delegate
         images = []
         times = []
-        timesIndex = -1
+        timesIndex = kInitialTimesIndex
+        totalTimes = 0
         
         item.requestAvAsset
         { [weak self] (avAsset:AVAsset?) in
@@ -82,6 +85,7 @@ class MSourceVideoImportFactory
             duration:avAsset.duration,
             frames:framesPerSecond)
         
+        totalTimes = Int(times.count)
         let generator:AVAssetImageGenerator = AVAssetImageGenerator(
             asset:avAsset)
         self.generator = generator
@@ -137,12 +141,17 @@ class MSourceVideoImportFactory
     {
         timesIndex += 1
         
-        if timesIndex >= times.count
+        if timesIndex >= totalTimes
         {
             delegate?.importImagesReady(images:images)
         }
         else
         {
+            let index:CGFloat = CGFloat(timesIndex)
+            let total:CGFloat = CGFloat(totalTimes)
+            let progress:CGFloat = index / total
+            
+            delegate?.importProgress(percent:progress)
             delayRecursiveImport()
         }
     }
