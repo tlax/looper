@@ -69,8 +69,7 @@ class CCreate:Controller<VCreate, MCreate>
             return
         }
         
-        let controllerType:UIViewController.Type = item.controller
-        let controller:UIViewController = controllerType.init()
+        let controller:UIViewController = item.controller(create:self)
         parent.push(
             controller:controller,
             horizontal:ControllerParent.Horizontal.right)
