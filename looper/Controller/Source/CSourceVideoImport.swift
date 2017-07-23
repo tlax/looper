@@ -13,6 +13,13 @@ class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
         return nil
     }
     
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        model.importVideo()
+    }
+    
     //MARK: public
     
     func cancel()
