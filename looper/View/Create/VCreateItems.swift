@@ -1,9 +1,10 @@
-//
-//  VCreateItems.swift
-//  looper
-//
-//  Created by zero on 7/23/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VCreateItems:VCollection<
+    VCreate,
+    MCreate,
+    CCreate,
+    VCreateItemsCell>
+{
+    
+}
