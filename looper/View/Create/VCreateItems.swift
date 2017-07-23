@@ -7,7 +7,8 @@ class VCreateItems:VCollection<
     VCreateItemsCell>
 {
     private let kCellHeight:CGFloat = 120
-    private let kInterItem:CGFloat = 1
+    private let kInterItem:CGFloat = 5
+    private let kCollectionTop:CGFloat = 10
     private let kCollectionBottom:CGFloat = 20
     
     required init(controller:CCreate)
@@ -17,7 +18,7 @@ class VCreateItems:VCollection<
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
-            let top:CGFloat = kInterItem + VCreate.kBarHeight + VCreate.kMenuHeight
+            let top:CGFloat = kCollectionTop + VCreate.kBarHeight + VCreate.kMenuHeight
             
             flow.minimumLineSpacing = kInterItem
             flow.sectionInset = UIEdgeInsets(

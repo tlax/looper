@@ -4,13 +4,19 @@ class VCreateItemsCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var layoutImageWidth:NSLayoutConstraint!
-    private let kImageLeft:CGFloat = 20
+    private let kImageLeft:CGFloat = 10
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
+        clipsToBounds = true
+        backgroundColor = UIColor.clear
         
         let imageView:UIImageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.isUserInteractionEnabled = false
         self.imageView = imageView
         
         addSubview(imageView)
@@ -22,7 +28,8 @@ class VCreateItemsCell:UICollectionViewCell
             view:imageView,
             toView:self,
             constant:kImageLeft)
-        layoutImageWidth = NSLayoutConstraint.width(view:imageView)
+        layoutImageWidth = NSLayoutConstraint.width(
+            view:imageView)
     }
     
     required init?(coder:NSCoder)
