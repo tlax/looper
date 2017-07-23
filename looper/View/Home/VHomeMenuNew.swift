@@ -91,7 +91,7 @@ class VHomeMenuNew:View<VHome, MHome, CHome>
     
     func actionNew(sender button:UIButton)
     {
-        controller.openCreate()
+        controller.openNew()
         alpha = kAlphaNotSelected
     }
 }

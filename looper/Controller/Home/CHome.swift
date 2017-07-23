@@ -20,4 +20,19 @@ class CHome:Controller<VHome, MHome>
             controller:controller,
             vertical:ControllerParent.Vertical.bottom)
     }
+    
+    func openNew()
+    {
+        guard
+            
+            let parent:ControllerParent = self.parent as? ControllerParent
+            
+        else
+        {
+            return
+        }
+        
+        let controller:CNew = CNew()
+        parent.animateOver(controller:controller)
+    }
 }
