@@ -6,7 +6,7 @@ class MSourceVideoTimeItemWidth:MSourceVideoTimeItemProtocol
     
     required init(item:MSourceVideoItem)
     {
-        stringValue = "\(duration:item.asset.pixelWidth)"
+        stringValue = "\(item.asset.pixelWidth)"
     }
     
     var title:String
