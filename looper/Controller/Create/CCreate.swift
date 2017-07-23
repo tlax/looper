@@ -2,6 +2,11 @@ import UIKit
 
 class CCreate:Controller<VCreate, MCreate>
 {
+    override func modelRefresh()
+    {
+        
+    }
+    
     //MARK: private
     
     private func alertClose()
