@@ -3,3 +3,5 @@
 "MSourceVideo_authDenied"="Denied access to photo/video library";
 "MSourceVideo_libraryError"="Error loading photo/video library";
 "MSourceVideoTimeItemDuration_title"="Duration";
+"MSourceVideoTimeItemWidth_title"="Width";
+"MSourceVideoTimeItemHeight_title"="Height";

@@ -17,10 +17,17 @@ class MSourceVideoTime:Model
     func config(item:MSourceVideoItem)
     {
         self.item = item
+        
         let itemDuration:MSourceVideoTimeItemDuration = MSourceVideoTimeItemDuration(
+            item:item)
+        let itemWidth:MSourceVideoTimeItemWidth = MSourceVideoTimeItemWidth(
+            item:item)
+        let itemHeight:MSourceVideoTimeItemHeight = MSourceVideoTimeItemHeight(
             item:item)
         
         items = [
-            itemDuration]
+            itemDuration,
+            itemWidth,
+            itemHeight]
     }
 }
