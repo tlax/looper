@@ -1,3 +1,4 @@
 "VCreateBar_labelTitle"="Create loop";
 "VSourceVideoBar_labelTitle"="Add video";
 "VSourceVideoTimeBottomBar_buttonImport"="Import";
+"VSourceVideoTimeInfoFooter_labelTitle"="Frames per second";

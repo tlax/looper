@@ -2,12 +2,15 @@ import Foundation
 
 class MSourceVideoTime:Model
 {
+    var framesPerSecond:Int
     private(set) weak var item:MSourceVideoItem!
     private(set) var items:[MSourceVideoTimeItemProtocol]
+    private let kFramesPerSecondDefault:Int = 15
     
     required init()
     {
         items = []
+        framesPerSecond = kFramesPerSecondDefault
         
         super.init()
     }

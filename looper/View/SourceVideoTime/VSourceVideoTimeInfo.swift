@@ -88,6 +88,7 @@ class VSourceVideoTimeInfo:VCollection<
             kind:kind,
             type:VSourceVideoTimeInfoFooter.self,
             indexPath:indexPath)
+        reusable.config(controller:controller)
         
         return reusable
     }
