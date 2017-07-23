@@ -41,8 +41,8 @@ class VSourceVideoTime:ViewMain
         let viewInfo:VSourceVideoTimeInfo = VSourceVideoTimeInfo(
             controller:controller)
         
-        addSubview(viewBar)
         addSubview(viewInfo)
+        addSubview(viewBar)
         addSubview(viewBottomBar)
         
         NSLayoutConstraint.topToTop(

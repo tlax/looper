@@ -6,8 +6,9 @@ class VSourceVideoTimeInfo:VCollection<
     CSourceVideoTime,
     VSourceVideoTimeInfoCell>
 {
-    private let kInterItem:CGFloat = 2
-    private let kCellHeight:CGFloat = 30
+    private let kMarginTop:CGFloat = 10
+    private let kInterItem:CGFloat = 3
+    private let kCellHeight:CGFloat = 35
     
     required init(controller:CSourceVideoTime)
     {
@@ -18,7 +19,7 @@ class VSourceVideoTimeInfo:VCollection<
         {
             flow.minimumLineSpacing = kInterItem
             flow.sectionInset = UIEdgeInsets(
-                top:VSourceVideoTime.kBarMaxHeight,
+                top:VSourceVideoTime.kBarMaxHeight + kMarginTop,
                 left:0,
                 bottom:VSourceVideoTime.kBottomBarHeight,
                 right:0)
