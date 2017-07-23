@@ -113,6 +113,8 @@
 		DAFD73F91F24BE4100DC67EA /* CNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73F81F24BE4100DC67EA /* CNew.swift */; };
 		DAFD73FC1F24BE6800DC67EA /* MNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73FB1F24BE6800DC67EA /* MNew.swift */; };
 		DAFD73FF1F24BE9200DC67EA /* VNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73FE1F24BE9200DC67EA /* VNew.swift */; };
+		DAFD74011F24C8EA00DC67EA /* VNewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD74001F24C8EA00DC67EA /* VNewSource.swift */; };
+		DAFD74031F24C90B00DC67EA /* VNewSourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD74021F24C90B00DC67EA /* VNewSourceCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -224,6 +226,8 @@
 		DAFD73F81F24BE4100DC67EA /* CNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNew.swift; sourceTree = "<group>"; };
 		DAFD73FB1F24BE6800DC67EA /* MNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNew.swift; sourceTree = "<group>"; };
 		DAFD73FE1F24BE9200DC67EA /* VNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNew.swift; sourceTree = "<group>"; };
+		DAFD74001F24C8EA00DC67EA /* VNewSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNewSource.swift; sourceTree = "<group>"; };
+		DAFD74021F24C90B00DC67EA /* VNewSourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNewSourceCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -683,6 +687,8 @@
 			isa = PBXGroup;
 			children = (
 				DAFD73FE1F24BE9200DC67EA /* VNew.swift */,
+				DAFD74001F24C8EA00DC67EA /* VNewSource.swift */,
+				DAFD74021F24C90B00DC67EA /* VNewSourceCell.swift */,
 			);
 			path = New;
 			sourceTree = "<group>";
@@ -830,6 +836,7 @@
 				DA3B225C1F201F3300F85DFD /* VGradient.swift in Sources */,
 				DA81CBCC1F2207790031EAF6 /* MSourceVideoAuth.swift in Sources */,
 				DA65CDAD1F240CCA00C0615E /* VSourceVideoTimeBottomBar.swift in Sources */,
+				DAFD74031F24C90B00DC67EA /* VNewSourceCell.swift in Sources */,
 				DA3B22471F201F3300F85DFD /* ExtensionNotification.swift in Sources */,
 				DA65CDB11F2416B300C0615E /* MSourceVideoTimeItemDuration.swift in Sources */,
 				DA3B22851F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift in Sources */,
@@ -848,6 +855,7 @@
 				DA6EA7BD1F22B3B3003A0EA8 /* VSourceVideoTimeBar.swift in Sources */,
 				DA6EA7B11F22A779003A0EA8 /* CSourceVideoTime.swift in Sources */,
 				DA2C09051F2164E600E1381A /* MCreate.swift in Sources */,
+				DAFD74011F24C8EA00DC67EA /* VNewSource.swift in Sources */,
 				DA1AFBD71F21C9F6000ADDFA /* MSourceVideo.swift in Sources */,
 				DA2C09131F21727300E1381A /* VCreateMenuCell.swift in Sources */,
 				DAFD73F91F24BE4100DC67EA /* CNew.swift in Sources */,
