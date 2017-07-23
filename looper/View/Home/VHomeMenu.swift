@@ -5,37 +5,37 @@ class VHomeMenu:View<VHome, MHome, CHome>
     private weak var layoutNewTop:NSLayoutConstraint!
     private weak var layoutNewLeft:NSLayoutConstraint!
     private let kNewSize:CGFloat = 65
+    private let kBorderHeight:CGFloat = 2
     
     required init(controller:CHome)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor.colourBackgroundGray
         
-        let buttonNew:UIButton = UIButton()
-        buttonNew.translatesAutoresizingMaskIntoConstraints = false
-        buttonNew.setImage(
-            #imageLiteral(resourceName: "assetGenericNewOff"),
-            for:UIControlState.normal)
-        buttonNew.setImage(
-            #imageLiteral(resourceName: "assetGenericNewOn"),
-            for:UIControlState.highlighted)
-        buttonNew.imageView!.clipsToBounds = true
-        buttonNew.imageView!.contentMode = UIViewContentMode.center
-        buttonNew.addTarget(
-            self,
-            action:#selector(actionNew(sender:)),
-            for:UIControlEvents.touchUpInside)
+        let border:VBorder = VBorder(colour:UIColor.colourBackgroundGray)
         
-        addSubview(buttonNew)
+        let viewNew:VHomeMenuNew = VHomeMenuNew(controller:controller)
+        
+        addSubview(border)
+        addSubview(viewNew)
+        
+        NSLayoutConstraint.topToTop(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
         
         layoutNewTop = NSLayoutConstraint.topToTop(
-            view:buttonNew,
+            view:viewNew,
             toView:self)
         layoutNewLeft = NSLayoutConstraint.leftToLeft(
-            view:buttonNew,
+            view:viewNew,
             toView:self)
         NSLayoutConstraint.size(
-            view:buttonNew,
+            view:viewNew,
             constant:kNewSize)
     }
     
@@ -56,12 +56,5 @@ class VHomeMenu:View<VHome, MHome, CHome>
         layoutNewTop.constant = sizeMarginTop
         
         super.layoutSubviews()
-    }
-    
-    //MARK: actions
-    
-    func actionNew(sender button:UIButton)
-    {
-        controller.openCreate()
     }
 }

@@ -109,6 +109,7 @@
 		DAFD73EE1F24930400DC67EA /* VSourceVideoImportProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73ED1F24930400DC67EA /* VSourceVideoImportProgress.swift */; };
 		DAFD73F01F24A51900DC67EA /* VCreateItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73EF1F24A51900DC67EA /* VCreateItems.swift */; };
 		DAFD73F21F24A52100DC67EA /* VCreateItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73F11F24A52100DC67EA /* VCreateItemsCell.swift */; };
+		DAFD73F61F24B59900DC67EA /* VHomeMenuNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73F51F24B59900DC67EA /* VHomeMenuNew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -216,6 +217,7 @@
 		DAFD73ED1F24930400DC67EA /* VSourceVideoImportProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoImportProgress.swift; sourceTree = "<group>"; };
 		DAFD73EF1F24A51900DC67EA /* VCreateItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateItems.swift; sourceTree = "<group>"; };
 		DAFD73F11F24A52100DC67EA /* VCreateItemsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateItemsCell.swift; sourceTree = "<group>"; };
+		DAFD73F51F24B59900DC67EA /* VHomeMenuNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeMenuNew.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,6 +523,7 @@
 			children = (
 				DA3B22351F201F3300F85DFD /* VHome.swift */,
 				DA2C08EE1F2108FC00E1381A /* VHomeMenu.swift */,
+				DAFD73F51F24B59900DC67EA /* VHomeMenuNew.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				DA2C090D1F21656D00E1381A /* CCreate.swift in Sources */,
 				DA65CDB71F242D5300C0615E /* VSourceVideoTimeInfoFooter.swift in Sources */,
 				DA65CDB51F242A8700C0615E /* MSourceVideoTimeItemHeight.swift in Sources */,
+				DAFD73F61F24B59900DC67EA /* VHomeMenuNew.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
