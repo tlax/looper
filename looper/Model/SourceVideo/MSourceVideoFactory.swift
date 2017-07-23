@@ -35,6 +35,14 @@ extension MSourceVideo
         return requestOptions
     }
     
+    class func factoryVideoOptions() -> PHVideoRequestOptions
+    {
+        let options:PHVideoRequestOptions = PHVideoRequestOptions()
+        options.deliveryMode = PHVideoRequestOptionsDeliveryMode.highQualityFormat
+        
+        return options
+    }
+    
     //MARK: private
     
     private class func factoryCameraRoll() -> PHAssetCollection?

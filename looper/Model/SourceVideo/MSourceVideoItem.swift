@@ -1,5 +1,6 @@
 import UIKit
 import Photos
+import AVFoundation
 
 class MSourceVideoItem
 {
@@ -58,6 +59,19 @@ class MSourceVideoItem
             self?.requestId = nil
             
             completion()
+        }
+    }
+    
+    func requestAvAsset(completion:@escaping((AVAsset?) -> ()))
+    {
+        let options:PHVideoRequestOptions = MSourceVideo.factoryVideoOptions()
+        
+        cachingManager?.requestAVAsset(
+            forVideo:asset,
+            options:options)
+        { (avAsset:AVAsset?, audioMix:AVAudioMix?, info:[AnyHashable:Any]?) in
+            
+            completion(avAsset)
         }
     }
 }
