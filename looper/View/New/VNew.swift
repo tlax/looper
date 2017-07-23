@@ -79,9 +79,12 @@ class VNew:ViewMain
             action:#selector(actionCancel(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let viewSource:VNewSource = VNewSource(controller:controller)
+        
         addSubview(blur)
         addSubview(buttonBackground)
         addSubview(buttonCancel)
+        addSubview(viewSource)
         
         NSLayoutConstraint.equals(
             view:blur,
@@ -99,6 +102,16 @@ class VNew:ViewMain
             constant:kCancelSize)
         layoutCancelLeft = NSLayoutConstraint.leftToLeft(
             view:buttonCancel,
+            toView:self)
+        
+        NSLayoutConstraint.bottomToTop(
+            view:viewSource,
+            toView:buttonCancel)
+        NSLayoutConstraint.topToTop(
+            view:viewSource,
+            toView:self)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewSource,
             toView:self)
     }
 }

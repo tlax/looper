@@ -7,6 +7,7 @@ class VNewSourceCell:UICollectionViewCell
     private weak var layoutCircleTop:NSLayoutConstraint!
     private weak var layoutCircleLeft:NSLayoutConstraint!
     private let kCircleSize:CGFloat = 60
+    private let kBorderWidth:CGFloat = 1
     
     override init(frame:CGRect)
     {
@@ -20,6 +21,8 @@ class VNewSourceCell:UICollectionViewCell
         circleView.clipsToBounds = true
         circleView.backgroundColor = UIColor.white
         circleView.layer.cornerRadius = kCircleSize / 2.0
+        circleView.layer.borderWidth = kBorderWidth
+        circleView.layer.borderColor = UIColor(white:0, alpha:0.2).cgColor
         
         addSubview(circleView)
         
