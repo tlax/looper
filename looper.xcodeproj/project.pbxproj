@@ -112,6 +112,7 @@
 		DAFD73F61F24B59900DC67EA /* VHomeMenuNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73F51F24B59900DC67EA /* VHomeMenuNew.swift */; };
 		DAFD73F91F24BE4100DC67EA /* CNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73F81F24BE4100DC67EA /* CNew.swift */; };
 		DAFD73FC1F24BE6800DC67EA /* MNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73FB1F24BE6800DC67EA /* MNew.swift */; };
+		DAFD73FF1F24BE9200DC67EA /* VNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73FE1F24BE9200DC67EA /* VNew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -222,6 +223,7 @@
 		DAFD73F51F24B59900DC67EA /* VHomeMenuNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeMenuNew.swift; sourceTree = "<group>"; };
 		DAFD73F81F24BE4100DC67EA /* CNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNew.swift; sourceTree = "<group>"; };
 		DAFD73FB1F24BE6800DC67EA /* MNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNew.swift; sourceTree = "<group>"; };
+		DAFD73FE1F24BE9200DC67EA /* VNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNew.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -474,6 +476,7 @@
 		DA3B22211F201F3300F85DFD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DAFD73FD1F24BE8900DC67EA /* New */,
 				DA3B22221F201F3300F85DFD /* Abstract */,
 				DA3B22281F201F3300F85DFD /* Basic */,
 				DA1AFBDE1F21CBCC000ADDFA /* SourceImage */,
@@ -676,6 +679,14 @@
 			path = New;
 			sourceTree = "<group>";
 		};
+		DAFD73FD1F24BE8900DC67EA /* New */ = {
+			isa = PBXGroup;
+			children = (
+				DAFD73FE1F24BE9200DC67EA /* VNew.swift */,
+			);
+			path = New;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -795,6 +806,7 @@
 				DA3B225A1F201F3300F85DFD /* VCollection.swift in Sources */,
 				DA2C09091F21650F00E1381A /* MCreateItemFrame.swift in Sources */,
 				DA2C09151F2174D700E1381A /* MSourceProtocol.swift in Sources */,
+				DAFD73FF1F24BE9200DC67EA /* VNew.swift in Sources */,
 				DAFD73EA1F24848000DC67EA /* MSourceVideoImportFactory.swift in Sources */,
 				DA3B22831F20268C00F85DFD /* MPerkDomainProtocol.swift in Sources */,
 				DA6EA7B41F22A7DB003A0EA8 /* VSourceVideoTime.swift in Sources */,
