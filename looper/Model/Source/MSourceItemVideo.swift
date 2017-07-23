@@ -18,11 +18,10 @@ class MSourceItemVideo:MSourceProtocol
         }
     }
     
-    var controller:UIViewController.Type
+    func controller(create:CCreate) -> UIViewController
     {
-        get
-        {
-            return CSourceVideo.self
-        }
+        let video:CSourceVideo = CSourceVideo(create:create)
+        
+        return video
     }
 }

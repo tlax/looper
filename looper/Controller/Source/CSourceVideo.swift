@@ -3,6 +3,19 @@ import Photos
 
 class CSourceVideo:Controller<VSourceVideo, MSourceVideo>
 {
+    private weak var create:CCreate!
+    
+    init(create:CCreate)
+    {
+        self.create = create
+        super.init()
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        return nil
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
