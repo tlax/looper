@@ -85,8 +85,6 @@
 		DA65CDB31F242A7F00C0615E /* MSourceVideoTimeItemWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDB21F242A7F00C0615E /* MSourceVideoTimeItemWidth.swift */; };
 		DA65CDB51F242A8700C0615E /* MSourceVideoTimeItemHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDB41F242A8700C0615E /* MSourceVideoTimeItemHeight.swift */; };
 		DA6BA5F61F20418D00A6381A /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA5F51F20418D00A6381A /* brand.xcassets */; };
-		DA6EA7AD1F2295D5003A0EA8 /* VSourceVideoBarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7AC1F2295D5003A0EA8 /* VSourceVideoBarInfo.swift */; };
-		DA6EA7AF1F22978D003A0EA8 /* VSourceVideoBarInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7AE1F22978D003A0EA8 /* VSourceVideoBarInfoCell.swift */; };
 		DA6EA7B11F22A779003A0EA8 /* CSourceVideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7B01F22A779003A0EA8 /* CSourceVideoTime.swift */; };
 		DA6EA7B41F22A7DB003A0EA8 /* VSourceVideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7B31F22A7DB003A0EA8 /* VSourceVideoTime.swift */; };
 		DA6EA7B71F22A840003A0EA8 /* MSourceVideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7B61F22A840003A0EA8 /* MSourceVideoTime.swift */; };
@@ -182,8 +180,6 @@
 		DA65CDB21F242A7F00C0615E /* MSourceVideoTimeItemWidth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoTimeItemWidth.swift; sourceTree = "<group>"; };
 		DA65CDB41F242A8700C0615E /* MSourceVideoTimeItemHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoTimeItemHeight.swift; sourceTree = "<group>"; };
 		DA6BA5F51F20418D00A6381A /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
-		DA6EA7AC1F2295D5003A0EA8 /* VSourceVideoBarInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoBarInfo.swift; sourceTree = "<group>"; };
-		DA6EA7AE1F22978D003A0EA8 /* VSourceVideoBarInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoBarInfoCell.swift; sourceTree = "<group>"; };
 		DA6EA7B01F22A779003A0EA8 /* CSourceVideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSourceVideoTime.swift; sourceTree = "<group>"; };
 		DA6EA7B31F22A7DB003A0EA8 /* VSourceVideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTime.swift; sourceTree = "<group>"; };
 		DA6EA7B61F22A840003A0EA8 /* MSourceVideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoTime.swift; sourceTree = "<group>"; };
@@ -226,8 +222,6 @@
 			children = (
 				DA1AFBE21F21CBE8000ADDFA /* VSourceVideo.swift */,
 				DA81CBC31F21E5710031EAF6 /* VSourceVideoBar.swift */,
-				DA6EA7AC1F2295D5003A0EA8 /* VSourceVideoBarInfo.swift */,
-				DA6EA7AE1F22978D003A0EA8 /* VSourceVideoBarInfoCell.swift */,
 				DA6EA7C01F22B975003A0EA8 /* VSourceVideoList.swift */,
 				DA6EA7C21F22B97B003A0EA8 /* VSourceVideoListCell.swift */,
 			);
@@ -734,10 +728,8 @@
 				DA6EA7BF1F22B3BE003A0EA8 /* VSourceVideoTimeInfo.swift in Sources */,
 				DA3B225F1F201F3300F85DFD /* VSliderBar.swift in Sources */,
 				DA3B22621F201F3300F85DFD /* VHome.swift in Sources */,
-				DA6EA7AF1F22978D003A0EA8 /* VSourceVideoBarInfoCell.swift in Sources */,
 				DA3B224D1F201F3300F85DFD /* ExtensionUIFont.swift in Sources */,
 				DA2C09071F2164F600E1381A /* MCreateItem.swift in Sources */,
-				DA6EA7AD1F2295D5003A0EA8 /* VSourceVideoBarInfo.swift in Sources */,
 				DA2C09191F21754900E1381A /* MCreateFactory.swift in Sources */,
 				DA65CDAF1F2416A900C0615E /* MSourceVideoTimeItemProtocol.swift in Sources */,
 				DA3B22871F202DC100F85DFD /* MSessionPerks.swift in Sources */,
