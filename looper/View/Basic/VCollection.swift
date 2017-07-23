@@ -85,6 +85,19 @@ class VCollection
         return cell
     }
     
+    func reusableAtIndex<P:UICollectionReusableView>(
+        kind:String,
+        type:P.Type,
+        indexPath:IndexPath) -> P
+    {
+        let reusable:P = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:P.reusableIdentifier,
+            for:indexPath) as! P
+        
+        return reusable
+    }
+    
     //MARK: collectionView delegate
     
     func scrollViewDidScroll(_ scrollView:UIScrollView)
@@ -110,6 +123,19 @@ class VCollection
         numberOfItemsInSection section:Int) -> Int
     {
         return 0
+    }
+    
+    func collectionView(
+        _ collectionView:UICollectionView,
+        viewForSupplementaryElementOfKind kind:String,
+        at indexPath:IndexPath) -> UICollectionReusableView
+    {
+        let reusable:UICollectionReusableView = reusableAtIndex(
+            kind:kind,
+            type:UICollectionReusableView.self,
+            indexPath:indexPath)
+        
+        return reusable
     }
     
     func collectionView(

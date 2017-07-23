@@ -81,6 +81,19 @@ class VSourceVideoTimeInfo:VCollection<
     
     override func collectionView(
         _ collectionView:UICollectionView,
+        viewForSupplementaryElementOfKind kind:String,
+        at indexPath:IndexPath) -> UICollectionReusableView
+    {
+        let reusable:VSourceVideoTimeInfoFooter = reusableAtIndex(
+            kind:kind,
+            type:VSourceVideoTimeInfoFooter.self,
+            indexPath:indexPath)
+        
+        return reusable
+    }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
         cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
         let item:MSourceVideoTimeItemProtocol = modelAtIndex(index:indexPath)
