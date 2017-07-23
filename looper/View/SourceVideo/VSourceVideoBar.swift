@@ -2,9 +2,7 @@ import UIKit
 
 class VSourceVideoBar:View<VSourceVideo, MSourceVideo, CSourceVideo>
 {
-    private(set) weak var viewInfo:VSourceVideoBarInfo!
     private let kContentTop:CGFloat = 20
-    private let kContentHeight:CGFloat = 44
     private let kBackWidth:CGFloat = 60
     private let kBackEdgeRight:CGFloat = 20
     
@@ -53,11 +51,7 @@ class VSourceVideoBar:View<VSourceVideo, MSourceVideo, CSourceVideo>
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
-        let viewInfo:VSourceVideoBarInfo = VSourceVideoBarInfo(controller:controller)
-        self.viewInfo = viewInfo
-        
         addSubview(viewGradient)
-        addSubview(viewInfo)
         addSubview(labelTitle)
         addSubview(buttonBack)
         
@@ -69,9 +63,9 @@ class VSourceVideoBar:View<VSourceVideo, MSourceVideo, CSourceVideo>
             view:labelTitle,
             toView:self,
             constant:kContentTop)
-        NSLayoutConstraint.height(
+        NSLayoutConstraint.bottomToBottom(
             view:labelTitle,
-            constant:kContentHeight)
+            toView:self)
         NSLayoutConstraint.equalsHorizontal(
             view:labelTitle,
             toView:self)
@@ -80,19 +74,15 @@ class VSourceVideoBar:View<VSourceVideo, MSourceVideo, CSourceVideo>
             view:buttonBack,
             toView:self,
             constant:kContentTop)
-        NSLayoutConstraint.height(
+        NSLayoutConstraint.bottomToBottom(
             view:buttonBack,
-            constant:kContentHeight)
+            toView:self)
         NSLayoutConstraint.leftToLeft(
             view:buttonBack,
             toView:self)
         NSLayoutConstraint.width(
             view:buttonBack,
             constant:kBackWidth)
-        
-        NSLayoutConstraint.equals(
-            view:viewInfo,
-            toView:self)
     }
     
     required init?(coder:NSCoder)

@@ -7,8 +7,8 @@ class VSourceVideoTimeInfo:VCollection<
     VSourceVideoTimeInfoCell>
 {
     private let kMarginTop:CGFloat = 10
-    private let kInterItem:CGFloat = 3
-    private let kCellHeight:CGFloat = 32
+    private let kInterItem:CGFloat = 2
+    private let kCellHeight:CGFloat = 30
     
     required init(controller:CSourceVideoTime)
     {

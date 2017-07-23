@@ -84,6 +84,7 @@
 		DA65CDB11F2416B300C0615E /* MSourceVideoTimeItemDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDB01F2416B300C0615E /* MSourceVideoTimeItemDuration.swift */; };
 		DA65CDB31F242A7F00C0615E /* MSourceVideoTimeItemWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDB21F242A7F00C0615E /* MSourceVideoTimeItemWidth.swift */; };
 		DA65CDB51F242A8700C0615E /* MSourceVideoTimeItemHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDB41F242A8700C0615E /* MSourceVideoTimeItemHeight.swift */; };
+		DA65CDB71F242D5300C0615E /* VSourceVideoTimeInfoFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDB61F242D5300C0615E /* VSourceVideoTimeInfoFooter.swift */; };
 		DA6BA5F61F20418D00A6381A /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA5F51F20418D00A6381A /* brand.xcassets */; };
 		DA6EA7B11F22A779003A0EA8 /* CSourceVideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7B01F22A779003A0EA8 /* CSourceVideoTime.swift */; };
 		DA6EA7B41F22A7DB003A0EA8 /* VSourceVideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7B31F22A7DB003A0EA8 /* VSourceVideoTime.swift */; };
@@ -179,6 +180,7 @@
 		DA65CDB01F2416B300C0615E /* MSourceVideoTimeItemDuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoTimeItemDuration.swift; sourceTree = "<group>"; };
 		DA65CDB21F242A7F00C0615E /* MSourceVideoTimeItemWidth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoTimeItemWidth.swift; sourceTree = "<group>"; };
 		DA65CDB41F242A8700C0615E /* MSourceVideoTimeItemHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoTimeItemHeight.swift; sourceTree = "<group>"; };
+		DA65CDB61F242D5300C0615E /* VSourceVideoTimeInfoFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeInfoFooter.swift; sourceTree = "<group>"; };
 		DA6BA5F51F20418D00A6381A /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DA6EA7B01F22A779003A0EA8 /* CSourceVideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSourceVideoTime.swift; sourceTree = "<group>"; };
 		DA6EA7B31F22A7DB003A0EA8 /* VSourceVideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTime.swift; sourceTree = "<group>"; };
@@ -560,6 +562,7 @@
 				DA6EA7C61F22C77D003A0EA8 /* VSourceVideoTimeBarThumb.swift */,
 				DA6EA7BE1F22B3BE003A0EA8 /* VSourceVideoTimeInfo.swift */,
 				DA6EA7C41F22C14B003A0EA8 /* VSourceVideoTimeInfoCell.swift */,
+				DA65CDB61F242D5300C0615E /* VSourceVideoTimeInfoFooter.swift */,
 				DA65CDAC1F240CCA00C0615E /* VSourceVideoTimeBottomBar.swift */,
 			);
 			path = SourceVideoTime;
@@ -766,6 +769,7 @@
 				DA3B224C1F201F3300F85DFD /* ExtensionUIColor.swift in Sources */,
 				DA81CBCA1F2201020031EAF6 /* ModelDelegate.swift in Sources */,
 				DA2C090D1F21656D00E1381A /* CCreate.swift in Sources */,
+				DA65CDB71F242D5300C0615E /* VSourceVideoTimeInfoFooter.swift in Sources */,
 				DA65CDB51F242A8700C0615E /* MSourceVideoTimeItemHeight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
