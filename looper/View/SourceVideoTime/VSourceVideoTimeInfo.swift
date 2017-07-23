@@ -9,6 +9,7 @@ class VSourceVideoTimeInfo:VCollection<
     private let kMarginTop:CGFloat = 10
     private let kInterItem:CGFloat = 3
     private let kCellHeight:CGFloat = 35
+    private let kBarMinHeight:CGFloat = 80
     
     required init(controller:CSourceVideoTime)
     {
@@ -29,6 +30,29 @@ class VSourceVideoTimeInfo:VCollection<
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func scrollViewDidScroll(
+        _ scrollView:UIScrollView)
+    {
+        guard
+        
+            let view:VSourceVideoTime = controller.view as? VSourceVideoTime
+        
+        else
+        {
+            return
+        }
+        
+        let offsetY:CGFloat = scrollView.contentOffset.y
+        var newHeight:CGFloat = VSourceVideoTime.kBarMaxHeight - offsetY
+        
+        if newHeight < kBarMinHeight
+        {
+            newHeight = kBarMinHeight
+        }
+        
+        view.layoutBarHeight.constant = newHeight
     }
     
     override func collectionView(

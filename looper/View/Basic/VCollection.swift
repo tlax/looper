@@ -87,6 +87,10 @@ class VCollection
     
     //MARK: collectionView delegate
     
+    func scrollViewDidScroll(_ scrollView:UIScrollView)
+    {
+    }
+    
     func collectionView(
         _ collectionView:UICollectionView,
         layout collectionViewLayout:UICollectionViewLayout,
