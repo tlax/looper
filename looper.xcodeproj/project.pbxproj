@@ -115,6 +115,7 @@
 		DAFD73FF1F24BE9200DC67EA /* VNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73FE1F24BE9200DC67EA /* VNew.swift */; };
 		DAFD74011F24C8EA00DC67EA /* VNewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD74001F24C8EA00DC67EA /* VNewSource.swift */; };
 		DAFD74031F24C90B00DC67EA /* VNewSourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD74021F24C90B00DC67EA /* VNewSourceCell.swift */; };
+		DAFD74051F24CA7000DC67EA /* MNewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD74041F24CA7000DC67EA /* MNewFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -228,6 +229,7 @@
 		DAFD73FE1F24BE9200DC67EA /* VNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNew.swift; sourceTree = "<group>"; };
 		DAFD74001F24C8EA00DC67EA /* VNewSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNewSource.swift; sourceTree = "<group>"; };
 		DAFD74021F24C90B00DC67EA /* VNewSourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNewSourceCell.swift; sourceTree = "<group>"; };
+		DAFD74041F24CA7000DC67EA /* MNewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNewFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -679,6 +681,7 @@
 			isa = PBXGroup;
 			children = (
 				DAFD73FB1F24BE6800DC67EA /* MNew.swift */,
+				DAFD74041F24CA7000DC67EA /* MNewFactory.swift */,
 			);
 			path = New;
 			sourceTree = "<group>";
@@ -851,6 +854,7 @@
 				DA65CDBC1F24388E00C0615E /* MSourceVideoImport.swift in Sources */,
 				DA3B225B1F201F3300F85DFD /* VCollectionFlow.swift in Sources */,
 				DA3B22791F2024A400F85DFD /* MSessionSettings.swift in Sources */,
+				DAFD74051F24CA7000DC67EA /* MNewFactory.swift in Sources */,
 				DA2C09111F216EFE00E1381A /* VCreateMenu.swift in Sources */,
 				DA6EA7BD1F22B3B3003A0EA8 /* VSourceVideoTimeBar.swift in Sources */,
 				DA6EA7B11F22A779003A0EA8 /* CSourceVideoTime.swift in Sources */,
