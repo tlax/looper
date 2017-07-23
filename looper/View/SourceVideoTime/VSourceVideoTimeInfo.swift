@@ -9,19 +9,24 @@ class VSourceVideoTimeInfo:VCollection<
     private let kMarginTop:CGFloat = 10
     private let kInterItem:CGFloat = 2
     private let kCellHeight:CGFloat = 30
+    private let kFooterHeight:CGFloat = 100
     
     required init(controller:CSourceVideoTime)
     {
         super.init(controller:controller)
         collectionView.alwaysBounceVertical = true
+        registerFooter(footer:VSourceVideoTimeInfoFooter.self)
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             flow.minimumLineSpacing = kInterItem
+            flow.footerReferenceSize = CGSize(
+                width:0,
+                height:kFooterHeight + VSourceVideoTime.kBottomBarHeight)
             flow.sectionInset = UIEdgeInsets(
                 top:VSourceVideoTime.kBarMaxHeight + kMarginTop,
                 left:0,
-                bottom:VSourceVideoTime.kBottomBarHeight,
+                bottom:0,
                 right:0)
         }
     }
