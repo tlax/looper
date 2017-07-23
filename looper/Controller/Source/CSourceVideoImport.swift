@@ -2,8 +2,15 @@ import Foundation
 
 class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
 {
-    init(item:MSourceVideoItem, framesPerSecond:Int)
+    private(set) weak var controllerTime:CSourceVideoTime!
+    
+    init(
+        item:MSourceVideoItem,
+        framesPerSecond:Int,
+        controllerTime:CSourceVideoTime)
     {
+        self.controllerTime = controllerTime
+        
         super.init()
         model.config(item:item, framesPerSecond:framesPerSecond)
     }

@@ -68,7 +68,9 @@ class CSourceVideo:Controller<VSourceVideo, MSourceVideo>
             return
         }
         
-        let controller:CSourceVideoTime = CSourceVideoTime(item:item)
+        let controller:CSourceVideoTime = CSourceVideoTime(
+            item:item,
+            controllerVideo:self)
         parent.animateOver(controller:controller)
     }
 }

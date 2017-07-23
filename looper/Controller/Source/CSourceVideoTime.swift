@@ -2,10 +2,12 @@ import Foundation
 
 class CSourceVideoTime:Controller<VSourceVideoTime, MSourceVideoTime>
 {
-    private(set) weak var video:CSourceVideo!
+    private(set) weak var controllerVideo:CSourceVideo!
     
-    init(item:MSourceVideoItem)
+    init(item:MSourceVideoItem, controllerVideo:CSourceVideo)
     {
+        self.controllerVideo = controllerVideo
+        
         super.init()
         model.config(item:item)
     }
@@ -44,7 +46,8 @@ class CSourceVideoTime:Controller<VSourceVideoTime, MSourceVideoTime>
         
         let controller:CSourceVideoImport = CSourceVideoImport(
             item:model.item,
-            framesPerSecond:model.framesPerSecond)
+            framesPerSecond:model.framesPerSecond,
+            controllerTime:self)
         parent.animateOver(controller:controller)
     }
 }
