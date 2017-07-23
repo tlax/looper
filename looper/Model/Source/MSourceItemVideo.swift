@@ -18,9 +18,9 @@ class MSourceItemVideo:MSourceProtocol
         }
     }
     
-    func controller(create:CCreate) -> UIViewController
+    func controller(controllerCreate:CCreate) -> UIViewController
     {
-        let video:CSourceVideo = CSourceVideo(create:create)
+        let video:CSourceVideo = CSourceVideo(controllerCreate:controllerCreate)
         
         return video
     }

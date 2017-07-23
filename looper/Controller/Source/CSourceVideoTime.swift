@@ -2,6 +2,8 @@ import Foundation
 
 class CSourceVideoTime:Controller<VSourceVideoTime, MSourceVideoTime>
 {
+    private(set) weak var video:CSourceVideo!
+    
     init(item:MSourceVideoItem)
     {
         super.init()

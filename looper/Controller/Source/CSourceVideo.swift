@@ -3,11 +3,11 @@ import Photos
 
 class CSourceVideo:Controller<VSourceVideo, MSourceVideo>
 {
-    private weak var create:CCreate!
+    private(set) weak var controllerCreate:CCreate!
     
-    init(create:CCreate)
+    init(controllerCreate:CCreate)
     {
-        self.create = create
+        self.controllerCreate = controllerCreate
         super.init()
     }
     
