@@ -87,6 +87,7 @@
 		DA65CDB71F242D5300C0615E /* VSourceVideoTimeInfoFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDB61F242D5300C0615E /* VSourceVideoTimeInfoFooter.swift */; };
 		DA65CDB91F24383D00C0615E /* CSourceVideoImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDB81F24383D00C0615E /* CSourceVideoImport.swift */; };
 		DA65CDBC1F24388E00C0615E /* MSourceVideoImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDBB1F24388E00C0615E /* MSourceVideoImport.swift */; };
+		DA65CDBF1F2438BD00C0615E /* VSourceVideoImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDBE1F2438BD00C0615E /* VSourceVideoImport.swift */; };
 		DA6BA5F61F20418D00A6381A /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA5F51F20418D00A6381A /* brand.xcassets */; };
 		DA6EA7B11F22A779003A0EA8 /* CSourceVideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7B01F22A779003A0EA8 /* CSourceVideoTime.swift */; };
 		DA6EA7B41F22A7DB003A0EA8 /* VSourceVideoTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EA7B31F22A7DB003A0EA8 /* VSourceVideoTime.swift */; };
@@ -185,6 +186,7 @@
 		DA65CDB61F242D5300C0615E /* VSourceVideoTimeInfoFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeInfoFooter.swift; sourceTree = "<group>"; };
 		DA65CDB81F24383D00C0615E /* CSourceVideoImport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSourceVideoImport.swift; sourceTree = "<group>"; };
 		DA65CDBB1F24388E00C0615E /* MSourceVideoImport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoImport.swift; sourceTree = "<group>"; };
+		DA65CDBE1F2438BD00C0615E /* VSourceVideoImport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoImport.swift; sourceTree = "<group>"; };
 		DA6BA5F51F20418D00A6381A /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DA6EA7B01F22A779003A0EA8 /* CSourceVideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSourceVideoTime.swift; sourceTree = "<group>"; };
 		DA6EA7B31F22A7DB003A0EA8 /* VSourceVideoTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTime.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 				DA3B22221F201F3300F85DFD /* Abstract */,
 				DA3B22281F201F3300F85DFD /* Basic */,
 				DA1AFBDE1F21CBCC000ADDFA /* SourceImage */,
+				DA65CDBD1F2438AD00C0615E /* SourceVideoImport */,
 				DA6EA7B21F22A7CC003A0EA8 /* SourceVideoTime */,
 				DA1AFBDF1F21CBCC000ADDFA /* SourceVideo */,
 				DA2C08FC1F2162D600E1381A /* Create */,
@@ -564,6 +567,14 @@
 			isa = PBXGroup;
 			children = (
 				DA65CDBB1F24388E00C0615E /* MSourceVideoImport.swift */,
+			);
+			path = SourceVideoImport;
+			sourceTree = "<group>";
+		};
+		DA65CDBD1F2438AD00C0615E /* SourceVideoImport */ = {
+			isa = PBXGroup;
+			children = (
+				DA65CDBE1F2438BD00C0615E /* VSourceVideoImport.swift */,
 			);
 			path = SourceVideoImport;
 			sourceTree = "<group>";
@@ -781,6 +792,7 @@
 				DA2C09131F21727300E1381A /* VCreateMenuCell.swift in Sources */,
 				DA3B227D1F20260B00F85DFD /* MPerkThumbnailProtocol.swift in Sources */,
 				DA6EA7C71F22C77D003A0EA8 /* VSourceVideoTimeBarThumb.swift in Sources */,
+				DA65CDBF1F2438BD00C0615E /* VSourceVideoImport.swift in Sources */,
 				DA3B224B1F201F3300F85DFD /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA3B224C1F201F3300F85DFD /* ExtensionUIColor.swift in Sources */,
 				DA81CBCA1F2201020031EAF6 /* ModelDelegate.swift in Sources */,
