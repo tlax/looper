@@ -68,5 +68,6 @@ class MSourceVideoImport:Model, MSourceVideoImportFactoryDelegate
     
     func importProgress(percent:CGFloat)
     {
+        controller?.updateProgress(percent:percent)
     }
 }

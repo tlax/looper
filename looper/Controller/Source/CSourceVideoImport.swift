@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
 {
@@ -45,6 +45,20 @@ class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
         parent.pop(horizontal:ControllerParent.Horizontal.right)
     }
     
+    private func asyncUpdateProgress(percent:CGFloat)
+    {
+        guard
+            
+            let view:VSourceVideoImport = self.view as? VSourceVideoImport
+            
+        else
+        {
+            return
+        }
+        
+        view.viewProgress.updateProgress(percent:percent)
+    }
+    
     //MARK: public
     
     func cancel()
@@ -70,6 +84,15 @@ class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
         { [weak self] in
             
             self?.backToCreate()
+        }
+    }
+    
+    func updateProgress(percent:CGFloat)
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.asyncUpdateProgress(percent:percent)
         }
     }
 }

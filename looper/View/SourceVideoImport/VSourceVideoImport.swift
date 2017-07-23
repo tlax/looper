@@ -2,8 +2,12 @@ import UIKit
 
 class VSourceVideoImport:ViewMain
 {
+    private(set) weak var viewProgress:VSourceVideoImportProgress!
     private weak var spinner:VSpinner!
     private weak var layoutCancelLeft:NSLayoutConstraint!
+    private let kProgressMarginHorizontal:CGFloat = 20
+    private let kProgressHeight:CGFloat = 10
+    private let kProgressBottom:CGFloat = -30
     private let kGradientHeight:CGFloat = 30
     private let kCancelWidth:CGFloat = 140
     private let kCancelHeight:CGFloat = 40
@@ -76,9 +80,14 @@ class VSourceVideoImport:ViewMain
             action:#selector(actionCancel(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let viewProgress:VSourceVideoImportProgress = VSourceVideoImportProgress(
+            controller:controller)
+        self.viewProgress = viewProgress
+        
         addSubview(blur)
         addSubview(viewGradient)
         addSubview(spinner)
+        addSubview(viewProgress)
         addSubview(buttonCancel)
         
         NSLayoutConstraint.equals(
@@ -112,6 +121,18 @@ class VSourceVideoImport:ViewMain
         NSLayoutConstraint.width(
             view:buttonCancel,
             constant:kCancelWidth)
+        
+        NSLayoutConstraint.bottomToTop(
+            view:viewProgress,
+            toView:buttonCancel,
+            constant:kProgressBottom)
+        NSLayoutConstraint.height(
+            view:viewProgress,
+            constant:kProgressHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewProgress,
+            toView:self,
+            margin:kProgressMarginHorizontal)
     }
     
     //MARK: actions
