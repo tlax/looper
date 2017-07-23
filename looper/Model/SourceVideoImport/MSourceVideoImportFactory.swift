@@ -5,8 +5,7 @@ class MSourceVideoImportFactory
 {
     private weak var delegate:MSourceVideoImportFactoryDelegate?
     private weak var item:MSourceVideoItem!
-    private weak var generator:AVAssetImageGenerator?
-    private var avAsset:AVAsset!
+    private var generator:AVAssetImageGenerator?
     private var images:[CGImage]
     private var times:[[NSValue]]
     private var timesIndex:Int
@@ -82,12 +81,14 @@ class MSourceVideoImportFactory
     
     private func assetGot(avAsset:AVAsset)
     {
-        self.avAsset = avAsset
         times = timesArray(
             duration:avAsset.duration,
             frames:framesPerSecond)
         
         totalTimes = Int(times.count)
+        let generator:AVAssetImageGenerator = AVAssetImageGenerator(
+            asset:avAsset)
+        self.generator = generator
         
         recursiveCheck()
     }
@@ -108,11 +109,7 @@ class MSourceVideoImportFactory
         let countTimes:Int = times.count
         var received:Int = 0
         
-        let generator:AVAssetImageGenerator = AVAssetImageGenerator(
-            asset:avAsset)
-        self.generator = generator
-        
-        generator.generateCGImagesAsynchronously(forTimes:times)
+        generator?.generateCGImagesAsynchronously(forTimes:times)
         { [weak self] (
             requestTime:CMTime,
             cgImage:CGImage?,
@@ -135,7 +132,6 @@ class MSourceVideoImportFactory
             
             if received == countTimes
             {
-                generator.cancelAllCGImageGeneration()
                 self?.recursiveCheck()
             }
         }
@@ -143,8 +139,6 @@ class MSourceVideoImportFactory
     
     private func recursiveCheck()
     {
-        print(images.count)
-        
         timesIndex += 1
         
         if timesIndex >= totalTimes
@@ -160,5 +154,13 @@ class MSourceVideoImportFactory
             delegate?.importProgress(percent:progress)
             delayRecursiveImport()
         }
+    }
+    
+    //MARK: public
+    
+    func cancelAll()
+    {
+        generator?.cancelAllCGImageGeneration()
+        generator = nil
     }
 }

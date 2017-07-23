@@ -27,6 +27,17 @@ class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
         model.importVideo(controller:self)
     }
     
+    override func didReceiveMemoryWarning()
+    {
+        model.cancelImport()
+        
+        let message:String = String.localizedController(
+            key:"CSourceVideoImport_memoryWarning")
+        VAlert.messageFail(message:message)
+        
+        cancel()
+    }
+    
     //MARK: private
     
     private func backToCreate()

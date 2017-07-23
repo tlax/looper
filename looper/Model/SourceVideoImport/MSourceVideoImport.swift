@@ -43,6 +43,11 @@ class MSourceVideoImport:Model, MSourceVideoImportFactoryDelegate
         }
     }
     
+    func cancelImport()
+    {
+        factory?.cancelAll()
+    }
+    
     //MARK: factory delegate
     
     func importImagesReady(images:[CGImage])
