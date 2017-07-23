@@ -27,6 +27,10 @@ class VSourceVideoTimeBottomBar:
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
         buttonImport.titleLabel!.font = UIFont.bold(size:17)
+        buttonImport.addTarget(
+            self,
+            action:#selector(actionImport(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(border)
         addSubview(buttonImport)
@@ -65,5 +69,12 @@ class VSourceVideoTimeBottomBar:
         layoutImportLeft.constant = marginImport
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionImport(sender button:UIButton)
+    {
+        controller.add()
     }
 }

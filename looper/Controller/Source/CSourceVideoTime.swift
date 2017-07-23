@@ -28,4 +28,21 @@ class CSourceVideoTime:Controller<VSourceVideoTime, MSourceVideoTime>
         
         parent.dismissAnimateOver(completion:nil)
     }
+    
+    func add()
+    {
+        guard
+            
+            let parent:ControllerParent = self.parent as? ControllerParent
+            
+        else
+        {
+            return
+        }
+        
+        let controller:CSourceVideoImport = CSourceVideoImport(
+            item:model.item,
+            framesPerSecond:model.framesPerSecond)
+        parent.animateOver(controller:controller)
+    }
 }
