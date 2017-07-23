@@ -16,5 +16,6 @@ class MCreate:Model
     func addItem(item:MCreateItem)
     {
         items.append(item)
+        delegate?.modelRefresh()
     }
 }

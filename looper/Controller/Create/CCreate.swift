@@ -4,10 +4,28 @@ class CCreate:Controller<VCreate, MCreate>
 {
     override func modelRefresh()
     {
-        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.asyncRefresh()
+        }
     }
     
     //MARK: private
+    
+    private func asyncRefresh()
+    {
+        guard
+        
+            let view:VCreate = self.view as? VCreate
+        
+        else
+        {
+            return
+        }
+        
+        view.viewItems.collectionView.reloadData()
+    }
     
     private func alertClose()
     {
