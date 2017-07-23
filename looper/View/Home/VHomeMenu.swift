@@ -5,13 +5,13 @@ class VHomeMenu:View<VHome, MHome, CHome>
     private weak var layoutNewTop:NSLayoutConstraint!
     private weak var layoutNewLeft:NSLayoutConstraint!
     private let kNewSize:CGFloat = 65
-    private let kBorderHeight:CGFloat = 2
+    private let kBorderHeight:CGFloat = 1
     
     required init(controller:CHome)
     {
         super.init(controller:controller)
         
-        let border:VBorder = VBorder(colour:UIColor.colourBackgroundGray)
+        let border:VBorder = VBorder(colour:UIColor(white:0, alpha:0.12))
         
         let viewNew:VHomeMenuNew = VHomeMenuNew(controller:controller)
         

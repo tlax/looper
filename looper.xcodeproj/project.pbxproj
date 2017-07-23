@@ -110,6 +110,8 @@
 		DAFD73F01F24A51900DC67EA /* VCreateItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73EF1F24A51900DC67EA /* VCreateItems.swift */; };
 		DAFD73F21F24A52100DC67EA /* VCreateItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73F11F24A52100DC67EA /* VCreateItemsCell.swift */; };
 		DAFD73F61F24B59900DC67EA /* VHomeMenuNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73F51F24B59900DC67EA /* VHomeMenuNew.swift */; };
+		DAFD73F91F24BE4100DC67EA /* CNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73F81F24BE4100DC67EA /* CNew.swift */; };
+		DAFD73FC1F24BE6800DC67EA /* MNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73FB1F24BE6800DC67EA /* MNew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -218,6 +220,8 @@
 		DAFD73EF1F24A51900DC67EA /* VCreateItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateItems.swift; sourceTree = "<group>"; };
 		DAFD73F11F24A52100DC67EA /* VCreateItemsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCreateItemsCell.swift; sourceTree = "<group>"; };
 		DAFD73F51F24B59900DC67EA /* VHomeMenuNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeMenuNew.swift; sourceTree = "<group>"; };
+		DAFD73F81F24BE4100DC67EA /* CNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNew.swift; sourceTree = "<group>"; };
+		DAFD73FB1F24BE6800DC67EA /* MNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNew.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +348,7 @@
 			children = (
 				DA3B21F51F201F3300F85DFD /* Abstract */,
 				DA1AFBE61F21CC4E000ADDFA /* Source */,
+				DAFD73F71F24BE3500DC67EA /* New */,
 				DA2C08FB1F2162B900E1381A /* Create */,
 				DA3B21FA1F201F3300F85DFD /* Home */,
 			);
@@ -372,6 +377,7 @@
 		DA3B21FC1F201F3300F85DFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DAFD73FA1F24BE6000DC67EA /* New */,
 				DA2C08F01F2109A100E1381A /* Abstract */,
 				DA3B21FE1F201F3300F85DFD /* Main */,
 				DA2C08FE1F2164C100E1381A /* Source */,
@@ -654,6 +660,22 @@
 			path = looper;
 			sourceTree = "<group>";
 		};
+		DAFD73F71F24BE3500DC67EA /* New */ = {
+			isa = PBXGroup;
+			children = (
+				DAFD73F81F24BE4100DC67EA /* CNew.swift */,
+			);
+			path = New;
+			sourceTree = "<group>";
+		};
+		DAFD73FA1F24BE6000DC67EA /* New */ = {
+			isa = PBXGroup;
+			children = (
+				DAFD73FB1F24BE6800DC67EA /* MNew.swift */,
+			);
+			path = New;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -816,6 +838,7 @@
 				DA2C09051F2164E600E1381A /* MCreate.swift in Sources */,
 				DA1AFBD71F21C9F6000ADDFA /* MSourceVideo.swift in Sources */,
 				DA2C09131F21727300E1381A /* VCreateMenuCell.swift in Sources */,
+				DAFD73F91F24BE4100DC67EA /* CNew.swift in Sources */,
 				DAFD73F21F24A52100DC67EA /* VCreateItemsCell.swift in Sources */,
 				DA3B227D1F20260B00F85DFD /* MPerkThumbnailProtocol.swift in Sources */,
 				DA6EA7C71F22C77D003A0EA8 /* VSourceVideoTimeBarThumb.swift in Sources */,
@@ -824,6 +847,7 @@
 				DA3B224C1F201F3300F85DFD /* ExtensionUIColor.swift in Sources */,
 				DA81CBCA1F2201020031EAF6 /* ModelDelegate.swift in Sources */,
 				DA2C090D1F21656D00E1381A /* CCreate.swift in Sources */,
+				DAFD73FC1F24BE6800DC67EA /* MNew.swift in Sources */,
 				DA65CDB71F242D5300C0615E /* VSourceVideoTimeInfoFooter.swift in Sources */,
 				DA65CDB51F242A8700C0615E /* MSourceVideoTimeItemHeight.swift in Sources */,
 				DAFD73F61F24B59900DC67EA /* VHomeMenuNew.swift in Sources */,
