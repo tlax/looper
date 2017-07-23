@@ -9,7 +9,7 @@ class VSourceVideoTimeInfo:VCollection<
     private let kMarginTop:CGFloat = 10
     private let kInterItem:CGFloat = 2
     private let kCellHeight:CGFloat = 30
-    private let kFooterHeight:CGFloat = 100
+    private let kFooterHeight:CGFloat = 160
     
     required init(controller:CSourceVideoTime)
     {

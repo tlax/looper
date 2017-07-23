@@ -6,9 +6,10 @@ class VSourceVideoTimeInfoFooter:UICollectionReusableView
     private weak var slider:UISlider!
     private weak var labelSlider:UILabel!
     private let kSliderHeight:CGFloat = 60
-    private let kSliderMarginHorizontal:CGFloat = 20
-    private let kTitleHeight:CGFloat = 35
-    private let kLabelSliderHeight:CGFloat = 24
+    private let kSliderMarginHorizontal:CGFloat = 30
+    private let kTitleTop:CGFloat = 25
+    private let kTitleHeight:CGFloat = 19
+    private let kLabelSliderHeight:CGFloat = 28
     private let kMinValue:Float = 1
     private let kMaxValue:Float = 20
     
@@ -33,8 +34,9 @@ class VSourceVideoTimeInfoFooter:UICollectionReusableView
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.textColor = UIColor.black
-        labelTitle.font = UIFont.regular(size:16)
-        labelTitle.text = String.localizedView(key:"VSourceVideoTimeInfoFooter_labelTitle")
+        labelTitle.font = UIFont.regular(size:13)
+        labelTitle.text = String.localizedView(
+            key:"VSourceVideoTimeInfoFooter_labelTitle")
         
         let labelSlider:UILabel = UILabel()
         labelSlider.isUserInteractionEnabled = false
@@ -42,7 +44,7 @@ class VSourceVideoTimeInfoFooter:UICollectionReusableView
         labelSlider.backgroundColor = UIColor.clear
         labelSlider.textAlignment = NSTextAlignment.center
         labelSlider.textColor = UIColor.black
-        labelSlider.font = UIFont.bold(size:17)
+        labelSlider.font = UIFont.bold(size:22)
         self.labelSlider = labelSlider
         
         addSubview(labelTitle)
@@ -51,7 +53,8 @@ class VSourceVideoTimeInfoFooter:UICollectionReusableView
         
         NSLayoutConstraint.topToTop(
             view:labelTitle,
-            toView:self)
+            toView:self,
+            constant:kTitleTop)
         NSLayoutConstraint.height(
             view:labelTitle,
             constant:kTitleHeight)
@@ -61,7 +64,7 @@ class VSourceVideoTimeInfoFooter:UICollectionReusableView
         
         NSLayoutConstraint.topToBottom(
             view:slider,
-            toView:labelTitle)
+            toView:labelSlider)
         NSLayoutConstraint.height(
             view:slider,
             constant:kSliderHeight)
@@ -72,7 +75,7 @@ class VSourceVideoTimeInfoFooter:UICollectionReusableView
         
         NSLayoutConstraint.topToBottom(
             view:labelSlider,
-            toView:slider)
+            toView:labelTitle)
         NSLayoutConstraint.height(
             view:labelSlider,
             constant:kLabelSliderHeight)
@@ -93,6 +96,7 @@ class VSourceVideoTimeInfoFooter:UICollectionReusableView
     func actionSlider(sender slider:UISlider)
     {
         print()
+        controller?.model.framesPerSecond = frames()
     }
     
     //MARK: private
