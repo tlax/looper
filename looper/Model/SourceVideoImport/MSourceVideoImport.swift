@@ -5,12 +5,18 @@ class MSourceVideoImport:Model
 {
     private weak var controller:CSourceVideoImport?
     private weak var item:MSourceVideoItem!
+    private weak var generator:AVAssetImageGenerator?
     private var framesPerSecond:Int
     
     required init()
     {
         framesPerSecond = 0
         super.init()
+    }
+    
+    deinit
+    {
+        generator?.cancelAllCGImageGeneration()
     }
     
     //MARK: private
@@ -31,13 +37,58 @@ class MSourceVideoImport:Model
                 return
             }
             
-            self?.errorLoading()
-            //self?.assetGot(avAsset:avAsset)
+            self?.assetGot(avAsset:avAsset)
         }
     }
     
     private func assetGot(avAsset:AVAsset)
     {
+        let times:[NSValue] = timesArray(
+            duration:avAsset.duration,
+            frames:framesPerSecond)
+        
+        let generator:AVAssetImageGenerator = AVAssetImageGenerator(
+            asset:avAsset)
+        self.generator = generator
+        
+        let countTimes:Int = times.count
+        var received:Int = 0
+        var images:[CGImage] = []
+        
+        generator.generateCGImagesAsynchronously(forTimes:times)
+        { [weak self] (
+            requestTime:CMTime,
+            cgImage:CGImage?,
+            actualTime:CMTime,
+            result:AVAssetImageGeneratorResult,
+            error:Error?) in
+            
+            if error == nil
+            {
+                if result == AVAssetImageGeneratorResult.succeeded
+                {
+                    if let cgImage:CGImage = cgImage
+                    {
+                        images.append(cgImage)
+                    }
+                }
+            }
+            
+            received += 1
+            
+            if received == countTimes
+            {
+                self?.imagesReceived(images:images)
+            }
+        }
+    }
+    
+    private func imagesReceived(images:[CGImage])
+    {
+        let duration:TimeInterval = item.asset.duration
+        let createItem:MCreateItem = MCreateItem(images:images)
+        createItem.changeDuration(duration:duration)
+        
         
     }
     

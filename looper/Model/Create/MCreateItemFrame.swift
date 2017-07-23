@@ -1,9 +1,11 @@
-//
-//  MCreateItemFrame.swift
-//  looper
-//
-//  Created by zero on 7/20/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MCreateItemFrame
+{
+    private(set) var image:CGImage
+    
+    init(image:CGImage)
+    {
+        self.image = image
+    }
+}

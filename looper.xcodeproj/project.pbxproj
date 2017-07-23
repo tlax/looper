@@ -103,6 +103,7 @@
 		DA81CBC81F21FD5D0031EAF6 /* MSourceVideoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC71F21FD5D0031EAF6 /* MSourceVideoFactory.swift */; };
 		DA81CBCA1F2201020031EAF6 /* ModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC91F2201020031EAF6 /* ModelDelegate.swift */; };
 		DA81CBCC1F2207790031EAF6 /* MSourceVideoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBCB1F2207790031EAF6 /* MSourceVideoAuth.swift */; };
+		DAFD73E81F2477C100DC67EA /* MCreateItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73E71F2477C100DC67EA /* MCreateItemFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -204,6 +205,7 @@
 		DA81CBCB1F2207790031EAF6 /* MSourceVideoAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoAuth.swift; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FEA41E03672F00FD5265 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAFD73E71F2477C100DC67EA /* MCreateItemFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCreateItemFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 				DA2C09041F2164E600E1381A /* MCreate.swift */,
 				DA2C09181F21754900E1381A /* MCreateFactory.swift */,
 				DA2C09061F2164F600E1381A /* MCreateItem.swift */,
+				DAFD73E71F2477C100DC67EA /* MCreateItemFactory.swift */,
 				DA2C09081F21650F00E1381A /* MCreateItemFrame.swift */,
 			);
 			path = Create;
@@ -731,6 +734,7 @@
 				DA3B22381F201F3300F85DFD /* ControllerParent.swift in Sources */,
 				DA3B22581F201F3300F85DFD /* VBlur.swift in Sources */,
 				DA3B22491F201F3300F85DFD /* ExtensionNSManagedObject.swift in Sources */,
+				DAFD73E81F2477C100DC67EA /* MCreateItemFactory.swift in Sources */,
 				DA1AFBE31F21CBE8000ADDFA /* VSourceVideo.swift in Sources */,
 				DA2C08F41F210A9C00E1381A /* MHome.swift in Sources */,
 				DA65CDB91F24383D00C0615E /* CSourceVideoImport.swift in Sources */,
