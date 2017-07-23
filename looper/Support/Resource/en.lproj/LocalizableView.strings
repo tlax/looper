@@ -2,3 +2,4 @@
 "VSourceVideoBar_labelTitle"="Add video";
 "VSourceVideoTimeBottomBar_buttonImport"="Add";
 "VSourceVideoTimeInfoFooter_labelTitle"="Frames per second";
+"VSourceVideoImport_buttonCancel"="Cancel";

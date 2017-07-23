@@ -12,4 +12,20 @@ class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
     {
         return nil
     }
+    
+    //MARK: public
+    
+    func cancel()
+    {
+        guard
+            
+            let parent:ControllerParent = self.parent as? ControllerParent
+            
+        else
+        {
+            return
+        }
+        
+        parent.dismissAnimateOver(completion:nil)
+    }
 }
