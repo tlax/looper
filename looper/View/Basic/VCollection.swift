@@ -107,9 +107,35 @@ class VCollection
     func collectionView(
         _ collectionView:UICollectionView,
         layout collectionViewLayout:UICollectionViewLayout,
+        insetForSectionAt section:Int) -> UIEdgeInsets
+    {
+        guard
+        
+            let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        
+        else
+        {
+            return UIEdgeInsets.zero
+        }
+        
+        return flow.sectionInset
+    }
+    
+    func collectionView(
+        _ collectionView:UICollectionView,
+        layout collectionViewLayout:UICollectionViewLayout,
         sizeForItemAt indexPath:IndexPath) -> CGSize
     {
-        return CGSize.zero
+        guard
+            
+            let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+            
+        else
+        {
+            return CGSize.zero
+        }
+        
+        return flow.itemSize
     }
     
     func numberOfSections(
