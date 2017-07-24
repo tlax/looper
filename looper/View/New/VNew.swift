@@ -2,8 +2,12 @@ import UIKit
 
 class VNew:ViewMain
 {
+    private weak var viewSource:VNewSource!
     private weak var layoutCancelLeft:NSLayoutConstraint!
+    private weak var layoutSourceBottom:NSLayoutConstraint!
+    private weak var layoutSourceTop:NSLayoutConstraint!
     private let kCancelSize:CGFloat = 80
+    private let kAnimationDuration:TimeInterval = 0.6
     
     required init(controller:UIViewController)
     {
@@ -57,6 +61,7 @@ class VNew:ViewMain
     
     private func factoryViews(controller:CNew)
     {
+        let sourceBottom:CGFloat = UIScreen.main.bounds.height
         let blur:VBlur = VBlur.light()
         
         let buttonBackground:UIButton = UIButton()
@@ -80,6 +85,8 @@ class VNew:ViewMain
             for:UIControlEvents.touchUpInside)
         
         let viewSource:VNewSource = VNewSource(controller:controller)
+        viewSource.alpha = 0
+        self.viewSource = viewSource
         
         addSubview(blur)
         addSubview(buttonBackground)
@@ -104,14 +111,31 @@ class VNew:ViewMain
             view:buttonCancel,
             toView:self)
         
-        NSLayoutConstraint.bottomToTop(
+        layoutSourceBottom = NSLayoutConstraint.bottomToTop(
             view:viewSource,
-            toView:buttonCancel)
-        NSLayoutConstraint.topToTop(
+            toView:buttonCancel,
+            constant:sourceBottom)
+        layoutSourceTop = NSLayoutConstraint.topToTop(
             view:viewSource,
-            toView:self)
+            toView:self,
+            constant:sourceBottom)
         NSLayoutConstraint.equalsHorizontal(
             view:viewSource,
             toView:self)
+    }
+    
+    //MARK: public
+    
+    func viewDidAppear()
+    {
+        layoutSourceTop.constant = 0
+        layoutSourceBottom.constant = 0
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+            self?.viewSource.alpha = 1
+        }
     }
 }
