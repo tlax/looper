@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class CNew:Controller<VNew, MNew>
 {
@@ -34,5 +34,27 @@ class CNew:Controller<VNew, MNew>
         
         view.viewWillDisappear()
         parent.dismissAnimateOver(completion:nil)
+    }
+    
+    func open(item:MSourceProtocol)
+    {
+        guard
+            
+            let parent:ControllerParent = parent as? ControllerParent
+            
+        else
+        {
+            return
+        }
+        
+        let controllerType:UIViewController.Type = item.controller
+        let controller:UIViewController = controllerType.init()
+        
+        parent.dismissAnimateOver
+        {
+            parent.push(
+                controller:controller,
+                horizontal:ControllerParent.Horizontal.right)
+        }
     }
 }
