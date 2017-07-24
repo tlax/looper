@@ -10,6 +10,7 @@ class MSourceVideoImportFactory
     private var times:[[NSValue]]
     private var timesIndex:Int
     private var totalTimes:Int
+    private var duration:TimeInterval
     private let framesPerSecond:Int
     private let kDelay:TimeInterval = 0.5
     private let kInitialTimesIndex:Int = -1
@@ -26,6 +27,7 @@ class MSourceVideoImportFactory
         times = []
         timesIndex = kInitialTimesIndex
         totalTimes = 0
+        duration = 0
         
         item.requestAvAsset
         { [weak self] (avAsset:AVAsset?) in
@@ -50,14 +52,20 @@ class MSourceVideoImportFactory
         generator?.cancelAllCGImageGeneration()
     }
     
-    private func timesArray(duration:CMTime, frames:Int) -> [[NSValue]]
+    private func durationSeconds(duration:CMTime) -> Int
     {
-        var times:[[NSValue]] = []
         let seconds:Float64 = floor(CMTimeGetSeconds(duration))
         let secondsInt:Int = Int(seconds)
+        
+        return secondsInt
+    }
+    
+    private func timesArray(seconds:Int, frames:Int) -> [[NSValue]]
+    {
+        var times:[[NSValue]] = []
         let timeScale:CMTimeScale = CMTimeScale(frames)
         
-        for second:Int in 0 ..< secondsInt
+        for second:Int in 0 ..< seconds
         {
             var values:[NSValue] = []
             
@@ -81,8 +89,11 @@ class MSourceVideoImportFactory
     
     private func assetGot(avAsset:AVAsset)
     {
+        let seconds:Int = durationSeconds(
+            duration:avAsset.duration)
+        duration = TimeInterval(seconds)
         times = timesArray(
-            duration:avAsset.duration,
+            seconds:seconds,
             frames:framesPerSecond)
         
         totalTimes = Int(times.count)
@@ -143,7 +154,7 @@ class MSourceVideoImportFactory
         
         if timesIndex >= totalTimes
         {
-            delegate?.importImagesReady(images:images)
+            createSequence()
         }
         else
         {
@@ -154,6 +165,15 @@ class MSourceVideoImportFactory
             delegate?.importProgress(percent:progress)
             delayRecursiveImport()
         }
+    }
+    
+    private func createSequence()
+    {
+        let sequence:MEditSequence = MSourceVideoImportFactory.factorySequence(
+            duration:duration,
+            images:images)
+        
+        delegate?.importSequenceReady(sequence:sequence)
     }
     
     //MARK: public

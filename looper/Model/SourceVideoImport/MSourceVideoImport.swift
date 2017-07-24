@@ -1,5 +1,4 @@
-import Foundation
-import AVFoundation
+import UIKit
 
 class MSourceVideoImport:Model, MSourceVideoImportFactoryDelegate
 {
@@ -50,13 +49,9 @@ class MSourceVideoImport:Model, MSourceVideoImportFactoryDelegate
     
     //MARK: factory delegate
     
-    func importImagesReady(images:[CGImage])
+    func importSequenceReady(sequence:MEditSequence)
     {
-        let duration:TimeInterval = item.asset.duration
-        let createItem:MCreateItem = MCreateItem(images:images)
-        createItem.changeDuration(duration:duration)
-        
-        controller?.videoImported(createItem:createItem)
+        controller?.videoImported(sequence:sequence)
     }
     
     func importError()

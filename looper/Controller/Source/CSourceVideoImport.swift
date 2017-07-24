@@ -49,6 +49,43 @@ class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
         view.viewProgress.updateProgress(percent:percent)
     }
     
+    private func popAll()
+    {
+        guard
+            
+            let parent:ControllerParent = self.parent as? ControllerParent
+            
+        else
+        {
+            return
+        }
+        
+        parent.popSilent(removeIndex:3)
+        parent.popSilent(removeIndex:2)
+        parent.popSilent(removeIndex:1)
+    }
+    
+    private func popAllPushEdit(sequence:MEditSequence)
+    {
+        guard
+            
+            let parent:ControllerParent = self.parent as? ControllerParent
+            
+        else
+        {
+            return
+        }
+        
+        let controller:CEdit = CEdit(sequence:sequence)
+        parent.push(
+            controller:controller,
+            horizontal:ControllerParent.Horizontal.right)
+        { [weak self] in
+            
+            self?.popAll()
+        }
+    }
+    
     //MARK: public
     
     func cancel()
@@ -65,11 +102,12 @@ class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
         parent.dismissAnimateOver(completion:nil)
     }
     
-    func videoImported(createItem:MCreateItem)
+    func videoImported(sequence:MEditSequence)
     {        
         DispatchQueue.main.async
         { [weak self] in
             
+            self?.popAllPushEdit(sequence:sequence)
         }
     }
     
