@@ -2,7 +2,7 @@ import Foundation
 
 extension FileManager
 {
-    open class var appDirectory:URL
+    class var appDirectory:URL
     {
         get
         {

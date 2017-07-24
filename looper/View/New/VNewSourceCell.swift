@@ -10,7 +10,7 @@ class VNewSourceCell:UICollectionViewCell
     private var icon:UIImage?
     private let kCircleSize:CGFloat = 60
     private let kBorderWidth:CGFloat = 1
-    private let kTitleLeft:CGFloat = 8
+    private let kTitleLeft:CGFloat = 12
     private let kTitleWidth:CGFloat = 200
     
     override init(frame:CGRect)
@@ -121,7 +121,7 @@ class VNewSourceCell:UICollectionViewCell
         }
         else
         {
-            labelTitle.textColor = UIColor(white:0, alpha:0.8)
+            labelTitle.textColor = UIColor.black
             circleView.backgroundColor = UIColor.white
             imageView.image = icon?.withRenderingMode(
                 UIImageRenderingMode.alwaysOriginal)

@@ -2,7 +2,7 @@ import UIKit
 
 extension UICollectionReusableView
 {
-    open class var reusableIdentifier:String
+    class var reusableIdentifier:String
     {
         get
         {

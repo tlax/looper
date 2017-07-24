@@ -2,7 +2,7 @@ import UIKit
 
 extension UIColor
 {
-    open class var colourSuccess:UIColor
+    class var colourSuccess:UIColor
     {
         get
         {
@@ -14,7 +14,7 @@ extension UIColor
         }
     }
     
-    open class var colourFail:UIColor
+    class var colourFail:UIColor
     {
         get
         {
@@ -26,7 +26,7 @@ extension UIColor
         }
     }
     
-    open class var colourGradientLight:UIColor
+    class var colourGradientLight:UIColor
     {
         get
         {
@@ -38,7 +38,7 @@ extension UIColor
         }
     }
     
-    open class var colourGradientDark:UIColor
+    class var colourGradientDark:UIColor
     {
         get
         {
@@ -50,7 +50,7 @@ extension UIColor
         }
     }
     
-    open class var colourBackgroundGray:UIColor
+    class var colourBackgroundGray:UIColor
     {
         get
         {
@@ -58,6 +58,18 @@ extension UIColor
                 red:0.92,
                 green:0.93,
                 blue:0.94,
+                alpha:1)
+        }
+    }
+    
+    class var colourBackgroundDark:UIColor
+    {
+        get
+        {
+            return UIColor(
+                red:0.17647058823529413,
+                green:0.18431372549019606,
+                blue:0.23137254901960785,
                 alpha:1)
         }
     }
