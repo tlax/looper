@@ -1,4 +1,5 @@
 "VSourceVideoBar_labelTitle"="Select video";
 "VSourceVideoTimeBottomBar_buttonImport"="Next";
 "VSourceVideoTimeInfoFooter_labelTitle"="Frames per second";
+"VSourceVideoImportBar_labelTitle"="Processing video";
 "VSourceVideoImport_buttonCancel"="Cancel";

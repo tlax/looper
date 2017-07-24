@@ -8,7 +8,7 @@ class VSourceVideoImport:ViewMain
     private let kProgressMarginHorizontal:CGFloat = 20
     private let kProgressHeight:CGFloat = 10
     private let kProgressBottom:CGFloat = -30
-    private let kGradientHeight:CGFloat = 30
+    private let kBarHeight:CGFloat = 64
     private let kCancelWidth:CGFloat = 140
     private let kCancelHeight:CGFloat = 40
     private let kCancelBottom:CGFloat = -20
@@ -59,9 +59,8 @@ class VSourceVideoImport:ViewMain
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
         
-        let viewGradient:VGradient = VGradient.vertical(
-            colourTop:UIColor(white:0, alpha:0.25),
-            colourBottom:UIColor.clear)
+        let viewBar:VSourceVideoImportBar = VSourceVideoImportBar(
+            controller:controller)
         
         let buttonCancel:UIButton = UIButton()
         buttonCancel.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +73,7 @@ class VSourceVideoImport:ViewMain
         buttonCancel.setTitleColor(
             UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
-        buttonCancel.titleLabel!.font = UIFont.bold(size:16)
+        buttonCancel.titleLabel!.font = UIFont.regular(size:16)
         buttonCancel.addTarget(
             self,
             action:#selector(actionCancel(sender:)),
@@ -85,7 +84,7 @@ class VSourceVideoImport:ViewMain
         self.viewProgress = viewProgress
         
         addSubview(blur)
-        addSubview(viewGradient)
+        addSubview(viewBar)
         addSubview(spinner)
         addSubview(viewProgress)
         addSubview(buttonCancel)
@@ -99,13 +98,13 @@ class VSourceVideoImport:ViewMain
             toView:self)
         
         NSLayoutConstraint.topToTop(
-            view:viewGradient,
+            view:viewBar,
             toView:self)
         NSLayoutConstraint.height(
-            view:viewGradient,
-            constant:kGradientHeight)
+            view:viewBar,
+            constant:kBarHeight)
         NSLayoutConstraint.equalsHorizontal(
-            view:viewGradient,
+            view:viewBar,
             toView:self)
         
         NSLayoutConstraint.bottomToBottom(
