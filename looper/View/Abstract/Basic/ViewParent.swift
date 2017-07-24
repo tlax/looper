@@ -3,7 +3,7 @@ import UIKit
 class ViewParent:UIView, UIGestureRecognizerDelegate
 {
     weak var panRecognizer:UIPanGestureRecognizer!
-    let kAnimationDuration:TimeInterval = 0.25
+    let kAnimationDuration:TimeInterval = 0.3
     private weak var controller:ControllerParent!
     private var panningX:CGFloat?
     private let kMaxXPanning:CGFloat = 60

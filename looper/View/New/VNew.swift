@@ -7,7 +7,7 @@ class VNew:ViewMain
     private weak var layoutSourceBottom:NSLayoutConstraint!
     private weak var layoutSourceTop:NSLayoutConstraint!
     private let kCancelSize:CGFloat = 120
-    private let kAnimationDuration:TimeInterval = 0.5
+    private let kAnimationDuration:TimeInterval = 0.4
     private let kBlurAlpha:CGFloat = 0.95
     
     required init(controller:UIViewController)
@@ -162,7 +162,6 @@ class VNew:ViewMain
         { [weak self] in
             
             self?.layoutIfNeeded()
-            self?.viewSource.alpha = 0
         }
     }
 }

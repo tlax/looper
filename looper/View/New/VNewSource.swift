@@ -6,7 +6,7 @@ class VNewSource:VCollection<
     CNew,
     VNewSourceCell>
 {
-    private let kCellHeight:CGFloat = 80
+    private let kCellHeight:CGFloat = 60
     
     required init(controller:CNew)
     {
@@ -73,9 +73,7 @@ class VNewSource:VCollection<
         _ collectionView:UICollectionView,
         didSelectItemAt indexPath:IndexPath)
     {
-        super.collectionView(
-            collectionView,
-            didSelectItemAt:indexPath)
+        collectionView.isUserInteractionEnabled = false
         
         let item:MSourceProtocol = modelAtIndex(index:indexPath)
         controller.open(item:item)

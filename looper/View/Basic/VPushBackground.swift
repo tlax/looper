@@ -6,7 +6,7 @@ class VPushBackground:UIView
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor(white:0, alpha:0.4)
+        backgroundColor = UIColor(white:0, alpha:0.6)
         translatesAutoresizingMaskIntoConstraints = false
         alpha = 0
     }

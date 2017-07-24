@@ -2,6 +2,8 @@ import UIKit
 
 class CNew:Controller<VNew, MNew>
 {
+    private let kControllerIndex:Int = 1
+    
     override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
@@ -49,12 +51,13 @@ class CNew:Controller<VNew, MNew>
         
         let controllerType:UIViewController.Type = item.controller
         let controller:UIViewController = controllerType.init()
+        let index:Int = kControllerIndex
         
-        parent.dismissAnimateOver
+        parent.push(
+            controller:controller,
+            horizontal:ControllerParent.Horizontal.right)
         {
-            parent.push(
-                controller:controller,
-                horizontal:ControllerParent.Horizontal.right)
+            parent.popSilent(removeIndex:index)
         }
     }
 }

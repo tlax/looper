@@ -3,15 +3,16 @@ import UIKit
 class VNewSourceCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
-    private weak var circleView:UIView!
+    private weak var backView:UIView!
     private weak var labelTitle:UILabel!
-    private weak var layoutCircleTop:NSLayoutConstraint!
-    private weak var layoutCircleLeft:NSLayoutConstraint!
+    private weak var layoutImageTop:NSLayoutConstraint!
+    private weak var layoutImageLeft:NSLayoutConstraint!
     private var icon:UIImage?
-    private let kCircleSize:CGFloat = 60
-    private let kBorderWidth:CGFloat = 1
-    private let kTitleLeft:CGFloat = 12
+    private let kImageSize:CGFloat = 50
+    private let kTitleLeft:CGFloat = 10
     private let kTitleWidth:CGFloat = 200
+    private let kBackgroundLeft:CGFloat = -20
+    private let kBackgroundRight:CGFloat = 30
     
     override init(frame:CGRect)
     {
@@ -19,14 +20,12 @@ class VNewSourceCell:UICollectionViewCell
         clipsToBounds = true
         backgroundColor = UIColor.clear
         
-        let circleView:UIView = UIView()
-        circleView.isUserInteractionEnabled = false
-        circleView.translatesAutoresizingMaskIntoConstraints = false
-        circleView.clipsToBounds = true
-        circleView.layer.cornerRadius = kCircleSize / 2.0
-        circleView.layer.borderWidth = kBorderWidth
-        circleView.layer.borderColor = UIColor.colourSuccess.cgColor
-        self.circleView = circleView
+        let backView:UIView = UIView()
+        backView.isUserInteractionEnabled = false
+        backView.translatesAutoresizingMaskIntoConstraints = false
+        backView.clipsToBounds = true
+        backView.layer.cornerRadius = kImageSize / 2.0
+        self.backView = backView
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -40,33 +39,41 @@ class VNewSourceCell:UICollectionViewCell
         labelTitle.isUserInteractionEnabled = false
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
-        labelTitle.font = UIFont.regular(size:13)
+        labelTitle.font = UIFont.medium(size:12)
         self.labelTitle = labelTitle
         
-        circleView.addSubview(imageView)
+        addSubview(backView)
+        addSubview(imageView)
         addSubview(labelTitle)
-        addSubview(circleView)
         
-        layoutCircleTop = NSLayoutConstraint.topToTop(
-            view:circleView,
+        layoutImageTop = NSLayoutConstraint.topToTop(
+            view:imageView,
             toView:self)
         NSLayoutConstraint.size(
-            view:circleView,
-            constant:kCircleSize)
-        layoutCircleLeft = NSLayoutConstraint.leftToLeft(
-            view:circleView,
+            view:imageView,
+            constant:kImageSize)
+        layoutImageLeft = NSLayoutConstraint.leftToLeft(
+            view:imageView,
             toView:self)
         
-        NSLayoutConstraint.equals(
-            view:imageView,
-            toView:circleView)
+        NSLayoutConstraint.equalsVertical(
+            view:backView,
+            toView:imageView)
+        NSLayoutConstraint.leftToLeft(
+            view:backView,
+            toView:imageView,
+            constant:kBackgroundLeft)
+        NSLayoutConstraint.rightToRight(
+            view:backView,
+            toView:self,
+            constant:kBackgroundRight)
         
         NSLayoutConstraint.equalsVertical(
             view:labelTitle,
             toView:self)
         NSLayoutConstraint.leftToRight(
             view:labelTitle,
-            toView:circleView,
+            toView:imageView,
             constant:kTitleLeft)
         NSLayoutConstraint.width(
             view:labelTitle,
@@ -82,12 +89,12 @@ class VNewSourceCell:UICollectionViewCell
     {
         let width:CGFloat = bounds.width
         let height:CGFloat = bounds.height
-        let remainWidth:CGFloat = width - kCircleSize
-        let remainHeight:CGFloat = height - kCircleSize
+        let remainWidth:CGFloat = width - kImageSize
+        let remainHeight:CGFloat = height - kImageSize
         let marginLeft:CGFloat = remainWidth / 2.0
         let marginTop:CGFloat = remainHeight / 2.0
-        layoutCircleLeft.constant = marginLeft
-        layoutCircleTop.constant = marginTop
+        layoutImageLeft.constant = marginLeft
+        layoutImageTop.constant = marginTop
         
         super.layoutSubviews()
     }
@@ -114,15 +121,15 @@ class VNewSourceCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            labelTitle.textColor = UIColor.colourSuccess
-            circleView.backgroundColor = UIColor.colourSuccess
+            labelTitle.textColor = UIColor.white
+            backView.backgroundColor = UIColor.colourSuccess
             imageView.image = icon?.withRenderingMode(
                 UIImageRenderingMode.alwaysTemplate)
         }
         else
         {
-            labelTitle.textColor = UIColor.black
-            circleView.backgroundColor = UIColor.white
+            labelTitle.textColor = UIColor.colourBackgroundDark
+            backView.backgroundColor = UIColor.clear
             imageView.image = icon?.withRenderingMode(
                 UIImageRenderingMode.alwaysOriginal)
         }
