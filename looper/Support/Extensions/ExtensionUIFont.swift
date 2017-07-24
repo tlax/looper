@@ -2,9 +2,17 @@ import UIKit
 
 extension UIFont
 {
-    static let kFontRegular:String = "HelveticaNeue"
     static let kFontLight:String = "HelveticaNeue-Thin"
+    static let kFontRegular:String = "HelveticaNeue"
+    static let kFontMedium:String = "HelveticaNeue-Medium"
     static let kFontBold:String = "HelveticaNeue-Bold"
+    
+    class func light(size:CGFloat) -> UIFont
+    {
+        let font:UIFont = UIFont(name:kFontLight, size:size)!
+        
+        return font
+    }
     
     class func regular(size:CGFloat) -> UIFont
     {
@@ -13,16 +21,16 @@ extension UIFont
         return font
     }
     
-    class func bold(size:CGFloat) -> UIFont
+    class func medium(size:CGFloat) -> UIFont
     {
-        let font:UIFont = UIFont(name:kFontBold, size:size)!
+        let font:UIFont = UIFont(name:kFontMedium, size:size)!
         
         return font
     }
     
-    class func light(size:CGFloat) -> UIFont
+    class func bold(size:CGFloat) -> UIFont
     {
-        let font:UIFont = UIFont(name:kFontLight, size:size)!
+        let font:UIFont = UIFont(name:kFontBold, size:size)!
         
         return font
     }
