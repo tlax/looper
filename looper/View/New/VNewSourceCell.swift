@@ -2,14 +2,16 @@ import UIKit
 
 class VNewSourceCell:UICollectionViewCell
 {
-    private weak var icon:UIImage?
     private weak var imageView:UIImageView!
     private weak var circleView:UIView!
     private weak var labelTitle:UILabel!
     private weak var layoutCircleTop:NSLayoutConstraint!
     private weak var layoutCircleLeft:NSLayoutConstraint!
+    private var icon:UIImage?
     private let kCircleSize:CGFloat = 60
     private let kBorderWidth:CGFloat = 1
+    private let kTitleLeft:CGFloat = 6
+    private let kTitleWidth:CGFloat = 200
     
     override init(frame:CGRect)
     {
@@ -34,7 +36,15 @@ class VNewSourceCell:UICollectionViewCell
         imageView.tintColor = UIColor.white
         self.imageView = imageView
         
+        let labelTitle:UILabel = UILabel()
+        labelTitle.isUserInteractionEnabled = false
+        labelTitle.translatesAutoresizingMaskIntoConstraints = false
+        labelTitle.backgroundColor = UIColor.clear
+        labelTitle.font = UIFont.regular(size:14)
+        self.labelTitle = labelTitle
+        
         circleView.addSubview(imageView)
+        addSubview(labelTitle)
         addSubview(circleView)
         
         layoutCircleTop = NSLayoutConstraint.topToTop(
@@ -50,6 +60,17 @@ class VNewSourceCell:UICollectionViewCell
         NSLayoutConstraint.equals(
             view:imageView,
             toView:circleView)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:labelTitle,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:labelTitle,
+            toView:circleView,
+            constant:kTitleLeft)
+        NSLayoutConstraint.width(
+            view:labelTitle,
+            constant:kTitleWidth)
     }
     
     required init?(coder:NSCoder)
@@ -93,12 +114,14 @@ class VNewSourceCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
+            labelTitle.textColor = UIColor.colourSuccess
             circleView.backgroundColor = UIColor.colourSuccess
             imageView.image = icon?.withRenderingMode(
                 UIImageRenderingMode.alwaysTemplate)
         }
         else
         {
+            labelTitle.textColor = UIColor(white:0, alpha:0.8)
             circleView.backgroundColor = UIColor.white
             imageView.image = icon?.withRenderingMode(
                 UIImageRenderingMode.alwaysOriginal)
@@ -110,6 +133,7 @@ class VNewSourceCell:UICollectionViewCell
     func config(model:MSourceProtocol)
     {
         icon = model.icon
+        labelTitle.text = model.title
         hover()
     }
 }

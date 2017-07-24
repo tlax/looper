@@ -1,5 +1,5 @@
-"MSourceItemVideo_title"="Add video";
-"MSourceItemImage_title"="Add images";
+"MSourceItemVideo_title"="From video";
+"MSourceItemImage_title"="From images";
 "MSourceVideo_authDenied"="Denied access to photo/video library";
 "MSourceVideo_libraryError"="Error loading photo/video library";
 "MSourceVideoTimeItemDuration_title"="Duration";
