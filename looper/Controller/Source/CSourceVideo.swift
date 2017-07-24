@@ -3,19 +3,6 @@ import Photos
 
 class CSourceVideo:Controller<VSourceVideo, MSourceVideo>
 {
-    private(set) weak var controllerCreate:CCreate!
-    
-    init(controllerCreate:CCreate)
-    {
-        self.controllerCreate = controllerCreate
-        super.init()
-    }
-    
-    required init?(coder:NSCoder)
-    {
-        return nil
-    }
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -69,8 +56,7 @@ class CSourceVideo:Controller<VSourceVideo, MSourceVideo>
         }
         
         let controller:CSourceVideoTime = CSourceVideoTime(
-            item:item,
-            controllerVideo:self)
+            item:item)
         parent.animateOver(controller:controller)
     }
 }

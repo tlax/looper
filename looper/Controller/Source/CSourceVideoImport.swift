@@ -2,15 +2,10 @@ import UIKit
 
 class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
 {
-    private(set) weak var controllerTime:CSourceVideoTime!
-    
     init(
         item:MSourceVideoItem,
-        framesPerSecond:Int,
-        controllerTime:CSourceVideoTime)
+        framesPerSecond:Int)
     {
-        self.controllerTime = controllerTime
-        
         super.init()
         model.config(item:item, framesPerSecond:framesPerSecond)
     }
@@ -39,22 +34,6 @@ class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
     }
     
     //MARK: private
-    
-    private func backToCreate()
-    {
-        guard
-            
-            let parent:ControllerParent = self.parent as? ControllerParent
-            
-        else
-        {
-            return
-        }
-        
-        parent.popSilent(removeIndex:3)
-        parent.popSilent(removeIndex:2)
-        parent.pop(horizontal:ControllerParent.Horizontal.right)
-    }
     
     private func asyncUpdateProgress(percent:CGFloat)
     {
@@ -87,14 +66,10 @@ class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
     }
     
     func videoImported(createItem:MCreateItem)
-    {
-        controllerTime.controllerVideo.controllerCreate.model.addItem(
-            item:createItem)
-        
+    {        
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.backToCreate()
         }
     }
     
