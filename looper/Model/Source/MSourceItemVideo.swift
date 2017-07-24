@@ -6,7 +6,7 @@ class MSourceItemVideo:MSourceProtocol
     {
         get
         {
-            return #imageLiteral(resourceName: "assetCreateVideo")
+            return #imageLiteral(resourceName: "assetGenericNewVideo")
         }
     }
     

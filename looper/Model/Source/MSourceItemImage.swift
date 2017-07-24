@@ -6,7 +6,7 @@ class MSourceItemImage:MSourceProtocol
     {
         get
         {
-            return #imageLiteral(resourceName: "assetCreateImage")
+            return #imageLiteral(resourceName: "assetGenericNewImage")
         }
     }
     

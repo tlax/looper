@@ -22,7 +22,6 @@
 		DA2C08F61F210BA100E1381A /* ViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C08F51F210BA100E1381A /* ViewMain.swift */; };
 		DA2C08F81F211F5300E1381A /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2C08F71F211F5300E1381A /* generic.xcassets */; };
 		DA2C09151F2174D700E1381A /* MSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C09141F2174D700E1381A /* MSourceProtocol.swift */; };
-		DA2C091D1F21792600E1381A /* create.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2C091C1F21792600E1381A /* create.xcassets */; };
 		DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F61F201F3300F85DFD /* AppDelegate.swift */; };
 		DA3B22371F201F3300F85DFD /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F71F201F3300F85DFD /* Controller.swift */; };
 		DA3B22381F201F3300F85DFD /* ControllerParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B21F81F201F3300F85DFD /* ControllerParent.swift */; };
@@ -129,7 +128,6 @@
 		DA2C08F51F210BA100E1381A /* ViewMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMain.swift; sourceTree = "<group>"; };
 		DA2C08F71F211F5300E1381A /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DA2C09141F2174D700E1381A /* MSourceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceProtocol.swift; sourceTree = "<group>"; };
-		DA2C091C1F21792600E1381A /* create.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = create.xcassets; sourceTree = "<group>"; };
 		DA3B21F61F201F3300F85DFD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA3B21F71F201F3300F85DFD /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		DA3B21F81F201F3300F85DFD /* ControllerParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParent.swift; sourceTree = "<group>"; };
@@ -392,7 +390,6 @@
 				DA3B220A1F201F3300F85DFD /* LaunchScreen.storyboard */,
 				DA6BA5F51F20418D00A6381A /* brand.xcassets */,
 				DA2C08F71F211F5300E1381A /* generic.xcassets */,
-				DA2C091C1F21792600E1381A /* create.xcassets */,
 				DA1AFBED1F21DE68000ADDFA /* spinner.xcassets */,
 			);
 			path = Assets;
@@ -748,7 +745,6 @@
 				DA3B22521F201F3300F85DFD /* ResourceURL.plist in Resources */,
 				DA1AFBEE1F21DE68000ADDFA /* spinner.xcassets in Resources */,
 				DA3B22501F201F3300F85DFD /* LocalizableModel.strings in Resources */,
-				DA2C091D1F21792600E1381A /* create.xcassets in Resources */,
 				DA6BA5F61F20418D00A6381A /* brand.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
