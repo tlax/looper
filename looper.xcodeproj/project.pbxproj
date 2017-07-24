@@ -76,6 +76,7 @@
 		DA3B22871F202DC100F85DFD /* MSessionPerks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22861F202DC100F85DFD /* MSessionPerks.swift */; };
 		DA46DFE31F2653D4009214A6 /* VSourceVideoImportBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46DFE21F2653D4009214A6 /* VSourceVideoImportBar.swift */; };
 		DA46DFE61F2658E0009214A6 /* VEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46DFE51F2658E0009214A6 /* VEdit.swift */; };
+		DA46DFE91F265917009214A6 /* MEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46DFE81F265917009214A6 /* MEdit.swift */; };
 		DA65CDAD1F240CCA00C0615E /* VSourceVideoTimeBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDAC1F240CCA00C0615E /* VSourceVideoTimeBottomBar.swift */; };
 		DA65CDAF1F2416A900C0615E /* MSourceVideoTimeItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDAE1F2416A900C0615E /* MSourceVideoTimeItemProtocol.swift */; };
 		DA65CDB11F2416B300C0615E /* MSourceVideoTimeItemDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDB01F2416B300C0615E /* MSourceVideoTimeItemDuration.swift */; };
@@ -183,6 +184,7 @@
 		DA3B22861F202DC100F85DFD /* MSessionPerks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionPerks.swift; sourceTree = "<group>"; };
 		DA46DFE21F2653D4009214A6 /* VSourceVideoImportBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoImportBar.swift; sourceTree = "<group>"; };
 		DA46DFE51F2658E0009214A6 /* VEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEdit.swift; sourceTree = "<group>"; };
+		DA46DFE81F265917009214A6 /* MEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEdit.swift; sourceTree = "<group>"; };
 		DA65CDAC1F240CCA00C0615E /* VSourceVideoTimeBottomBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeBottomBar.swift; sourceTree = "<group>"; };
 		DA65CDAE1F2416A900C0615E /* MSourceVideoTimeItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoTimeItemProtocol.swift; sourceTree = "<group>"; };
 		DA65CDB01F2416B300C0615E /* MSourceVideoTimeItemDuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoTimeItemDuration.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				DAFD73FA1F24BE6000DC67EA /* New */,
 				DA2C08F01F2109A100E1381A /* Abstract */,
 				DA3B21FE1F201F3300F85DFD /* Main */,
+				DA46DFE71F26590A009214A6 /* Edit */,
 				DA2C08FE1F2164C100E1381A /* Source */,
 				DA2C09011F2164C100E1381A /* SourceImage */,
 				DA2C09021F2164C100E1381A /* SourceRecord */,
@@ -568,6 +571,14 @@
 			isa = PBXGroup;
 			children = (
 				DA46DFE51F2658E0009214A6 /* VEdit.swift */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		DA46DFE71F26590A009214A6 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				DA46DFE81F265917009214A6 /* MEdit.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -809,6 +820,7 @@
 				DA3B22871F202DC100F85DFD /* MSessionPerks.swift in Sources */,
 				DA2C08EF1F2108FC00E1381A /* VHomeMenu.swift in Sources */,
 				DA6EA7C51F22C14B003A0EA8 /* VSourceVideoTimeInfoCell.swift in Sources */,
+				DA46DFE91F265917009214A6 /* MEdit.swift in Sources */,
 				DA6EA7B71F22A840003A0EA8 /* MSourceVideoTime.swift in Sources */,
 				DA3B224E1F201F3300F85DFD /* ExtensionURL.swift in Sources */,
 				DA3B22481F201F3300F85DFD /* ExtensionNSLayoutConstraint.swift in Sources */,
