@@ -7,7 +7,7 @@ class VNew:ViewMain
     private weak var layoutSourceBottom:NSLayoutConstraint!
     private weak var layoutSourceTop:NSLayoutConstraint!
     private let kCancelSize:CGFloat = 80
-    private let kAnimationDuration:TimeInterval = 0.6
+    private let kAnimationDuration:TimeInterval = 0.5
     
     required init(controller:UIViewController)
     {
@@ -126,7 +126,7 @@ class VNew:ViewMain
     
     //MARK: public
     
-    func viewDidAppear()
+    func viewWillAppear()
     {
         layoutSourceTop.constant = 0
         layoutSourceBottom.constant = 0
@@ -136,6 +136,20 @@ class VNew:ViewMain
             
             self?.layoutIfNeeded()
             self?.viewSource.alpha = 1
+        }
+    }
+    
+    func viewWillDisappear()
+    {
+        let sourceBottom:CGFloat = UIScreen.main.bounds.height
+        layoutSourceBottom.constant = sourceBottom
+        layoutSourceTop.constant = sourceBottom
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+            self?.viewSource.alpha = 0
         }
     }
 }

@@ -7,15 +7,15 @@ class CNew:Controller<VNew, MNew>
         super.viewDidAppear(animated)
         
         guard
-        
+            
             let view:VNew = self.view as? VNew
-        
+            
         else
         {
             return
         }
         
-        view.viewDidAppear()
+        view.viewWillAppear()
     }
     
     //MARK: public
@@ -24,6 +24,7 @@ class CNew:Controller<VNew, MNew>
     {
         guard
             
+            let view:VNew = self.view as? VNew,
             let parent:ControllerParent = parent as? ControllerParent
             
         else
@@ -31,6 +32,7 @@ class CNew:Controller<VNew, MNew>
             return
         }
         
+        view.viewWillDisappear()
         parent.dismissAnimateOver(completion:nil)
     }
 }
