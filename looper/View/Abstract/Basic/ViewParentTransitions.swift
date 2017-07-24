@@ -208,6 +208,33 @@ extension ViewParent
         }
     }
     
+    func centreOver(newView:ViewProtocol)
+    {
+        guard
+            
+            let newUi:UIView = newView as? UIView
+            
+        else
+        {
+            return
+        }
+        
+        addSubview(newUi)
+        
+        newView.layoutTop = NSLayoutConstraint.topToTop(
+            view:newUi,
+            toView:self)
+        newView.layoutBottom = NSLayoutConstraint.bottomToBottom(
+            view:newUi,
+            toView:self)
+        newView.layoutLeft = NSLayoutConstraint.leftToLeft(
+            view:newUi,
+            toView:self)
+        newView.layoutRight = NSLayoutConstraint.rightToRight(
+            view:newUi,
+            toView:self)
+    }
+    
     func pop(
         currentView:ViewProtocol,
         left:CGFloat,

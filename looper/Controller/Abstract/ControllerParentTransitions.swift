@@ -137,6 +137,29 @@ extension ControllerParent
         }
     }
     
+    func centreOver(controller:UIViewController)
+    {
+        guard
+            
+            let view:ViewParent = self.view as? ViewParent,
+            let currentController:UIViewController = childViewControllers.last,
+            let newView:ViewProtocol = controller.view as? ViewProtocol
+            
+        else
+        {
+            return
+        }
+        
+        addChildViewController(controller)
+        controller.beginAppearanceTransition(true, animated:true)
+        currentController.beginAppearanceTransition(false, animated:true)
+        
+        view.centreOver(newView:newView)
+        
+        controller.endAppearanceTransition()
+        currentController.endAppearanceTransition()
+    }
+    
     func removeBetweenFirstAndLast()
     {
         var controllers:Int = childViewControllers.count - 1
