@@ -10,7 +10,7 @@ class VNewSourceCell:UICollectionViewCell
     private var icon:UIImage?
     private let kCircleSize:CGFloat = 60
     private let kBorderWidth:CGFloat = 1
-    private let kTitleLeft:CGFloat = 6
+    private let kTitleLeft:CGFloat = 8
     private let kTitleWidth:CGFloat = 200
     
     override init(frame:CGRect)
@@ -40,7 +40,7 @@ class VNewSourceCell:UICollectionViewCell
         labelTitle.isUserInteractionEnabled = false
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
-        labelTitle.font = UIFont.regular(size:14)
+        labelTitle.font = UIFont.regular(size:13)
         self.labelTitle = labelTitle
         
         circleView.addSubview(imageView)

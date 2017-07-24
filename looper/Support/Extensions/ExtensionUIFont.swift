@@ -2,9 +2,9 @@ import UIKit
 
 extension UIFont
 {
-    static let kFontRegular:String = "AppleSDGothicNeo-Regular"
-    static let kFontLight:String = "AppleSDGothicNeo-UltraLight"
-    static let kFontBold:String = "AppleSDGothicNeo-Bold"
+    static let kFontRegular:String = "HelveticaNeue"
+    static let kFontLight:String = "HelveticaNeue-Thin"
+    static let kFontBold:String = "HelveticaNeue-Bold"
     
     class func regular(size:CGFloat) -> UIFont
     {
