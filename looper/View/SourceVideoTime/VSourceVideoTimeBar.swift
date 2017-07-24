@@ -3,9 +3,10 @@ import UIKit
 class VSourceVideoTimeBar:
 View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
 {
-    private weak var layoutThumbTop:NSLayoutConstraint!
     private weak var layoutThumbLeft:NSLayoutConstraint!
+    private let kThumbTop:CGFloat = 50
     private let kThumbSize:CGFloat = 128
+    private let kBlurAlpha:CGFloat = 0.92
     
     required init(controller:CSourceVideoTime)
     {
@@ -19,14 +20,22 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         backgroundImage.image = controller.model.item.image
         
+        let baseBlur:UIView = UIView()
+        baseBlur.isUserInteractionEnabled = false
+        baseBlur.translatesAutoresizingMaskIntoConstraints = false
+        baseBlur.clipsToBounds = true
+        baseBlur.alpha = kBlurAlpha
+        
         let blur:VBlur = VBlur.light()
+        blur.backgroundColor = UIColor.black
         
         let viewThumb:VSourceVideoTimeBarThumb = VSourceVideoTimeBarThumb(
             controller:controller)
         viewThumb.layer.cornerRadius = kThumbSize / 2.0
         
+        baseBlur.addSubview(blur)
         addSubview(backgroundImage)
-        addSubview(blur)
+        addSubview(baseBlur)
         addSubview(viewThumb)
         
         NSLayoutConstraint.equals(
@@ -34,12 +43,17 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
             toView:self)
         
         NSLayoutConstraint.equals(
-            view:blur,
+            view:baseBlur,
             toView:self)
         
-        layoutThumbTop = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.equals(
+            view:blur,
+            toView:baseBlur)
+        
+        NSLayoutConstraint.topToTop(
             view:viewThumb,
-            toView:self)
+            toView:self,
+            constant:kThumbTop)
         layoutThumbLeft = NSLayoutConstraint.leftToLeft(
             view:viewThumb,
             toView:self)
@@ -56,13 +70,9 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.width
-        let height:CGFloat = bounds.height
         let remainWidth:CGFloat = width - kThumbSize
-        let remainHeight:CGFloat = height - kThumbSize
         let marginLeft:CGFloat = remainWidth / 2.0
-        let marginTop:CGFloat = remainHeight / 2.0
         layoutThumbLeft.constant = marginLeft
-        layoutThumbTop.constant = marginTop
         
         super.layoutSubviews()
     }

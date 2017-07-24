@@ -75,7 +75,7 @@ class VNew:ViewMain
         let buttonCancel:UIButton = UIButton()
         buttonCancel.translatesAutoresizingMaskIntoConstraints = false
         buttonCancel.setImage(
-            #imageLiteral(resourceName: "assetGenericCloseNegative"),
+            #imageLiteral(resourceName: "assetGenericClose"),
             for:UIControlState.normal)
         buttonCancel.imageView!.clipsToBounds = true
         buttonCancel.imageView!.contentMode = UIViewContentMode.center

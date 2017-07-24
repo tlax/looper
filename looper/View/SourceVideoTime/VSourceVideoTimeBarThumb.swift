@@ -4,14 +4,14 @@ class VSourceVideoTimeBarThumb:
     View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
 {
     private let kImageMargin:CGFloat = -2
-    private let kBorderWidth:CGFloat = 1
+    private let kBorderWidth:CGFloat = 4
     
     required init(controller:CSourceVideoTime)
     {
         super.init(controller:controller)
         isUserInteractionEnabled = false
         layer.borderWidth = kBorderWidth
-        layer.borderColor = UIColor.black.cgColor
+        layer.borderColor = UIColor.white.cgColor
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false

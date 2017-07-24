@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class CSourceVideoTime:Controller<VSourceVideoTime, MSourceVideoTime>
 {
@@ -11,6 +11,23 @@ class CSourceVideoTime:Controller<VSourceVideoTime, MSourceVideoTime>
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func viewWillAppear(_ animated:Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        guard
+            
+            let parent:ControllerParent = self.parent as? ControllerParent
+            
+        else
+        {
+            return
+        }
+        
+        parent.statusBarAppareance(
+            statusBarStyle:UIStatusBarStyle.lightContent)
     }
     
     //MARK: public

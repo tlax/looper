@@ -5,15 +5,15 @@ class VSourceVideoBar:View<VSourceVideo, MSourceVideo, CSourceVideo>
     private let kContentTop:CGFloat = 20
     private let kBackWidth:CGFloat = 60
     private let kBackEdgeRight:CGFloat = 20
+    private let kBorderHeight:CGFloat = 1
     
     required init(controller:CSourceVideo)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor(
-            red:1,
-            green:0.47058823529411764,
-            blue:0,
-            alpha:1)
+        backgroundColor = UIColor.white
+        
+        let border:VBorder = VBorder(
+            colour:UIColor.colourBackgroundGray)
         
         let labelTitle:UILabel = UILabel()
         labelTitle.isUserInteractionEnabled = false
@@ -21,7 +21,7 @@ class VSourceVideoBar:View<VSourceVideo, MSourceVideo, CSourceVideo>
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.font = UIFont.regular(size:16)
-        labelTitle.textColor = UIColor.white
+        labelTitle.textColor = UIColor.black
         labelTitle.text = String.localizedView(key:"VSourceVideoBar_labelTitle")
         
         let buttonBack:UIButton = UIButton()
@@ -41,8 +41,19 @@ class VSourceVideoBar:View<VSourceVideo, MSourceVideo, CSourceVideo>
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        addSubview(border)
         addSubview(labelTitle)
         addSubview(buttonBack)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
         
         NSLayoutConstraint.topToTop(
             view:labelTitle,

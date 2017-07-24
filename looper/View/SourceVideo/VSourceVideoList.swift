@@ -8,7 +8,7 @@ class VSourceVideoList:VCollection<
 {
     private var cellSize:CGSize?
     private let kCellsPerRow:CGFloat = 3
-    private let kCollectionMargin:CGFloat = 1
+    private let kCollectionMargin:CGFloat = 10
     private let kCollectionBottom:CGFloat = 20
     
     required init(controller:CSourceVideo)
@@ -20,6 +20,8 @@ class VSourceVideoList:VCollection<
         {
             let topMargin:CGFloat = VSourceVideo.kBarHeight + kCollectionMargin
             
+            flow.minimumLineSpacing = kCollectionMargin
+            flow.minimumInteritemSpacing = kCollectionMargin
             flow.sectionInset = UIEdgeInsets(
                 top:topMargin,
                 left:kCollectionMargin,
@@ -45,7 +47,7 @@ class VSourceVideoList:VCollection<
         else
         {
             let width:CGFloat = collectionView.bounds.width
-            let subtractWidth:CGFloat = kCellsPerRow * kCollectionMargin
+            let subtractWidth:CGFloat = (kCellsPerRow + 1) * kCollectionMargin
             let usableWidth:CGFloat = width - subtractWidth
             let cellWidth:CGFloat = usableWidth / kCellsPerRow
             let cellSize:CGSize = CGSize(width:cellWidth, height:cellWidth)

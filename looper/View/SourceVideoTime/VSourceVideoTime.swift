@@ -2,7 +2,7 @@ import UIKit
 
 class VSourceVideoTime:ViewMain
 {
-    static let kBarMaxHeight:CGFloat = 300
+    static let kBarMaxHeight:CGFloat = 400
     static let kBottomBarHeight:CGFloat = 60
     private let kCloseTop:CGFloat = 10
     private let kCloseWidth:CGFloat = 60
@@ -48,7 +48,7 @@ class VSourceVideoTime:ViewMain
         let buttonClose:UIButton = UIButton()
         buttonClose.translatesAutoresizingMaskIntoConstraints = false
         buttonClose.setImage(
-            #imageLiteral(resourceName: "assetGenericCloseNegative"),
+            #imageLiteral(resourceName: "assetGenericClose"),
             for:UIControlState.normal)
         buttonClose.imageView!.clipsToBounds = true
         buttonClose.imageView!.contentMode = UIViewContentMode.center
