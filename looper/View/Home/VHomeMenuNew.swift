@@ -4,31 +4,6 @@ class VHomeMenuNew:View<VHome, MHome, CHome>
 {
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
-    private let kAnimationDuration:TimeInterval = 15
-    
-    private class func factoryImages() -> [UIImage]
-    {
-        let images:[UIImage] = [
-            #imageLiteral(resourceName: "assetGenericNew00"),
-            #imageLiteral(resourceName: "assetGenericNew01"),
-            #imageLiteral(resourceName: "assetGenericNew02"),
-            #imageLiteral(resourceName: "assetGenericNew03"),
-            #imageLiteral(resourceName: "assetGenericNew04"),
-            #imageLiteral(resourceName: "assetGenericNew05"),
-            #imageLiteral(resourceName: "assetGenericNew06"),
-            #imageLiteral(resourceName: "assetGenericNew07"),
-            #imageLiteral(resourceName: "assetGenericNew08"),
-            #imageLiteral(resourceName: "assetGenericNew09"),
-            #imageLiteral(resourceName: "assetGenericNew10"),
-            #imageLiteral(resourceName: "assetGenericNew11"),
-            #imageLiteral(resourceName: "assetGenericNew00"),
-            #imageLiteral(resourceName: "assetGenericNew00"),
-            #imageLiteral(resourceName: "assetGenericNew00"),
-            #imageLiteral(resourceName: "assetGenericNew00"),
-            #imageLiteral(resourceName: "assetGenericNew00")]
-        
-        return images
-    }
     
     required init(controller:CHome)
     {
@@ -39,9 +14,7 @@ class VHomeMenuNew:View<VHome, MHome, CHome>
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.center
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.animationImages = VHomeMenuNew.factoryImages()
-        imageView.animationDuration = kAnimationDuration
-        imageView.startAnimating()
+        imageView.image = #imageLiteral(resourceName: "assetGenericNew")
         
         let buttonNew:UIButton = UIButton()
         buttonNew.translatesAutoresizingMaskIntoConstraints = false
