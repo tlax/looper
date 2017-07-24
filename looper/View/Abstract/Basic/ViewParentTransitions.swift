@@ -233,6 +233,8 @@ extension ViewParent
         newView.layoutRight = NSLayoutConstraint.rightToRight(
             view:newUi,
             toView:self)
+        
+        layoutIfNeeded()
     }
     
     func pop(

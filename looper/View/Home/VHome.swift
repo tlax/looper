@@ -3,7 +3,7 @@ import UIKit
 class VHome:ViewMain
 {
     private let kGradientHeight:CGFloat = 250
-    private let kMenuHeight:CGFloat = 80
+    private let kMenuHeight:CGFloat = 120
     
     required init(controller:UIViewController)
     {

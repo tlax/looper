@@ -16,6 +16,6 @@ class CHome:Controller<VHome, MHome>
         }
         
         let controller:CNew = CNew()
-        parent.animateOver(controller:controller)
+        parent.centreOver(controller:controller)
     }
 }

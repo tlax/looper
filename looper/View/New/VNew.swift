@@ -6,7 +6,7 @@ class VNew:ViewMain
     private weak var layoutCancelLeft:NSLayoutConstraint!
     private weak var layoutSourceBottom:NSLayoutConstraint!
     private weak var layoutSourceTop:NSLayoutConstraint!
-    private let kCancelSize:CGFloat = 80
+    private let kCancelSize:CGFloat = 120
     private let kAnimationDuration:TimeInterval = 0.5
     private let kBlurAlpha:CGFloat = 0.95
     

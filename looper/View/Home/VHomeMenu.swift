@@ -6,12 +6,13 @@ class VHomeMenu:View<VHome, MHome, CHome>
     private weak var layoutNewLeft:NSLayoutConstraint!
     private let kNewSize:CGFloat = 65
     private let kBorderHeight:CGFloat = 1
+    private let kBorderTop:CGFloat = 60
     
     required init(controller:CHome)
     {
         super.init(controller:controller)
         
-        let border:VBorder = VBorder(colour:UIColor(white:0, alpha:0.12))
+        let border:VBorder = VBorder(colour:UIColor.colourBackgroundGray)
         
         let viewNew:VHomeMenuNew = VHomeMenuNew(controller:controller)
         
@@ -20,7 +21,8 @@ class VHomeMenu:View<VHome, MHome, CHome>
         
         NSLayoutConstraint.topToTop(
             view:border,
-            toView:self)
+            toView:self,
+            constant:kBorderTop)
         NSLayoutConstraint.height(
             view:border,
             constant:kBorderHeight)
