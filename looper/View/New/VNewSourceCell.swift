@@ -22,7 +22,7 @@ class VNewSourceCell:UICollectionViewCell
         circleView.backgroundColor = UIColor.white
         circleView.layer.cornerRadius = kCircleSize / 2.0
         circleView.layer.borderWidth = kBorderWidth
-        circleView.layer.borderColor = UIColor(white:0, alpha:0.2).cgColor
+        circleView.layer.borderColor = UIColor.colourSuccess.cgColor
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
