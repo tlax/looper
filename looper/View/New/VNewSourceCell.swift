@@ -24,6 +24,14 @@ class VNewSourceCell:UICollectionViewCell
         circleView.layer.borderWidth = kBorderWidth
         circleView.layer.borderColor = UIColor(white:0, alpha:0.2).cgColor
         
+        let imageView:UIImageView = UIImageView()
+        imageView.isUserInteractionEnabled = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = UIViewContentMode.center
+        self.imageView = imageView
+        
+        circleView.addSubview(imageView)
         addSubview(circleView)
         
         layoutCircleTop = NSLayoutConstraint.topToTop(
@@ -35,6 +43,10 @@ class VNewSourceCell:UICollectionViewCell
         layoutCircleLeft = NSLayoutConstraint.leftToLeft(
             view:circleView,
             toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:imageView,
+            toView:circleView)
     }
     
     required init?(coder:NSCoder)
@@ -60,6 +72,6 @@ class VNewSourceCell:UICollectionViewCell
     
     func config(model:MSourceProtocol)
     {
-        
+        imageView.image = model.icon
     }
 }
