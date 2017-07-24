@@ -8,6 +8,7 @@ class VNew:ViewMain
     private weak var layoutSourceTop:NSLayoutConstraint!
     private let kCancelSize:CGFloat = 80
     private let kAnimationDuration:TimeInterval = 0.5
+    private let kBlurAlpha:CGFloat = 0.95
     
     required init(controller:UIViewController)
     {
@@ -62,6 +63,13 @@ class VNew:ViewMain
     private func factoryViews(controller:CNew)
     {
         let sourceBottom:CGFloat = UIScreen.main.bounds.height
+        
+        let baseBlur:UIView = UIView()
+        baseBlur.isUserInteractionEnabled = false
+        baseBlur.translatesAutoresizingMaskIntoConstraints = false
+        baseBlur.clipsToBounds = true
+        baseBlur.alpha = kBlurAlpha
+        
         let blur:VBlur = VBlur.light()
         
         let buttonBackground:UIButton = UIButton()
@@ -88,14 +96,19 @@ class VNew:ViewMain
         viewSource.alpha = 0
         self.viewSource = viewSource
         
-        addSubview(blur)
+        baseBlur.addSubview(blur)
+        addSubview(baseBlur)
         addSubview(buttonBackground)
         addSubview(buttonCancel)
         addSubview(viewSource)
         
         NSLayoutConstraint.equals(
-            view:blur,
+            view:baseBlur,
             toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:blur,
+            toView:baseBlur)
         
         NSLayoutConstraint.equals(
             view:buttonBackground,
