@@ -2,7 +2,9 @@ import UIKit
 
 class VNewSourceCell:UICollectionViewCell
 {
+    private weak var icon:UIImage?
     private weak var imageView:UIImageView!
+    private weak var circleView:UIView!
     private weak var labelTitle:UILabel!
     private weak var layoutCircleTop:NSLayoutConstraint!
     private weak var layoutCircleLeft:NSLayoutConstraint!
@@ -19,16 +21,17 @@ class VNewSourceCell:UICollectionViewCell
         circleView.isUserInteractionEnabled = false
         circleView.translatesAutoresizingMaskIntoConstraints = false
         circleView.clipsToBounds = true
-        circleView.backgroundColor = UIColor.white
         circleView.layer.cornerRadius = kCircleSize / 2.0
         circleView.layer.borderWidth = kBorderWidth
         circleView.layer.borderColor = UIColor.colourSuccess.cgColor
+        self.circleView = circleView
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.center
+        imageView.tintColor = UIColor.white
         self.imageView = imageView
         
         circleView.addSubview(imageView)
@@ -68,10 +71,45 @@ class VNewSourceCell:UICollectionViewCell
         super.layoutSubviews()
     }
     
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            circleView.backgroundColor = UIColor.colourSuccess
+            imageView.image = icon?.withRenderingMode(
+                UIImageRenderingMode.alwaysTemplate)
+        }
+        else
+        {
+            circleView.backgroundColor = UIColor.white
+            imageView.image = icon?.withRenderingMode(
+                UIImageRenderingMode.alwaysOriginal)
+        }
+    }
+    
     //MARK: public
     
     func config(model:MSourceProtocol)
     {
-        imageView.image = model.icon
+        icon = model.icon
+        hover()
     }
 }
