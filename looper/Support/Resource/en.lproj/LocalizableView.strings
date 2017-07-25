@@ -1,4 +1,6 @@
 "VSourceVideoBar_labelTitle"="Select video";
 "VSourceVideoTimeSlider_labelTitle"="Frames per second";
-"VSourceVideoImport_buttonCancel"="Cancel";
+"VSourceVideoImportBottom_buttonCancel"="Cancel";
+"VSourceVideoImportBottom_labelTitle"="Loading";
+"VSourceVideoImportBottom_labelSubtitle"="May take a while";
 "VSourceVideoTimeNext_button"="Next";

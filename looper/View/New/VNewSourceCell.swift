@@ -11,7 +11,7 @@ class VNewSourceCell:UICollectionViewCell
     private let kImageSize:CGFloat = 50
     private let kTitleLeft:CGFloat = 10
     private let kTitleWidth:CGFloat = 200
-    private let kBackgroundLeft:CGFloat = -20
+    private let kBackgroundLeft:CGFloat = -12
     private let kBackgroundRight:CGFloat = 30
     
     override init(frame:CGRect)
