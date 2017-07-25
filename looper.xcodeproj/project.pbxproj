@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA16042D1F278B250035497C /* VSourceVideoTimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16042C1F278B250035497C /* VSourceVideoTimeSlider.swift */; };
 		DA16042F1F2793610035497C /* VSourceVideoTimeNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16042E1F2793610035497C /* VSourceVideoTimeNext.swift */; };
+		DA1604311F27A96F0035497C /* VSourceVideoImportProgressThumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1604301F27A96F0035497C /* VSourceVideoImportProgressThumb.swift */; };
 		DA1AFBD71F21C9F6000ADDFA /* MSourceVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBD61F21C9F6000ADDFA /* MSourceVideo.swift */; };
 		DA1AFBD91F21CA2A000ADDFA /* MSourceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBD81F21CA2A000ADDFA /* MSourceImage.swift */; };
 		DA1AFBDB1F21CB39000ADDFA /* MSourceItemVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBDA1F21CB39000ADDFA /* MSourceItemVideo.swift */; };
@@ -71,7 +72,6 @@
 		DA3B22831F20268C00F85DFD /* MPerkDomainProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22821F20268C00F85DFD /* MPerkDomainProtocol.swift */; };
 		DA3B22851F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22841F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift */; };
 		DA3B22871F202DC100F85DFD /* MSessionPerks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B22861F202DC100F85DFD /* MSessionPerks.swift */; };
-		DA46DFE31F2653D4009214A6 /* VSourceVideoImportBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46DFE21F2653D4009214A6 /* VSourceVideoImportBar.swift */; };
 		DA46DFE61F2658E0009214A6 /* VEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46DFE51F2658E0009214A6 /* VEdit.swift */; };
 		DA46DFE91F265917009214A6 /* MEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46DFE81F265917009214A6 /* MEdit.swift */; };
 		DA46DFEC1F26594D009214A6 /* CEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46DFEB1F26594D009214A6 /* CEdit.swift */; };
@@ -115,6 +115,7 @@
 /* Begin PBXFileReference section */
 		DA16042C1F278B250035497C /* VSourceVideoTimeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeSlider.swift; sourceTree = "<group>"; };
 		DA16042E1F2793610035497C /* VSourceVideoTimeNext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeNext.swift; sourceTree = "<group>"; };
+		DA1604301F27A96F0035497C /* VSourceVideoImportProgressThumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoImportProgressThumb.swift; sourceTree = "<group>"; };
 		DA1AFBD61F21C9F6000ADDFA /* MSourceVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideo.swift; sourceTree = "<group>"; };
 		DA1AFBD81F21CA2A000ADDFA /* MSourceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceImage.swift; sourceTree = "<group>"; };
 		DA1AFBDA1F21CB39000ADDFA /* MSourceItemVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceItemVideo.swift; sourceTree = "<group>"; };
@@ -177,7 +178,6 @@
 		DA3B22821F20268C00F85DFD /* MPerkDomainProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkDomainProtocol.swift; sourceTree = "<group>"; };
 		DA3B22841F2029A500F85DFD /* MPerkThumbnailProtocolExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPerkThumbnailProtocolExtension.swift; sourceTree = "<group>"; };
 		DA3B22861F202DC100F85DFD /* MSessionPerks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionPerks.swift; sourceTree = "<group>"; };
-		DA46DFE21F2653D4009214A6 /* VSourceVideoImportBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoImportBar.swift; sourceTree = "<group>"; };
 		DA46DFE51F2658E0009214A6 /* VEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEdit.swift; sourceTree = "<group>"; };
 		DA46DFE81F265917009214A6 /* MEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEdit.swift; sourceTree = "<group>"; };
 		DA46DFEB1F26594D009214A6 /* CEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CEdit.swift; sourceTree = "<group>"; };
@@ -591,8 +591,8 @@
 			isa = PBXGroup;
 			children = (
 				DA65CDBE1F2438BD00C0615E /* VSourceVideoImport.swift */,
-				DA46DFE21F2653D4009214A6 /* VSourceVideoImportBar.swift */,
 				DAFD73ED1F24930400DC67EA /* VSourceVideoImportProgress.swift */,
+				DA1604301F27A96F0035497C /* VSourceVideoImportProgressThumb.swift */,
 			);
 			path = SourceVideoImport;
 			sourceTree = "<group>";
@@ -814,6 +814,7 @@
 				DA46DFE91F265917009214A6 /* MEdit.swift in Sources */,
 				DA6EA7B71F22A840003A0EA8 /* MSourceVideoTime.swift in Sources */,
 				DA3B224E1F201F3300F85DFD /* ExtensionURL.swift in Sources */,
+				DA1604311F27A96F0035497C /* VSourceVideoImportProgressThumb.swift in Sources */,
 				DA3B22481F201F3300F85DFD /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DA3B225C1F201F3300F85DFD /* VGradient.swift in Sources */,
 				DA81CBCC1F2207790031EAF6 /* MSourceVideoAuth.swift in Sources */,
@@ -845,7 +846,6 @@
 				DA65CDBF1F2438BD00C0615E /* VSourceVideoImport.swift in Sources */,
 				DA3B224B1F201F3300F85DFD /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA3B224C1F201F3300F85DFD /* ExtensionUIColor.swift in Sources */,
-				DA46DFE31F2653D4009214A6 /* VSourceVideoImportBar.swift in Sources */,
 				DA81CBCA1F2201020031EAF6 /* ModelDelegate.swift in Sources */,
 				DA16042D1F278B250035497C /* VSourceVideoTimeSlider.swift in Sources */,
 				DAFD73FC1F24BE6800DC67EA /* MNew.swift in Sources */,

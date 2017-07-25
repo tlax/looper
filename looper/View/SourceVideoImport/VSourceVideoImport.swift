@@ -3,12 +3,10 @@ import UIKit
 class VSourceVideoImport:ViewMain
 {
     private(set) weak var viewProgress:VSourceVideoImportProgress!
-    private weak var spinner:VSpinner!
     private weak var layoutCancelLeft:NSLayoutConstraint!
     private let kProgressMarginHorizontal:CGFloat = 20
-    private let kProgressHeight:CGFloat = 10
-    private let kProgressBottom:CGFloat = -30
-    private let kBarHeight:CGFloat = 64
+    private let kProgressTop:CGFloat = 160
+    private let kProgressHeight:CGFloat = 200
     private let kCancelWidth:CGFloat = 140
     private let kCancelHeight:CGFloat = 40
     private let kCancelBottom:CGFloat = -20
@@ -35,11 +33,6 @@ class VSourceVideoImport:ViewMain
         return nil
     }
     
-    deinit
-    {
-        spinner.stopAnimating()
-    }
-    
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.width
@@ -54,13 +47,9 @@ class VSourceVideoImport:ViewMain
     
     private func factoryViews(controller:CSourceVideoImport)
     {
-        let blur:VBlur = VBlur.extraLight()
-        
-        let spinner:VSpinner = VSpinner()
-        self.spinner = spinner
-        
-        let viewBar:VSourceVideoImportBar = VSourceVideoImportBar(
-            controller:controller)
+        let viewGradient:VGradient = VGradient.vertical(
+            colourTop:UIColor.colourGradientLight,
+            colourBottom:UIColor.colourGradientDark)
         
         let buttonCancel:UIButton = UIButton()
         buttonCancel.translatesAutoresizingMaskIntoConstraints = false
@@ -83,28 +72,12 @@ class VSourceVideoImport:ViewMain
             controller:controller)
         self.viewProgress = viewProgress
         
-        addSubview(blur)
-        addSubview(viewBar)
-        addSubview(spinner)
+        addSubview(viewGradient)
         addSubview(viewProgress)
         addSubview(buttonCancel)
         
         NSLayoutConstraint.equals(
-            view:blur,
-            toView:self)
-        
-        NSLayoutConstraint.equals(
-            view:spinner,
-            toView:self)
-        
-        NSLayoutConstraint.topToTop(
-            view:viewBar,
-            toView:self)
-        NSLayoutConstraint.height(
-            view:viewBar,
-            constant:kBarHeight)
-        NSLayoutConstraint.equalsHorizontal(
-            view:viewBar,
+            view:viewGradient,
             toView:self)
         
         NSLayoutConstraint.bottomToBottom(
@@ -121,10 +94,10 @@ class VSourceVideoImport:ViewMain
             view:buttonCancel,
             constant:kCancelWidth)
         
-        NSLayoutConstraint.bottomToTop(
+        NSLayoutConstraint.topToTop(
             view:viewProgress,
-            toView:buttonCancel,
-            constant:kProgressBottom)
+            toView:self,
+            constant:kProgressTop)
         NSLayoutConstraint.height(
             view:viewProgress,
             constant:kProgressHeight)

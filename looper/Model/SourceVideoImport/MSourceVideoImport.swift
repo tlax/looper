@@ -2,8 +2,8 @@ import UIKit
 
 class MSourceVideoImport:Model, MSourceVideoImportFactoryDelegate
 {
+    private(set) weak var item:MSourceVideoItem!
     private weak var controller:CSourceVideoImport?
-    private weak var item:MSourceVideoItem!
     private var factory:MSourceVideoImportFactory?
     private var framesPerSecond:Int
     
