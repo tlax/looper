@@ -12,7 +12,7 @@ class MSourceVideoImportFactory
     private var totalTimes:Int
     private var duration:TimeInterval
     private let framesPerSecond:Int
-    private let kDelay:TimeInterval = 1.5
+    private let kDelay:TimeInterval = 0.5
     private let kInitialTimesIndex:Int = -1
     
     init(
