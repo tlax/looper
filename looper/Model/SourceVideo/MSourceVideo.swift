@@ -7,7 +7,7 @@ class MSourceVideo:Model
     private var cachingManager:PHCachingImageManager?
     private var requestOptions:PHImageRequestOptions?
     private let previewSize:CGSize
-    private let kPreviewSize:CGFloat = 256
+    private let kPreviewSize:CGFloat = 512
     
     required init()
     {

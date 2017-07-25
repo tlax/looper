@@ -3,8 +3,7 @@ import UIKit
 class VSourceVideoTimeBarThumb:
     View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
 {
-    private let kImageMargin:CGFloat = -2
-    private let kBorderWidth:CGFloat = 4
+    private let kBorderWidth:CGFloat = 5
     
     required init(controller:CSourceVideoTime)
     {
@@ -24,8 +23,7 @@ class VSourceVideoTimeBarThumb:
         
         NSLayoutConstraint.equals(
             view:imageView,
-            toView:self,
-            margin:kImageMargin)
+            toView:self)
     }
     
     required init?(coder:NSCoder)

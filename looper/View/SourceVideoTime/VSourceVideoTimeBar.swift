@@ -4,9 +4,9 @@ class VSourceVideoTimeBar:
 View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
 {
     private weak var layoutThumbLeft:NSLayoutConstraint!
-    private let kThumbTop:CGFloat = 50
+    private let kThumbTop:CGFloat = 60
     private let kThumbSize:CGFloat = 128
-    private let kBlurAlpha:CGFloat = 0.92
+    private let kBlurAlpha:CGFloat = 0.8
     
     required init(controller:CSourceVideoTime)
     {
