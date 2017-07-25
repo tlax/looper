@@ -2,6 +2,10 @@ import UIKit
 
 class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
 {
+    private let kImportIndex:Int = 3
+    private let kTimeIndex:Int = 2
+    private let kVideoIndex:Int = 1
+    
     init(
         item:MSourceVideoItem,
         framesPerSecond:Int)
@@ -65,9 +69,9 @@ class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
             return
         }
         
-        parent.popSilent(removeIndex:3)
-        parent.popSilent(removeIndex:2)
-        parent.popSilent(removeIndex:1)
+        parent.popSilent(removeIndex:kImportIndex)
+        parent.popSilent(removeIndex:kTimeIndex)
+        parent.popSilent(removeIndex:kVideoIndex)
     }
     
     private func popAllPushEdit(sequence:MEditSequence)
