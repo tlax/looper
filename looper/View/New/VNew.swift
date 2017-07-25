@@ -5,7 +5,6 @@ class VNew:ViewMain
     private weak var viewSource:VNewSource!
     private weak var layoutCancelLeft:NSLayoutConstraint!
     private weak var layoutSourceBottom:NSLayoutConstraint!
-    private weak var layoutSourceTop:NSLayoutConstraint!
     private let kCancelSize:CGFloat = 120
     private let kAnimationDuration:TimeInterval = 0.4
     private let kBlurAlpha:CGFloat = 0.95
@@ -63,6 +62,7 @@ class VNew:ViewMain
     private func factoryViews(controller:CNew)
     {
         let sourceBottom:CGFloat = UIScreen.main.bounds.height
+        let sourceItems:CGFloat = CGFloat(controller.model.items.count)
         
         let baseBlur:UIView = UIView()
         baseBlur.isUserInteractionEnabled = false
@@ -83,7 +83,7 @@ class VNew:ViewMain
         let buttonCancel:UIButton = UIButton()
         buttonCancel.translatesAutoresizingMaskIntoConstraints = false
         buttonCancel.setImage(
-            #imageLiteral(resourceName: "assetGenericClose"),
+            #imageLiteral(resourceName: "assetGenericNewClose"),
             for:UIControlState.normal)
         buttonCancel.imageView!.clipsToBounds = true
         buttonCancel.imageView!.contentMode = UIViewContentMode.center
@@ -96,11 +96,13 @@ class VNew:ViewMain
         viewSource.alpha = 0
         self.viewSource = viewSource
         
+        let sourceHeight:CGFloat = viewSource.kCellHeight * sourceItems
+        
         baseBlur.addSubview(blur)
         addSubview(baseBlur)
         addSubview(buttonBackground)
-        addSubview(buttonCancel)
         addSubview(viewSource)
+        addSubview(buttonCancel)
         
         NSLayoutConstraint.equals(
             view:baseBlur,
@@ -128,10 +130,9 @@ class VNew:ViewMain
             view:viewSource,
             toView:buttonCancel,
             constant:sourceBottom)
-        layoutSourceTop = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.height(
             view:viewSource,
-            toView:self,
-            constant:sourceBottom)
+            constant:sourceHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:viewSource,
             toView:self)
@@ -141,7 +142,6 @@ class VNew:ViewMain
     
     func viewWillAppear()
     {
-        layoutSourceTop.constant = 0
         layoutSourceBottom.constant = 0
         
         UIView.animate(withDuration:kAnimationDuration)
@@ -156,7 +156,6 @@ class VNew:ViewMain
     {
         let sourceBottom:CGFloat = UIScreen.main.bounds.height
         layoutSourceBottom.constant = sourceBottom
-        layoutSourceTop.constant = sourceBottom
         
         UIView.animate(withDuration:kAnimationDuration)
         { [weak self] in

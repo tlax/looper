@@ -6,7 +6,7 @@ class VNewSource:VCollection<
     CNew,
     VNewSourceCell>
 {
-    private let kCellHeight:CGFloat = 60
+    let kCellHeight:CGFloat = 60
     
     required init(controller:CNew)
     {
@@ -18,24 +18,6 @@ class VNewSource:VCollection<
     required init?(coder:NSCoder)
     {
         return nil
-    }
-    
-    override func collectionView(
-        _ collectionView:UICollectionView,
-        layout collectionViewLayout:UICollectionViewLayout,
-        insetForSectionAt section:Int) -> UIEdgeInsets
-    {
-        let height:CGFloat = collectionView.bounds.height
-        let items:CGFloat = CGFloat(controller.model.items.count)
-        let itemsHeight:CGFloat = items * kCellHeight
-        let remainHeight:CGFloat = height - itemsHeight
-        let insets:UIEdgeInsets = UIEdgeInsets(
-            top:remainHeight,
-            left:0,
-            bottom:0,
-            right:0)
-        
-        return insets
     }
     
     override func collectionView(
