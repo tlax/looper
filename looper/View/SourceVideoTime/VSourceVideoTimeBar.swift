@@ -6,6 +6,7 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
     private weak var layoutThumbLeft:NSLayoutConstraint!
     private let kThumbTop:CGFloat = 60
     private let kThumbSize:CGFloat = 128
+    private let kInfoHeight:CGFloat = 150
     private let kBlurAlpha:CGFloat = 0.8
     
     required init(controller:CSourceVideoTime)
@@ -33,10 +34,14 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
             controller:controller)
         viewThumb.layer.cornerRadius = kThumbSize / 2.0
         
+        let viewInfo:VSourceVideoTimeBarInfo = VSourceVideoTimeBarInfo(
+            controller:controller)
+        
         baseBlur.addSubview(blur)
         addSubview(backgroundImage)
         addSubview(baseBlur)
         addSubview(viewThumb)
+        addSubview(viewInfo)
         
         NSLayoutConstraint.equals(
             view:backgroundImage,
@@ -60,6 +65,16 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
         NSLayoutConstraint.size(
             view:viewThumb,
             constant:kThumbSize)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:viewInfo,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:viewInfo,
+            constant:kInfoHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewInfo,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
