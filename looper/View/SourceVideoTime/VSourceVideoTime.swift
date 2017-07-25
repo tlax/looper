@@ -4,7 +4,6 @@ class VSourceVideoTime:ViewMain
 {
     static let kBarMaxHeight:CGFloat = 320
     static let kBottomBarHeight:CGFloat = 60
-    private(set) weak var layoutBarHeight:NSLayoutConstraint!
     
     required init(controller:UIViewController)
     {
@@ -47,7 +46,7 @@ class VSourceVideoTime:ViewMain
         NSLayoutConstraint.topToTop(
             view:viewBar,
             toView:self)
-        layoutBarHeight = NSLayoutConstraint.height(
+        NSLayoutConstraint.height(
             view:viewBar,
             constant:VSourceVideoTime.kBarMaxHeight)
         NSLayoutConstraint.equalsHorizontal(
