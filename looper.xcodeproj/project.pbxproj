@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA16042D1F278B250035497C /* VSourceVideoTimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16042C1F278B250035497C /* VSourceVideoTimeSlider.swift */; };
+		DA16042F1F2793610035497C /* VSourceVideoTimeNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16042E1F2793610035497C /* VSourceVideoTimeNext.swift */; };
 		DA1AFBD71F21C9F6000ADDFA /* MSourceVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBD61F21C9F6000ADDFA /* MSourceVideo.swift */; };
 		DA1AFBD91F21CA2A000ADDFA /* MSourceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBD81F21CA2A000ADDFA /* MSourceImage.swift */; };
 		DA1AFBDB1F21CB39000ADDFA /* MSourceItemVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1AFBDA1F21CB39000ADDFA /* MSourceItemVideo.swift */; };
@@ -113,6 +114,7 @@
 
 /* Begin PBXFileReference section */
 		DA16042C1F278B250035497C /* VSourceVideoTimeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeSlider.swift; sourceTree = "<group>"; };
+		DA16042E1F2793610035497C /* VSourceVideoTimeNext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeNext.swift; sourceTree = "<group>"; };
 		DA1AFBD61F21C9F6000ADDFA /* MSourceVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideo.swift; sourceTree = "<group>"; };
 		DA1AFBD81F21CA2A000ADDFA /* MSourceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceImage.swift; sourceTree = "<group>"; };
 		DA1AFBDA1F21CB39000ADDFA /* MSourceItemVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceItemVideo.swift; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 				DA46DFF31F26C685009214A6 /* VSourceVideoTimeBarInfo.swift */,
 				DA46DFF51F26C68E009214A6 /* VSourceVideoTimeBarInfoCell.swift */,
 				DA16042C1F278B250035497C /* VSourceVideoTimeSlider.swift */,
+				DA16042E1F2793610035497C /* VSourceVideoTimeNext.swift */,
 			);
 			path = SourceVideoTime;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 				DA46DFF61F26C68E009214A6 /* VSourceVideoTimeBarInfoCell.swift in Sources */,
 				DA2C08F21F2109AE00E1381A /* Model.swift in Sources */,
 				DA2C08F61F210BA100E1381A /* ViewMain.swift in Sources */,
+				DA16042F1F2793610035497C /* VSourceVideoTimeNext.swift in Sources */,
 				DA3B225A1F201F3300F85DFD /* VCollection.swift in Sources */,
 				DA2C09151F2174D700E1381A /* MSourceProtocol.swift in Sources */,
 				DAFD73FF1F24BE9200DC67EA /* VNew.swift in Sources */,
