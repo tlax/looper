@@ -17,6 +17,7 @@ class VSourceVideoImportProgressThumb:
         background.translatesAutoresizingMaskIntoConstraints = false
         background.clipsToBounds = true
         background.contentMode = UIViewContentMode.center
+        background.image = #imageLiteral(resourceName: "assetGenericThumb")
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
