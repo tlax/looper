@@ -46,7 +46,7 @@ class CSourceVideoTime:Controller<VSourceVideoTime, MSourceVideoTime>
         parent.dismissAnimateOver(completion:nil)
     }
     
-    func add()
+    func next()
     {
         guard
             
