@@ -7,13 +7,15 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
     private let kThumbTop:CGFloat = 60
     private let kThumbSize:CGFloat = 128
     private let kInfoHeight:CGFloat = 70
-    private let kImageAlpha:CGFloat = 0.1
-    private let kBlurAlpha:CGFloat = 0.4
+    private let kImageAlpha:CGFloat = 0.2
+    private let kBlurAlpha:CGFloat = 0.6
+    private let kCloseWidth:CGFloat = 70
+    private let kCloseHeight:CGFloat = 64
+    private let kCloseEdgeRight:CGFloat = 25
     
     required init(controller:CSourceVideoTime)
     {
         super.init(controller:controller)
-        isUserInteractionEnabled = false
         
         let backgroundImage:UIImageView = UIImageView()
         backgroundImage.isUserInteractionEnabled = false
@@ -30,7 +32,7 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
         baseBlur.alpha = kBlurAlpha
         
         let blur:VBlur = VBlur.light()
-        blur.backgroundColor = UIColor.black
+        blur.backgroundColor = UIColor.colourSuccess
         
         let viewThumb:VSourceVideoTimeBarThumb = VSourceVideoTimeBarThumb(
             controller:controller)
@@ -39,11 +41,29 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
         let viewInfo:VSourceVideoTimeBarInfo = VSourceVideoTimeBarInfo(
             controller:controller)
         
+        let buttonClose:UIButton = UIButton()
+        buttonClose.translatesAutoresizingMaskIntoConstraints = false
+        buttonClose.setImage(
+            #imageLiteral(resourceName: "assetGenericClose"),
+            for:UIControlState.normal)
+        buttonClose.imageView!.clipsToBounds = true
+        buttonClose.imageView!.contentMode = UIViewContentMode.center
+        buttonClose.imageEdgeInsets = UIEdgeInsets(
+            top:0,
+            left:0,
+            bottom:0,
+            right:kCloseEdgeRight)
+        buttonClose.addTarget(
+            self,
+            action:#selector(actionClose(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         baseBlur.addSubview(blur)
         addSubview(backgroundImage)
         addSubview(baseBlur)
         addSubview(viewThumb)
         addSubview(viewInfo)
+        addSubview(buttonClose)
         
         NSLayoutConstraint.equals(
             view:backgroundImage,
@@ -77,6 +97,19 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
         NSLayoutConstraint.equalsHorizontal(
             view:viewInfo,
             toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:buttonClose,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:buttonClose,
+            constant:kCloseHeight)
+        NSLayoutConstraint.leftToLeft(
+            view:buttonClose,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:buttonClose,
+            constant:kCloseWidth)
     }
     
     required init?(coder:NSCoder)
@@ -92,5 +125,12 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
         layoutThumbLeft.constant = marginLeft
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionClose(sender button:UIButton)
+    {
+        controller.close()
     }
 }

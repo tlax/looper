@@ -4,11 +4,6 @@ class VSourceVideoTime:ViewMain
 {
     static let kBarMaxHeight:CGFloat = 320
     static let kBottomBarHeight:CGFloat = 60
-    private let kCloseTop:CGFloat = 10
-    private let kCloseWidth:CGFloat = 60
-    private let kCloseHeight:CGFloat = 44
-    private let kCloseEdgeRight:CGFloat = 20
-    
     private(set) weak var layoutBarHeight:NSLayoutConstraint!
     
     required init(controller:UIViewController)
@@ -45,27 +40,9 @@ class VSourceVideoTime:ViewMain
         let viewInfo:VSourceVideoTimeInfo = VSourceVideoTimeInfo(
             controller:controller)
         
-        let buttonClose:UIButton = UIButton()
-        buttonClose.translatesAutoresizingMaskIntoConstraints = false
-        buttonClose.setImage(
-            #imageLiteral(resourceName: "assetGenericClose"),
-            for:UIControlState.normal)
-        buttonClose.imageView!.clipsToBounds = true
-        buttonClose.imageView!.contentMode = UIViewContentMode.center
-        buttonClose.imageEdgeInsets = UIEdgeInsets(
-            top:0,
-            left:0,
-            bottom:0,
-            right:kCloseEdgeRight)
-        buttonClose.addTarget(
-            self,
-            action:#selector(actionClose(sender:)),
-            for:UIControlEvents.touchUpInside)
-        
         addSubview(viewInfo)
         addSubview(viewBar)
         addSubview(viewBottomBar)
-        addSubview(buttonClose)
         
         NSLayoutConstraint.topToTop(
             view:viewBar,
@@ -90,35 +67,5 @@ class VSourceVideoTime:ViewMain
         NSLayoutConstraint.equalsHorizontal(
             view:viewBottomBar,
             toView:self)
-        
-        NSLayoutConstraint.topToTop(
-            view:buttonClose,
-            toView:self,
-            constant:kCloseTop)
-        NSLayoutConstraint.height(
-            view:buttonClose,
-            constant:kCloseHeight)
-        NSLayoutConstraint.leftToLeft(
-            view:buttonClose,
-            toView:self)
-        NSLayoutConstraint.width(
-            view:buttonClose,
-            constant:kCloseWidth)
-    }
-    
-    //MARK: actions
-    
-    func actionClose(sender button:UIButton)
-    {
-        guard
-            
-            let controller:CSourceVideoTime = self.controller as? CSourceVideoTime
-        
-        else
-        {
-            return
-        }
-        
-        controller.close()
     }
 }
