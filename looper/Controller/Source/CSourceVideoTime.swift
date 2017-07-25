@@ -13,21 +13,9 @@ class CSourceVideoTime:Controller<VSourceVideoTime, MSourceVideoTime>
         return nil
     }
     
-    override func viewWillAppear(_ animated:Bool)
+    override var preferredStatusBarStyle:UIStatusBarStyle
     {
-        super.viewWillAppear(animated)
-        
-        guard
-            
-            let parent:ControllerParent = self.parent as? ControllerParent
-            
-        else
-        {
-            return
-        }
-        
-        parent.statusBarAppareance(
-            statusBarStyle:UIStatusBarStyle.lightContent)
+        return UIStatusBarStyle.lightContent
     }
     
     //MARK: public

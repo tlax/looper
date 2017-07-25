@@ -31,6 +31,13 @@ class Controller<T:ViewMain, S:Model>:UIViewController, ModelDelegate
         self.view = view
     }
     
+    override func viewWillAppear(_ animated:Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        parent?.setNeedsStatusBarAppearanceUpdate()
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -41,12 +48,12 @@ class Controller<T:ViewMain, S:Model>:UIViewController, ModelDelegate
     
     override var preferredStatusBarStyle:UIStatusBarStyle
     {
-        return UIStatusBarStyle.lightContent
+        return UIStatusBarStyle.default
     }
     
     override var prefersStatusBarHidden:Bool
     {
-        return true
+        return false
     }
     
     //MARK: model delegate

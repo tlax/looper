@@ -19,7 +19,7 @@ class CSourceVideoImport:Controller<VSourceVideoImport, MSourceVideoImport>
     {
         super.viewDidLoad()
         
-        model.importVideo(controller:self)
+//        model.importVideo(controller:self)
     }
     
     override func didReceiveMemoryWarning()
