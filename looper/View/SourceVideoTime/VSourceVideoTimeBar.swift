@@ -6,8 +6,9 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
     private weak var layoutThumbLeft:NSLayoutConstraint!
     private let kThumbTop:CGFloat = 60
     private let kThumbSize:CGFloat = 128
-    private let kInfoHeight:CGFloat = 150
-    private let kBlurAlpha:CGFloat = 0.8
+    private let kInfoHeight:CGFloat = 70
+    private let kImageAlpha:CGFloat = 0.1
+    private let kBlurAlpha:CGFloat = 0.4
     
     required init(controller:CSourceVideoTime)
     {
@@ -19,6 +20,7 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false
         backgroundImage.clipsToBounds = true
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
+        backgroundImage.alpha = kImageAlpha
         backgroundImage.image = controller.model.item.image
         
         let baseBlur:UIView = UIView()

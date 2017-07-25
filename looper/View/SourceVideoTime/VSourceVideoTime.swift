@@ -2,7 +2,7 @@ import UIKit
 
 class VSourceVideoTime:ViewMain
 {
-    static let kBarMaxHeight:CGFloat = 400
+    static let kBarMaxHeight:CGFloat = 320
     static let kBottomBarHeight:CGFloat = 60
     private let kCloseTop:CGFloat = 10
     private let kCloseWidth:CGFloat = 60
