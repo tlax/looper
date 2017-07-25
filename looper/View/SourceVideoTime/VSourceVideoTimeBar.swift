@@ -12,11 +12,14 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
     private let kCloseWidth:CGFloat = 70
     private let kCloseHeight:CGFloat = 64
     private let kCloseEdgeRight:CGFloat = 25
+    private let kBorderHeight:CGFloat = 1
     
     required init(controller:CSourceVideoTime)
     {
         super.init(controller:controller)
         backgroundColor = UIColor.colourSuccess
+        
+        let border:VBorder = VBorder(colour:UIColor(white:0, alpha:0.2))
         
         let backgroundImage:UIImageView = UIImageView()
         backgroundImage.isUserInteractionEnabled = false
@@ -61,6 +64,7 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
         baseBlur.addSubview(blur)
         addSubview(backgroundImage)
         addSubview(baseBlur)
+        addSubview(border)
         addSubview(viewThumb)
         addSubview(viewInfo)
         addSubview(buttonClose)
@@ -76,6 +80,16 @@ View<VSourceVideoTime, MSourceVideoTime, CSourceVideoTime>
         NSLayoutConstraint.equals(
             view:blur,
             toView:baseBlur)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
         
         NSLayoutConstraint.topToTop(
             view:viewThumb,
