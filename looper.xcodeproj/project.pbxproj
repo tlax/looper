@@ -76,6 +76,8 @@
 		DA46DFEE1F265F92009214A6 /* MEditSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46DFED1F265F92009214A6 /* MEditSequence.swift */; };
 		DA46DFF01F265F9F009214A6 /* MEditSequenceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46DFEF1F265F9F009214A6 /* MEditSequenceItem.swift */; };
 		DA46DFF21F266378009214A6 /* MSourceVideoImportFactorySequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46DFF11F266378009214A6 /* MSourceVideoImportFactorySequence.swift */; };
+		DA46DFF41F26C685009214A6 /* VSourceVideoTimeBarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46DFF31F26C685009214A6 /* VSourceVideoTimeBarInfo.swift */; };
+		DA46DFF61F26C68E009214A6 /* VSourceVideoTimeBarInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA46DFF51F26C68E009214A6 /* VSourceVideoTimeBarInfoCell.swift */; };
 		DA65CDAD1F240CCA00C0615E /* VSourceVideoTimeBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDAC1F240CCA00C0615E /* VSourceVideoTimeBottomBar.swift */; };
 		DA65CDAF1F2416A900C0615E /* MSourceVideoTimeItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDAE1F2416A900C0615E /* MSourceVideoTimeItemProtocol.swift */; };
 		DA65CDB11F2416B300C0615E /* MSourceVideoTimeItemDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65CDB01F2416B300C0615E /* MSourceVideoTimeItemDuration.swift */; };
@@ -182,6 +184,8 @@
 		DA46DFED1F265F92009214A6 /* MEditSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditSequence.swift; sourceTree = "<group>"; };
 		DA46DFEF1F265F9F009214A6 /* MEditSequenceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditSequenceItem.swift; sourceTree = "<group>"; };
 		DA46DFF11F266378009214A6 /* MSourceVideoImportFactorySequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoImportFactorySequence.swift; sourceTree = "<group>"; };
+		DA46DFF31F26C685009214A6 /* VSourceVideoTimeBarInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeBarInfo.swift; sourceTree = "<group>"; };
+		DA46DFF51F26C68E009214A6 /* VSourceVideoTimeBarInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeBarInfoCell.swift; sourceTree = "<group>"; };
 		DA65CDAC1F240CCA00C0615E /* VSourceVideoTimeBottomBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeBottomBar.swift; sourceTree = "<group>"; };
 		DA65CDAE1F2416A900C0615E /* MSourceVideoTimeItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoTimeItemProtocol.swift; sourceTree = "<group>"; };
 		DA65CDB01F2416B300C0615E /* MSourceVideoTimeItemDuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoTimeItemDuration.swift; sourceTree = "<group>"; };
@@ -603,6 +607,8 @@
 				DA6EA7B31F22A7DB003A0EA8 /* VSourceVideoTime.swift */,
 				DA6EA7BC1F22B3B3003A0EA8 /* VSourceVideoTimeBar.swift */,
 				DA6EA7C61F22C77D003A0EA8 /* VSourceVideoTimeBarThumb.swift */,
+				DA46DFF31F26C685009214A6 /* VSourceVideoTimeBarInfo.swift */,
+				DA46DFF51F26C68E009214A6 /* VSourceVideoTimeBarInfoCell.swift */,
 				DA6EA7BE1F22B3BE003A0EA8 /* VSourceVideoTimeInfo.swift */,
 				DA6EA7C41F22C14B003A0EA8 /* VSourceVideoTimeInfoCell.swift */,
 				DA65CDB61F242D5300C0615E /* VSourceVideoTimeInfoFooter.swift */,
@@ -762,6 +768,7 @@
 				DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */,
 				DA1AFBEC1F21CC9B000ADDFA /* CSourceImage.swift in Sources */,
 				DA3B22541F201F3300F85DFD /* ViewParent.swift in Sources */,
+				DA46DFF41F26C685009214A6 /* VSourceVideoTimeBarInfo.swift in Sources */,
 				DA3B22611F201F3300F85DFD /* VToast.swift in Sources */,
 				DA3B22441F201F3300F85DFD /* DSettingsExtension.swift in Sources */,
 				DA3B22601F201F3300F85DFD /* VSpinner.swift in Sources */,
@@ -791,6 +798,7 @@
 				DA3B227F1F20261500F85DFD /* MPerkThumbnailFreeProtocol.swift in Sources */,
 				DA6EA7C11F22B975003A0EA8 /* VSourceVideoList.swift in Sources */,
 				DA81CBC41F21E5710031EAF6 /* VSourceVideoBar.swift in Sources */,
+				DA46DFF61F26C68E009214A6 /* VSourceVideoTimeBarInfoCell.swift in Sources */,
 				DA2C08F21F2109AE00E1381A /* Model.swift in Sources */,
 				DA2C08F61F210BA100E1381A /* ViewMain.swift in Sources */,
 				DA3B225A1F201F3300F85DFD /* VCollection.swift in Sources */,
