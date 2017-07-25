@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class CEdit:Controller<VEdit, MEdit>
 {
@@ -11,5 +11,10 @@ class CEdit:Controller<VEdit, MEdit>
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override var preferredStatusBarStyle:UIStatusBarStyle
+    {
+        return UIStatusBarStyle.lightContent
     }
 }
