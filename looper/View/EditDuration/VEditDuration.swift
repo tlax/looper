@@ -10,9 +10,9 @@ class VEditDuration:ViewMain
     private let kOkayHeight:CGFloat = 64
     private let kCollectionHeight:CGFloat = 80
     private let kTitlesHeight:CGFloat = 25
-    private let kTitleTop:CGFloat = 50
-    private let kTitleMinutesTop:CGFloat = 40
-    private let kTitleSecondsTop:CGFloat = 50
+    private let kTitleTop:CGFloat = 30
+    private let kTitleMinutesTop:CGFloat = 20
+    private let kTitleSecondsTop:CGFloat = 20
     
     required init(controller:UIViewController)
     {

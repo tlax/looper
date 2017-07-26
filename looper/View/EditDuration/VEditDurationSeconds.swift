@@ -163,7 +163,7 @@ class VEditDurationSeconds:VCollection<
         
         collectionView.selectItem(
             at:index,
-            animated:false,
+            animated:true,
             scrollPosition:
             UICollectionViewScrollPosition.centeredHorizontally)
     }

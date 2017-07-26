@@ -54,7 +54,7 @@ class MEditDuration:Model
         
         for indexSecond:Int in 0 ..< countSeconds
         {
-            let itemSecond:MEditDurationItem = minutes[indexSecond]
+            let itemSecond:MEditDurationItem = seconds[indexSecond]
             let itemValue:Int = itemSecond.value
             
             if itemValue == secondsValue
