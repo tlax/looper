@@ -85,8 +85,7 @@ class CEdit:Controller<VEdit, MEdit>
             return
         }
         
-        let controllerType:UIViewController.Type = item.controllerType
-        let controller:UIViewController = controllerType.init()
+        let controller:UIViewController = item.selected(edit:model)
         
         parent.animateOver(controller:controller)
     }
