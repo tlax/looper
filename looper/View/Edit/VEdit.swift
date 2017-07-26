@@ -91,9 +91,12 @@ class VEdit:ViewMain
             action:#selector(actionDelete(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let viewActions:VEditActions = VEditActions(controller:controller)
+        
         addSubview(viewBar)
         addSubview(buttonDelete)
         addSubview(viewSave)
+        addSubview(viewActions)
         
         NSLayoutConstraint.topToTop(
             view:viewBar,
@@ -130,6 +133,16 @@ class VEdit:ViewMain
             constant:kDeleteWidth)
         layoutDeleteLeft = NSLayoutConstraint.leftToLeft(
             view:buttonDelete,
+            toView:self)
+        
+        NSLayoutConstraint.bottomToTop(
+            view:viewActions,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:viewActions,
+            constant:kActionsHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewActions,
             toView:self)
     }
 }
