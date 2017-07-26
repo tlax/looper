@@ -3,8 +3,8 @@ import UIKit
 class VEditActionsCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
-    private let kAlphaSelected:CGFloat = 0.2
-    private let kAlphaNotSelected:CGFloat = 1
+    private let kAlphaSelected:CGFloat = 0.1
+    private let kAlphaNotSelected:CGFloat = 0.5
     
     override init(frame:CGRect)
     {
@@ -66,5 +66,6 @@ class VEditActionsCell:UICollectionViewCell
     func config(model:MEditActionProtocol)
     {
         imageView.image = model.image
+        hover()
     }
 }

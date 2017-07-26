@@ -12,6 +12,7 @@ class VEdit:ViewMain
     private let kDeleteHeight:CGFloat = 34
     private let kActionsHeight:CGFloat = 60
     private let kActionsBottom:CGFloat = -50
+    private let kActionsMarginHorizontal:CGFloat = 40
     
     private weak var layoutBarHeight:NSLayoutConstraint!
     
@@ -144,6 +145,7 @@ class VEdit:ViewMain
             constant:kActionsHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:viewActions,
-            toView:self)
+            toView:self,
+            margin:kActionsMarginHorizontal)
     }
 }
