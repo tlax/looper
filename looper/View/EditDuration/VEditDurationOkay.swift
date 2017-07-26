@@ -1,8 +1,9 @@
 import UIKit
 
-class VEditSave:View<VEdit, MEdit, CEdit>
+class VEditDurationOkay:
+    View<VEditDuration, MEditDuration, CEditDuration>
 {
-    required init(controller:CEdit)
+    required init(controller:CEditDuration)
     {
         super.init(controller:controller)
         
@@ -17,7 +18,7 @@ class VEditSave:View<VEdit, MEdit, CEdit>
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(
-            String.localizedView(key:"VEditSave_button"),
+            String.localizedView(key:"VEditDurationOkay_button"),
             for:UIControlState.normal)
         button.setTitleColor(
             UIColor.white,
@@ -28,7 +29,7 @@ class VEditSave:View<VEdit, MEdit, CEdit>
         button.titleLabel!.font = UIFont.medium(size:15)
         button.addTarget(
             self,
-            action:#selector(actionSave(sender:)),
+            action:#selector(actionOkay(sender:)),
             for:UIControlEvents.touchUpInside)
         
         addSubview(background)
@@ -50,8 +51,8 @@ class VEditSave:View<VEdit, MEdit, CEdit>
     
     //MARK: actions
     
-    func actionSave(sender button:UIButton)
+    func actionOkay(sender button:UIButton)
     {
-        controller.save()
+        controller.okay()
     }
 }
