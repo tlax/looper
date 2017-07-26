@@ -5,7 +5,7 @@ extension MEditDuration
     private static let kMinMinutes:Int = 0
     private static let kMaxMinutes:Int = 30
     private static let kMinSeconds:Int = 0
-    private static let kMaxSeconds:Int = 59
+    private static let kMaxSeconds:Int = 60
     
     class func factoryMinutes() -> [MEditDurationItem]
     {

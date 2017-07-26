@@ -170,5 +170,6 @@ class VEditDuration:ViewMain
     func viewDidAppear()
     {
         viewMinutes.selectCurrent()
+        viewSeconds.selectCurrent()
     }
 }

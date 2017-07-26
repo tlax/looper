@@ -66,7 +66,15 @@ class MEditDuration:Model
         }
     }
     
-    private func exportDuration()
+    //MARK: public
+    
+    func config(edit:MEdit)
+    {
+        self.edit = edit
+        importDuration()
+    }
+    
+    func exportDuration()
     {
         let minute:MEditDurationItem = minutes[selectedMinute]
         let second:MEditDurationItem = seconds[selectedSecond]
@@ -82,13 +90,5 @@ class MEditDuration:Model
         
         let duration:TimeInterval = TimeInterval(totalSeconds)
         edit.sequence?.duration = duration
-    }
-    
-    //MARK: public
-    
-    func config(edit:MEdit)
-    {
-        self.edit = edit
-        importDuration()
     }
 }

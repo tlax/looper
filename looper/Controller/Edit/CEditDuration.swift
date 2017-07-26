@@ -42,6 +42,7 @@ class CEditDuration:Controller<VEditDuration, MEditDuration>
             return
         }
         
+        model.exportDuration()
         parent.dismissAnimateOver(completion:nil)
     }
 }
