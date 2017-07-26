@@ -152,6 +152,17 @@ class VEditDurationSeconds:VCollection<
     private func selectIndex(index:IndexPath)
     {
         controller.model.selectedSecond = index.item
+        
+        guard
+        
+            let view:VEditDuration = controller.view as? VEditDuration
+        
+        else
+        {
+            return
+        }
+        
+        view.viewDisplay.update()
     }
     
     //MARK: public

@@ -10,11 +10,12 @@ class VEditDuration:ViewMain
     private let kOkayBottom:CGFloat = -20
     private let kOkayHeight:CGFloat = 64
     private let kCollectionHeight:CGFloat = 80
-    private let kTitlesHeight:CGFloat = 25
+    private let kMainTitleHeight:CGFloat = 25
+    private let kTitlesHeight:CGFloat = 22
     private let kTitleTop:CGFloat = 30
-    private let kTitleMinutesTop:CGFloat = 20
-    private let kTitleSecondsTop:CGFloat = 20
-    private let kDisplayHeight:CGFloat = 100
+    private let kTitleMinutesTop:CGFloat = 8
+    private let kTitleSecondsTop:CGFloat = 8
+    private let kDisplayHeight:CGFloat = 200
     
     required init(controller:UIViewController)
     {
@@ -110,7 +111,7 @@ class VEditDuration:ViewMain
             constant:kTitleTop)
         NSLayoutConstraint.height(
             view:labelTitle,
-            constant:kTitlesHeight)
+            constant:kMainTitleHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:labelTitle,
             toView:self)
@@ -188,5 +189,6 @@ class VEditDuration:ViewMain
     {
         viewMinutes.selectCurrent()
         viewSeconds.selectCurrent()
+        viewDisplay.update()
     }
 }

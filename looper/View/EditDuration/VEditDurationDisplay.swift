@@ -15,7 +15,7 @@ class VEditDurationDisplay:
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.regular(size:40)
+        label.font = UIFont.light(size:60)
         label.textColor = UIColor.colourBackgroundDark
         self.label = label
         
