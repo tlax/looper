@@ -4,7 +4,7 @@ class VEditDurationMinutes:VCollection<
     VEditDuration,
     MEditDuration,
     CEditDuration,
-    VEditDurationMinutesCell>
+    VEditDurationCell>
 {
     
 }

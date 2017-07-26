@@ -117,7 +117,7 @@
 		DAA0C01F1F28541400997118 /* MEditActionRotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C01E1F28541400997118 /* MEditActionRotate.swift */; };
 		DAA0C0211F28547B00997118 /* MEditFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C0201F28547B00997118 /* MEditFactory.swift */; };
 		DAD0C2851F290FC3001B585E /* VEditDurationMinutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD0C2841F290FC3001B585E /* VEditDurationMinutes.swift */; };
-		DAD0C2871F290FCF001B585E /* VEditDurationMinutesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD0C2861F290FCF001B585E /* VEditDurationMinutesCell.swift */; };
+		DAD0C2891F291089001B585E /* VEditDurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD0C2881F291089001B585E /* VEditDurationCell.swift */; };
 		DAFD73EA1F24848000DC67EA /* MSourceVideoImportFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73E91F24848000DC67EA /* MSourceVideoImportFactory.swift */; };
 		DAFD73EC1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73EB1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift */; };
 		DAFD73EE1F24930400DC67EA /* VSourceVideoImportProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73ED1F24930400DC67EA /* VSourceVideoImportProgress.swift */; };
@@ -243,7 +243,7 @@
 		DAA0C01E1F28541400997118 /* MEditActionRotate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditActionRotate.swift; sourceTree = "<group>"; };
 		DAA0C0201F28547B00997118 /* MEditFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditFactory.swift; sourceTree = "<group>"; };
 		DAD0C2841F290FC3001B585E /* VEditDurationMinutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditDurationMinutes.swift; sourceTree = "<group>"; };
-		DAD0C2861F290FCF001B585E /* VEditDurationMinutesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditDurationMinutesCell.swift; sourceTree = "<group>"; };
+		DAD0C2881F291089001B585E /* VEditDurationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditDurationCell.swift; sourceTree = "<group>"; };
 		DAFD73E91F24848000DC67EA /* MSourceVideoImportFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoImportFactory.swift; sourceTree = "<group>"; };
 		DAFD73EB1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoImportFactoryDelegate.swift; sourceTree = "<group>"; };
 		DAFD73ED1F24930400DC67EA /* VSourceVideoImportProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoImportProgress.swift; sourceTree = "<group>"; };
@@ -271,8 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				DA0F79ED1F28FCD000E0B744 /* VEditDuration.swift */,
+				DAD0C2881F291089001B585E /* VEditDurationCell.swift */,
 				DAD0C2841F290FC3001B585E /* VEditDurationMinutes.swift */,
-				DAD0C2861F290FCF001B585E /* VEditDurationMinutesCell.swift */,
 				DA0F79F81F29041B00E0B744 /* VEditDurationOkay.swift */,
 			);
 			path = EditDuration;
@@ -908,7 +908,6 @@
 				DA46DFEC1F26594D009214A6 /* CEdit.swift in Sources */,
 				DA3B22531F201F3300F85DFD /* View.swift in Sources */,
 				DA3B22591F201F3300F85DFD /* VBorder.swift in Sources */,
-				DAD0C2871F290FCF001B585E /* VEditDurationMinutesCell.swift in Sources */,
 				DA3B22551F201F3300F85DFD /* ViewParentTransitions.swift in Sources */,
 				DA65CDBC1F24388E00C0615E /* MSourceVideoImport.swift in Sources */,
 				DA3B225B1F201F3300F85DFD /* VCollectionFlow.swift in Sources */,
@@ -938,6 +937,7 @@
 				DAD0C2851F290FC3001B585E /* VEditDurationMinutes.swift in Sources */,
 				DAA0C0131F280CBC00997118 /* VEditBar.swift in Sources */,
 				DA0F79E71F28F34300E0B744 /* MEditActionScale.swift in Sources */,
+				DAD0C2891F291089001B585E /* VEditDurationCell.swift in Sources */,
 				DAFD73F61F24B59900DC67EA /* VHomeMenuNew.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
