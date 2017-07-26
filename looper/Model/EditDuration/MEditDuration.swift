@@ -91,4 +91,18 @@ class MEditDuration:Model
         let duration:TimeInterval = TimeInterval(totalSeconds)
         edit.sequence?.duration = duration
     }
+    
+    func currentMinute() -> MEditDurationItem
+    {
+        let item:MEditDurationItem = minutes[selectedMinute]
+        
+        return item
+    }
+    
+    func currentSecond() -> MEditDurationItem
+    {
+        let item:MEditDurationItem = seconds[selectedSecond]
+        
+        return item
+    }
 }
