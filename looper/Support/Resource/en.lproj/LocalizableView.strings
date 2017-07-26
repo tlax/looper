@@ -7,3 +7,6 @@
 "VEditSave_button"="Save";
 "VEdit_buttonDelete"="Delete";
 "VEditDurationOkay_button"="Okay";
+"VEditDuration_labelTitle"="Duration";
+"VEditDuration_labelMinutes"="Minutes";
+"VEditDuration_labelSeconds"="Seconds";
