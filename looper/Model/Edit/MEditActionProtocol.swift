@@ -3,5 +3,6 @@ import UIKit
 protocol MEditActionProtocol
 {
     var image:UIImage { get }
-    var controllerType:UIViewController.Type { get }
+    
+    func selected(edit:MEdit) -> UIViewController
 }

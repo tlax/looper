@@ -10,11 +10,8 @@ class MEditActionCrop:MEditActionProtocol
         }
     }
     
-    var controllerType:UIViewController.Type
+    func selected(edit:MEdit) -> UIViewController
     {
-        get
-        {
-            return UIViewController.self
-        }
+        fatalError()
     }
 }

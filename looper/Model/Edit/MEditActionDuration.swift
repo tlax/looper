@@ -10,11 +10,10 @@ class MEditActionDuration:MEditActionProtocol
         }
     }
     
-    var controllerType:UIViewController.Type
+    func selected(edit:MEdit) -> UIViewController
     {
-        get
-        {
-            return CEditDuration.self
-        }
+        let controller:CEditDuration = CEditDuration(edit:edit)
+        
+        return controller
     }
 }
