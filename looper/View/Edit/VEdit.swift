@@ -9,9 +9,9 @@ class VEdit:ViewMain
     private let kSaveHeight:CGFloat = 64
     private let kDeleteWidth:CGFloat = 140
     private let kDeleteBottom:CGFloat = -20
-    private let kDeleteHeight:CGFloat = 40
+    private let kDeleteHeight:CGFloat = 34
     private let kActionsHeight:CGFloat = 60
-    private let kActionsBottom:CGFloat = 50
+    private let kActionsBottom:CGFloat = -50
     
     private weak var layoutBarHeight:NSLayoutConstraint!
     
@@ -85,7 +85,7 @@ class VEdit:ViewMain
         buttonDelete.setTitle(
             String.localizedView(key:"VEdit_buttonDelete"),
             for:UIControlState.normal)
-        buttonDelete.titleLabel!.font = UIFont.regular(size:15)
+        buttonDelete.titleLabel!.font = UIFont.medium(size:15)
         buttonDelete.addTarget(
             self,
             action:#selector(actionDelete(sender:)),
@@ -137,7 +137,8 @@ class VEdit:ViewMain
         
         NSLayoutConstraint.bottomToTop(
             view:viewActions,
-            toView:self)
+            toView:buttonDelete,
+            constant:kActionsBottom)
         NSLayoutConstraint.height(
             view:viewActions,
             constant:kActionsHeight)
