@@ -131,6 +131,7 @@
 		DAD0C2A31F295BE5001B585E /* VEditCropImageCornerTopRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD0C2A21F295BE5001B585E /* VEditCropImageCornerTopRight.swift */; };
 		DAD0C2A71F295C05001B585E /* VEditCropImageCornerBottomLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD0C2A61F295C05001B585E /* VEditCropImageCornerBottomLeft.swift */; };
 		DAD0C2A91F295C0F001B585E /* VEditCropImageCornerBottomRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD0C2A81F295C0F001B585E /* VEditCropImageCornerBottomRight.swift */; };
+		DAD0C2AB1F2960F0001B585E /* VEditCropOkay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD0C2AA1F2960F0001B585E /* VEditCropOkay.swift */; };
 		DAFD73EA1F24848000DC67EA /* MSourceVideoImportFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73E91F24848000DC67EA /* MSourceVideoImportFactory.swift */; };
 		DAFD73EC1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73EB1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift */; };
 		DAFD73EE1F24930400DC67EA /* VSourceVideoImportProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD73ED1F24930400DC67EA /* VSourceVideoImportProgress.swift */; };
@@ -270,6 +271,7 @@
 		DAD0C2A21F295BE5001B585E /* VEditCropImageCornerTopRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditCropImageCornerTopRight.swift; sourceTree = "<group>"; };
 		DAD0C2A61F295C05001B585E /* VEditCropImageCornerBottomLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditCropImageCornerBottomLeft.swift; sourceTree = "<group>"; };
 		DAD0C2A81F295C0F001B585E /* VEditCropImageCornerBottomRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditCropImageCornerBottomRight.swift; sourceTree = "<group>"; };
+		DAD0C2AA1F2960F0001B585E /* VEditCropOkay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditCropOkay.swift; sourceTree = "<group>"; };
 		DAFD73E91F24848000DC67EA /* MSourceVideoImportFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoImportFactory.swift; sourceTree = "<group>"; };
 		DAFD73EB1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoImportFactoryDelegate.swift; sourceTree = "<group>"; };
 		DAFD73ED1F24930400DC67EA /* VSourceVideoImportProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoImportProgress.swift; sourceTree = "<group>"; };
@@ -764,6 +766,7 @@
 				DAD0C2A21F295BE5001B585E /* VEditCropImageCornerTopRight.swift */,
 				DAD0C2A61F295C05001B585E /* VEditCropImageCornerBottomLeft.swift */,
 				DAD0C2A81F295C0F001B585E /* VEditCropImageCornerBottomRight.swift */,
+				DAD0C2AA1F2960F0001B585E /* VEditCropOkay.swift */,
 			);
 			path = EditCrop;
 			sourceTree = "<group>";
@@ -975,6 +978,7 @@
 				DA3B22591F201F3300F85DFD /* VBorder.swift in Sources */,
 				DA3B22551F201F3300F85DFD /* ViewParentTransitions.swift in Sources */,
 				DA65CDBC1F24388E00C0615E /* MSourceVideoImport.swift in Sources */,
+				DAD0C2AB1F2960F0001B585E /* VEditCropOkay.swift in Sources */,
 				DAD0C2931F2943E0001B585E /* VEditDurationDisplay.swift in Sources */,
 				DA3B225B1F201F3300F85DFD /* VCollectionFlow.swift in Sources */,
 				DA3B22791F2024A400F85DFD /* MSessionSettings.swift in Sources */,
