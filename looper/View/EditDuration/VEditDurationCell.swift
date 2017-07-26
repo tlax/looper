@@ -17,7 +17,7 @@ class VEditDurationCell:UICollectionViewCell
         let viewCircle:UIView = UIView()
         viewCircle.isUserInteractionEnabled = false
         viewCircle.translatesAutoresizingMaskIntoConstraints = false
-        viewCircle.backgroundColor = UIColor(red:1, green:0.3, blue:0, alpha:1)
+        viewCircle.backgroundColor = UIColor(red:1, green:0.2, blue:0, alpha:1)
         viewCircle.clipsToBounds = true
         viewCircle.layer.cornerRadius = kCircleSize / 2.0
         self.viewCircle = viewCircle

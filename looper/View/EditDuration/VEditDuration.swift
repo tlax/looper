@@ -3,6 +3,7 @@ import UIKit
 class VEditDuration:ViewMain
 {
     private weak var viewMinutes:VEditDurationMinutes!
+    private weak var viewSeconds:VEditDurationSeconds!
     private weak var layoutOkayLeft:NSLayoutConstraint!
     private let kOkayWidth:CGFloat = 195
     private let kOkayBottom:CGFloat = -20
@@ -68,16 +69,32 @@ class VEditDuration:ViewMain
         labelMinutes.text = String.localizedView(
             key:"VEditDuration_labelMinutes")
         
+        let labelSeconds:UILabel = UILabel()
+        labelSeconds.isUserInteractionEnabled = false
+        labelSeconds.translatesAutoresizingMaskIntoConstraints = false
+        labelSeconds.backgroundColor = UIColor.clear
+        labelSeconds.textAlignment = NSTextAlignment.center
+        labelSeconds.textColor = UIColor.colourBackgroundDark.withAlphaComponent(0.5)
+        labelSeconds.font = UIFont.medium(size:18)
+        labelSeconds.text = String.localizedView(
+            key:"VEditDuration_labelSeconds")
+        
         let viewMinutes:VEditDurationMinutes = VEditDurationMinutes(
             controller:controller)
         self.viewMinutes = viewMinutes
+        
+        let viewSeconds:VEditDurationSeconds = VEditDurationSeconds(
+            controller:controller)
+        self.viewSeconds = viewSeconds
         
         let viewOkay:VEditDurationOkay = VEditDurationOkay(
             controller:controller)
         
         addSubview(labelTitle)
         addSubview(labelMinutes)
+        addSubview(labelSeconds)
         addSubview(viewMinutes)
+        addSubview(viewSeconds)
         addSubview(viewOkay)
         
         NSLayoutConstraint.topToTop(
@@ -103,6 +120,17 @@ class VEditDuration:ViewMain
             toView:self)
         
         NSLayoutConstraint.topToBottom(
+            view:labelSeconds,
+            toView:viewMinutes,
+            constant:kTitleSecondsTop)
+        NSLayoutConstraint.height(
+            view:labelSeconds,
+            constant:kTitlesHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:labelSeconds,
+            toView:self)
+        
+        NSLayoutConstraint.topToBottom(
             view:viewMinutes,
             toView:labelMinutes)
         NSLayoutConstraint.height(
@@ -110,6 +138,16 @@ class VEditDuration:ViewMain
             constant:kCollectionHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:viewMinutes,
+            toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:viewSeconds,
+            toView:labelSeconds)
+        NSLayoutConstraint.height(
+            view:viewSeconds,
+            constant:kCollectionHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewSeconds,
             toView:self)
         
         NSLayoutConstraint.bottomToBottom(

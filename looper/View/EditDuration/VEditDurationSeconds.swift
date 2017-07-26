@@ -1,6 +1,6 @@
 import UIKit
 
-class VEditDurationMinutes:VCollection<
+class VEditDurationSeconds:VCollection<
     VEditDuration,
     MEditDuration,
     CEditDuration,
@@ -92,9 +92,9 @@ class VEditDurationMinutes:VCollection<
         sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         guard
-        
+            
             let cellSize:CGSize = self.cellSize
-        
+            
         else
         {
             let height:CGFloat = collectionView.bounds.height
@@ -111,7 +111,7 @@ class VEditDurationMinutes:VCollection<
         _ collectionView:UICollectionView,
         numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = controller.model.minutes.count
+        let count:Int = controller.model.seconds.count
         
         return count
     }
@@ -144,21 +144,21 @@ class VEditDurationMinutes:VCollection<
     
     private func modelAtIndex(index:IndexPath) -> MEditDurationItem
     {
-        let item:MEditDurationItem = controller.model.minutes[index.item]
+        let item:MEditDurationItem = controller.model.seconds[index.item]
         
         return item
     }
     
     private func selectIndex(index:IndexPath)
     {
-        controller.model.selectedMinute = index.item
+        controller.model.selectedSecond = index.item
     }
     
     //MARK: public
     
     func selectCurrent()
     {
-        let selected:Int = controller.model.selectedMinute
+        let selected:Int = controller.model.selectedSecond
         let index:IndexPath = IndexPath(item:selected, section:0)
         
         collectionView.selectItem(
