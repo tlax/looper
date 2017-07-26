@@ -1,9 +1,10 @@
-//
-//  VEditDurationMinutes.swift
-//  looper
-//
-//  Created by zero on 7/26/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VEditDurationMinutes:VCollection<
+    VEditDuration,
+    MEditDuration,
+    CEditDuration,
+    VEditDurationMinutesCell>
+{
+    
+}
