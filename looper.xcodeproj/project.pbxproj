@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA0F79E71F28F34300E0B744 /* MEditActionScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F79E61F28F34300E0B744 /* MEditActionScale.swift */; };
 		DA16042D1F278B250035497C /* VSourceVideoTimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16042C1F278B250035497C /* VSourceVideoTimeSlider.swift */; };
 		DA16042F1F2793610035497C /* VSourceVideoTimeNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16042E1F2793610035497C /* VSourceVideoTimeNext.swift */; };
 		DA1604311F27A96F0035497C /* VSourceVideoImportProgressThumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1604301F27A96F0035497C /* VSourceVideoImportProgressThumb.swift */; };
@@ -122,6 +123,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA0F79E61F28F34300E0B744 /* MEditActionScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditActionScale.swift; sourceTree = "<group>"; };
 		DA16042C1F278B250035497C /* VSourceVideoTimeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeSlider.swift; sourceTree = "<group>"; };
 		DA16042E1F2793610035497C /* VSourceVideoTimeNext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeNext.swift; sourceTree = "<group>"; };
 		DA1604301F27A96F0035497C /* VSourceVideoImportProgressThumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoImportProgressThumb.swift; sourceTree = "<group>"; };
@@ -589,6 +591,7 @@
 				DA46DFEF1F265F9F009214A6 /* MEditSequenceItem.swift */,
 				DAA0C01C1F28536300997118 /* MEditActionProtocol.swift */,
 				DAA0C01E1F28541400997118 /* MEditActionRotate.swift */,
+				DA0F79E61F28F34300E0B744 /* MEditActionScale.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -886,6 +889,7 @@
 				DAFD73FC1F24BE6800DC67EA /* MNew.swift in Sources */,
 				DA65CDB51F242A8700C0615E /* MSourceVideoTimeItemHeight.swift in Sources */,
 				DAA0C0131F280CBC00997118 /* VEditBar.swift in Sources */,
+				DA0F79E71F28F34300E0B744 /* MEditActionScale.swift in Sources */,
 				DAFD73F61F24B59900DC67EA /* VHomeMenuNew.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
