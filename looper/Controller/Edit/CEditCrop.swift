@@ -2,6 +2,17 @@ import UIKit
 
 class CEditCrop:Controller<VEditCrop, MEditCrop>
 {
+    init(edit:MEdit)
+    {
+        super.init()
+        model.config(edit:edit)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        return nil
+    }
+    
     override var preferredStatusBarStyle:UIStatusBarStyle
     {
         return UIStatusBarStyle.lightContent

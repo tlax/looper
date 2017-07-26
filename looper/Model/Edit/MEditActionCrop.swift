@@ -12,6 +12,8 @@ class MEditActionCrop:MEditActionProtocol
     
     func selected(edit:MEdit) -> UIViewController
     {
-        fatalError()
+        let controller:CEditCrop = CEditCrop(edit:edit)
+        
+        return controller
     }
 }
