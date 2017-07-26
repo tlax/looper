@@ -6,7 +6,7 @@ class VEditDuration:ViewMain
     private let kOkayWidth:CGFloat = 195
     private let kOkayBottom:CGFloat = -20
     private let kOkayHeight:CGFloat = 64
-    private let kCollectionHeight:CGFloat = 60
+    private let kCollectionHeight:CGFloat = 70
     private let kTitlesHeight:CGFloat = 35
     private let kTitleTop:CGFloat = 50
     private let kTitleMinutesTop:CGFloat = 20

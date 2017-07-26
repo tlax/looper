@@ -100,6 +100,14 @@ class VCollection
     
     //MARK: collectionView delegate
     
+    func scrollViewWillBeginDragging(_ scrollView:UIScrollView)
+    {
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView:UIScrollView)
+    {
+    }
+    
     func scrollViewDidScroll(_ scrollView:UIScrollView)
     {
     }
