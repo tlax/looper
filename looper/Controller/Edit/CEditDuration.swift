@@ -1,11 +1,6 @@
 import Foundation
 
-class CEditDuration:Controller<VEditDuration, MEditDuration>
+class CEditDuration:CEditAction<VEditDuration, MEditDuration>
 {
-    //MARK: public
     
-    func okay()
-    {
-        
-    }
 }
