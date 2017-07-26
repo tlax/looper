@@ -15,6 +15,7 @@
 		DA0F79F31F28FF2B00E0B744 /* CEditDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F79F21F28FF2B00E0B744 /* CEditDuration.swift */; };
 		DA0F79F51F2903DB00E0B744 /* VEditDurationSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F79F41F2903DB00E0B744 /* VEditDurationSlider.swift */; };
 		DA0F79F91F29041B00E0B744 /* VEditDurationOkay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F79F81F29041B00E0B744 /* VEditDurationOkay.swift */; };
+		DA0F79FD1F290C3100E0B744 /* VEditDurationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F79FC1F290C3100E0B744 /* VEditDurationPicker.swift */; };
 		DA16042D1F278B250035497C /* VSourceVideoTimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16042C1F278B250035497C /* VSourceVideoTimeSlider.swift */; };
 		DA16042F1F2793610035497C /* VSourceVideoTimeNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16042E1F2793610035497C /* VSourceVideoTimeNext.swift */; };
 		DA1604311F27A96F0035497C /* VSourceVideoImportProgressThumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1604301F27A96F0035497C /* VSourceVideoImportProgressThumb.swift */; };
@@ -138,6 +139,7 @@
 		DA0F79F21F28FF2B00E0B744 /* CEditDuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CEditDuration.swift; sourceTree = "<group>"; };
 		DA0F79F41F2903DB00E0B744 /* VEditDurationSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditDurationSlider.swift; sourceTree = "<group>"; };
 		DA0F79F81F29041B00E0B744 /* VEditDurationOkay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditDurationOkay.swift; sourceTree = "<group>"; };
+		DA0F79FC1F290C3100E0B744 /* VEditDurationPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditDurationPicker.swift; sourceTree = "<group>"; };
 		DA16042C1F278B250035497C /* VSourceVideoTimeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeSlider.swift; sourceTree = "<group>"; };
 		DA16042E1F2793610035497C /* VSourceVideoTimeNext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeNext.swift; sourceTree = "<group>"; };
 		DA1604301F27A96F0035497C /* VSourceVideoImportProgressThumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoImportProgressThumb.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				DA0F79ED1F28FCD000E0B744 /* VEditDuration.swift */,
+				DA0F79FC1F290C3100E0B744 /* VEditDurationPicker.swift */,
 				DA0F79F41F2903DB00E0B744 /* VEditDurationSlider.swift */,
 				DA0F79F81F29041B00E0B744 /* VEditDurationOkay.swift */,
 			);
@@ -828,6 +831,7 @@
 				DA1AFBD91F21CA2A000ADDFA /* MSourceImage.swift in Sources */,
 				DA3B22361F201F3300F85DFD /* AppDelegate.swift in Sources */,
 				DA1AFBEC1F21CC9B000ADDFA /* CSourceImage.swift in Sources */,
+				DA0F79FD1F290C3100E0B744 /* VEditDurationPicker.swift in Sources */,
 				DA3B22541F201F3300F85DFD /* ViewParent.swift in Sources */,
 				DA46DFF41F26C685009214A6 /* VSourceVideoTimeBarInfo.swift in Sources */,
 				DAA0C01D1F28536300997118 /* MEditActionProtocol.swift in Sources */,
