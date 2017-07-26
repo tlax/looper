@@ -3,13 +3,13 @@ import UIKit
 class VEdit:ViewMain
 {
     private weak var layoutSaveLeft:NSLayoutConstraint!
-    private weak var layoutCancelLeft:NSLayoutConstraint!
+    private weak var layoutDeleteLeft:NSLayoutConstraint!
     private let kSaveWidth:CGFloat = 195
     private let kSaveTop:CGFloat = -32
     private let kSaveHeight:CGFloat = 64
-    private let kCancelWidth:CGFloat = 140
-    private let kCancelBottom:CGFloat = -20
-    private let kCancelHeight:CGFloat = 40
+    private let kDeleteWidth:CGFloat = 140
+    private let kDeleteBottom:CGFloat = -20
+    private let kDeleteHeight:CGFloat = 40
     private let kActionsHeight:CGFloat = 60
     private let kActionsBottom:CGFloat = 50
     
@@ -41,20 +41,29 @@ class VEdit:ViewMain
         let width:CGFloat = bounds.width
         let remainSave:CGFloat = width - kSaveWidth
         let saveMarginLeft:CGFloat = remainSave / 2.0
-        let remainCancel:CGFloat = width - kCancelWidth
-        let cancelMarginLeft:CGFloat = remainCancel / 2.0
+        let remainDelete:CGFloat = width - kDeleteWidth
+        let deleteMarginLeft:CGFloat = remainDelete / 2.0
         layoutBarHeight.constant = width
         layoutSaveLeft.constant = saveMarginLeft
-        layoutCancelLeft.constant = cancelMarginLeft
+        layoutDeleteLeft.constant = deleteMarginLeft
         
         super.layoutSubviews()
     }
     
     //MARK: actions
     
-    func actionCancel(sender button:UIButton)
+    func actionDelete(sender button:UIButton)
     {
+        guard
         
+            let controller:CEdit = self.controller as? CEdit
+        
+        else
+        {
+            return
+        }
+        
+        controller.delete()
     }
     
     //MARK: private
@@ -65,25 +74,25 @@ class VEdit:ViewMain
         
         let viewSave:VEditSave = VEditSave(controller:controller)
         
-        let buttonCancel:UIButton = UIButton()
-        buttonCancel.translatesAutoresizingMaskIntoConstraints = false
-        buttonCancel.setTitleColor(
+        let buttonDelete:UIButton = UIButton()
+        buttonDelete.translatesAutoresizingMaskIntoConstraints = false
+        buttonDelete.setTitleColor(
             UIColor.colourBackgroundDark,
             for:UIControlState.normal)
-        buttonCancel.setTitleColor(
+        buttonDelete.setTitleColor(
             UIColor.colourBackgroundGray,
             for:UIControlState.highlighted)
-        buttonCancel.setTitle(
-            String.localizedView(key:"VEdit_buttonCancel"),
+        buttonDelete.setTitle(
+            String.localizedView(key:"VEdit_buttonDelete"),
             for:UIControlState.normal)
-        buttonCancel.titleLabel!.font = UIFont.regular(size:14)
-        buttonCancel.addTarget(
+        buttonDelete.titleLabel!.font = UIFont.regular(size:15)
+        buttonDelete.addTarget(
             self,
-            action:#selector(actionCancel(sender:)),
+            action:#selector(actionDelete(sender:)),
             for:UIControlEvents.touchUpInside)
         
         addSubview(viewBar)
-        addSubview(buttonCancel)
+        addSubview(buttonDelete)
         addSubview(viewSave)
         
         NSLayoutConstraint.topToTop(
@@ -110,17 +119,17 @@ class VEdit:ViewMain
             toView:self)
         
         NSLayoutConstraint.bottomToBottom(
-            view:buttonCancel,
+            view:buttonDelete,
             toView:self,
-            constant:kCancelBottom)
+            constant:kDeleteBottom)
         NSLayoutConstraint.height(
-            view:buttonCancel,
-            constant:kCancelHeight)
+            view:buttonDelete,
+            constant:kDeleteHeight)
         NSLayoutConstraint.width(
-            view:buttonCancel,
-            constant:kCancelWidth)
-        layoutCancelLeft = NSLayoutConstraint.leftToLeft(
-            view:buttonCancel,
+            view:buttonDelete,
+            constant:kDeleteWidth)
+        layoutDeleteLeft = NSLayoutConstraint.leftToLeft(
+            view:buttonDelete,
             toView:self)
     }
 }
