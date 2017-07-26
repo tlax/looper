@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA0F79E71F28F34300E0B744 /* MEditActionScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F79E61F28F34300E0B744 /* MEditActionScale.swift */; };
+		DA0F79E91F28F47600E0B744 /* MEditActionCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F79E81F28F47600E0B744 /* MEditActionCrop.swift */; };
 		DA16042D1F278B250035497C /* VSourceVideoTimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16042C1F278B250035497C /* VSourceVideoTimeSlider.swift */; };
 		DA16042F1F2793610035497C /* VSourceVideoTimeNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16042E1F2793610035497C /* VSourceVideoTimeNext.swift */; };
 		DA1604311F27A96F0035497C /* VSourceVideoImportProgressThumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1604301F27A96F0035497C /* VSourceVideoImportProgressThumb.swift */; };
@@ -124,6 +125,7 @@
 
 /* Begin PBXFileReference section */
 		DA0F79E61F28F34300E0B744 /* MEditActionScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditActionScale.swift; sourceTree = "<group>"; };
+		DA0F79E81F28F47600E0B744 /* MEditActionCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEditActionCrop.swift; sourceTree = "<group>"; };
 		DA16042C1F278B250035497C /* VSourceVideoTimeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeSlider.swift; sourceTree = "<group>"; };
 		DA16042E1F2793610035497C /* VSourceVideoTimeNext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoTimeNext.swift; sourceTree = "<group>"; };
 		DA1604301F27A96F0035497C /* VSourceVideoImportProgressThumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSourceVideoImportProgressThumb.swift; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 				DAA0C01C1F28536300997118 /* MEditActionProtocol.swift */,
 				DAA0C01E1F28541400997118 /* MEditActionRotate.swift */,
 				DA0F79E61F28F34300E0B744 /* MEditActionScale.swift */,
+				DA0F79E81F28F47600E0B744 /* MEditActionCrop.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				DAFD74011F24C8EA00DC67EA /* VNewSource.swift in Sources */,
 				DA1AFBD71F21C9F6000ADDFA /* MSourceVideo.swift in Sources */,
 				DAFD73F91F24BE4100DC67EA /* CNew.swift in Sources */,
+				DA0F79E91F28F47600E0B744 /* MEditActionCrop.swift in Sources */,
 				DA3B227D1F20260B00F85DFD /* MPerkThumbnailProtocol.swift in Sources */,
 				DA6EA7C71F22C77D003A0EA8 /* VSourceVideoTimeBarThumb.swift in Sources */,
 				DA65CDBF1F2438BD00C0615E /* VSourceVideoImport.swift in Sources */,
