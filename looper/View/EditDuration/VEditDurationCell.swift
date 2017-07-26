@@ -27,7 +27,7 @@ class VEditDurationCell:UICollectionViewCell
         label.backgroundColor = UIColor.clear
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.medium(size:15)
+        label.font = UIFont.medium(size:16)
         self.label = label
         
         addSubview(viewCircle)

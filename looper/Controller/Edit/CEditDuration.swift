@@ -13,6 +13,22 @@ class CEditDuration:Controller<VEditDuration, MEditDuration>
         return nil
     }
     
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        guard
+        
+            let view:VEditDuration = self.view as? VEditDuration
+        
+        else
+        {
+            return
+        }
+        
+        view.viewDidAppear()
+    }
+    
     //MARK: public
     
     func okay()

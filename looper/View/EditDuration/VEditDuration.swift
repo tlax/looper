@@ -2,14 +2,15 @@ import UIKit
 
 class VEditDuration:ViewMain
 {
+    private weak var viewMinutes:VEditDurationMinutes!
     private weak var layoutOkayLeft:NSLayoutConstraint!
     private let kOkayWidth:CGFloat = 195
     private let kOkayBottom:CGFloat = -20
     private let kOkayHeight:CGFloat = 64
-    private let kCollectionHeight:CGFloat = 70
-    private let kTitlesHeight:CGFloat = 35
+    private let kCollectionHeight:CGFloat = 80
+    private let kTitlesHeight:CGFloat = 25
     private let kTitleTop:CGFloat = 50
-    private let kTitleMinutesTop:CGFloat = 20
+    private let kTitleMinutesTop:CGFloat = 40
     private let kTitleSecondsTop:CGFloat = 50
     
     required init(controller:UIViewController)
@@ -53,7 +54,7 @@ class VEditDuration:ViewMain
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.textColor = UIColor.colourBackgroundDark
-        labelTitle.font = UIFont.medium(size:18)
+        labelTitle.font = UIFont.bold(size:20)
         labelTitle.text = String.localizedView(
             key:"VEditDuration_labelTitle")
         
@@ -62,13 +63,14 @@ class VEditDuration:ViewMain
         labelMinutes.translatesAutoresizingMaskIntoConstraints = false
         labelMinutes.backgroundColor = UIColor.clear
         labelMinutes.textAlignment = NSTextAlignment.center
-        labelMinutes.textColor = UIColor(white:0, alpha:0.3)
+        labelMinutes.textColor = UIColor.colourBackgroundDark.withAlphaComponent(0.5)
         labelMinutes.font = UIFont.medium(size:18)
         labelMinutes.text = String.localizedView(
             key:"VEditDuration_labelMinutes")
         
         let viewMinutes:VEditDurationMinutes = VEditDurationMinutes(
             controller:controller)
+        self.viewMinutes = viewMinutes
         
         let viewOkay:VEditDurationOkay = VEditDurationOkay(
             controller:controller)
@@ -123,5 +125,12 @@ class VEditDuration:ViewMain
         layoutOkayLeft = NSLayoutConstraint.leftToLeft(
             view:viewOkay,
             toView:self)
+    }
+    
+    //MARK: public
+    
+    func viewDidAppear()
+    {
+        viewMinutes.selectCurrent()
     }
 }
