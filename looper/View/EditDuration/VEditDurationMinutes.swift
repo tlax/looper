@@ -1,5 +1,5 @@
 //
-//  VEditDurationSlider.swift
+//  VEditDurationMinutes.swift
 //  looper
 //
 //  Created by zero on 7/26/17.
