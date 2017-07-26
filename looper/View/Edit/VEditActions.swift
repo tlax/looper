@@ -69,6 +69,18 @@ class VEditActions:VCollection<
         return cell
     }
     
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        didSelectItemAt indexPath:IndexPath)
+    {
+        super.collectionView(
+            collectionView,
+            didSelectItemAt:indexPath)
+        
+        let item:MEditActionProtocol = modelAtIndex(index:indexPath)
+        controller.selected(item:item)
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MEditActionProtocol

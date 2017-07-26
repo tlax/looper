@@ -73,4 +73,21 @@ class CEdit:Controller<VEdit, MEdit>
         
         present(alert, animated:true, completion:nil)
     }
+    
+    func selected(item:MEditActionProtocol)
+    {
+        guard
+        
+            let parent:ControllerParent = self.parent as? ControllerParent
+        
+        else
+        {
+            return
+        }
+        
+        let controllerType:UIViewController.Type = item.controllerType
+        let controller:UIViewController = controllerType.init()
+        
+        parent.animateOver(controller:controller)
+    }
 }

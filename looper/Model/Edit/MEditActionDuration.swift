@@ -14,7 +14,7 @@ class MEditActionDuration:MEditActionProtocol
     {
         get
         {
-            return UIViewController.self
+            return CEditDuration.self
         }
     }
 }
