@@ -17,4 +17,11 @@ class CEdit:Controller<VEdit, MEdit>
     {
         return UIStatusBarStyle.lightContent
     }
+    
+    //MARK: public
+    
+    func save()
+    {
+        
+    }
 }
