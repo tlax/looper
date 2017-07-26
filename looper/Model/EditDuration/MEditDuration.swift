@@ -24,7 +24,46 @@ class MEditDuration:Model
     
     private func importDuration()
     {
+        guard
         
+            let duration:TimeInterval = edit.sequence?.duration
+        
+        else
+        {
+            return
+        }
+        
+        let totalSeconds:Int = Int(duration)
+        let minutesValue:Int = totalSeconds / kSecondsPerMinute
+        let secondsValue:Int = totalSeconds % kSecondsPerMinute
+        let countMinutes:Int = minutes.count
+        let countSeconds:Int = seconds.count
+        
+        for indexMinute:Int in 0 ..< countMinutes
+        {
+            let itemMinute:MEditDurationItem = minutes[indexMinute]
+            let itemValue:Int = itemMinute.value
+            
+            if itemValue == minutesValue
+            {
+                selectedMinute = indexMinute
+                
+                break
+            }
+        }
+        
+        for indexSecond:Int in 0 ..< countSeconds
+        {
+            let itemSecond:MEditDurationItem = minutes[indexSecond]
+            let itemValue:Int = itemSecond.value
+            
+            if itemValue == secondsValue
+            {
+                selectedSecond = indexSecond
+                
+                break
+            }
+        }
     }
     
     private func exportDuration()
@@ -50,5 +89,6 @@ class MEditDuration:Model
     func config(edit:MEdit)
     {
         self.edit = edit
+        importDuration()
     }
 }
