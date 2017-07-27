@@ -27,13 +27,19 @@ extension VEditCropImage
         shadeTop.mask = viewMask
         self.shadeTop = shadeTop
         
-        addSubview(viewPicture)
-        addSubview(shadeTop)
-        
+        layoutPicture(viewPicture:viewPicture)
+        layoutShade(shade:shadeTop)
         layoutCorner(corner:cornerTopLeft)
         layoutCorner(corner:cornerTopRight)
         layoutCorner(corner:cornerBottomLeft)
         layoutCorner(corner:cornerBottomRight)
+    }
+    
+    //MARK: private
+    
+    private func layoutPicture(viewPicture:VEditCropImagePicture)
+    {
+        addSubview(viewPicture)
         
         viewPicture.layoutTop = NSLayoutConstraint.topToTop(
             view:viewPicture,
@@ -47,23 +53,25 @@ extension VEditCropImage
         viewPicture.layoutRight = NSLayoutConstraint.rightToRight(
             view:viewPicture,
             toView:self)
-        
-        NSLayoutConstraint.topToTop(
-            view:shadeTop,
-            toView:self)
-        NSLayoutConstraint.bottomToBottom(
-            view:shadeTop,
-            toView:self,
-            constant:-100)
-        NSLayoutConstraint.leftToLeft(
-            view:shadeTop,
-            toView:self)
-        NSLayoutConstraint.rightToRight(
-            view:shadeTop,
-            toView:self)
     }
     
-    //MARK: private
+    private func layoutShade(shade:VEditCropImageShade)
+    {
+        addSubview(shade)
+        
+        shade.layoutTop = NSLayoutConstraint.topToTop(
+            view:shade,
+            toView:self)
+        shade.layoutBottom = NSLayoutConstraint.bottomToBottom(
+            view:shade,
+            toView:self)
+        shade.layoutLeft = NSLayoutConstraint.leftToLeft(
+            view:shade,
+            toView:self)
+        shade.layoutRight = NSLayoutConstraint.rightToRight(
+            view:shade,
+            toView:self)
+    }
     
     private func layoutCorner(corner:VEditCropImageCorner)
     {

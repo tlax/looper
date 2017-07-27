@@ -2,7 +2,17 @@ import UIKit
 
 extension VEditCropImage
 {
-    func constraintImage()
+    func layout()
+    {
+        constraintImage()
+        constraintCorners()
+        constraintShades()
+        constraintMask()
+    }
+    
+    //MARK: private
+    
+    private func constraintImage()
     {
         guard
             
@@ -33,13 +43,9 @@ extension VEditCropImage
         viewPicture.layoutLeft.constant = marginWidth
         viewPicture.layoutTop.constant = marginHeight
         viewPicture.layoutBottom.constant = -marginHeight
-
+        
         constraintCorners()
-        layoutIfNeeded()
-        viewMask.frame = viewPicture.frame
     }
-    
-    //MARK: private
     
     private func constraintCorners()
     {
@@ -62,5 +68,16 @@ extension VEditCropImage
         cornerBottomRight.layout(
             initialX:maxX,
             initialY:maxY)
+    }
+    
+    private func constraintShades()
+    {
+        
+    }
+    
+    private func constraintMask()
+    {
+        layoutIfNeeded()
+        viewMask.frame = viewPicture.frame
     }
 }

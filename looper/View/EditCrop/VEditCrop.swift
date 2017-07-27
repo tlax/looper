@@ -126,6 +126,6 @@ class VEditCrop:ViewMain
     
     func viewDidAppear()
     {
-        viewImage.constraintImage()
+        viewImage.layout()
     }
 }
