@@ -15,8 +15,21 @@ extension VEditCropImage
         let cornerTopLeft:VEditCropImageCornerTopLeft = VEditCropImageCornerTopLeft()
         self.cornerTopLeft = cornerTopLeft
         
+        let cornerTopRight:VEditCropImageCornerTopRight = VEditCropImageCornerTopRight()
+        self.cornerTopRight = cornerTopRight
+        
+        let cornerBottomLeft:VEditCropImageCornerBottomLeft = VEditCropImageCornerBottomLeft()
+        self.cornerBottomLeft = cornerBottomLeft
+        
+        let cornerBottomRight:VEditCropImageCornerBottomRight = VEditCropImageCornerBottomRight()
+        self.cornerBottomRight = cornerBottomRight
+        
         addSubview(imageView)
-        addSubview(cornerTopLeft)
+        
+        layoutCorner(corner:cornerTopLeft)
+        layoutCorner(corner:cornerTopRight)
+        layoutCorner(corner:cornerBottomLeft)
+        layoutCorner(corner:cornerBottomRight)
         
         layoutImageTop = NSLayoutConstraint.topToTop(
             view:imageView,
@@ -31,16 +44,6 @@ extension VEditCropImage
             view:imageView,
             toView:self)
         
-        cornerTopLeft.layoutTop = NSLayoutConstraint.topToTop(
-            view:cornerTopLeft,
-            toView:self)
-        cornerTopLeft.layoutLeft = NSLayoutConstraint.leftToLeft(
-            view:cornerTopLeft,
-            toView:self)
-        NSLayoutConstraint.size(
-            view:cornerTopLeft,
-            constant:kCornerSize)
-        
         guard
             
             let cgImage:CGImage = controller.model.edit.sequence?.items.first?.image
@@ -52,5 +55,22 @@ extension VEditCropImage
         
         image = UIImage(cgImage:cgImage)
         imageView.image = image
+    }
+    
+    //MARK: private
+    
+    private func layoutCorner(corner:VEditCropImageCorner)
+    {
+        addSubview(corner)
+        
+        corner.layoutTop = NSLayoutConstraint.topToTop(
+            view:corner,
+            toView:self)
+        corner.layoutLeft = NSLayoutConstraint.leftToLeft(
+            view:corner,
+            toView:self)
+        NSLayoutConstraint.size(
+            view:corner,
+            constant:kCornerSize)
     }
 }

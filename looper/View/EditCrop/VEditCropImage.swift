@@ -4,6 +4,9 @@ class VEditCropImage:View<VEditCrop, MEditCrop, CEditCrop>
 {
     weak var movingCorner:VEditCropImageCorner?
     weak var cornerTopLeft:VEditCropImageCornerTopLeft!
+    weak var cornerTopRight:VEditCropImageCornerTopRight!
+    weak var cornerBottomLeft:VEditCropImageCornerBottomLeft!
+    weak var cornerBottomRight:VEditCropImageCornerBottomRight!
     weak var layoutImageLeft:NSLayoutConstraint!
     weak var layoutImageRight:NSLayoutConstraint!
     weak var layoutImageTop:NSLayoutConstraint!
