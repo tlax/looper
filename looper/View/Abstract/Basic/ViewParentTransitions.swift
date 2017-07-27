@@ -195,16 +195,13 @@ extension ViewParent
             view:newUi,
             toView:self)
         
-        UIView.animate(
-            withDuration:kAnimationDuration,
-            animations:
-            { [weak newUi] in
-                
-                newUi?.alpha = 1
-            })
-        { (done:Bool) in
+        layoutIfNeeded()
+        completion()
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak newUi] in
             
-            completion()
+            newUi?.alpha = 1
         }
     }
     
