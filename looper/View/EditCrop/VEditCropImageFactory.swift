@@ -12,6 +12,9 @@ extension VEditCropImage
         imageView.layer.borderWidth = kImageBorderWidth
         imageView.layer.borderColor = UIColor(white:1, alpha:0.5).cgColor
         
+        let viewMask:VEditCropImageMask = VEditCropImageMask()
+        self.viewMask = viewMask
+        
         let cornerTopLeft:VEditCropImageCornerTopLeft = VEditCropImageCornerTopLeft()
         self.cornerTopLeft = cornerTopLeft
         
@@ -25,6 +28,7 @@ extension VEditCropImage
         self.cornerBottomRight = cornerBottomRight
         
         let shadeTop:VEditCropImageShade = VEditCropImageShade()
+        shadeTop.mask = viewMask
         self.shadeTop = shadeTop
         
         addSubview(imageView)
