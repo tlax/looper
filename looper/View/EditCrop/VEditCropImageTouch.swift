@@ -60,7 +60,17 @@ extension VEditCropImage
     {
         if corner === cornerTopLeft
         {
-            cornerMoveTopLeft(corner:corner, newX:newX, newY:newY)
+            cornerMoveTopLeft(
+                corner:corner,
+                newX:newX,
+                newY:newY)
+        }
+        else if corner === cornerTopRight
+        {
+            cornerMoveTopRight(
+                corner:corner,
+                newX:newX,
+                newY:newY)
         }
     }
     
@@ -86,6 +96,30 @@ extension VEditCropImage
         corner.layoutTop.constant = validY
         cornerBottomLeft.layoutLeft.constant = validX
         cornerTopRight.layoutTop.constant = validY
+    }
+    
+    private func cornerMoveTopRight(
+        corner:VEditCropImageCorner,
+        newX:CGFloat,
+        newY:CGFloat)
+    {
+        let minX:CGFloat = cornerTopLeft.layoutLeft.constant + cornerSeparationSize
+        let maxX:CGFloat = corner.initialX
+        let minY:CGFloat = corner.initialY
+        let maxY:CGFloat = cornerBottomRight.layoutTop.constant - kMinCornerSeparation
+        let validX:CGFloat = validateValue(
+            value:newX,
+            minValue:minX,
+            maxValue:maxX)
+        let validY:CGFloat = validateValue(
+            value:newY,
+            minValue:minY,
+            maxValue:maxY)
+        
+        corner.layoutLeft.constant = validX
+        corner.layoutTop.constant = validY
+        cornerBottomRight.layoutLeft.constant = validX
+        cornerTopLeft.layoutTop.constant = validY
     }
     
     private func validateValue(
