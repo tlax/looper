@@ -8,9 +8,6 @@ extension VEditCropImage
             controller:controller)
         self.viewPicture = viewPicture
         
-        let viewMask:VEditCropImageMask = VEditCropImageMask()
-        self.viewMask = viewMask
-        
         let cornerTopLeft:VEditCropImageCornerTopLeft = VEditCropImageCornerTopLeft()
         self.cornerTopLeft = cornerTopLeft
         
@@ -24,19 +21,15 @@ extension VEditCropImage
         self.cornerBottomRight = cornerBottomRight
         
         let shadeTop:VEditCropImageShade = VEditCropImageShade()
-        shadeTop.mask = viewMask
         self.shadeTop = shadeTop
         
         let shadeBottom:VEditCropImageShade = VEditCropImageShade()
-//        shadeBottom.mask = viewMask
         self.shadeBottom = shadeBottom
         
         let shadeLeft:VEditCropImageShade = VEditCropImageShade()
-//        shadeLeft.mask = viewMask
         self.shadeLeft = shadeLeft
         
         let shadeRight:VEditCropImageShade = VEditCropImageShade()
-//        shadeRight.mask = viewMask
         self.shadeRight = shadeRight
         
         layoutPicture(viewPicture:viewPicture)

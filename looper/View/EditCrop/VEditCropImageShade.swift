@@ -13,6 +13,9 @@ class VEditCropImageShade:UIView
         translatesAutoresizingMaskIntoConstraints = false
         layer.borderWidth = kBorderWidth
         layer.borderColor = UIColor.white.cgColor
+        
+        let viewMask:VEditCropImageShadeMask = VEditCropImageShadeMask()
+        mask = viewMask
     }
     
     required init?(coder:NSCoder)
