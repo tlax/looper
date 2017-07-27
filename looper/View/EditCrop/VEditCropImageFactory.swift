@@ -97,9 +97,12 @@ extension VEditCropImage
     {
         insertSubview(shade, belowSubview:cornerTopLeft)
         
-        NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.topToTop(
             view:shade,
-            toView:self)
+            toView:cornerTopLeft)
+        NSLayoutConstraint.bottomToTop(
+            view:shade,
+            toView:shadeBottom)
         NSLayoutConstraint.leftToLeft(
             view:shade,
             toView:self)
@@ -112,9 +115,12 @@ extension VEditCropImage
     {
         insertSubview(shade, belowSubview:cornerTopLeft)
         
-        NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.topToBottom(
             view:shade,
-            toView:self)
+            toView:shadeTop)
+        NSLayoutConstraint.bottomToTop(
+            view:shade,
+            toView:shadeBottom)
         NSLayoutConstraint.leftToRight(
             view:shade,
             toView:cornerTopRight)

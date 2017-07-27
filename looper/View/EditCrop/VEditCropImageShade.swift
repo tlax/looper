@@ -6,12 +6,9 @@ class VEditCropImageShade:UIView
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor(white:0, alpha:0.7)
+        backgroundColor = UIColor(white:0, alpha:0.8)
         isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
-        
-        let viewMask:VEditCropImageShadeMask = VEditCropImageShadeMask()
-        mask = viewMask
     }
     
     required init?(coder:NSCoder)

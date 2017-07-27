@@ -6,7 +6,6 @@ extension VEditCropImage
     {
         constraintImage()
         constraintCorners()
-        constraintMasks()
     }
     
     //MARK: private
@@ -67,17 +66,5 @@ extension VEditCropImage
         cornerBottomRight.layout(
             initialX:maxX,
             initialY:maxY)
-    }
-    
-    private func constraintMasks()
-    {
-        layoutIfNeeded()
-        
-        let frame:CGRect = viewPicture.frame
-        
-        shadeTop.mask?.frame = frame
-        shadeBottom.mask?.frame = frame
-        shadeLeft.mask?.frame = frame
-        shadeRight.mask?.frame = frame
     }
 }
