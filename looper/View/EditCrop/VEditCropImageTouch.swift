@@ -71,7 +71,7 @@ extension VEditCropImage
     {
         let minX:CGFloat = corner.initialX
         let maxX:CGFloat = cornerTopRight.layoutLeft.constant - kMinCornerSeparation
-        let minY:CGFloat = layoutImageTop.constant
+        let minY:CGFloat = corner.initialY
         let maxY:CGFloat = cornerBottomLeft.layoutTop.constant - kMinCornerSeparation
         let validX:CGFloat = validateValue(
             value:newX,

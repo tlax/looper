@@ -3,20 +3,15 @@ import UIKit
 class VEditCropImage:View<VEditCrop, MEditCrop, CEditCrop>
 {
     weak var movingCorner:VEditCropImageCorner?
+    weak var viewPicture:VEditCropImagePicture!
     weak var viewMask:VEditCropImageMask!
     weak var cornerTopLeft:VEditCropImageCornerTopLeft!
     weak var cornerTopRight:VEditCropImageCornerTopRight!
     weak var cornerBottomLeft:VEditCropImageCornerBottomLeft!
     weak var cornerBottomRight:VEditCropImageCornerBottomRight!
     weak var shadeTop:VEditCropImageShade!
-    weak var layoutImageLeft:NSLayoutConstraint!
-    weak var layoutImageRight:NSLayoutConstraint!
-    weak var layoutImageTop:NSLayoutConstraint!
-    weak var layoutImageBottom:NSLayoutConstraint!
-    var image:UIImage?
     let imageMargin2:CGFloat
     let kImageMargin:CGFloat = 20
-    let kImageBorderWidth:CGFloat = 1
     let kCornerSize:CGFloat = 40
     let kMinCornerSeparation:CGFloat = 60
     

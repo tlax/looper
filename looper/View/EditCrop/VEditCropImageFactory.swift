@@ -4,13 +4,9 @@ extension VEditCropImage
 {
     func factoryViews()
     {
-        let imageView:UIImageView = UIImageView()
-        imageView.isUserInteractionEnabled = false
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
-        imageView.layer.borderWidth = kImageBorderWidth
-        imageView.layer.borderColor = UIColor(white:1, alpha:0.5).cgColor
+        let viewPicture:VEditCropImagePicture = VEditCropImagePicture(
+            controller:controller)
+        self.viewPicture = viewPicture
         
         let viewMask:VEditCropImageMask = VEditCropImageMask()
         self.viewMask = viewMask
@@ -31,7 +27,7 @@ extension VEditCropImage
         shadeTop.mask = viewMask
         self.shadeTop = shadeTop
         
-        addSubview(imageView)
+        addSubview(viewPicture)
         addSubview(shadeTop)
         
         layoutCorner(corner:cornerTopLeft)
@@ -39,17 +35,17 @@ extension VEditCropImage
         layoutCorner(corner:cornerBottomLeft)
         layoutCorner(corner:cornerBottomRight)
         
-        layoutImageTop = NSLayoutConstraint.topToTop(
-            view:imageView,
+        viewPicture.layoutTop = NSLayoutConstraint.topToTop(
+            view:viewPicture,
             toView:self)
-        layoutImageBottom = NSLayoutConstraint.bottomToBottom(
-            view:imageView,
+        viewPicture.layoutBottom = NSLayoutConstraint.bottomToBottom(
+            view:viewPicture,
             toView:self)
-        layoutImageLeft = NSLayoutConstraint.leftToLeft(
-            view:imageView,
+        viewPicture.layoutLeft = NSLayoutConstraint.leftToLeft(
+            view:viewPicture,
             toView:self)
-        layoutImageRight = NSLayoutConstraint.rightToRight(
-            view:imageView,
+        viewPicture.layoutRight = NSLayoutConstraint.rightToRight(
+            view:viewPicture,
             toView:self)
         
         NSLayoutConstraint.topToTop(
@@ -65,18 +61,6 @@ extension VEditCropImage
         NSLayoutConstraint.rightToRight(
             view:shadeTop,
             toView:self)
-        
-        guard
-            
-            let cgImage:CGImage = controller.model.edit.sequence?.items.first?.image
-            
-        else
-        {
-            return
-        }
-        
-        image = UIImage(cgImage:cgImage)
-        imageView.image = image
     }
     
     //MARK: private

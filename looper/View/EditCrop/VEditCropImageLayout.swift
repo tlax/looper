@@ -6,7 +6,7 @@ extension VEditCropImage
     {
         guard
             
-            let image:UIImage = self.image
+            let image:UIImage = viewPicture.image
             
         else
         {
@@ -29,10 +29,10 @@ extension VEditCropImage
         let marginWidth:CGFloat = remainWidth / 2.0
         let marginHeight:CGFloat = remainHeight / 2.0
         
-        layoutImageRight.constant = -marginWidth
-        layoutImageLeft.constant = marginWidth
-        layoutImageTop.constant = marginHeight
-        layoutImageBottom.constant = -marginHeight
+        viewPicture.layoutRight.constant = -marginWidth
+        viewPicture.layoutLeft.constant = marginWidth
+        viewPicture.layoutTop.constant = marginHeight
+        viewPicture.layoutBottom.constant = -marginHeight
 
         constraintCorners()
     }
@@ -43,10 +43,10 @@ extension VEditCropImage
     {
         let canvasWidth:CGFloat = bounds.width
         let canvasHeight:CGFloat = bounds.height
-        let minX:CGFloat = layoutImageLeft.constant
-        let minY:CGFloat = layoutImageTop.constant
-        let maxX:CGFloat = canvasWidth + layoutImageRight.constant - kCornerSize
-        let maxY:CGFloat = canvasHeight + layoutImageBottom.constant - kCornerSize
+        let minX:CGFloat = viewPicture.layoutLeft.constant
+        let minY:CGFloat = viewPicture.layoutTop.constant
+        let maxX:CGFloat = canvasWidth + viewPicture.layoutRight.constant - kCornerSize
+        let maxY:CGFloat = canvasHeight + viewPicture.layoutBottom.constant - kCornerSize
         
         cornerTopLeft.layout(
             initialX:minX,
