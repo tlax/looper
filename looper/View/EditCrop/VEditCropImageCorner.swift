@@ -6,6 +6,8 @@ class VEditCropImageCorner:UIView
     weak var layoutLeft:NSLayoutConstraint!
     var previousTouch:CGPoint?
     let lineWidth_2:CGFloat
+    private(set) var initialX:CGFloat
+    private(set) var initialY:CGFloat
     private let colourStroke:UIColor
     private let kLineWidth:CGFloat = 4
     
@@ -13,6 +15,8 @@ class VEditCropImageCorner:UIView
     {
         colourStroke = UIColor.white
         lineWidth_2 = kLineWidth / 2.0
+        initialX = 0
+        initialY = 0
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -55,5 +59,13 @@ class VEditCropImageCorner:UIView
         width:CGFloat,
         height:CGFloat)
     {
+    }
+    
+    func layout(initialX:CGFloat, initialY:CGFloat)
+    {
+        self.initialX = initialX
+        self.initialY = initialY
+        layoutLeft.constant = initialX
+        layoutTop.constant = initialY
     }
 }

@@ -41,7 +41,8 @@ extension VEditCropImage
     
     private func constraintCorners()
     {
-        cornerTopLeft.layoutTop.constant = layoutImageTop.constant
-        cornerTopLeft.layoutLeft.constant = layoutImageLeft.constant
+        cornerTopLeft.layout(
+            initialX:layoutImageLeft.constant,
+            initialY:layoutImageTop.constant)
     }
 }
