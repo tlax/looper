@@ -10,6 +10,9 @@ class VEditCropImage:View<VEditCrop, MEditCrop, CEditCrop>
     weak var cornerBottomLeft:VEditCropImageCornerBottomLeft!
     weak var cornerBottomRight:VEditCropImageCornerBottomRight!
     weak var shadeTop:VEditCropImageShade!
+    weak var shadeBottom:VEditCropImageShade!
+    weak var shadeLeft:VEditCropImageShade!
+    weak var shadeRight:VEditCropImageShade!
     let imageMargin2:CGFloat
     let kImageMargin:CGFloat = 20
     let kCornerSize:CGFloat = 40

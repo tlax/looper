@@ -27,8 +27,23 @@ extension VEditCropImage
         shadeTop.mask = viewMask
         self.shadeTop = shadeTop
         
+        let shadeBottom:VEditCropImageShade = VEditCropImageShade()
+        shadeBottom.mask = viewMask
+        self.shadeBottom = shadeBottom
+        
+        let shadeLeft:VEditCropImageShade = VEditCropImageShade()
+        shadeLeft.mask = viewMask
+        self.shadeLeft = shadeLeft
+        
+        let shadeRight:VEditCropImageShade = VEditCropImageShade()
+        shadeRight.mask = viewMask
+        self.shadeRight = shadeRight
+        
         layoutPicture(viewPicture:viewPicture)
         layoutShade(shade:shadeTop)
+        layoutShade(shade:shadeBottom)
+        layoutShade(shade:shadeLeft)
+        layoutShade(shade:shadeRight)
         layoutCorner(corner:cornerTopLeft)
         layoutCorner(corner:cornerTopRight)
         layoutCorner(corner:cornerBottomLeft)
