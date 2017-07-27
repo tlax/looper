@@ -2,10 +2,17 @@ import UIKit
 
 class VEditCropImageCorner:UIView
 {
-    let kLineWidth:CGFloat = 4
+    weak var layoutTop:NSLayoutConstraint!
+    weak var layoutLeft:NSLayoutConstraint!
+    let lineWidth_2:CGFloat
+    private let colourStroke:UIColor
+    private let kLineWidth:CGFloat = 4
     
     init()
     {
+        colourStroke = UIColor.white
+        lineWidth_2 = kLineWidth / 2.0
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
@@ -15,5 +22,37 @@ class VEditCropImageCorner:UIView
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func draw(_ rect:CGRect)
+    {
+        guard
+            
+            let context:CGContext = UIGraphicsGetCurrentContext()
+            
+        else
+        {
+            return
+        }
+        
+        let width:CGFloat = rect.width
+        let height:CGFloat = rect.height
+        
+        context.setLineWidth(kLineWidth)
+        context.setStrokeColor(colourStroke.cgColor)
+        drawWithContext(
+            context:context,
+            width:width,
+            height:height)
+        context.drawPath(using:CGPathDrawingMode.stroke)
+    }
+    
+    //MARK: public
+    
+    func drawWithContext(
+        context:CGContext,
+        width:CGFloat,
+        height:CGFloat)
+    {
     }
 }

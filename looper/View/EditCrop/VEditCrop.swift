@@ -7,10 +7,9 @@ class VEditCrop:ViewMain
     private let kOkayWidth:CGFloat = 195
     private let kOkayBottom:CGFloat = -20
     private let kOkayHeight:CGFloat = 64
-    private let kResetBottom:CGFloat = -5
     private let kResetHeight:CGFloat = 34
     private let kResetWidth:CGFloat = 120
-    private let kImageBottom:CGFloat = -40
+    private let kImageBottom:CGFloat = -30
     
     required init(controller:UIViewController)
     {
@@ -95,8 +94,7 @@ class VEditCrop:ViewMain
         
         NSLayoutConstraint.bottomToTop(
             view:buttonReset,
-            toView:viewOkay,
-            constant:kResetBottom)
+            toView:viewOkay)
         NSLayoutConstraint.height(
             view:buttonReset,
             constant:kResetHeight)

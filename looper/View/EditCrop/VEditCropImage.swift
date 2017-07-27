@@ -6,17 +6,19 @@ class VEditCropImage:View<VEditCrop, MEditCrop, CEditCrop>
     private weak var layoutImageRight:NSLayoutConstraint!
     private weak var layoutImageTop:NSLayoutConstraint!
     private weak var layoutImageBottom:NSLayoutConstraint!
+    private weak var viewCornerTopLeft:VEditCropImageCornerTopLeft!
     private var image:UIImage?
     private let imageMargin2:CGFloat
     private let kImageMargin:CGFloat = 20
     private let kImageBorderWidth:CGFloat = 1
+    private let kCornerSize:CGFloat = 40
     
     required init(controller:CEditCrop)
     {
         imageMargin2 = kImageMargin + kImageMargin
         
         super.init(controller:controller)
-        backgroundColor = UIColor(white:0.3, alpha:1)
+        backgroundColor = UIColor.black
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -24,9 +26,13 @@ class VEditCropImage:View<VEditCrop, MEditCrop, CEditCrop>
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.layer.borderWidth = kImageBorderWidth
-        imageView.layer.borderColor = UIColor(white:1, alpha:0.4).cgColor
+        imageView.layer.borderColor = UIColor(white:1, alpha:0.5).cgColor
+        
+        let viewCornerTopLeft:VEditCropImageCornerTopLeft = VEditCropImageCornerTopLeft()
+        self.viewCornerTopLeft = viewCornerTopLeft
         
         addSubview(imageView)
+        addSubview(viewCornerTopLeft)
         
         layoutImageTop = NSLayoutConstraint.topToTop(
             view:imageView,
@@ -40,6 +46,16 @@ class VEditCropImage:View<VEditCrop, MEditCrop, CEditCrop>
         layoutImageRight = NSLayoutConstraint.rightToRight(
             view:imageView,
             toView:self)
+        
+        viewCornerTopLeft.layoutTop = NSLayoutConstraint.topToTop(
+            view:viewCornerTopLeft,
+            toView:self)
+        viewCornerTopLeft.layoutLeft = NSLayoutConstraint.leftToLeft(
+            view:viewCornerTopLeft,
+            toView:self)
+        NSLayoutConstraint.size(
+            view:viewCornerTopLeft,
+            constant:kCornerSize)
         
         guard
             
