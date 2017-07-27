@@ -2,11 +2,11 @@ import UIKit
 
 extension VEditCropImage
 {
-    func restart()
+    func reset()
     {
-        cornerTopLeft.restart()
-        cornerTopRight.restart()
-        cornerBottomLeft.restart()
-        cornerBottomRight.restart()
+        cornerTopLeft.reset()
+        cornerTopRight.reset()
+        cornerBottomLeft.reset()
+        cornerBottomRight.reset()
     }
 }
