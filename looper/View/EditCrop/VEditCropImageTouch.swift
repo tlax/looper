@@ -73,62 +73,44 @@ extension VEditCropImage
         let maxX:CGFloat = cornerTopRight.layoutLeft.constant - kMinCornerSeparation
         let minY:CGFloat = layoutImageTop.constant
         let maxY:CGFloat = cornerBottomLeft.layoutTop.constant - kMinCornerSeparation
+        let validX:CGFloat = validateValue(
+            value:newX,
+            minValue:minX,
+            maxValue:maxX)
+        let validY:CGFloat = validateValue(
+            value:newY,
+            minValue:minY,
+            maxValue:maxY)
         
-        cornerMove(
-            corner:corner,
-            newX:newX,
-            newY:newY,
-            minX:minX,
-            maxX:maxX,
-            minY:minY,
-            maxY:maxY)
+        corner.layoutLeft.constant = validX
+        corner.layoutTop.constant = validY
+        cornerBottomLeft.layoutLeft.constant = validX
+        cornerTopRight.layoutTop.constant = validY
     }
     
-    private func cornerMove(
-        corner:VEditCropImageCorner,
-        newX:CGFloat,
-        newY:CGFloat,
-        minX:CGFloat,
-        maxX:CGFloat,
-        minY:CGFloat,
-        maxY:CGFloat)
+    private func validateValue(
+        value:CGFloat,
+        minValue:CGFloat,
+        maxValue:CGFloat) -> CGFloat
     {
-        let cornerX:CGFloat
-        let cornerY:CGFloat
+        let newValue:CGFloat
         
-        if newX >= minX
+        if value >= minValue
         {
-            if newX <= maxX
+            if value <= maxValue
             {
-                cornerX = newX
+                newValue = value
             }
             else
             {
-                cornerX = maxX
+                newValue = maxValue
             }
         }
         else
         {
-            cornerX = minX
+            newValue = minValue
         }
         
-        if newY >= minY
-        {
-            if newY <= maxY
-            {
-                cornerY = newY
-            }
-            else
-            {
-                cornerY = maxY
-            }
-        }
-        else
-        {
-            cornerY = minY
-        }
-        
-        corner.layoutLeft.constant = cornerX
-        corner.layoutTop.constant = cornerY
+        return newValue
     }
 }
