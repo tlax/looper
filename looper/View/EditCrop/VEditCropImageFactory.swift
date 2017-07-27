@@ -12,11 +12,11 @@ extension VEditCropImage
         imageView.layer.borderWidth = kImageBorderWidth
         imageView.layer.borderColor = UIColor(white:1, alpha:0.5).cgColor
         
-        let viewCornerTopLeft:VEditCropImageCornerTopLeft = VEditCropImageCornerTopLeft()
-        self.viewCornerTopLeft = viewCornerTopLeft
+        let cornerTopLeft:VEditCropImageCornerTopLeft = VEditCropImageCornerTopLeft()
+        self.cornerTopLeft = cornerTopLeft
         
         addSubview(imageView)
-        addSubview(viewCornerTopLeft)
+        addSubview(cornerTopLeft)
         
         layoutImageTop = NSLayoutConstraint.topToTop(
             view:imageView,
@@ -31,14 +31,14 @@ extension VEditCropImage
             view:imageView,
             toView:self)
         
-        viewCornerTopLeft.layoutTop = NSLayoutConstraint.topToTop(
-            view:viewCornerTopLeft,
+        cornerTopLeft.layoutTop = NSLayoutConstraint.topToTop(
+            view:cornerTopLeft,
             toView:self)
-        viewCornerTopLeft.layoutLeft = NSLayoutConstraint.leftToLeft(
-            view:viewCornerTopLeft,
+        cornerTopLeft.layoutLeft = NSLayoutConstraint.leftToLeft(
+            view:cornerTopLeft,
             toView:self)
         NSLayoutConstraint.size(
-            view:viewCornerTopLeft,
+            view:cornerTopLeft,
             constant:kCornerSize)
         
         guard

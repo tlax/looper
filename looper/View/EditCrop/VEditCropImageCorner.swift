@@ -4,6 +4,7 @@ class VEditCropImageCorner:UIView
 {
     weak var layoutTop:NSLayoutConstraint!
     weak var layoutLeft:NSLayoutConstraint!
+    var previousTouch:CGPoint?
     let lineWidth_2:CGFloat
     private let colourStroke:UIColor
     private let kLineWidth:CGFloat = 4

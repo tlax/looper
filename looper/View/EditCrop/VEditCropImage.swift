@@ -2,11 +2,12 @@ import UIKit
 
 class VEditCropImage:View<VEditCrop, MEditCrop, CEditCrop>
 {
+    weak var movingCorner:VEditCropImageCorner?
+    weak var cornerTopLeft:VEditCropImageCornerTopLeft!
     weak var layoutImageLeft:NSLayoutConstraint!
     weak var layoutImageRight:NSLayoutConstraint!
     weak var layoutImageTop:NSLayoutConstraint!
     weak var layoutImageBottom:NSLayoutConstraint!
-    weak var viewCornerTopLeft:VEditCropImageCornerTopLeft!
     var image:UIImage?
     let imageMargin2:CGFloat
     let kImageMargin:CGFloat = 20
@@ -34,5 +35,33 @@ class VEditCropImage:View<VEditCrop, MEditCrop, CEditCrop>
         constraintImage()
         
         super.layoutSubviews()
+    }
+    
+    override func touchesBegan(
+        _ touches:Set<UITouch>,
+        with event:UIEvent?)
+    {
+        touchesBegan(touches:touches)
+    }
+    
+    override func touchesMoved(
+        _ touches:Set<UITouch>,
+        with event:UIEvent?)
+    {
+        touchesMoved(touches:touches)
+    }
+    
+    override func touchesCancelled(
+        _ touches:Set<UITouch>,
+        with event:UIEvent?)
+    {
+        touchesCancelled(touches:touches)
+    }
+    
+    override func touchesEnded(
+        _ touches:Set<UITouch>,
+        with event:UIEvent?)
+    {
+        touchesEnded(touches:touches)
     }
 }
