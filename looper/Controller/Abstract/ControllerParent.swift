@@ -3,7 +3,6 @@ import UIKit
 class ControllerParent:UIViewController
 {
     private var orientation:UIInterfaceOrientationMask
-    private let kBarHidden:Bool = false
     private let kOrientationKey:String = "orientation"
     
     init()
@@ -54,7 +53,16 @@ class ControllerParent:UIViewController
     
     override var prefersStatusBarHidden:Bool
     {
-        return kBarHidden
+        guard
+            
+            let controller:UIViewController = childViewControllers.last
+            
+        else
+        {
+            return false
+        }
+        
+        return controller.prefersStatusBarHidden
     }
     
     override var supportedInterfaceOrientations:UIInterfaceOrientationMask

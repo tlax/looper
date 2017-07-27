@@ -18,6 +18,11 @@ class CEditCrop:Controller<VEditCrop, MEditCrop>
         return UIStatusBarStyle.lightContent
     }
     
+    override var prefersStatusBarHidden:Bool
+    {
+        return true
+    }
+    
     //MARK: public
     
     func okay()

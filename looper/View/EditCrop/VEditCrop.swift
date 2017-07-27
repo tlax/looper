@@ -7,10 +7,10 @@ class VEditCrop:ViewMain
     private let kOkayWidth:CGFloat = 195
     private let kOkayBottom:CGFloat = -20
     private let kOkayHeight:CGFloat = 64
-    private let kResetBottom:CGFloat = -20
+    private let kResetBottom:CGFloat = -5
     private let kResetHeight:CGFloat = 34
     private let kResetWidth:CGFloat = 120
-    private let kImageBottom:CGFloat = -60
+    private let kImageBottom:CGFloat = -40
     
     required init(controller:UIViewController)
     {
@@ -64,7 +64,7 @@ class VEditCrop:ViewMain
         let buttonReset:UIButton = UIButton()
         buttonReset.translatesAutoresizingMaskIntoConstraints = false
         buttonReset.setTitleColor(
-            UIColor.colourGradientDark.withAlphaComponent(0.6),
+            UIColor.colourGradientDark.withAlphaComponent(0.5),
             for:UIControlState.normal)
         buttonReset.setTitleColor(
             UIColor.colourBackgroundGray,
