@@ -33,7 +33,7 @@ extension VEditCropImage
         layoutImageLeft.constant = marginWidth
         layoutImageTop.constant = marginHeight
         layoutImageBottom.constant = -marginHeight
-        
+
         constraintCorners()
     }
     
