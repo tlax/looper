@@ -58,7 +58,7 @@ extension VEditCropImage
         newX:CGFloat,
         newY:CGFloat)
     {
-        if let corner:VEditCropImageCornerTopLeft = corner as? VEditCropImageCornerTopLeft
+        if corner === cornerTopLeft
         {
             cornerMoveTopLeft(corner:corner, newX:newX, newY:newY)
         }
