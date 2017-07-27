@@ -109,6 +109,8 @@
 		DA81CBC81F21FD5D0031EAF6 /* MSourceVideoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC71F21FD5D0031EAF6 /* MSourceVideoFactory.swift */; };
 		DA81CBCA1F2201020031EAF6 /* ModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBC91F2201020031EAF6 /* ModelDelegate.swift */; };
 		DA81CBCC1F2207790031EAF6 /* MSourceVideoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81CBCB1F2207790031EAF6 /* MSourceVideoAuth.swift */; };
+		DA9A5DA71F29E977000060A9 /* VEditCropImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9A5DA61F29E977000060A9 /* VEditCropImageFactory.swift */; };
+		DA9A5DA91F29E98E000060A9 /* VEditCropImageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9A5DA81F29E98E000060A9 /* VEditCropImageLayout.swift */; };
 		DAA0C0131F280CBC00997118 /* VEditBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C0121F280CBC00997118 /* VEditBar.swift */; };
 		DAA0C0171F28110D00997118 /* VEditSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C0161F28110D00997118 /* VEditSave.swift */; };
 		DAA0C0191F2815AA00997118 /* VEditActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0C0181F2815AA00997118 /* VEditActions.swift */; };
@@ -249,6 +251,8 @@
 		DA81CBCB1F2207790031EAF6 /* MSourceVideoAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSourceVideoAuth.swift; sourceTree = "<group>"; };
 		DA96FE7F1E03653100FD5265 /* looper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = looper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA96FEA41E03672F00FD5265 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA9A5DA61F29E977000060A9 /* VEditCropImageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditCropImageFactory.swift; sourceTree = "<group>"; };
+		DA9A5DA81F29E98E000060A9 /* VEditCropImageLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditCropImageLayout.swift; sourceTree = "<group>"; };
 		DAA0C0121F280CBC00997118 /* VEditBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditBar.swift; sourceTree = "<group>"; };
 		DAA0C0161F28110D00997118 /* VEditSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditSave.swift; sourceTree = "<group>"; };
 		DAA0C0181F2815AA00997118 /* VEditActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VEditActions.swift; sourceTree = "<group>"; };
@@ -761,6 +765,8 @@
 			children = (
 				DAD0C2951F295454001B585E /* VEditCrop.swift */,
 				DAD0C29C1F295AEC001B585E /* VEditCropImage.swift */,
+				DA9A5DA61F29E977000060A9 /* VEditCropImageFactory.swift */,
+				DA9A5DA81F29E98E000060A9 /* VEditCropImageLayout.swift */,
 				DAD0C29E1F295B62001B585E /* VEditCropImageCorner.swift */,
 				DAD0C2A01F295BC6001B585E /* VEditCropImageCornerTopLeft.swift */,
 				DAD0C2A21F295BE5001B585E /* VEditCropImageCornerTopRight.swift */,
@@ -909,6 +915,7 @@
 				DA3B22491F201F3300F85DFD /* ExtensionNSManagedObject.swift in Sources */,
 				DAFD73EC1F24848C00DC67EA /* MSourceVideoImportFactoryDelegate.swift in Sources */,
 				DA1AFBE31F21CBE8000ADDFA /* VSourceVideo.swift in Sources */,
+				DA9A5DA91F29E98E000060A9 /* VEditCropImageLayout.swift in Sources */,
 				DA2C08F41F210A9C00E1381A /* MHome.swift in Sources */,
 				DA65CDB91F24383D00C0615E /* CSourceVideoImport.swift in Sources */,
 				DA1AFBDD1F21CB42000ADDFA /* MSourceItemImage.swift in Sources */,
@@ -917,6 +924,7 @@
 				DAD0C2961F295454001B585E /* VEditCrop.swift in Sources */,
 				DA3B22571F201F3300F85DFD /* VAlert.swift in Sources */,
 				DAFD73EE1F24930400DC67EA /* VSourceVideoImportProgress.swift in Sources */,
+				DA9A5DA71F29E977000060A9 /* VEditCropImageFactory.swift in Sources */,
 				DAD0C28F1F291768001B585E /* MEditDurationItem.swift in Sources */,
 				DA3B22781F2024A400F85DFD /* MSession.swift in Sources */,
 				DA0F79EB1F28F57C00E0B744 /* MEditActionDuration.swift in Sources */,

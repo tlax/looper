@@ -14,8 +14,8 @@ class VEditCropImageCornerTopLeft:VEditCropImageCorner
             x:lineWidth_2,
             y:lineWidth_2)
         let endPoint:CGPoint = CGPoint(
-            x:lineWidth_2,
-            y:width)
+            x:width,
+            y:lineWidth_2)
         
         context.move(to:initialPoint)
         context.addLine(to:middlePoint)
