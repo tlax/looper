@@ -65,6 +65,12 @@ class VEditCropImageCorner:UIView
     {
         self.initialX = initialX
         self.initialY = initialY
+        
+        restart()
+    }
+    
+    func restart()
+    {
         layoutLeft.constant = initialX
         layoutTop.constant = initialY
     }
