@@ -41,8 +41,24 @@ extension VEditCropImage
     
     private func constraintCorners()
     {
+        let canvasWidth:CGFloat = bounds.width
+        let canvasHeight:CGFloat = bounds.height
+        let minX:CGFloat = layoutImageLeft.constant
+        let minY:CGFloat = layoutImageTop.constant
+        let maxX:CGFloat = canvasWidth + layoutImageRight.constant - kCornerSize
+        let maxY:CGFloat = canvasHeight + layoutImageBottom.constant - kCornerSize
+        
         cornerTopLeft.layout(
-            initialX:layoutImageLeft.constant,
-            initialY:layoutImageTop.constant)
+            initialX:minX,
+            initialY:minY)
+        cornerTopRight.layout(
+            initialX:maxX,
+            initialY:minY)
+        cornerBottomLeft.layout(
+            initialX:minX,
+            initialY:maxY)
+        cornerBottomRight.layout(
+            initialX:maxX,
+            initialY:maxY)
     }
 }
