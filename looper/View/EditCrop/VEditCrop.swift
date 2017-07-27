@@ -11,6 +11,7 @@ class VEditCrop:ViewMain
     private let kResetHeight:CGFloat = 34
     private let kResetWidth:CGFloat = 120
     private let kImageBottom:CGFloat = -30
+    private let kAnimationDuration:TimeInterval = 0.3
     
     required init(controller:UIViewController)
     {
@@ -50,7 +51,13 @@ class VEditCrop:ViewMain
     
     func actionReset(sender button:UIButton)
     {
+        viewImage.reset()
         
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
     }
     
     //MARK: private
