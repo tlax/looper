@@ -69,10 +69,10 @@ extension VEditCropImage
         newX:CGFloat,
         newY:CGFloat)
     {
-        let minX:CGFloat = layoutImageLeft.constant
-        let maxX:CGFloat = layoutImageRight.constant - kMinCornerSeparation
+        let minX:CGFloat = corner.initialX
+        let maxX:CGFloat = cornerTopRight.layoutLeft.constant - kMinCornerSeparation
         let minY:CGFloat = layoutImageTop.constant
-        let maxY:CGFloat = layoutImageBottom.constant - kMinCornerSeparation
+        let maxY:CGFloat = cornerBottomLeft.layoutTop.constant - kMinCornerSeparation
         
         cornerMove(
             corner:corner,

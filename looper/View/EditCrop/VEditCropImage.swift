@@ -15,7 +15,7 @@ class VEditCropImage:View<VEditCrop, MEditCrop, CEditCrop>
     let imageMargin2:CGFloat
     let kImageMargin:CGFloat = 20
     let kImageBorderWidth:CGFloat = 1
-    let kCornerSize:CGFloat = 35
+    let kCornerSize:CGFloat = 40
     let kMinCornerSeparation:CGFloat = 60
     
     required init(controller:CEditCrop)
