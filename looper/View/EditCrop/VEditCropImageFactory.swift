@@ -24,7 +24,11 @@ extension VEditCropImage
         let cornerBottomRight:VEditCropImageCornerBottomRight = VEditCropImageCornerBottomRight()
         self.cornerBottomRight = cornerBottomRight
         
+        let shadeTop:VEditCropImageShade = VEditCropImageShade()
+        self.shadeTop = shadeTop
+        
         addSubview(imageView)
+        addSubview(shadeTop)
         
         layoutCorner(corner:cornerTopLeft)
         layoutCorner(corner:cornerTopRight)
@@ -42,6 +46,20 @@ extension VEditCropImage
             toView:self)
         layoutImageRight = NSLayoutConstraint.rightToRight(
             view:imageView,
+            toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:shadeTop,
+            toView:self)
+        NSLayoutConstraint.bottomToBottom(
+            view:shadeTop,
+            toView:self,
+            constant:-100)
+        NSLayoutConstraint.leftToLeft(
+            view:shadeTop,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:shadeTop,
             toView:self)
         
         guard
