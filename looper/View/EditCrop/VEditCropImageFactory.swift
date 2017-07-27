@@ -40,10 +40,10 @@ extension VEditCropImage
         self.shadeRight = shadeRight
         
         layoutPicture(viewPicture:viewPicture)
-        layoutShade(shade:shadeTop)
-        layoutShade(shade:shadeBottom)
-        layoutShade(shade:shadeLeft)
-        layoutShade(shade:shadeRight)
+        layoutShadeTop(shade:shadeTop)
+        layoutShadeBottom(shade:shadeBottom)
+        layoutShadeLeft(shade:shadeLeft)
+        layoutShadeRight(shade:shadeRight)
         layoutCorner(corner:cornerTopLeft)
         layoutCorner(corner:cornerTopRight)
         layoutCorner(corner:cornerBottomLeft)
@@ -70,20 +70,62 @@ extension VEditCropImage
             toView:self)
     }
     
-    private func layoutShade(shade:VEditCropImageShade)
+    private func layoutShadeTop(shade:VEditCropImageShade)
     {
         addSubview(shade)
         
-        shade.layoutTop = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToTop(
             view:shade,
             toView:self)
-        shade.layoutBottom = NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.bottomToTop(
+            view:shade,
+            toView:cornerTopLeft)
+        NSLayoutConstraint.equalsHorizontal(
             view:shade,
             toView:self)
-        shade.layoutLeft = NSLayoutConstraint.leftToLeft(
+    }
+    
+    private func layoutShadeBottom(shade:VEditCropImageShade)
+    {
+        addSubview(shade)
+        
+        NSLayoutConstraint.topToBottom(
+            view:shade,
+            toView:cornerBottomLeft)
+        NSLayoutConstraint.bottomToBottom(
             view:shade,
             toView:self)
-        shade.layoutRight = NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.equalsHorizontal(
+            view:shade,
+            toView:self)
+    }
+    
+    private func layoutShadeLeft(shade:VEditCropImageShade)
+    {
+        addSubview(shade)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:shade,
+            toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:shade,
+            toView:self)
+        NSLayoutConstraint.rightToLeft(
+            view:shade,
+            toView:cornerTopLeft)
+    }
+    
+    private func layoutShadeRight(shade:VEditCropImageShade)
+    {
+        addSubview(shade)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:shade,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:shade,
+            toView:cornerTopRight)
+        NSLayoutConstraint.rightToRight(
             view:shade,
             toView:self)
     }

@@ -2,10 +2,6 @@ import UIKit
 
 class VEditCropImageShade:UIView
 {
-    weak var layoutLeft:NSLayoutConstraint!
-    weak var layoutRight:NSLayoutConstraint!
-    weak var layoutTop:NSLayoutConstraint!
-    weak var layoutBottom:NSLayoutConstraint!
     private let kBorderWidth:CGFloat = 1
     
     init()
