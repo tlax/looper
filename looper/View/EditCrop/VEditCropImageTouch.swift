@@ -65,10 +65,70 @@ extension VEditCropImage
     }
     
     private func cornerMoveTopLeft(
-        corner:VEditCropImageCornerTopLeft,
+        corner:VEditCropImageCorner,
         newX:CGFloat,
         newY:CGFloat)
     {
+        let minX:CGFloat = layoutImageLeft.constant
+        let maxX:CGFloat = layoutImageRight.constant - kMinCornerSeparation
+        let minY:CGFloat = layoutImageTop.constant
+        let maxY:CGFloat = layoutImageBottom.constant - kMinCornerSeparation
         
+        cornerMove(
+            corner:corner,
+            newX:newX,
+            newY:newY,
+            minX:minX,
+            maxX:maxX,
+            minY:minY,
+            maxY:maxY)
+    }
+    
+    private func cornerMove(
+        corner:VEditCropImageCorner,
+        newX:CGFloat,
+        newY:CGFloat,
+        minX:CGFloat,
+        maxX:CGFloat,
+        minY:CGFloat,
+        maxY:CGFloat)
+    {
+        let cornerX:CGFloat
+        let cornerY:CGFloat
+        
+        if newX >= minX
+        {
+            if newX <= maxX
+            {
+                cornerX = newX
+            }
+            else
+            {
+                cornerX = maxX
+            }
+        }
+        else
+        {
+            cornerX = minX
+        }
+        
+        if newY >= minY
+        {
+            if newY <= maxY
+            {
+                cornerY = newY
+            }
+            else
+            {
+                cornerY = maxY
+            }
+        }
+        else
+        {
+            cornerY = minY
+        }
+        
+        corner.layoutLeft.constant = cornerX
+        corner.layoutTop.constant = cornerY
     }
 }

@@ -13,6 +13,7 @@ class VEditCropImage:View<VEditCrop, MEditCrop, CEditCrop>
     let kImageMargin:CGFloat = 20
     let kImageBorderWidth:CGFloat = 1
     let kCornerSize:CGFloat = 35
+    let kMinCornerSeparation:CGFloat = 60
     
     required init(controller:CEditCrop)
     {
@@ -27,14 +28,6 @@ class VEditCropImage:View<VEditCrop, MEditCrop, CEditCrop>
     required init?(coder:NSCoder)
     {
         return nil
-    }
-    
-    override func layoutSubviews()
-    {
-        print("layout")
-        constraintImage()
-        
-        super.layoutSubviews()
     }
     
     override func touchesBegan(

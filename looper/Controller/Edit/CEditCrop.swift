@@ -23,6 +23,22 @@ class CEditCrop:Controller<VEditCrop, MEditCrop>
         return true
     }
     
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        guard
+        
+            let view:VEditCrop = self.view as? VEditCrop
+        
+        else
+        {
+            return
+        }
+        
+        view.viewDidAppear()
+    }
+    
     //MARK: public
     
     func okay()

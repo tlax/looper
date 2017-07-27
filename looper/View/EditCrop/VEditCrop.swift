@@ -2,6 +2,7 @@ import UIKit
 
 class VEditCrop:ViewMain
 {
+    private weak var viewImage:VEditCropImage!
     private weak var layoutOkayLeft:NSLayoutConstraint!
     private weak var layoutResetLeft:NSLayoutConstraint!
     private let kOkayWidth:CGFloat = 195
@@ -57,6 +58,7 @@ class VEditCrop:ViewMain
     private func factoryViews(controller:CEditCrop)
     {
         let viewImage:VEditCropImage = VEditCropImage(controller:controller)
+        self.viewImage = viewImage
         
         let viewOkay:VEditCropOkay = VEditCropOkay(controller:controller)
         
@@ -118,5 +120,12 @@ class VEditCrop:ViewMain
         layoutOkayLeft = NSLayoutConstraint.leftToLeft(
             view:viewOkay,
             toView:self)
+    }
+    
+    //MARK: public
+    
+    func viewDidAppear()
+    {
+        viewImage.constraintImage()
     }
 }
