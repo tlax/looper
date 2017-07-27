@@ -8,7 +8,7 @@ class VEditCropImageShade:UIView
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor(white:0, alpha:0.6)
+        backgroundColor = UIColor(white:0, alpha:0.7)
         isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
         layer.borderWidth = kBorderWidth

@@ -28,26 +28,26 @@ extension VEditCropImage
         self.shadeTop = shadeTop
         
         let shadeBottom:VEditCropImageShade = VEditCropImageShade()
-        shadeBottom.mask = viewMask
+//        shadeBottom.mask = viewMask
         self.shadeBottom = shadeBottom
         
         let shadeLeft:VEditCropImageShade = VEditCropImageShade()
-        shadeLeft.mask = viewMask
+//        shadeLeft.mask = viewMask
         self.shadeLeft = shadeLeft
         
         let shadeRight:VEditCropImageShade = VEditCropImageShade()
-        shadeRight.mask = viewMask
+//        shadeRight.mask = viewMask
         self.shadeRight = shadeRight
         
         layoutPicture(viewPicture:viewPicture)
-        layoutShadeTop(shade:shadeTop)
-        layoutShadeBottom(shade:shadeBottom)
-        layoutShadeLeft(shade:shadeLeft)
-        layoutShadeRight(shade:shadeRight)
         layoutCorner(corner:cornerTopLeft)
         layoutCorner(corner:cornerTopRight)
         layoutCorner(corner:cornerBottomLeft)
         layoutCorner(corner:cornerBottomRight)
+        layoutShadeTop(shade:shadeTop)
+        layoutShadeBottom(shade:shadeBottom)
+        layoutShadeLeft(shade:shadeLeft)
+        layoutShadeRight(shade:shadeRight)
     }
     
     //MARK: private
@@ -72,7 +72,7 @@ extension VEditCropImage
     
     private func layoutShadeTop(shade:VEditCropImageShade)
     {
-        addSubview(shade)
+        insertSubview(shade, belowSubview:cornerTopLeft)
         
         NSLayoutConstraint.topToTop(
             view:shade,
@@ -87,7 +87,7 @@ extension VEditCropImage
     
     private func layoutShadeBottom(shade:VEditCropImageShade)
     {
-        addSubview(shade)
+        insertSubview(shade, belowSubview:cornerTopLeft)
         
         NSLayoutConstraint.topToBottom(
             view:shade,
@@ -102,7 +102,7 @@ extension VEditCropImage
     
     private func layoutShadeLeft(shade:VEditCropImageShade)
     {
-        addSubview(shade)
+        insertSubview(shade, belowSubview:cornerTopLeft)
         
         NSLayoutConstraint.equalsVertical(
             view:shade,
@@ -117,7 +117,7 @@ extension VEditCropImage
     
     private func layoutShadeRight(shade:VEditCropImageShade)
     {
-        addSubview(shade)
+        insertSubview(shade, belowSubview:cornerTopLeft)
         
         NSLayoutConstraint.equalsVertical(
             view:shade,
