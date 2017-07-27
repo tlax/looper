@@ -71,7 +71,7 @@ extension VEditCropImage
     
     private func factoryBorders()
     {
-        let colour:UIColor = UIColor(white:1, alpha:0.5)
+        let colour:UIColor = UIColor(white:1, alpha:0.6)
         
         let borderTop:VBorder = VBorder(colour:colour)
         let borderBottom:VBorder = VBorder(colour:colour)
@@ -90,7 +90,8 @@ extension VEditCropImage
         
         NSLayoutConstraint.bottomToTop(
             view:border,
-            toView:cornerTopLeft)
+            toView:cornerTopLeft,
+            constant:kBorderWidth)
         NSLayoutConstraint.height(
             view:border,
             constant:kBorderWidth)
@@ -108,7 +109,8 @@ extension VEditCropImage
         
         NSLayoutConstraint.topToBottom(
             view:border,
-            toView:cornerBottomLeft)
+            toView:cornerBottomLeft,
+            constant:-kBorderWidth)
         NSLayoutConstraint.height(
             view:border,
             constant:kBorderWidth)
@@ -132,7 +134,8 @@ extension VEditCropImage
             toView:cornerBottomLeft)
         NSLayoutConstraint.rightToLeft(
             view:border,
-            toView:cornerTopLeft)
+            toView:cornerTopLeft,
+            constant:kBorderWidth)
         NSLayoutConstraint.width(
             view:border,
             constant:kBorderWidth)
@@ -150,7 +153,8 @@ extension VEditCropImage
             toView:cornerBottomRight)
         NSLayoutConstraint.leftToRight(
             view:border,
-            toView:cornerTopRight)
+            toView:cornerTopRight,
+            constant:-kBorderWidth)
         NSLayoutConstraint.width(
             view:border,
             constant:kBorderWidth)
