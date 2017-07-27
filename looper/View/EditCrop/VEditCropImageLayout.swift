@@ -35,6 +35,8 @@ extension VEditCropImage
         viewPicture.layoutBottom.constant = -marginHeight
 
         constraintCorners()
+        layoutIfNeeded()
+        viewMask.frame = viewPicture.frame
     }
     
     //MARK: private

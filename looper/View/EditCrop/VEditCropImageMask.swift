@@ -7,7 +7,7 @@ class VEditCropImageMask:UIView
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         isUserInteractionEnabled = false
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.white
     }
     
     required init?(coder:NSCoder)
