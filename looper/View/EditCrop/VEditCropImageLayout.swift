@@ -6,6 +6,7 @@ extension VEditCropImage
     {
         constraintImage()
         constraintCorners()
+        factoryBorders()
     }
     
     //MARK: private
@@ -66,5 +67,92 @@ extension VEditCropImage
         cornerBottomRight.layout(
             initialX:maxX,
             initialY:maxY)
+    }
+    
+    private func factoryBorders()
+    {
+        let colour:UIColor = UIColor(white:1, alpha:0.5)
+        
+        let borderTop:VBorder = VBorder(colour:colour)
+        let borderBottom:VBorder = VBorder(colour:colour)
+        let borderLeft:VBorder = VBorder(colour:colour)
+        let borderRight:VBorder = VBorder(colour:colour)
+        
+        layoutBorderTop(border:borderTop)
+        layoutBorderBottom(border:borderBottom)
+        layoutBorderLeft(border:borderLeft)
+        layoutBorderRight(border:borderRight)
+    }
+    
+    private func layoutBorderTop(border:VBorder)
+    {
+        addSubview(border)
+        
+        NSLayoutConstraint.bottomToTop(
+            view:border,
+            toView:cornerTopLeft)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderWidth)
+        NSLayoutConstraint.leftToRight(
+            view:border,
+            toView:cornerTopLeft)
+        NSLayoutConstraint.rightToLeft(
+            view:border,
+            toView:cornerTopRight)
+    }
+    
+    private func layoutBorderBottom(border:VBorder)
+    {
+        addSubview(border)
+        
+        NSLayoutConstraint.topToBottom(
+            view:border,
+            toView:cornerBottomLeft)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderWidth)
+        NSLayoutConstraint.leftToRight(
+            view:border,
+            toView:cornerBottomLeft)
+        NSLayoutConstraint.rightToLeft(
+            view:border,
+            toView:cornerBottomRight)
+    }
+    
+    private func layoutBorderLeft(border:VBorder)
+    {
+        addSubview(border)
+        
+        NSLayoutConstraint.topToBottom(
+            view:border,
+            toView:cornerTopLeft)
+        NSLayoutConstraint.bottomToTop(
+            view:border,
+            toView:cornerBottomLeft)
+        NSLayoutConstraint.rightToLeft(
+            view:border,
+            toView:cornerTopLeft)
+        NSLayoutConstraint.width(
+            view:border,
+            constant:kBorderWidth)
+    }
+    
+    private func layoutBorderRight(border:VBorder)
+    {
+        addSubview(border)
+        
+        NSLayoutConstraint.topToBottom(
+            view:border,
+            toView:cornerTopRight)
+        NSLayoutConstraint.bottomToTop(
+            view:border,
+            toView:cornerBottomRight)
+        NSLayoutConstraint.leftToRight(
+            view:border,
+            toView:cornerTopRight)
+        NSLayoutConstraint.width(
+            view:border,
+            constant:kBorderWidth)
     }
 }
