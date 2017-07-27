@@ -72,6 +72,13 @@ extension VEditCropImage
                 newX:newX,
                 newY:newY)
         }
+        else if corner === cornerBottomLeft
+        {
+            cornerMoveBottomLeft(
+                corner:corner,
+                newX:newX,
+                newY:newY)
+        }
     }
     
     private func cornerMoveTopLeft(
@@ -103,7 +110,7 @@ extension VEditCropImage
         newX:CGFloat,
         newY:CGFloat)
     {
-        let minX:CGFloat = cornerTopLeft.layoutLeft.constant + cornerSeparationSize
+        let minX:CGFloat = cornerTopLeft.layoutLeft.constant + kMinCornerSeparation
         let maxX:CGFloat = corner.initialX
         let minY:CGFloat = corner.initialY
         let maxY:CGFloat = cornerBottomRight.layoutTop.constant - kMinCornerSeparation
@@ -120,6 +127,30 @@ extension VEditCropImage
         corner.layoutTop.constant = validY
         cornerBottomRight.layoutLeft.constant = validX
         cornerTopLeft.layoutTop.constant = validY
+    }
+    
+    private func cornerMoveBottomLeft(
+        corner:VEditCropImageCorner,
+        newX:CGFloat,
+        newY:CGFloat)
+    {
+        let minX:CGFloat = corner.initialX
+        let maxX:CGFloat = cornerBottomRight.layoutLeft.constant - kMinCornerSeparation
+        let minY:CGFloat = cornerTopLeft.layoutTop.constant + kMinCornerSeparation
+        let maxY:CGFloat = corner.initialY
+        let validX:CGFloat = validateValue(
+            value:newX,
+            minValue:minX,
+            maxValue:maxX)
+        let validY:CGFloat = validateValue(
+            value:newY,
+            minValue:minY,
+            maxValue:maxY)
+        
+        corner.layoutLeft.constant = validX
+        corner.layoutTop.constant = validY
+        cornerTopLeft.layoutLeft.constant = validX
+        cornerBottomRight.layoutTop.constant = validY
     }
     
     private func validateValue(

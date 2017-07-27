@@ -9,7 +9,6 @@ class VEditCropImage:View<VEditCrop, MEditCrop, CEditCrop>
     weak var cornerBottomLeft:VEditCropImageCornerBottomLeft!
     weak var cornerBottomRight:VEditCropImageCornerBottomRight!
     let imageMargin2:CGFloat
-    let cornerSeparationSize:CGFloat
     let kImageMargin:CGFloat = 20
     let kCornerSize:CGFloat = 40
     let kMinCornerSeparation:CGFloat = 50
@@ -18,7 +17,6 @@ class VEditCropImage:View<VEditCrop, MEditCrop, CEditCrop>
     required init(controller:CEditCrop)
     {
         imageMargin2 = kImageMargin + kImageMargin
-        cornerSeparationSize = kCornerSize + kMinCornerSeparation
         
         super.init(controller:controller)
         backgroundColor = UIColor.black
