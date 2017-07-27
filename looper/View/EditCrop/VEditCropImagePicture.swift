@@ -24,6 +24,10 @@ class VEditCropImagePicture:View<VEditCrop, MEditCrop, CEditCrop>
         
         addSubview(imageView)
         
+        NSLayoutConstraint.equals(
+            view:imageView,
+            toView:self)
+        
         guard
             
             let cgImage:CGImage = controller.model.edit.sequence?.items.first?.image
