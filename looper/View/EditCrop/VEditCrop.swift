@@ -11,6 +11,7 @@ class VEditCrop:ViewMain
     private let kResetHeight:CGFloat = 34
     private let kResetWidth:CGFloat = 120
     private let kImageBottom:CGFloat = -30
+    private let kAnimationDuration:TimeInterval = 0.3
     
     required init(controller:UIViewController)
     {
@@ -58,6 +59,7 @@ class VEditCrop:ViewMain
     private func factoryViews(controller:CEditCrop)
     {
         let viewImage:VEditCropImage = VEditCropImage(controller:controller)
+        viewImage.alpha = 0
         self.viewImage = viewImage
         
         let viewOkay:VEditCropOkay = VEditCropOkay(controller:controller)
@@ -127,5 +129,11 @@ class VEditCrop:ViewMain
     func viewDidAppear()
     {
         viewImage.constraintImage()
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.viewImage.alpha = 1
+        }
     }
 }
