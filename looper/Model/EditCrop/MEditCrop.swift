@@ -20,4 +20,29 @@ class MEditCrop:Model
     {
         self.edit = edit
     }
+    
+    func layoutModel() -> MEditCropLayout?
+    {
+        guard
+        
+            let percent:MEditSequenceCrop = edit.sequence?.crop
+        
+        else
+        {
+            return nil
+        }
+        
+        let top:CGFloat = percent.top * scaledHeight
+        let bottom:CGFloat = percent.bottom * scaledHeight
+        let left:CGFloat = percent.left * scaledWidth
+        let right:CGFloat = percent.right * scaledWidth
+        
+        let model:MEditCropLayout = MEditCropLayout(
+            top:top,
+            bottom:bottom,
+            left:left,
+            right:right)
+        
+        return model
+    }
 }
