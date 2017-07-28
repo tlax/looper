@@ -7,6 +7,7 @@ extension VEditCropImage
         constraintImage()
         constraintCorners()
         factoryBorders()
+        importLayout()
     }
     
     //MARK: private
@@ -159,5 +160,19 @@ extension VEditCropImage
         NSLayoutConstraint.width(
             view:border,
             constant:kBorderWidth)
+    }
+    
+    private func importLayout()
+    {
+        guard
+        
+            let model:MEditCropLayout = controller.model.layoutModel()
+        
+        else
+        {
+            return
+        }
+        
+        
     }
 }
