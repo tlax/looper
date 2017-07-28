@@ -31,19 +31,20 @@ extension VEditCropImage
         let deltaWidth:CGFloat = width / usableWidth
         let deltaHeight:CGFloat = height / usableHeight
         let maxDelta:CGFloat = max(deltaWidth, deltaHeight)
-        let ratioWidth:CGFloat = width / maxDelta
-        let ratioHeight:CGFloat = height / maxDelta
-        let remainWidth:CGFloat = canvasWidth - ratioWidth
-        let remainHeight:CGFloat = canvasHeight - ratioHeight
+        let scaledWidth:CGFloat = width / maxDelta
+        let scaledHeight:CGFloat = height / maxDelta
+        let remainWidth:CGFloat = canvasWidth - scaledWidth
+        let remainHeight:CGFloat = canvasHeight - scaledHeight
         let marginWidth:CGFloat = remainWidth / 2.0
         let marginHeight:CGFloat = remainHeight / 2.0
+        
+        controller.model.scaledWidth = scaledWidth
+        controller.model.scaledHeight = scaledHeight
         
         viewPicture.layoutRight.constant = -marginWidth
         viewPicture.layoutLeft.constant = marginWidth
         viewPicture.layoutTop.constant = marginHeight
         viewPicture.layoutBottom.constant = -marginHeight
-        
-        constraintCorners()
     }
     
     private func constraintCorners()
